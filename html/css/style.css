@@ -1,0 +1,8153 @@
+body {
+    -webkit-font-smoothing: subpixel-antialiased !important;
+    -webkit-backface-visibility: hidden;
+    -moz-backface-visibility: hidden;
+    -ms-backface-visibility: hidden;
+}
+
+::-ms-clear {
+    display: none !important;
+}
+
+@font-face {
+    font-family: 'MuseoSansCyrl-300';
+    src: url('../fonts/MuseoSansCyrl-300.eot?#iefix') format('embedded-opentype'),
+    url('../fonts/MuseoSansCyrl-300.otf') format('opentype'),
+    url('../fonts/MuseoSansCyrl-300.woff') format('woff'),
+    url('../fonts/MuseoSansCyrl-300.ttf') format('truetype'),
+    url('../fonts/MuseoSansCyrl-300.svg#MuseoSansCyrl-300') format('svg');
+    font-weight: normal;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'MuseoSansCyrl-500';
+    src: url('../fonts/MuseoSansCyrl-500.eot?#iefix') format('embedded-opentype'),
+    url('../fonts/MuseoSansCyrl-500.otf') format('opentype'),
+    url('../fonts/MuseoSansCyrl-500.woff') format('woff'),
+    url('../fonts/MuseoSansCyrl-500.ttf') format('truetype'),
+    url('../fonts/MuseoSansCyrl-500.svg#MuseoSansCyrl-500') format('svg');
+    font-weight: normal;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'MuseoSansCyrl-700';
+    src: url('../fonts/MuseoSansCyrl-700.eot?#iefix') format('embedded-opentype'),
+    url('../fonts/MuseoSansCyrl-700.otf') format('opentype'),
+    url('../fonts/MuseoSansCyrl-700.woff') format('woff'),
+    url('../fonts/MuseoSansCyrl-700.ttf') format('truetype'),
+    url('../fonts/MuseoSansCyrl-700.svg#MuseoSansCyrl-700') format('svg');
+    font-weight: normal;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'MuseoSansCyrl-900';
+    src: url('../fonts/MuseoSansCyrl-900.eot?#iefix') format('embedded-opentype'),
+    url('../fonts/MuseoSansCyrl-900.otf') format('opentype'),
+    url('../fonts/MuseoSansCyrl-900.woff') format('woff'),
+    url('../fonts/MuseoSansCyrl-900.ttf') format('truetype'),
+    url('../fonts/MuseoSansCyrl-900.svg#MuseoSansCyrl-900') format('svg');
+    font-weight: normal;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'VentiCF-Black';
+    src: url('../fonts/VentiCF-Black.eot?#iefix') format('embedded-opentype'),
+    url('../fonts/VentiCF-Black.otf') format('opentype'),
+    url('../fonts/VentiCF-Black.woff') format('woff'),
+    url('../fonts/VentiCF-Black.ttf') format('truetype'),
+    url('../fonts/VentiCF-Black.svg#VentiCF-Black') format('svg');
+    font-weight: normal;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'VentiCF-Bold';
+    src: url('../fonts/VentiCF-Bold.eot?#iefix') format('embedded-opentype'),
+    url('../fonts/VentiCF-Bold.otf') format('opentype'),
+    url('../fonts/VentiCF-Bold.woff') format('woff'),
+    url('../fonts/VentiCF-Bold.ttf') format('truetype'),
+    url('../fonts/VentiCF-Bold.svg#VentiCF-Bold') format('svg');
+    font-weight: normal;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'VentiCF-Medium';
+    src: url('../fonts/VentiCF-Medium.eot?#iefix') format('embedded-opentype'),
+    url('../fonts/VentiCF-Medium.otf') format('opentype'),
+    url('../fonts/VentiCF-Medium.woff') format('woff'),
+    url('../fonts/VentiCF-Medium.ttf') format('truetype'),
+    url('../fonts/VentiCF-Medium.svg#VentiCF-Medium') format('svg');
+    font-weight: normal;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'VentiCF-Ultra';
+    src: url('../fonts/VentiCF-Ultra.eot?#iefix') format('embedded-opentype'),
+    url('../fonts/VentiCF-Ultra.otf') format('opentype'),
+    url('../fonts/VentiCF-Ultra.woff') format('woff'),
+    url('../fonts/VentiCF-Ultra.ttf') format('truetype'),
+    url('../fonts/VentiCF-Ultra.svg#VentiCF-Ultra') format('svg');
+    font-weight: normal;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'ALSRubl';
+    src: url('../fonts/ALSRubl.eot?#iefix') format('embedded-opentype'),
+    url('../fonts/ALSRubl.woff') format('woff'),
+    url('../fonts/ALSRubl.ttf') format('truetype'),
+    url('../fonts/ALSRubl.svg#ALSRubl') format('svg');
+    font-weight: normal;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'UltimaProBlack';
+    src: url('../fonts/ultimaproblack_0-webfont.eot');
+    src: url('../fonts/ultimaproblack_0-webfont.eot?#iefix') format('embedded-opentype'),
+    url('../fonts/ultimaproblack_0-webfont.woff') format('woff'),
+    url('../fonts/ultimaproblack_0-webfont.ttf') format('truetype');
+    font-weight: normal;
+    font-style: normal;
+
+}
+
+.rub {
+    font-family: ALSRubl !important;
+    text-transform: none !important;
+}
+
+img {
+    border: none;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    outline: none !important;
+}
+
+a {
+    text-decoration: none;
+}
+
+ul {
+    list-style-type: none;
+}
+
+body {
+    padding: 0;
+    margin: 0;
+    background-color: #FFFFFF;
+}
+
+.indexPageHeader ul {
+    list-style-type: none;
+}
+
+.indexPageHeader li {
+    display: inline-block;
+}
+
+.indexPageHeader .locationWrapper {
+    float: right;
+    margin-right: 5px;
+}
+
+.locationWrapper p {
+    display: inline-block;
+}
+
+.firstLvlBlocks {
+    /*display: table-cell;*/
+    float: left;
+    border-right: 1px solid #E6E6E6;
+    height: 92px;
+
+}
+
+.secondLvlBlocks {
+    border-right: 1px solid #e6e6e6;
+    float: left;
+}
+
+.secondLvlBlocks li {
+    display: inline-block;
+    margin-right: 22px;
+}
+
+.indexPageHeader ul li {
+    color: #989898;
+    font-family: "MuseoSansCyrl-500";
+    font-size: 14px;
+    margin-right: 18px;
+}
+
+.locationWrapper {
+    position: relative;
+}
+
+.locationWrapper .list {
+    background: #fff;
+    position: absolute;
+    top: 100%;
+    padding: 20px 0 20px 20px;
+    height: 200px;
+    overflow: auto;
+    z-index: 100;
+    right: -6px;
+    margin-top: 15px;
+    display: none;
+    width: 200px;
+    box-shadow: 0 0 60px rgba(0, 0, 0, 0.5);
+}
+
+.locationWrapper .list a {
+    display: block;
+    color: #999;
+    font: 14px/1 "MuseoSansCyrl-500";
+    padding: 4px 0;
+}
+
+.locationWrapper .list a:hover {
+    color: #3ebcea;
+}
+
+.locationWrapper .list a:after {
+    display: none;
+}
+
+.locationWrapper p {
+    color: #000000;
+    font-family: 'MuseoSansCyrl-500';
+    font-size: 14px;
+}
+
+.locationWrapper p:before {
+    content: url("../img/cityMarker.png");
+    left: -13px;
+    position: relative;
+    top: 2px;
+}
+
+.locationWrapper a {
+    color: #999999;
+    font-family: "MuseoSansCyrl-500";
+    font-size: 14px;
+    margin-right: 17px;
+}
+
+.locationWrapper a:after {
+    content: url("../img/cityrecht.png");
+    left: 20px;
+    position: relative;
+}
+
+.firstLevel {
+    border: 1px solid #e6e6e6;
+    border-top-left-radius: 4px;
+    border-top-right-radius: 4px;
+    height: 92px;
+}
+
+.firstLevel .mainLogoContain {
+    width: 276px;
+}
+
+.widthWrapper {
+    position: relative;
+    width: 1182px;
+    margin: 0 auto;
+}
+
+.firstLvlBlocks p {
+    color: #a5a5a5;
+    font-family: "MuseoSansCyrl-500";
+    font-size: 13px;
+    padding-bottom: 15px;
+}
+
+.firstLvlBlocks a {
+    font-family: 'MuseoSansCyrl-500';
+    font-size: 16px;
+    color: #5DB3DC;
+    letter-spacing: 0.25px;
+}
+
+.firstLvlBlocks .telNumber {
+    color: #0B0B0B;
+    font-size: 16px;
+    letter-spacing: 0.4px;
+    text-decoration: none !important;
+}
+
+.mainLogoContain img {
+    margin-left: 40px;
+    margin-top: 16px;
+}
+
+.indexPageHeader {
+    margin-bottom: 38px;
+    margin-top: 45px;
+}
+
+.firstLvlBlocks:last-child {
+    border-right: none;
+}
+
+.firstLevel .mailtelinfo {
+    height: 70px;
+    padding-left: 20px;
+    padding-top: 22px;
+    width: 220px;
+}
+
+.firstLevel .linksBlock {
+    position: relative;
+    width: 139px;
+}
+
+.linksBlock img {
+    text-align: center;
+}
+
+.firstLevel .linksBlock p {
+    padding-top: 56px;
+    text-align: center;
+}
+
+#linkBlock1 {
+    background: rgba(0, 0, 0, 0) url("../img/findLogoHead.png") no-repeat scroll 50% 35%;
+}
+
+#linkBlock2 {
+    background: rgba(0, 0, 0, 0) url("../img/favouritHeadLogo.png") no-repeat scroll 52% 37%;
+}
+
+#linkBlock3 {
+    background: rgba(0, 0, 0, 0) url("../img/basketHeadLogo.png") no-repeat scroll 50% 36%;
+}
+
+.firstLevel .quantityOfLiked {
+    background-color: #ea8b64;
+    border-radius: 50px;
+    color: #fff;
+    font-size: 11px;
+    height: 18px;
+    left: 75px;
+    line-height: 18px;
+    margin: 0 !important;
+    padding: 0 !important;
+    position: absolute !important;
+    text-align: center;
+    top: 18px;
+    width: 18px;
+}
+
+.firstLevel .quantityInBasket {
+    background-color: #5DB3DC;
+    border-radius: 50px;
+    color: #fff;
+    font-size: 11px;
+    height: 18px;
+    left: 72px;
+    line-height: 18px;
+    margin: 0 !important;
+    padding: 0 !important;
+    position: absolute !important;
+    text-align: center;
+    top: 18px;
+    width: 18px;
+}
+
+.secondLevel {
+    border-bottom: 1px solid #e6e6e6;
+    border-bottom-left-radius: 4px;
+    border-bottom-right-radius: 4px;
+    border-left: 1px solid #e6e6e6;
+    border-right: 1px solid #e6e6e6;
+    height: 66px;
+}
+
+#secondLvlBlocks1 {
+    color: #010101;
+    font: 14px/1 "VentiCF-Black";
+    height: 39px;
+    padding-left: 32px;
+    padding-top: 28px;
+    text-transform: uppercase;
+    width: 244px;
+    letter-spacing: 0.5px;
+}
+
+#secondLvlBlocks1 p:before {
+    width: 16px;
+    height: 11px;
+    display: block;
+    float: left;
+    content: "";
+    background: url("../img/burgerCatalog.png") no-repeat 0 0;
+    left: -15px;
+    position: relative;
+    top: -1px;
+}
+
+#secondLvlBlocks1 p:after {
+    content: url("../img/cArrowActive.png");
+    left: 65px;
+    position: relative;
+    top: -1px;
+}
+
+#secondLvlBlocks2 {
+    color: #666666;
+    font: 13px/1 "VentiCF-Black", sans-serif;
+    height: 41px;
+    padding-left: 21px;
+    padding-right: 6px;
+    padding-top: 26px;
+    text-transform: uppercase;
+}
+
+#secondLvlBlocks3 a {
+    font-family: 'MuseoSansCyrl-500';
+    font-size: 14px;
+    text-decoration: none;
+}
+
+#secondLvlBlocks3 .registrationLink a {
+    border: 1px solid #9fe5ff;
+    border-radius: 4px;
+    color: #3ebcea;
+    padding: 8px 46px;
+}
+
+#secondLvlBlocks3 .authorisationLink a {
+    border: 1px solid #bfe2b5;
+    border-radius: 4px;
+    color: #89c178;
+    padding: 8px 46px;
+}
+
+#secondLvlBlocks3 p {
+    display: inline-block;
+}
+
+#secondLvlBlocks2 a {
+    color: #666666;
+}
+
+.secondLvlBlocks:last-child {
+    border-right: none;
+}
+
+#secondLvlBlocks3 {
+    padding-left: 20px;
+    padding-top: 21px;
+    position: relative;
+}
+
+#secondLvlBlocks3 .registrationLink {
+    margin-right: 16px;
+}
+
+#secondLvlBlocks2 .active {
+    border-bottom: 3px solid #83d0f5;
+    color: #000;
+    padding-bottom: 24px;
+}
+
+.thirdLevel .mainLeftMenu {
+    border: 1px solid #e6e6e6;
+    border-radius: 4px;
+    float: left;
+    height: 496px;
+    margin-right: 22px;
+    padding-top: 22px;
+    width: 276px;
+    position: relative;
+    overflow: hidden;
+}
+
+.thirdLevel .mainLeftMenu > ul > div > div > li > a {
+    color: #737373;
+    font-family: "MuseoSansCyrl-500";
+    font-size: 15px;
+    padding-left: 0;
+    padding-right: 36px;
+    display: block;
+    position: relative;
+}
+
+.mainLeftMenu > ul > div, .mainLeftMenu > ul > div > div {
+    min-height: 496px;
+}
+
+.mainLeftMenu > ul {
+    height: 100%;
+    overflow: auto;
+}
+
+.thirdLevel {
+    margin-top: 20px;
+    height: 520px;
+
+}
+
+.mainPage .thirdLevel {
+    display: block;
+}
+
+.thirdLevel .mainBigBanner {
+    background-color: #dff2fd;
+    border-radius: 4px;
+    float: left;
+    height: 520px;
+    width: 580px;
+    position: relative;
+}
+
+.thirdLevel .mainBigBanner .jcarousel li {
+    width: 580px;
+    height: 520px;
+}
+
+.thirdLevel .littleBannersWrap {
+    float: left;
+    height: 517px;
+    margin-left: 20px;
+    width: 176px;
+}
+
+#advantagesBlock {
+    background: #fde0c8 url("../img/adva12.png") no-repeat scroll 214px 82px;
+    border-radius: 4px;
+    height: 160px;
+    width: 260px;
+    padding-left: 20px;
+}
+
+#retailBlock {
+    background: #fff6a7 url("../img/basket1.png") no-repeat scroll 214px 82px;
+    border-radius: 4px;
+    height: 160px;
+    margin-top: 20px;
+    width: 258px;
+    padding-left: 22px;
+}
+
+#worhWithUsBlock {
+    background: #dee8b7 url("../img/hands1.png") no-repeat scroll 214px 82px;
+    border-radius: 4px;
+    height: 160px;
+    margin-top: 20px;
+    width: 258px;
+    padding-left: 22px;
+}
+
+.thirdLevel .litleBannerTitle {
+    color: #000;
+    font: 13px/1 "VentiCF-Bold", sans-serif;
+    text-transform: uppercase;
+    letter-spacing: 0.6px;
+    padding-top: 28px;
+}
+
+.thirdLevel .littleBannerText {
+    font-family: "MuseoSansCyrl-500";
+    font-size: 14px;
+    padding-bottom: 19px;
+    padding-top: 8px;
+    width: 190px;
+}
+
+#advantagesBlock .littleBannerText {
+    color: #9C816B;
+}
+
+#retailBlock .littleBannerText {
+    color: #9D8C59;
+}
+
+#worhWithUsBlock .littleBannerText {
+    color: #868F63;
+}
+
+#advantagesBlock a, #retailBlock a, #worhWithUsBlock a {
+    font: 12px/18px 'MuseoSansCyrl-500';
+    display: block;
+    padding: 3.5px 10px;
+    width: 82px;
+}
+
+#advantagesBlock a {
+    color: #513E36;
+}
+
+#retailBlock a {
+    color: #776644;
+}
+
+#worhWithUsBlock a {
+    color: #3B402A;
+}
+
+.advantagesLink {
+    border-radius: 4px;
+    border: 1px solid #DFC1AB;
+    text-align: center;
+    display: inline-block;
+    vertical-align: top;
+}
+
+.retailLink {
+    border-radius: 4px;
+    border: 1px solid #D9D07F;
+    text-align: center;
+    display: inline-block;
+    vertical-align: top;
+}
+
+.worhWithUsLink {
+    border-radius: 4px;
+    border: 1px solid #C2CB9C;
+    text-align: center;
+    display: inline-block;
+    vertical-align: top;
+}
+
+.productBlockWrapper .productBlockMenu {
+    border-bottom: 1px solid #e0e0e0;
+    color: #0a0a0a;
+    font-family: "MuseoSansCyrl-500";
+    font-size: 18px;
+    height: 40px;
+    margin-bottom: 30px;
+}
+
+.productBlockWrapper .productBlockMenu div {
+    display: inline-block;
+    margin-right: 40px;
+    cursor: pointer;
+}
+
+.productBlockWrapper {
+    background-color: #f5f5f5;
+    margin-top: 50px;
+    padding-top: 42px;
+    position: relative;
+    height: 878px;
+}
+
+.productBlockMenu .active {
+    border-bottom: 3px solid #b6c57c;
+    color: #9eab6e;
+    padding-bottom: 17px;
+}
+
+.productBlockWrapper .blockTitle {
+    font-family: "MuseoSansCyrl-500";
+    font-size: 16px;
+    color: #878787;
+    margin-bottom: 36px;
+}
+
+.productBlockWrapper .showAllLink {
+    float: right;
+}
+
+.productBlockWrapper .showAllLink a {
+    color: #9EAB6E;
+    font-family: "MuseoSansCyrl-500";
+    font-size: 14px;
+    border: 1px solid #D8DCCB;
+    border-radius: 4px;
+    padding: 8px 20px;
+}
+
+.productBlockWrapper .productWrapper {
+    background-color: #ffffff;
+    border-radius: 4px;
+    height: 340px;
+    padding: 0 20px;
+    width: 240px;
+    float: left;
+}
+
+.productBlockWrapper .productList li {
+    float: left;
+    height: 340px;
+    margin-right: 20px;
+    width: 280px;
+    margin-bottom: 20px;
+    cursor: pointer;
+}
+
+.productBlockWrapper .productList li:nth-child(4n) {
+    margin-right: 0px;
+}
+
+.productWrapper .price {
+    color: #000000;
+    padding-bottom: 4px;
+    padding-top: 20px;
+    font-family: "MuseoSansCyrl-700";
+    font-size: 18px;
+}
+
+.productWrapper {
+    position: relative;
+}
+
+.productWrapper .productimg {
+    border-bottom: 1px solid #E6E6E6;
+    height: 220px;
+    position: relative;
+    display: block;
+}
+
+.productWrapper .productName {
+    color: #323232;
+    font-family: "MuseoSansCyrl-500";
+    font-size: 15px;
+    padding-top: 17px;
+    width: 158px;
+    float: left;
+    text-decoration: none;
+    display: inline-block;
+    max-height: 37px;
+    overflow: hidden;
+}
+
+.productWrapper .newProductWrapper {
+    background-color: #dee8b7;
+    border-radius: 50px;
+    color: #000000;
+    font-family: "MuseoSansCyrl-500";
+    font-size: 13px;
+    padding: 4px 14px;
+    position: absolute;
+    right: 18px;
+    top: 20px;
+}
+
+.infoBlockWrapper .productWrapper .newProductWrapper {
+    padding: 4px 13px 5px;
+}
+
+.brandsWrapper {
+    background-color: #f5f5f5;
+}
+
+.brandsWrapper .brandTitle {
+    color: #261b25;
+    font-family: "MuseoSansCyrl-500";
+    font-size: 20px;
+    margin-bottom: 18px;
+    letter-spacing: 0.4px;
+}
+
+.brandsWrapper .brandText {
+    color: #909090;
+    font-family: "MuseoSansCyrl-500";
+    font-size: 16px;
+    margin-bottom: 48px;
+}
+
+.brandPhotoWrapper a {
+    border: 1px solid #dadada;
+    border-radius: 4px;
+    display: inline-block;
+    vertical-align: top;
+    height: 120px;
+    margin-right: 16px;
+    width: 128px;
+    overflow: hidden;
+}
+
+.brandPhotoWrapper a:last-child {
+    margin-right: 0px;
+}
+
+.brandsWrapper {
+    border-top: 1px solid #e1dfdf;
+    padding-top: 40px;
+}
+
+.partnerReviews .partnerTitle {
+    color: #000000;
+    font: 20px/1 "MuseoSansCyrl-500";
+    padding-bottom: 24px;
+    letter-spacing: 0.4px;
+}
+
+.productCarousel .jcarousel-control-prev, .discountsBlock .jcarousel-control-prev,
+.infoDocumentsBlock .jcarousel-control-prev, .productSlider .jcarousel-control-prev {
+    background: url("../img/leftSliderArrow.png") no-repeat scroll 50% 50%;
+    width: 38px;
+    height: 38px;
+    float: right;
+    cursor: pointer;
+    border: 1px solid #d9d9d9;
+    border-bottom-left-radius: 4px;
+    border-top-left-radius: 4px;
+    margin: 2px -1px 0 0;
+
+}
+
+.productCarousel .jcarousel-control-next, .discountsBlock .jcarousel-control-next,
+.infoDocumentsBlock .jcarousel-control-next, .productSlider .jcarousel-control-next {
+    background: url("../img/rightSliderArrow.png") no-repeat scroll 50% 50%;
+    border: 1px solid #d9d9d9;
+    border-bottom-right-radius: 4px;
+    border-top-right-radius: 4px;
+    cursor: pointer;
+    float: right;
+    height: 38px;
+    width: 38px;
+    margin: 2px 2px 0 0;
+}
+
+.productCarousel .jcarousel-control-prev:hover, .discountsBlock .jcarousel-control-prev:hover,
+.infoDocumentsBlock .jcarousel-control-prev:hover,
+.productSlider .jcarousel-control-prev:hover {
+    background-image: url("../img/leftSliderArrowInactive.png");
+
+}
+
+.productCarousel .jcarousel-control-next:hover, .discountsBlock .jcarousel-control-next:hover,
+.infoDocumentsBlock .jcarousel-control-next:hover,
+.productSlider .jcarousel-control-next:hover {
+    background-image: url("../img/rightSliderArrowInactive.png");
+}
+
+.productCarousel .leftArrow {
+    top: -200px;
+}
+
+.productCarousel .rightArrow {
+    top: -200px;
+}
+
+.productCarousel .jcarousel-wrapper {
+    margin: -15px 0 0 -15px;
+
+}
+
+.productCarousel .jcarousel {
+    overflow: hidden;
+}
+
+.productCarousel .jcarousel ul {
+    margin: 15px 0 0 15px;
+}
+
+/*
+.viewedBlock.productCarousel .jcarousel {
+    padding: 0;
+    margin: 0;
+}
+*/
+.productCarousel .jcarousel-control-next {
+    top: -107px;
+}
+
+.productCarousel .jcarousel-control-prev {
+    top: -107px;
+    left: auto;
+    right: 42px;
+}
+
+.productCarousel .jcarousel li {
+    width: 300px;
+
+}
+
+.productCarousel:after {
+    content: "";
+    display: block;
+    clear: both;
+}
+
+.partnerReviews .partnerText {
+    color: #878787;
+    font: 16px/1 "MuseoSansCyrl-500";
+    margin-bottom: 47px;
+    letter-spacing: 0.7px;
+}
+
+.partnerReviews {
+    background-color: #f5f5f5;
+    border-top: 1px solid #e1dfdf;
+    margin-top: 43px;
+    padding-top: 44px;
+
+}
+
+.confidenceWrapper {
+    background-color: #f5f5f5;
+    border-top: 1px solid #e1dfdf;
+    height: 240px;
+    margin-top: 2px;
+    padding: 42px 0 38px;
+}
+
+.confidenceWrapper .confidensTitle {
+    color: #000;
+    font-family: "MuseoSansCyrl-500";
+    font-size: 20px;
+    margin-bottom: 18px;
+}
+
+.confidenceWrapper .confidensText {
+    color: #878787;
+    font-family: "MuseoSansCyrl-500";
+    font-size: 16px;
+    margin-bottom: 46px;
+    letter-spacing: 0.7px;
+}
+
+.confidenceWrapper a {
+    border: 1px solid #dadada;
+    border-radius: 4px;
+    float: left;
+    height: 120px;
+    margin-right: 22px;
+    width: 276px;
+    position: relative;
+    display: block;
+    text-align: center;
+    cursor: pointer;
+}
+
+.whileWeWrapper {
+    background-color: #f5f5f5;
+    border-top: 1px solid #e1dfdf;
+    padding: 47px 0 40px;
+    position: relative;
+}
+
+.mainPage .whileWeWrapper {
+    padding: 43px 0 40px;
+}
+
+.confidenceWrapper a:last-child {
+    margin-right: 0;
+}
+
+.confidenceWrapper a:hover {
+    border-color: #c0c0c0;
+}
+
+.reviesElement {
+    margin-bottom: 46px;
+}
+
+.partnerReviews .reviesElement {
+    background-color: #fff;
+    border-radius: 4px;
+    height: 318px;
+    padding-left: 18px;
+    padding-top: 22px;
+    padding-right: 22px;
+    width: 238px;
+    position: relative;
+    float: left;
+    margin-right: 22px;
+}
+
+.partnerReviews .reviesElement:last-child {
+    margin-right: 0px;
+}
+
+.reviesElement .reviesCity {
+    text-transform: uppercase;
+    font: 11px/1 "MuseoSansCyrl-700";
+    color: #ADB886;
+    margin-bottom: 14px;
+    letter-spacing: 0.8px;
+}
+
+.reviesElement .reviesCity:before {
+    content: url('../img/cityPlaceBef.png');
+    margin-right: 8px;
+}
+
+.reviesElement .reviewsTitle {
+    color: #000000;
+    font-family: "MuseoSansCyrl-700";
+    font-size: 18px;
+    margin-bottom: 15px;
+}
+
+.reviesElement .reviewsText {
+    color: #a2a2a2;
+    font-size: 15px;
+    line-height: 22px;
+    width: 200px;
+    font-family: 'PT Serif', serif;
+    max-height: 130px;
+    overflow: hidden;
+}
+
+.reviesElement .reviewsAuthor {
+    font-family: "MuseoSansCyrl-500";
+    font-size: 16px;
+    color: #000000;
+    font-style: normal;
+    padding-bottom: 4px;
+}
+
+.reviesElement .authorsBlock {
+    border-top: 1px solid #e9e9e9;
+    color: #999;
+    bottom: 14px;
+    position: absolute;
+    width: 238px;
+    font: italic 14px/1 'PT Serif', serif;
+    padding: 22px 0 12px 55px;
+    box-sizing: border-box;
+}
+
+.reviesElement .authorsBlock:before {
+    content: "";
+    display: block;
+    position: absolute;
+    top: 18px;
+    left: 0;
+    width: 40px;
+    height: 40px;
+    background: url(../img/auwerqqwe_sprite.png) no-repeat 0 0;
+}
+
+.reviesElement:hover .authorsBlock:before {
+    background-position: -40px 0;
+}
+
+.reviesElement .authorsBlock p {
+    margin-right: -15px;
+}
+
+.confidenceWrapper a img {
+    position: absolute;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    right: 0;
+    max-width: 100%;
+    max-height: 100%;
+    margin: auto;
+}
+
+.backgroundColor {
+    background-color: #F5F5F5;
+}
+
+.whileWeWrapper .blockTitle {
+    font: 20px/1 'MuseoSansCyrl-500';
+    letter-spacing: 0.2px;
+    color: #000;
+    margin-bottom: 20px;
+}
+
+.whileWeWrapper .blockText {
+    color: #878787;
+    font: 16px/1 'MuseoSansCyrl-500';
+    letter-spacing: 0.03px;
+    margin-bottom: 40px;
+
+}
+
+.mainPage .whileWeWrapper .blockText {
+    margin-bottom: 47px;
+}
+
+.whileWeWrapper h2 {
+    font: 24px/1 "MuseoSansCyrl-900", sans-serif;
+    letter-spacing: 0.2px;
+    color: #000;
+    margin-bottom: 15px;
+
+}
+
+.mainPage .whileWeWrapper h2 {
+    margin-bottom: 20px;
+}
+
+.whileWeWrapper .firstLevelBlock {
+    border: 1px solid #D9D9D9;
+    border-top-left-radius: 4px;
+    border-top-right-radius: 4px;
+    height: 104px;
+}
+
+.whileWeWrapper .writeCreatorBlock {
+    border-right: 1px solid #d9d9d9;
+    float: left;
+    height: 104px;
+    width: 278px;
+}
+
+.whileWeWrapper .writeCreatorBlock p {
+    border: 1px solid #d9d9d9;
+    border-radius: 4px;
+    margin: 28px auto 0;
+
+    width: 236px;
+}
+
+.whileWeWrapper .writeCreatorBlock a {
+    color: #4f4f4f;
+    font-family: "MuseoSansCyrl-500";
+    font-size: 14px;
+    white-space: nowrap;
+    padding: 8px 15px 14px;
+    display: block;
+}
+
+.whileWeWrapper .writeCreatorBlock a:before {
+    content: url("../img/write567.png");
+    margin-right: 14px;
+    position: relative;
+    top: 5px;
+}
+
+.whileWeWrapper .deliveryBlock input[type=text] {
+    background: rgba(0, 0, 0, 0) url("../img/mailBack.png") no-repeat scroll 20px 16px;
+    border: 1px solid #7fcbef;
+    border-radius: 4px;
+    color: #5c5c5c !important;
+    font-family: "MuseoSansCyrl-500";
+    font-size: 14px;
+    height: 46px;
+    margin-left: 20px;
+    padding-left: 54px;
+    width: 374px;
+}
+
+.whileWeWrapper .deliveryBlock input[type=submit] {
+    border: 1px solid #7fcbef;
+    border-radius: 4px;
+    color: #4baad7;
+    font-family: "MuseoSansCyrl-500";
+    font-size: 14px;
+    margin-left: 16px;
+    padding: 13px 18px;
+    cursor: pointer;
+    background-color: #F5F5F5;
+    height: 48px;
+}
+
+.whileWeWrapper .callBackBlock {
+    float: left;
+    padding: 28px 0 0;
+    width: 278px;
+}
+
+.whileWeWrapper .callBackBlock p {
+    border: 1px solid #d8d8d8;
+    border-radius: 4px;
+    margin-left: 18px;
+    margin-right: 18px;
+
+}
+
+.whileWeWrapper .callBackBlock a {
+    font-family: 'MuseoSansCyrl-500';
+    font-size: 14px;
+    color: #4D4D4D;
+    padding: 10px 12px 13px 15px;
+    display: block;
+}
+
+.whileWeWrapper .callBackBlock a:before {
+    content: url("../img/callback123.png");
+    margin-right: 12px;
+    position: relative;
+    top: 5px;
+}
+
+.whileWeWrapper .deliveryBlock {
+    border-right: 1px solid #d9d9d9;
+    float: left;
+    height: 76px;
+    padding-top: 28px;
+    width: 620px;
+}
+
+.whileWeWrapper .secondLevelBlock {
+    border: 1px solid #d9d9d9;
+    border-bottom-left-radius: 4px;
+    border-bottom-right-radius: 4px;
+    height: 52px;
+    margin-top: -1px;
+}
+
+.whileWeWrapper .copyRightBlock {
+    border-right: 1px solid #d9d9d9;
+    border-top: 1px solid #d9d9d9;
+    color: #989898;
+    float: left;
+    font-family: "MuseoSansCyrl-300";
+    font-size: 15px;
+    padding: 18px 0 16px;
+    width: 899px;
+}
+
+.whileWeWrapper .copyRightBlock p {
+    margin-left: 18px;
+}
+
+.whileWeWrapper .theCreator {
+    color: #989898;
+    float: left;
+    font-family: "MuseoSansCyrl-300";
+    font-size: 15px;
+    padding-left: 20px;
+    padding-top: 17px;
+    border-top: 1px solid #d9d9d9;
+    width: 256px;
+}
+
+.whileWeWrapper .theCreator a {
+    color: #000000;
+    font-family: 'MuseoSansCyrl-300';
+    font-size: 15px;
+}
+
+.mainLeftMenu > ul > div > div > li {
+    /*background: rgba(0, 0, 0, 0) url("../img/backLiMenu.png") no-repeat scroll 252px 46%;*/
+    margin-bottom: 21px;
+    padding-left: 48px;
+
+    position: relative;
+}
+
+.mainLeftMenu li img {
+    left: 16px;
+    margin-right: 15px;
+    position: absolute;
+    top: 0;
+}
+
+.productWrapper .productLikeBlock {
+    float: left;
+    margin-left: 2px;
+    margin-top: 20px;
+    background: url('../img/dctLk.png') no-repeat;
+}
+
+.productWrapper .productBasketBlock {
+    float: left;
+    margin-left: 6px;
+    margin-top: 20px;
+    background: url('../img/dktBaskt.png') no-repeat;
+}
+
+.productWrapper .productLikeBlock:hover, .productWrapper .productBasketBlock:hover {
+    background-position: -36px 0;
+}
+
+.productWrapper .productimg img {
+    bottom: 0;
+    left: 0;
+    margin: auto;
+    max-height: 100%;
+    max-width: 100%;
+    position: absolute;
+    right: 0;
+    top: 0;
+}
+
+.productWrapper .productimg p {
+
+}
+
+ul.topMenu a {
+    color: #A1A1A1 !important;
+}
+
+ul.topMenu a:hover {
+    color: #000000 !important;
+}
+
+#linkBlock1 a:hover p {
+    color: #000000;
+}
+
+#linkBlock2 a:hover p {
+    color: #000000;
+}
+
+#linkBlock3 a:hover p {
+    color: #000000;
+}
+
+#secondLvlBlocks3 .registrationLink a:hover {
+    color: #343434;
+    background-color: #B6E2F8;
+    border: 1px solid #B6E2F8;
+}
+
+#secondLvlBlocks3 .authorisationLink a:hover {
+    color: #323332;
+    background-color: #DEE8B7;
+    border: 1px solid #DEE8B7;
+}
+
+.mainLeftMenu > ul > div > div > li a:hover {
+    color: #000 !important;
+}
+
+.advantagesLink:hover {
+    background-color: #F7B69B;
+    border-color: #F7B69B;
+    color: #89462A;
+}
+
+.retailLink:hover {
+    background-color: #FFDE6E;
+    border-color: #FFDE6E;
+    color: #584311;
+}
+
+.worhWithUsLink:hover {
+    background-color: #BCCA86;
+    border-color: #BCCA86;
+    color: #51573B;
+}
+
+.productWrapper:hover {
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
+    cursor: pointer;
+}
+
+.brandPhotoWrapper a:hover {
+    border-color: #C0C0C0;
+}
+
+.partnerReviews .reviesElement:hover {
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
+}
+
+.confidenceWrapper .partnerImg:hover {
+    border-color: #C0C0C0;
+}
+
+.whileWeWrapper .deliveryBlock input[type="submit"]:hover {
+    background-color: #B6E2F8;
+    border-color: #B6E2F8;
+    color: #000000;
+}
+
+.whileWeWrapper .callBackBlock p:hover {
+    border-color: #7FCBEF;
+}
+
+.whileWeWrapper .callBackBlock p:hover a {
+    color: #6BB8DE;
+}
+
+#secondLvlBlocks1 {
+    cursor: pointer;
+}
+
+.activeBlock {
+    color: #5db3dc !important;
+}
+
+#secondLvlBlocks4 {
+    cursor: pointer;
+    color: #010101;
+    font: 14px/1 "VentiCF-Black";
+    height: 39px;
+    padding-left: 32px;
+    padding-top: 28px;
+    text-transform: uppercase;
+    width: 244px;
+    letter-spacing: 0.5px;
+}
+
+#secondLvlBlocks4 p::before {
+    /*content: url("../img/blackBurger.png");
+    left: -15px;
+    position: relative;
+    top: -1px;*/
+    content: "";
+    background: url("../img/burgerCatalog.png") no-repeat -16px 0;
+    width: 16px;
+    height: 11px;
+    display: block;
+    float: left;
+    left: -15px;
+    position: relative;
+    top: -1px;
+}
+
+#secondLvlBlocks4 p::after {
+    content: url("../img/backLihover.png");
+    left: 67px;
+    position: relative;
+    top: -1px;
+}
+
+.bannerCost {
+    color: #000;
+    font-family: "VentiCF-Bold";
+    font-size: 24px;
+    margin-bottom: 22px;
+
+}
+
+.bannerText {
+    font-family: "MuseoSansCyrl-500";
+    font-size: 20px;
+    color: #708893;
+    max-width: 440px;
+    margin: 0 auto;
+    display: block;
+}
+
+.mainBigBanner .bannerImgContainer {
+    height: 252px;
+    margin: 64px auto 0;
+    position: relative;
+    width: 500px;
+}
+
+.mainBigBanner .bannerTextContainer {
+    text-align: center;
+    padding: 0 66px;
+}
+
+.mainBigBanner .bannerImgContainer p {
+    text-align: center;
+}
+
+.mainBigBanner .hitContainer {
+    background-color: #ffee8d;
+    border-radius: 50px;
+    color: #705721;
+    font-family: "VentiCF-Bold";
+    font-size: 27px;
+    left: 270px;
+    padding: 20px 18px;
+    position: absolute;
+    top: 48px;
+}
+
+.productBlockWrapper .showAllLink a:hover {
+    background-color: #DEE8B7;
+    border-color: #DEE8B7;
+    color: #333333;
+}
+
+.blockLink {
+    display: block;
+    width: 36px;
+    height: 36px;
+
+}
+
+.productWrapper .changingLike.active, .productWrapper .productBasketBlock.active {
+    background-position: -72px 0;
+}
+
+/*
+.productWrapper .productBasketActiveBlock{
+    background: rgba(0, 0, 0, 0) url("../img/activeBasket1.png") no-repeat scroll 0 0;
+    float: left;
+    margin-left: 6px;
+    margin-top: 20px;
+}*/
+.slideBody {
+    display: none;
+}
+
+#sliderNum1 {
+    display: block;
+}
+
+.dotsBlock div {
+    border-radius: 50px;
+    background-color: #A4B5C0;
+    width: 10px;
+    height: 10px;
+    display: inline-block;
+    margin: 0 3px;
+    cursor: pointer;
+}
+
+.dotsBlock {
+
+    text-align: center;
+    position: absolute;
+    bottom: 30px;
+    width: 100%;
+}
+
+.dotsBlock .active {
+    background-color: #000000;
+}
+
+.partnerCaruselWrap {
+    overflow: hidden;
+    position: relative;
+    left: -7px;
+}
+
+.partnerCaruselWrap ul {
+    width: 9999px;
+    height: 370px;
+    position: relative;
+    padding-top: 10px;
+    margin-left: 7px;
+
+}
+
+.productList {
+    display: none;
+}
+
+.grayBack {
+    background-color: #F6F6F6;
+}
+
+.viewedBlock {
+    border-top: 1px solid #e1dfdf;
+    margin-top: 38px;
+    padding: 35px 0 27px;
+    display: block !important;
+}
+
+.viewedBlock .rightArrow {
+    background: rgba(0, 0, 0, 0) url("../img/rightSliderArrow.png") no-repeat scroll 14px 13px;
+    border: 1px solid #d9d9d9;
+    border-bottom-right-radius: 4px;
+    border-top-right-radius: 4px;
+    cursor: pointer;
+    float: right;
+    height: 38px;
+    width: 38px;
+}
+
+.viewedBlock .leftArrow {
+    background: rgba(0, 0, 0, 0) url("../img/leftSliderArrowInactive.png") no-repeat scroll 14px 13px;
+    border: 1px solid #d9d9d9;
+    border-bottom-left-radius: 4px;
+    border-top-left-radius: 4px;
+    cursor: pointer;
+    float: right;
+    height: 38px;
+    margin-right: -1px;
+    width: 38px;
+}
+
+.viewedBlock h2 {
+    color: #000000;
+    font: 24px/1 "MuseoSansCyrl-900", sans-serif;
+    padding: 0 0 42px;
+    letter-spacing: 0.7px;
+}
+
+.viewedBlock .partnerText {
+    color: #878787;
+    font-family: "MuseoSansCyrl-500";
+    font-size: 16px;
+    margin-bottom: 46px;
+}
+
+.viewedCaruselWrap {
+    overflow: hidden;
+    margin-top: 16px;
+}
+
+.viewedCaruselWrap ul {
+    height: 370px;
+    padding-top: 10px;
+    position: relative;
+    width: 9999px;
+}
+
+.viewedBlock .reviesElement {
+    background-color: #fff;
+    border: 1px solid #e6e6e6;
+    border-radius: 4px;
+    float: left;
+    height: 340px;
+    margin-right: 20px;
+    padding-left: 18px;
+    padding-right: 18px;
+    position: relative;
+    width: 242px;
+}
+
+.logosContainer {
+    position: absolute;
+    width: 43px;
+    top: 20px;
+    right: 16px;
+    font-family: "MuseoSansCyrl-700";
+    font-size: 10px;
+}
+
+.discountLogoWrapper {
+    background: rgba(0, 0, 0, 0) url("../img/discountBack.png") repeat scroll 0 0;
+    height: 28px;
+    padding-top: 15px;
+    text-align: center;
+    width: 43px;
+    margin-bottom: 4px;
+}
+
+.bestLogoWrapper {
+    background: rgba(0, 0, 0, 0) url("../img/bestLogo.png") repeat scroll 0 0;
+    height: 24px;
+    padding-top: 12px;
+    text-align: center;
+    width: 36px;
+    margin-left: 3px;
+    margin-bottom: 8px;
+}
+
+.newLogoWrapper {
+    background: rgba(0, 0, 0, 0) url("../img/newLogo.png") repeat scroll 0 0;
+    height: 24px;
+    padding-top: 12px;
+    text-align: center;
+    width: 36px;
+    margin-left: 3px;
+    margin-bottom: 8px;
+}
+
+.freshLogoWrapper {
+    background: rgba(0, 0, 0, 0) url("../img/freshLogo.png") repeat scroll 0 0;
+    height: 24px;
+    padding-top: 12px;
+    text-align: center;
+    width: 36px;
+    margin-left: 3px;
+    margin-bottom: 8px;
+}
+
+.saleLogoWrapper {
+    background: rgba(0, 0, 0, 0) url("../img/saleLogo.png") repeat scroll 0 0;
+    height: 24px;
+    padding-top: 12px;
+    text-align: center;
+    width: 36px;
+    margin-left: 3px;
+    margin-bottom: 8px;
+}
+
+.horizontalFilterWrap {
+    border-radius: 4px;
+    border: 1px solid #e6e6e6;
+    height: 68px;
+}
+
+.horizontalFilterWrap p {
+    color: #000000;
+    font-family: "MuseoSansCyrl-500";
+    font-size: 14px;
+}
+
+.horizontalFilterWrap .productFilterWrap {
+    border-right: 1px solid #e6e6e6;
+    float: left;
+    height: 69px;
+    width: 278px;
+}
+
+.horizontalFilterWrap .productFilterWrap p {
+    text-transform: uppercase;
+    font: 13px/1 'VentiCF-Bold' !important;
+    color: #5DB3DC !important;
+    letter-spacing: 0.2px;
+    cursor: pointer;
+    padding-top: 19px;
+    padding-left: 16px;
+    background: url("../img/cArrow.png") no-repeat scroll 250px 27px;
+}
+
+.horizontalFilterWrap .productFilterWrap p.activeTopLeftBut {
+    background: url("../img/cArrowActive.png") no-repeat scroll 250px 30px;
+}
+
+.horizontalFilterWrap .productFilterWrap p:before {
+    content: url("../img/img53425.png");
+    position: relative;
+    top: 5px;
+    margin-right: 14px;
+}
+
+.horizontalFilterWrap .sortingWrap {
+    border-right: 1px solid #e6e6e6;
+    float: left;
+    height: 54px;
+    padding-left: 22px;
+    padding-top: 14px;
+    position: relative;
+}
+
+.horizontalFilterWrap .displayTypeWrap {
+    border-right: 1px solid #e6e6e6;
+    float: left;
+    height: 54px;
+    padding-left: 16px;
+    padding-top: 14px;
+}
+
+.horizontalFilterWrap .quantityWrap {
+    float: left;
+    height: 100%;
+    padding: 14px 18px;
+}
+
+.horizontalFilterWrap .blockType {
+    border-radius: 4px;
+    border: 1px solid #cccccc;
+    width: 38px;
+    height: 38px;
+    float: left;
+    margin-right: 20px;
+    cursor: pointer;
+    position: relative;
+}
+
+.horizontalFilterWrap .blockType:before {
+    content: "";
+    display: block;
+    width: 12px;
+    height: 12px;
+    margin: 13px;
+    background: url("../img/catalogBlockMini.png") no-repeat 0 0;
+}
+
+.horizontalFilterWrap .blockType.checked:before {
+    background-position: -12px 0;
+
+}
+
+.horizontalFilterWrap .blockType.checked {
+    border: 1px solid #5DB3DC;
+}
+
+.horizontalFilterWrap .listType {
+    border-radius: 4px;
+    border: 1px solid #cccccc;
+    width: 38px;
+    height: 38px;
+    float: left;
+    margin-right: 20px;
+    cursor: pointer;
+}
+
+.horizontalFilterWrap .listType:before {
+    content: "";
+    display: block;
+    width: 16px;
+    height: 11px;
+    margin: 13px 11px;
+    background: url("../img/catalogMiniIcon.png") no-repeat 0 0;
+}
+
+.horizontalFilterWrap .listType.checked:before {
+    background-position: -16px 0;
+
+}
+
+.horizontalFilterWrap .listType.checked {
+    border: 1px solid #5DB3DC;
+}
+
+.horizontalFilterWrap .firstFilter {
+    background: rgba(0, 0, 0, 0) url("../img/recht6363.png") no-repeat scroll 118px 17px;
+    border: 1px solid #cccccc;
+    border-radius: 4px;
+    cursor: pointer;
+    float: left;
+    margin-right: 22px;
+    padding: 10px 30px 10px 28px;
+    position: relative;
+    width: 84px;
+}
+
+.horizontalFilterWrap .firstFilter p {
+    margin: 0 !important;
+    position: relative;
+    white-space: nowrap;
+    max-width: 80px;
+}
+.catalogElementsBlock .horizontalFilterWrap .firstFilter {
+    padding-left: 9px;
+    width: 103px;
+}
+.catalogElementsBlock .firstFilter .firstFiltElement1:before {
+   display: none;
+}
+.catalogElementsBlock .firstFilter img {
+    margin-right: 10px;
+}
+.catalogElementsBlock .horizontalFilterWrap .firstFilter .hidingMenu p {
+    padding-left: 10px;
+    float: none;
+    max-width: 100%;
+    width: 100%;
+}
+.catalogElementsBlock .horizontalFilterWrap .firstFilter .hidingMenu {
+    width: 100%;
+}
+
+.horizontalFilterWrap .secondFilter p {
+    margin: 0 !important;
+    position: relative;
+    white-space: nowrap;
+    max-width: 80px;
+}
+.horizontalFilterWrap .secondFilter .hidingMenu  p {
+    padding-left: 15px;
+    max-width: 100%;
+    width: 100%;
+}
+
+.horizontalFilterWrap .secondFilter {
+    background: rgba(0, 0, 0, 0) url("../img/recht6363.png") no-repeat scroll 118px 17px;
+    border: 1px solid #cccccc;
+    border-radius: 4px;
+    float: left;
+    margin-right: 16px;
+    padding: 10px 8px 10px 12px;
+    width: 120px;
+    cursor: pointer;
+    position: relative;
+
+}
+
+.horizontalFilterWrap .secondFilter p {
+    margin: 0 !important;
+}
+
+.sortingWrap p {
+    float: left;
+    margin-top: 11px;
+    margin-right: 20px;
+}
+
+.horizontalFilterWrap .quantityFiltTitle {
+    float: left;
+    padding-top: 11px;
+    margin-right: 12px;
+}
+
+h1 {
+    color: #323232;
+    font: 26px/1 'MuseoSansCyrl-900';
+    margin: 3px 0 8px;
+    letter-spacing: 1px;
+}
+
+.breadcrumb {
+    padding: 10px 0 0;
+}
+
+.breadcrumb span {
+    font-size: 14px;
+    font-family: 'MuseoSansCyrl-500';
+    margin-right: 5px;
+}
+
+.breadcrumb span a {
+    border-bottom: 1px solid #d6d6d6;
+    color: #6a6a6a;
+    text-decoration: none;
+    padding-bottom: 3px;
+}
+
+.breadcrumb span a:hover {
+    border-bottom-color: transparent;
+}
+
+.breadcrumb span:last-child a {
+    border-bottom-color: transparent;
+}
+
+.breadcrumb span:before {
+    content: url('../img/beforeBreadCrumps.png');
+    margin-right: 8px;
+}
+
+.breadcrumb span:first-child:before {
+    content: '';
+    margin-right: 0px;
+
+}
+
+.lasrBreadCrump:before {
+    margin-right: 0px;
+}
+
+.breadcrumb span:last-child:before {
+    content: url('../img/beforeActiveBread.png');
+}
+
+.catalogTitleBlock p {
+    font: 16px/1 'PT Serif', serif;
+    color: #4F4F4F;
+    margin: 24px 0 4px;
+    letter-spacing: 0.1px;
+}
+
+.catalogTitleBlock {
+    padding-top: 26px;
+    border-bottom: 1px solid #ddd;
+    margin-bottom: 32px;
+}
+
+.catalogTitleBlock .widthWrapper {
+    padding-bottom: 35px;
+}
+
+.allElementWrap {
+    overflow: hidden;
+    clear: both;
+}
+
+.allElementWrap .leftFiltersBlock {
+    width: 278px;
+    float: left;
+    border-radius: 4px;
+    border: 1px solid #E6E6E6;
+    margin-right: 20px;
+    /* margin-bottom: 20px;*/
+    overflow: hidden;
+    display: none;
+    position: relative;
+}
+
+/*
+.elementBlocksWrap {
+    transition: all 0.3s;
+}
+*/
+.allElementWrap .elementBlocksWrap {
+    margin: 0 -20px 0 302px;
+
+}
+
+.elementBlocksWrap:after {
+    content: "";
+    display: block;
+    clear: both;
+}
+
+.elmentsList li {
+    float: left;
+    height: 340px;
+    margin-bottom: 20px;
+    margin-right: 20px;
+    width: 278px;
+    border: 1px solid #e6e6e6;
+    border-radius: 4px;
+}
+
+.elmentsList .productWrapper .productName {
+    padding-top: 18px;
+    margin-left: -2px;
+    letter-spacing: 0.3px;
+}
+
+.elmentsList .productWrapper .price {
+    padding-top: 20px;
+    margin-left: -3px;
+}
+
+.elmentsList .productWrapper .logosContainer {
+    top: 25px;
+}
+
+.elmentsList .productWrapper {
+    background-color: #ffffff;
+    border-radius: 4px;
+    float: left;
+    height: 340px;
+    padding: 0 20px;
+    width: 238px;
+}
+
+.elmentsList .productimg {
+    height: 212px;
+}
+
+.viewedElementBlock {
+    clear: both;
+}
+
+.leftFiltersBlock .leftFilterName {
+    color: #000;
+    font-size: 15px;
+    line-height: 18px;
+    font-family: "MuseoSansCyrl-700";
+   /* margin-bottom: 3px;*/
+    margin-bottom: 0;
+    cursor: pointer;
+    padding-left: 9px;
+}
+
+.leftFiltersBlock .leftFilterName:before {
+    content: url('../img/leftFiltBef.png');
+    width: 28px;
+    float: left;
+    display: block;
+}
+
+.leftFiltersBlock .leftFilterName.activeFilter:before {
+    content: url('../img/bottomFiltBef.png');
+}
+
+.leftFilterBlock .optionContain {
+
+}
+
+.optionContain input[type="checkbox"]:checked + label::before {
+    background-image: url("../img/checkedBrandFlag.png");
+    /*  background-repeat: no-repeat;
+      content: "";
+      display: inline-block;
+      height: 26px;
+      left: -3px;
+      position: relative;
+      top: 4px;
+      width: 26px;
+      vertical-align: top;*/
+}
+
+.optionContain input[type="checkbox"] + label::before {
+    background-image: url("../img/emptyCheckFilt.png");
+    /* background-repeat: no-repeat;
+     content: "";
+     display: inline-block;
+     height: 15px;
+     left: -3px;
+     position: relative;
+     top: 0;
+     width: 26px;*/
+
+}
+
+.optionContain label {
+    font: 14px/1 'PT Serif', serif;
+    display: block;
+    padding: 11px 0 3px;
+}
+
+.optionContain input[type="checkbox"] + label {
+    color: #7F7F7F;
+    cursor: pointer;
+}
+
+.optionContain input[type="checkbox"]:checked + label {
+    color: #262626;
+}
+
+.optionContain p {
+    margin-bottom: -6px;
+}
+
+.leftPanel {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 200px;
+    height: 100vh;
+    background-color: #F5F5F5;
+    padding: 20px;
+}
+
+.pageContainer {
+    font-family: "MuseoSansCyrl-500";
+    margin-left: 300px;
+    margin-top: 50px;
+}
+
+.pageContainer ol {
+    margin-left: 50px;
+}
+
+.range-slider {
+    position: relative;
+    height: 80px;
+}
+
+.typeBlockFilter {
+    border-bottom: 1px solid #e6e6e6;
+    padding: 15px 11px 15px 12px;
+    /*padding: 20px 11px 11px 12px;*/
+    position: relative;
+}
+
+.typeBlockFilter .close, .hiddenOform .close {
+    width: 20px;
+    height: 20px;
+    position: absolute;
+    top: 0;
+    right: 0;
+    background: transparent;
+    border-radius: 0 0 0 3px;
+    border-left: 1px solid #e6e6e6;
+    border-bottom: 1px solid #e6e6e6;
+    display: none;
+}
+
+.typeBlockFilter:last-child {
+    border-bottom: none;
+}
+
+.catalogElementsBlock .bigElementList li:nth-child(4n) {
+    margin-right: 0 !important;
+}
+
+.catalogElementsBlock .smallElementList li:nth-child(3n) {
+    margin-right: 0 !important;
+}
+
+.bottomHorNavig {
+    height: 68px;
+    width: 100%;
+    clear: both;
+    border-radius: 4px;
+    border: 1px solid #e6e6e6;
+    margin-top: 22px;
+}
+
+.bottomHorNavig .goToPageWrapp {
+    border-right: 1px solid #e6e6e6;
+    float: left;
+    padding: 14px 20px;
+}
+
+.bottomHorNavig .goToPageWrapp p {
+    float: left;
+    padding-top: 12px;
+}
+
+.bottomHorNavig .numbOfpageWrapp {
+    border-right: 1px solid #e6e6e6;
+    float: left;
+    padding: 14px 10px 14px 20px;
+}
+
+.bottomHorNavig .numbOfpageWrapp a {
+    border: 1px solid #e6e6e6;
+    color: #9b9b9b;
+    border-radius: 4px;
+    float: left;
+    font-family: "MuseoSansCyrl-500";
+    font-size: 14px;
+    margin-right: 9px;
+    padding: 10px 0;
+    text-align: center;
+    width: 40.05px;
+    height: 39px;
+    cursor: pointer;
+    text-decoration: none;
+    position: relative;
+    box-sizing: border-box;
+
+}
+
+.bottomHorNavig .numbOfpageWrapp a.prev:after {
+    content: "";
+    background: url(../img/arrows.png) no-repeat 0 -51px;
+    width: 6px;
+    height: 9px;
+    position: absolute;
+    top: 15px;
+    left: 15px;
+    display: block;
+}
+
+.bottomHorNavig .numbOfpageWrapp a.prev:hover:after {
+    background-position: 0 -60px;
+}
+
+.bottomHorNavig .numbOfpageWrapp a.next:after {
+    content: "";
+    background: url(../img/arrows.png) no-repeat -6px -51px;
+    width: 6px;
+    height: 9px;
+    position: absolute;
+    top: 15px;
+    left: 15px;
+    display: block;
+}
+
+.bottomHorNavig .numbOfpageWrapp a.next:after {
+    background-position: -6px -60px;
+}
+
+.bottomHorNavig .numbOfpageWrapp a:hover {
+    background: #edecea;
+    color: #737372;
+}
+
+.bottomHorNavig .goToPageWrapp div p {
+    /*padding: 0!important;*/
+}
+
+.bottomHorNavig .elemOnPageWrapp {
+    float: left;
+    padding: 14px 19px;
+}
+
+.bottomHorNavig .elemOnPageWrapp p {
+    float: left;
+    padding-top: 11px;
+    /*margin-right: 12px;*/
+}
+
+.bottomHorNavig .elemOnPageWrapp div {
+    /* background: rgba(0, 0, 0, 0) url("../img/recht6363.png") no-repeat scroll 56px 18px;
+     border: 1px solid #e6e6e6;
+     border-radius: 4px;
+     float: left;
+     padding: 10px 32px 10px 10px;*/
+}
+
+.bottomHorNavig p {
+    color: #000000;
+    font-size: 14px;
+    font-family: "MuseoSansCyrl-500";
+}
+
+.viewedTitle {
+    font-size: 24px !important;
+    font-family: "MuseoSansCyrl-900" !important;
+}
+
+.typeBlockFilter .accept {
+    background-color: #5db3dc;
+    border: medium none;
+    border-radius: 4px;
+    color: #fff;
+    font-family: "MuseoSansCyrl-500";
+    font-size: 13px;
+    padding: 13px 20px;
+    cursor: pointer;
+    margin: 5px 0 11px 8px;
+
+}
+
+.typeBlockFilter .accept:hover {
+    background-color: #58a8cf;
+}
+
+.typeBlockFilter .clear {
+    background-color: #EFEFEF;
+    border: medium none;
+    border-radius: 4px;
+    color: #7E7C7C;
+    font-family: "MuseoSansCyrl-500";
+    font-size: 13px;
+    padding: 13px 24px;
+    cursor: pointer;
+    float: right;
+    margin: 5px 6px 11px 0;
+}
+
+.typeBlockFilter .clear:hover {
+    background-color: #e3e3e3;
+}
+
+.typeBlockFilter .turnButton {
+    background-color: #FFFFFF;
+    border: 1px solid #CDCDCD;
+    border-radius: 4px;
+    color: #4D4D4D;
+    font-family: "MuseoSansCyrl-500";
+    font-size: 13px;
+    padding: 10px 65px;
+    cursor: pointer;
+    margin: -4px 0 10px 7px;
+}
+
+.typeBlockFilter .turnButton:hover {
+    background-color: #e7e7e7;
+}
+
+.horizontalFilterWrap .active {
+    border-color: #9A9A9A;
+    background-image: url('../img/activeFiltTriangle.png');
+}
+
+.settingsWrap .blockTitle {
+    background: url("../img/lkBlockCloseBack.png") no-repeat scroll 99.5% 7px;
+    border-bottom: 1px solid #d9d9d9;
+    color: #000;
+    font: 20px/1 "MuseoSansCyrl-700";
+    letter-spacing: 0.5px;
+    padding-bottom: 26px;
+    cursor: pointer;
+}
+
+.mainSectionWrap {
+}
+
+.settingsWrap {
+    margin-top: 22px;
+    clear: both;
+}
+
+.settingsWrap .settingsBlock {
+    display: none;
+    position: relative;
+}
+
+.inputBlock p {
+    color: #000;
+    font-size: 15px;
+    font-family: 'MuseoSansCyrl-700';
+}
+
+.inputBlock input {
+    border: 2px solid #d9d9d9;
+    border-radius: 4px;
+    font-family: "MuseoSansCyrl-500";
+    font-size: 15px;
+    height: 46px;
+    margin-top: 18px;
+    padding-left: 20px;
+    width: 546px;
+}
+
+.firstBlock > div {
+    float: left;
+}
+
+.settingsBlock .firstBlock {
+    border-bottom: 1px solid #dddddd;
+    height: 230px;
+    margin-top: 34px;
+    margin-bottom: 28px;
+}
+
+.inputBlock {
+    margin-bottom: 23px;
+}
+
+.shortInp {
+    float: left;
+}
+
+.shortInp input {
+    width: 246px;
+}
+
+.shortInp:nth-child(2) {
+    margin-right: 30px;
+}
+
+.firstBlock > div:first-child {
+    margin-right: 40px;
+}
+
+.secondBlock {
+
+}
+
+.settingsWrap:nth-child(2) {
+    /* margin-bottom: 50px;*/
+   /* margin-bottom: 26px;*/
+    margin-bottom: 0;
+    padding-bottom: 26px;
+}
+
+.settingsBlock .emailInp {
+    float: left;
+}
+
+.inputBlock input[type="checkbox"] + label::before {
+    background-image: url("../img/emptyCheckFilt.png");
+    background-repeat: no-repeat;
+    content: "";
+    display: inline-block;
+    height: 26px;
+    left: -3px;
+    position: relative;
+    /*top: 13px;*/
+    width: 26px;
+}
+
+.inputBlock input[type="checkbox"] + label {
+    color: #7f7f7f;
+}
+
+.inputBlock label {
+    font-family: "PT Serif", serif;
+    font-size: 16px;
+}
+
+.inputBlock input[type="checkbox"]:checked + label::before {
+    background-image: url("../img/checkedBrandFlag.png");
+    background-repeat: no-repeat;
+    content: "";
+    display: inline-block;
+    height: 26px;
+    left: -3px;
+    position: relative;
+    top: 14px;
+    width: 36px;
+}
+
+.settingsBlock .subscribeInp {
+    margin-left: 614px;
+    padding-top: 40px;
+}
+
+.settingsBlock .secondBlack {
+    border-bottom: 1px solid #dddddd;
+    height: 120px;
+    margin-bottom: 30px;
+}
+
+.settingsBlock .thirdBlack {
+    height: 120px;
+    margin-bottom: 28px;
+}
+
+.settingsWrap .inputBlock .cancelInp {
+    background-color: #e6e6e6 !important;
+    border: medium none !important;
+    color: #9b9b9b !important;
+    font-family: "MuseoSansCyrl-500" !important;
+    font-size: 15px !important;
+    height: 50px !important;
+    margin: 36px 16px 36px 42px !important;
+    padding-left: 0 !important;
+    width: 274px !important;
+    cursor: pointer;
+}
+
+.settingsWrap .inputBlock .cancelInp:hover {
+    background-color: #ddd !important;
+    color: #9b9b9b !important;
+}
+
+.settingsWrap .inputBlock .saveInp {
+    background-color: #5db3dc !important;
+    border: medium none !important;
+    color: #fff !important;
+    font-family: "MuseoSansCyrl-500" !important;
+    font-size: 15px !important;
+    height: 50px !important;
+    padding-left: 0 !important;
+    width: 274px !important;
+    cursor: pointer;
+}
+
+.settingsWrap .inputBlock .saveInp:hover {
+    background-color: #5dacd4 !important;
+}
+
+.ordersMenu a, .ordersMenu p {
+    float: left;
+    color: #B1B1B1;
+    font-size: 17px;
+    font-family: "MuseoSansCyrl-500";
+    cursor: pointer;
+    margin-right: 36px;
+    letter-spacing: 0.3px;
+}
+
+.settingsWrap .ordersMenu {
+    border-bottom: 1px solid #d9d9d9;
+    height: 34px;
+    margin-top: 27px;
+    margin-bottom: 40px;
+}
+
+.settingsWrap .ordersContainer {
+
+}
+
+.settingsWrap .orderContainer {
+    position: relative;
+    background-color: #F4F4F4;
+    border: 2px solid #F4F4F4;
+    border-radius: 4px;
+    font-family: "MuseoSansCyrl-500";
+    font-size: 20px;
+    color: #404040;
+    padding: 18px 29px;
+    margin-bottom: 20px;
+    cursor: pointer;
+    transition: top 0.2s;
+}
+
+.settingsWrap .ordersContainer1 {
+    padding-bottom: 20px;
+}
+
+.settingsWrap .statusLogo {
+    background-color: #dcdcdc;
+    border-radius: 26px;
+    font-size: 13px;
+    height: 26px;
+    width: 88px;
+    line-height: 26px;
+    position: absolute;
+    right: 30px;
+    text-align: center;
+    top: 17px;
+}
+
+.settingsWrap .orderContainer:nth-child(1n) {
+    background-color: #F4F4F4;
+}
+
+.settingsWrap .orderContainer:nth-child(1n) .statusLogo {
+    background-color: #dcdcdc;
+}
+
+.settingsWrap .orderContainer:nth-child(1n) .activeOrderTitle:after {
+    content: "";
+    display: inline-block;
+    width: 6px;
+    height: 9px;
+    margin: 8px 0 0 24px;
+    background: url(../img/arrows.png) no-repeat 0 0;
+    vertical-align: top;
+}
+
+.settingsWrap .orderContainer:nth-child(2n) {
+    background-color: #F2F6E4;
+    border-color: transparent;
+}
+
+.settingsWrap .orderContainer:nth-child(2n) .statusLogo {
+    background-color: #DDE8B2;
+}
+
+.settingsWrap .orderContainer:nth-child(3n) {
+    background-color: #E4F2F9;
+    border-color: transparent;
+}
+
+.settingsWrap .orderContainer:nth-child(3n) .statusLogo {
+    background-color: #BAE2F5;
+}
+
+.settingsWrap .orderContainer:nth-child(4n) {
+    background-color: #FFF8DA;
+    border-color: transparent;
+}
+
+.settingsWrap .orderContainer:nth-child(4n) .statusLogo {
+    background-color: #FCE47C;
+}
+
+.settingsWrap .orderContainer:nth-child(5n) {
+    background-color: #FFF0E9;
+    border-color: transparent;
+}
+
+.settingsWrap .orderContainer:nth-child(5n) .statusLogo {
+    background-color: #F8C6B1;
+}
+.settingsWrap .orderContainer.activeOrder {
+    border-color: #e0e0e0 !important;
+}
+.settingsWrap .activeOrder {
+    background-color: #FFFFFF !important;
+    border-radius: 4px;
+    border: 2px solid #E0E0E0;
+    padding: 0 !important;
+    position: relative;
+   /* top: -2px;*/
+    margin-bottom: 10px;
+
+}
+
+.settingsWrap .activeOrder table {
+    border-collapse: collapse;
+    margin-left: -1px;
+    width: 1180px;
+}
+
+.settingsWrap .activeOrder td {
+    border: 1px solid #E0E0E0;
+    height: 64px;
+}
+
+.settingsWrap .activeOrder th {
+    border: 1px solid #E0E0E0;
+    color: #808080;
+    font-family: "MuseoSansCyrl-500";
+    font-size: 15px;
+    height: 58px;
+}
+
+.settingsWrap .activeOrder th:nth-child(2) {
+    text-align: left;
+    padding-left: 28px;
+}
+
+.settingsWrap .activeOrder th:nth-child(3) {
+    text-align: left;
+    padding-left: 28px;
+}
+
+.settingsWrap .activeOrder .activeOrderTitle {
+    border-bottom: 2px solid #e0e0e0;
+    /*padding-left: 30px;
+    padding-top: 20px;
+    padding-bottom: 28px;*/
+    padding: 18px 29px;
+}
+
+.settingsWrap .activeOrder .orderListTitle {
+    font-family: "MuseoSansCyrl-500";
+    font-size: 16px;
+    color: #000000;
+    padding: 20px 28px;
+}
+
+.activeOrder .photoColumn {
+    width: 98px;
+    text-align: center;
+}
+
+.activeOrder .nameColumn {
+    width: 460px;
+    color: #000000;
+    font-size: 16px;
+    font-family: "MuseoSansCyrl-700";
+    vertical-align: top;
+    padding-left: 28px;
+    padding-top: 16px;
+}
+.activeOrder .nameColumn a {
+    color: inherit;
+    font: inherit;
+}
+.activeOrder .nameColumn a:hover {
+    text-decoration: underline;
+    color: #5db3dc !important;
+}
+
+.activeOrder .colorColumn {
+    color: #333333;
+    font-family: "MuseoSansCyrl-500";
+    font-size: 15px;
+    padding-left: 30px;
+    width: 166px;
+}
+
+.activeOrder .priceColumn {
+    width: 130px;
+    color: #000000;
+    font-size: 15px;
+    font-family: "MuseoSansCyrl-700";
+    text-align: center;
+}
+
+.activeOrder .quantityColumn {
+    width: 130px;
+    color: #000000;
+    font-size: 15px;
+    font-family: "MuseoSansCyrl-700";
+    text-align: center;
+}
+
+.activeOrder .finalPriceColumn {
+    color: #000000;
+    font-size: 15px;
+    font-family: "MuseoSansCyrl-700";
+    text-align: center;
+}
+
+.activeOrder .identificationNumber {
+    color: #8A8888 !important;
+    font-family: "MuseoSansCyrl-500";
+    font-size: 13px;
+    margin-top: 10px;
+    text-decoration: none !important;
+}
+
+.activeOrder .shipingWrap {
+    border-bottom: 1px solid #e0e0e0;
+    border-right: 1px solid #e0e0e0;
+    float: left;
+    height: 58px;
+    padding: 25px 28px 15px;
+    width: 334px;
+}
+
+.activeOrder .addressWrap {
+    border-bottom: 1px solid #e0e0e0;
+    border-right: 1px solid #e0e0e0;
+    float: left;
+    height: 58px;
+    padding: 25px 0 15px 31px;
+    width: 362px;
+}
+
+.activeOrder .addressWrap p {
+    font-size: 17px;
+    letter-spacing: -0.1px;
+}
+
+.activeOrder .paymentWrap {
+    border-bottom: 1px solid #e0e0e0;
+    float: left;
+    height: 58px;
+    padding: 25px 28px 15px;
+    width: 335px;
+    font-size: 17px;
+    letter-spacing: -0.1px;
+}
+
+.activeOrder .commentsBlock {
+    border-right: 1px solid #e0e0e0;
+    float: left;
+    padding: 26px 28px 24px;
+    width: 728px;
+    height: 98px;
+}
+
+.activeOrder .optionsTitle {
+    color: #999999;
+    font-size: 15px !important;
+    font-family: 'MuseoSansCyrl-500';
+    margin-bottom: 12px;
+}
+
+.activeOrder .optionsText {
+    color: #000000;
+    font-size: 17px;
+    font-family: 'MuseoSansCyrl-500';
+}
+
+.activeOrder .commentsText {
+    color: #404040;
+    font-family: "PT Serif", serif;
+    font-size: 17px;
+    font-style: italic;
+    line-height: 28px;
+    margin-top: 28px;
+    letter-spacing: -0.1px;
+    margin-right: 80px;
+}
+
+.activeOrder .finalBlockWrap {
+    float: left;
+    padding: 20px 0 20px 28px;
+}
+
+.activeOrder .finalBlockWrap p {
+    color: #000;
+    font-size: 22px;
+    font-family: "MuseoSansCyrl-900";
+    text-transform: uppercase;
+    margin-top: 5px;
+    margin-bottom: 22px;
+    letter-spacing: 2px;
+}
+
+.activeOrder .finalBlockWrap span {
+    font-size: 23px;
+}
+
+.activeOrder .changeBut {
+    background-color: #e5e5e5;
+    border: medium none;
+    border-radius: 4px;
+    color: #727272;
+    font-family: "MuseoSansCyrl-500";
+    font-size: 15px;
+    padding: 12px 42px;
+    margin-right: 15px;
+    cursor: pointer;
+}
+
+.activeOrder .changeBut:hover {
+    background-color: #dedede;
+}
+
+.activeOrder .cancelBut {
+    border: none;
+    background-color: #F9CEBB;
+    font-size: 15px;
+    font-family: "MuseoSansCyrl-500";
+    color: #000000;
+    border-radius: 4px;
+    padding: 12px 42px;
+    cursor: pointer;
+}
+
+.activeOrder .cancelBut:hover {
+    background-color: #f0c4b3;
+}
+
+
+.disableOrder {
+
+}
+
+.orderContainer .orderBodyWrap {
+    display: none;
+    opacity: 0;
+    transition: opacity 0.3s;
+}
+
+.settingsWrap .activeOrder {
+    /*height: auto;*/
+    opacity: 1;
+}
+
+.settingsWrap .activeOrder:after {
+    content: "";
+    display: block;
+    clear: both;
+}
+
+.activeOrder .orderBodyWrap {
+    /*display: none;*/
+    opacity: 1;
+}
+
+.orderBodyWrap tr:hover .nameColumn p {
+    color: #5DB3DC;
+    text-decoration: underline;
+}
+
+.inputBlock input:focus {
+    border-color: #83D0F5;
+    background-color: #F4FAFD;
+    color: #48AAD8 !important;
+}
+
+.lasrBreadCrump:before {
+    content: url('../img/activeBreadCrumpImg.png') !important;
+    left: -2px;
+    position: relative;
+    top: -2px;
+}
+
+.lasrBreadCrump a {
+    color: #7ABEE1 !important;
+}
+
+.settingsWrap .active {
+    background: url("../img/bottonOpenBlock.png") no-repeat 99.5% 10px;
+}
+
+.ordersMenu .activeElement {
+    border-bottom: 3px solid black;
+    color: #000;
+    padding-bottom: 11px;
+}
+
+.blockTitle span {
+    border: 1px solid #dddddd;
+    border-radius: 30px;
+    color: #000000;
+    display: inline-block;
+    font-family: "MuseoSansCyrl-900";
+    font-size: 15px;
+    margin: 0 -6px 0 14px;
+    padding: 2px 5px;
+    text-align: center;
+    width: 22px;
+}
+
+.blockTitle .whiteCount {
+    display: none;
+}
+
+.blockTitle .redCount {
+    background-color: #F8C6B1;
+    border-color: #F8C6B1;
+    margin-left: 24px;
+    display: none;
+}
+
+.blockTitle .blueCount {
+    background-color: #BAE2F5;
+    border-color: #BAE2F5;
+    display: none;
+}
+
+.blockTitle .greenCount {
+    background-color: #DDE8B2;
+    border-color: #DDE8B2;
+    display: none;
+}
+
+.hidingMenu {
+    background-color: #fff !important;
+    box-shadow: 0 0 13px 0px rgba(221, 221, 221, 1);
+    left: 0;
+    position: absolute;
+    top: 44px;
+    z-index: 199;
+    display: none;
+}
+
+.hidingMenu p {
+    border-bottom: 1px solid #e6e6e6;
+    padding: 10px 30px;
+    width: 81px;
+    color: #747474;
+}
+
+.hidingMenu p:last-child {
+    border-bottom: none;
+}
+
+.hidingMenu p:before {
+    position: relative;
+    left: 10px !important;
+    top: 10px !important;
+}
+
+.hidingMenu p:hover {
+    color: #000000;
+}
+
+.typeBlockFilter .optionContain {
+    /* display: none;*/
+    /*padding-bottom: 14px;*/
+    padding-bottom: 6px;
+    padding-left: 6px;
+    width: 255px;
+    overflow: hidden;
+}
+
+.firstFilter .firstFiltElement1:before {
+    content: url('../img/arrow943.png');
+    position: absolute;
+    top: 0px;
+    left: -20px;
+}
+
+.firstFilter .firstFiltElement2:before {
+    content: url('../img/arrow325.png');
+    position: absolute;
+    top: 0px;
+    left: -20px;
+}
+
+.firstFilter .firstFiltElement3:before {
+    content: url('../img/arrow753.png');
+    position: absolute;
+    top: 0px;
+    left: -20px;
+}
+
+.firstFilter .firstFiltElement4:before {
+    content: url('../img/arrow955.png');
+    position: absolute;
+    top: 0px;
+    left: -20px;
+}
+
+.secondFilter .hidingMenu p {
+
+}
+
+.secondFilter .hidingMenu {
+
+}
+
+.quantityWrap .quantOnPageFilt {
+    position: relative;
+    background: rgba(0, 0, 0, 0) url("../img/recht6363.png") no-repeat scroll 56px 17px;
+    border: 1px solid #cccccc;
+    border-radius: 4px;
+    float: left;
+    padding: 0 8px 9px 11px;
+    width: 60px;
+}
+
+.quantOnPageFilt .hidingMenu p {
+    width: 20px;
+}
+
+#activeQuantOnPage {
+    padding: 10px 2px 2px;
+}
+
+.horizontalFilterWrap .quantOnPageFilt {
+    cursor: pointer;
+}
+
+.quantOnPageFiltBot {
+    background: rgba(0, 0, 0, 0) url("../img/recht6363.png") no-repeat scroll 56px 17px;
+    border: 1px solid #cccccc;
+    border-radius: 4px;
+    float: left;
+    padding: 0px 8px 10px 11px;
+    position: relative;
+    width: 60px;
+}
+
+.quantOnPageFiltBot .hidingMenu p {
+    width: 20px;
+}
+
+.quantOnPageFiltBot {
+    cursor: pointer;
+}
+
+#activeQuantOnPageBot {
+    padding: 12px 2px 0;
+}
+
+.quantityFiltTitle {
+    float: left;
+    margin-right: 12px;
+    padding-top: 11px;
+}
+
+.goToPageFilter {
+    background: rgba(0, 0, 0, 0) url("../img/recht6363.png") no-repeat scroll 56px 17px;
+    border: 1px solid #e6e6e6;
+    border-radius: 4px;
+    float: left;
+    margin-right: -2px;
+    padding: 0 10px 10px 12px;
+    position: relative;
+    width: 56px;
+    cursor: pointer;
+}
+
+.goToPageTitle {
+    margin-right: 10px;
+}
+
+.goToPageFilter .hidingMenu p {
+    width: 18px !important;
+    cursor: pointer;
+}
+
+.indexBottomTitle {
+    font-family: "MuseoSansCyrl-500";
+    font-size: 20px;
+}
+
+.leftMenuTitleMain {
+    border-bottom: 1px solid #e6e6e6;
+    color: #8f8f8f;
+    font-family: "MuseoSansCyrl-500";
+    font-size: 15px;
+    margin-top: -3px;
+    padding-bottom: 22px;
+    padding-left: 16px;
+    position: relative;
+}
+
+.leftMenuTitleMain:after {
+    content: url("../img/mainTitleAfterMenu.png");
+    left: 252px;
+    position: absolute;
+    top: 1px;
+}
+
+.leftMenuTitleMain img {
+    margin-right: 16px;
+    position: relative;
+    top: 4px;
+}
+
+.thirdLevel .secondLvlLeftMenu, .thirdLevel .thirdLvlLeftMenu {
+    border: 1px solid #e6e6e6;
+    border-radius: 4px;
+    float: left;
+    height: 496px;
+    margin-right: 22px;
+    padding-top: 22px;
+    width: 276px;
+    position: relative;
+    overflow: hidden;
+}
+
+.secondLvlLeftMenu li {
+    border-bottom: 1px solid #e6e6e6;
+    color: #4d4d4d;
+    font-family: "VentiCF-Black";
+    font-size: 11px;
+    padding: 12px 0 13px;
+    position: relative;
+    text-transform: uppercase;
+    cursor: pointer;
+}
+
+.secondLvlLeftMenu li:after {
+    content: url("../img/plusMainLeftMenu.png");
+    left: 228px;
+    position: absolute;
+    top: 13px;
+}
+
+.secondLvlLeftMenu ul {
+    padding: 9px 0 0 20px;
+    height: 359px;
+}
+
+.bottomBlockMailLeft {
+    position: absolute;
+    z-index: 300;
+    bottom: 0;
+    left: 0;
+    background-color: #FFFFFF;
+    border-top: 1px solid #E6E6E6;
+    width: 100%;
+    height: 80px;
+    display: none;
+}
+
+.bottomBlockMailLeft p {
+    border: 1px solid #9fe5ff;
+    border-radius: 4px;
+    margin: 20px 18px 0;
+    padding: 10px 0;
+    text-align: center;
+}
+
+.bottomBlockMailLeft a {
+    text-decoration: none;
+    font-family: "MuseoSansCyrl-500";
+    font-size: 13px;
+    color: #5DB3DC !important;
+}
+
+.bottomBlockMailLeft .link2 {
+    display: none;
+}
+
+.basketBody .basketBodyMenu, .tabs .tabsLinks {
+    border-bottom: 1px solid #dddddd;
+    color: #b1b1b1;
+    font-family: "MuseoSansCyrl-500";
+    font-size: 20px;
+    margin-bottom: 42px;
+
+}
+
+.tabs .tabsLinks {
+    margin-bottom: 52px;
+}
+
+.basketBody .basketBodyMenu a, .tabs .tabsLinks a {
+    display: inline-block;
+    cursor: pointer;
+    margin-right: 30px;
+    padding-bottom: 16px;
+    position: relative;
+    color: inherit;
+}
+
+.basketBody .basketBodyMenu a.active, .tabs .tabsLinks a.active {
+    color: #000;
+}
+
+.basketBody .basketBodyMenu a.active:after, .tabs .tabsLinks a.active:after {
+    content: "";
+    position: absolute;
+    bottom: -1px;
+    left: 0;
+    width: 100%;
+    height: 2px;
+    background: #5db3dc;
+}
+
+.tabs .tabsLinks a.active:after {
+    background: #000;
+}
+
+.basketBody th, .basketBody td {
+    border: 1px solid #E0E0E0;
+    height: 58px;
+}
+
+.basketBody table {
+    border-collapse: collapse;
+    width: 100%;
+}
+
+.basketBody {
+    padding-top: 8px;
+    margin-bottom: 100px;
+}
+
+.tabs {
+    padding-top: 8px;
+    margin-bottom: 0;
+}
+
+.basketBody th.elementName {
+    color: #5a5a5a;
+    font: 15px/1 "MuseoSansCyrl-500";
+
+    padding-bottom: 2px;
+    padding-left: 28px;
+    padding-top: 1px;
+    text-align: left;
+    width: 430px;
+}
+
+.basketBody td.elementName {
+    height: 110px !important;
+}
+
+.basketBody .elementName img {
+    display: inline;
+    max-height: 68px;
+    max-width: 68px;
+    vertical-align: middle;
+}
+
+.basketBody .elementName div {
+    border: 1px solid #e0e0e0;
+    border-radius: 60px;
+    font-size: 0;
+    height: 68px;
+    line-height: 68px;
+    margin-left: 28px;
+    overflow: hidden;
+    text-align: center;
+    vertical-align: middle;
+    width: 68px;
+    float: left;
+    margin-right: 24px;
+}
+
+.basketBody .elementName .elementTitle {
+    color: #000;
+    font-size: 17px;
+    font-family: "MuseoSansCyrl-700";
+    margin-top: 12px;
+    cursor: pointer;
+    display: inline-block;
+}
+
+.basketBody .elementName .elementTitle span {
+    border-bottom: 1px solid transparent;
+}
+
+.basketBody .elementName .elementTitle:hover span {
+    color: #5DB3DC;
+    border-bottom-color: #5DB3DC;
+}
+
+.basketBody tr:hover .elementTitle:after {
+    content: '';
+    width: 3px;
+    height: 100%;
+    background: #5db3dc;
+    position: absolute;
+    top: 0;
+    left: -1px;
+}
+
+/*
+.basketBody .elementName .elementTitle:hover:before {
+    content: "";
+    width: 1182px;
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    box-shadow: 0 10px 10px 10px #f1f8fc;
+    z-index: 5;
+    opacity: 0.7;
+}*/
+.basketBody .elementName .elemendCode {
+    color: #807D7D;
+    font: 14px/1 "MuseoSansCyrl-500";
+    text-transform: uppercase;
+    margin-top: 8px;
+}
+
+.basketBody th.elementColor {
+    color: #5a5a5a;
+    font: 15px/1 "MuseoSansCyrl-500";
+    padding-bottom: 2px;
+    padding-left: 28px;
+    padding-top: 1px;
+    text-align: left;
+    width: 200px;
+}
+
+.basketBody th.elementPrice {
+    color: #5a5a5a;
+    font: 15px/1 "MuseoSansCyrl-500";
+    padding-bottom: 2px;
+    padding-top: 1px;
+    text-align: center;
+    width: 144px;
+}
+
+.basketBody th.elementQuant {
+    color: #5a5a5a;
+    font: 15px/1 "MuseoSansCyrl-500";
+    padding-bottom: 2px;
+    padding-top: 1px;
+    text-align: center;
+    width: 136px;
+}
+
+.basketBody th.elementFinalPrice {
+    color: #5a5a5a;
+    font: 15px/1 "MuseoSansCyrl-500";
+    padding-bottom: 2px;
+    padding-top: 1px;
+    text-align: center;
+    width: 140px;
+}
+
+.basketBody th.elementActions {
+    color: #5a5a5a;
+    font: 15px/1 "MuseoSansCyrl-500";
+    padding-bottom: 2px;
+    padding-top: 1px;
+    text-align: center;
+    width: 134px;
+}
+
+.basketBody td.elementPrice p {
+    color: #000;
+    font: 15px/1 "MuseoSansCyrl-500";
+    text-align: center;
+}
+
+.basketBody td.elementFinalPrice p {
+    color: #000;
+    font-size: 15px;
+    font-family: "MuseoSansCyrl-700";
+    text-align: center;
+}
+
+.elementQuant div {
+    margin: 0 auto;
+    width: 72px;
+    height: 34px;
+    position: relative;
+    left: 3px;
+}
+
+.elementQuant input {
+    border: 1px solid #dddddd;
+    border-bottom-left-radius: 4px;
+    border-top-left-radius: 4px;
+    box-shadow: none;
+    color: #000;
+    font-family: MuseoSansCyrl-700;
+    font-size: 15px;
+    height: 32px;
+    text-align: center;
+    width: 48px;
+}
+
+.elementQuant .quantityPlus {
+    border-bottom: 1px solid #dddddd;
+    border-right: 1px solid #dddddd;
+    border-top: 1px solid #dddddd;
+    border-top-right-radius: 4px;
+    display: block;
+    height: 15px;
+    margin-right: 3px;
+    position: absolute;
+    right: 0;
+    top: 0;
+    width: 19px;
+}
+
+.elementQuant .quantityMinus {
+    border-bottom: 1px solid #dddddd;
+    border-right: 1px solid #dddddd;
+    border-bottom-right-radius: 4px;
+    display: block;
+    height: 16px;
+    margin-right: 3px;
+    position: absolute;
+    right: 0;
+    bottom: 0;
+    width: 19px;
+}
+
+.basketBody .discountsBlock {
+    border-bottom: 1px solid #dddddd;
+    border-left: 1px solid #dddddd;
+    border-right: 1px solid #dddddd;
+    height: 348px;
+    padding: 38px 25px 0 30px;
+    width: 593px;
+    float: left;
+    position: relative;
+}
+
+.basketBody .decorBlock {
+    border-bottom: 1px solid #dddddd;
+    border-right: 1px solid #dddddd;
+    height: 333px;
+    margin-left: 650px;
+    padding: 38px 25px 15px 30px;
+}
+
+.basketBody .discountsBlock .titleText {
+    border-bottom: 1px solid #dddddd;
+    color: #000;
+    font-family: "MuseoSansCyrl-700";
+    font-size: 19px;
+    padding-bottom: 35px;
+
+}
+
+.basketBody .discountsBlock > .titleText, .basketBody .decorBlock > .titleText {
+    letter-spacing: 1px;
+}
+
+.basketBody .discountBodyBlock {
+    background: rgba(0, 0, 0, 0) url("../img/basketBackSale.png") no-repeat scroll 0 0;
+    margin-top: 30px;
+    padding: 26px 30px;
+    position: relative;
+    height: 176px;
+}
+
+.basketBody .discountBodyBlock .titleText {
+    padding-bottom: 2px;
+    border-bottom: none;
+    letter-spacing: 0.2px;
+}
+
+.basketBody .discountBodyBlock .bodyText {
+    color: #807d7d;
+    font-family: "MuseoSansCyrl-500";
+    font-size: 15px;
+    line-height: 25px;
+    padding-top: 2px;
+    width: 268px;
+}
+
+.discountBodyBlock .orangeRound {
+    background-color: #f9d5bf;
+    border-radius: 80px;
+    color: #d76f41;
+    font-family: "MuseoSansCyrl-700";
+    font-size: 42px;
+    height: 120px;
+    line-height: 120px;
+    position: absolute;
+    right: 31px;
+    text-align: center;
+    top: 80px;
+    width: 120px;
+}
+
+.discountBodyBlock .yellowRound {
+    background-color: #fce47c;
+    border-radius: 50px;
+    color: #a3934f;
+    font-family: "MuseoSansCyrl-700";
+    font-size: 17px;
+    height: 56px;
+    line-height: 56px;
+    position: absolute;
+    right: 186px;
+    text-align: center;
+    top: 128px;
+    width: 56px;
+}
+
+.discountBodyBlock .greenRound {
+    background-color: #dbe4b7;
+    border-radius: 56px;
+    color: #98a955;
+    font-family: "MuseoSansCyrl-700";
+    font-size: 27px;
+    height: 78px;
+    line-height: 78px;
+    position: absolute;
+    right: 154px;
+    text-align: center;
+    top: 30px;
+    width: 78px;
+}
+
+.discountBodyBlock .salesDetail {
+    color: #676767;
+    font-size: 14px;
+    font-family: "MuseoSansCyrl-500";
+    text-decoration: none;
+}
+
+.discountBodyBlock .salesDetail p {
+    border: 1px solid #dadada;
+    border-radius: 4px;
+    margin-top: 51px;
+    padding: 14px 20px 13px;
+    width: 78px;
+    background: #f6f6f3;
+}
+
+.discountBodyBlock .salesDetail p:hover {
+    background: #f0f0ed;
+}
+
+.basketBody .decorBlock .titleText {
+    border-bottom: 1px solid #dddddd;
+    color: #000;
+    font-family: "MuseoSansCyrl-700";
+    font-size: 19px;
+    padding-bottom: 35px;
+    margin-bottom: 24px;
+}
+
+.decorBlock .orderPrice {
+    font-family: "MuseoSansCyrl-500";
+    font-size: 16px;
+    position: relative;
+    color: #262525;
+    border-bottom: 1px solid #E6E6E6;
+    margin-bottom: 20px;
+    padding-bottom: 11px;
+}
+
+.decorBlock .orderDiscount {
+    font-family: "MuseoSansCyrl-500";
+    font-size: 16px;
+    position: relative;
+    color: #EA8B64;
+    border-bottom: 1px solid #F5C9B7;
+    margin-bottom: 20px;
+    padding-bottom: 14px;
+}
+
+.decorBlock .orderBonus {
+    font-family: "MuseoSansCyrl-500";
+    font-size: 16px;
+    position: relative;
+    color: #A5A5A5;
+    border-bottom: 1px solid #E6E6E6;
+    margin-bottom: 20px;
+    padding-bottom: 10px;
+}
+
+.decorBlock .orderSertificate {
+    font-family: "MuseoSansCyrl-500";
+    font-size: 16px;
+    position: relative;
+    color: #A5A5A5;
+    border-bottom: 1px solid #E6E6E6;
+    margin-bottom: 25px;
+    padding-bottom: 10px;
+}
+
+.decorBlock .totalPrice {
+    color: #000;
+    font-family: "MuseoSansCyrl-700";
+    font-size: 32px;
+    position: relative;
+    left: -2px;
+    top: -4px;
+    letter-spacing: 0.8px;
+}
+
+.decorBlock .orderPrice span, .decorBlock .orderDiscount span, .decorBlock .orderBonus span, .decorBlock .orderSertificate span {
+    position: absolute;
+    right: 4px;
+    top: 1px;
+}
+
+.decorBlock .totalPrice > span {
+    position: absolute;
+    right: -1px;
+    letter-spacing: 1.3px;
+}
+
+.couponInputBlock {
+    border-bottom: 1px solid #e6e6e6;
+    border-left: 1px solid #e6e6e6;
+    border-right: 1px solid #e6e6e6;
+    clear: both;
+    float: left;
+    padding: 30px;
+    width: 588px;
+}
+
+.couponInputBlock input {
+    border: 1px solid #dadada;
+    border-radius: 4px;
+    color: #807d7d;
+    font: 15px/1 "MuseoSansCyrl-500";
+    padding: 14px 28px;
+    width: 326px;
+}
+
+.couponInputBlock ::-webkit-input-placeholder {
+    color: #807d7d;
+}
+
+.couponInputBlock :-moz-placeholder {
+    color: #807d7d;
+}
+
+.couponInputBlock button {
+    border: medium none;
+    border-radius: 4px;
+    padding: 14px 36px;
+    cursor: pointer;
+    font-size: 15px;
+    font-family: "MuseoSansCyrl-500";
+    background-color: #5db3dc;
+    color: #fff;
+    float: right;
+    display: block;
+    margin-right: 4px;
+    box-shadow: 0 3px 15px 6px #e3f2f9;
+}
+
+.couponInputBlock button:hover {
+    background-color: #59afd6;
+}
+
+.couponInputBlock button:disabled {
+    background-color: #f2f2ef !important;
+    color: #989898 !important;
+    box-shadow: none;
+}
+
+.orderConfirmBlock {
+    border-bottom: 1px solid #e6e6e6;
+    border-right: 1px solid #e6e6e6;
+    margin-left: 655px;
+    padding: 28px 26px;
+}
+
+.orderConfirmBlock a {
+    color: #fff;
+    font-family: "MuseoSansCyrl-500";
+    font-size: 15px;
+}
+
+.orderConfirmBlock p {
+    background-color: #5db3dc;
+    border-radius: 4px;
+    padding: 17px 0;
+    text-align: center;
+    margin-right: 5px;
+    box-shadow: 0 3px 15px 6px #e3f2f9;
+}
+
+.orderConfirmBlock p:hover {
+    background-color: #59afd6;
+}
+
+.quantityPlus {
+    background: rgba(0, 0, 0, 0) url("../img/arrowMoreProd.png") no-repeat scroll 7px 5px;
+}
+
+.quantityPlus:hover {
+    background: rgba(0, 0, 0, 0) url("../img/arrowHoverBasketQuant.png") no-repeat scroll 7px 5px;
+}
+
+.quantityMinus {
+    background: rgba(0, 0, 0, 0) url("../img/bottomOrderQuant.png") no-repeat scroll 7px 6px;
+}
+
+/*
+td.elementQuant .quantityMinus:hover {
+    background: rgba(0, 0, 0, 0) url("../img/arrowHoverBasketQuant.png") no-repeat scroll 6px 6px;
+    -webkit-transform: rotate(180deg);
+    -moz-transform: rotate(180deg);
+    -ms-transform: rotate(180deg);
+    -o-transform: rotate(180deg);
+    transform: rotate(180deg);
+    border-top: 1px solid #dddddd;
+    border-left: 1px solid #dddddd;
+    border-bottom: none;
+    border-right: none;
+}*/
+
+.elementActions {
+    font-size: 1px;
+    text-align: center;
+}
+
+.elementActions .likedButton {
+    background: url('../img/dctLk.png') no-repeat;
+    vertical-align: top;
+    display: inline-block;
+    width: 36px;
+    height: 36px;
+    margin: 0 5px;
+}
+
+.elementActions .likedButton:hover {
+    background-position: -36px 0;
+}
+
+.elementActions .likedButton.activeLikeBut {
+    background-position: -72px 0;
+}
+
+.elementActions .productBasketBlock {
+    background: url("../img/dktBaskt.png") no-repeat 0 0;
+    border-radius: 40px;
+    width: 36px;
+    height: 36px;
+    margin: 0 5px;;
+    display: inline-block;
+    vertical-align: top;
+}
+
+.elementActions .productBasketBlock:hover {
+    background-position: -36px 0;
+}
+
+.elementActions .productBasketBlock.active {
+    background-position: -72px 0;
+}
+
+.basketBodyMenu .activeBasketBlock {
+    border-bottom: 3px solid #5db3dc;
+    color: #000000;
+    margin-bottom: -2px;
+    padding-bottom: 13px;
+}
+
+/*
+.discountsBlock .discountsSliderWrap{
+    padding-top: 28px;
+    overflow: hidden;
+}*/
+.discountsBlock .discountSlideBlock {
+    background: rgba(0, 0, 0, 0) url("../img/backImgSliderDiscounts.png") no-repeat scroll 0 0;
+    display: inline-block;
+    height: 232px;
+    margin-right: 20px;
+    width: 180px;
+}
+
+.discountsBlock .jcarousel li {
+    width: 205px;
+}
+
+.discountsBlock li:nth-child(3n) {
+
+}
+
+.discountsBlock li:nth-child(3n+1) {
+
+}
+
+.discountsBlock li:nth-child(3n+2) {
+
+}
+
+.discountValueBlock {
+    border: 1px solid #E5E5E5;
+    border-radius: 50px;
+    color: #000;
+    font-family: "MuseoSansCyrl-700";
+    font-size: 22px;
+    height: 70px;
+    line-height: 70px;
+    margin: 30px 52px 14px;
+    text-align: center;
+    width: 70px;
+    position: relative;
+}
+
+.discountNameBlock {
+    color: #000;
+    font-family: "MuseoSansCyrl-700";
+    font-size: 18px;
+    text-align: center;
+}
+
+.discountTextBlock {
+    border-top: 1px solid #e6e6e6;
+    color: #807d7d;
+    font-family: "MuseoSansCyrl-500";
+    font-size: 15px;
+    line-height: 20px;
+    margin-top: 18px;
+    padding: 14px 18px;
+}
+
+.discountTextBlock span {
+    color: #99A668;
+}
+
+.discountsBlock .rightArrow {
+    background: rgba(0, 0, 0, 0) url("../img/rightSliderArrow.png") no-repeat scroll 14px 13px;
+    border: 1px solid #d9d9d9;
+    border-bottom-right-radius: 4px;
+    border-top-right-radius: 4px;
+    cursor: pointer;
+    height: 38px;
+    position: absolute;
+    right: 35px;
+    top: 28px;
+    width: 38px;
+}
+
+.discountsBlock .leftArrow {
+    background: rgba(0, 0, 0, 0) url("../img/leftSliderArrowInactive.png") no-repeat scroll 14px 13px;
+    border: 1px solid #d9d9d9;
+    border-bottom-left-radius: 4px;
+    border-top-left-radius: 4px;
+    cursor: pointer;
+    height: 38px;
+    margin-right: -1px;
+    position: absolute;
+    right: 75px;
+    top: 28px;
+    width: 38px;
+}
+
+.elementActions .activeDelBut {
+    border-color: #C1C1C1;
+    background-image: url('../img/delactivebutbasket.png');
+}
+
+.whileWeWrapper table {
+    border: 1px solid #d9d9d9;
+    border-collapse: collapse;
+}
+
+.footerTable {
+    border-collapse: collapse;
+}
+
+.footerTable td {
+    border: 1px solid #d9d9d9;
+}
+
+.elementQuant div:hover input {
+    color: #5DB3DC;
+}
+
+.discountValueBlock p {
+    left: 21px;
+    position: absolute;
+    top: 0;
+}
+
+.firstLvlLi > a {
+    color: #4D4D4D;
+    text-transform: uppercase !important;
+    font-size: 12px !important;
+    font-family: "VentiCF-Black" !important;
+    display: block;
+    position: relative;
+    z-index: 10;
+}
+
+.firstLvlLi:last-child {
+    border-bottom: none;
+    margin-bottom: 0;
+}
+
+li[data-pos="39"] .firstLvlLi:last-child {
+    margin-bottom: 19px;
+}
+
+.secondLvl > li a {
+    font-size: 13px !important;
+    font-family: "MuseoSansCyrl-500", 'PT Serif', serif !important;
+    text-transform: none !important;
+    color: #818181 !important;
+    display: block;
+    padding: 2px 0;
+}
+
+.secondLvl > li a:hover {
+    color: #000 !important;
+}
+
+.secondLvl {
+    display: none;
+    margin-bottom: -4px;
+    padding: 8px 4px 0;
+}
+
+.firstLvl {
+    padding: 20px 18px 0 18px;
+}
+
+.firstLvlLi {
+    border-bottom: 1px solid #e6e6e6;
+    padding-bottom: 10px;
+    padding-top: 10px;
+    position: relative;
+}
+
+.firstLvlLi::after {
+    content: url("../img/plusMainLeftMenu.png");
+    left: 230px;
+    position: absolute;
+    top: 9px;
+}
+
+.activeFirstLclLi {
+    border: none !important;
+}
+
+.activeFirstLclLi a {
+    color: #5DB3DC !important;
+}
+
+.activeFirstLclLi::after {
+    content: url("../img/minusListMainMenuHover.png") !important;
+    left: 228px !important;
+    top: 10px !important;
+}
+
+.secondLvl > li {
+    border: medium none !important;
+    padding: 0 0 5px;
+}
+
+.activeFirstLclLi > a > p {
+    border-bottom: 1px solid #C2E2F2;
+    padding-bottom: 13px;
+}
+
+.activeLiTopMenuFirstLvl:hover {
+    border: none !important;
+}
+
+.mainLeftMenu > ul > div > div > li {
+    cursor: pointer;
+}
+
+.mainLeftMenu > ul > div > div > li:after {
+    content: url("../img/backLiMenu.png");
+    left: 252px;
+    position: absolute;
+    top: 0;
+    transform: rotate(0deg);
+    transition: all 0.3s ease 0s;
+}
+
+.mainLeftMenu > ul > div > div > li:hover:after {
+    content: url("../img/backLihover.png");
+}
+
+.mainLeftMenu > ul > div > div > li.hover:before {
+    content: "";
+    display: block;
+    width: 2px;
+    height: 100%;
+    background: #000;
+    position: absolute;
+    left: 0px;
+    top: 0;
+}
+
+.activeLiTopMenuFirstLvl:before {
+    display: none !important;
+}
+
+.orderWrapperBlock {
+    border-radius: 4px;
+    display: inline-block;
+    margin-right: 16px;
+    overflow: hidden;
+    width: 280px;
+}
+
+.orderWrapperBlock:nth-child(4n) {
+    margin-right: 0px;
+}
+
+.orderWrapperBlock .billTitleBlock {
+    /*background-color: #ECECEC;*/
+    position: relative;
+    border-radius: 4px 4px 0 0;
+}
+
+.orderWrapperBlock .billBodyBlock {
+    /*background-color: #F5F5F5;*/
+}
+
+.orderWrapperBlock .billStatus {
+    /*background-color: #fce47c;*/
+    border-radius: 50px;
+    color: #000000;
+    font-family: "MuseoSansCyrl-500";
+    font-size: 13px;
+    left: 190px;
+    padding: 4px 8px;
+    position: absolute;
+    top: 20px;
+    width: 56px;
+}
+
+.orderWrapperBlock li:nth-child(1) .billStatus {
+    left: 194px;
+}
+
+.orderWrapperBlock .billDate {
+    color: #000000;
+    font-family: "MuseoSansCyrl-500";
+    font-size: 15px;
+    margin: 0;
+    padding: 24px 22px 0;
+}
+
+.orderWrapperBlock .billId {
+    color: #000000;
+    font-family: "MuseoSansCyrl-900";
+    font-size: 22px;
+    padding: 14px 20px 18px;
+}
+
+.orderWrapperBlock .actsId {
+    color: #000000;
+    font-family: "MuseoSansCyrl-900";
+    font-size: 22px;
+    padding: 60px 20px 16px;
+}
+
+.orderWrapperBlock .sumTitle {
+    color: #aeaeae;
+    font-family: "MuseoSansCyrl-500";
+    font-size: 14px;
+    padding: 16px 20px 3px;
+}
+
+.orderWrapperBlock .sumText {
+    border-bottom: 1px solid #dfdfdf;
+    color: #000;
+    font-family: "MuseoSansCyrl-900";
+    font-size: 15px;
+    margin: 6px 20px 14px;
+    padding-bottom: 16px;
+    letter-spacing: -0.5px;
+}
+
+.orderWrapperBlock .contractorTitle {
+    color: #aeaeae;
+    font-family: "MuseoSansCyrl-500";
+    font-size: 14px;
+    margin: 0 20px;
+}
+
+.orderWrapperBlock .contractorText {
+    border-bottom: 1px solid #dfdfdf;
+    color: #000;
+    font-family: "MuseoSansCyrl-500";
+    font-size: 15px;
+    margin: 6px 20px 12px;
+    padding-bottom: 18px;
+
+}
+
+.orderWrapperBlock {
+    border-radius: 4px;
+}
+
+.orderWrapperBlock .providerTitle {
+    color: #aeaeae;
+    font-family: "MuseoSansCyrl-500";
+    font-size: 14px;
+    padding: 0 20px;
+
+}
+
+.orderWrapperBlock .providerText {
+    border-bottom: 1px solid #dfdfdf;
+    color: #000;
+    font-family: "MuseoSansCyrl-500";
+    font-size: 15px;
+    padding: 6px 20px 20px;
+}
+
+.orderWrapperBlock .downloadIcon {
+    background: url("../img/downloadIconLk.png") no-repeat scroll 11px 11px;
+    border-radius: 50px;
+    display: block;
+    float: right;
+    height: 36px;
+    margin: 19px 20px 0 0;
+    width: 36px;
+}
+
+.orderWrapperBlock .downloadIcon:hover, .orderWrapperBlock .printIcon:hover {
+    opacity: 0.8;
+}
+
+.orderWrapperBlock .printIcon {
+    background: rgba(0, 0, 0, 0) url("../img/printLkIcon.png") no-repeat scroll 8px 9px;
+    border: 1px solid #ceccc1;
+    border-radius: 50px;
+    display: block;
+    float: right;
+    height: 36px;
+    margin: 19px 4px 0 0;
+    width: 36px;
+}
+
+.orderWrapperBlock .billDocument {
+    border-bottom: medium none #ecdfa7;
+    color: #dba500;
+    display: block;
+    font-family: "MuseoSansCyrl-500";
+    font-size: 15px;
+    margin: 22px 22px 34px;
+}
+
+.orderWrapperBlock .billDocument a {
+    border-bottom: 1px solid;
+    color: #dba500;
+    font-family: "MuseoSansCyrl-500";
+    font-size: 15px;
+    padding-bottom: 6px;
+}
+
+.orderWrapperBlock .billDocument a:hover {
+    border-bottom-color: transparent !important;
+}
+
+.orderWrapperBlock .billComposition {
+    height: 46px;
+    padding: 24px;
+    text-align: center;
+    border-top: 1px solid #dfdfdf;
+}
+
+.orderWrapperBlock .billComposition a {
+    border-radius: 4px;
+    color: #000;
+    display: block;
+    font-family: "MuseoSansCyrl-500";
+    font-size: 15px;
+    padding: 13px 0;
+    border: 1px solid;
+    letter-spacing: 0.1px;
+}
+
+/*
+.orderWrapperBlock .billComposition a:hover {
+    background: none !important;
+}*/
+
+.settingsWrap .billingsListMenu {
+    border-bottom: 1px solid #d9d9d9;
+    height: 36px;
+    margin-bottom: 46px;
+    margin-top: 34px;
+}
+
+.settingsWrap .billingsListMenu a {
+    color: #b1b1b1;
+    cursor: pointer;
+    float: left;
+    font-family: "MuseoSansCyrl-500";
+    font-size: 17px;
+    margin-right: 40px;
+}
+
+.settingsWrap .activeBillingMenu {
+    border-bottom: 3px solid black;
+    color: #000 !important;
+    padding-bottom: 13px;
+}
+
+.settingsWrap .billingsListMenu span {
+    background-color: #ececec;
+    border-radius: 50px;
+    margin-left: 10px;
+    font-size: 15px;
+    font-family: "MuseoSansCyrl-900";
+    padding: 2px 5px;
+    text-align: center;
+    width: 22px;
+    color: #000;
+    display: inline-block;
+}
+
+.settingsWrap .actsListMenu {
+    border-bottom: 1px solid #d9d9d9;
+    height: 34px;
+    margin-bottom: 48px;
+    margin-top: 30px;
+}
+
+.settingsWrap .actsListMenu a {
+    color: #b1b1b1;
+    cursor: pointer;
+    float: left;
+    font-family: "MuseoSansCyrl-500";
+    font-size: 17px;
+    margin-right: 40px;
+}
+
+.settingsWrap .activeActsMenu {
+    border-bottom: 3px solid black;
+    color: #000 !important;
+    padding-bottom: 10px;
+}
+
+.settingsWrap .actsListMenu span {
+    background-color: #ececec;
+    border-radius: 50px;
+    margin-left: 10px;
+    font-size: 15px;
+    font-family: "MuseoSansCyrl-900";
+    padding: 2px 5px;
+    text-align: center;
+    width: 22px;
+    color: #000;
+    display: inline-block;
+}
+
+.activeBillingsBlock {
+    margin-bottom: 57px;
+}
+
+.activeBillingsBlock .actsStatus {
+    border-radius: 50px;
+    color: #000000;
+    font-family: "MuseoSansCyrl-500";
+    font-size: 13px;
+    left: 21px;
+    padding: 5px 7px;
+    position: absolute;
+    top: 20px;
+    /*width: 86px;*/
+    text-align: center;
+}
+
+.actBodyBlock {
+    height: 300px;
+}
+
+.treatmentBlock {
+    border: 2px solid #e6e6e6;
+    border-radius: 4px;
+    float: left;
+    margin-right: 20px;
+    margin-top: 33px;
+    position: relative;
+    width: 276px;
+    height: 368px;
+}
+
+.newTreatmentBlock {
+    background: #fff url("../img/bsckNewTempl.png") no-repeat scroll 81px 92px;
+    border: 2px dashed #5db3dc;
+    border-radius: 4px;
+    cursor: pointer;
+    margin-right: 0;
+    margin-top: 32px;
+    margin-bottom: 50px;
+    position: absolute;
+    top: 15px;
+    right: 0;
+    width: 276px;
+    display: inline-block;
+    height: 368px;
+    z-index: 10;
+
+}
+
+.newTreatmentBlock p {
+    color: #000;
+    font-family: "MuseoSansCyrl-900";
+    font-size: 22px;
+    line-height: 35px;
+    padding-top: 220px;
+    text-align: center;
+}
+
+.treatmentBlock .treatmentHead {
+    border-bottom: 2px solid #e6e6e6;
+    margin-bottom: 20px;
+    padding-bottom: 24px;
+}
+
+.treatmentBlock .treatmentStatus {
+    /*background-color: #fce47c;*/
+    border-radius: 50px;
+    color: #000;
+    display: inline-block;
+    font-family: "MuseoSansCyrl-500";
+    font-size: 13px;
+    margin-left: 12px;
+    margin-top: 20px;
+    padding: 4px 12px;
+}
+
+.treatmentBlock .treatmentId {
+    color: #000;
+    font-family: "MuseoSansCyrl-900";
+    font-size: 22px;
+    margin: 12px 16px;
+}
+
+.treatmentBlock .treatmentDate {
+    color: #000;
+    font-family: "MuseoSansCyrl-500";
+    font-size: 15px;
+    margin: 0 18px;
+}
+
+.treatmentBlock .treatmentText {
+    border-bottom: 1px solid #e8e8e8;
+    margin: 0 18px 14px;
+    padding-bottom: 14px;
+}
+
+.treatmentBlock .lastTreatmentText {
+    border-bottom: medium none;
+    margin-bottom: 6px;
+}
+
+.treatmentBlock .treatmentLittleTitle {
+    color: #b5b5b5;
+    font-family: "MuseoSansCyrl-500";
+    font-size: 14px;
+    margin-bottom: 6px;
+}
+
+.treatmentBlock .treatmentLittleText {
+    color: #000000;
+    font-size: 16px;
+    font-family: "MuseoSansCyrl-500";
+}
+
+.treatmentBlock .boldText {
+    font-size: 16px;
+    font-family: "MuseoSansCyrl-900";
+}
+
+.hidingFormNewTreatment {
+    background-color: #fcfcfc;
+    border-radius: 8px;
+    box-shadow: 0 0 110px rgba(0, 0, 0, 0.5);
+    display: none;
+    left: 50%;
+    margin-left: -320px;
+    margin-right: auto;
+    margin-top: 0;
+    min-height: 500px;
+    overflow: hidden;
+    position: fixed;
+    top: 20px;
+    height: 60%;
+    bottom: 20px;
+    width: 640px;
+    z-index: 100;
+
+    padding-bottom: 116px;
+}
+.hidingFormNewTreatment .message {
+    display: none;
+    padding: 150px 20px 0;
+    font: 20px/1  "MuseoSansCyrl-900";
+}
+.hidingFormNewTreatment .hidMenuTatleWrap {
+    background-color: #5db3dc;
+    color: #fff;
+    font-family: "MuseoSansCyrl-900";
+    font-size: 28px;
+    height: 100px;
+}
+
+.hidingFormNewTreatment .hidMenuTatleWrap p {
+    border-right: 1px solid #88c8e7;
+    float: left;
+    padding: 34px 30px 31px;
+    width: 480px;
+}
+
+.hidingFormNewTreatment .hidMenuTatleWrap div {
+    background: rgba(0, 0, 0, 0) url("../img/whiteClosePopUp.png") no-repeat scroll 50%;
+    float: right;
+    height: 98px;
+    width: 98px;
+    cursor: pointer;
+    position: absolute;
+    top: 0;
+    right: 0;
+
+}
+
+.hidingFormNewTreatment .hidMenuTatleWrap div:hover {
+    background-size: 18px;
+}
+
+.hidingFormNewTreatment .hidTreatmentBody {
+    margin-top: 10px;
+    overflow: auto;
+    height: 417px !important;
+    /*margin-bottom: 78px;*/
+
+}
+
+.hidingFormNewTreatment .hidMenuBlockTitle {
+    border-bottom: 1px solid #e2e2e2;
+    color: #5db3dc;
+    font-family: "MuseoSansCyrl-700";
+    font-size: 20px;
+    padding: 24px 30px 22px;
+    position: relative;
+    cursor: pointer;
+}
+/*
+.hidingFormNewTreatment .hidMenuBlockTitle:after {
+    content: "";
+    width: 30px;
+    height: 30px;
+    border-radius: 50%;
+    display: block;
+    float: right;
+    background: url(../img/arrow.png) no-repeat 50%;
+}*/
+
+.hidingFormNewTreatment .hidMenuBlockTitle:hover:after {
+    background-color: #e9ebec;
+}
+
+.hidingFormNewTreatment .hidinputTitle {
+    color: #040404;
+    font-family: "MuseoSansCyrl-700";
+    font-size: 15px;
+    padding: 20px 30px 19px;
+}
+
+.activeLiTopMenuFirstLvl:after {
+    transform: rotate(90deg) !important;
+}
+
+.hidingFormNewTreatment .causeSelect {
+
+}
+
+.thirdLevel .mainLeftMenu > ul > div > div > li > a {
+    margin-bottom: 20px;
+}
+
+.secondLvlCatalog {
+    display: none;
+    padding: 9px 0 0 20px;
+    height: 360px;
+    /*overflow: hidden;*/
+    border-top: 1px solid #e6e6e6;
+    /* margin-top: 20px;*/
+}
+
+.activeLiTopMenuFirstLvl {
+    /*  position: absolute !important;*/
+    width: 276px;
+    padding-left: 0px !important;
+    padding-right: 0px !important;
+
+}
+
+.activeLiTopMenuFirstLvl > a {
+    padding-left: 48px !important;
+}
+
+.firstLvlLi {
+    border-bottom: 1px solid #e6e6e6;
+    color: #4d4d4d;
+    cursor: pointer;
+    font-family: "VentiCF-Black";
+    font-size: 11px;
+    padding: 13.5px 0 11.5px;
+    position: relative;
+    text-transform: uppercase;
+}
+
+.firstLvlLi:after {
+    content: url("../img/plusMainLeftMenu.png");
+    left: 228px;
+    position: absolute;
+    top: 13px;
+}
+
+.firstLvlLi > a > p {
+    /*padding-bottom: 10px;*/
+    font: 12px/1 'VentiCF-Black', sans-serif;
+}
+
+.hidingFormNewTreatment .selectric-wrapper {
+    width: 580px;
+    margin-left: 30px;
+}
+
+.treatmentSelectBlock .selectric {
+    width: 580px;
+    border: 2px solid #d9d9d9;
+    height: 46px;
+}
+
+.treatmentSelectBlock .selectric .label {
+    margin: 6px 38px 0 20px;
+}
+
+.treatmentSelectBlock .selectric .button {
+    height: 46px;
+
+}
+
+.treatmentSelectBlock .selectric .button:after {
+    border: none;
+}
+
+.treatmentSelectBlock {
+    border-bottom: 1px solid #e2e2e2;
+    padding-bottom: 32px;
+}
+
+.orderInfoLkBlock {
+    border-bottom: 1px solid #e2e2e2;
+    margin-top: 12px;
+    padding-bottom: 36px;
+}
+
+.waybillBlock {
+    float: left;
+    margin-bottom: 20px;
+}
+
+.waybillBlock .hidinputTitle {
+    padding-bottom: 16px;
+}
+
+.waybillBlock input {
+    border: 2px solid #cdcdcd;
+    border-radius: 4px;
+    color: #000000;
+    font-family: MuseoSansCyrl-500;
+    font-size: 15px;
+    height: 46px;
+    margin-left: 30px;
+    padding-left: 18px;
+    width: 254px;
+}
+
+.orderInfoLkBlock .selectric {
+    width: 580px;
+    border: 2px solid #d9d9d9;
+    height: 46px;
+}
+
+.orderInfoLkBlock .selectric .label {
+    margin: 6px 38px 0 20px;
+}
+
+.orderInfoLkBlock .selectric .button {
+    height: 46px;
+
+}
+
+.orderInfoLkBlock .selectric .button:after {
+    border: none;
+}
+
+.productInfoHideBlock {
+    border-bottom: 1px solid #e2e2e2;
+    margin-bottom: -4px;
+    padding-bottom: 30px;
+    padding-top: 14px;
+}
+
+.productInfoHideBlock .selectric {
+    border: 2px solid #d9d9d9;
+    height: 46px;
+    width: 270px;
+}
+
+.hidingFormNewTreatment .selectric {
+    background: #fff;
+}
+
+.productInfoHideBlock .selectric-wrapper {
+    width: 270px;
+    margin: 0 30px;
+}
+
+.productInfoHideBlock .selectric .label {
+    margin: 6px 38px 0 20px;
+}
+
+.productInfoHideBlock .selectric .button {
+    height: 46px;
+}
+
+.productInfoHideBlock .selectric .button:after {
+    border: none;
+}
+
+.manufacturerIngoHidBlock {
+    float: left;
+}
+
+.productInfoHideBlock .nomenclatureInput {
+    background-color: #ffffff;
+    border: 2px solid #d9d9d9;
+    border-radius: 4px;
+    color: #000000;
+    font-family: "MuseoSansCyrl-500";
+    font-size: 15px;
+    height: 50px;
+    width: 272px;
+    box-sizing: border-box;
+    padding: 0 18px;
+}
+
+.productInfoHideBlock .hidinputTitle {
+    margin-top: 2px;
+}
+
+.productInfoHideBlock .defectType {
+    background-color: #ffffff;
+    border: 2px solid #d9d9d9;
+    border-radius: 4px;
+    color: #696969;
+    font-family: "MuseoSansCyrl-500";
+    font-size: 15px;
+    height: 46px;
+    margin: 0 30px;
+    padding: 0 18px;
+    width: 540px;
+}
+
+.productInfoHideBlock textarea {
+    border: 2px solid #d9d9d9;
+    border-radius: 4px;
+    color: #696969;
+    font-family: "MuseoSansCyrl-500";
+    font-size: 15px;
+    height: 96px;
+    margin: -2px 30px;
+    resize: none;
+    width: 576px;
+    padding: 15px 18px;
+    box-sizing: border-box;
+}
+
+.downloadFileBlock {
+    background: #f4f4f4 url("../img/downloadFileBlock.png") no-repeat scroll 474px 16px;
+    border: 2px dashed #8ac7e3;
+    border-radius: 6px;
+    margin: 40px 30px;
+    cursor: pointer;
+    position: relative;
+    overflow: hidden;
+}
+
+.downloadFileBlock .downloadTitle {
+    color: #000000;
+    font-family: "MuseoSansCyrl-900";
+    font-size: 20px;
+    margin: 32px 18px 6px;
+}
+
+.downloadFileBlock .downloadText {
+    color: #929393;
+    font-family: "MuseoSansCyrl-500";
+    font-size: 16px;
+    margin: 0 18px 32px;
+}
+
+.bootomMenuHiddenBlock {
+    background-color: #ebebec;
+    height: 78px;
+    padding-top: 28px;
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    z-index: 50;
+}
+
+.bootomMenuHiddenBlock .cancelButton {
+    background-color: #fff;
+    border-radius: 4px;
+    color: #a6a6a6;
+    display: block;
+    float: left;
+    font-family: "MuseoSansCyrl-500";
+    font-size: 15px;
+    margin: 0 32px 0;
+    padding: 14px 102px;
+    text-align: center;
+}
+
+.bootomMenuHiddenBlock .cancelButton:hover {
+    background-color: #f4f4f4;
+}
+
+.bootomMenuHiddenBlock .sendButton {
+    background-color: #5db3dc;
+    border-radius: 4px;
+    color: #fff;
+    display: block;
+    font-family: "MuseoSansCyrl-500";
+    font-size: 15px;
+    margin: 0 38px 0 326px;
+    padding: 14px 0;
+    text-align: center;
+}
+
+.bootomMenuHiddenBlock .sendButton:hover {
+    background-color: #5dacd5;
+}
+
+.bigInfoBanner {
+    border-radius: 4px;
+    overflow: hidden;
+    margin-top: 36px;
+    margin-bottom: 50px;
+}
+
+.bigInfoBanner img {
+    width: 100%;
+}
+
+.infoTitleBlock {
+    padding-top: 44px;
+    color: #191919;
+}
+
+.infoTitleBlock span::before {
+    content: url("../img/beforeBreadCrumps.png");
+    margin-right: 8px;
+}
+
+.lasrBreadCrump::before {
+    content: url("../img/activeBreadCrumpImg.png") !important;
+    left: -2px;
+    position: relative;
+    top: -2px;
+}
+
+.lasrBreadCrump::before {
+    margin-right: 0;
+}
+
+.infoTitleBlock span {
+    /*font-family: "MuseoSansCyrl-500";*/
+    font: 14px/1 "PT Serif", sans-serif;
+    margin-right: 5px;
+}
+
+.infoTitleBlock span a {
+    border-bottom: 1px solid #d6d6d6;
+    color: #6a6a6a;
+    padding-bottom: 3px;
+    text-decoration: none;
+    letter-spacing: 0.95px;
+}
+
+.infoTitleBlock span:nth-child(1)::before {
+    content: "";
+    margin-right: 0;
+}
+
+.infoBlockWrapper h1 {
+    color: #000;
+    font: 36px/1 "VentiCF-Black";
+    margin: 9px 0 0;
+    position: relative;
+    letter-spacing: -1px;
+}
+
+.infoBlockWrapper h1 span:first-child {
+    letter-spacing: -0.4px;
+    color: inherit;
+    font: inherit;
+    display: inline;
+    margin: 0 -3px 0 0;
+    padding: 0;
+}
+
+.infoBlockWrapper h1 .infoTitleDate {
+    border: 1px solid #e6e6e6;
+    border-radius: 30px;
+    color: #000;
+    font: 12px/1 "MuseoSansCyrl-500";
+    padding: 6px 16px;
+    position: absolute;
+    right: 0;
+    top: 2px;
+    letter-spacing: 0.2px;
+    margin-right: 1px;
+}
+
+.infoBlockWrapper .littleInfoTitle {
+    border-bottom: 1px solid #dddddd;
+    color: #000;
+    font-family: "MuseoSansCyrl-700";
+    font-size: 20px;
+    margin-bottom: 26px;
+    padding-bottom: 20px;
+}
+
+.infoBlockWrapper .infoText {
+    color: #9a9a9a;
+    font: 17px/26px "PT Serif", serif;
+    margin-bottom: 30px;
+    letter-spacing: 0.2px;
+}
+
+.infoBlockWrapper .infoText a {
+    color: #5DB3DC;
+}
+
+.infoBlockWrapper .infoText a:hover {
+    text-decoration: underline;
+}
+
+.infoBlockWrapper .viewedBlock {
+    border: none;
+    margin-top: 70px;
+    padding: 64px 0 38px;
+}
+
+.sliderBlockBack {
+    background-color: #F5F5F5;
+}
+
+.infoBlockWrapper .viewedBlock .reviesElement {
+    border: none;
+    margin-right: 22px;
+}
+
+.sliderBlockBack .littleInfoTitle {
+    border-bottom: medium none;
+    margin-bottom: 32px;
+    margin-top: 58px;
+    letter-spacing: 0.7px;
+}
+
+.grayBorderBlock {
+    height: 1px;
+    background-color: #E1DFDF;
+}
+
+.infoBlockWrapper .productExampleBlock {
+    float: left;
+    margin-bottom: 60px;
+}
+
+.infoBlockWrapper .productExampleBlock:nth-child(2n) {
+    margin-right: 18px;
+}
+
+.questionInfoForm .titleText {
+    color: #000;
+    font: 21px/1 "MuseoSansCyrl-900";
+    padding: 27px 28px 13px;
+    letter-spacing: 0.5px;
+}
+
+.questionInfoForm .titleLittleText {
+    color: #878787;
+    font: 16px/1.7 "PT Serif", serif;
+    padding: 0 30px 25px;
+}
+
+.questionInfoForm .callBackBut {
+    background-color: #5db3dc;
+    border: 1px solid #5db3dc;
+    border-radius: 4px;
+    color: #f6fafd;
+    display: inline-block;
+    font-family: "MuseoSansCyrl-500";
+    font-size: 15px;
+    margin-right: 18px;
+    padding: 12px 20px;
+}
+
+.questionInfoForm .callBackBut:hover {
+    background-color: #5da9d2;
+    border: 1px solid #5ca8d2;
+}
+
+.questionInfoForm .formAcceptBut {
+    display: inline-block;
+    color: #48A6D3;
+    font-size: 15px;
+    font-family: "MuseoSansCyrl-500";
+    border-radius: 4px;
+    background-color: #F5F5F5;
+    border: 1px solid #83D0F5;
+    padding: 12px 18px;
+}
+
+.questionInfoForm .formAcceptBut:hover {
+    background-color: #ebebeb;
+    border: 1px solid #7ecaef;
+}
+
+.questionInfoForm .leftBlock {
+    float: left;
+    padding: 4px 0 4px 28px;
+    width: 234px;
+}
+
+.questionInfoForm .rightBlock {
+    margin-left: 268px;
+    position: relative;
+}
+
+.questionInfoForm input {
+    background-color: #f5f5f5;
+    border: 1px solid #b2b2b2;
+    border-radius: 4px;
+    /*color: #010101;*/
+    color: #000;
+    font: 15px/1 "MuseoSansCyrl-500";
+    margin: 14px 0;
+    padding: 12px 14px 12px 20px;
+    width: 185px;
+}
+
+.questionInfoForm input:focus {
+    border-color: #4C4C4C;
+}
+
+.questionInfoForm .rightBlock .selectric {
+    border: 1px solid #b2b2b2;
+    border-radius: 4px;
+    height: 43px;
+    margin: 18px 0 19px;
+    position: relative;
+    width: 450px;
+}
+
+.questionInfoForm .rightBlock .selectric .label {
+    /*color: #000;*/
+    display: block;
+    font-family: MuseoSansCyrl-700;
+    font-size: 15px;
+    height: 43px;
+    line-height: 43px;
+
+    margin: 0 38px 0 20px;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
+
+.pp1 .questionInfoForm .rightBlock .selectric .label {
+    height: 47px;
+    line-height: 47px;
+}
+
+.questionInfoForm .rightBlock .selectric-items {
+    left: 0;
+}
+
+textarea {
+    overflow: hidden;
+}
+
+.questionInfoForm textarea {
+    background-color: #f5f5f5;
+    border: 1px solid #b2b2b2;
+    border-radius: 4px;
+    font-family: "MuseoSansCyrl-500";
+    font-size: 15px;
+    height: 80px;
+    margin-top: 8px;
+    padding: 14px 20px 20px;
+    resize: none;
+    width: 409px;
+}
+
+.questionInfoForm td {
+    border: 1px solid #CBCBCB;
+}
+
+.questionInfoForm {
+    border-collapse: collapse;
+    border-radius: 4px;
+    margin: -1px;
+    width: 1182px;
+}
+
+.infoBlockWrapper .tableBorderWrapper {
+    border: 1px solid #cbcbcb;
+    border-radius: 4px;
+    margin: 58px 0 0;
+    overflow: visible;
+}
+
+.questionInfoForm .titleBlock {
+    width: 428px;
+}
+
+.questionInfoForm .inputsBlock {
+    height: 248px;
+}
+
+.questionInfoForm .buttonsBlock {
+    padding: 24px 28px;
+}
+
+.infoBlockWrapper .infoBlackTitle {
+    border-bottom: 1px solid #dddddd;
+    color: #000;
+    font-family: "MuseoSansCyrl-700";
+    font-size: 20px;
+    margin-bottom: 22px;
+    margin-top: 48px;
+    padding-bottom: 24px;
+    letter-spacing: 0.6px;
+}
+
+.infoBlockWrapper .infoDocumentList {
+    color: #a1a1a1;
+    font-family: "MuseoSansCyrl-500";
+    font-size: 16px;
+    margin-left: 20px;
+    margin-top: 46px;
+}
+
+.infoBlockWrapper .infoDocumentList li {
+    margin-bottom: 17.5px;
+    position: relative;
+    letter-spacing: 0.2px;
+}
+
+.infoDocumentList li span {
+    color: #000;
+}
+
+.infoBlockWrapper .infoDocumentList li:before {
+    content: url("../img/libefore12.png");
+    left: -20px;
+    position: relative;
+    top: -1px;
+}
+
+.infoBlockWrapper .warningText {
+    color: #ea8b64;
+    font-family: "PT Serif", serif;
+    font-size: 16px;
+    font-style: italic;
+    margin-bottom: 60px;
+    margin-top: 70px;
+    letter-spacing: -0.05px;
+}
+
+.infoBlockWrapper .infoBlocksMenu {
+    border-bottom: 1px solid #d8d8d8;
+    color: #aaaaaa;
+    font-family: "MuseoSansCyrl-500";
+    font-size: 20px;
+    margin-top: 98px;
+    padding-bottom: 0;
+}
+
+.infoBlockWrapper .infoBlocksMenu a {
+    display: inline-block;
+    margin-right: 24px;
+    cursor: pointer;
+    color: inherit;
+    letter-spacing: 0.3px;
+}
+
+.infoBlockWrapper .infoBlocksMenu .activeInfoBlock {
+    border-bottom: 3px solid;
+    color: #0b0b0b;
+    margin-bottom: -2px;
+    padding-bottom: 14px;
+}
+
+.infoBlockWrapper .infoNewsList {
+    margin-top: 34px;
+}
+
+.infoBlockWrapper .infoNewsList .imageWrapper {
+    background: #fff none repeat scroll 0 0;
+    border-radius: 4px;
+    float: left;
+    height: 240px;
+    line-height: 240px;
+    margin-right: 38px;
+    text-align: center;
+    width: 260px;
+}
+
+.infoBlockWrapper .infoNewsList .imageWrapper img {
+    vertical-align: middle;
+}
+
+.infoBlockWrapper .infoNewsList .dateText {
+    color: #5a5a5a;
+    font-family: "MuseoSansCyrl-500";
+    font-size: 13px;
+    padding-bottom: 8px;
+    padding-top: 8px;
+}
+
+.infoBlockWrapper .infoNewsList .newsName {
+    color: #323232;
+    font: 20px/1 "MuseoSansCyrl-700";
+    margin: 5px 0 13px;
+    display: inline-block;
+    letter-spacing: 0.37px;
+}
+
+.infoBlockWrapper .infoNewsList .newsName:hover {
+    color: #5db3dc;
+}
+
+.infoBlockWrapper .infoNewsList .newsText {
+    color: #888888;
+    font: 15px/24px "PT Serif", serif;
+    padding-right: 100px;
+    letter-spacing: 0.35px;
+    padding-bottom: 3px;
+}
+
+.infoBlockWrapper .infoNewsList .detailNews {
+    border: 1px solid #c1c1c1;
+    border-radius: 4px;
+    color: #5a5a5a;
+    display: block;
+    font: 15px/1 "MuseoSansCyrl-500";
+    margin-left: 300px;
+    margin-top: 31px;
+    padding: 11px 16px;
+    text-align: center;
+    width: 100px;
+}
+
+.infoBlockWrapper .infoNewsList .detailNews:hover {
+    border-color: #7fcbef;
+    color: #5db3dc;
+}
+
+.infoNewsList li {
+    border-bottom: 1px solid #dfdfdf;
+    clear: both;
+    margin-bottom: 40px;
+    padding-bottom: 41px;
+}
+
+.infoNewsList li:last-child {
+    border-bottom: none;
+    margin-bottom: 22px;
+}
+
+.infoNewsList li:last-child .dateText {
+    padding-top: 12px;
+    padding-bottom: 14px;
+}
+
+.infoNewsList li:last-child .detailNews {
+    margin-top: 23px;
+}
+
+.qaWrapper .blockTitle {
+    border-bottom: 1px solid #d8d8d8;
+    color: #000;
+    font-family: "MuseoSansCyrl-700";
+    font-size: 20px;
+    margin-top: 90px;
+    padding-bottom: 16px;
+    margin-bottom: 40px;
+    letter-spacing: 0.5px;
+}
+
+.qaWrapper .blockTitle span {
+    border: medium none;
+    color: #5a5a5a;
+    font-family: "MuseoSansCyrl-500";
+    font-size: 13px;
+    padding: 0;
+    position: relative;
+    top: -15px;
+    margin-left: 9px;
+}
+
+.qaWrapper .qaBlock {
+    cursor: pointer;
+}
+
+.qaWrapper .qaBlock:hover .questionText {
+    color: #66B5DD;
+}
+
+.qaWrapper .questionText {
+    color: #000;
+    font-size: 18px;
+    font-family: "MuseoSansCyrl-700";
+    margin-bottom: 28px;
+}
+
+.qaWrapper .answerText {
+    background-color: #ebebeb;
+    color: #888888;
+    font: 15px/23px "PT Serif", serif;
+    margin-bottom: 40px;
+    padding: 28px;
+    position: relative;
+    letter-spacing: 0.26px;
+}
+
+.qaWrapper .answerText strong {
+    font: inherit;
+    color: #4e4e4e;
+}
+
+.qaWrapper .qaBlock:hover .answerText {
+    background-color: #FFFFFF;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+}
+
+/*.qaWrapper .answerText:after{
+    -moz-border-bottom-colors: none;
+    -moz-border-left-colors: none;
+    -moz-border-right-colors: none;
+    -moz-border-top-colors: none;
+    border-color: transparent transparent #ebebeb;
+    border-image: none;
+    border-style: solid;
+    border-width: 10px;
+    content: "";
+    left: 50px;
+    position: absolute;
+    top: -20px;
+}
+.qaWrapper .qaBlock:hover .answerText:after{
+    border-color: transparent transparent #fff;
+}*/
+.triangle {
+    color: #ebebeb;
+    display: inline-block;
+    font-size: 14px;
+    left: 54px;
+    position: absolute;
+    top: -17px;
+    transform: scaleX(2.2);
+    z-index: 50;
+}
+
+.qaWrapper .qaBlock:hover .triangle {
+    color: #fff;
+    text-shadow: 0 2px 2px rgba(255, 255, 255, 0.1), 0 -1px 1px rgba(0, 0, 0, 0.1);
+}
+
+.infoBlockWrapper .brandsWrapper {
+    border-bottom: 1px solid #e1dfdf;
+    margin-top: 57px;
+    padding-bottom: 44px;
+}
+
+.infoDocDownload {
+    border: 1px solid #e8e8e8;
+    border-radius: 30px;
+    display: block;
+    float: right;
+    height: 34px;
+    margin: 16px 17px 16px 2px;
+    width: 34px;
+    position: relative;
+}
+
+.infoDocDownload:after {
+    content: "";
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 13px;
+    height: 13px;
+    margin: -6px 0 0 -7px;
+    background: url("../img/downButBacimage.png") no-repeat 0 0;
+}
+
+.infoDocDownload:hover {
+    border-color: #7fcbef;
+}
+
+.infoDocDownload:hover:after {
+    background-position: -13px 0;
+}
+
+.infoDocName {
+    color: #323232;
+    font: 15px/1 "MuseoSansCyrl-500";
+    margin: 24px 0 0 25px;
+    letter-spacing: 0.3px;
+    width: 240px;
+}
+
+.informationSlideBlock li {
+    cursor: pointer;
+}
+
+.informationSlideBlock .viewedBlock .productimg {
+    height: 224px;
+}
+
+.infoDocumentsBlock {
+    border: medium none;
+    padding-bottom: 8px;
+    padding-top: 55px;
+}
+
+.infoDocumentsBlock .rightArrow {
+    background: rgba(0, 0, 0, 0) url("../img/rightSliderArrow.png") no-repeat scroll 14px 13px;
+    border: 1px solid #d9d9d9;
+    border-bottom-right-radius: 4px;
+    border-top-right-radius: 4px;
+    cursor: pointer;
+    float: right;
+    height: 38px;
+    width: 38px;
+}
+
+.infoDocumentsBlock .leftArrow {
+    background: rgba(0, 0, 0, 0) url("../img/leftSliderArrowInactive.png") no-repeat scroll 14px 13px;
+    border: 1px solid #d9d9d9;
+    border-bottom-left-radius: 4px;
+    border-top-left-radius: 4px;
+    cursor: pointer;
+    float: right;
+    height: 38px;
+    margin-right: -1px;
+    width: 38px;
+}
+
+.infoDocumentsBlock .partnerTitle {
+    color: #000000;
+    font: 20px/1 "MuseoSansCyrl-700";
+    padding-bottom: 50px;
+    letter-spacing: 0.8px;
+}
+
+.infoDocumentsBlock .reviesElement, .productSlider .reviesElement {
+    background-color: #fff !important;
+    border-radius: 4px;
+    float: left;
+    height: 340px;
+    margin-right: 22px;
+    position: relative;
+    width: 278px;
+}
+
+.productSlider .reviesElement {
+    background: #f5f5f5 !important;
+    height: 308px;
+}
+
+.productSlider .productWrapper {
+    height: 100%;
+    border-radius: 4px;
+}
+
+.productSlider .productWrapper .productimg {
+    height: 235px;
+}
+
+.productSlider .productWrapper .productimg img {
+    top: 60px;
+    left: 40px;
+}
+
+.productSlider .infoDocName {
+    margin-left: 19px;
+}
+
+.infoDocumentsBlock .productWrapper {
+    background-color: #ffffff;
+    border-radius: 4px;
+    float: left;
+    height: 340px;
+    width: 240px;
+    position: relative;
+    width: 100%;
+}
+
+.infoDocumentsBlock .price {
+    color: #000000;
+    font: 18px/1 'VentiCF-Bold', sans-serif;
+    padding: 25px 0 4px 20px;
+
+}
+
+.infoDocumentsBlock .infoDocName {
+    margin-left: 20px;
+}
+
+.infoDocumentsBlock .productimg {
+    /* border-bottom: 1px solid #e6e6e6;*/
+    padding-bottom: 30px;
+    width: 240px;
+    margin: 0 auto;
+    height: 196px;
+    position: relative;
+}
+
+.infoDocumentsBlock .productimg img {
+    bottom: 31px;
+    left: 0;
+    margin: auto;
+    max-height: 100%;
+    max-width: 100%;
+    position: absolute;
+    right: 0;
+    top: 0;
+}
+
+.infoDocumentsBlock .jcarousel-wrapper, .productSlider .jcarousel-wrapper {
+    margin: -15px 0 0 -15px;
+}
+
+.infoDocumentsBlock .jcarousel ul, .productSlider .jcarousel ul {
+    margin: 15px 0 0 15px;
+}
+
+.regHiddenBlock, .authHiddenBlock {
+    background-color: #fff;
+    border-radius: 4px;
+    box-shadow: 0 0 120px rgba(0, 0, 0, 0.5);
+    display: none;
+
+    padding: 0 18px 18px;
+    position: absolute;
+    top: 14px;
+    width: 224px;
+    z-index: 400;
+}
+
+.regHiddenBlock {
+    left: 0;
+}
+
+.authHiddenBlock {
+    left: 140px;
+}
+
+.authTitle {
+    border-bottom: 1px solid #e6e6e6;
+    color: #323232;
+    font-family: "VentiCF-Black";
+    font-size: 28px;
+    padding: 28px 0 22px;
+    width: 100%;
+}
+
+.authClose {
+    background: #f3f3f3 url("../img/closeBackRecht.png") no-repeat scroll 9px 9px;
+    border-radius: 50px;
+    cursor: pointer;
+    height: 28px;
+    position: absolute;
+    right: 18px;
+    top: 32px;
+    width: 28px;
+}
+
+.authInput {
+    border: 1px solid #83d0f5;
+    border-radius: 4px;
+    font-family: "MuseoSansCyrl-500";
+    font-size: 15px;
+    margin-top: 27px;
+    padding: 12px 20px 12px 14px;
+    color: #48AAD8;
+    width: 100%;
+    box-sizing: border-box;
+}
+
+.authInputPass {
+    border: 1px solid #83d0f5;
+    border-radius: 4px;
+    font-family: "MuseoSansCyrl-500";
+    font-size: 15px;
+    margin-bottom: 14px;
+    margin-top: 25px;
+    padding: 12px 20px 12px 14px;
+    color: #48AAD8;
+    width: 100%;
+    box-sizing: border-box;
+}
+
+.rememberMeText {
+    border-bottom: 1px solid #e6e6e6;
+    color: #929292;
+    cursor: pointer;
+    display: block;
+    font-family: "PT Serif", serif;
+    font-size: 15px;
+    margin-bottom: 20px;
+    padding-bottom: 18px;
+}
+
+.authEnter {
+    background-color: #5db3dc;
+    border-radius: 34px;
+    color: #ffffff;
+    display: block;
+    font-family: "MuseoSansCyrl-500";
+    font-size: 15px;
+    padding: 10px 4px;
+    text-align: center;
+}
+
+.forgotPassword {
+    background-color: #ededed;
+    border-radius: 30px;
+    color: #9d9d9d;
+    display: block;
+    font-family: "MuseoSansCyrl-500";
+    font-size: 15px;
+    margin-bottom: 30px;
+    margin-top: 14px;
+    padding: 10px 4px;
+    text-align: center;
+}
+
+.authHiddenBlock .socServises {
+    border-bottom: 1px solid #e6e6e6;
+    color: #5a5a5a;
+    font-family: "MuseoSansCyrl-500";
+    font-size: 15px;
+    margin-bottom: 15px;
+    padding-bottom: 14px;
+}
+
+.authHiddenBlock .socServImg {
+    border-radius: 50px;
+    cursor: pointer;
+    display: inline-block;
+    height: 30px;
+    margin-right: 5px;
+    overflow: hidden;
+    width: 30px;
+}
+
+.authHiddenBlock .twitImg {
+    background: rgba(0, 0, 0, 0) url("../img/socImages.png") no-repeat scroll -45px -15px;
+}
+
+.authHiddenBlock .okImg {
+    background: rgba(0, 0, 0, 0) url("../img/socImages.png") no-repeat scroll -150px -51px;
+}
+
+.authHiddenBlock .vkImg {
+    background: rgba(0, 0, 0, 0) url("../img/socImages.png") no-repeat scroll -9px -50px;
+}
+
+.authHiddenBlock .mailImg {
+    background: rgba(0, 0, 0, 0) url("../img/socImages.png") no-repeat scroll -45px -50px;
+}
+
+.authHiddenBlock .facebookImg {
+    background: rgba(0, 0, 0, 0) url("../img/socImages.png") no-repeat scroll -116px -15px;
+    margin-right: 4px;
+}
+
+.authHiddenBlock .yandexImg {
+    background: rgba(0, 0, 0, 0) url("../img/socImages.png") no-repeat scroll -81px -51px;
+    margin-right: 0 !important;
+}
+
+input[type=checkbox] + label::before {
+    background-image: url("../img/emptyCheckFilt.png");
+    background-repeat: no-repeat;
+    content: "";
+    display: inline-block;
+    height: 15px;
+    left: 0px;
+    position: relative;
+    top: 3px;
+    width: 29px;
+}
+
+input[type=checkbox]:checked + label::before {
+    background-image: url("../img/checkedBrandFlag.png");
+    background-repeat: no-repeat;
+    content: "";
+    /*display: inline-block;
+    height: 26px;
+    left: 0px;
+    position: relative;
+    top: 13px;
+    width: 26px;*/
+}
+
+.authHiddenBlock .socServImg:nth-child(6) {
+    margin-right: 0;
+}
+
+.hiddenQuestionBlock {
+    display: none;
+
+}
+/*
+.hiddenProductComment {
+    top: 140px !important;
+}
+*/
+.hiddenQuestionBlock .authTitle, .title, .hiddenProductComment .authTitle {
+    border-bottom: 1px solid #e6e6e6;
+    color: #323232;
+    font-family: "VentiCF-Black";
+    font-size: 30px;
+    margin-bottom: 6px;
+    /*   margin-bottom: 28px;*/
+    padding: 28px 0 30px;
+    width: 100%;
+    letter-spacing: -0.5px;
+}
+
+.hiddenQuestionBlock .authClose, .close, .hiddenProductComment .authClose {
+    background: #f3f3f3 url("../img/closeBackRecht.png") no-repeat scroll 9px 9px;
+    border-radius: 50px;
+    cursor: pointer;
+    height: 28px;
+    position: absolute;
+    right: 30px;
+    top: 40px;
+    width: 28px;
+}
+
+.hiddenQuestionBlock .nameInput, .input, .hiddenProductComment .nameInput {
+    border: 1px solid #d9d9d9;
+    border-radius: 4px;
+    color: #5a5a5a;
+    font-family: "MuseoSansCyrl-500";
+    font-size: 15px;
+    margin-top: 22px;
+    margin-bottom: 22px;
+    padding: 14px 20px;
+    width: 100%;
+    box-sizing: border-box;
+}
+
+.hiddenQuestionBlock .emailInput, .hiddenProductComment .emailInput {
+    border: 1px solid #d9d9d9;
+    border-radius: 4px;
+    color: #5a5a5a;
+    font-family: "MuseoSansCyrl-500";
+    font-size: 15px;
+    height: 48px;
+    padding: 0 18px;
+    width: 222px;
+}
+
+.hiddenProductComment .emailInput {
+    width: 100%;
+    box-sizing: border-box;
+}
+
+.hiddenQuestionBlock textarea, .hiddenProductComment textarea {
+    border: 1px solid #d9d9d9;
+    border-radius: 4px;
+    color: #5a5a5a;
+    font-family: "MuseoSansCyrl-500";
+    font-size: 15px;
+    height: 124px;
+    margin-top: 2px;
+    padding: 12px 20px;
+    resize: none;
+    width: 499px;
+}
+
+.hiddenQuestionBlock a, .btn, .hiddenProductComment a {
+    background-color: #5db3dc;
+    border-radius: 40px;
+    color: #fff;
+    display: block;
+    float: right;
+    font-family: "MuseoSansCyrl-500";
+    font-size: 15px;
+    margin-top: 40px;
+    padding: 10px 18px;
+}
+
+.hiddenQuestionBlock .description, .hiddenProductComment .description {
+    color: #888888;
+    font-family: "PT Serif", serif;
+    font-size: 15px;
+    margin-top: 48px;
+}
+
+.hiddenQuestionBlock, .popup, .hiddenProductComment {
+    background-color: #fff;
+    border-radius: 4px;
+    box-shadow: 0 0 120px rgba(0, 0, 0, 0.5);
+    display: none;
+    left: -270px;
+    margin-left: 50%;
+    padding: 4px 30px 20px;
+    position: absolute;
+    top: -460px;
+    z-index: 500;
+    width: 540px;
+}
+/*
+.hiddenQuestionBlock {
+    top: -440px;
+}*/
+
+.hiddenQuestionBlock .selectric {
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    float: left;
+    height: 48px;
+    margin-right: 18px;
+    position: relative;
+    width: 260px;
+}
+
+.hiddenQuestionBlock .selectric .label {
+    line-height: 48px;
+    margin: 0 38px 0 18px;
+    color: #5a5a5a;
+}
+
+::-webkit-input-placeholder {
+    color: #5a5a5a;
+}
+
+:-moz-placeholder {
+    color: #5a5a5a;
+}
+
+.hiddenQuestionBlock .selectric .button {
+    top: 6px;
+}
+
+.hiddenQuestionBlock .selectric-items {
+    left: 0px;
+    top: 50px;
+}
+
+.error {
+    border-color: #ea8b64 !important;
+    color: #ea8b64 !important;
+}
+
+.error::-webkit-input-placeholder {
+    color: #ea8b64 !important;
+}
+
+.error::-moz-placeholder {
+    color: #ea8b64 !important;
+}
+
+.error:-moz-placeholder {
+    color: #ea8b64 !important;
+}
+
+.error:-ms-input-placeholder {
+    color: #ea8b64 !important;
+}
+
+.forgotForm {
+    display: none;
+}
+
+.message {
+    display: none;
+    color: #929292;
+    font: 15px/1.2 "MuseoSansCyrl-500";
+    padding: 90px 0 40px;
+    text-align: center;
+}
+
+.btn-container {
+    border-top: 1px solid #e6e6e6;
+    padding-top: 20px;
+    margin-top: 20px;
+}
+
+.regHiddenBlock .authInputPass {
+    margin-bottom: 0;
+}
+
+.blockMainLeftMenu {
+    height: 410px;
+    overflow: auto;
+    width: 276px;
+    float: left;
+}
+
+.overflowMask {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 99;
+    display: none;
+    background: rgba(236, 236, 236, 0.3);
+}
+
+.hiddenQuestionBlock, .authHiddenBlock, .regHiddenBlock, .hiddenProductComment {
+    z-index: 100;
+}
+
+.searchForm {
+    position: absolute;
+    width: 478px;
+    left: -480px;
+    top: 0;
+    height: 92px;
+    background: #fff;
+    box-sizing: border-box;
+    padding: 21px 0 23px 19px;
+    display: none;
+}
+
+.searchForm .input {
+    width: 310px;
+    height: 45px;
+    padding: 17px 20px 15px;
+    box-sizing: border-box;
+    background: #fff;
+    border: 1px solid #e6e6e6 !important;
+    color: #000;
+    border-radius: 5px 0 0 5px;
+    margin: 0;
+    display: block;
+    float: left;
+    box-sizing: border-box;
+    font: 14px/1 'MuseoSansCyrl-500', sans-serif;
+
+}
+
+.searchForm ::-webkit-input-placeholder {
+    color: #a5a5a5;
+}
+
+.searchForm ::-moz-placeholder {
+    color: #a5a5a5;
+}
+
+.searchForm :-moz-placeholder {
+    color: #a5a5a5;
+}
+
+.searchForm :-ms-input-placeholder {
+    color: #a5a5a5;
+}
+
+.searchForm .submit {
+    background: #e6e6e6;
+    border: 1px solid #e6e6e6;
+    border-radius: 0 5px 5px 0;
+    width: 120px;
+    height: 45px;
+    font: 14px/1 'MuseoSansCyrl-500', sans-serif;
+    color: #808080;
+    cursor: pointer;
+}
+
+input:focus, textarea:focus {
+    border-color: #83D0F5;
+    color: #48AAD8;
+}
+
+.searchForm:hover .input, .searchForm.focus .input {
+    border-color: #b8d584 !important;
+}
+
+.searchForm:hover .submit, .searchForm.focus .submit {
+    background: #b8d584;
+    border-color: #b8d584;
+    color: #697455;
+}
+
+.searchFormClose {
+    width: 25px;
+    height: 25px;
+    border-radius: 0 0 5px 0;
+    border-left: 1px solid #e6e6e6;
+    border-bottom: 1px solid #e6e6e6;
+    position: absolute;
+    top: 0;
+    right: 0;
+    cursor: pointer;
+    display: none;
+}
+
+.searchFormClose:after, .typeBlockFilter .close:after {
+    content: "";
+    width: 8px;
+    height: 8px;
+    margin: 8px;
+    display: block;
+    background: url(../img/close.png) no-repeat 0 0;
+}
+
+.typeBlockFilter .close:after {
+    margin: 6px;
+
+}
+
+.searchFormClose:hover:after, .typeBlockFilter .close:hover:after {
+    background-position: -8px 0;
+}
+
+.popup {
+    display: none;
+}
+
+.popup input {
+    margin-bottom: 0;
+}
+
+/*************************/
+/*.elementsTable {
+    display: none;
+}*/
+
+.viewedElementBlock .productCarousel .jcarousel li {
+    margin-right: 20px;
+    width: 278px;
+}
+
+.viewedElementBlock .elmentsList .productimg {
+    height: 215px;
+}
+
+.viewedElementBlock .productCarousel .jcarousel-control-prev,
+.viewedElementBlock .productCarousel .jcarousel-control-next {
+    top: -59px;
+}
+
+/*
+.allElementWrap .smallElementList {
+    margin-left: 302px;
+}*/
+
+input[type="radio"] {
+    display: none;
+}
+
+input[type="radio"] + label::before {
+    content: "";
+    display: inline-block;
+    vertical-align: top;
+    width: 29px;
+    height: 15px;
+    position: relative;
+    top: 0;
+    left: 1px;
+    background: url("../img/radio.png") no-repeat 0 0;
+}
+
+input[type="radio"] + label {
+    color: #7f7f7f;
+    cursor: pointer;
+    font: 14px/1 "PT Serif", serif;
+    padding: 11px 0 6px;
+}
+
+input[type="radio"]:checked + label::before {
+    background-position: 0 -15px;
+    content: "";
+}
+
+.elementsTable .basketBody .elementName div {
+    width: 110px;
+    height: auto;
+    border: none;
+    margin: 0 5px 10px 2px;
+    border-radius: 0;
+}
+
+.elementsTable .elementName img {
+    width: 100%;
+    height: auto;
+    max-height: 100%;
+    max-width: 100%;
+}
+
+.elementsTable .basketBody th.elementName {
+    width: 430px;
+    padding-left: 18px;
+    position: relative;
+}
+
+.elementsTable .basketBody .elementColor {
+    text-align: center;
+    padding-left: 0;
+    width: 200px;
+}
+
+.elementsTable .basketBody .elementColor .selectric {
+    width: 150px;
+}
+
+.elementsTable .basketBody .elementName .elementTitle {
+    font-size: 15px;
+    margin-top: 0;
+    margin-bottom: 8px;
+
+    max-width: 220px;
+}
+
+.elementsTable .basketBody .elementName .elemendCode {
+    margin-top: 0;
+    font-size: 13px;
+    letter-spacing: -0.5px;
+}
+
+.elementsTable .selectric-items {
+    left: 0;
+}
+
+.elementQuant {
+    width: 120px;
+}
+
+.elementsTable .selectric .label {
+    margin-left: 12px;
+    text-align: left;
+}
+
+.elementsTable .selectric .button {
+    width: 50px;
+}
+
+.elementsTable .basketBody {
+    margin-right: 20px;
+    margin-bottom: 30px;
+}
+
+.elementsTable .basketBody th.elementPrice {
+    width: 127px;
+}
+
+.elementsTable .basketBody td.elementName {
+    height: 119px !important;
+}
+
+.elementStatus {
+    font: 13px/1 'MuseoSansCyrl-500', sans-serif;
+    padding: 3px 6px;
+    margin: 14px 0 10px;
+    border-radius: 20px;
+    display: inline-block;
+}
+
+.statusInStock {
+    border: 1px solid #a3cc7d;
+    color: #a3cc7d;
+}
+
+.statusByOrder {
+    background: #f9cfb8;
+    border: 1px solid #f9cfb8;
+    color: #000;
+}
+
+.statusExpected {
+    color: #ddac17;
+    border: 1px solid #ebb638;
+}
+
+.statusByOrderEmpty {
+    color: #dc8656;
+    border: 1px solid #f9cfb8;
+}
+
+.basketBody td.elementName {
+    position: relative;
+}
+
+.basket .catalogTitleBlock .widthWrapper {
+    padding-bottom: 35px;
+}
+
+.basket h1 {
+    font: 36px/1 'VentiCF-Black', sans-serif;
+    letter-spacing: 0;
+    margin: 6px 0 3px;
+}
+
+.basket .basketBody {
+    margin-bottom: 75px;
+}
+
+.basket .viewedBlock {
+    margin-top: 0;
+    border-top: none;
+    padding-top: 58px;
+    /*background: #f6f6f6;*/
+}
+
+.basket .viewedTitle {
+    letter-spacing: 0.7px;
+    padding-bottom: 39px;
+}
+
+.basket .productCarousel .jcarousel li {
+    width: 278px;
+}
+
+.basket .productCarousel .jcarousel-control-prev, .basket .productCarousel .jcarousel-control-next {
+    top: -59px;
+}
+
+.discountsBlock .jcarousel-control-prev {
+    left: auto;
+    right: 42px;
+}
+
+.discountsBlock .jcarousel-control-prev, .discountsBlock .jcarousel-control-next {
+    top: -72px;
+}
+
+.discountsBlock .jcarousel-wrapper {
+    padding-top: 28px;
+}
+
+.selectric .label {
+    text-align: left;
+}
+
+.infoBlockWrapper .infoTitleBlock {
+    letter-spacing: 0.5px;
+}
+
+.infoBlockWrapper .viewedTitle {
+    font: 20px/1 'MuseoSansCyrl-700', sans-serif !important;
+    letter-spacing: 0.7px;
+    padding-bottom: 47px;
+}
+
+.infoBlockWrapper .productCarousel .jcarousel-control-prev,
+.infoBlockWrapper .productCarousel .jcarousel-control-next {
+    top: -64px;
+}
+
+.infoBlockWrapper .productCarousel .jcarousel li {
+    width: 278px;
+}
+
+.infoBlockWrapper .selectric .button {
+    top: 4px;
+}
+
+.infoBlockWrapper .questionInfoForm .rightBlock .selectric .label {
+    font-family: 'MuseoSansCyrl-500';
+}
+
+.pp1.tableBorderWrapper {
+    margin: 59px 0 0;
+}
+
+.pp1 .questionInfoForm .titleText {
+    padding-top: 40px;
+    padding-bottom: 17px;
+    letter-spacing: 0.6px;
+}
+
+.pp1 .questionInfoForm .leftBlock {
+    padding: 23px 0 4px 29px;
+}
+
+.pp1 .questionInfoForm input {
+    padding: 15px 14px 15px 20px;
+    float: left;
+    margin-bottom: 21px;
+}
+
+.pp1 .selectric-wrapper {
+    float: left;
+}
+
+.pp1 .questionInfoForm .rightBlock .selectric-wrapper {
+    margin: 14px 0 0 13px;
+}
+
+.pp1 .questionInfoForm .rightBlock .selectric {
+    margin: 0;
+    width: 220px;
+    height: 47px;
+}
+
+.pp1 .selectric .button {
+    right: 8px;
+}
+
+.pp1 .questionInfoForm .rightBlock {
+    margin-left: 264px;
+    padding-top: 23px;
+}
+
+.pp1 .questionInfoForm .titleLittleText {
+    line-height: 1.7;
+    padding: 0 30px 36px;
+}
+
+.pp1 .questionInfoForm .inputsBlock {
+    vertical-align: top;
+}
+
+.pp1 .questionInfoForm textarea {
+    display: block;
+    width: 688px;
+    margin-left: 29px;
+    padding-top: 17px;
+    height: 120px;
+    box-sizing: border-box;
+}
+
+.pp1 .questionInfoForm .callBackBut {
+    padding: 10px 20px;
+}
+
+.pp1 .questionInfoForm .formAcceptBut {
+    padding: 10px 18px;
+}
+
+.pp1 .questionInfoForm .buttonsBlock {
+    padding-bottom: 29px;
+}
+
+.whileWeWrapperInfoPP {
+    padding: 35px 0 55px;
+}
+
+.whileWeWrapperInfoPP1 {
+    padding: 45px 0 55px;
+}
+
+.whileWeWrapperInfoPP .blockText, .whileWeWrapperInfoPP1 .blockText {
+    margin-bottom: 47px;
+}
+
+.whileWeWrapperInfoPP h2, .whileWeWrapperInfoPP1 h2 {
+    font: 20px/1 "MuseoSansCyrl-700", sans-serif;
+    margin-bottom: 23px;
+}
+
+/*productCard*/
+.informationSlideBlock .jcarousel li, .productSlider .jcarousel li {
+    width: 300px;
+}
+
+.infoDocumentsBlock .jcarousel-control-prev, .productSlider .jcarousel-control-prev {
+    left: auto;
+    right: 42px;
+}
+
+.infoDocumentsBlock .jcarousel-control-prev, .infoDocumentsBlock .jcarousel-control-next {
+    top: -68px;
+}
+
+.productSlider .jcarousel-control-prev, .productSlider .jcarousel-control-next {
+    top: -80px;
+}
+
+.infoBlocksContent, .basketBlock {
+    display: none;
+}
+
+/***********************/
+.lk {
+    padding: 8px 0 58px;
+}
+
+.lk h1 {
+    margin-bottom: 2px;
+}
+
+.lk .catalogTitleBlock p {
+    margin-top: 30px;
+    letter-spacing: 0.7px;
+}
+
+.lk .catalogTitleBlock {
+    padding-top: 26px;
+    margin-bottom: 42px;
+}
+
+.lk .catalogTitleBlock .widthWrapper {
+    padding-bottom: 35px;
+}
+
+.settingsWrap .orderContainer.activeOrder .activeOrderTitle:after {
+    width: 9px;
+    height: 6px;
+    background: url(../img/arrows.png) no-repeat 0 -45px;
+}
+
+.hiddenQuestionBlock .selectric.error .label {
+    color: #ea8b64 !important;
+}
+
+.hiddenQuestionBlock .selectric.error .button {
+    display: none;
+}
+
+.secondLvlCatalog .mCSB_container {
+    width: 240px;
+}
+
+.secondLvl .count {
+    float: right;
+    background: #f08a5a;
+    color: #fff;
+    margin-right: 0px;
+    text-align: center;
+    width: 10px;
+    font: 11px/1 'MuseoSansCyrl-700' !important;
+    border-radius: 50%;
+    padding: 4px 5px;
+}
+
+#callBackPopup {
+    width: 260px !important;
+    left: -130px;
+}
+
+#callBackPopup .btn {
+    width: 100%;
+    box-sizing: border-box;
+    text-align: center;
+    margin-top: 25px;
+}
+
+.mainLeftMenu > ul .mCSB_scrollTools_vertical {
+    visibility: hidden;
+}
+
+.productCard {
+    padding: 10px 0 5px;
+}
+
+.productCard h1 {
+    font: 30px/1 'MuseoSansCyrl-900', sans-serif;
+    color: #323232;
+    margin: 16px 0 24px;
+    letter-spacing: 0.7px;
+}
+
+.productCard .catalogTitleBlock {
+    margin-bottom: 65px;
+}
+
+.productCardImg {
+    width: 760px;
+    margin: 0 0 -1px;
+    border: 1px solid #dedede;
+    border-radius: 5px 0 0 5px;
+    text-align: center;
+    position: relative;
+    float: left;
+}
+
+.productCardImg .logosContainer {
+    left: 28px;
+    top: 30px;
+    right: auto;
+}
+
+.previewImg {
+    position: relative;
+    left: 2px;
+    display: block;
+    margin: 107px auto 92px;
+    width: 520px;
+    height: 520px;
+}
+
+.previewImg img {
+    width: 100%;
+    height: 100%;
+}
+
+.productCard .productCardImg .logosContainer div {
+    width: 49px;
+    height: 51px;
+    font: 14px/53px 'MuseoSansCyrl-900', sans-serif;
+    padding: 0;
+    margin: 0 0 8px;
+
+}
+
+.productCard .productCardImg .logosContainer .discountLogoWrapper {
+    background-image: url(../img/discountBackProduct.png);
+    color: #816d16;
+}
+
+.productCard .productCardImg .logosContainer .bestLogoWrapper {
+    background: #ffd0b4;
+    border-radius: 50%;
+    color: #c7663e;
+}
+
+.productCard .productCardImg .logosContainer .newLogoWrapper {
+    background: #dee8b7;
+    color: #779061;
+    font-size: 12px !important;
+    border-radius: 50%;
+}
+
+.productCard .productCardImg .logosContainer .freshLogoWrapper {
+    background: #b8aecc;
+    color: #8c849b;
+    border-radius: 50%;
+}
+
+.productCard .productCardImg .logosContainer .saleLogoWrapper {
+    background: #bbe7fc;
+    color: #748f9d;
+    border-radius: 50%;
+}
+
+.smallPreviewImg {
+    font-size: 1px;
+    position: relative;
+    left: -1px;
+    top: -1px;
+}
+
+.smallPreviewImg img {
+    width: 76px;
+    height: 83px;
+    border-radius: 3px;
+}
+
+.smallPreviewImg a {
+    display: inline-block;
+    vertical-align: top;
+    margin: 0 13px 25px;
+    border-radius: 3px;
+    /*overflow: hidden;*/
+    border: 1px solid #e6e6e6;
+    position: relative;
+}
+
+.smallPreviewImg a:hover, .smallPreviewImg a.active {
+    border-color: #bfe2b5;
+}
+
+.smallPreviewImg a:hover:after, .smallPreviewImg a.active:after {
+    content: "";
+    width: 100%;
+    height: 3px;
+    background: #bfe2b5;
+    border-radius: 3px;
+    display: block;
+    position: absolute;
+    bottom: -28px;
+}
+
+.productCardDesc {
+    margin: 0 0 50px 760px;
+    border: 1px solid #dedede;
+    border-left: none;
+    border-radius: 0 5px 5px 0;
+}
+
+.productCardDesc .productTitle {
+    font: 17px/1 'MuseoSansCyrl-900', sans-serif;
+    padding: 28px 19px 25px;
+    border-bottom: 1px solid #dedede;
+    letter-spacing: 0.4px;
+}
+
+.productCardDesc:after {
+    content: "";
+    height: 0;
+    display: block;
+    clear: both;
+}
+
+.productCardDesc .productInfo {
+    height: 290px;
+    margin: 10px 5px 20px;
+
+}
+
+.productCardDesc .brandText {
+    margin: 0 16px;
+    padding: 10px 0 12px;
+    border-bottom: 1px solid #e6e6e6;
+}
+
+.productCardDesc .brandText a {
+    color: #5db3dc;
+    font: 15px/1 'MuseoSansCyrl-700', sans-serif;
+    border-bottom: 1px solid #5db3dc;
+    text-decoration: none;
+    letter-spacing: 0.2px;
+    display: inline-block;
+    vertical-align: top;
+    padding: 3px 0 2px;
+}
+
+.productCardDesc .brandText a:hover {
+    border-bottom-color: transparent;
+}
+
+.productCardDesc .brandText strong {
+    font: 15px/1 'MuseoSansCyrl-700', sans-serif;
+    margin-right: 28px;
+}
+
+.productCardDesc .productArticle {
+    font: 15px/1 'MuseoSansCyrl-700', sans-serif;
+    color: #b8b8b8;
+    margin: 16px 16px 18px;
+
+}
+
+.productCardDesc .productArticle strong {
+    font: 15px/1 'MuseoSansCyrl-700', sans-serif;
+    margin-right: 13px;
+    color: #0b0b0b;
+}
+
+.productCardDesc .productText {
+    color: #9a9a9a;
+    font: 15px/24px 'MuseoSansCyrl-500', sans-serif;
+    margin: 16px 0 16px 16px;
+}
+
+.productCardDesc .productText p {
+    margin-bottom: 25px;
+}
+
+.productCardDesc .productPrice {
+    width: 284px;
+    float: left;
+    color: #0b0b0b;
+    border-top: 1px solid #e6e6e6;
+
+}
+
+.productCardDesc .productPrice strong, .productCardDesc .productCount strong, .productCardDesc .productColor strong {
+    font: 17px/1 'MuseoSansCyrl-700', sans-serif;
+    display: block;
+    margin: 21px 17px 17px;
+}
+
+.productCardDesc .productColor strong {
+    margin: 16px 21px 19px;
+}
+
+.productCardDesc .productPrice strong {
+    margin-bottom: 23px;
+}
+
+.productCardDesc .productPrice span {
+    font: 38px/1 'UltimaProBlack', sans-serif;
+    margin: 0 17px;
+}
+
+.productCardDesc .productCount {
+    margin: 0 0 22px 284px;
+    border-top: 1px solid #e6e6e6;
+}
+
+.productCardDesc .middleSelectBlock {
+    width: 96px;
+    margin: 0 0 0 18px;
+}
+
+.productCardDesc .elementQuant {
+    position: relative;
+    width: auto;
+    height: 40px;
+}
+
+.productCardDesc .elementQuant div {
+    margin: 0;
+    left: 0;
+    width: 100%;
+}
+
+.productCardDesc .elementQuant input {
+    width: 100%;
+    height: 39px;
+    padding: 11px 15px 10px;
+    font: 19px/19px 'MuseoSansCyrl-700', sans-serif;
+    text-align: center;
+    box-sizing: border-box;
+    border: none !important;
+    background: none;
+    color: #000 !important;
+}
+
+.productCardDesc .elementQuant .quantityPlus, .productCardDesc .elementQuant .quantityMinus,
+.productCardDesc .elementQuant .quantityPlus:hover, .productCardDesc .elementQuant .quantityMinus:hover {
+    width: 22px;
+    height: 20px;
+    margin: 0;
+    border: none;
+    background: none !important;
+}
+
+.productCardDesc .elementQuant .quantityPlus:before, .productCardDesc .elementQuant .quantityMinus:before/*,
+.productCardDesc .horizontalFilterWrap .firstFilter:before, .productCardDesc .horizontalFilterWrap .firstFilter:after */  {
+    content: "";
+    left: -1px;
+    position: absolute;
+    display: block;
+    border: 4px solid transparent;
+}
+
+.productCardDesc .horizontalFilterWrap .firstFilter {
+    background: url("../img/recht6363.png") no-repeat scroll 96% 50%;
+}
+
+.productCardDesc .horizontalFilterWrap {
+    border-left: none;
+}
+
+.productCardDesc .elementQuant .quantityPlus:before {
+    border-bottom: 5px solid #131313;
+    top: 7px;
+}
+
+.productCardDesc .elementQuant .quantityMinus:before {
+    border-top: 5px solid #131313;
+    /*top: 4px;*/
+    top: 10px;
+}
+
+.productCardDesc .middleSelectBlock.active {
+    /*  border-color: #232323 !important;*/
+    border-color: #5db3dc !important;
+}
+
+.productCardDesc .middleSelectBlock.active input {
+    color: #5db3dc !important;
+}
+
+.productCardDesc .middleSelectBlock.active input {
+    /* color: #5db3dc !important;*/
+}
+
+.productCardDesc .horizontalFilterWrap {
+    height: auto;
+    border-radius: 0;
+}
+
+.productCardDesc .horizontalFilterWrap .firstFilter {
+    width: 380px;
+    box-sizing: border-box;
+    float: none;
+    margin: 0 0 25px 20px;
+    border: 1px solid #dadada;
+
+    padding: 0;
+
+    position: relative;
+}
+
+/*
+.productCardDesc .horizontalFilterWrap .firstFilter:hover {
+    border-color: #232323 !important;
+}
+*/
+.productCardDesc .horizontalFilterWrap .firstFilter:before {
+    content: "";
+    border-bottom: 5px solid #131313;
+    top: 7px;
+    right: 16px;
+    left: auto;
+
+}
+
+.productCardDesc .horizontalFilterWrap .firstFilter:after {
+    content: "";
+    border-top: 5px solid #131313;
+    bottom: 9px;
+    right: 16px;
+    left: auto;
+}
+
+.productCardDesc .firstFilter .firstFiltElement1:before {
+    display: none;
+}
+
+.productCardDesc .hidingMenu {
+    width: 100%;
+}
+
+.middleSelectBlock {
+    border: 1px solid #dadada;
+    border-radius: 5px;
+}
+
+.productCardDesc .horizontalFilterWrap .firstFilter p {
+    line-height: 22px;
+    letter-spacing: 0.3px;
+    width: 100%;
+    max-width: 100%;
+    box-sizing: border-box;
+    padding: 10px 30px 10px 13px;
+}
+
+.productCardDesc .hidingMenu p {
+    padding: 10px 15px;
+}
+
+.productCardDesc .productFavorites {
+    width: 207px;
+    border-right: 1px solid #e6e6e6;
+    border-bottom: 1px solid #dedede;
+    float: left;
+    padding: 19px 0 20px;
+}
+
+.productCardDesc .productFavorites a, .productCardDesc .productComment a {
+    width: 170px;
+    height: 45px;
+    display: block;
+    margin: 0 auto;
+    text-align: left;
+    box-sizing: border-box;
+    font: 14px/45px 'MuseoSansCyrl-500', sans-serif;
+    color: #0b0b0b;
+    border-radius: 5px;
+    padding-left: 55px;
+    letter-spacing: 0.3px;
+}
+
+.productCardDesc .productComment {
+    margin: 0 0 30px 207px;
+    border-bottom: 1px solid #dedede;
+    padding: 19px 0 20px;
+}
+
+.productCardDesc .productFavorites a {
+    background: #f6e3de url(../img/iconFavorite.png) no-repeat 18px 50%;
+
+}
+
+.productCard .basketBody .basketBodyMenu a:first-child {
+    margin-right: 38px;
+}
+
+.productCardDesc .productFavorites a:hover {
+    background-color: #eedcd7;
+    color: #000;
+}
+
+.productCardDesc .productComment a {
+    line-height: 45px;
+    padding-left: 50px;
+    background: #d5eac2 url(../img/iconComment.png) no-repeat 15px 50%;
+}
+
+.productCardDesc .productComment a:hover {
+    background-color: #cce0ba;
+}
+
+.productCardDesc .addBtn {
+    width: 380px;
+    height: 55px;
+    text-align: left;
+    border-radius: 5px;
+    color: #fff;
+    display: block;
+    margin: 0 auto;
+    padding: 0 0 0 123px;
+    box-sizing: border-box;
+    font: 15px/55px 'MuseoSansCyrl-700', sans-serif;
+    background: #5db3dc url(../img/iconBasket.png) no-repeat 80px 50%;
+}
+
+.productCardDesc .addBtn:hover {
+    background-color: #59acd3;
+}
+
+.viewedBlock {
+    margin-top: 12px;
+}
+
+.productCard .elmentsList .productWrapper .price {
+    position: relative;
+    top: 12px;
+    left: 2px;
+}
+
+.productCard .logosContainer {
+    top: 30px;
+}
+
+.productCard .viewedElementBlock .productCarousel .jcarousel-control-prev,
+.productCard .viewedElementBlock .productCarousel .jcarousel-control-next {
+    top: -63px;
+}
+
+.productCard .productSlider .jcarousel-control-prev, .productCard .productSlider .jcarousel-control-next {
+    top: -110px;
+}
+
+.col {
+    width: 22px;
+    height: 22px;
+    border-radius: 50%;
+    display: inline-block;
+    vertical-align: top;
+    margin: 0 15px 0 0;
+}
+
+.oform h1 {
+    font: 36px/1 'VentiCF-Black', sans-serif;
+    letter-spacing: -0.3px;
+}
+
+.oform .catalogTitleBlock {
+    padding: 52px 0 17px;
+    margin-bottom: 8px;
+}
+
+.dataPayer h2 {
+    font: 20px/1 'MuseoSansCyrl-700', sans-serif;
+    letter-spacing: 0.5px;
+    padding: 38px 0 25px;
+    margin: 0 0 15px;
+    border-bottom: 1px solid #ddd;
+}
+
+.dataPayer .col1 {
+    display: block;
+    float: left;
+    width: 610px;
+    box-sizing: border-box;
+    padding-right: 40px;
+}
+
+.dataPayer .col2 {
+    display: block;
+    float: left;
+    width: 570px;
+}
+
+.dataPayer .col2 input {
+    width: 100%;
+}
+
+.dataPayer label span {
+    display: block;
+    font: 15px/1 'MuseoSansCyrl-700', sans-serif;
+    padding: 34px 0 20px;
+}
+
+.dataPayer input {
+    width: 93.1%;
+    height: 50px;
+    padding: 17px 18px 15px;
+    border-radius: 5px;
+    color: #5a5a5a;
+    background: #fff;
+    border: 1px solid #dadada;
+    font: 15px/1 'MuseoSansCyrl-700', sans-serif;
+    letter-spacing: -0.2px;
+    box-sizing: border-box;
+}
+
+.dataPayer .col1 input {
+    width: 100%;
+}
+
+.dataPayer .row1, .dataPayer .row3 {
+    padding: 0 0 43px;
+    border-bottom: 1px solid #ddd;
+}
+
+.dataPayer .row2 {
+    padding-bottom: 12px;
+}
+
+.dataPayer .row1:after, .dataPayer .row2:after {
+    content: "";
+    display: block;
+    clear: both;
+}
+
+.dataPayer label {
+    display: block;
+}
+
+.dataPayer .row2 label {
+    width: 300px;
+    float: left;
+}
+
+.dataPayer .row2 label:nth-child(2) {
+    width: 310px;
+}
+
+.dataPayer .row2 label:nth-child(3) {
+    width: 570px;
+}
+
+.dataPayer .row2 label span {
+    padding: 32px 0 17px;
+}
+
+.dataPayer .row2 label input {
+    width: 90%;
+}
+
+.dataPayer .row2 label:nth-child(2) input {
+    width: 88%;
+}
+
+.dataPayer .mes {
+    color: #989898;
+    font: 16px/1 'MuseoSansCyrl-300', sans-serif;
+    /*clear: both;*/
+    padding: 50px 0 0;
+}
+
+.dataPayer .mes span {
+    color: #000;
+}
+
+.dataPayer .row2 .selectric, .row1 .selectric {
+    width: 570px;
+    height: 47px;
+}
+
+.dataPayer .row2 .selectric .label, .row1 .selectric .label {
+    line-height: 47px;
+    height: 47px;
+    margin-left: 18px;
+    margin-top: 0.5px;
+}
+
+.dataPayer .row2 .selectric .button, .row1 .selectric .button {
+    right: 7px;
+    top: 5px;
+}
+
+.dataPayer .row2 .selectric .selectric-items, .row1 .selectric .selectric-items {
+    left: 0;
+}
+
+.dataPayer .row3 h2 {
+    margin-bottom: 25px;
+}
+
+.dataPayer .row3 .tabs .tabsLinks {
+    margin-bottom: 44px;
+}
+
+.dataPayer .row3 .basketBlock h3 {
+    font: 13px/1 'MuseoSansCyrl-900', sans-serif;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    color: #48aad8;
+    padding: 0 0 27px;
+}
+
+.dataPayer .tabs .tabsLinks a.active:after {
+    background: #5db3dc;
+    height: 3px;
+    border-radius: 3px;
+}
+
+.allElementWrap .elementBlocksWrap .basketBlock {
+    padding-top: 0;
+}
+
+.allElementWrap .elementBlocksWrap .basketBody {
+    border-radius: 5px;
+    border: 1px solid #E0E0E0;
+    overflow: hidden;
+    margin-bottom: 9px;
+}
+
+.allElementWrap .elementBlocksWrap .basketBody table {
+    /*width: 101%;*/
+    width: calc(100% + 3px);
+    margin: -1px;
+}
+
+.catalogElementsBlock {
+    margin-bottom: 38px;
+}
+
+.elementsTable .basketBody tr:last-child td {
+    height: 117px !important;
+}
+
+.elementQuant .quantityMinus {
+    background-image: url("../img/bottomOrderQuant.png");
+}
+
+.elementQuant .quantityMinus:hover {
+    background-image: url("../img/bottomOrderQuantHover.png") !important;
+}
+
+.elementQuant .quantityMinus.inactive, .elementQuant .quantityMinus.inactive:hover {
+    background-image: url("../img/bottomOrderQuantInactive.png") !important;
+}
+
+.elementQuant .quantityPlus {
+    background-image: url("../img/topOrderQuant.png");
+}
+
+.elementQuant .quantityPlus:hover {
+    background-image: url("../img/topOrderQuantHover.png") !important;
+}
+
+.elementQuant .quantityPlus.inactive, .elementQuant .quantityPlus.inactive:hover {
+    background-image: url("../img/topOrderQuantInactive.png") !important;
+}
+
+.trHover td {
+    position: relative;
+}
+
+.trHover td:before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 15px;
+    background: #fff;
+    background: -moz-linear-gradient(top, #f0f8fc 0%, #ffffff 100%);
+    background: -webkit-linear-gradient(top, #f0f8fc 0%, #ffffff 100%);
+    background: linear-gradient(to bottom, #f0f8fc 0%, #ffffff 100%);
+    filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#f0f8fc', endColorstr='#ffffff', GradientType=0);
+
+}
+
+.trHover td:first-child:before {
+    height: 12px;
+
+}
+
+/******************************/
+#contacts {
+    position: relative;
+    background: #f5f5f5;
+    padding: 0 0 35px;
+    top: 1px;
+    position: relative;
+    z-index: 10;
+}
+
+.contacts h1 {
+    font: 36px/1 'VentiCF-Black', sans-serif;
+    margin: 8px 0 2px;
+    letter-spacing: 0;
+}
+
+.contacts .catalogTitleBlock {
+    border-bottom: none;
+    margin-bottom: 0;
+}
+
+.contactsWindow {
+    top: 50px;
+    left: 50px;
+    background: #fff;
+    position: absolute;
+    z-index: 100;
+    width: 410px;
+    /*  height: 580px;*/
+    border-radius: 5px;
+    overflow: hidden;
+    padding: 27px 30px 0;
+    box-sizing: border-box;
+    display: none;
+    box-shadow: 8px 8px 17px #d7d4cb;
+}
+
+.contactsWindow .close {
+    top: 25px;
+    right: 27px;
+    position: absolute;
+    background: url(../img/close1.png) no-repeat 0 0;
+    width: 10px;
+    height: 10px;
+    float: right;
+    margin: 7px;
+}
+
+.contactsWindow .close:hover {
+    background-position: 100% 0;
+}
+
+.contactsWindow .status {
+    background: #dee8b7;
+    color: #000;
+    font: 13px/1 'MuseoSansCyrl-500';
+    border-radius: 15px;
+    padding: 6px 12px;
+    display: inline-block;
+    vertical-align: top;
+    margin-left: -2px;
+}
+
+.contactsWindow h2 {
+    font: 30px/1 'MuseoSansCyrl-900';
+    color: #323232;
+    padding: 18px 0;
+    letter-spacing: 0.7px;
+}
+
+.contactsWindow .date {
+    color: #707070;
+    font: 15px/1 'MuseoSansCyrl-500';
+    padding: 0 0 15px;
+    letter-spacing: -0.1px;
+}
+
+.contactsWindow .date span {
+    color: #82a264;
+}
+
+.contactsWindow .tabs .tabsLinks a {
+    font-size: 17px;
+    margin-right: 22px;
+}
+
+.contactsWindow .tabs .tabsLinks a.active {
+    color: #5db3dc;
+}
+
+.contactsWindow .tabs .tabsLinks a.active:after {
+    background: #5db3dc;
+}
+
+.contactsWindow .tabs .tabsLinks {
+    margin-bottom: 27px;
+}
+
+.contactsWindow .line {
+    padding: 0 0 24px;
+    color: #979797;
+    font: 15px/1 'MuseoSansCyrl-500';
+}
+
+.contactsWindow .line strong {
+    color: #323232;
+    display: block;
+    padding: 0 0 10px;
+    font: 15px/1 'MuseoSansCyrl-700';
+    border-bottom: 1px solid #e5e5e5;
+    margin: 0 0 16px;
+}
+
+.contactsWindow .line a {
+    font: inherit;
+    color: inherit;
+    text-decoration: none;
+}
+
+.contactsWindow .line a:hover {
+    text-decoration: underline;
+}
+
+.contactsWindow .btnContainer {
+    background: #f3f9fd;
+    border-top: 1px solid #e6e6e6;
+    padding: 23px 0 29px;
+    margin: 12px -30px 0;
+}
+
+.contactsWindow .btnContainer a {
+    display: block;
+    margin: 0 auto;
+    width: 340px;
+    border-radius: 5px;
+    background: #5db3dc;
+    color: #fff;
+    text-align: center;
+    font: 14px/46px 'MuseoSansCyrl-500';
+    position: relative;
+    left: -4px;
+}
+
+.contactsWindow .btnContainer a:hover {
+    background: #5daed7;
+}
+
+.contactsWindow .btnContainer a img {
+    margin: 0 17px 0 -10px;
+    vertical-align: top;
+}
+
+#contacts {
+    width: 100%;
+    height: 750px;
+    position: relative;
+}
+
+#contacts .widthWrapper {
+
+}
+
+.map {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+}
+
+#map-zoom-plus, #map-zoom-minus {
+    width: 44px;
+    height: 44px;
+    position: absolute;
+    right: 50px;
+    z-index: 100;
+    cursor: pointer;
+}
+
+#map-zoom-plus {
+    top: 50px;
+    background: url(../img/mapControls.png) no-repeat 0 0;
+
+}
+
+#map-zoom-minus {
+    top: 105px;
+    background: url(../img/mapControls.png) no-repeat 0 100%;
+}
+
+.elementActions .deleteButton {
+    background: url("../img/deleteImgBasket.png") no-repeat scroll 50%;
+    border: 1px solid #e7e7e7;
+    border-radius: 40px;
+    width: 36px;
+    height: 36px;
+    margin: 0 5px;
+    display: inline-block;
+}
+
+.elementActions .deleteButton:hover {
+    background-image: url('../img/delactivebutbasket.png');
+}
+
+.firstFilter:hover, .secondFilter:hover, .quantOnPageFilt:hover, .quantOnPageFiltBot:hover, .goToPageFilter:hover,
+.productCardDesc .horizontalFilterWrap .firstFilter:hover {
+    border-color: #5db3dc !important;
+    background-image: url(../img/cArrowActive.png);
+    /*cArrowActive*/
+}
+.firstFilter.active, .secondFilter.active, .quantOnPageFilt.active, .quantOnPageFiltBot.active, .goToPageFilter.active {
+    background-image: url(../img/cArrowActive1.png);
+    border-color: #5db3dc !important;
+ /*   -webkit-transform:rotate(180deg);
+    -moz-transform:rotate(180deg);
+    -o-transform:rotate(180deg);
+    transform:rotate(180deg);
+    -ms-transform:rotate(180deg);
+    filter: progid:DXImageTransform.Microsoft.BasicImage(rotation=1);*/
+}
+
+.basketBlock table .selectric-wrapper {
+    width: 152px;
+    margin: 0 auto;
+}
+
+.productCard .catalogTitleBlock .widthWrapper {
+    padding-bottom: 28px;
+}
+
+.productCard .basketBody .basketBodyMenu a {
+    letter-spacing: -0.35px;
+    /* margin-left: 3px;*/
+}
+
+.questionInfoForm .selectric-items {
+    background: none;
+    margin: 8px 0;
+    border-radius: 5px;
+    box-shadow: 0 0 13px 0px rgba(221, 221, 221, 1);
+    overflow: hidden;
+}
+
+.infoBlockWrapper .elmentsList .productWrapper .price {
+    margin-left: -1px;
+}
+
+.infoBlockWrapper .elmentsList .productimg {
+    height: 216px;
+}
+
+.infoBlockWrapper .elmentsList .productWrapper .productName {
+    letter-spacing: 0.2px;
+    padding-top: 18px;
+}
+
+.oform .basketBody .basketBodyMenu a {
+    margin-right: 43px;
+    letter-spacing: -0.7px;
+}
+
+.oform .basketBody .basketBodyMenu a:first-child {
+    letter-spacing: -0.7px;
+}
+
+.dataPayer .basketBody:after {
+    content: "";
+    display: block;
+    clear: both;
+}
+
+.dataPayer input[type="radio"] + label {
+    padding: 17px 20px;
+    margin: 0 0 15px;
+    border-radius: 5px;
+    font: 15px/18px 'MuseoSansCyrl-500', sans-serif;
+    background: #f6f6f6;
+    color: #727272;
+
+}
+
+.dataPayer input[type="radio"]:checked + label {
+    background: #ebf6fb;
+    color: #58b0da;
+}
+
+.dataPayer input[type="radio"] + label::before {
+    width: 34px;
+    height: 18px;
+    background: url(../img/radio1.png) no-repeat 0 0;
+    background-size: 18px auto;
+}
+
+.dataPayer input[type="radio"]:checked + label::before {
+    background-position: 0 -18px;
+}
+
+.dataPayer .row3 {
+    padding-bottom: 10px;
+}
+
+.dataPayer .row4 {
+    padding-bottom: 20px;
+    border-bottom: 1px solid #d9d9d9;
+}
+
+.dataPayer .row4 h3, .dataPayer .row5 h3 {
+    font: 13px/1 'MuseoSansCyrl-900', sans-serif;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    padding: 40px 0 30px;
+}
+
+.dataPayer .row5 h3 {
+    padding: 33px 0;
+}
+
+.dataPayer .row4 input {
+    width: 100%;
+}
+
+.dataPayer .row4 label {
+    display: block;
+    margin-bottom: 20px;
+}
+
+.dataPayer .row4 .small {
+    width: 270px;
+    margin-right: 28px;
+    display: block;
+    float: left;
+}
+
+.dataPayer .row4 .small:last-child {
+    margin-right: 0;
+}
+
+.dataPayer .row4:after, .dataPayer .row5:after, .dataPayer .row6 .border:after, .dataPayer .row7:after {
+    content: "";
+    display: block;
+    clear: both;
+}
+
+.dataPayer .row5 .selectric-wrapper {
+    height: 50px;
+    float: left;
+}
+
+.dataPayer .row5 .selectric {
+    margin-left: 0;
+    width: 570px;
+    height: 50px;
+    float: left;
+}
+
+.dataPayer .row5 .selectric .label {
+    margin-left: 26px;
+    line-height: 50px;
+}
+
+.dataPayer .row5 .selectric .button {
+    width: 49px;
+    height: 49px;
+}
+
+.dataPayer .row5 .selectric-items {
+    left: 0;
+}
+
+.dataPayer .row5 .selectric-items li {
+    padding-left: 26px;
+}
+
+.dataPayer .row5 .mes {
+    position: relative;
+    color: #878787;
+    font: 15px/1 'MuseoSansCyrl-500';
+    float: left;
+    display: block;
+    padding: 17px 0 19px 35px;
+    margin-left: 40px;
+    background: url(../img/picker.png) no-repeat 0 17px;
+    letter-spacing: 0.2px;
+}
+
+.dataPayer .row6 .border {
+    border: 1px solid #d9d9d9;
+    border-radius: 5px 5px 0 0;
+}
+
+.dataPayer .row7 {
+    border-radius: 0 0 5px 5px;
+    border: 1px solid #d9d9d9;
+    border-top: none;
+}
+
+.dataPayer .row6 .border .col1, .dataPayer .row7 .col1 {
+    padding: 33px 30px 10px;
+    width: 850px;
+    float: left;
+    border-right: 1px solid #d9d9d9;
+}
+
+.dataPayer .row6 .border .col2, .dataPayer .row7 .col2 {
+    width: 325px;
+    float: left;
+}
+
+.dataPayer .row6 h3 {
+    font: 20px/1 'MuseoSansCyrl-700', sans-serif;
+    padding: 69px 0 31px;
+    margin: 0 0 43px;
+    letter-spacing: 0.3px;
+    border-bottom: 1px solid #ddd;
+}
+
+.dataPayer .row6 .sum {
+    font: 17px/1 'MuseoSansCyrl-500', sans-serif;
+    /*  color: #808080;*/
+    color: #000;
+    letter-spacing: 0.2px;
+    padding: 0 0 18px;
+    border-bottom: 1px solid #ddd;
+    margin: 0 0 20px;
+}
+
+.dataPayer .row6 .sum span {
+    float: right;
+    letter-spacing: 0;
+}
+
+.dataPayer .row6 .red {
+    color: #e4855e;
+}
+
+.dataPayer .row6 .green {
+    color: #81a95d;
+}
+
+.dataPayer .row6 .general {
+    font: 20px/1 'MuseoSansCyrl-900', sans-serif;
+    color: #000;
+    padding: 12px 0 0;
+    border-bottom: none;
+}
+
+.dataPayer .row6 .bg {
+    width: 270px;
+    height: 260px;
+    padding: 47px 0 0 7px;
+    box-sizing: border-box;
+    margin: 28px auto 0;
+    background: #fff2ea url(../img/bg.png) no-repeat 0 0;
+    text-align: center;
+    color: #a58e7f;
+    font: 17px/26px 'MuseoSansCyrl-500', sans-serif;
+}
+
+.dataPayer .row6 .price {
+    color: #e4855e;
+    font: 24px/1 'MuseoSansCyrl-500', sans-serif;
+    display: block;
+    padding: 25px 2px 33px 0;
+}
+
+.dataPayer .row6 .btn1 {
+    background: #fff2ea;
+    border: 1px solid #e0d5ce;
+    color: #000;
+    font: 14px/1 'MuseoSansCyrl-500', sans-serif;
+    display: inline-block;
+    vertical-align: top;
+    padding: 12px 25px 12px 25px;
+    text-decoration: none;
+    border-radius: 4px;
+}
+
+.dataPayer .row6 .btn1:hover {
+    background: #faede5;
+    border: 1px solid #dcd1ca;
+}
+
+.dataPayer .row7 {
+    margin: 0 0 60px;
+}
+
+.dataPayer .row7 .col1 {
+    padding-top: 38px;
+    padding-bottom: 42px;
+}
+
+.dataPayer .row7 .col1 p {
+    font: 18px/1 'MuseoSansCyrl-500', sans-serif;
+}
+
+.dataPayer .row7 button {
+    background: #5db3dc;
+    display: block;
+    color: #fff;
+    font: 15px/1 'MuseoSansCyrl-500', sans-serif;
+    text-align: center;
+    width: 270px;
+    height: 49px;
+    border: none;
+    margin: 25px auto 0;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.dataPayer .row7 button:hover {
+    background: #5daed7;
+}
+
+.dataPayer .selectric-items {
+    left: 0;
+}
+
+.questionInfoForm .selectric .label {
+    color: #807d7d;
+}
+
+.questionInfoForm ::-webkit-input-placeholder {
+    color: #807d7d;
+}
+
+.questionInfoForm :-moz-placeholder {
+    color: #807d7d;
+}
+
+.infoBlockWrapper .infoTitleBlock span.infoTitleDate::before {
+    display: none;
+}
+
+.settingsWrap .billingsListMenu {
+    margin-bottom: 48px;
+    letter-spacing: 0.4px;
+}
+
+.settingsWrap .billingsListMenu a {
+    margin-right: 24px;
+}
+
+.orderWrapperBlock .sumText {
+    margin-bottom: 16px;
+}
+
+.orderWrapperBlock .providerText {
+    letter-spacing: 0.2px;
+}
+
+.orderWrapperBlock .billDocument {
+    margin: 26px 24px 34px;
+    letter-spacing: 0.2px;
+}
+
+.settingsWrap .activeBillingMenu {
+    border-color: #DEE8B7;
+}
+
+.settingsWrap .activeBillingMenu.active {
+    border-color: #FCE47C;
+}
+
+.settingsWrap .actsListMenu a:first-child span {
+    margin-left: 18px;
+}
+
+.agreementWrap {
+    background: url(../img/bg1.png) no-repeat 0 0 !important;
+    width: 280px;
+    height: 340px;
+    position: relative;
+}
+
+.agreementWrap .status {
+    display: inline-block;
+    vertical-align: top;
+    margin: 20px 0 0 20px;
+    background: #e6e6e6;
+    padding: 6px 13px;
+    border-radius: 15px;
+    font: 13px/1 'MuseoSansCyrl-500', sans-serif;
+}
+
+.agreementWrap.new {
+    background: url(../img/bg2.png) no-repeat 0 0 !important;
+}
+
+.agreementWrap.new .status {
+    background: #cadf9e;
+}
+
+.agreementWrap.new .success {
+    background: url(../img/agreement-success.png) no-repeat 50% 0 !important;
+}
+
+.agreementWrap.wait {
+    background: url(../img/bg3.png) no-repeat 0 0 !important;
+}
+
+.agreementWrap.wait .status {
+    background: #fce47c;
+}
+
+.agreementWrap.wait .expires p:first-child {
+    padding-top: 60px;
+    color: #edc60f;
+    font: 24px/1 'MuseoSansCyrl-900', sans-serif;
+}
+
+.agreementWrap.wait .waitIcon {
+    background: url(../img/agreement-wait.png) no-repeat 50% 0 !important;
+}
+
+/*agreement-success.png*/
+.agreementWrap .expires {
+    background: url(../img/expires.png) no-repeat 50% 0;
+    height: 140px;
+    padding: 0 0 50px;
+    margin: 35px 0 0;
+    border-bottom: 1px solid #dadada;
+    text-align: center;
+}
+
+.agreementWrap .expires p:first-child {
+    padding: 45px 0 12px;
+    color: #323232;
+    font: 11px/1 'MuseoSansCyrl-500', sans-serif;
+}
+
+.agreementWrap .expires p:nth-child(2) {
+    color: #ea8b64;
+    font: 18px/1 'MuseoSansCyrl-700', sans-serif;
+    letter-spacing: 1px;
+}
+
+.agreementWrap .text {
+    font: 15px/1 'MuseoSansCyrl-500', sans-serif;
+    padding: 24px 0 0 20px;
+}
+
+.agreementWrap .icon {
+    width: 37px;
+    height: 37px;
+    display: block;
+    background: url(../img/downloadIconLk.png) no-repeat 50% 50%;
+    position: absolute;
+    z-index: 10;
+    bottom: 20px;
+    right: 20px;
+    border: 1px solid #cecece;
+    border-radius: 50%;
+}
+
+.agreementWrap .icon:hover {
+    opacity: 0.7;
+}
+
+.agreementWrap .icon.closeIcon, .agreementWrap .icon.closeIcon {
+    background-image: url(../img/close2.png);
+}
+
+.agreementBlock li {
+    width: 300px;
+    float: left;
+}
+
+.agreementBlock li:nth-child(4) {
+    width: 280px;
+}
+
+.agreementBlock:after {
+    content: "";
+    display: block;
+    clear: both;
+}
+
+.settingsWrap .ordersMenu {
+    height: 37px;
+    margin-top: 29px;
+    margin-bottom: 40px;
+}
+
+.ordersMenu .activeElement {
+    padding-bottom: 14px;
+}
+
+input[type=file] {
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    opacity: 0;
+    cursor: pointer;
+}
+
+input[type=file]::-webkit-file-upload-button {
+    cursor: pointer;
+}
+
+input[type=file]::-ms-browse {
+    cursor: pointer;
+}
+
+.subscriptionText {
+    letter-spacing: 0.2px;
+    margin-top: 9px;
+}
+
+.actStyle1 {
+    background: #ececec !important;
+}
+
+.actStyle1 .billBodyBlock {
+    background-color: #F5F5F5;
+}
+
+.actStyle1 .actsStatus {
+    background-color: #fce47c !important;
+}
+
+.actStyle1 .downloadIcon {
+    background-color: #fce47c !important;
+}
+
+.actStyle1 .billDocument a {
+    color: #dba500;
+    border-color: #ecdfa7;
+}
+
+.actStyle2 .billBodyBlock {
+    background-color: #FBF7E7 !important;
+}
+
+.actStyle2 .billTitleBlock {
+    background-color: #FCE47C !important;
+}
+
+.actStyle2 .actsStatus {
+    background-color: #FFFFFF !important;
+}
+
+.actStyle2 .downloadIcon {
+    background-color: #fce47c !important;
+}
+
+.actStyle2 .billDocument a {
+    color: #dba500;
+    border-color: #ecdfa7 !important;
+}
+
+.settingsWrap .viewedBlock {
+    border-top: none;
+    padding-top: 0;
+}
+
+.settingsWrap .productCarousel .jcarousel li {
+    width: 281px;
+    height: auto !important;
+    padding: 10px 0 0;
+}
+
+.settingsWrap .elmentsList li {
+    border: none;
+}
+
+.settingsWrap .productCarousel .jcarousel-control-prev, .settingsWrap .productCarousel .jcarousel-control-next {
+    top: -89px;
+}
+
+.complaints .productCarousel .jcarousel-control-prev, .complaints .productCarousel .jcarousel-control-next {
+    top: 10px;
+}
+
+.complaints {
+    margin-right: 3px;
+}
+
+.settingsWrap:nth-child(4) .actsListMenu {
+    margin-top: 34px;
+}
+
+.settingsWrap:nth-child(4) .actsListMenu a {
+    letter-spacing: 0.5px;
+    margin-right: 27px;
+}
+
+.settingsWrap:nth-child(4) .actsListMenu a:first-child span {
+    margin-left: 12px;
+}
+
+.settingsWrap:nth-child(5) .ordersMenu {
+    margin-top: 33px;
+}
+
+.settingsWrap:nth-child(5) .ordersMenu a {
+    letter-spacing: 0.7px;
+    margin-right: 25px;
+}
+
+.activeBillingsBlock .downloadFileBlock {
+    background: url("../img/downloadFileBlock1.png") no-repeat scroll 97% 50%;
+}
+
+.activeBillingsBlock .downloadFileBlock {
+    margin: 2px 3px 0 0;
+
+}
+
+.activeBillingsBlock .downloadFileBlock .downloadTitle {
+    padding: 55px 48px 13px;
+    margin: 0;
+    font-size: 28px;
+    letter-spacing: 0.6px;
+}
+
+.activeBillingsBlock .downloadFileBlock .downloadText {
+    padding: 0 50px 15px;
+    margin: 0;
+    letter-spacing: 0.3px;
+    font-size: 18px;
+    margin-bottom: 42px;
+}
+
+.order1 .billTitleBlock {
+    background-color: #ececec;
+}
+
+.order1 .billStatus {
+    background-color: #fce47c;
+}
+
+.order1 .billBodyBlock {
+    background-color: #F5F5F5;
+}
+
+.order1 .billBodyBlock .downloadIcon {
+    background-color: #fce47c;
+}
+
+.order1 .billBodyBlock .billDocument a {
+    color: #dba500;
+    border-color: #ecdfa7;
+}
+
+.order1 .billComposition a {
+    background-color: none;
+    border-color: #fce47c;
+}
+
+.order1 .billComposition a:hover {
+    background-color: #edd675;
+}
+
+.order2 .billTitleBlock {
+    background-color: #FCE47C;
+}
+
+.order2 .billStatus {
+    background-color: #FFFFFF;
+}
+
+.order2 .billBodyBlock {
+    background-color: #FBF7E7;
+}
+
+.order2 .billBodyBlock .downloadIcon {
+    background-color: #fce47c;
+}
+
+.order2 .billBodyBlock .billDocument a {
+    color: #dba500;
+    border-color: #ecdfa7;
+}
+
+.order2 .billComposition a {
+    background: none;
+    border-color: #dddbc4;
+}
+
+.order2 .billComposition a:hover {
+    background: #dddbc4;
+}
+
+.order3 .billTitleBlock {
+    background-color: #B8D776;
+}
+
+.order3 .billStatus {
+    background-color: #FFFFFF;
+}
+
+.order3 .billBodyBlock {
+    background-color: #F3F8E7;
+}
+
+.order3 .billBodyBlock .downloadIcon {
+    background-color: #B8D776;
+}
+
+.order3 .billBodyBlock .billDocument a {
+    color: #87AA3B;
+    border-color: #CAE199;
+}
+
+.order3 .billComposition a {
+    background: none;
+    border-color: #CCE499;
+}
+
+.order3 .billComposition a:hover {
+    background: #c5db95;
+}
+
+.order4 .billTitleBlock {
+    background-color: #ececec;
+}
+
+.order4 .billStatus {
+    background-color: #CADF9E;
+}
+
+.order4 .billBodyBlock {
+    background-color: #F5F5F5;
+}
+
+.order4 .billBodyBlock .downloadIcon {
+    background-color: #B8D776;
+}
+
+.order4 .billBodyBlock .billDocument a {
+    color: #87AA3B;
+    border-color: #CAE199;
+}
+
+.order4 .billComposition a {
+    background: none;
+    border-color: #c4d575;
+}
+
+.order4 .billComposition a:hover {
+    background: #c4d575;
+}
+
+.hidingFormNewTreatment {
+    height: 527px !important;
+}
+
+.hidingFormNewTreatment .selectric .label {
+    color: #666;
+}
+
+.hidingFormNewTreatment ::-webkit-input-placeholder {
+    color: #807d7d;
+}
+
+.hidingFormNewTreatment :-moz-placeholder {
+    color: #807d7d;
+}
+
+/*
+input[type=checkbox] + label::before,.inputBlock input[type="checkbox"] + label::before {
+    vertical-align: top;
+}
+.subscribeInp .subscriptionText {
+    position: absolute;
+}*/
+.subscriptionText {
+    position: relative;
+    display: block;
+    padding-left: 36px;
+}
+
+.subscriptionText:before {
+    position: absolute !important;
+    top: 4px !important;
+}
+
+.row5 {
+    width: 1200px;
+}
+
+.row6 {
+    position: relative;
+}
+
+.hiddenOform {
+    background-color: #fff;
+    border-radius: 4px;
+    box-shadow: 0 0 120px rgba(0, 0, 0, 0.5);
+    display: block;
+    padding: 30px 18px 18px;
+    position: absolute;
+    /* top: 0; */
+    width: 214px;
+    z-index: 400;
+    font: 14px/1.2 'MuseoSansCyrl-500', sans-serif;
+    bottom: 130px;
+    right: 45px;
+    display: none;
+}
+
+.hiddenOform strong {
+    font-family: 'MuseoSansCyrl-700', sans-serif;
+    display: block;
+    padding: 0 0 5px;
+}
+
+.hiddenOform .authClose {
+    right: 10px;
+    top: 18px;
+}
+
+#datepicker {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 0;
+    opacity: 0;
+    cursor: pointer;
+}
+
+.ui-widget {
+    font-family: 'MuseoSansCyrl-500', Arial, sans-serif;
+}
+
+.ui-widget-header, .ui-datepicker th {
+    font-weight: 400;
+    font-family: 'MuseoSansCyrl-700';
+}
+
+.dataPayer .row2 .mes {
+    clear: both;
+}
+
+/*****************/
+.map-full-mode, .map-normal-mode {
+    width: 44px;
+    height: 44px;
+    position: absolute;
+    z-index: 50;
+    cursor: pointer;
+    top:auto;
+    right: 60px;
+    bottom: 60px;
+}
+
+.map-normal-mode {
+    display: none;
+}
+
+.map-full-mode {
+    background: url(../img/cfull.png) no-repeat 0 0;
+
+}
+
+.map-normal-mode {
+    background: url(../img/cnormal.png) no-repeat 0 0;
+}
+
+.map-full-mode:hover, .map-normal-mode:hover {
+
+    background-size: 100% auto;
+
+}
+.full  {
+    position: fixed !important;
+    width: 100% !important;
+    height: 100% !important;
+    padding: 0 !important;
+    top: 0;
+    left:0;
+}
+.settingsWrap:last-child .newTreatmentBlock {
+    margin-top: 44px;
+}
+/*.orderInfoLkBlock, .productInfoHideBlock, .downloadFileBlock {
+    display: none;
+}*/
+
+@media (min-height: 900px) {
+    .hidingFormNewTreatment {
+        height: 790px !important;
+    }
+    .hidTreatmentBody, .hidingFormNewTreatment .hidTreatmentBody {
+        height: 670px !important;
+    }
+    .orderInfoLkBlock {
+        display: block;
+    }
+}
+.goToPageFilter .hidingMenu p, .quantOnPageFiltBot .hidingMenu p, .quantOnPageFilt .hidingMenu p {
+    padding-left: 13px !important;
+    width: 100% !important;
+    max-width: 100% !important;
+    box-sizing: border-box;
+}
+.hidingMenu {
+    max-height: 200px;
+    overflow-x: hidden;
+    overflow-y: auto;
+}
+.hidingMenu .mCSB_scrollTools .mCSB_draggerContainer {
+    top: 3px !important;
+    bottom: 3px !important;
+    height: auto !important;
+}
+.phoneInput {
+    margin-top: 22px;
+}
+.hiddenQuestionBlock .phoneInput {
+    margin-bottom: 0;
+}

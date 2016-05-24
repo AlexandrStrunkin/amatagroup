@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+
+<html>
+  <head>
+      <meta charset="UTF-8">
+      <title>Amata</title>
+      <link rel="stylesheet" type="text/css" href="./css/main.css">
+      <meta name = "format-detection" content = "telephone=no" />
+  </head>
+
+  <body>
+
+    <div class = "conteiner">
+      <div class="section_1">
+        <div class="section">
+          <div class="content_widht">
+            <div class = "back_icon_1">
+              <div class = "back_icon_2">
+                <div class = "logo"></div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="section">
+          <div class="content_widht">
+            <div class = "doc_link">
+              <a target = "_blank" href="./ostatki_amata.xls" class = "link_1">ОСТАТКИ И ЦЕНЫ</a>
+              <a target = "_blank" href="./presentation_amatagroup.pdf" class = "link_2">ПРЕЗЕНТАЦИЯ О КОМПАНИИ</a>
+            </div>
+          </div>
+        </div>
+
+        <div class="section">
+          <div class="content_widht">
+            <div class = "main_text">
+              Оптовый гипермаркет детских товаров от лучших мировых и российских производителей. <br>
+              Широкий ассортимент включает мебель, коляски, автокресла, игрушки и многое другое.<br>
+              Надежное и выгодное сотрудничество.
+            </div>
+          </div>
+        </div>
+
+        <div class="section">
+          <div class="content_widht">
+            <div class = "icons_line">
+              <div class = "icon_1"> ДЕТСКАЯ <br> МЕБЕЛЬ </div>  
+              <div class = "icon_2"> ПОСТЕЛЬНЫЕ <br> ПРИНАДЛЕЖНОСТИ </div>
+              <div class = "icon_3"> КОЛЯСКИ<br> И АВТОКРЕСЛА</div>       
+            </div>
+          </div>
+        </div>
+     
+        <div class="section">
+          <div class="content_widht">
+            <div class = "icons_line">
+              <div class = "icon_4"> ГИГИЕНА <br> И УХОД </div>  
+              <div class = "icon_5"> ВСЕ <br> ДЛЯ КОРМЛЕНИЯ </div>
+              <div class = "icon_6"> ИГРЫ <br> И РАЗВИТИЕ</div>       
+            </div>
+          </div>
+        </div>
+
+        <div class="section form_1">
+          <div class="content_widht">
+            <div class = "form_input">
+              <form class="form_11" id="form1" action="php/form_processing.php" method="post" onsubmit=""> 
+                <div class = "form_text">
+                  Если вы хотите узнать о запуске сайта компании первыми, оставьте свой электронный адрес
+                </div>
+                <input class="field" id="mail1" type="mail" placeholder="Введите электронный адрес" name="email1" required="required">
+                <input class="massege_button" type="submit" name = "submit1f" value="УЗНАТЬ О ЗАПУСКЕ САЙТА" data-wait="УЗНАТЬ У ЗАПУСКА САЙТА" wait="Отправка..." onclick="">              
+                <input type="hidden" name="submit1" value="1">                
+              </form>
+              <div class="success-message" id="success1">
+                Благодарим за проявленный интерес к нашему сайту.<br>
+                Как только сайт запустится, мы оповестим вас.
+              </div>
+            </div>
+          </div>
+        </div>
+        
+        <div class="section">
+          <div class="content_widht">
+            <div class = "contact">
+              <div class = "moscow"> 
+                109428, г. Москва, <br>
+                1-й Институтский п­р-д, д. 3, стр. 10<br>
+                +7 495 518-96-03­, +7 499 174-87-29<br>
+                info@amatagroup.ru­ 
+              </div>  
+              <div class = "krasnodar"> 
+                350059, г. Краснодар,­<br>
+                ул. Уральская, д. 116/4<br>
+                +7 988 480-00-71, +7 861 231-05-57<br>
+                krasnodar@amatagroup.ru­ 
+              </div>
+              
+            </div>          
+          </div>
+        </div>
+      </div>
+      <div class = "section_2">
+          <div class="content_widht">
+            <div class = "footer">
+              <p>ООО «Амата» 2015</p>
+              <div class = "back_icon_3"></div>
+            </div>      
+          </div>
+      </div>
+    </div>
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
+
+    <script type="text/javascript">
+      var formProcess = function(number) {
+        var $form = $('#form' + number);
+        var $success = $('#success' + number);
+        var $error = $('#error' + number);
+
+            $success.hide();
+            $error.hide();
+
+            $form.on('submit', function() {
+               console.log($(this).serialize());
+               $.post(
+                  '/php/form_processing.php',
+                  $(this).serialize(),
+                  function(data) {
+                     $form.slideUp();
+                     if (data !== "0") {
+                        $success.show();
+                     } else {
+                        $error.show();
+                     }
+                  }
+                  );
+
+               return false;
+            });
+         }
+
+         $(function() {
+            for (var i = 1; i <= 1; i++) {
+               formProcess(i);
+            }
+         });
+    </script>
+
+  </body>
+</html>
