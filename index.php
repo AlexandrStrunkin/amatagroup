@@ -1,1 +1,5 @@
-<head><meta http-equiv="REFRESH" content="0;URL=/bitrix/admin/index.php"></head>
+<?
+require($_SERVER["DOCUMENT_ROOT"]."/bitrix/header.php");
+$APPLICATION->SetTitle("Amatagroup");
+?>
+<?require($_SERVER["DOCUMENT_ROOT"]."/bitrix/footer.php");?>
