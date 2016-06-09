@@ -14,7 +14,7 @@ use Bitrix\Main\Loader;
 use Bitrix\Main\ModuleManager;
 
 $this->setFrameMode(true);
-$this->addExternalCss("/bitrix/css/main/bootstrap.css");
+//$this->addExternalCss("/bitrix/css/main/bootstrap.css");
 
 if (isset($arParams['USE_COMMON_SETTINGS_BASKET_POPUP']) && $arParams['USE_COMMON_SETTINGS_BASKET_POPUP'] == 'Y')
 {
@@ -27,8 +27,7 @@ else
 
 $isSidebar = ($arParams["SIDEBAR_DETAIL_SHOW"] == "Y" && isset($arParams["SIDEBAR_PATH"]) && !empty($arParams["SIDEBAR_PATH"]));
 ?>
-<div class="row">
-	<div class="<?=($isSidebar ? "col-md-9 col-sm-8" : "col-xs-12")?>">
+<div class="row widthWrapper">
 <?$ElementID = $APPLICATION->IncludeComponent(
 	"bitrix:catalog.element",
 	"",
@@ -369,7 +368,6 @@ if ($ElementID > 0)
 	}
 }
 ?>
-	</div>
 	<?if ($isSidebar):?>
 	<div class="col-md-3 col-sm-4">
 		<?$APPLICATION->IncludeComponent(

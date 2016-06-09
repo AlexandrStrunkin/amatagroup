@@ -977,3 +977,19 @@
 	font-size: 12px;
 }
 .bx_item_detail .bx_item_description .bx_specifications_table tr td:first-child{font-weight: bold;}
+
+/*  WEBGK custom styles */
+
+.discount_price {
+	text-decoration: line-through;
+    font-size: 20px !important;
+    color: red;
+}
+
+.rub {
+	margin: 0 !important;
+}
+
+.discount_price .rub {
+	font-size: 20px !important;
+}
