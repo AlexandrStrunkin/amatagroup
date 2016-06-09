@@ -1293,14 +1293,28 @@ $(document).ready(function () {
         }
     })
 
-
-    //обработка нажатия кнопки добавления в корзину из блочного шаблона каталога
-    $(".js-add-to-basket").on("click", function(){      
+    
+    //обработка нажатия кнопки добавления в корзину из шаблона списка товаров каталога
+    $(".js-add-to-basket").on("click", function(){        
         var ulr = $(this).attr("href");
+       
+       //поле ввода количества товара 
+        var quantityField = $(this).parents("tr").find("input[data-name=quantity]");
+        
+        if (quantityField.length > 0) {
+            var itemQuantity = parseInt(quantityField.val()); //количество
+            var quantityVariable = quantityField.data("quantity-variable");  //имя переменной, в которой передается количество
+        }
+        
+        //если есть поле ввода количества и имя переменной для передачи количества
+        if (itemQuantity > 0 && quantityVariable != "") {
+           ulr = ulr + "&" + quantityVariable + "=" + itemQuantity; 
+        }
+        
         if (ulr) {
             //делаем запрос на нужный урл и преезагружаем область с маленькой корзиной
             $(".js-small-basket").load(ulr + " .js-small-basket > * ");
-        }
+        }    
     })
     
     

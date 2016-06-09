@@ -187,19 +187,8 @@
                     <div>
                         <a href="<? echo $arItem['DETAIL_PAGE_URL']; ?>" class="productName"><?=$arItem["NAME"]?></a> 
 
-                        <?if ((!isset($arItem['OFFERS']) || empty($arItem['OFFERS'])) && $arItem['CAN_BUY']) {
-
-                                if ('Y' == $arParams['USE_PRODUCT_QUANTITY']) {
-                                ?>
-                                <div class="bx_catalog_item_controls_blockone"><div style="display: none;position: relative;">
-                                        <a id="<? echo $arItemIDs['QUANTITY_DOWN']; ?>" href="javascript:void(0)" class="bx_bt_button_type_2 bx_small" rel="nofollow">-</a>
-                                        <input type="text" class="bx_col_input" id="<? echo $arItemIDs['QUANTITY']; ?>" name="<? echo $arParams["PRODUCT_QUANTITY_VARIABLE"]; ?>" value="<? echo $arItem['CATALOG_MEASURE_RATIO']; ?>">
-                                        <a id="<? echo $arItemIDs['QUANTITY_UP']; ?>" href="javascript:void(0)" class="bx_bt_button_type_2 bx_small" rel="nofollow">+</a>
-                                        <span id="<? echo $arItemIDs['QUANTITY_MEASURE']; ?>"><? echo $arItem['CATALOG_MEASURE_NAME']; ?></span>
-                                    </div>
-
-                                </div>
-                                <?}?>
+                        <?if ((!isset($arItem['OFFERS']) || empty($arItem['OFFERS'])) && $arItem['CAN_BUY']) {?>
+                                
                             <div id="<? echo $arItemIDs['BASKET_ACTIONS']; ?>" <?if ($arItem['IN_BASKET'] == "Y"){?>title="<?=GetMessage("PRODUCT_ALREADY_IN_BASKET")?>"<?}?>  class="bx_catalog_item_controls_blocktwo productBasketBlock changingBasket <?if ($arItem['IN_BASKET'] == "Y"){?> active<?}?>">
                                 <a id="<? echo $arItemIDs['BUY_LINK']; ?>" class="blockLink bx_bt_button bx_medium <?if ($arItem['IN_BASKET'] != "Y") {?>js-add-to-basket <?}?>" href="<?=$arItem['ADD_URL']?>" rel="nofollow"></a>
                             </div>
