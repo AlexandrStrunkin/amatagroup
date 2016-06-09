@@ -13,12 +13,10 @@
     $this->setFrameMode(true);
 ?>                
 <?
-    if (!empty($arResult['ITEMS']))
-    {
+    if (!empty($arResult['ITEMS'])) {
         $templateLibrary = array('popup');
         $currencyList = '';
-        if (!empty($arResult['CURRENCIES']))
-        {
+        if (!empty($arResult['CURRENCIES'])) {
             $templateLibrary[] = 'currency';
             $currencyList = CUtil::PhpToJSObject($arResult['CURRENCIES'], false, true, true);
         }
@@ -30,22 +28,16 @@
         unset($currencyList, $templateLibrary);
 
         $arSkuTemplate = array();
-        if (!empty($arResult['SKU_PROPS']))
-        {
-            foreach ($arResult['SKU_PROPS'] as &$arProp)
-            {
+        if (!empty($arResult['SKU_PROPS'])) {
+            foreach ($arResult['SKU_PROPS'] as &$arProp) {
                 $templateRow = '';
-                if ('TEXT' == $arProp['SHOW_MODE'])
-                {
-                    if (5 < $arProp['VALUES_COUNT'])
-                    {
+                if ('TEXT' == $arProp['SHOW_MODE']) {
+                    if (5 < $arProp['VALUES_COUNT']) {
                         $strClass = 'bx_item_detail_size full';
                         $strWidth = ($arProp['VALUES_COUNT']*20).'%';
                         $strOneWidth = (100/$arProp['VALUES_COUNT']).'%';
                         $strSlideStyle = '';
-                    }
-                    else
-                    {
+                    } else {
                         $strClass = 'bx_item_detail_size';
                         $strWidth = '100%';
                         $strOneWidth = '20%';
@@ -54,8 +46,7 @@
                     $templateRow .= '<div class="'.$strClass.'" id="#ITEM#_prop_'.$arProp['ID'].'_cont">'.
                     '<span class="bx_item_section_name_gray">'.htmlspecialcharsex($arProp['NAME']).'</span>'.
                     '<div class="bx_size_scroller_container"><div class="bx_size"><ul id="#ITEM#_prop_'.$arProp['ID'].'_list" style="width: '.$strWidth.';">';
-                    foreach ($arProp['VALUES'] as $arOneValue)
-                    {
+                    foreach ($arProp['VALUES'] as $arOneValue) {
                         $arOneValue['NAME'] = htmlspecialcharsbx($arOneValue['NAME']);
                         $templateRow .= '<li data-treevalue="'.$arProp['ID'].'_'.$arOneValue['ID'].'" data-onevalue="'.$arOneValue['ID'].'" style="width: '.$strOneWidth.';" title="'.$arOneValue['NAME'].'"><i></i><span class="cnt">'.$arOneValue['NAME'].'</span></li>';
                     }
@@ -63,18 +54,13 @@
                     '<div class="bx_slide_left" id="#ITEM#_prop_'.$arProp['ID'].'_left" data-treevalue="'.$arProp['ID'].'" style="'.$strSlideStyle.'"></div>'.
                     '<div class="bx_slide_right" id="#ITEM#_prop_'.$arProp['ID'].'_right" data-treevalue="'.$arProp['ID'].'" style="'.$strSlideStyle.'"></div>'.
                     '</div></div>';
-                }
-                elseif ('PICT' == $arProp['SHOW_MODE'])
-                {
-                    if (5 < $arProp['VALUES_COUNT'])
-                    {
+                } elseif ('PICT' == $arProp['SHOW_MODE']) {
+                    if (5 < $arProp['VALUES_COUNT']) {
                         $strClass = 'bx_item_detail_scu full';
                         $strWidth = ($arProp['VALUES_COUNT']*20).'%';
                         $strOneWidth = (100/$arProp['VALUES_COUNT']).'%';
                         $strSlideStyle = '';
-                    }
-                    else
-                    {
+                    } else {
                         $strClass = 'bx_item_detail_scu';
                         $strWidth = '100%';
                         $strOneWidth = '20%';
@@ -83,8 +69,7 @@
                     $templateRow .= '<div class="'.$strClass.'" id="#ITEM#_prop_'.$arProp['ID'].'_cont">'.
                     '<span class="bx_item_section_name_gray">'.htmlspecialcharsex($arProp['NAME']).'</span>'.
                     '<div class="bx_scu_scroller_container"><div class="bx_scu"><ul id="#ITEM#_prop_'.$arProp['ID'].'_list" style="width: '.$strWidth.';">';
-                    foreach ($arProp['VALUES'] as $arOneValue)
-                    {
+                    foreach ($arProp['VALUES'] as $arOneValue) {
                         $arOneValue['NAME'] = htmlspecialcharsbx($arOneValue['NAME']);
                         $templateRow .= '<li data-treevalue="'.$arProp['ID'].'_'.$arOneValue['ID'].'" data-onevalue="'.$arOneValue['ID'].'" style="width: '.$strOneWidth.'; padding-top: '.$strOneWidth.';"><i title="'.$arOneValue['NAME'].'"></i>'.
                         '<span class="cnt"><span class="cnt_item" style="background-image:url(\''.$arOneValue['PICT']['SRC'].'\');" title="'.$arOneValue['NAME'].'"></span></span></li>';
@@ -101,7 +86,8 @@
 
         $strElementEdit = CIBlock::GetArrayByID($arParams["IBLOCK_ID"], "ELEMENT_EDIT");
         $strElementDelete = CIBlock::GetArrayByID($arParams["IBLOCK_ID"], "ELEMENT_DELETE");
-        $arElementDeleteParams = array("CONFIRM" => GetMessage('CT_BCS_TPL_ELEMENT_DELETE_CONFIRM'));
+        $arElementDeleteParams = array("CONFIRM" => GetMessage('CT_BCS_TPL_ELEMENT_DELETE_CONFIRM'));       
+
     ?>
 
 
@@ -174,17 +160,17 @@
 
                             <tr id="<? echo $strMainID; ?>">
                                 <td class="elementName">
-                                    <div>
+                                    <div class="itemImgContainet">
                                         <a href="<?=$arItem['DETAIL_PAGE_URL'];?>">
                                             <img src="<?=$arItem["PREVIEW_PICTURE"]["SRC"]?>" alt="<?=$arItem["NAME"]?>">
                                         </a>
-                                    </div>
+                                    </div>        
 
                                     <p class="elementStatus statusInStock">В наличии</p>
-
+                                    <br>
                                     <p class="elementTitle">
                                         <span>
-                                            <a href="<?=$arItem['DETAIL_PAGE_URL'];?>">
+                                            <a href="<?=$arItem['DETAIL_PAGE_URL'];?>" title="<?=$arItem["NAME"]?>">
                                                 <?=$arItem["NAME"]?>
                                             </a>
                                         </span>
@@ -197,22 +183,29 @@
                                     <?if (isset($arItem['OFFERS']) && !empty($arItem['OFFERS'])) {?>
                                         <div class="selectric-wrapper selectric-basketSelect">
                                             <select name="color">
-                                                <option value="0">Avorio</option>
-                                                <option value="1">Almond Beige</option>
-                                                <option value="2">Ququ</option>
-                                                <option value="3" selected>Ванильный</option>
+                                                <?foreach ($arItem["OFFERS"] as $offer) {?>
+                                                    <?$offerName = array();?>
+                                                    <?foreach ($arParams["~OFFER_TREE_PROPS"] as $offerPropName) {?>
+                                                        <? 
+                                                            if ($offer["PROPERTIES"][$offerPropName]["VALUE"]) {
+                                                                $offerName[] = $offer["PROPERTIES"][$offerPropName]["VALUE"];
+                                                        }?>
+                                                        <?}?>
+                                                    <option value="<?=$offer["ID"]?>"><?=implode(", ", $offerName)?></option>
+                                                    <?}?>
                                             </select>
                                         </div>
                                         <?}?>
                                 </td>
 
                                 <td class="elementQuant">
-                                    <div>
-                                        <input type="hidden" class="price" value="100">
-                                        <input type="text" class="quantityText" value="322">
-                                        <a href="" class="quantityPlus"></a>
-                                        <a href="" class="quantityMinus"></a>
-                                    </div>
+                                    <?if ($arItem['CAN_BUY']) {?>
+                                        <div>
+                                            <input type="text" class="quantityText" value="1" id="<?=$arItem['ID'];?>" data-name="quantity" data-quantity-variable="<?=$arParams["PRODUCT_QUANTITY_VARIABLE"]?>">
+                                            <a href="" class="quantityPlus"></a>
+                                            <a href="" class="quantityMinus"></a>
+                                        </div>
+                                        <?}?>       
                                 </td>
 
                                 <td class="elementPrice">
@@ -246,327 +239,61 @@
                                             unset($minPrice);
                                         ?> &nbsp;
                                     </p>
-                                </td>
 
-                                <td class="elementActions">
-                                    <a href="" class="likedButton"><p></p></a>
-                                    <div class="productBasketBlock">
-                                        <a href="" class="blockLink"></a>
-                                    </div>
-                                </td>   
 
-                            </tr>
-
-                            <?
-                                $showSubscribeBtn = false;
-                                $compareBtnMessage = ($arParams['MESS_BTN_COMPARE'] != '' ? $arParams['MESS_BTN_COMPARE'] : GetMessage('CT_BCS_TPL_MESS_BTN_COMPARE'));
-                                if (!isset($arItem['OFFERS']) || empty($arItem['OFFERS']))
-                                {
-                                ?><div class="bx_catalog_item_controls" ><?
-                                        if ($arItem['CAN_BUY'])
-                                        {
-                                            if ('Y' == $arParams['USE_PRODUCT_QUANTITY'])
-                                            {
-                                            ?>
-                                            <div class="bx_catalog_item_controls_blockone"><div style="display: inline-block;position: relative;">
-                                                    <a id="<? echo $arItemIDs['QUANTITY_DOWN']; ?>" href="javascript:void(0)" class="bx_bt_button_type_2 bx_small" rel="nofollow">-</a>
-                                                    <input type="text" class="bx_col_input" id="<? echo $arItemIDs['QUANTITY']; ?>" name="<? echo $arParams["PRODUCT_QUANTITY_VARIABLE"]; ?>" value="<? echo $arItem['CATALOG_MEASURE_RATIO']; ?>">
-                                                    <a id="<? echo $arItemIDs['QUANTITY_UP']; ?>" href="javascript:void(0)" class="bx_bt_button_type_2 bx_small" rel="nofollow">+</a>
-                                                    <span id="<? echo $arItemIDs['QUANTITY_MEASURE']; ?>"><? echo $arItem['CATALOG_MEASURE_NAME']; ?></span>
-                                                </div></div>
-                                            <?
-                                            }
-                                        ?>
-                                        <div id="<? echo $arItemIDs['BASKET_ACTIONS']; ?>" class="bx_catalog_item_controls_blocktwo">
-                                            <a id="<? echo $arItemIDs['BUY_LINK']; ?>" class="bx_bt_button bx_medium" href="javascript:void(0)" rel="nofollow"><?
-                                                if ($arParams['ADD_TO_BASKET_ACTION'] == 'BUY')
-                                                {
-                                                    echo ('' != $arParams['MESS_BTN_BUY'] ? $arParams['MESS_BTN_BUY'] : GetMessage('CT_BCS_TPL_MESS_BTN_BUY'));
-                                                }
-                                                else
-                                                {
-                                                    echo ('' != $arParams['MESS_BTN_ADD_TO_BASKET'] ? $arParams['MESS_BTN_ADD_TO_BASKET'] : GetMessage('CT_BCS_TPL_MESS_BTN_ADD_TO_BASKET'));
-                                                }
-                                            ?></a>
-                                        </div>
-                                        <?  
-                                        }
-                                        else
-                                        {
-                                        ?><div id="<? echo $arItemIDs['NOT_AVAILABLE_MESS']; ?>" class="bx_catalog_item_controls_blockone">
-                                            <span class="bx_notavailable"><?
-                                                echo ('' != $arParams['MESS_NOT_AVAILABLE'] ? $arParams['MESS_NOT_AVAILABLE'] : GetMessage('CT_BCS_TPL_MESS_PRODUCT_NOT_AVAILABLE'));
-                                            ?></span>
-                                        </div><?
-
-                                        }
-                                    ?><div style="clear: both;"></div></div>
-                                <?
-
-                                    $emptyProductProperties = empty($arItem['PRODUCT_PROPERTIES']);
-                                    if ('Y' == $arParams['ADD_PROPERTIES_TO_BASKET'] && !$emptyProductProperties)
-                                    {
-                                    ?>
-                                    <div id="<? echo $arItemIDs['BASKET_PROP_DIV']; ?>" style="display: none;">
-                                        <?
-                                            if (!empty($arItem['PRODUCT_PROPERTIES_FILL']))
-                                            {
-                                                foreach ($arItem['PRODUCT_PROPERTIES_FILL'] as $propID => $propInfo)
-                                                {
-                                                ?>
-                                                <input type="hidden" name="<? echo $arParams['PRODUCT_PROPS_VARIABLE']; ?>[<? echo $propID; ?>]" value="<? echo htmlspecialcharsbx($propInfo['ID']); ?>">
-                                                <?
-                                                    if (isset($arItem['PRODUCT_PROPERTIES'][$propID]))
-                                                        unset($arItem['PRODUCT_PROPERTIES'][$propID]);
-                                                }
-                                            }
+                                    <?
+                                        $showSubscribeBtn = false;
+                                        $compareBtnMessage = ($arParams['MESS_BTN_COMPARE'] != '' ? $arParams['MESS_BTN_COMPARE'] : GetMessage('CT_BCS_TPL_MESS_BTN_COMPARE'));
+                                        if (!isset($arItem['OFFERS']) || empty($arItem['OFFERS'])) {
                                             $emptyProductProperties = empty($arItem['PRODUCT_PROPERTIES']);
-                                            if (!$emptyProductProperties)
-                                            {
+                                            if ('Y' == $arParams['ADD_PROPERTIES_TO_BASKET'] && !$emptyProductProperties) {
                                             ?>
-                                            <table>
+                                            <div id="<? echo $arItemIDs['BASKET_PROP_DIV']; ?>" style="display: none;">
                                                 <?
-                                                    foreach ($arItem['PRODUCT_PROPERTIES'] as $propID => $propInfo)
-                                                    {
+                                                    if (!empty($arItem['PRODUCT_PROPERTIES_FILL'])) {
+                                                        foreach ($arItem['PRODUCT_PROPERTIES_FILL'] as $propID => $propInfo) {
+                                                        ?>
+                                                        <input type="hidden" name="<? echo $arParams['PRODUCT_PROPS_VARIABLE']; ?>[<? echo $propID; ?>]" value="<? echo htmlspecialcharsbx($propInfo['ID']); ?>">
+                                                        <?
+                                                            if (isset($arItem['PRODUCT_PROPERTIES'][$propID]))
+                                                                unset($arItem['PRODUCT_PROPERTIES'][$propID]);
+                                                        }
+                                                    }
+                                                    $emptyProductProperties = empty($arItem['PRODUCT_PROPERTIES']);
+                                                    if (!$emptyProductProperties) {
                                                     ?>
-                                                    <tr><td><? echo $arItem['PROPERTIES'][$propID]['NAME']; ?></td>
-                                                        <td>
-                                                            <?
-                                                                if(
-                                                                    'L' == $arItem['PROPERTIES'][$propID]['PROPERTY_TYPE']
-                                                                    && 'C' == $arItem['PROPERTIES'][$propID]['LIST_TYPE']
-                                                                )
-                                                                {
-                                                                    foreach($propInfo['VALUES'] as $valueID => $value)
-                                                                    {
-                                                                    ?><label><input type="radio" name="<? echo $arParams['PRODUCT_PROPS_VARIABLE']; ?>[<? echo $propID; ?>]" value="<? echo $valueID; ?>" <? echo ($valueID == $propInfo['SELECTED'] ? '"checked"' : ''); ?>><? echo $value; ?></label><br><?
-                                                                    }
-                                                                }
-                                                                else
-                                                                {
-                                                                ?><select name="<? echo $arParams['PRODUCT_PROPS_VARIABLE']; ?>[<? echo $propID; ?>]"><?
-                                                                    foreach($propInfo['VALUES'] as $valueID => $value)
-                                                                    {
-                                                                    ?><option value="<? echo $valueID; ?>" <? echo ($valueID == $propInfo['SELECTED'] ? 'selected' : ''); ?>><? echo $value; ?></option><?
-                                                                    }
-                                                                ?></select><?
-                                                                }
+                                                    <table>
+                                                        <?
+                                                            foreach ($arItem['PRODUCT_PROPERTIES'] as $propID => $propInfo) {
                                                             ?>
-                                                        </td></tr>
+                                                            <tr><td><? echo $arItem['PROPERTIES'][$propID]['NAME']; ?></td>
+                                                                <td>
+                                                                    <?
+                                                                        if(
+                                                                            'L' == $arItem['PROPERTIES'][$propID]['PROPERTY_TYPE']
+                                                                            && 'C' == $arItem['PROPERTIES'][$propID]['LIST_TYPE']
+                                                                        ) {
+                                                                            foreach($propInfo['VALUES'] as $valueID => $value) {
+                                                                            ?><label><input type="radio" name="<? echo $arParams['PRODUCT_PROPS_VARIABLE']; ?>[<? echo $propID; ?>]" value="<? echo $valueID; ?>" <? echo ($valueID == $propInfo['SELECTED'] ? '"checked"' : ''); ?>><? echo $value; ?></label><br><?
+                                                                            }
+                                                                        } else {
+                                                                        ?><select name="<? echo $arParams['PRODUCT_PROPS_VARIABLE']; ?>[<? echo $propID; ?>]"><?
+                                                                            foreach($propInfo['VALUES'] as $valueID => $value) {
+                                                                            ?><option value="<? echo $valueID; ?>" <? echo ($valueID == $propInfo['SELECTED'] ? 'selected' : ''); ?>><? echo $value; ?></option><?
+                                                                            }
+                                                                        ?></select><?
+                                                                        }
+                                                                    ?>
+                                                                </td></tr>
+                                                            <?
+                                                            }
+                                                        ?>
+                                                    </table>
                                                     <?
                                                     }
                                                 ?>
-                                            </table>
-                                            <?
-                                            }
-                                        ?>
-                                    </div>
-                                    <?
-                                    }
-                                    $arJSParams = array(
-                                        'PRODUCT_TYPE' => $arItem['CATALOG_TYPE'],
-                                        'SHOW_QUANTITY' => ($arParams['USE_PRODUCT_QUANTITY'] == 'Y'),
-                                        'SHOW_ADD_BASKET_BTN' => false,
-                                        'SHOW_BUY_BTN' => true,
-                                        'SHOW_ABSENT' => true,
-                                        'SHOW_OLD_PRICE' => ('Y' == $arParams['SHOW_OLD_PRICE']),
-                                        'ADD_TO_BASKET_ACTION' => $arParams['ADD_TO_BASKET_ACTION'],
-                                        'SHOW_CLOSE_POPUP' => ($arParams['SHOW_CLOSE_POPUP'] == 'Y'),
-                                        'SHOW_DISCOUNT_PERCENT' => ('Y' == $arParams['SHOW_DISCOUNT_PERCENT']),
-                                        'DISPLAY_COMPARE' => $arParams['DISPLAY_COMPARE'],
-                                        'PRODUCT' => array(
-                                            'ID' => $arItem['ID'],
-                                            'NAME' => $productTitle,
-                                            'PICT' => ('Y' == $arItem['SECOND_PICT'] ? $arItem['PREVIEW_PICTURE_SECOND'] : $arItem['PREVIEW_PICTURE']),
-                                            'CAN_BUY' => $arItem["CAN_BUY"],
-                                            'SUBSCRIPTION' => ('Y' == $arItem['CATALOG_SUBSCRIPTION']),
-                                            'CHECK_QUANTITY' => $arItem['CHECK_QUANTITY'],
-                                            'MAX_QUANTITY' => $arItem['CATALOG_QUANTITY'],
-                                            'STEP_QUANTITY' => $arItem['CATALOG_MEASURE_RATIO'],
-                                            'QUANTITY_FLOAT' => is_double($arItem['CATALOG_MEASURE_RATIO']),
-                                            'SUBSCRIBE_URL' => $arItem['~SUBSCRIBE_URL'],
-                                            'BASIS_PRICE' => $arItem['MIN_BASIS_PRICE']
-                                        ),
-                                        'BASKET' => array(
-                                            'ADD_PROPS' => ('Y' == $arParams['ADD_PROPERTIES_TO_BASKET']),
-                                            'QUANTITY' => $arParams['PRODUCT_QUANTITY_VARIABLE'],
-                                            'PROPS' => $arParams['PRODUCT_PROPS_VARIABLE'],
-                                            'EMPTY_PROPS' => $emptyProductProperties,
-                                            'ADD_URL_TEMPLATE' => $arResult['~ADD_URL_TEMPLATE'],
-                                            'BUY_URL_TEMPLATE' => $arResult['~BUY_URL_TEMPLATE']
-                                        ),
-                                        'VISUAL' => array(
-                                            'ID' => $arItemIDs['ID'],
-                                            'PICT_ID' => ('Y' == $arItem['SECOND_PICT'] ? $arItemIDs['SECOND_PICT'] : $arItemIDs['PICT']),
-                                            'QUANTITY_ID' => $arItemIDs['QUANTITY'],
-                                            'QUANTITY_UP_ID' => $arItemIDs['QUANTITY_UP'],
-                                            'QUANTITY_DOWN_ID' => $arItemIDs['QUANTITY_DOWN'],
-                                            'PRICE_ID' => $arItemIDs['PRICE'],
-                                            'BUY_ID' => $arItemIDs['BUY_LINK'],
-                                            'BASKET_PROP_DIV' => $arItemIDs['BASKET_PROP_DIV'],
-                                            'BASKET_ACTIONS_ID' => $arItemIDs['BASKET_ACTIONS'],
-                                            'NOT_AVAILABLE_MESS' => $arItemIDs['NOT_AVAILABLE_MESS'],
-                                            'COMPARE_LINK_ID' => $arItemIDs['COMPARE_LINK']
-                                        ),
-                                        'LAST_ELEMENT' => $arItem['LAST_ELEMENT']
-                                    );
-                                    if ($arParams['DISPLAY_COMPARE'])
-                                    {
-                                        $arJSParams['COMPARE'] = array(
-                                            'COMPARE_URL_TEMPLATE' => $arResult['~COMPARE_URL_TEMPLATE'],
-                                            'COMPARE_PATH' => $arParams['COMPARE_PATH']
-                                        );
-                                    }
-                                    unset($emptyProductProperties);
-                                ?><script type="text/javascript">
-                                    var <? echo $strObName; ?> = new JCCatalogSection(<? echo CUtil::PhpToJSObject($arJSParams, false, true); ?>);
-                                </script><?
-                                }
-                                else
-                                {
-                                    if ('Y' == $arParams['PRODUCT_DISPLAY_MODE'])
-                                    {
-                                        $canBuy = $arItem['JS_OFFERS'][$arItem['OFFERS_SELECTED']]['CAN_BUY'];
-                                    ?>
-                                    <div class="bx_catalog_item_controls no_touch">
-                                        <?
-                                            if ('Y' == $arParams['USE_PRODUCT_QUANTITY'])
-                                            {
-                                            ?>
-                                            <div class="bx_catalog_item_controls_blockone">
-                                                <a id="<? echo $arItemIDs['QUANTITY_DOWN']; ?>" href="javascript:void(0)" class="bx_bt_button_type_2 bx_small" rel="nofollow">-</a>
-                                                <input type="text" class="bx_col_input" id="<? echo $arItemIDs['QUANTITY']; ?>" name="<? echo $arParams["PRODUCT_QUANTITY_VARIABLE"]; ?>" value="<? echo $arItem['CATALOG_MEASURE_RATIO']; ?>">
-                                                <a id="<? echo $arItemIDs['QUANTITY_UP']; ?>" href="javascript:void(0)" class="bx_bt_button_type_2 bx_small" rel="nofollow">+</a>
-                                                <span id="<? echo $arItemIDs['QUANTITY_MEASURE']; ?>"></span>
                                             </div>
                                             <?
-                                            }
-                                        ?>
-                                        <div id="<? echo $arItemIDs['NOT_AVAILABLE_MESS']; ?>" class="bx_catalog_item_controls_blockone" style="display: <? echo ($canBuy ? 'none' : ''); ?>;"><span class="bx_notavailable"><?
-                                                echo ('' != $arParams['MESS_NOT_AVAILABLE'] ? $arParams['MESS_NOT_AVAILABLE'] : GetMessage('CT_BCS_TPL_MESS_PRODUCT_NOT_AVAILABLE'));
-                                            ?></span></div>
-                                        <div id="<? echo $arItemIDs['BASKET_ACTIONS']; ?>" class="bx_catalog_item_controls_blocktwo" style="display: <? echo ($canBuy ? '' : 'none'); ?>;">
-                                            <a id="<? echo $arItemIDs['BUY_LINK']; ?>" class="bx_bt_button bx_medium" href="javascript:void(0)" rel="nofollow"><?
-                                                if ($arParams['ADD_TO_BASKET_ACTION'] == 'BUY')
-                                                {
-                                                    echo ('' != $arParams['MESS_BTN_BUY'] ? $arParams['MESS_BTN_BUY'] : GetMessage('CT_BCS_TPL_MESS_BTN_BUY'));
-                                                }
-                                                else
-                                                {
-                                                    echo ('' != $arParams['MESS_BTN_ADD_TO_BASKET'] ? $arParams['MESS_BTN_ADD_TO_BASKET'] : GetMessage('CT_BCS_TPL_MESS_BTN_ADD_TO_BASKET'));
-                                                }
-                                            ?></a>
-                                        </div>
-                                        <?
-                                            if ($arParams['DISPLAY_COMPARE'])
-                                            {
-                                            ?>
-                                            <div class="bx_catalog_item_controls_blocktwo">
-                                                <a id="<? echo $arItemIDs['COMPARE_LINK']; ?>" class="bx_bt_button_type_2 bx_medium" href="javascript:void(0)"><? echo $compareBtnMessage; ?></a>
-                                            </div><?
-                                            }
-                                        ?>
-                                        <div style="clear: both;"></div>
-                                    </div>
-                                    <?
-                                        unset($canBuy);
-                                    }
-                                    else
-                                    {
-                                    ?>
-                                    <div class="bx_catalog_item_controls no_touch">
-                                        <a class="bx_bt_button_type_2 bx_medium" href="<? echo $arItem['DETAIL_PAGE_URL']; ?>"><?
-                                            echo ('' != $arParams['MESS_BTN_DETAIL'] ? $arParams['MESS_BTN_DETAIL'] : GetMessage('CT_BCS_TPL_MESS_BTN_DETAIL'));
-                                        ?></a>
-                                    </div>
-                                    <?
-                                    }
-                                ?>
-                                <div class="bx_catalog_item_controls touch">
-                                    <a class="bx_bt_button_type_2 bx_medium" href="<? echo $arItem['DETAIL_PAGE_URL']; ?>"><?
-                                        echo ('' != $arParams['MESS_BTN_DETAIL'] ? $arParams['MESS_BTN_DETAIL'] : GetMessage('CT_BCS_TPL_MESS_BTN_DETAIL'));
-                                    ?></a>
-                                </div>
-                                <?
-                                    $boolShowOfferProps = ('Y' == $arParams['PRODUCT_DISPLAY_MODE'] && $arItem['OFFERS_PROPS_DISPLAY']);
-                                    $boolShowProductProps = (isset($arItem['DISPLAY_PROPERTIES']) && !empty($arItem['DISPLAY_PROPERTIES']));
-                                    if ($boolShowProductProps || $boolShowOfferProps)
-                                    {
-                                    ?>
-                                    <div class="bx_catalog_item_articul">
-                                        <?
-                                            if ($boolShowProductProps)
-                                            {
-                                                foreach ($arItem['DISPLAY_PROPERTIES'] as $arOneProp)
-                                                {
-                                                ?><br><strong><? echo $arOneProp['NAME']; ?></strong> <?
-                                                    echo (
-                                                        is_array($arOneProp['DISPLAY_VALUE'])
-                                                        ? implode(' / ', $arOneProp['DISPLAY_VALUE'])
-                                                        : $arOneProp['DISPLAY_VALUE']
-                                                    );
-                                                }
-                                            }
-                                            if ($boolShowOfferProps)
-                                            {
-                                            ?>
-                                            <span id="<? echo $arItemIDs['DISPLAY_PROP_DIV']; ?>" style="display: none;"></span>
-                                            <?
-                                            }
-                                        ?>
-                                    </div>
-                                    <?
-                                    }
-                                    if ('Y' == $arParams['PRODUCT_DISPLAY_MODE'])
-                                    {
-                                        if (!empty($arItem['OFFERS_PROP']))
-                                        {
-                                            $arSkuProps = array();
-                                        ?><div class="bx_catalog_item_scu" id="<? echo $arItemIDs['PROP_DIV']; ?>"><?
-                                            foreach ($arSkuTemplate as $code => $strTemplate)
-                                            {
-                                                if (!isset($arItem['OFFERS_PROP'][$code]))
-                                                    continue;
-                                                echo '<div>', str_replace('#ITEM#_prop_', $arItemIDs['PROP'], $strTemplate), '</div>';
-                                            }
-                                            foreach ($arResult['SKU_PROPS'] as $arOneProp)
-                                            {
-                                                if (!isset($arItem['OFFERS_PROP'][$arOneProp['CODE']]))
-                                                    continue;
-                                                $arSkuProps[] = array(
-                                                    'ID' => $arOneProp['ID'],
-                                                    'SHOW_MODE' => $arOneProp['SHOW_MODE'],
-                                                    'VALUES_COUNT' => $arOneProp['VALUES_COUNT']
-                                                );
-                                            }
-                                            foreach ($arItem['JS_OFFERS'] as &$arOneJs)
-                                            {
-                                                if (0 < $arOneJs['PRICE']['DISCOUNT_DIFF_PERCENT'])
-                                                {
-                                                    $arOneJs['PRICE']['DISCOUNT_DIFF_PERCENT'] = '-'.$arOneJs['PRICE']['DISCOUNT_DIFF_PERCENT'].'%';
-                                                    $arOneJs['BASIS_PRICE']['DISCOUNT_DIFF_PERCENT'] = '-'.$arOneJs['BASIS_PRICE']['DISCOUNT_DIFF_PERCENT'].'%';
-                                                }
-                                            }
-                                            unset($arOneJs);
-                                        ?></div><?
-                                            if ($arItem['OFFERS_PROPS_DISPLAY'])
-                                            {
-                                                foreach ($arItem['JS_OFFERS'] as $keyOffer => $arJSOffer)
-                                                {
-                                                    $strProps = '';
-                                                    if (!empty($arJSOffer['DISPLAY_PROPERTIES']))
-                                                    {
-                                                        foreach ($arJSOffer['DISPLAY_PROPERTIES'] as $arOneProp)
-                                                        {
-                                                            $strProps .= '<br>'.$arOneProp['NAME'].' <strong>'.(
-                                                                is_array($arOneProp['VALUE'])
-                                                                ? implode(' / ', $arOneProp['VALUE'])
-                                                                : $arOneProp['VALUE']
-                                                            ).'</strong>';
-                                                        }
-                                                    }
-                                                    $arItem['JS_OFFERS'][$keyOffer]['DISPLAY_PROPERTIES'] = $strProps;
-                                                }
                                             }
                                             $arJSParams = array(
                                                 'PRODUCT_TYPE' => $arItem['CATALOG_TYPE'],
@@ -574,51 +301,45 @@
                                                 'SHOW_ADD_BASKET_BTN' => false,
                                                 'SHOW_BUY_BTN' => true,
                                                 'SHOW_ABSENT' => true,
-                                                'SHOW_SKU_PROPS' => $arItem['OFFERS_PROPS_DISPLAY'],
-                                                'SECOND_PICT' => $arItem['SECOND_PICT'],
                                                 'SHOW_OLD_PRICE' => ('Y' == $arParams['SHOW_OLD_PRICE']),
-                                                'SHOW_DISCOUNT_PERCENT' => ('Y' == $arParams['SHOW_DISCOUNT_PERCENT']),
                                                 'ADD_TO_BASKET_ACTION' => $arParams['ADD_TO_BASKET_ACTION'],
                                                 'SHOW_CLOSE_POPUP' => ($arParams['SHOW_CLOSE_POPUP'] == 'Y'),
+                                                'SHOW_DISCOUNT_PERCENT' => ('Y' == $arParams['SHOW_DISCOUNT_PERCENT']),
                                                 'DISPLAY_COMPARE' => $arParams['DISPLAY_COMPARE'],
-                                                'DEFAULT_PICTURE' => array(
-                                                    'PICTURE' => $arItem['PRODUCT_PREVIEW'],
-                                                    'PICTURE_SECOND' => $arItem['PRODUCT_PREVIEW_SECOND']
+                                                'PRODUCT' => array(
+                                                    'ID' => $arItem['ID'],
+                                                    'NAME' => $productTitle,
+                                                    'PICT' => ('Y' == $arItem['SECOND_PICT'] ? $arItem['PREVIEW_PICTURE_SECOND'] : $arItem['PREVIEW_PICTURE']),
+                                                    'CAN_BUY' => $arItem["CAN_BUY"],
+                                                    'SUBSCRIPTION' => ('Y' == $arItem['CATALOG_SUBSCRIPTION']),
+                                                    'CHECK_QUANTITY' => $arItem['CHECK_QUANTITY'],
+                                                    'MAX_QUANTITY' => $arItem['CATALOG_QUANTITY'],
+                                                    'STEP_QUANTITY' => $arItem['CATALOG_MEASURE_RATIO'],
+                                                    'QUANTITY_FLOAT' => is_double($arItem['CATALOG_MEASURE_RATIO']),
+                                                    'SUBSCRIBE_URL' => $arItem['~SUBSCRIBE_URL'],
+                                                    'BASIS_PRICE' => $arItem['MIN_BASIS_PRICE']
+                                                ),
+                                                'BASKET' => array(
+                                                    'ADD_PROPS' => ('Y' == $arParams['ADD_PROPERTIES_TO_BASKET']),
+                                                    'QUANTITY' => $arParams['PRODUCT_QUANTITY_VARIABLE'],
+                                                    'PROPS' => $arParams['PRODUCT_PROPS_VARIABLE'],
+                                                    'EMPTY_PROPS' => $emptyProductProperties,
+                                                    'ADD_URL_TEMPLATE' => $arResult['~ADD_URL_TEMPLATE'],
+                                                    'BUY_URL_TEMPLATE' => $arResult['~BUY_URL_TEMPLATE']
                                                 ),
                                                 'VISUAL' => array(
                                                     'ID' => $arItemIDs['ID'],
-                                                    'PICT_ID' => $arItemIDs['PICT'],
-                                                    'SECOND_PICT_ID' => $arItemIDs['SECOND_PICT'],
+                                                    'PICT_ID' => ('Y' == $arItem['SECOND_PICT'] ? $arItemIDs['SECOND_PICT'] : $arItemIDs['PICT']),
                                                     'QUANTITY_ID' => $arItemIDs['QUANTITY'],
                                                     'QUANTITY_UP_ID' => $arItemIDs['QUANTITY_UP'],
                                                     'QUANTITY_DOWN_ID' => $arItemIDs['QUANTITY_DOWN'],
-                                                    'QUANTITY_MEASURE' => $arItemIDs['QUANTITY_MEASURE'],
                                                     'PRICE_ID' => $arItemIDs['PRICE'],
-                                                    'TREE_ID' => $arItemIDs['PROP_DIV'],
-                                                    'TREE_ITEM_ID' => $arItemIDs['PROP'],
                                                     'BUY_ID' => $arItemIDs['BUY_LINK'],
-                                                    'ADD_BASKET_ID' => $arItemIDs['ADD_BASKET_ID'],
-                                                    'DSC_PERC' => $arItemIDs['DSC_PERC'],
-                                                    'SECOND_DSC_PERC' => $arItemIDs['SECOND_DSC_PERC'],
-                                                    'DISPLAY_PROP_DIV' => $arItemIDs['DISPLAY_PROP_DIV'],
+                                                    'BASKET_PROP_DIV' => $arItemIDs['BASKET_PROP_DIV'],
                                                     'BASKET_ACTIONS_ID' => $arItemIDs['BASKET_ACTIONS'],
                                                     'NOT_AVAILABLE_MESS' => $arItemIDs['NOT_AVAILABLE_MESS'],
                                                     'COMPARE_LINK_ID' => $arItemIDs['COMPARE_LINK']
                                                 ),
-                                                'BASKET' => array(
-                                                    'QUANTITY' => $arParams['PRODUCT_QUANTITY_VARIABLE'],
-                                                    'PROPS' => $arParams['PRODUCT_PROPS_VARIABLE'],
-                                                    'SKU_PROPS' => $arItem['OFFERS_PROP_CODES'],
-                                                    'ADD_URL_TEMPLATE' => $arResult['~ADD_URL_TEMPLATE'],
-                                                    'BUY_URL_TEMPLATE' => $arResult['~BUY_URL_TEMPLATE']
-                                                ),
-                                                'PRODUCT' => array(
-                                                    'ID' => $arItem['ID'],
-                                                    'NAME' => $productTitle
-                                                ),
-                                                'OFFERS' => $arItem['JS_OFFERS'],
-                                                'OFFER_SELECTED' => $arItem['OFFERS_SELECTED'],
-                                                'TREE_PROPS' => $arSkuProps,
                                                 'LAST_ELEMENT' => $arItem['LAST_ELEMENT']
                                             );
                                             if ($arParams['DISPLAY_COMPARE'])
@@ -628,85 +349,214 @@
                                                     'COMPARE_PATH' => $arParams['COMPARE_PATH']
                                                 );
                                             }
-                                        ?>
-                                        <script type="text/javascript">
+                                            unset($emptyProductProperties);
+                                        ?><script type="text/javascript">
                                             var <? echo $strObName; ?> = new JCCatalogSection(<? echo CUtil::PhpToJSObject($arJSParams, false, true); ?>);
-                                        </script>
-                                        <?
-                                        }
-                                    }
-                                    else
-                                    {
-                                        $arJSParams = array(
-                                            'PRODUCT_TYPE' => $arItem['CATALOG_TYPE'],
-                                            'SHOW_QUANTITY' => false,
-                                            'SHOW_ADD_BASKET_BTN' => false,
-                                            'SHOW_BUY_BTN' => false,
-                                            'SHOW_ABSENT' => false,
-                                            'SHOW_SKU_PROPS' => false,
-                                            'SECOND_PICT' => $arItem['SECOND_PICT'],
-                                            'SHOW_OLD_PRICE' => ('Y' == $arParams['SHOW_OLD_PRICE']),
-                                            'SHOW_DISCOUNT_PERCENT' => ('Y' == $arParams['SHOW_DISCOUNT_PERCENT']),
-                                            'ADD_TO_BASKET_ACTION' => $arParams['ADD_TO_BASKET_ACTION'],
-                                            'SHOW_CLOSE_POPUP' => ($arParams['SHOW_CLOSE_POPUP'] == 'Y'),
-                                            'DISPLAY_COMPARE' => $arParams['DISPLAY_COMPARE'],
-                                            'DEFAULT_PICTURE' => array(
-                                                'PICTURE' => $arItem['PRODUCT_PREVIEW'],
-                                                'PICTURE_SECOND' => $arItem['PRODUCT_PREVIEW_SECOND']
-                                            ),
-                                            'VISUAL' => array(
-                                                'ID' => $arItemIDs['ID'],
-                                                'PICT_ID' => $arItemIDs['PICT'],
-                                                'SECOND_PICT_ID' => $arItemIDs['SECOND_PICT'],
-                                                'QUANTITY_ID' => $arItemIDs['QUANTITY'],
-                                                'QUANTITY_UP_ID' => $arItemIDs['QUANTITY_UP'],
-                                                'QUANTITY_DOWN_ID' => $arItemIDs['QUANTITY_DOWN'],
-                                                'QUANTITY_MEASURE' => $arItemIDs['QUANTITY_MEASURE'],
-                                                'PRICE_ID' => $arItemIDs['PRICE'],
-                                                'TREE_ID' => $arItemIDs['PROP_DIV'],
-                                                'TREE_ITEM_ID' => $arItemIDs['PROP'],
-                                                'BUY_ID' => $arItemIDs['BUY_LINK'],
-                                                'ADD_BASKET_ID' => $arItemIDs['ADD_BASKET_ID'],
-                                                'DSC_PERC' => $arItemIDs['DSC_PERC'],
-                                                'SECOND_DSC_PERC' => $arItemIDs['SECOND_DSC_PERC'],
-                                                'DISPLAY_PROP_DIV' => $arItemIDs['DISPLAY_PROP_DIV'],
-                                                'BASKET_ACTIONS_ID' => $arItemIDs['BASKET_ACTIONS'],
-                                                'NOT_AVAILABLE_MESS' => $arItemIDs['NOT_AVAILABLE_MESS'],
-                                                'COMPARE_LINK_ID' => $arItemIDs['COMPARE_LINK']
-                                            ),
-                                            'BASKET' => array(
-                                                'QUANTITY' => $arParams['PRODUCT_QUANTITY_VARIABLE'],
-                                                'PROPS' => $arParams['PRODUCT_PROPS_VARIABLE'],
-                                                'SKU_PROPS' => $arItem['OFFERS_PROP_CODES'],
-                                                'ADD_URL_TEMPLATE' => $arResult['~ADD_URL_TEMPLATE'],
-                                                'BUY_URL_TEMPLATE' => $arResult['~BUY_URL_TEMPLATE']
-                                            ),
-                                            'PRODUCT' => array(
-                                                'ID' => $arItem['ID'],
-                                                'NAME' => $productTitle
-                                            ),
-                                            'OFFERS' => array(),
-                                            'OFFER_SELECTED' => 0,
-                                            'TREE_PROPS' => array(),
-                                            'LAST_ELEMENT' => $arItem['LAST_ELEMENT']
-                                        );
-                                        if ($arParams['DISPLAY_COMPARE'])
-                                        {
-                                            $arJSParams['COMPARE'] = array(
-                                                'COMPARE_URL_TEMPLATE' => $arResult['~COMPARE_URL_TEMPLATE'],
-                                                'COMPARE_PATH' => $arParams['COMPARE_PATH']
-                                            );
-                                        }
-                                    ?>
-                                    <script type="text/javascript">
-                                        var <? echo $strObName; ?> = new JCCatalogSection(<? echo CUtil::PhpToJSObject($arJSParams, false, true); ?>);
-                                    </script>
-                                    <?
-                                    }
-                                }                                 
-                            }
-                        ?>
+                                        </script><?
+                                        } else {  
 
+                                            if ('Y' == $arParams['PRODUCT_DISPLAY_MODE']) {
+                                                if (!empty($arItem['OFFERS_PROP'])) {
+                                                    $arSkuProps = array();
+                                                ?>
+                                                <div class="bx_catalog_item_scu" id="<? echo $arItemIDs['PROP_DIV']; ?>"><?
+                                                    foreach ($arSkuTemplate as $code => $strTemplate)
+                                                    {
+                                                        if (!isset($arItem['OFFERS_PROP'][$code]))
+                                                            continue;
+                                                        echo '<div>', str_replace('#ITEM#_prop_', $arItemIDs['PROP'], $strTemplate), '</div>';
+                                                    }
+                                                    foreach ($arResult['SKU_PROPS'] as $arOneProp)
+                                                    {
+                                                        if (!isset($arItem['OFFERS_PROP'][$arOneProp['CODE']]))
+                                                            continue;
+                                                        $arSkuProps[] = array(
+                                                            'ID' => $arOneProp['ID'],
+                                                            'SHOW_MODE' => $arOneProp['SHOW_MODE'],
+                                                            'VALUES_COUNT' => $arOneProp['VALUES_COUNT']
+                                                        );
+                                                    }
+                                                    foreach ($arItem['JS_OFFERS'] as &$arOneJs)
+                                                    {
+                                                        if (0 < $arOneJs['PRICE']['DISCOUNT_DIFF_PERCENT'])
+                                                        {
+                                                            $arOneJs['PRICE']['DISCOUNT_DIFF_PERCENT'] = '-'.$arOneJs['PRICE']['DISCOUNT_DIFF_PERCENT'].'%';
+                                                            $arOneJs['BASIS_PRICE']['DISCOUNT_DIFF_PERCENT'] = '-'.$arOneJs['BASIS_PRICE']['DISCOUNT_DIFF_PERCENT'].'%';
+                                                        }
+                                                    }
+                                                    unset($arOneJs);
+                                                ?></div>
+                                                <?
+                                                    if ($arItem['OFFERS_PROPS_DISPLAY'])
+                                                    {
+                                                        foreach ($arItem['JS_OFFERS'] as $keyOffer => $arJSOffer)
+                                                        {
+                                                            $strProps = '';
+                                                            if (!empty($arJSOffer['DISPLAY_PROPERTIES']))
+                                                            {
+                                                                foreach ($arJSOffer['DISPLAY_PROPERTIES'] as $arOneProp)
+                                                                {
+                                                                    $strProps .= '<br>'.$arOneProp['NAME'].' <strong>'.(
+                                                                        is_array($arOneProp['VALUE'])
+                                                                        ? implode(' / ', $arOneProp['VALUE'])
+                                                                        : $arOneProp['VALUE']
+                                                                    ).'</strong>';
+                                                                }
+                                                            }
+                                                            $arItem['JS_OFFERS'][$keyOffer]['DISPLAY_PROPERTIES'] = $strProps;
+                                                        }
+                                                    }
+                                                    $arJSParams = array(
+                                                        'PRODUCT_TYPE' => $arItem['CATALOG_TYPE'],
+                                                        'SHOW_QUANTITY' => ($arParams['USE_PRODUCT_QUANTITY'] == 'Y'),
+                                                        'SHOW_ADD_BASKET_BTN' => false,
+                                                        'SHOW_BUY_BTN' => true,
+                                                        'SHOW_ABSENT' => true,
+                                                        'SHOW_SKU_PROPS' => $arItem['OFFERS_PROPS_DISPLAY'],
+                                                        'SECOND_PICT' => $arItem['SECOND_PICT'],
+                                                        'SHOW_OLD_PRICE' => ('Y' == $arParams['SHOW_OLD_PRICE']),
+                                                        'SHOW_DISCOUNT_PERCENT' => ('Y' == $arParams['SHOW_DISCOUNT_PERCENT']),
+                                                        'ADD_TO_BASKET_ACTION' => $arParams['ADD_TO_BASKET_ACTION'],
+                                                        'SHOW_CLOSE_POPUP' => ($arParams['SHOW_CLOSE_POPUP'] == 'Y'),
+                                                        'DISPLAY_COMPARE' => $arParams['DISPLAY_COMPARE'],
+                                                        'DEFAULT_PICTURE' => array(
+                                                            'PICTURE' => $arItem['PRODUCT_PREVIEW'],
+                                                            'PICTURE_SECOND' => $arItem['PRODUCT_PREVIEW_SECOND']
+                                                        ),
+                                                        'VISUAL' => array(
+                                                            'ID' => $arItemIDs['ID'],
+                                                            'PICT_ID' => $arItemIDs['PICT'],
+                                                            'SECOND_PICT_ID' => $arItemIDs['SECOND_PICT'],
+                                                            'QUANTITY_ID' => $arItemIDs['QUANTITY'],
+                                                            'QUANTITY_UP_ID' => $arItemIDs['QUANTITY_UP'],
+                                                            'QUANTITY_DOWN_ID' => $arItemIDs['QUANTITY_DOWN'],
+                                                            'QUANTITY_MEASURE' => $arItemIDs['QUANTITY_MEASURE'],
+                                                            'PRICE_ID' => $arItemIDs['PRICE'],
+                                                            'TREE_ID' => $arItemIDs['PROP_DIV'],
+                                                            'TREE_ITEM_ID' => $arItemIDs['PROP'],
+                                                            'BUY_ID' => $arItemIDs['BUY_LINK'],
+                                                            'ADD_BASKET_ID' => $arItemIDs['ADD_BASKET_ID'],
+                                                            'DSC_PERC' => $arItemIDs['DSC_PERC'],
+                                                            'SECOND_DSC_PERC' => $arItemIDs['SECOND_DSC_PERC'],
+                                                            'DISPLAY_PROP_DIV' => $arItemIDs['DISPLAY_PROP_DIV'],
+                                                            'BASKET_ACTIONS_ID' => $arItemIDs['BASKET_ACTIONS'],
+                                                            'NOT_AVAILABLE_MESS' => $arItemIDs['NOT_AVAILABLE_MESS'],
+                                                            'COMPARE_LINK_ID' => $arItemIDs['COMPARE_LINK']
+                                                        ),
+                                                        'BASKET' => array(
+                                                            'QUANTITY' => $arParams['PRODUCT_QUANTITY_VARIABLE'],
+                                                            'PROPS' => $arParams['PRODUCT_PROPS_VARIABLE'],
+                                                            'SKU_PROPS' => $arItem['OFFERS_PROP_CODES'],
+                                                            'ADD_URL_TEMPLATE' => $arResult['~ADD_URL_TEMPLATE'],
+                                                            'BUY_URL_TEMPLATE' => $arResult['~BUY_URL_TEMPLATE']
+                                                        ),
+                                                        'PRODUCT' => array(
+                                                            'ID' => $arItem['ID'],
+                                                            'NAME' => $productTitle
+                                                        ),
+                                                        'OFFERS' => $arItem['JS_OFFERS'],
+                                                        'OFFER_SELECTED' => $arItem['OFFERS_SELECTED'],
+                                                        'TREE_PROPS' => $arSkuProps,
+                                                        'LAST_ELEMENT' => $arItem['LAST_ELEMENT']
+                                                    );
+                                                    if ($arParams['DISPLAY_COMPARE'])
+                                                    {
+                                                        $arJSParams['COMPARE'] = array(
+                                                            'COMPARE_URL_TEMPLATE' => $arResult['~COMPARE_URL_TEMPLATE'],
+                                                            'COMPARE_PATH' => $arParams['COMPARE_PATH']
+                                                        );
+                                                    }
+                                                ?>
+                                                <script type="text/javascript">
+                                                    var <? echo $strObName; ?> = new JCCatalogSection(<? echo CUtil::PhpToJSObject($arJSParams, false, true); ?>);
+                                                </script>
+                                                <?
+                                                }
+                                            }
+                                            else
+                                            {
+                                                $arJSParams = array(
+                                                    'PRODUCT_TYPE' => $arItem['CATALOG_TYPE'],
+                                                    'SHOW_QUANTITY' => false,
+                                                    'SHOW_ADD_BASKET_BTN' => false,
+                                                    'SHOW_BUY_BTN' => false,
+                                                    'SHOW_ABSENT' => false,
+                                                    'SHOW_SKU_PROPS' => false,
+                                                    'SECOND_PICT' => $arItem['SECOND_PICT'],
+                                                    'SHOW_OLD_PRICE' => ('Y' == $arParams['SHOW_OLD_PRICE']),
+                                                    'SHOW_DISCOUNT_PERCENT' => ('Y' == $arParams['SHOW_DISCOUNT_PERCENT']),
+                                                    'ADD_TO_BASKET_ACTION' => $arParams['ADD_TO_BASKET_ACTION'],
+                                                    'SHOW_CLOSE_POPUP' => ($arParams['SHOW_CLOSE_POPUP'] == 'Y'),
+                                                    'DISPLAY_COMPARE' => $arParams['DISPLAY_COMPARE'],
+                                                    'DEFAULT_PICTURE' => array(
+                                                        'PICTURE' => $arItem['PRODUCT_PREVIEW'],
+                                                        'PICTURE_SECOND' => $arItem['PRODUCT_PREVIEW_SECOND']
+                                                    ),
+                                                    'VISUAL' => array(
+                                                        'ID' => $arItemIDs['ID'],
+                                                        'PICT_ID' => $arItemIDs['PICT'],
+                                                        'SECOND_PICT_ID' => $arItemIDs['SECOND_PICT'],
+                                                        'QUANTITY_ID' => $arItemIDs['QUANTITY'],
+                                                        'QUANTITY_UP_ID' => $arItemIDs['QUANTITY_UP'],
+                                                        'QUANTITY_DOWN_ID' => $arItemIDs['QUANTITY_DOWN'],
+                                                        'QUANTITY_MEASURE' => $arItemIDs['QUANTITY_MEASURE'],
+                                                        'PRICE_ID' => $arItemIDs['PRICE'],
+                                                        'TREE_ID' => $arItemIDs['PROP_DIV'],
+                                                        'TREE_ITEM_ID' => $arItemIDs['PROP'],
+                                                        'BUY_ID' => $arItemIDs['BUY_LINK'],
+                                                        'ADD_BASKET_ID' => $arItemIDs['ADD_BASKET_ID'],
+                                                        'DSC_PERC' => $arItemIDs['DSC_PERC'],
+                                                        'SECOND_DSC_PERC' => $arItemIDs['SECOND_DSC_PERC'],
+                                                        'DISPLAY_PROP_DIV' => $arItemIDs['DISPLAY_PROP_DIV'],
+                                                        'BASKET_ACTIONS_ID' => $arItemIDs['BASKET_ACTIONS'],
+                                                        'NOT_AVAILABLE_MESS' => $arItemIDs['NOT_AVAILABLE_MESS'],
+                                                        'COMPARE_LINK_ID' => $arItemIDs['COMPARE_LINK']
+                                                    ),
+                                                    'BASKET' => array(
+                                                        'QUANTITY' => $arParams['PRODUCT_QUANTITY_VARIABLE'],
+                                                        'PROPS' => $arParams['PRODUCT_PROPS_VARIABLE'],
+                                                        'SKU_PROPS' => $arItem['OFFERS_PROP_CODES'],
+                                                        'ADD_URL_TEMPLATE' => $arResult['~ADD_URL_TEMPLATE'],
+                                                        'BUY_URL_TEMPLATE' => $arResult['~BUY_URL_TEMPLATE']
+                                                    ),
+                                                    'PRODUCT' => array(
+                                                        'ID' => $arItem['ID'],
+                                                        'NAME' => $productTitle
+                                                    ),
+                                                    'OFFERS' => array(),
+                                                    'OFFER_SELECTED' => 0,
+                                                    'TREE_PROPS' => array(),
+                                                    'LAST_ELEMENT' => $arItem['LAST_ELEMENT']
+                                                );
+                                                if ($arParams['DISPLAY_COMPARE'])
+                                                {
+                                                    $arJSParams['COMPARE'] = array(
+                                                        'COMPARE_URL_TEMPLATE' => $arResult['~COMPARE_URL_TEMPLATE'],
+                                                        'COMPARE_PATH' => $arParams['COMPARE_PATH']
+                                                    );
+                                                }
+                                            ?>
+                                            <script type="text/javascript">
+                                                var <? echo $strObName; ?> = new JCCatalogSection(<? echo CUtil::PhpToJSObject($arJSParams, false, true); ?>);
+                                            </script>
+                                            <?
+                                            }
+                                    }?>
+
+                                </td>
+
+                                <td class="elementActions">
+                                    <a href="" class="likedButton"><p></p></a>
+
+                                    <?if ((!isset($arItem['OFFERS']) || empty($arItem['OFFERS'])) && $arItem['CAN_BUY']) {?> 
+                                        <div id="<? echo $arItemIDs['BASKET_ACTIONS']; ?>" <?if ($arItem['IN_BASKET'] == "Y"){?> title="<?=GetMessage("PRODUCT_ALREADY_IN_BASKET")?>"<?}?>  class="bx_catalog_item_controls_blocktwo productBasketBlock changingBasket <?if ($arItem['IN_BASKET'] == "Y"){?> active<?}?>">
+                                            <a id="<? echo $arItemIDs['BUY_LINK']; ?>" class="blockLink bx_bt_button bx_medium <?if ($arItem['IN_BASKET'] != "Y") {?>js-add-to-basket <?}?>" href="<?=$arItem['ADD_URL']?>" rel="nofollow"></a>
+                                        </div>      
+                                        <?}?>
+                                </td>   
+
+                            </tr>                                 
+                            <?}?>
                     </tbody>
                 </table>
 

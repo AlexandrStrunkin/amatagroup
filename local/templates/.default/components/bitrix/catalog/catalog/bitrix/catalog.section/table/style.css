@@ -19,3 +19,8 @@
 .elementTitle a {
     color: inherit;
 }
+
+.elementName .elementTitle {
+    max-height:40px;
+    overflow: hidden;
+}
