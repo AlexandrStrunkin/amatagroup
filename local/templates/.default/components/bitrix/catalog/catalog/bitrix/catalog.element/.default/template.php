@@ -11,6 +11,7 @@
 /** @var string $componentPath */
 /** @var CBitrixComponent $component */
 $this->setFrameMode(true);
+IncludeTemplateLangFile(__FILE__);
 $templateLibrary = array('popup');
 $currencyList = '';
 if (!empty($arResult['CURRENCIES']))
@@ -19,7 +20,7 @@ if (!empty($arResult['CURRENCIES']))
 	$currencyList = CUtil::PhpToJSObject($arResult['CURRENCIES'], false, true, true);
 }
 $templateData = array(
-	'TEMPLATE_THEME' => $this->GetFolder().'/themes/'.$arParams['TEMPLATE_THEME'].'/style.css',
+	//'TEMPLATE_THEME' => $this->GetFolder().'/themes/'.$arParams['TEMPLATE_THEME'].'/style.css',
 	'TEMPLATE_CLASS' => 'bx_'.$arParams['TEMPLATE_THEME'],
 	'TEMPLATE_LIBRARY' => $templateLibrary,
 	'CURRENCIES' => $currencyList
@@ -75,7 +76,7 @@ $strAlt = (
 	? $arResult["IPROPERTY_VALUES"]["ELEMENT_DETAIL_PICTURE_FILE_ALT"]
 	: $arResult['NAME']
 );
-?><div class="bx_item_detail <? echo $templateData['TEMPLATE_CLASS']; ?>" id="<? echo $arItemIDs['ID']; ?>">
+?>
 <?
 if ('Y' == $arParams['DISPLAY_NAME'])
 {
@@ -92,206 +93,140 @@ if ('Y' == $arParams['DISPLAY_NAME'])
 reset($arResult['MORE_PHOTO']);
 $arFirstPhoto = current($arResult['MORE_PHOTO']);
 ?>
+	<!--productCardImg-->
+    <div class="productCardImg">
+        <!--logosContainer-->
+        <div class="logosContainer">
+        	<? 
+        	if ('Y' == $arParams['SHOW_DISCOUNT_PERCENT']) {
+				if (!isset($arResult['OFFERS']) || empty($arResult['OFFERS'])) {
+					if (0 < $arResult['MIN_PRICE']['DISCOUNT_DIFF']) { ?>
+						<div class="discountLogoWrapper" id="<? echo $arItemIDs['DISCOUNT_PICT_ID'] ?>"><? echo -$arResult['MIN_PRICE']['DISCOUNT_DIFF_PERCENT']; ?>%</div>
+				<?	}
+				} else { ?>
+					<div class="bx_stick_disc right bottom" id="<? echo $arItemIDs['DISCOUNT_PICT_ID'] ?>" style="display: none;"></div>
+			<?	}
+			} ?>
+            <!--<div class="bestLogoWrapper">BEST</div>-->
+            <?//шильдик новинки. Если товар  создан менее 2 недель назад
+               if (date("U") - 86400 * NEW_PRODUCT_STATUS_LENGTH <= MakeTimeStamp($arResult["DATE_CREATE"], "DD.MM.YYYY HH:MI:SS")) {
+            ?>
+                <div class="newLogoWrapper" title="<?=GetMessage("NEW_PRODUCT")?>">NEW</div>
+            <?}?>
+            <!-- <div class="freshLogoWrapper">FRESH</div>
+            <div class="saleLogoWrapper">SALE</div>-->
+        </div>
+        <!--END logosContainer-->
+        <!--previewImg-->
+        <div class="previewImg">
+            <img id="<? echo $arItemIDs['PICT']; ?>" src="<? echo $arFirstPhoto['SRC']; ?>" alt="<? echo $strAlt; ?>" title="<? echo $strTitle; ?>">
+        </div>
+        <!--END previewImg-->
+        <!--smallPreviewImg-->
+        <? if (is_array($arResult['MORE_PHOTO'])) { ?>
+        	<div class="smallPreviewImg">
+        	<? foreach ($arResult['MORE_PHOTO'] as &$arOnePhoto) { ?>
+				<a href="<?= $arOnePhoto['SRC'] ?>"><img src="<?= $arOnePhoto['SRC'] ?>" alt=""/></a>
+			<? } ?>
+			</div>
+		<? }
+			unset($arOnePhoto);
+		?>
+        <!--END smallPreviewImg-->
+    </div>
+    <!--END productCardImg-->
+     <!--productCardDesc-->
+    <div class="productCardDesc">
+        <!--productTitle-->
+        <div class="productTitle">
+            Описание
+        </div>
+        <!--END productTitle-->
+        <!--productInfo-->
+        <div class="productInfo">
+            <div class="brandText">
+            	<strong>Бренд:</strong> 
+            	<a href=""><?= $arResult['DISPLAY_PROPERTIES']['BREND']['DISPLAY_VALUE'] ? $arResult['DISPLAY_PROPERTIES']['BREND']['DISPLAY_VALUE'] : "Не задан" ?></a>
+            </div>
+            <div class="productArticle">
+            	<strong>Артикул:</strong>
+            	 <?= $arResult['DISPLAY_PROPERTIES']['CML2_ARTICLE']['DISPLAY_VALUE'] ? $arResult['DISPLAY_PROPERTIES']['CML2_ARTICLE']['DISPLAY_VALUE'] : "Не задан" ?>
+            </div>
+            <div class="productText">
+            	<?= $arResult['PREVIEW_TEXT'] ? $arResult['PREVIEW_TEXT'] : $arResult['PREVIEW_TEXT'] ?>
+            </div>
+        </div>
+        <!--END productInfo-->
+        <!--productPrice-->
+        <div class="productPrice">
+        	<?
+			$minPrice = (isset($arResult['RATIO_PRICE']) ? $arResult['RATIO_PRICE'] : $arResult['MIN_PRICE']);
+			$boolDiscountShow = (0 < $minPrice['DISCOUNT_DIFF']); ?>
+			<strong> Цена: 
+			<? if ($arParams['SHOW_OLD_PRICE'] == 'Y') { ?>
+				<span class="discount_price"><?= ($boolDiscountShow ? $minPrice['PRINT_VALUE'] : ''); ?></span>
+			<? } ?>
+			</strong>
+			<span><?= $minPrice['PRINT_DISCOUNT_VALUE']; ?></span>
+        </div>
+        <!--END productPrice-->
+        <!--productCount-->
+        <div class="productCount">
+            <strong>Кол-во:</strong>
+            <div class="middleSelectBlock">
+                <div class="elementQuant">
+                    <div>
+						<input id="<? echo $arItemIDs['QUANTITY']; ?>" type="text" class="quantityText" value="<? echo (isset($arResult['OFFERS']) && !empty($arResult['OFFERS'])
+								? 1
+								: $arResult['CATALOG_MEASURE_RATIO']
+							); ?>">
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!--END productCount-->
+        <!--productColor-->
+        <div class="productColor horizontalFilterWrap">
+            <strong>Цвет:</strong>
+
+            <div class="firstFilter">
+                <p data-sort="1" class="firstFiltElement1" id="activeFirstFilt"><span class="col" style="background: #5db3dc"></span>Морская лагуна</p>
+                <div class="hidingMenu">
+                    <p data-sort="2"><span class="col" style="background: #5db3dc;"></span>Морская лагуна</p>
+                    <p data-sort="2"><span class="col" style="background: #ff0000;"></span>Красный</p>
+                    <p data-sort="3"><span class="col" style="background: #00ff1d;"></span>Зеленый</p>
+                </div>
+            </div>
+        </div>
+        <!--END productColor-->
+
+        <div class="productFavorites">
+            <a href="">В избранное</a>
+        </div>
+        <div class="productComment">
+            <a href="">Задать вопрос</a>
+        </div>
+        <?
+        if (isset($arResult['OFFERS']) && !empty($arResult['OFFERS'])) {
+			$canBuy = $arResult['OFFERS'][$arResult['OFFERS_SELECTED']]['CAN_BUY'];
+		} else {
+			$canBuy = $arResult['CAN_BUY'];
+		}
+
+		$addToBasketBtnMessage = GetMessage('CT_BCE_CATALOG_ADD');
+		$notAvailableMessage = ($arParams['MESS_NOT_AVAILABLE'] != '' ? $arParams['MESS_NOT_AVAILABLE'] : GetMessageJS('CT_BCE_CATALOG_NOT_AVAILABLE')); ?>
+		<a href="javascript:void(0);" class="addBtn bx_big bx_bt_button bx_cart" id="<? echo $arItemIDs['ADD_BASKET_LINK']; ?>"><span></span><? echo $addToBasketBtnMessage; ?></a> 
+
+		<span id="<? echo $arItemIDs['NOT_AVAILABLE_MESS']; ?>" class="bx_notavailable" style="display: <? echo (!$canBuy ? '' : 'none'); ?>;"><? echo $notAvailableMessage; ?></span>
+    </div>
+    <!--END productCardDesc-->
 	<div class="bx_item_container">
 		<div class="bx_lt">
 <div class="bx_item_slider" id="<? echo $arItemIDs['BIG_SLIDER_ID']; ?>">
-	<div class="bx_bigimages" id="<? echo $arItemIDs['BIG_IMG_CONT_ID']; ?>">
-	<div class="bx_bigimages_imgcontainer">
-	<span class="bx_bigimages_aligner"><img id="<? echo $arItemIDs['PICT']; ?>" src="<? echo $arFirstPhoto['SRC']; ?>" alt="<? echo $strAlt; ?>" title="<? echo $strTitle; ?>"></span>
-<?
-if ('Y' == $arParams['SHOW_DISCOUNT_PERCENT'])
-{
-	if (!isset($arResult['OFFERS']) || empty($arResult['OFFERS']))
-	{
-		if (0 < $arResult['MIN_PRICE']['DISCOUNT_DIFF'])
-		{
-?>
-	<div class="bx_stick_disc right bottom" id="<? echo $arItemIDs['DISCOUNT_PICT_ID'] ?>"><? echo -$arResult['MIN_PRICE']['DISCOUNT_DIFF_PERCENT']; ?>%</div>
-<?
-		}
-	}
-	else
-	{
-?>
-	<div class="bx_stick_disc right bottom" id="<? echo $arItemIDs['DISCOUNT_PICT_ID'] ?>" style="display: none;"></div>
-<?
-	}
-}
-if ($arResult['LABEL'])
-{
-?>
-	<div class="bx_stick average left top" id="<? echo $arItemIDs['STICKER_ID'] ?>" title="<? echo $arResult['LABEL_VALUE']; ?>"><? echo $arResult['LABEL_VALUE']; ?></div>
-<?
-}
-?>
-	</div>
-	</div>
-<?
-if ($arResult['SHOW_SLIDER'])
-{
-	if (!isset($arResult['OFFERS']) || empty($arResult['OFFERS']))
-	{
-		if (5 < $arResult['MORE_PHOTO_COUNT'])
-		{
-			$strClass = 'bx_slider_conteiner full';
-			$strOneWidth = (100/$arResult['MORE_PHOTO_COUNT']).'%';
-			$strWidth = (20*$arResult['MORE_PHOTO_COUNT']).'%';
-			$strSlideStyle = '';
-		}
-		else
-		{
-			$strClass = 'bx_slider_conteiner';
-			$strOneWidth = '20%';
-			$strWidth = '100%';
-			$strSlideStyle = 'display: none;';
-		}
-?>
-	<div class="<? echo $strClass; ?>" id="<? echo $arItemIDs['SLIDER_CONT_ID']; ?>">
-	<div class="bx_slider_scroller_container">
-	<div class="bx_slide">
-	<ul style="width: <? echo $strWidth; ?>;" id="<? echo $arItemIDs['SLIDER_LIST']; ?>">
-<?
-		foreach ($arResult['MORE_PHOTO'] as &$arOnePhoto)
-		{
-?>
-	<li data-value="<? echo $arOnePhoto['ID']; ?>" style="width: <? echo $strOneWidth; ?>; padding-top: <? echo $strOneWidth; ?>;"><span class="cnt"><span class="cnt_item" style="background-image:url('<? echo $arOnePhoto['SRC']; ?>');"></span></span></li>
-<?
-		}
-		unset($arOnePhoto);
-?>
-	</ul>
-	</div>
-	<div class="bx_slide_left" id="<? echo $arItemIDs['SLIDER_LEFT']; ?>" style="<? echo $strSlideStyle; ?>"></div>
-	<div class="bx_slide_right" id="<? echo $arItemIDs['SLIDER_RIGHT']; ?>" style="<? echo $strSlideStyle; ?>"></div>
-	</div>
-	</div>
-<?
-	}
-	else
-	{
-		foreach ($arResult['OFFERS'] as $key => $arOneOffer)
-		{
-			if (!isset($arOneOffer['MORE_PHOTO_COUNT']) || 0 >= $arOneOffer['MORE_PHOTO_COUNT'])
-				continue;
-			$strVisible = ($key == $arResult['OFFERS_SELECTED'] ? '' : 'none');
-			if (5 < $arOneOffer['MORE_PHOTO_COUNT'])
-			{
-				$strClass = 'bx_slider_conteiner full';
-				$strOneWidth = (100/$arOneOffer['MORE_PHOTO_COUNT']).'%';
-				$strWidth = (20*$arOneOffer['MORE_PHOTO_COUNT']).'%';
-				$strSlideStyle = '';
-			}
-			else
-			{
-				$strClass = 'bx_slider_conteiner';
-				$strOneWidth = '20%';
-				$strWidth = '100%';
-				$strSlideStyle = 'display: none;';
-			}
-?>
-	<div class="<? echo $strClass; ?>" id="<? echo $arItemIDs['SLIDER_CONT_OF_ID'].$arOneOffer['ID']; ?>" style="display: <? echo $strVisible; ?>;">
-	<div class="bx_slider_scroller_container">
-	<div class="bx_slide">
-	<ul style="width: <? echo $strWidth; ?>;" id="<? echo $arItemIDs['SLIDER_LIST_OF_ID'].$arOneOffer['ID']; ?>">
-<?
-			foreach ($arOneOffer['MORE_PHOTO'] as &$arOnePhoto)
-			{
-?>
-	<li data-value="<? echo $arOneOffer['ID'].'_'.$arOnePhoto['ID']; ?>" style="width: <? echo $strOneWidth; ?>; padding-top: <? echo $strOneWidth; ?>"><span class="cnt"><span class="cnt_item" style="background-image:url('<? echo $arOnePhoto['SRC']; ?>');"></span></span></li>
-<?
-			}
-			unset($arOnePhoto);
-?>
-	</ul>
-	</div>
-	<div class="bx_slide_left" id="<? echo $arItemIDs['SLIDER_LEFT_OF_ID'].$arOneOffer['ID'] ?>" style="<? echo $strSlideStyle; ?>" data-value="<? echo $arOneOffer['ID']; ?>"></div>
-	<div class="bx_slide_right" id="<? echo $arItemIDs['SLIDER_RIGHT_OF_ID'].$arOneOffer['ID'] ?>" style="<? echo $strSlideStyle; ?>" data-value="<? echo $arOneOffer['ID']; ?>"></div>
-	</div>
-	</div>
-<?
-		}
-	}
-}
-?>
 </div>
 		</div>
 		<div class="bx_rt">
-<?
-$useBrands = ('Y' == $arParams['BRAND_USE']);
-$useVoteRating = ('Y' == $arParams['USE_VOTE_RATING']);
-if ($useBrands || $useVoteRating)
-{
-?>
-	<div class="bx_optionblock">
-<?
-	if ($useVoteRating)
-	{
-		?><?$APPLICATION->IncludeComponent(
-			"bitrix:iblock.vote",
-			"stars",
-			array(
-				"IBLOCK_TYPE" => $arParams['IBLOCK_TYPE'],
-				"IBLOCK_ID" => $arParams['IBLOCK_ID'],
-				"ELEMENT_ID" => $arResult['ID'],
-				"ELEMENT_CODE" => "",
-				"MAX_VOTE" => "5",
-				"VOTE_NAMES" => array("1", "2", "3", "4", "5"),
-				"SET_STATUS_404" => "N",
-				"DISPLAY_AS_RATING" => $arParams['VOTE_DISPLAY_AS_RATING'],
-				"CACHE_TYPE" => $arParams['CACHE_TYPE'],
-				"CACHE_TIME" => $arParams['CACHE_TIME']
-			),
-			$component,
-			array("HIDE_ICONS" => "Y")
-		);?><?
-	}
-	if ($useBrands)
-	{
-		?><?$APPLICATION->IncludeComponent("bitrix:catalog.brandblock", ".default", array(
-			"IBLOCK_TYPE" => $arParams['IBLOCK_TYPE'],
-			"IBLOCK_ID" => $arParams['IBLOCK_ID'],
-			"ELEMENT_ID" => $arResult['ID'],
-			"ELEMENT_CODE" => "",
-			"PROP_CODE" => $arParams['BRAND_PROP_CODE'],
-			"CACHE_TYPE" => $arParams['CACHE_TYPE'],
-			"CACHE_TIME" => $arParams['CACHE_TIME'],
-			"CACHE_GROUPS" => $arParams['CACHE_GROUPS'],
-			"WIDTH" => "",
-			"HEIGHT" => ""
-			),
-			$component,
-			array("HIDE_ICONS" => "Y")
-		);?><?
-	}
-?>
-	</div>
-<?
-}
-unset($useVoteRating, $useBrands);
-?>
-<div class="item_price">
-<?
-$minPrice = (isset($arResult['RATIO_PRICE']) ? $arResult['RATIO_PRICE'] : $arResult['MIN_PRICE']);
-$boolDiscountShow = (0 < $minPrice['DISCOUNT_DIFF']);
-if ($arParams['SHOW_OLD_PRICE'] == 'Y')
-{
-?>
-	<div class="item_old_price" id="<? echo $arItemIDs['OLD_PRICE']; ?>" style="display: <? echo($boolDiscountShow ? '' : 'none'); ?>"><? echo($boolDiscountShow ? $minPrice['PRINT_VALUE'] : ''); ?></div>
-<?
-}
-?>
-	<div class="item_current_price" id="<? echo $arItemIDs['PRICE']; ?>"><? echo $minPrice['PRINT_DISCOUNT_VALUE']; ?></div>
-<?
-if ($arParams['SHOW_OLD_PRICE'] == 'Y')
-{
-	?>
-	<div class="item_economy_price" id="<? echo $arItemIDs['DISCOUNT_PRICE']; ?>" style="display: <? echo($boolDiscountShow ? '' : 'none'); ?>"><? echo($boolDiscountShow ? GetMessage('CT_BCE_CATALOG_ECONOMY_INFO', array('#ECONOMY#' => $minPrice['PRINT_DISCOUNT_DIFF'])) : ''); ?></div>
-<?
-}
-?>
-</div>
-<?
-unset($minPrice);
+<?//arshow($arResult);
 if (!empty($arResult['DISPLAY_PROPERTIES']) || $arResult['SHOW_OFFERS_PROPS'])
 {
 ?>
@@ -734,7 +669,7 @@ if ('Y' == $arParams['USE_COMMENTS'])
 			<div style="clear: both;"></div>
 	</div>
 	<div class="clb"></div>
-</div><?
+<?
 if (isset($arResult['OFFERS']) && !empty($arResult['OFFERS']))
 {
 	foreach ($arResult['JS_OFFERS'] as &$arOneJS)
