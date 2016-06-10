@@ -213,7 +213,7 @@ $(document).ready(function () {
     //подклюдчение плагина кастомизированного селекта
     if ($('select').length > 0) {
         $('select').selectric({
-            onChange: function () {
+            onChange: function (e) {
                 var el = $(this).parent().parent(), val = el.find("select").val();
                 if (el.closest(".hiddenQuestionBlock").length > 0) {
                     if (val == -1) {
@@ -222,6 +222,8 @@ $(document).ready(function () {
                         el.addClass("no-empty");
                     }
                 }
+
+                $(e).change();
             }
         });
         $(".selectric").on("click", function () {
@@ -1293,31 +1295,54 @@ $(document).ready(function () {
         }
     })
 
-    
+
     //обработка нажатия кнопки добавления в корзину из шаблона списка товаров каталога
-    $(".js-add-to-basket").on("click", function(){        
+    $(".js-add-to-basket").on("click", function(){ 
+
         var ulr = $(this).attr("href");
-       
-       //поле ввода количества товара 
-        var quantityField = $(this).parents("tr").find("input[data-name=quantity]");
-        
+
+        var itemId = $(this).data("item-id");
+
+        //поле ввода количества товара
+        if (parseInt(itemId) > 0) { 
+            var quantityField = $(".js-item-quantity[data-item-id= " + itemId + "]");
+        }
+
         if (quantityField.length > 0) {
             var itemQuantity = parseInt(quantityField.val()); //количество
             var quantityVariable = quantityField.data("quantity-variable");  //имя переменной, в которой передается количество
         }
-        
+
         //если есть поле ввода количества и имя переменной для передачи количества
-        if (itemQuantity > 0 && quantityVariable != "") {
-           ulr = ulr + "&" + quantityVariable + "=" + itemQuantity; 
+        if (itemQuantity > 0 && quantityVariable != "" && ulr != "") {
+            ulr = ulr + "&" + quantityVariable + "=" + itemQuantity; 
         }
-        
+
         if (ulr) {
             //делаем запрос на нужный урл и преезагружаем область с маленькой корзиной
             $(".js-small-basket").load(ulr + " .js-small-basket > * ");
         }    
     })
-    
-    
+
+    $(".js-offer-select").on("change", function(){
+        var item_id = parseInt($(this).data("item-id"));
+        var href = $(this).val();
+        var offerId = parseInt($(this).find("option:selected").data("offer-id"));
+        if (item_id > 0 && href != "" && offerId > 0) {
+            $("a[data-item-id = " + item_id + "]").parent().removeClass("basketButtonInvisible");
+            $("a[data-item-id = " + item_id + "]").attr("href", href);
+            $(".js-item-price[data-item-id = " + item_id + "]").hide();
+            $(".js-item-price[data-offer-id = " + offerId + "]").show();
+        }
+        else if (parseInt(item_id) > 0) {
+            $("a[data-item-id = " + item_id + "]").parent().addClass("basketButtonInvisible");
+            $("a[data-item-id = " + item_id + "]").removeAttr("href");
+            $(".js-item-price[data-item-id = " + item_id + "]").hide();
+            $(".js-item-price[data-item-id = " + item_id + "]:first").show();
+        }
+    })
+
+
     //смена шаблона отображения списка разделов
     $(".displayTypeWrap > div").on("click", function() {
         if ($(this).data("href")) {
