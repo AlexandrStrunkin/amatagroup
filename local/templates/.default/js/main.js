@@ -1123,7 +1123,6 @@ $(document).ready(function () {
         });
     }
 
-
     /***************************/
 
     //Меню в личном кабинете счета
@@ -1296,18 +1295,40 @@ $(document).ready(function () {
     })
 
 
-    //обработка нажатия кнопки добавления в корзину из шаблона списка товаров каталога
-    $(".js-add-to-basket").on("click", function(){ 
+	// торговые предложения в карточке товара
+    $(".firstFilter p.js-offer-option").on("click", function() {
+    	var current_offer_buy_link = $(this).data("offer-buy-link"),
+    		current_offer_id = $(this).data("offer-id"),
+    		current_offer_can_buy = $(this).data("item-can-buy");
+    		
+    	if (current_offer_can_buy) {
+    		$(".addBtn").show();
+    		$(".bx_notavailable").hide();
+    	} else {
+    		$(".addBtn").hide();
+    		$(".bx_notavailable").show();
+    	}
+    	
+    	$(".productPrice").hide();
+    	$('.productPrice[data-price-offer-id="' + current_offer_id + '"]').show();
+    	$(".js-add-to-basket").attr("href", current_offer_buy_link);
+    });
+    
 
+    //обработка нажатия кнопки добавления в корзину из шаблона списка товаров каталога
+    $(".js-add-to-basket").on("click", function(e){ 
+		e.preventDefault();   
         var ulr = $(this).attr("href");
 
         var itemId = $(this).data("item-id");
 
         //поле ввода количества товара
-        if (parseInt(itemId) > 0) { 
+        if (parseInt(itemId) > 0) { // для секции
             var quantityField = $(".js-item-quantity[data-item-id= " + itemId + "]");
+        } else { // для карточки
+        	var quantityField = $(".quantityText");
         }
-
+        	
         if (quantityField.length > 0) {
             var itemQuantity = parseInt(quantityField.val()); //количество
             var quantityVariable = quantityField.data("quantity-variable");  //имя переменной, в которой передается количество
