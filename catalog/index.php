@@ -46,7 +46,7 @@ $filterView = (COption::GetOptionString("main", "wizard_template_id", "eshop_ada
 		"FILTER_PRICE_CODE" => array(
 		),
 		"FILTER_OFFERS_FIELD_CODE" => array(
-			0 => "",
+			0 => "XML_ID",
 			1 => "",
 		),
 		"FILTER_OFFERS_PROPERTY_CODE" => array(
@@ -101,8 +101,21 @@ $filterView = (COption::GetOptionString("main", "wizard_template_id", "eshop_ada
 		"LIST_BROWSER_TITLE" => "-",
 		"LIST_OFFERS_FIELD_CODE" => array(
 			0 => "ID",
-			1 => "NAME",
-			2 => "",
+			1 => "CODE",
+			2 => "XML_ID",
+			3 => "NAME",
+			4 => "SORT",
+			5 => "PREVIEW_TEXT",
+			6 => "PREVIEW_PICTURE",
+			7 => "DETAIL_TEXT",
+			8 => "DETAIL_PICTURE",
+			9 => "DATE_ACTIVE_FROM",
+			10 => "ACTIVE_FROM",
+			11 => "DATE_ACTIVE_TO",
+			12 => "ACTIVE_TO",
+			13 => "IBLOCK_ID",
+			14 => "DATE_CREATE",
+			15 => "",
 		),
 		"LIST_OFFERS_PROPERTY_CODE" => array(
 			0 => "",

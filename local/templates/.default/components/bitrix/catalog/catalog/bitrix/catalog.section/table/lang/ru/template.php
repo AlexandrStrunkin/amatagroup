@@ -29,4 +29,5 @@ $MESS["PRODUCT_OFFERS"] = "Предложения";
 $MESS["PRODUCT_QUANTITY"] = "Кол-во";
 $MESS["PRODUCT_PRICE"] = "Цена";
 $MESS["PRODUCT_ACTIONS"] = "Действия";
+$MESS["SELECT_OFFER"] = "Не выбрано";
 ?>

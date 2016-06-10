@@ -153,7 +153,7 @@
                 <div class="productWrapper">
                     <p class="price" id="<? echo $arItemIDs['PRICE']; ?>"><?
                             if (!empty($minPrice)) {
-                                if ('N' == $arParams['PRODUCT_DISPLAY_MODE'] && isset($arItem['OFFERS']) && !empty($arItem['OFFERS'])) {
+                                if (isset($arItem['OFFERS']) && !empty($arItem['OFFERS'])) {
                                     echo GetMessage(
                                         'CT_BCS_TPL_MESS_PRICE_SIMPLE_MODE',
                                         array(
