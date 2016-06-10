@@ -8,7 +8,7 @@ $aMenuLinks = Array(
 		"" 
 	),
 	Array(
-		"Налицие и цены", 
+		"Наличие и цены", 
 		"/prices/", 
 		Array(), 
 		Array(), 
