@@ -1802,6 +1802,14 @@ margin-top: 20px;
     white-space: nowrap;
     max-width: 80px;
 }
+.item_card_offers p {
+	white-space: normal !important;
+}
+.bx_notavailable {
+	text-align: center;
+    display: block;
+    font: 15px/55px 'MuseoSansCyrl-700', sans-serif;
+}
 .catalogElementsBlock .horizontalFilterWrap .firstFilter {
     padding-left: 9px;
     width: 103px;
