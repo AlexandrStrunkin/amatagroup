@@ -182,16 +182,23 @@
                                 <td class="elementColor">
                                     <?if (isset($arItem['OFFERS']) && !empty($arItem['OFFERS'])) {?>
                                         <div class="selectric-wrapper selectric-basketSelect">
-                                            <select name="color">
+                                            <select name="color" data-item-id="<?=$arItem["ID"]?>" class="js-offer-select">
+                                                <option value=""><?=GetMessage("SELECT_OFFER")?></option>
                                                 <?foreach ($arItem["OFFERS"] as $offer) {?>
-                                                    <?$offerName = array();?>
-                                                    <?foreach ($arParams["~OFFER_TREE_PROPS"] as $offerPropName) {?>
-                                                        <? 
-                                                            if ($offer["PROPERTIES"][$offerPropName]["VALUE"]) {
+                                                    <?
+                                                        $offerNameVisible = $offer["NAME"];
+                                                        $offerName = array();
+                                                    ?>
+                                                    <?foreach ($arParams["OFFER_TREE_PROPS"] as $offerPropName) {
+                                                            if (!empty($offer["PROPERTIES"][$offerPropName]["VALUE"])) {
                                                                 $offerName[] = $offer["PROPERTIES"][$offerPropName]["VALUE"];
-                                                        }?>
-                                                        <?}?>
-                                                    <option value="<?=$offer["ID"]?>"><?=implode(", ", $offerName)?></option>
+                                                            }
+                                                        } 
+                                                        if (count($offerName) > 0) {
+                                                            $offerNameVisible = trim(implode(", ", $offerName));
+                                                        }     
+                                                    ?>
+                                                    <option value="<?=$offer["ADD_URL"]?>" data-offer-id="<?=$offer["ID"]?>"><?=$offerNameVisible?></option>
                                                     <?}?>
                                             </select>
                                         </div>
@@ -199,9 +206,9 @@
                                 </td>
 
                                 <td class="elementQuant">
-                                    <?if ($arItem['CAN_BUY']) {?>
+                                    <?if (($arItem['CAN_BUY'] && empty($arItem["OFFERS"])) || !empty($arItem["OFFERS"])) {?>
                                         <div>
-                                            <input type="text" class="quantityText" value="1" id="<?=$arItem['ID'];?>" data-name="quantity" data-quantity-variable="<?=$arParams["PRODUCT_QUANTITY_VARIABLE"]?>">
+                                            <input type="text" class="quantityText js-item-quantity" value="1" data-name="quantity" data-quantity-variable="<?=$arParams["PRODUCT_QUANTITY_VARIABLE"]?>" data-item-id="<?=$arItem['ID'];?>">
                                             <a href="" class="quantityPlus"></a>
                                             <a href="" class="quantityMinus"></a>
                                         </div>
@@ -209,10 +216,10 @@
                                 </td>
 
                                 <td class="elementPrice">
-                                    <p id="<? echo $arItemIDs['PRICE']; ?>">
+                                    <p id="<? echo $arItemIDs['PRICE']; ?>" class="js-item-price" data-item-id="<?=$arItem["ID"]?>">
                                         <?
                                             if (!empty($minPrice)) {
-                                                if ('N' == $arParams['PRODUCT_DISPLAY_MODE'] && isset($arItem['OFFERS']) && !empty($arItem['OFFERS'])) {
+                                                if (isset($arItem['OFFERS']) && !empty($arItem['OFFERS'])) {
                                                     echo GetMessage(
                                                         'CT_BCS_TPL_MESS_PRICE_SIMPLE_MODE',
                                                         array(
@@ -239,6 +246,25 @@
                                             unset($minPrice);
                                         ?> &nbsp;
                                     </p>
+
+                                    <? if (isset($arItem['OFFERS']) && !empty($arItem['OFFERS'])) {
+                                        foreach ($arItem['OFFERS'] as $offer) {?>
+                                        <p data-offer-id="<?=$offer["ID"]?>" class="js-item-price" style="display: none;" data-item-id="<?=$arItem["ID"]?>">
+                                            <?
+                                                $minPrice = (isset($offer['RATIO_PRICE']) ? $offer['RATIO_PRICE'] : $offer['MIN_PRICE']);
+
+                                                echo $minPrice['PRINT_DISCOUNT_VALUE'];  
+
+                                                if ('Y' == $arParams['SHOW_OLD_PRICE'] && $minPrice['DISCOUNT_VALUE'] < $minPrice['VALUE']) {?> 
+                                                <br>&nbsp;<span class="old_price"><? echo $minPrice['PRINT_VALUE']; ?></span>
+                                                <?
+                                                }
+
+                                                unset($minPrice);
+                                            ?> &nbsp;
+                                        </p>  
+                                        <?}
+                                    }?>
 
 
                                     <?
@@ -548,9 +574,9 @@
                                 <td class="elementActions">
                                     <a href="" class="likedButton"><p></p></a>
 
-                                    <?if ((!isset($arItem['OFFERS']) || empty($arItem['OFFERS'])) && $arItem['CAN_BUY']) {?> 
-                                        <div id="<? echo $arItemIDs['BASKET_ACTIONS']; ?>" <?if ($arItem['IN_BASKET'] == "Y"){?> title="<?=GetMessage("PRODUCT_ALREADY_IN_BASKET")?>"<?}?>  class="bx_catalog_item_controls_blocktwo productBasketBlock changingBasket <?if ($arItem['IN_BASKET'] == "Y"){?> active<?}?>">
-                                            <a id="<? echo $arItemIDs['BUY_LINK']; ?>" class="blockLink bx_bt_button bx_medium <?if ($arItem['IN_BASKET'] != "Y") {?>js-add-to-basket <?}?>" href="<?=$arItem['ADD_URL']?>" rel="nofollow"></a>
+                                    <?if (($arItem['CAN_BUY'] && empty($arItem["OFFERS"])) || !empty($arItem["OFFERS"])) {?> 
+                                        <div id="<? echo $arItemIDs['BASKET_ACTIONS']; ?>"  <?if ($arItem['IN_BASKET'] == "Y"){?> title="<?=GetMessage("PRODUCT_ALREADY_IN_BASKET")?>"<?}?>  class="bx_catalog_item_controls_blocktwo productBasketBlock changingBasket <?if ($arItem['IN_BASKET'] == "Y"){?> active<?}?> <?if (!empty($arItem["OFFERS"])) {?> basketButtonInvisible<?}?>">
+                                            <a id="<? echo $arItemIDs['BUY_LINK']; ?>" data-item-id="<?=$arItem["ID"]?>" class="blockLink bx_bt_button bx_medium <?if ($arItem['IN_BASKET'] != "Y") {?>js-add-to-basket <?}?>" href="<?if (empty($arItem["OFFERS"])) {echo $arItem['ADD_URL'];}?>" rel="nofollow"></a>
                                         </div>      
                                         <?}?>
                                 </td>   
