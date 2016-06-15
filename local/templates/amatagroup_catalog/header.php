@@ -34,10 +34,8 @@
             );?>    
         <!--END breadcrumb--> 
 
-        <p class="titleText">
-            Самые комфортные и надежные кроватки от ведущих мировых брендов, гарантируют вашему
-            ребенку
-            крепкий и спокойный сон.
+        <p class="titleText">     
+            <?$APPLICATION->ShowViewContent('catalog_section_description');//sets in section template?>
         </p>
     </div>
     </div>
