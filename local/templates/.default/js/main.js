@@ -1310,17 +1310,25 @@ $(document).ready(function () {
     	}
     	
     	$(".productPrice").hide();
+    	$(".discountLogoWrapper").hide();
     	$('.productPrice[data-price-offer-id="' + current_offer_id + '"]').show();
+    	$("#discount_label_" + current_offer_id).show();
     	$(".js-add-to-basket").attr("href", current_offer_buy_link);
+    	$(".js-add-to-basket").data("offer-id", current_offer_id);
     });
     
 
-    //обработка нажати€ кнопки добавлени€ в корзину из шаблона списка товаров каталога
+    //обработка нажати€ кнопки добавлени€ в корзину из шаблона списка товаров каталога и карточки
     $(".js-add-to-basket").on("click", function(e){ 
 		e.preventDefault();   
         var ulr = $(this).attr("href");
 
         var itemId = $(this).data("item-id");
+        
+        // раскрываем список предложений, если ни одно из них не выбрано. “олько д€ карточки
+        if ($(this).data("main-item-id") && !$(this).data("offer-id") && $(this).data("item-have-offers")) {
+        	!$(".item_card_offers").hasClass("active") ? $(".item_card_offers").click() : "";
+        }
 
         //поле ввода количества товара
         if (parseInt(itemId) > 0) { // дл€ секции

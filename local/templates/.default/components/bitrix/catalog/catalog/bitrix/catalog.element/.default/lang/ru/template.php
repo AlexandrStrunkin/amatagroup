@@ -31,4 +31,15 @@ $MESS["CT_BCE_CATALOG_MESS_COMPARE_OK"] = "Товар добавлен в список сравнения";
 $MESS["CT_BCE_CATALOG_MESS_COMPARE_TITLE"] = "Сравнение товаров";
 $MESS["CT_BCE_CATALOG_MESS_COMPARE_UNKNOWN_ERROR"] = "При добавлении товара в список сравнения произошла ошибка";
 $MESS["CT_BCE_CATALOG_BTN_MESSAGE_COMPARE_REDIRECT"] = "Перейти в список сравнения";
+$MESS["CT_DESCRIPTION"] = "Описание";
+$MESS["CT_BRAND"] = "Бренд";
+$MESS["CT_DESCRIPTION"] = "Описание";
+$MESS["CT_VENDOR_CODE"] = "Артикул";
+$MESS["CT_PRICE"] = "Цена";
+$MESS["CT_QUANTITY"] = "Кол-во";
+$MESS["CT_OFFERS"] = "Предложения";
+$MESS["CT_ADD_TO_FAVORITE"] = "В избранное";
+$MESS["CT_ASK_QUESTION"] = "Задать вопрос";
+$MESS["CT_CHARACTERISTICS"] = "Характеристики";
+$MESS["CT_DOCS"] = "Документация";
 ?>
