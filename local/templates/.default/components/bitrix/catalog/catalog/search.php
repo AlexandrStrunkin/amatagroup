@@ -38,8 +38,15 @@
         $basketAction = (isset($arParams['SECTION_ADD_TO_BASKET_ACTION']) ? $arParams['SECTION_ADD_TO_BASKET_ACTION'] : '');
     }
 
-    //check section template 
-    $sectionTemplate = "blocks";
+     
+    
+    $catalogParams = getCatalogViewParams();  //sets in init.php
+    $sectionTemplate = $catalogParams["CATALOG_SECTION_TEMPLATE"];
+    $arParams["PAGE_ELEMENT_COUNT"] = $catalogParams["PAGE_ELEMENT_COUNT"];
+    $arParams["ELEMENT_SORT_FIELD"] = $catalogParams["ELEMENT_SORT_FIELD"];
+    $arParams["ELEMENT_SORT_ORDER"] = $catalogParams["ELEMENT_SORT_ORDER"];
+    $arParams["ELEMENT_SORT_FIELD2"] = $catalogParams["ELEMENT_SORT_FIELD2"];
+    $arParams["ELEMENT_SORT_ORDER2"] = $catalogParams["ELEMENT_SORT_ORDER2"];
 
 ?><?$APPLICATION->IncludeComponent(
         "bitrix:catalog.search",

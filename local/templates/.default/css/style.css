@@ -2037,7 +2037,7 @@ transition: all 0.3s;
 }
 
 .leftFilterBlock .optionContain {
-
+   display:none;
 }
 
 .optionContain input[type="checkbox"]:checked + label::before {
@@ -2947,12 +2947,12 @@ transition: all 0.3s;
 }
 
 .typeBlockFilter .optionContain {
-    /* display: none;*/
+     display: none;
     /*padding-bottom: 14px;*/
     padding-bottom: 6px;
     padding-left: 6px;
     width: 255px;
-    overflow: hidden;
+   /* overflow: hidden; */
 }
 
 .firstFilter .firstFiltElement1:before {
@@ -7010,7 +7010,7 @@ border-color: #232323 !important;
 .allElementWrap .elementBlocksWrap .basketBody {
     border-radius: 5px;
     border: 1px solid #E0E0E0;
-    overflow: hidden;
+    /*overflow: hidden;*/
     margin-bottom: 9px;
 }
 
