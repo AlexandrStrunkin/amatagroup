@@ -103,8 +103,12 @@ $arFirstPhoto = current($arResult['MORE_PHOTO']);
 					if (0 < $arResult['MIN_PRICE']['DISCOUNT_DIFF']) { ?>
 						<div class="discountLogoWrapper" id="<? echo $arItemIDs['DISCOUNT_PICT_ID'] ?>"><? echo -$arResult['MIN_PRICE']['DISCOUNT_DIFF_PERCENT']; ?>%</div>
 				<?	}
-				} else { ?>
-					<div class="bx_stick_disc right bottom" id="<? echo $arItemIDs['DISCOUNT_PICT_ID'] ?>" style="display: none;"></div>
+				} else { 
+					foreach ($arResult['OFFERS'] as $offer) { 
+						if (0 < $offer['MIN_PRICE']['DISCOUNT_DIFF']) { ?>
+							<div class="discountLogoWrapper" style="display: none" id="discount_label_<?= $offer['ID'] ?>"><? echo -$arResult['MIN_PRICE']['DISCOUNT_DIFF_PERCENT']; ?>%</div>
+						<? } ?>
+					<? } ?>
 			<?	}
 			} ?>
             <!--<div class="bestLogoWrapper">BEST</div>-->
@@ -123,15 +127,20 @@ $arFirstPhoto = current($arResult['MORE_PHOTO']);
         </div>
         <!--END previewImg-->
         <!--smallPreviewImg-->
+        <div class="smallPreviewImg">
         <? if (is_array($arResult['MORE_PHOTO'])) { ?>
-        	<div class="smallPreviewImg">
         	<? foreach ($arResult['MORE_PHOTO'] as &$arOnePhoto) { ?>
 				<a href="<?= $arOnePhoto['SRC'] ?>"><img src="<?= $arOnePhoto['SRC'] ?>" alt=""/></a>
 			<? } ?>
-			</div>
 		<? }
+			if (is_array($arResult['PROPERTIES']['MORE_PHOTO']['VALUE'])) {
+				foreach ($arResult['PROPERTIES']['MORE_PHOTO']['VALUE'] as $photo_id) { ?>
+					<a href="<?= CFile::GetPath($photo_id) ?>"><img src="<?= CFile::GetPath($photo_id) ?>" alt=""/></a>
+			<? 	} 
+			}
 			unset($arOnePhoto);
 		?>
+		</div>
         <!--END smallPreviewImg-->
     </div>
     <!--END productCardImg-->
@@ -139,17 +148,17 @@ $arFirstPhoto = current($arResult['MORE_PHOTO']);
     <div class="productCardDesc">
         <!--productTitle-->
         <div class="productTitle">
-            Описание
+            <?= GetMessage("CT_DESCRIPTION") ?>
         </div>
         <!--END productTitle-->
         <!--productInfo-->
         <div class="productInfo">
             <div class="brandText">
-            	<strong>Бренд:</strong> 
+            	<strong><?= GetMessage("CT_BRAND") ?>:</strong> 
             	<a href=""><?= $arResult['DISPLAY_PROPERTIES']['BREND']['DISPLAY_VALUE'] ? $arResult['DISPLAY_PROPERTIES']['BREND']['DISPLAY_VALUE'] : "Не задан" ?></a>
             </div>
             <div class="productArticle">
-            	<strong>Артикул:</strong>
+            	<strong><?= GetMessage("CT_VENDOR_CODE") ?>:</strong>
             	 <?= $arResult['DISPLAY_PROPERTIES']['CML2_ARTICLE']['DISPLAY_VALUE'] ? $arResult['DISPLAY_PROPERTIES']['CML2_ARTICLE']['DISPLAY_VALUE'] : "Не задан" ?>
             </div>
             <div class="productText">
@@ -163,7 +172,7 @@ $arFirstPhoto = current($arResult['MORE_PHOTO']);
         	<?
 			$minPrice = (isset($arResult['RATIO_PRICE']) ? $arResult['RATIO_PRICE'] : $arResult['MIN_PRICE']);
 			$boolDiscountShow = (0 < $minPrice['DISCOUNT_DIFF']); ?>
-			<strong> Цена: 
+			<strong><?= GetMessage("CT_PRICE") ?>: 
 			<? if ($arParams['SHOW_OLD_PRICE'] == 'Y') { ?>
 				<span class="discount_price"><?= ($boolDiscountShow ? $minPrice['PRINT_VALUE'] : ''); ?></span>
 			<? } ?>
@@ -177,7 +186,7 @@ $arFirstPhoto = current($arResult['MORE_PHOTO']);
 		        	<?
 					$minPrice = (isset($offer['RATIO_PRICE']) ? $offer['RATIO_PRICE'] : $offer['MIN_PRICE']);
 					$boolDiscountShow = (0 < $minPrice['DISCOUNT_DIFF']); ?>
-					<strong> Цена: 
+					<strong><?= GetMessage("CT_PRICE") ?>: 
 					<? if ($arParams['SHOW_OLD_PRICE'] == 'Y') { ?>
 						<span class="discount_price"><?= ($boolDiscountShow ? $minPrice['PRINT_VALUE'] : ''); ?></span>
 					<? } ?>
@@ -189,7 +198,7 @@ $arFirstPhoto = current($arResult['MORE_PHOTO']);
         <!--END productPrice-->
         <!--productCount-->
         <div class="productCount">
-            <strong>Кол-во:</strong>
+            <strong><?= GetMessage("CT_QUANTITY") ?>:</strong>
             <div class="middleSelectBlock">
                 <div class="elementQuant">
                     <div>
@@ -205,7 +214,7 @@ $arFirstPhoto = current($arResult['MORE_PHOTO']);
         <!--productColor-->
         <? if (isset($arResult['OFFERS']) && !empty($arResult['OFFERS'])) { ?>
 	        <div class="productColor horizontalFilterWrap">
-	            <strong>Предложения:</strong>
+	            <strong><?= GetMessage("CT_OFFERS") ?>:</strong>
 
 	            <div class="firstFilter item_card_offers">
 	                <p data-sort="" data-offer-id="0" class="firstFiltElement1" id="activeFirstFilt"><span class="col"></span>Не выбрано</p>
@@ -236,10 +245,10 @@ $arFirstPhoto = current($arResult['MORE_PHOTO']);
         <!--END productColor-->
 
         <div class="productFavorites">
-            <a href="">В избранное</a>
+            <a href=""><?= GetMessage("CT_ADD_TO_FAVORITE") ?></a>
         </div>
         <div class="productComment">
-            <a href="">Задать вопрос</a>
+            <a href=""><?= GetMessage("CT_ASK_QUESTION") ?></a>
         </div>
         <?
         if (isset($arResult['OFFERS']) && !empty($arResult['OFFERS'])) {
@@ -251,75 +260,28 @@ $arFirstPhoto = current($arResult['MORE_PHOTO']);
 		$addToBasketBtnMessage = GetMessage('CT_BCE_CATALOG_ADD');
 		$notAvailableMessage = ($arParams['MESS_NOT_AVAILABLE'] != '' ? $arParams['MESS_NOT_AVAILABLE'] : GetMessageJS('CT_BCE_CATALOG_NOT_AVAILABLE')); ?>
 		<? if ($canBuy) {?>
-			<a href="<?= $arResult['ADD_URL'] ?>" data-item-have-offers="<?= $item_have_offers ?>" data-main-item-id="<?= $arResult['ID'] ?>" class="js-add-to-basket addBtn"><span></span><? echo $addToBasketBtnMessage; ?></a> 
+			<a href="<?= $arResult['ADD_URL'] ?>" data-offer-id="0" data-item-have-offers="<?= $item_have_offers ?>" data-main-item-id="<?= $arResult['ID'] ?>" class="js-add-to-basket addBtn"><span></span><? echo $addToBasketBtnMessage; ?></a> 
 		<? } ?>
 		<span id="<? echo $arItemIDs['NOT_AVAILABLE_MESS']; ?>" class="bx_notavailable" style="display: <? echo (!$canBuy ? '' : 'none'); ?>;"><? echo $notAvailableMessage; ?></span>
     </div>
     <!--END productCardDesc-->
     <div class="basketBody tabs">
     <div class="basketBodyMenu tabsLinks">
-        <a href="#characters" class="active">Характеристики</a>
-        <a href="#docs">Документация</a>
-        <a href="#video">Видео</a>
+        <a href="#characters" class="active"><?= GetMessage("CT_CHARACTERISTICS") ?></a>
+        <a href="#docs"><?= GetMessage("CT_DOCS") ?></a>
+        <!--<a href="#video">Видео</a>-->
     </div>
     <div id="characters" class="basketBlock productSlider" style="display: block">
-        <!--jcarousel-wrapper-->
-        <div class="jcarousel-wrapper">
-            <!--jcarousel-->
-            <div class="jcarousel">
-                <ul>
-                    <li>
-                        <div class="reviesElement">
-                            <div class="productWrapper">
-
-                                <a href="" class="productimg"><img src="/img/pdf.png" alt=""></a>
-                                <a href="" class="infoDocDownload"></a>
-                                <p class="infoDocName">Инструкция по сборке</p>
-                            </div>
-                        </div>
-                    </li>
-                    <li>
-                        <div class="reviesElement">
-                            <div class="productWrapper">
-                                <a href="" class="productimg"><img src="/img/pdf.png" alt=""></a>
-                                <a href="" class="infoDocDownload"></a>
-                                <p class="infoDocName">Руководство по уходу</p>
-                            </div>
-                        </div>
-                    </li>
-                    <li>
-                        <div class="reviesElement">
-                            <div class="productWrapper">
-                                <a href="" class="productimg"><img src="/img/pdf.png" alt=""></a>
-                                <a href="" class="infoDocDownload"></a>
-                                <p class="infoDocName">Сертификат качества</p>
-                            </div>
-                        </div>
-                    </li>
-                    <li>
-                        <div class="reviesElement">
-                            <div class="productWrapper">
-                                <a href="" class="productimg"><img src="/img/pdf.png" alt=""></a>
-                                <a href="" class="infoDocDownload"></a>
-                                <p class="infoDocName">Инструкция по сборке</p>
-                            </div>
-                        </div>
-                    </li>
-                    <li>
-                        <div class="reviesElement">
-                            <div class="productWrapper">
-                                <a href="" class="productimg"><img src="/img/pdf.png" alt=""></a>
-                                <a href="" class="infoDocDownload"></a>
-                                <p class="infoDocName">Инструкция по сборке</p>
-                            </div>
-                        </div>
-                    </li>
-                </ul>
-            </div>
-            <a href="" class="jcarousel-control-prev"></a>
-            <a href="" class="jcarousel-control-next"></a>
-        </div>
-        <!--END jcarousel-wrapper-->
+		<div id="characteristics_wrapper">
+			<? foreach ($arResult['DISPLAY_PROPERTIES'] as $property_code => $property) { ?>
+				<? if ($property['VALUE'] && !is_array($property['VALUE'])) { ?>
+				<div class="characteristics_block">
+					<div class="characteristic_title"><?= $property['NAME'] ?>:</div>
+					<div class="characteristic_value"><?= $property['VALUE'] ?></div>
+				</div>
+				<? } ?>
+			<? } ?>
+		</div>
     </div>
     <div id="docs" class="basketBlock productSlider" style="display: none">
         <!--jcarousel-wrapper-->

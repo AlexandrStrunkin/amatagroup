@@ -6419,16 +6419,12 @@ input[type="radio"]:checked + label::before {
     height: 100%;
 }
 
-.productCard .productCardImg .logosContainer div {
+.productCardImg .discountLogoWrapper {
     width: 49px;
     height: 51px;
     font: 14px/53px 'MuseoSansCyrl-900', sans-serif;
     padding: 0;
     margin: 0 0 8px;
-
-}
-
-.productCard .productCardImg .logosContainer .discountLogoWrapper {
     background-image: url(../img/discountBackProduct.png);
     color: #816d16;
 }
