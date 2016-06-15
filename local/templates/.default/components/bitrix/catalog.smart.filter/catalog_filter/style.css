@@ -741,3 +741,7 @@ COLOR
 		display: none;
 	}
 }
+
+.optionContain.active {
+    display: block !important;
+}

@@ -617,3 +617,7 @@
         <?$this->EndViewTarget();?>
         <?}?>   
     <?}?>
+    
+    <?$this->SetViewTarget('catalog_section_description'); //show in header.php?> 
+    <?=$arResult["DESCRIPTION"]?>
+    <?$this->EndViewTarget();?>

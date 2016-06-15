@@ -138,7 +138,7 @@
             <!--leftFiltersBlock-->
             <?$APPLICATION->IncludeComponent(
                     "bitrix:catalog.smart.filter",
-                    "catalog_filter",
+                    "catalog_filter", //catalog_filter
                     array(
                         "IBLOCK_TYPE" => $arParams["IBLOCK_TYPE"],
                         "IBLOCK_ID" => $arParams["IBLOCK_ID"],
@@ -161,6 +161,7 @@
                         "SEF_RULE" => $arResult["FOLDER"].$arResult["URL_TEMPLATES"]["smart_filter"],
                         "SMART_FILTER_PATH" => $arResult["VARIABLES"]["SMART_FILTER_PATH"],
                         "PAGER_PARAMS_NAME" => $arParams["PAGER_PARAMS_NAME"],
+                        "DISPLAY_ELEMENT_COUNT" => "Y"
                     ),
                     $component,
                     array('HIDE_ICONS' => 'Y')
@@ -286,7 +287,7 @@
         <!--bottomHorNavig-->
         <div class="bottomHorNavig">
 
-            <?$APPLICATION->ShowViewContent('catalog_pager');?>
+            <?$APPLICATION->ShowViewContent('catalog_pager');//sets in section template?>
 
             <div class="elemOnPageWrapp">
                 <p class="quantityFiltTitle"><?=GetMessage("PAGE_ELEMENT_COUNT")?></p>
@@ -301,4 +302,4 @@
         </div>
         <!--END bottomHorNavig-->
     </div>
-</div>
+</div> 

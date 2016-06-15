@@ -995,38 +995,44 @@ $(document).ready(function () {
     });
 
 
-    if ($('#range').length > 0) {
-        var el = $("#range");
+    if ($('.js-range').length > 0) {       
+        var el = $(".js-range");
         el.each(function(){
             var el = $(this);
-            el.ionRangeSlider({
-                hide_min_max: true,
-                min: 0,
-                max: 5000,
-                from: 0,
-                to: 5000,
-                type: 'double',
-                step: 1,
-                prefix: "",
-                grid: false,
-                onChange: function () {
-                    var activeFrom = $(".irs-slider.from").hasClass("state_hover"), activeTo = $(".irs-slider.to").hasClass("state_hover"),
-                    elFrom = $(".irs-from"), elTo = $(".irs-to");
+            var minRange = parseFloat(el.siblings(".js-range-min").val());
+            var maxRange = parseFloat(el.siblings(".js-range-max").val());
 
-                    if (activeFrom) {
-                        elFrom.addClass("active");
-                    } else {
-                        elFrom.removeClass("active");
-                    }
-                    if (activeTo) {
-                        elTo.addClass("active");
-                    } else {
-                        elTo.removeClass("active");
-                    }
-                    el.closest(".typeBlockFilter close")
+            if (minRange >= 0 && maxRange > minRange) {
+               
+                el.ionRangeSlider({
+                    hide_min_max: true,
+                    min: minRange,
+                    max: maxRange,
+                    from: minRange,
+                    to: maxRange,
+                    type: 'double',
+                    step: 1,
+                    prefix: "",
+                    grid: false,
+                    onChange: function () {
+                        var activeFrom = $(".irs-slider.from").hasClass("state_hover"), activeTo = $(".irs-slider.to").hasClass("state_hover"),
+                        elFrom = $(".irs-from"), elTo = $(".irs-to");
 
-                }
-            });
+                        if (activeFrom) {
+                            elFrom.addClass("active");
+                        } else {
+                            elFrom.removeClass("active");
+                        }
+                        if (activeTo) {
+                            elTo.addClass("active");
+                        } else {
+                            elTo.removeClass("active");
+                        }
+                        el.closest(".typeBlockFilter close")
+
+                    }
+                });
+            }
         })
 
 
@@ -1035,17 +1041,21 @@ $(document).ready(function () {
             $(".irs-from").addClass("active");
         }).on("mouseleave", function () {
 
-            $(".irs-from").removeClass("active");
+            $(".irs-from").removeClass("active"); 
+            var valueFrom = $(".irs-from").html();
+            $(".irs-from").parents(".optionContain").find(".min-price").val(valueFrom);
         });
 
         $(".irs-slider.to").on("mouseenter", function () {
             $(".irs-to").addClass("active");
         }).on("mouseleave", function () {
             $(".irs-to").removeClass("active");
+            var valueTo = $(".irs-to").html();
+            $(".irs-to").parents(".optionContain").find(".max-price").val(valueTo);
         });
     }
 
-    $(".typeBlockFilter .optionContain").hide();
+    //$(".typeBlockFilter .optionContain").removeClass("active");
 
 
     $('.ordersContainer').hide();
@@ -1064,10 +1074,10 @@ $(document).ready(function () {
         $('.leftFiltersBlock .leftFilterName').on("click", function () {
             if ($(this).hasClass('activeFilter')) {
                 $(this).removeClass('activeFilter');
-                $(this).parent().children('.optionContain').slideUp();
+                $(this).parent().children('.optionContain').slideUp(500, function (){$(this).removeClass("active")});
             } else {
                 $(this).addClass('activeFilter');
-                $(this).parent().children('.optionContain').slideDown();
+                $(this).parent().children('.optionContain').slideDown(500, function (){$(this).addClass("active")});
             }
         });
 
@@ -1295,29 +1305,29 @@ $(document).ready(function () {
     })
 
 
-	// торговые предложения в карточке товара
+    // торговые предложения в карточке товара
     $(".firstFilter p.js-offer-option").on("click", function() {
-    	var current_offer_buy_link = $(this).data("offer-buy-link"),
-    		current_offer_id = $(this).data("offer-id"),
-    		current_offer_can_buy = $(this).data("item-can-buy");
-    		
-    	if (current_offer_can_buy) {
-    		$(".addBtn").show();
-    		$(".bx_notavailable").hide();
-    	} else {
-    		$(".addBtn").hide();
-    		$(".bx_notavailable").show();
-    	}
-    	
-    	$(".productPrice").hide();
-    	$('.productPrice[data-price-offer-id="' + current_offer_id + '"]').show();
-    	$(".js-add-to-basket").attr("href", current_offer_buy_link);
+        var current_offer_buy_link = $(this).data("offer-buy-link"),
+        current_offer_id = $(this).data("offer-id"),
+        current_offer_can_buy = $(this).data("item-can-buy");
+
+        if (current_offer_can_buy) {
+            $(".addBtn").show();
+            $(".bx_notavailable").hide();
+        } else {
+            $(".addBtn").hide();
+            $(".bx_notavailable").show();
+        }
+
+        $(".productPrice").hide();
+        $('.productPrice[data-price-offer-id="' + current_offer_id + '"]').show();
+        $(".js-add-to-basket").attr("href", current_offer_buy_link);
     });
-    
+
 
     //обработка нажатия кнопки добавления в корзину из шаблона списка товаров каталога
     $(".js-add-to-basket").on("click", function(e){ 
-		e.preventDefault();   
+        e.preventDefault();   
         var ulr = $(this).attr("href");
 
         var itemId = $(this).data("item-id");
@@ -1326,9 +1336,9 @@ $(document).ready(function () {
         if (parseInt(itemId) > 0) { // для секции
             var quantityField = $(".js-item-quantity[data-item-id= " + itemId + "]");
         } else { // для карточки
-        	var quantityField = $(".quantityText");
+            var quantityField = $(".quantityText");
         }
-        	
+
         if (quantityField.length > 0) {
             var itemQuantity = parseInt(quantityField.val()); //количество
             var quantityVariable = quantityField.data("quantity-variable");  //имя переменной, в которой передается количество
