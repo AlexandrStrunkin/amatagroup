@@ -999,17 +999,26 @@ $(document).ready(function () {
         var el = $(".js-range");
         el.each(function(){
             var el = $(this);
-            var minRange = parseFloat(el.siblings(".js-range-min").val());
-            var maxRange = parseFloat(el.siblings(".js-range-max").val());
+            var minRange = fromRange =  parseFloat(el.siblings(".js-range-min").val());
+            var maxRange = toRange = parseFloat(el.siblings(".js-range-max").val());
+
+            //если задан фильтр, берем значения для текущего диапазона
+            if (parseInt($(this).siblings(".min-price").val()) >=0 ) {
+                fromRange = parseInt(el.siblings(".min-price").val());
+            }
+
+            if (parseInt($(this).siblings(".max-price").val()) >=0 ) {
+                toRange = parseInt(el.siblings(".max-price").val());
+            }
 
             if (minRange >= 0 && maxRange > minRange) {
-               
+
                 el.ionRangeSlider({
                     hide_min_max: true,
                     min: minRange,
                     max: maxRange,
-                    from: minRange,
-                    to: maxRange,
+                    from: fromRange,
+                    to: toRange,
                     type: 'double',
                     step: 1,
                     prefix: "",
@@ -1028,7 +1037,18 @@ $(document).ready(function () {
                         } else {
                             elTo.removeClass("active");
                         }
-                        el.closest(".typeBlockFilter close")
+                        el.closest(".typeBlockFilter close");
+
+                        //подстановка текущих значений в нужные поля фильтра
+                        var valueFrom = elFrom.html();
+                        var minPriceContainer = elFrom.parents(".optionContain").find(".min-price");
+                        minPriceContainer.val(valueFrom.replace(" ", ""));
+                        minPriceContainer.keyup();
+
+                        var valueTo = elTo.html();
+                        var maxPriceContainer = elTo.parents(".optionContain").find(".max-price")
+                        maxPriceContainer.val(valueTo.replace(" ", ""));
+                        maxPriceContainer.keyup();
 
                     }
                 });
@@ -1037,21 +1057,15 @@ $(document).ready(function () {
 
 
         $(".irs-slider.from").on("mouseenter", function () {
-
             $(".irs-from").addClass("active");
         }).on("mouseleave", function () {
-
-            $(".irs-from").removeClass("active"); 
-            var valueFrom = $(".irs-from").html();
-            $(".irs-from").parents(".optionContain").find(".min-price").val(valueFrom);
+            $(".irs-from").removeClass("active");
         });
 
         $(".irs-slider.to").on("mouseenter", function () {
             $(".irs-to").addClass("active");
         }).on("mouseleave", function () {
-            $(".irs-to").removeClass("active");
-            var valueTo = $(".irs-to").html();
-            $(".irs-to").parents(".optionContain").find(".max-price").val(valueTo);
+            $(".irs-to").removeClass("active");   
         });
     }
 
@@ -1307,24 +1321,24 @@ $(document).ready(function () {
 
     // торговые предложения в карточке товара
     $(".firstFilter p.js-offer-option").on("click", function() {
-    	var current_offer_buy_link = $(this).data("offer-buy-link"),
-    		current_offer_id = $(this).data("offer-id"),
-    		current_offer_can_buy = $(this).data("item-can-buy");
-    		
-    	if (current_offer_can_buy) {
-    		$(".addBtn").show();
-    		$(".bx_notavailable").hide();
-    	} else {
-    		$(".addBtn").hide();
-    		$(".bx_notavailable").show();
-    	}
-    	
-    	$(".productPrice").hide();
-    	$(".discountLogoWrapper").hide();
-    	$('.productPrice[data-price-offer-id="' + current_offer_id + '"]').show();
-    	$("#discount_label_" + current_offer_id).show();
-    	$(".js-add-to-basket").attr("href", current_offer_buy_link);
-    	$(".js-add-to-basket").data("offer-id", current_offer_id);
+        var current_offer_buy_link = $(this).data("offer-buy-link"),
+        current_offer_id = $(this).data("offer-id"),
+        current_offer_can_buy = $(this).data("item-can-buy");
+
+        if (current_offer_can_buy) {
+            $(".addBtn").show();
+            $(".bx_notavailable").hide();
+        } else {
+            $(".addBtn").hide();
+            $(".bx_notavailable").show();
+        }
+
+        $(".productPrice").hide();
+        $(".discountLogoWrapper").hide();
+        $('.productPrice[data-price-offer-id="' + current_offer_id + '"]').show();
+        $("#discount_label_" + current_offer_id).show();
+        $(".js-add-to-basket").attr("href", current_offer_buy_link);
+        $(".js-add-to-basket").data("offer-id", current_offer_id);
     });
 
     //обработка нажатия кнопки добавления в корзину из шаблона списка товаров каталога и карточки
@@ -1333,10 +1347,10 @@ $(document).ready(function () {
         var ulr = $(this).attr("href");
 
         var itemId = $(this).data("item-id");
-        
+
         // раскрываем список предложений, если ни одно из них не выбрано. Только дя карточки
         if ($(this).data("main-item-id") && !$(this).data("offer-id") && $(this).data("item-have-offers")) {
-        	!$(".item_card_offers").hasClass("active") ? $(".item_card_offers").click() : "";
+            !$(".item_card_offers").hasClass("active") ? $(".item_card_offers").click() : "";
         }
 
         //поле ввода количества товара
