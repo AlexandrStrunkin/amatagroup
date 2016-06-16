@@ -6457,8 +6457,8 @@ input[type="radio"]:checked + label::before {
 .smallPreviewImg {
     font-size: 1px;
     position: relative;
-    left: -1px;
     top: -1px;
+    overflow: hidden;
 }
 
 .smallPreviewImg img {
@@ -6470,7 +6470,7 @@ input[type="radio"]:checked + label::before {
 .smallPreviewImg a {
     display: inline-block;
     vertical-align: top;
-    margin: 0 13px 25px;
+    margin: 0 13px 27px;
     border-radius: 3px;
     /*overflow: hidden;*/
     border: 1px solid #e6e6e6;
@@ -6490,6 +6490,34 @@ input[type="radio"]:checked + label::before {
     display: block;
     position: absolute;
     bottom: -28px;
+}
+
+#previews_slider_wrapper {
+	display: flex;
+	position: relative;
+	transition: all 400ms cubic-bezier(0.425, -0.170, 0.375, 1.165);
+	margin-left: 16px;
+}
+
+.previews_slider_navigation_arrow {
+	width: 18px;
+	height: 86px;
+	background: #59ACD3;
+	position: absolute;
+	cursor: pointer;
+	top: 0;
+	z-index: 1;
+	display: none;
+}
+
+.previews_slider_navigation_arrow[data-preview-slider-direction="prev"] {
+	left: 0px;
+	border-radius: 0px 10px 10px 0px;
+}
+
+.previews_slider_navigation_arrow[data-preview-slider-direction="next"] {
+	right: 0;
+	border-radius: 10px 0px 0px 10px;
 }
 
 .productCardDesc {
