@@ -20,7 +20,6 @@ if (!empty($arResult['CURRENCIES']))
 	$currencyList = CUtil::PhpToJSObject($arResult['CURRENCIES'], false, true, true);
 }
 $templateData = array(
-	//'TEMPLATE_THEME' => $this->GetFolder().'/themes/'.$arParams['TEMPLATE_THEME'].'/style.css',
 	'TEMPLATE_CLASS' => 'bx_'.$arParams['TEMPLATE_THEME'],
 	'TEMPLATE_LIBRARY' => $templateLibrary,
 	'CURRENCIES' => $currencyList
@@ -128,18 +127,22 @@ $arFirstPhoto = current($arResult['MORE_PHOTO']);
         <!--END previewImg-->
         <!--smallPreviewImg-->
         <div class="smallPreviewImg">
-        <? if (is_array($arResult['MORE_PHOTO'])) { ?>
-        	<? foreach ($arResult['MORE_PHOTO'] as &$arOnePhoto) { ?>
-				<a href="<?= $arOnePhoto['SRC'] ?>"><img src="<?= $arOnePhoto['SRC'] ?>" alt=""/></a>
-			<? } ?>
-		<? }
-			if (is_array($arResult['PROPERTIES']['MORE_PHOTO']['VALUE'])) {
-				foreach ($arResult['PROPERTIES']['MORE_PHOTO']['VALUE'] as $photo_id) { ?>
-					<a href="<?= CFile::GetPath($photo_id) ?>"><img src="<?= CFile::GetPath($photo_id) ?>" alt=""/></a>
-			<? 	} 
-			}
-			unset($arOnePhoto);
-		?>
+        	<div class="previews_slider_navigation_arrow" data-preview-slider-direction="prev"></div>
+        	<div class="previews_slider_navigation_arrow" data-preview-slider-direction="next"></div>
+        	<div id="previews_slider_wrapper">
+	        <? if (is_array($arResult['MORE_PHOTO'])) { ?>
+	        	<? foreach ($arResult['MORE_PHOTO'] as &$arOnePhoto) { ?>
+					<a href="<?= $arOnePhoto['SRC'] ?>"><img src="<?= $arOnePhoto['SRC'] ?>" alt=""/></a>
+				<? } ?>
+			<? }
+				if (is_array($arResult['PROPERTIES']['MORE_PHOTO']['VALUE'])) {
+					foreach ($arResult['PROPERTIES']['MORE_PHOTO']['VALUE'] as $photo_id) { ?>
+						<a href="<?= CFile::GetPath($photo_id) ?>"><img src="<?= CFile::GetPath($photo_id) ?>" alt=""/></a>
+				<? 	} 
+				}
+				unset($arOnePhoto);
+			?>
+			</div>
 		</div>
         <!--END smallPreviewImg-->
     </div>

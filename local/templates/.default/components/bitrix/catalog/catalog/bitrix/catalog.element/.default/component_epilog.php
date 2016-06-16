@@ -7,6 +7,7 @@ if (isset($templateData['TEMPLATE_THEME']))
 {
 	$APPLICATION->SetAdditionalCSS($templateData['TEMPLATE_THEME']);
 }
+$APPLICATION->AddHeadScript($templateFolder . "/preview_slider.js");
 if (isset($templateData['TEMPLATE_LIBRARY']) && !empty($templateData['TEMPLATE_LIBRARY']))
 {
 	$loadCurrency = false;
@@ -26,6 +27,15 @@ if (isset($templateData['JS_OBJ']))
 {
 ?><script type="text/javascript">
 BX.ready(BX.defer(function(){
+	// простенький слайдер для превьюх в карточке товара
+	var preview_slider = new PreviewSlider({
+		slide_distance: 104,
+		arrows_class: "previews_slider_navigation_arrow",
+		wrapper_id: "previews_slider_wrapper",
+		items_in_rows: 7
+	});
+	preview_slider.init();
+	
 	if (!!window.<? echo $templateData['JS_OBJ']; ?>)
 	{
 		window.<? echo $templateData['JS_OBJ']; ?>.allowViewedCount(true);
