@@ -745,3 +745,7 @@ COLOR
 .optionContain.active {
     display: block !important;
 }
+
+.allElementWrap .leftFiltersBlock {
+    overflow: visible !important; 
+}
