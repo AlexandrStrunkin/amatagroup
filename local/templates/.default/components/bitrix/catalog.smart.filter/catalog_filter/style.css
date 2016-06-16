@@ -685,6 +685,7 @@ COLOR
 	-moz-border-image: url(images/result_popup_left.png) 4 20 4 4 repeat;
 	-o-border-image: url(images/result_popup_left.png) 4 20 4 4 repeat;
 	border-image: url(images/result_popup_left.png) 4 20 4 4 fill repeat;
+    background: #fff;
 }
 .bx-filter .bx-filter-popup-result.right {
 	border-width: 2px 2px 2px 10px;
@@ -692,6 +693,7 @@ COLOR
 	-moz-border-image: url(images/result_popup_right.png) 4 4 4 20 repeat;
 	-o-border-image: url(images/result_popup_right.png) 4 4 4 20 repeat;
 	border-image: url(images/result_popup_right.png) 4 4 4 20 fill repeat;
+    background: #fff;
 }
 
 .bx-filter .bx-filter-popup-result.right {
