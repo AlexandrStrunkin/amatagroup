@@ -512,7 +512,7 @@ body {
 .thirdLevel {
     margin-top: 20px;
     height: 520px;
-
+    display: none;
 }
 
 .mainPage .thirdLevel {
