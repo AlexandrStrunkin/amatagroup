@@ -1901,6 +1901,7 @@ h1 {
 
 .breadcrumb span:last-child a {
     border-bottom-color: transparent;
+    line-height: 1.9;
 }
 
 .breadcrumb span:before {
