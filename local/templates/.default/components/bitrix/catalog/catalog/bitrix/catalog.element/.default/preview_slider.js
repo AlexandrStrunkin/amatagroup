@@ -19,7 +19,7 @@ function PreviewSlider(config) {
 		// если есть непоказанные элементы, то активируем слайдер
 		if (hidden_items_count > 0) {
 			this.max_slide_distance = (this.config.slide_distance * hidden_items_count) * -1;
-			$("." + this.config.arrows_class).show();
+			$("." + this.config.arrows_class).css("display", "flex");
 			
 			$("." + this.config.arrows_class).on("click", function(e) {
 				this.slide(
@@ -37,7 +37,7 @@ function PreviewSlider(config) {
 	 * 
 	 * */
 	this.slide = function(direction) {
-		var sign = direction == "prev" ? "-" : "";
+		var sign = direction == "prev" ? "" : "-";
 		if (
 			(this.current_position <= 0 && sign == "-" && this.max_slide_distance < this.current_position) 
 			|| (this.max_slide_distance <= this.current_position && sign == "" && this.current_position < 0)
