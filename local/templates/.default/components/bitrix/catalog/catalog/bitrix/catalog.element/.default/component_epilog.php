@@ -32,7 +32,7 @@ BX.ready(BX.defer(function(){
 		slide_distance: 104,
 		arrows_class: "previews_slider_navigation_arrow",
 		wrapper_id: "previews_slider_wrapper",
-		items_in_rows: 7
+		items_in_rows: 6
 	});
 	preview_slider.init();
 	

@@ -68,7 +68,7 @@ $filterView = (COption::GetOptionString("main", "wizard_template_id", "eshop_ada
 		"PRICE_CODE" => array(
 			0 => "Оптовая 1 Для сайта",
 		),
-		"USE_PRICE_COUNT" => "Y",
+		"USE_PRICE_COUNT" => "N",
 		"SHOW_PRICE_COUNT" => "1",
 		"PRICE_VAT_INCLUDE" => "Y",
 		"PRICE_VAT_SHOW_VALUE" => "N",
@@ -374,7 +374,7 @@ $filterView = (COption::GetOptionString("main", "wizard_template_id", "eshop_ada
 		"PAGER_SHOW_ALL" => "N",
 		"ADD_PICT_PROP" => "-",
 		"LABEL_PROP" => "-",
-		"PRODUCT_DISPLAY_MODE" => "N",
+		"PRODUCT_DISPLAY_MODE" => "Y",
 		"OFFER_ADD_PICT_PROP" => "-",
 		"OFFER_TREE_PROPS" => array(
 			0 => "SEMNAYA_PEREDNYAYA_STENKA",

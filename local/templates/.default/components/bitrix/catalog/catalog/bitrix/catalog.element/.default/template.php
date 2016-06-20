@@ -127,8 +127,8 @@ $arFirstPhoto = current($arResult['MORE_PHOTO']);
         <!--END previewImg-->
         <!--smallPreviewImg-->
         <div class="smallPreviewImg">
-        	<div class="previews_slider_navigation_arrow" data-preview-slider-direction="prev"></div>
-        	<div class="previews_slider_navigation_arrow" data-preview-slider-direction="next"></div>
+        	<div class="previews_slider_navigation_arrow" data-preview-slider-direction="prev"><span></span></div>
+        	<div class="previews_slider_navigation_arrow" data-preview-slider-direction="next"><span></span></div>
         	<div id="previews_slider_wrapper">
 	        <? if (is_array($arResult['MORE_PHOTO'])) { ?>
 	        	<? foreach ($arResult['MORE_PHOTO'] as &$arOnePhoto) { ?>
