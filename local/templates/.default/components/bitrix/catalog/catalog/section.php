@@ -78,7 +78,14 @@
     $arParams["ELEMENT_SORT_FIELD2"] = $catalogParams["ELEMENT_SORT_FIELD2"];
     $arParams["ELEMENT_SORT_ORDER2"] = $catalogParams["ELEMENT_SORT_ORDER2"];
 
-    //arshow($GLOBALS);
+    //формируем правильный вид для поля сортировки
+    if ($arParams["ELEMENT_SORT_FIELD"] == "PRICE") {
+        $priceCode = $arParams["PRICE_CODE"][0];
+        $arPrice = CCatalogGroup::GetList(array(), array("NAME"=>$priceCode), false, false, array())->Fetch();
+        if ($arPrice["ID"] > 0) {
+            $arParams["ELEMENT_SORT_FIELD"] = "CATALOG_PRICE_".$arPrice["ID"];
+        }
+    }
 
 ?>
 
@@ -91,35 +98,23 @@
             <div class="productFilterWrap">
                 <p class="activeTopLeftBut"><?=GetMessage("CATALOG_FILTER")?></p>
             </div>
-            <div class="sortingWrap">
-                <p><?=GetMessage("ORDER_BY")?></p>
+            <div class="sortingWrap">  
+                <p><?=GetMessage("ORDER_BY")?></p>  
 
-                <div class="firstFilter">
-                    <p data-sort="1" class="firstFiltElement1" id="activeFirstFilt"><img src="<?=DEFAULT_TEMPLATE_PATH?>img/arrow753.png" alt="" />Названию</p>
-                    <div class="hidingMenu">
-                        <p data-sort="1"><img src="<?=DEFAULT_TEMPLATE_PATH?>img/arrow325.png" alt="" />Названию</p>
-                        <p data-sort="2"><img src="<?=DEFAULT_TEMPLATE_PATH?>img/arrow753.png" alt="" />Названию 2</p>
-                        <p data-sort="3"><img src="<?=DEFAULT_TEMPLATE_PATH?>img/arrow325.png" alt="" />Стоимости</p>
-                    </div>
+                <div class="firstFilter">                      
+                    <?getCatalogOptionBlock("ELEMENT_SORT_FIELD"); //sets in init.php?>                    
                 </div>
 
-                <div class="secondFilter">
-                    <p data-sort="1" id="activeSecondFilt">Распродажам</p>
-                    <div class="hidingMenu">
-                        <p data-sort="1">Распродажам</p>
-                        <p data-sort="2">Названию</p>
-                        <p data-sort="3">Стоимости</p>
-                    </div>
-                </div>
-
-
+                <div class="secondFilter">            
+                    <?getCatalogOptionBlock("ELEMENT_SORT_ORDER"); //sets in init.php?>     
+                </div>                 
             </div>
             <div class="displayTypeWrap">
                 <?if ($sectionTemplate == "blocks") {?> 
                     <div class="blockType checked"></div>
-                    <div class="listType" data-href="<?=$APPLICATION->GetCurDir()?>?CATALOG_SECTION_TEMPLATE=table"></div>
+                    <div class="listType" data-href="?CATALOG_SECTION_TEMPLATE=table"></div>
                     <?} else {?>
-                    <div class="blockType" data-href="<?=$APPLICATION->GetCurDir()?>?CATALOG_SECTION_TEMPLATE=blocks"></div>
+                    <div class="blockType" data-href="?CATALOG_SECTION_TEMPLATE=blocks"></div>
                     <div class="listType checked"></div>
                     <?}?>
             </div>
@@ -127,7 +122,7 @@
             <div class="quantityWrap">
                 <p class="quantityFiltTitle"><?=GetMessage("PAGE_ELEMENT_COUNT")?></p>
                 <div class="quantOnPageFilt">                  
-                    <?=getElemenOnPageCountList(); //sets in init.php?>                           
+                    <?getCatalogOptionBlock("PAGE_ELEMENT_COUNT"); //sets in init.php?>                           
                 </div>                      
             </div>
 
@@ -295,7 +290,7 @@
 
                 <div class="quantOnPageFiltBot">                     
 
-                    <?=getElemenOnPageCountList(); //sets in init.php?>   
+                    <?getCatalogOptionBlock("PAGE_ELEMENT_COUNT"); //sets in init.php?>   
 
                 </div>
 
