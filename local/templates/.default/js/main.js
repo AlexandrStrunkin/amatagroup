@@ -1052,6 +1052,8 @@ $(document).ready(function () {
 
                     }
                 });
+                // делаем его глобальным, чтобы потом получить к нему доступ
+                window.price_slider = el.data("ionRangeSlider");
             }
         })
 
@@ -1091,7 +1093,14 @@ $(document).ready(function () {
                 $(this).parent().children('.optionContain').slideUp(500, function (){$(this).removeClass("active")});
             } else {
                 $(this).addClass('activeFilter');
-                $(this).parent().children('.optionContain').slideDown(500, function (){$(this).addClass("active")});
+                $(this).parent().children('.optionContain').slideDown(500, function (){$(this).addClass("active");});
+                // хак для сдвига надписей у фильтра по ценам
+                setTimeout(function() {
+					window.price_slider.update({
+					    from: parseInt($(".js-range-min").val()),
+					    to: parseInt($(".js-range-max").val())
+					});
+                }, 3);
             }
         });
 
