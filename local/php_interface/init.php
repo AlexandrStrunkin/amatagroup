@@ -1,4 +1,5 @@
 <?
+    include(GetLangFileName(dirname(__FILE__)."/", "/init.php"));
 
     CModule::IncludeModule("blog");
     CModule::IncludeModule("iblock");
@@ -11,20 +12,24 @@
     use Bitrix\Main\Localization\Loc;
     use Bitrix\Sale\Internals;
 
-    global $arPageElementCount;
     $arPageElementCount = array(12, 24, 60); //возможные варианты количестка элементов на странице
+
+    //массив вариантов сортировки товаров в каталоге
+    $catalogAvailableSort = array("NAME", "DATE_CREATE", "PRICE");  
+
+    //возможные направления сортировки товаров
+    $catalogAvailableSortDirections = array("ASC", "DESC");   
 
     global $availableParams;
     //массив допустимых параметров для отображения каталога КЛЮЧ => МАССИВ ДОПУСТИМЫХ ЗНАЧЕНИЙ
     $availableParams = array(
-        "PAGE_ELEMENT_COUNT" => $GLOBALS["arPageElementCount"], //количество элементов на странице
-        "ELEMENT_SORT_FIELD" => array("NAME", "DATE_CREATE"), //поле для первой сортировки
-        "ELEMENT_SORT_ORDER" => array("ASC", "DESC"), //направление для первой сортировки
-        "ELEMENT_SORT_FIELD2" => array("NAME", "DATE_CREATE"), //поле для второй сортировки
-        "ELEMENT_SORT_ORDER2" => array("ASC", "DESC"), //направление для второй сортировки 
+        "PAGE_ELEMENT_COUNT" => array(12, 24, 60), //количество элементов на странице
+        "ELEMENT_SORT_FIELD" => $catalogAvailableSort, //поле для первой сортировки
+        "ELEMENT_SORT_ORDER" => $catalogAvailableSortDirections, //направление для первой сортировки
+        "ELEMENT_SORT_FIELD2" => $catalogAvailableSort, //поле для второй сортировки
+        "ELEMENT_SORT_ORDER2" => $catalogAvailableSortDirections, //направление для второй сортировки 
         "CATALOG_SECTION_TEMPLATE" => array("blocks", "table"), //шаблоны списка элементов
-    );
-
+    );       
 
 
     define("DEFAULT_TEMPLATE_PATH", SITE_DIR."local/templates/.default/"); //path of ".default" site template
@@ -33,13 +38,13 @@
 
     /*константы для отображения каталога*/
     define("DEFAULT_PAGE_ELEMENT_COUNT", $GLOBALS["arPageElementCount"][0]); //количество элементов на странице раздела каталога по умолчанию
-    define("DEFAULT_ELEMENT_SORT_FIELD", "NAME"); //поле для первой сортировки элементов в каталоге по умолчанию
-    define("DEFAULT_ELEMENT_SORT_ORDER", "ASС"); //направление для первой сортировки элементов в каталоге по умолчанию
-    define("DEFAULT_ELEMENT_SORT_FIELD2", "DATE_CREATE"); //поле для второй сортировки элементов в каталоге по умолчанию
-    define("DEFAULT_ELEMENT_SORT_ORDER2", "ASС"); //направление для второй сортировки элементов в каталоге по умолчанию
+    define("DEFAULT_ELEMENT_SORT_FIELD", $GLOBALS["catalogAvailableSort"][0]); //поле для первой сортировки элементов в каталоге по умолчанию
+    define("DEFAULT_ELEMENT_SORT_ORDER", $GLOBALS["availableParams"]["ELEMENT_SORT_ORDER"][0]); //направление для первой сортировки элементов в каталоге по умолчанию
+    define("DEFAULT_ELEMENT_SORT_FIELD2", $GLOBALS["catalogAvailableSort"][1]); //поле для второй сортировки элементов в каталоге по умолчанию
+    define("DEFAULT_ELEMENT_SORT_ORDER2", $GLOBALS["availableParams"]["ELEMENT_SORT_ORDER2"][0]); //направление для второй сортировки элементов в каталоге по умолчанию
     define("DEFAULT_CATALOG_SECTION_TEMPLATE", "blocks"); //шаблон для отображения элементов раздела по умолчанию      
     /*///*/
-    
+
     define("NEW_PRODUCT_STATUS_LENGTH", 14); //количество дней, котрое товар считается новинкой
     define("FRESH_PRODUCT_STATUS_LENGTH", 2); //количество дней, котрое товар считается последним поступлением
 
@@ -121,29 +126,86 @@
             header ("location: ".$APPLICATION->GetCurDir());
         }
 
+    }        
+
+
+    /***
+    * функция поиска ключа текущего выбранного элемента из возможных/ нужна для работы с параметрами каталога
+    * 
+    * @param mixed $blockName
+    */
+    function getParamKey($blockName) {
+        $curParams = getCatalogViewParams(); 
+        $availableParam = $GLOBALS["availableParams"][$blockName]; //варианты количества элементов на странице
+        $currentKey = array_search($curParams[$blockName], $availableParam); //получаем индекс текущего количества элементов на странице
+
+        if (empty($currentKey)) {
+            $currentKey = 0;
+        }
+
+        return $currentKey;
     }
 
 
-    /**
-    * функция строит список для выбора количества элементов на странице
+    /***
+    * функция возвращает html код нужного блока для управления каталогом (выбор количества элементов на странице, список сортировки, направления сортировки)
     * 
+    * @param string $blockName (PAGE_ELEMENT_COUNT, ELEMENT_SORT_FIELD, ELEMENT_SORT_ORDER)
     */
-    function getElemenOnPageCountList(){
-        $curParams = getCatalogViewParams();
-        $availableCount = $GLOBALS["arPageElementCount"];
-        $currentKey = array_search($curParams["PAGE_ELEMENT_COUNT"], $availableCount);
-        if (empty($currentKey)) {
-            $currentKey = 1;
+    function getCatalogOptionBlock($blockName) {
+
+        if (empty($blockName)) {
+            return false;
         }
-    ?>
-    <p data-sort="<?=$currentKey?>" class="quantOnPageBot<?=$currentKey?>" id="activeQuantOnPageBot"><?=$curParams["PAGE_ELEMENT_COUNT"]?></p>     
-    <div class="hidingMenu js-page-element-count">
-        <?foreach ($availableCount as $key => $count){?>
-            <p data-sort="<?=$key?>" data-href="?PAGE_ELEMENT_COUNT=<?=$count?>"><?=$count?></p>
-            <?}?>   
-    </div> 
-    <?   
-    }         
+
+        $curParams = getCatalogViewParams();
+        $availableParam = $GLOBALS["availableParams"][$blockName];
+
+        $currentKey = getParamKey($blockName);  //индекс текущего активного элемента из всех возможных
+
+        switch ($blockName) {
+
+            case "PAGE_ELEMENT_COUNT" :                  
+            ?>
+            <p data-sort="<?=$currentKey?>" id="activeQuantOnPageBot"><?=$curParams[$blockName]?></p>     
+            <div class="hidingMenu js-page-element-count">
+                <?foreach ($availableParam as $key => $count){?>
+                    <p data-sort="<?=$key?>" data-href="?<?=$blockName?>=<?=$count?>"><?=$count?></p>
+                    <?}?>   
+            </div> 
+            <?   
+                break; 
+
+            case "ELEMENT_SORT_FIELD" : 
+            ?>
+            <p data-sort="<?=$currentKey?>" class="firstFiltElement1" id="activeFirstFilt"><?=GetMessage("CATALOG_ORDER_BY_".$curParams[$blockName])?></p>
+            <div class="hidingMenu">
+                <?foreach ($availableParam as $key => $fieldName){?>
+                    <p data-sort="<?=$key?>" data-href="?<?=$blockName?>=<?=$fieldName?>"><?=GetMessage("CATALOG_ORDER_BY_".$fieldName)?></p>
+                    <?}?> 
+            </div>    
+            <?
+                break;  
+
+            case "ELEMENT_SORT_ORDER" :
+            ?>
+            <p data-sort="<?=$currentKey?>" id="activeSecondFilt"><?=GetMessage("CATALOG_ORDER_DIRECTION_".$curParams[$blockName])?></p>
+            <div class="hidingMenu">
+                <?foreach ($availableParam as $key => $fieldName){?>
+                    <p data-sort="<?=$key?>" data-href="?<?=$blockName?>=<?=$fieldName?>"><?=GetMessage("CATALOG_ORDER_DIRECTION_".$fieldName)?></p>
+                    <?}?> 
+            </div>
+            <?      
+                break;
+
+            default: 
+                return false;
+
+                break;
+        }     
+
+    }
+
 
 
     /***
@@ -175,7 +237,7 @@
     * )
     */
     function getCurrentBasket() {
-        
+
         $arResult = array();
         $dbBasketItems = CSaleBasket::GetList(
             array(), 
@@ -185,9 +247,12 @@
             array("ID", "NAME", "PRODUCT_ID", "QUANTITY" )
         );
         while ($arItems = $dbBasketItems->Fetch()) {
-          $arResult[$arItems["PRODUCT_ID"]] = array("NAME" => $arItems["NAME"], "ID" => $arItems["ID"], "QUANTITY" => $arItems["QUANTITY"], "PRODUCT_ID" => $arItems["PRODUCT_ID"]);
+            $arResult[$arItems["PRODUCT_ID"]] = array("NAME" => $arItems["NAME"], "ID" => $arItems["ID"], "QUANTITY" => $arItems["QUANTITY"], "PRODUCT_ID" => $arItems["PRODUCT_ID"]);
         }
-        
+
         return $arResult;
-    }                       
+    }    
+
+
+
 ?>

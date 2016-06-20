@@ -28,3 +28,11 @@
 .basketButtonInvisible {
     display: none !important;
 }
+
+.allElementWrap .elementBlocksWrap .basketBody {
+    border: 0 !important;
+}
+
+.allElementWrap .elementBlocksWrap .basketBody table {
+    width: auto !important;
+}

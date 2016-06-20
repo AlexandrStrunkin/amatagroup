@@ -1,0 +1,7 @@
+<?
+$MESS["CATALOG_ORDER_BY_NAME"] = "Названию";
+$MESS["CATALOG_ORDER_BY_PRICE"] = "Цене";
+$MESS["CATALOG_ORDER_BY_DATE_CREATE"] = "Новизне";
+$MESS["CATALOG_ORDER_DIRECTION_ASC"] = "Возрастанию";
+$MESS["CATALOG_ORDER_DIRECTION_DESC"] = "Убыванию";
+?>
