@@ -195,8 +195,14 @@
 
                             <?}?>
 
-                        <div class="productLikeBlock changingLike"><a href="" class="blockLink"></a></div>
-
+                        <div class="productLikeBlock changingLike">
+                        	<a href="javascript:void(0)" 
+				               class="list_favorite blockLink <?= $arResult['USER_AUTHORIZED'] ?  ($arItem['USER_HAVE_ITEM_IN_FAVORITE'] ? " active already_in_favorite" : " js_add_to_favorite") : " js_favorite_need_auth" ?>"
+				               data-favorite-product-id="<?= $arItem["ID"] ?>"
+				               data-favorite-delete="<?= $arItem['USER_HAVE_ITEM_IN_FAVORITE'] ? "Y" : "" ?>"
+				               data-favorite-item-id="<?= $arItem['USER_HAVE_ITEM_IN_FAVORITE'] ?>">
+				            </a>
+                        </div>
 
                     </div>
 

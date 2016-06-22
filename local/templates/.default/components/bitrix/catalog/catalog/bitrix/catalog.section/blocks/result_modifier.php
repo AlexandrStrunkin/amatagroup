@@ -1,7 +1,9 @@
 <?
     use Bitrix\Main\Type\Collection;
     use Bitrix\Currency\CurrencyTable;
-
+	
+	global $USER;
+	
     if (!defined('B_PROLOG_INCLUDED') || B_PROLOG_INCLUDED!==true) die();
     /** @var CBitrixComponentTemplate $this */
     /** @var array $arParams */
@@ -118,7 +120,8 @@
 
     //получаем текущую корзину пользователя
     $arResult["USER_BASKET"] = getCurrentBasket();
-
+	$arResult['USER_AUTHORIZED'] = $USER->IsAuthorized() ? true : false;
+	
     if (!empty($arResult['ITEMS']))
     {
         $arEmptyPreview = false;
@@ -175,6 +178,11 @@
 
         $arNewItemsList = array();
         foreach ($arResult['ITEMS'] as $key => $arItem) {
+        	
+			if ($arResult['USER_AUTHORIZED']) {
+				$arItem['USER_HAVE_ITEM_IN_FAVORITE'] = Favorite::checkIsExists($USER->GetID(), $arItem['ID']);
+			}
+			
             $arItem['CHECK_QUANTITY'] = false;
             if (!isset($arItem['CATALOG_MEASURE_RATIO']))
                 $arItem['CATALOG_MEASURE_RATIO'] = 1;

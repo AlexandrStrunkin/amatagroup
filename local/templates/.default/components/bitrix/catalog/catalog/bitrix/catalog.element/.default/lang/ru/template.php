@@ -39,6 +39,7 @@ $MESS["CT_PRICE"] = "Цена";
 $MESS["CT_QUANTITY"] = "Кол-во";
 $MESS["CT_OFFERS"] = "Предложения";
 $MESS["CT_ADD_TO_FAVORITE"] = "В избранное";
+$MESS["CT_ALREADY_IN_FAVORITE"] = "В избранном";
 $MESS["CT_ASK_QUESTION"] = "Задать вопрос";
 $MESS["CT_CHARACTERISTICS"] = "Характеристики";
 $MESS["CT_DOCS"] = "Документация";

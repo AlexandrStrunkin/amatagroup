@@ -3,6 +3,8 @@ use Bitrix\Main\Type\Collection;
 use Bitrix\Currency\CurrencyTable;
 use Bitrix\Iblock;
 
+global $USER;
+
 if (!defined('B_PROLOG_INCLUDED') || B_PROLOG_INCLUDED!==true) die();
 /** @var CBitrixComponentTemplate $this */
 /** @var array $arParams */
@@ -173,6 +175,11 @@ if (file_exists($_SERVER['DOCUMENT_ROOT'].$strEmptyPreview))
 	unset($arSizes);
 }
 unset($strEmptyPreview);
+
+$arResult['USER_AUTHORIZED'] = $USER->IsAuthorized() ? true : false;
+if ($arResult['USER_AUTHORIZED']) {
+	$arResult['USER_HAVE_ITEM_IN_FAVORITE'] = Favorite::checkIsExists($USER->GetID(), $arResult['ID']);
+}
 
 $arSKUPropList = array();
 $arSKUPropIDs = array();
