@@ -119,9 +119,7 @@
                     $_SESSION["CATALOG_PARAMS"][$paramName] = $paramValue;
                 }
             }
-        }
-        
-        //arshow($_SERVER); die();
+        }                   
 
         //при необходимости делаем перезагрузку страницы и удаляем параметры из урла
         if ($pageRefresh) {
