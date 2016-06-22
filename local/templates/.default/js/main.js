@@ -1102,8 +1102,8 @@ $(document).ready(function () {
                 // хак для сдвига надписей у фильтра по ценам
                 setTimeout(function() {
 					window.price_slider.update({
-					    from: parseInt($(".min-price").val()),
-					    to: parseInt($(".max-price").val())
+					    from: parseInt($(".min-price").val() ? $(".min-price").val() : $(".js-range-min").val()),
+					    to: parseInt($(".max-price").val() ? $(".max-price").val() : $(".js-range-max").val())
 					});
                 }, 3);
             }
