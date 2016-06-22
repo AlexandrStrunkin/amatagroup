@@ -330,10 +330,15 @@ $(document).ready(function () {
     $('#productList1').show();
 
 
-    //кружочки лайк и корзина смена картинки при клике
-    $('.changingLike, .changingBasket').on("click", function () {
+    //кружочек корзина смена картинки при клике
+    $('.changingBasket').on("click", function () {
         $(this).toggleClass("active");
         return false;
+    });
+    
+    //кружочек лайк смена картинки при клике
+    $('.changingLike:not(.js_favorite_need_auth)').on("click", function () {
+        $(this).children("a").toggleClass("active");
     });
 
 
@@ -1102,8 +1107,8 @@ $(document).ready(function () {
                 // хак для сдвига надписей у фильтра по ценам
                 setTimeout(function() {
 					window.price_slider.update({
-					    from: parseInt($(".js-range-min").val()),
-					    to: parseInt($(".js-range-max").val())
+					    from: parseInt($(".min-price").val() ? $(".min-price").val() : $(".js-range-min").val()),
+					    to: parseInt($(".max-price").val() ? $(".max-price").val() : $(".js-range-max").val())
 					});
                 }, 3);
             }
@@ -1330,8 +1335,49 @@ $(document).ready(function () {
         if ($(this).data('href')) {
             document.location.href = $(this).data('href');
         }
-    })
+    });
 
+	// Функционал избранного
+	
+	// Если пользователь не авторизован
+	$(".js_favorite_need_auth").on("click", function() {
+		$("html, body").animate({ scrollTop: 0 }, "slow");
+		$(".authorisationLink a").click(); 
+		return false;
+	});
+	
+	// Если пользователь авторизован, то добавим новую подписку
+	$("body").on("click", ".js_add_to_favorite", function() {
+		$.post("/ajax/manage_favorite.php", {
+			id: $(this).data("favorite-product-id")
+		}, function(result) {
+			result = JSON.parse(result);
+	        if (result.data) {
+	        	$(this).removeClass("js_add_to_favorite");
+	        	$(this).addClass("already_in_favorite");
+	        	$(this).data("favorite-delete", "Y");
+	        	$(this).data("favorite-item-id", result.data);
+	        	$(this).hasClass("list_favorite") ? "" : $(this).html("В избранном");
+	        	refreshFavoriteIcon(result.total);
+	        }
+	    }.bind(this));
+	})
+	
+	// Если пользователь уже имеет подписку на товар, то удалим ее
+	$("body").on("click", ".already_in_favorite", function() {
+		$.post("/ajax/manage_favorite.php", {
+			id: $(this).data("favorite-item-id"),
+			delete_item: $(this).data("favorite-delete")
+		}, function(result) {
+			result = JSON.parse(result);
+	        $(this).addClass("js_add_to_favorite");
+        	$(this).removeClass("already_in_favorite");
+        	$(this).data("favorite-delete", "");
+        	$(this).data("favorite-item-id", 0);
+        	$(this).hasClass("list_favorite") ? "" : $(this).html("В избранное");
+        	refreshFavoriteIcon(result.total);
+	    }.bind(this));
+	})
 
     // торговые предложения в карточке товара
     $(".firstFilter p.js-offer-option").on("click", function() {
@@ -1474,6 +1520,17 @@ function pullDownMenu(filterName, activeOptionId) {
     }).on("mouseleave", function () {
         $(this).closest("tr").next().removeClass("trHover");
     });
+}
+
+/**
+ *
+ * Обновляем иконку в хедере
+ * 
+ * @param int total
+ * @return void 
+ **/
+function refreshFavoriteIcon(total) {
+	$(".quantityOfLiked").html(total);
 }
 
 //функция анимации в выпадающем верхнем каталоге

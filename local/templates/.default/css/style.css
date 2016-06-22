@@ -1257,7 +1257,10 @@ margin: 0;
     float: left;
     margin-left: 2px;
     margin-top: 20px;
-    background: url('../img/dctLk.png') no-repeat;
+}
+
+.list_favorite {
+	background: url('../img/dctLk.png') no-repeat;
 }
 
 .productWrapper .productBasketBlock {
@@ -1267,7 +1270,7 @@ margin: 0;
     background: url('../img/dktBaskt.png') no-repeat;
 }
 
-.productWrapper .productLikeBlock:hover, .productWrapper .productBasketBlock:hover {
+.productWrapper .productLikeBlock a:hover, .productWrapper .productBasketBlock:hover {
     background-position: -36px 0;
 }
 
@@ -1472,7 +1475,7 @@ ul.topMenu a:hover {
 
 }
 
-.productWrapper .changingLike.active, .productWrapper .productBasketBlock.active {
+.productWrapper .changingLike a.active, .productWrapper .productBasketBlock.active {
     background-position: -72px 0;
 }
 
@@ -6814,6 +6817,14 @@ border-color: #232323 !important;
     padding: 19px 0 20px;
 }
 
+.productFavorites .already_in_favorite {
+	background: #d2d2d2 url(../img/iconFavorite.png) no-repeat 18px 50% !important;
+}
+
+.productFavorites .already_in_favorite:hover {
+	background: #e0e0e0 url(../img/iconFavorite.png) no-repeat 18px 50% !important;
+}
+
 .productCardDesc .productFavorites a, .productCardDesc .productComment a {
     width: 170px;
     height: 45px;
@@ -6826,6 +6837,7 @@ border-color: #232323 !important;
     border-radius: 5px;
     padding-left: 55px;
     letter-spacing: 0.3px;
+    transition: all 0.3s ease;
 }
 
 .productCardDesc .productComment {

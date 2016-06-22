@@ -248,7 +248,13 @@ $arFirstPhoto = current($arResult['MORE_PHOTO']);
         <!--END productColor-->
 
         <div class="productFavorites">
-            <a href=""><?= GetMessage("CT_ADD_TO_FAVORITE") ?></a>
+            <a href="javascript:void(0)" 
+               class="<?= $arResult['USER_AUTHORIZED'] ? ($arResult['USER_HAVE_ITEM_IN_FAVORITE'] ? "already_in_favorite" : "js_add_to_favorite") : "js_favorite_need_auth" ?>"
+               data-favorite-product-id="<?= $arResult["ID"] ?>"
+               data-favorite-delete="<?= $arResult['USER_HAVE_ITEM_IN_FAVORITE'] ? "Y" : "" ?>"
+               data-favorite-item-id="<?= $arResult['USER_HAVE_ITEM_IN_FAVORITE'] ?>">
+            	<?= $arResult['USER_HAVE_ITEM_IN_FAVORITE'] ? GetMessage("CT_ALREADY_IN_FAVORITE") : GetMessage("CT_ADD_TO_FAVORITE") ?>
+            </a>
         </div>
         <div class="productComment">
             <a href=""><?= GetMessage("CT_ASK_QUESTION") ?></a>
