@@ -173,7 +173,7 @@
                 else
                     $basketAction = (isset($arParams['SECTION_ADD_TO_BASKET_ACTION']) ? $arParams['SECTION_ADD_TO_BASKET_ACTION'] : '');
 
-                $intSectionID = 0;
+                $intSectionID = 0;   
 
             ?>
             <?$intSectionID = $APPLICATION->IncludeComponent(

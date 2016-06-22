@@ -1,4 +1,5 @@
 <?
+
     include(GetLangFileName(dirname(__FILE__)."/", "/init.php"));
 
     CModule::IncludeModule("blog");
@@ -33,8 +34,8 @@
 
 
     define("DEFAULT_TEMPLATE_PATH", SITE_DIR."local/templates/.default/"); //path of ".default" site template
-    define("CATALOG_IBLOCK_ID", 5); //main catalog
-    define("OFFERS_IBLOCK_ID", 6);  //offers
+    define("CATALOG_IBLOCK_ID", 5); //основной каталог товаров
+    define("OFFERS_IBLOCK_ID", 6);  //инфоблок торговых предложений
 
     /*константы для отображения каталога*/
     define("DEFAULT_PAGE_ELEMENT_COUNT", $GLOBALS["arPageElementCount"][0]); //количество элементов на странице раздела каталога по умолчанию
@@ -119,11 +120,13 @@
                 }
             }
         }
+        
+        //arshow($_SERVER); die();
 
         //при необходимости делаем перезагрузку страницы и удаляем параметры из урла
         if ($pageRefresh) {
             global $APPLICATION;
-            header ("location: ".$APPLICATION->GetCurDir());
+            header ("location: ".$_SERVER["HTTP_REFERER"]);
         }
 
     }        
@@ -136,8 +139,8 @@
     */
     function getParamKey($blockName) {
         $curParams = getCatalogViewParams(); 
-        $availableParam = $GLOBALS["availableParams"][$blockName]; //варианты количества элементов на странице
-        $currentKey = array_search($curParams[$blockName], $availableParam); //получаем индекс текущего количества элементов на странице
+        $availableParam = $GLOBALS["availableParams"][$blockName]; 
+        $currentKey = array_search($curParams[$blockName], $availableParam); 
 
         if (empty($currentKey)) {
             $currentKey = 0;
@@ -213,8 +216,8 @@
     */
     AddEventHandler("main", "OnProlog", "checkRequestData");
     function checkRequestData() {            
-        $availableParams = $GLOBALS["availableParams"]; //параметры для отобрадения каталога
-        //если в массиве $_GET есть параметры для отобрадения каталога, то переписываем их
+        $availableParams = $GLOBALS["availableParams"]; //параметры для отображения каталога
+        //если в массиве $_GET есть параметры для отображения каталога, то переписываем их
         $result = array();
         //проверяем корректность параметров
         foreach ($availableParams as $paramKey => $paramValue) { 
