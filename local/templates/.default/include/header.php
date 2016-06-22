@@ -76,7 +76,9 @@
 
         <div class="firstLvlBlocks linksBlock" id="linkBlock2">
             <a href=""><p>Избранное</p></a>  
-            <p class="quantityOfLiked">5</p>
+            <p class="quantityOfLiked">
+            	<?= $USER->IsAuthorized() ? Favorite::countFavoriteProducts() : 0 ?>
+         	</p>
         </div>  
 
         <div class="firstLvlBlocks linksBlock js-small-basket" id="linkBlock3">    
