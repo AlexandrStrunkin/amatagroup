@@ -385,7 +385,7 @@
                                                 if (!empty($arItem['OFFERS_PROP'])) {
                                                     $arSkuProps = array();
                                                 ?>
-                                                <div class="bx_catalog_item_scu" id="<? echo $arItemIDs['PROP_DIV']; ?>"><?
+                                                <div class="bx_catalog_item_scu" id="<? echo $arItemIDs['PROP_DIV']; ?>" style="display:none"><?
                                                     foreach ($arSkuTemplate as $code => $strTemplate)
                                                     {
                                                         if (!isset($arItem['OFFERS_PROP'][$code]))
@@ -610,7 +610,7 @@
             SITE_ID: '<? echo SITE_ID; ?>'
         });
     </script>
-
+    
     <?if ($arParams["DISPLAY_BOTTOM_PAGER"]) {?>            
         <?$this->SetViewTarget('catalog_pager'); //show in section.php?>         
         <?echo $arResult["NAV_STRING"];?>                

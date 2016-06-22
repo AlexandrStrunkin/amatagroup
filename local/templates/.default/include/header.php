@@ -49,28 +49,31 @@
 
         <div class="firstLvlBlocks linksBlock" id="linkBlock1">
 
-            <?$APPLICATION->IncludeComponent("bitrix:search.title", "search_field", Array(
-                    "COMPONENT_TEMPLATE" => ".default",
-                    "NUM_CATEGORIES" => "1",	// Количество категорий поиска
-                    "TOP_COUNT" => "5",	// Количество результатов в каждой категории
-                    "ORDER" => "rank",	// Сортировка результатов
-                    "USE_LANGUAGE_GUESS" => "Y",	// Включить автоопределение раскладки клавиатуры
-                    "CHECK_DATES" => "N",	// Искать только в активных по дате документах
-                    "SHOW_OTHERS" => "N",	// Показывать категорию "прочее"
-                    "PAGE" => "/catalog/",	// Страница выдачи результатов поиска (доступен макрос #SITE_DIR#)
-                    "SHOW_INPUT" => "Y",	// Показывать форму ввода поискового запроса
-                    "INPUT_ID" => "title-search-input",	// ID строки ввода поискового запроса
-                    "CONTAINER_ID" => "title-search",	// ID контейнера, по ширине которого будут выводиться результаты
-                    "CATEGORY_0_TITLE" => "",	// Название категории
-                    "CATEGORY_0" => array(	// Ограничение области поиска
-                        0 => "iblock_1c_catalog",
-                    ),
-                    "CATEGORY_0_iblock_1c_catalog" => array(	// Искать в информационных блоках типа "iblock_1c_catalog"
-                        0 => "5",
-                    )
-                    ),
-                    false
-                );?>
+            <?$APPLICATION->IncludeComponent(
+	"bitrix:search.title", 
+	"search_field", 
+	array(
+		"COMPONENT_TEMPLATE" => "search_field",
+		"NUM_CATEGORIES" => "1",
+		"TOP_COUNT" => "5",
+		"ORDER" => "rank",
+		"USE_LANGUAGE_GUESS" => "Y",
+		"CHECK_DATES" => "N",
+		"SHOW_OTHERS" => "N",
+		"PAGE" => "/catalog/",
+		"SHOW_INPUT" => "Y",
+		"INPUT_ID" => "title-search-input",
+		"CONTAINER_ID" => "title-search",
+		"CATEGORY_0_TITLE" => "Товары",
+		"CATEGORY_0" => array(
+			0 => "iblock_1c_catalog",
+		),
+		"CATEGORY_0_iblock_1c_catalog" => array(
+			0 => "5",
+		)
+	),
+	false
+);?>
 
         </div>    
 

@@ -237,6 +237,9 @@ $(document).ready(function () {
         });
 
     }
+    
+    
+    
     function changeCount(el, plus) {
         var el1 = el, el = el.parent().find(".quantityText"),
         count = parseFloat(el.val()),
@@ -851,11 +854,13 @@ $(document).ready(function () {
         $(this).toggleClass('activeLikeBut');
         return false;
     });
+    /*
     $(".elementActions .deleteButton").on("click", function () {
         var el = $(this);
         el.closest("tr").hide();
         return false;
     });
+    */
     $('.elementActions .productBasketBlock, .productWrapper .productBasketBlock').on("click", function () {
         if (!$(this).hasClass("active")) {
             $(this).addClass('active');

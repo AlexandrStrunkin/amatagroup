@@ -43,9 +43,9 @@
     <?while($arResult["nStartPage"] <= $arResult["nEndPage"]){?>
 
         <?if ($arResult["nStartPage"] == $arResult["NavPageNomer"]) {?>
-            <a href="<?=$arResult["sUrlPath"]?>?<?=$strNavQueryStringFull?>PAGEN_<?=$arResult["NavNum"]?>=<?=($arResult["nStartPage"])?>" class="active"><?=$arResult["nStartPage"]?></a>            
+            <a href="<?=$arResult["sUrlPath"]?>?<?=$strNavQueryString?>PAGEN_<?=$arResult["NavNum"]?>=<?=($arResult["nStartPage"])?>" class="active"><?=$arResult["nStartPage"]?></a>            
             <?} else {?>
-            <a href="<?=$arResult["sUrlPath"]?>?<?=$strNavQueryStringFull?>PAGEN_<?=$arResult["NavNum"]?>=<?=($arResult["nStartPage"])?>"><?=$arResult["nStartPage"]?></a>
+            <a href="<?=$arResult["sUrlPath"]?>?<?=$strNavQueryString?>PAGEN_<?=$arResult["NavNum"]?>=<?=($arResult["nStartPage"])?>"><?=$arResult["nStartPage"]?></a>
             <?}?>
         <?$arResult["nStartPage"]++?>
         <?}?>      
