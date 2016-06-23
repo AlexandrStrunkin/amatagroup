@@ -1257,10 +1257,7 @@ margin: 0;
     float: left;
     margin-left: 2px;
     margin-top: 20px;
-}
-
-.list_favorite {
-	background: url('../img/dctLk.png') no-repeat;
+    background: url('../img/dctLk.png') no-repeat;
 }
 
 .productWrapper .productBasketBlock {
@@ -1270,7 +1267,7 @@ margin: 0;
     background: url('../img/dktBaskt.png') no-repeat;
 }
 
-.productWrapper .productLikeBlock a:hover, .productWrapper .productBasketBlock:hover {
+.productWrapper .productLikeBlock:hover, .productWrapper .productBasketBlock:hover {
     background-position: -36px 0;
 }
 
@@ -1475,7 +1472,7 @@ ul.topMenu a:hover {
 
 }
 
-.productWrapper .changingLike a.active, .productWrapper .productBasketBlock.active {
+.productWrapper .changingLike.active, .productWrapper .productBasketBlock.active {
     background-position: -72px 0;
 }
 
@@ -3241,20 +3238,20 @@ transition: all 0.3s;
     max-height: 68px;
     max-width: 68px;
     vertical-align: middle;
-}
+}    
 
-.basketBody .elementName div {
+.basketBody .elementName div {      
     border: 1px solid #e0e0e0;
     border-radius: 60px;
     font-size: 0;
     height: 68px;
-    line-height: 68px;
+    line-height: 68px;     
     margin-left: 28px;
     overflow: hidden;
     text-align: center;
     vertical-align: middle;
     width: 68px;
-    float: left;
+    float: left;   
     margin-right: 24px;
 }
 
@@ -3417,7 +3414,7 @@ opacity: 0.7;
     border-right: 1px solid #dddddd;
     height: 348px;
     padding: 38px 28px 0 30px;
-    width: 593px;
+    width: 594px;
     float: left;
     position: relative;
 }
@@ -3609,7 +3606,7 @@ opacity: 0.7;
     clear: both;
     float: left;
     padding: 30px;
-    width: 591px;
+    width: 592px;
 }
 
 .couponInputBlock input {
@@ -6817,14 +6814,6 @@ border-color: #232323 !important;
     padding: 19px 0 20px;
 }
 
-.productFavorites .already_in_favorite {
-	background: #d2d2d2 url(../img/iconFavorite.png) no-repeat 18px 50% !important;
-}
-
-.productFavorites .already_in_favorite:hover {
-	background: #e0e0e0 url(../img/iconFavorite.png) no-repeat 18px 50% !important;
-}
-
 .productCardDesc .productFavorites a, .productCardDesc .productComment a {
     width: 170px;
     height: 45px;
@@ -6837,7 +6826,6 @@ border-color: #232323 !important;
     border-radius: 5px;
     padding-left: 55px;
     letter-spacing: 0.3px;
-    transition: all 0.3s ease;
 }
 
 .productCardDesc .productComment {

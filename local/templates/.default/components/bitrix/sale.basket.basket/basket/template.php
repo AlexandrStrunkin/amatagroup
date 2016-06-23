@@ -39,8 +39,8 @@
         <div class="widthWrapper">
 
             <div class="basketBodyMenu">
-                <a href="#basket" class="active">Корзина</a>
-                <a href="#fav">Избранное</a>
+                <a href="#!" class="active"><?=GetMessage("SALE_BASKET")?></a>
+                <a href="/personal/favourite/"><?=GetMessage("SALE_FAVOURITE")?></a>
             </div>
 
             <?
@@ -71,45 +71,7 @@
 
                                 <?
                                     include($_SERVER["DOCUMENT_ROOT"].$templateFolder."/basket_items.php");
-                                ?>  
-
-                                <div class="discountsBlock">
-
-                                    <p class="titleText">Скидки</p>
-
-                                    <div class="discountBodyBlock">
-                                        <p class="titleText">У вас пока нет скидок</p>
-
-                                        <p class="bodyText">Узнайте как воспользоваться нашей программой лояльности.</p>
-                                        <a href="" class="salesDetail"><p>Подробнее</p></a>
-
-                                        <div class="orangeRound">15%</div>
-                                        <div class="yellowRound">10%</div>
-                                        <div class="greenRound">5%</div>
-                                    </div>
-                                </div>
-
-                                <div class="decorBlock">
-                                    <p class="titleText">Оформление</p>
-
-                                    <p class="orderPrice">Сумма заказа<span>27 899 Р</span></p>
-
-                                    <p class="orderDiscount">Скидка<span>- 899 Р</span></p>
-
-                                    <p class="orderBonus">Ваши бонусы<span>0 Р</span></p>
-
-                                    <p class="orderSertificate">Ваши сертификаты<span>0 Р</span></p>
-
-                                    <p class="totalPrice">Итого:<span>27 000<span class="rub">c</span></span></p>
-                                </div>
-
-                                <div class="couponInputBlock">
-                                    <input type="text" placeholder="Введите номер купона">
-                                    <button disabled>Отправить код</button>
-                                </div>
-                                <div class="orderConfirmBlock">
-                                    <a href=""><p>Перейти к оформлению заказа</p></a>
-                                </div>       
+                                ?>     
 
                             </div>
                         </div>
@@ -123,9 +85,11 @@
                 <?
                 }
                 else
-                {
-                    ShowError($arResult["ERROR_MESSAGE"]);
-                }
+                {  ?>
+                <div class="empty_basket">
+                    <?ShowError($arResult["ERROR_MESSAGE"]);?>
+                </div>
+                <?}
             ?>
 
             <div id="fav" class="basketBlock" style="display: none;">
