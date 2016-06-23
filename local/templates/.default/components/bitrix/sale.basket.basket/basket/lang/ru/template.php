@@ -20,7 +20,7 @@ $MESS["STB_COUPON_PROMT"] = "Введите код купона для скидки:";
 $MESS["SALE_VAT"] = "НДС:";
 $MESS["SALE_VAT_EXCLUDED"] = "Товаров на:";
 $MESS["SALE_VAT_INCLUDED"] = "В том числе НДС:";
-$MESS["SALE_TOTAL"] = "Итого, P:";
+$MESS["SALE_TOTAL"] = "Итого:";
 $MESS["SALE_CONTENT_DISCOUNT"] = "Скидка";
 $MESS["SALE_DISCOUNT"] = "Скидка";
 $MESS["SALE_NOTIFY_TITLE"] = "Ожидаемые товары";
@@ -35,4 +35,18 @@ $MESS["SALE_REFRESH"] = "Пересчитать";
 $MESS["SALE_PRODUCT_NAME"] = "Наименование";
 $MESS["SALE_PRODUCT_OFFER"] = "Предложение";
 $MESS["SALE_ACTIONS"] = "Действия";
+$MESS["SALE_DISCOUNTS"] = "Скидки";
+$MESS["SALE_ENTER_COUPON"] = "Введите номер купона";
+$MESS["SALE_YOU_HAVE_NO_DOSCOUNTS"] = "У вас пока нет скидок";
+$MESS["SALE_DISCOUNTS_LEARN_MORE"] = "Узнайте как воспользоваться нашей программой лояльности.";
+$MESS["SALE_DISCOUNTS_MORE_LINK"] = "Подробнее";
+$MESS["SALE_PROCESSING"] = "Оформление";
+$MESS["SALE_ORDER_SUMM"] = "Сумма заказа";
+$MESS["SALE_YOUR_BONUSES"] = "Ваши бонусы";
+$MESS["SALE_YOUR_SERTIFICATES"] = "Ваши сертификаты";
+$MESS["SALE_MAKE_ORDER"] = "Перейти к оформлению заказа";
+$MESS["SALE_ARTICLE"] = "Артикул:";
+$MESS["SALE_BASKET"] = "Корзина";
+$MESS["SALE_FAVOURITE"] = "Избранное";
+
 ?>

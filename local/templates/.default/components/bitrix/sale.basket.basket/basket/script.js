@@ -520,11 +520,14 @@ function updateBasketTable(basketItemId, res)
 			BX('allVATSum_FORMATED').innerHTML = res['BASKET_DATA']['allVATSum_FORMATED'].replace(/\s/g, '&nbsp;');
 
 		if (BX('allSum_FORMATED'))
-			BX('allSum_FORMATED').innerHTML = res['BASKET_DATA']['allSum_FORMATED'].replace(/\s/g, '&nbsp;');
+			BX('allSum_FORMATED').innerHTML = res['BASKET_DATA']['allSum_FORMATED'];
 
 		if (BX('PRICE_WITHOUT_DISCOUNT'))
-			BX('PRICE_WITHOUT_DISCOUNT').innerHTML = (res['BASKET_DATA']['PRICE_WITHOUT_DISCOUNT'] != res['BASKET_DATA']['allSum_FORMATED']) ? res['BASKET_DATA']['PRICE_WITHOUT_DISCOUNT'].replace(/\s/g, '&nbsp;') : '';
-
+			BX('PRICE_WITHOUT_DISCOUNT').innerHTML = (res['BASKET_DATA']['PRICE_WITHOUT_DISCOUNT'] != res['BASKET_DATA']['allSum_FORMATED']) ? res['BASKET_DATA']['PRICE_WITHOUT_DISCOUNT'] : '';
+            
+        if (BX('TOTAL_DISCOUNT'))    
+            BX('TOTAL_DISCOUNT').innerHTML = res['BASKET_DATA']['DISCOUNT_PRICE_ALL_FORMATED'];
+            
 		BX.onCustomEvent('OnBasketChange');
 	}
 }
@@ -1109,6 +1112,7 @@ function deleteCoupon(e)
 }
 
 BX.ready(function() {
+    
 	var sku_props = BX.findChildren(BX('basket_items'), {tagName: 'li', className: 'sku_prop'}, true),
 		i,
 		couponBlock;
