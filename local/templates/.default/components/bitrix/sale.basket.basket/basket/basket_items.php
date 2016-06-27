@@ -63,7 +63,7 @@
                                             <?=$arItem["NAME"]?>                                             
                                         </span>
                                     </a>
-                                    <?if ($arResult["ITEMS_PROPS"]["ARTICLES"][$arItem["PRODUCT_ID"]]["CML2_ARTICLE"]) {?>
+                                    <?if ($arResult["ITEMS_PROPS"][$arItem["PRODUCT_ID"]]["CML2_ARTICLE"]) {?>
                                         <p class="elemendCode"><?=$arResult["ITEMS_PROPS"][$arItem["PRODUCT_ID"]]["CML2_ARTICLE"]?></p>
                                         <?}?>
                                 </td>
@@ -154,10 +154,7 @@
         <input type="hidden" id="hide_coupon" value="<?=($arParams["HIDE_COUPON"] == "Y") ? "Y" : "N"?>" />
         <input type="hidden" id="use_prepayment" value="<?=($arParams["USE_PREPAYMENT"] == "Y") ? "Y" : "N"?>" />
 
-        <div class="bx_ordercart_order_pay">
-
-
-
+        <div class="bx_ordercart_order_pay">          
 
             <div class="discountsBlock">
 
@@ -202,7 +199,7 @@
                         ?>
                         <div class="bx_ordercart_coupon">
                             <input type="text" id="coupon" name="COUPON" value="" onchange="enterCoupon();" placeholder="<?=GetMessage("SALE_ENTER_COUPON")?>">
-                            <button disabled onclick="enterCoupon();">Отправить код</button>
+                            <button disabled onclick="enterCoupon();"><?=GetMessage("SALE_SEND_COUPON")?></button>
                         </div><?
                             /*  //список введенных купонов
                             if (!empty($arResult['COUPON_LIST'])) {
