@@ -37,6 +37,7 @@
     define("CATALOG_IBLOCK_ID", 5); //main catalog
     define("OFFERS_IBLOCK_ID", 6);  //offers
     define("FAVORITE_IBLOCK_ID", 12);
+	define("USER_SAVED_ADDRESSES_IBLOCK_ID", 13);
 
     /*константы для отображения каталога*/
     define("DEFAULT_PAGE_ELEMENT_COUNT", $GLOBALS["arPageElementCount"][0]); //количество элементов на странице раздела каталога по умолчанию
@@ -256,8 +257,45 @@
         }
 
         return $arResult;
-    }    
-
+    }
+	
+	
+	/**
+	 * 
+	 * Возвращаем сохраненные адреса для пользователя
+	 * 
+	 * @param int $user_id
+	 * @return array $addresses
+	 * 
+	 * */
+	function getUsersSavedLocations($user_id) {
+		
+		$addresses = array();
+		
+		$select = Array(
+			"ID",
+			"IBLOCK_ID",
+			"NAME",
+			"PROPERTY_BX_LOCATION_ID",
+			"PROPERTY_CITY",
+			"PROPERTY_STREET",
+			"PROPERTY_HOUSING",
+			"PROPERTY_BUILDING",
+			"PROPERTY_APARTMENT",
+		);
+		$filter = Array(
+			"IBLOCK_ID"  => USER_SAVED_ADDRESSES_IBLOCK_ID,
+			"CREATED_BY" => $user_id,
+			"ACTIVE"     => "Y"
+		);
+		
+		$saved_addresses = CIBlockElement::GetList(Array(), $filter, false, false, $select);
+		while ($address = $saved_addresses->Fetch()) { 
+			array_push($addresses, $address);
+		}
+		
+		return $addresses;
+	}
 	
 
 ?>
