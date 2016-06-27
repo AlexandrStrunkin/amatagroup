@@ -38,7 +38,19 @@
     define("OFFERS_IBLOCK_ID", 6);  //offers
     define("FAVORITE_IBLOCK_ID", 12);
 	define("USER_SAVED_ADDRESSES_IBLOCK_ID", 13);
+	
+	define("USER_SAVED_ADDRESSES_STREET_PROPERTY", 433); // улица
+	define("USER_SAVED_ADDRESSES_HOUSING_PROPERTY", 434); // Строение/корпус
+	define("USER_SAVED_ADDRESSES_BUILDING_PROPERTY", 435); // Дом
+	define("USER_SAVED_ADDRESSES_APARTMENT_PROPERTY", 436); // Квартира/офис
+	define("USER_SAVED_ADDRESSES_BX_LOCATION_ID_PROPERTY", 437); // ID местоположения битрикс
 
+	define("ORDER_LOCATION", "ORDER_PROP_18"); // местоположение
+	define("ORDER_STREET", "ORDER_PROP_20"); // улица
+	define("ORDER_HOUSING", "ORDER_PROP_21"); // Строение/корпус
+	define("ORDER_BUILDING", "ORDER_PROP_22"); // Дом
+	define("ORDER_APARTMENT", "ORDER_PROP_23"); // Квартира/офис
+	
     /*константы для отображения каталога*/
     define("DEFAULT_PAGE_ELEMENT_COUNT", $GLOBALS["arPageElementCount"][0]); //количество элементов на странице раздела каталога по умолчанию
     define("DEFAULT_ELEMENT_SORT_FIELD", $GLOBALS["catalogAvailableSort"][0]); //поле для первой сортировки элементов в каталоге по умолчанию
@@ -259,6 +271,7 @@
         return $arResult;
     }
 	
+	AddEventHandler("sale", "OnBeforeOrderAdd", "addUserLocationToSaved");
 	
 	/**
 	 * 
@@ -297,5 +310,47 @@
 		return $addresses;
 	}
 	
+	/**
+	 * Добавить метоположение в избранное
+	 * 
+	 * @param array $arFields
+	 * @return int|string
+	 * 
+	 * */
+	
+	function addUserLocationToSaved(&$arFields) {
+		global $USER;
+		
+		$location_string = "";
+		$location = CSaleLocation::GetByID((int)$_REQUEST[ORDER_LOCATION]);
+		if (is_array($location)) {
+			$location_string .= ($location["CITY_NAME_ORIG"] ? $location["CITY_NAME_ORIG"] : $location["REGION_NAME_ORIG"]) . ", "; // город или область
+			$location_string .= $_REQUEST[ORDER_STREET] ? "ул. " . $_REQUEST[ORDER_STREET] . ", " : ""; // улица
+			$location_string .= $_REQUEST[ORDER_HOUSING] ? "корпус " . $_REQUEST[ORDER_HOUSING] . ", " : ""; // корпус
+			$location_string .= $_REQUEST[ORDER_BUILDING] ? "д. " . $_REQUEST[ORDER_BUILDING] . ", " : ""; // дом
+			$location_string .= $_REQUEST[ORDER_APARTMENT] ? "кв. " . $_REQUEST[ORDER_APARTMENT] . ", " : ""; // квартира
+		}
+		$new_saved_location = new CIBlockElement;
 
+		$properties = array();
+		$properties[USER_SAVED_ADDRESSES_BX_LOCATION_ID_PROPERTY] = $_REQUEST[ORDER_LOCATION];
+		$properties[USER_SAVED_ADDRESSES_STREET_PROPERTY] = $_REQUEST[ORDER_STREET];
+		$properties[USER_SAVED_ADDRESSES_HOUSING_PROPERTY] = $_REQUEST[ORDER_HOUSING];
+		$properties[USER_SAVED_ADDRESSES_BUILDING_PROPERTY] = $_REQUEST[ORDER_BUILDING];
+		$properties[USER_SAVED_ADDRESSES_APARTMENT_PROPERTY] = $_REQUEST[ORDER_APARTMENT];
+		
+		$saved_location_data = Array(
+			"MODIFIED_BY"       => $USER->GetID(),
+			"IBLOCK_SECTION_ID" => false,
+			"IBLOCK_ID"         => USER_SAVED_ADDRESSES_IBLOCK_ID,
+			"PROPERTY_VALUES"   => $properties,
+			"NAME"              => $location_string,
+			"ACTIVE"            => "Y"
+		);
+		
+		$location_id = $new_saved_location->Add($saved_location_data);
+
+		return $location_id ? $location_id : $new_saved_location -> LAST_ERROR;
+	}
+	
 ?>
