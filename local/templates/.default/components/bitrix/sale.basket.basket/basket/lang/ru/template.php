@@ -48,5 +48,6 @@ $MESS["SALE_MAKE_ORDER"] = "Перейти к оформлению заказа";
 $MESS["SALE_ARTICLE"] = "Артикул:";
 $MESS["SALE_BASKET"] = "Корзина";
 $MESS["SALE_FAVOURITE"] = "Избранное";
-
+$MESS["SALE_SEND_COUPON"] = "Отправить код";
+$MESS["VIEWED_PRODUCTS"] = "Просмотренные товары";
 ?>

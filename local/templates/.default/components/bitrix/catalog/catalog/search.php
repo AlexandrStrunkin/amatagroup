@@ -186,6 +186,7 @@
 
 <script type="">
     $(function(){
+        //скрываем блок фильтра
         $(".smallElementList").removeClass("smallElementList");
         $(".elementBlocksWrap").css("margin-left", 0);
     })

@@ -305,6 +305,7 @@
         <!--viewedBlock-->
         <div class="viewedBlock productCarousel elmentsList">
             <h2><?= GetMessage("VIEWED_PRODUCTS") ?></h2>
+
             <!--jcarousel-wrapper-->
             <div class="jcarousel-wrapper">
                 <!--jcarousel-->
@@ -407,7 +408,7 @@
 								66 => "AROMATIZIROVANNYE_KAPSULY",
 								67 => "BREND",
 							),
-							"PAGE_ELEMENT_COUNT" => "5",	// Количество элементов на странице
+							"PAGE_ELEMENT_COUNT" => "20",	// Количество элементов на странице
 							"PARTIAL_PRODUCT_PROPERTIES" => "N",	// Разрешить частично заполненные свойства
 							"PRICE_CODE" => array(	// Тип цены
 								0 => "Оптовая 1 Для сайта",
