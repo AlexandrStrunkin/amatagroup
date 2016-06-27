@@ -382,7 +382,7 @@ if (!empty($arResult['ITEMS']))
 
                     unset($emptyProductProperties);
                 ?><script type="text/javascript">
-                    var <? echo $strObName; ?> = new JCCatalogSection(<? echo CUtil::PhpToJSObject($arJSParams, false, true); ?>);
+                    var <? echo $strObName; ?> = new JCCatalogSectionViewed(<? echo CUtil::PhpToJSObject($arJSParams, false, true); ?>);
                 </script><?
                 } else {
 
@@ -461,7 +461,7 @@ if (!empty($arResult['ITEMS']))
 
                         ?>
                         <script type="text/javascript">
-                            var <? echo $strObName; ?> = new JCCatalogSection(<? echo CUtil::PhpToJSObject($arJSParams, false, true); ?>);
+                            var <? echo $strObName; ?> = new JCCatalogSectionViewed(<? echo CUtil::PhpToJSObject($arJSParams, false, true); ?>);
                         </script>
                         <?
                         }
@@ -528,7 +528,7 @@ if (!empty($arResult['ITEMS']))
                         }
                     ?>
                     <script type="text/javascript">
-                        var <? echo $strObName; ?> = new JCCatalogSection(<? echo CUtil::PhpToJSObject($arJSParams, false, true); ?>);
+                        var <? echo $strObName; ?> = new JCCatalogSectionViewed(<? echo CUtil::PhpToJSObject($arJSParams, false, true); ?>);
                     </script>
                     <?
                     }

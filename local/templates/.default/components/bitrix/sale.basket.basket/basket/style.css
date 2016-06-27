@@ -82,3 +82,7 @@ span.rub {
 .basketBody .elementName .elemendCode {
     margin: 8px 0 !important;
 }
+
+.viewedBlock {
+    border-top: none !important;
+}

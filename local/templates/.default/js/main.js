@@ -362,12 +362,12 @@ $(document).ready(function () {
         });*/
         el.find('.jcarousel-control-prev').off("click").on("click", function () {
             el.find(".jcarousel ul").stop(true, true);
-            el.find(".jcarousel").jcarousel('scroll', '-=1');
+            el.find(".jcarousel").jcarousel('scroll', '-=1');    
             
         });
         el.find('.jcarousel-control-next').off("click").on("click", function () {
             el.find(".jcarousel ul").stop(true, true);
-            el.find(".jcarousel").jcarousel('scroll', '+=1');
+            el.find(".jcarousel").jcarousel('scroll', '+=1');        
             
         });
         /*  el.find('.jcarousel-control-next')

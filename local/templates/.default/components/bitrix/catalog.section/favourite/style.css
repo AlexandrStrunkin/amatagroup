@@ -1,0 +1,34 @@
+.productWrapper .productLikeBlock {
+    float:right !important;
+}
+
+.productWrapper .productBasketBlock {
+    margin-left: 4px !important;
+}
+
+.allElementWrap {
+    overflow: visible !important;
+}
+
+.old_price {
+    font-size:14px;
+    color: #ccc;
+    text-decoration: line-through;
+}
+
+.elementTitle a {
+    color: inherit;
+}
+
+.elementName .elementTitle {
+    max-height:40px;
+    overflow: hidden;
+}
+
+.basketButtonInvisible {
+    display: none !important;
+}
+
+.allElementWrap .elementBlocksWrap .basketBody {
+    border: 0 !important;
+}
