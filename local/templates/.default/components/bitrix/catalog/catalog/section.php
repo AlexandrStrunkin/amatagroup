@@ -304,7 +304,7 @@
     <div class="widthWrapper">
         <!--viewedBlock-->
         <div class="viewedBlock productCarousel elmentsList">
-            <h2>Просмотренные товары</h2>
+            <h2><?= GetMessage("VIEWED_PRODUCTS") ?></h2>
             <!--jcarousel-wrapper-->
             <div class="jcarousel-wrapper">
                 <!--jcarousel-->

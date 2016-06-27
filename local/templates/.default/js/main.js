@@ -6,7 +6,8 @@ $(document).ready(function () {
     //ГЛАВНАЯ
     //скрыть/показать левое меню (на главной странице) при клике на каталог товаров
     var isMainPage = ($("body").hasClass("mainPage"));
-    $('.menuControle').on("click", function () {
+    $('.menuControle').on("click", function (e) {
+    	e.preventDefault();
         var el = $(this),
         menu = isMainPage ? $('.thirdLevel .mainLeftMenu') : $('.thirdLevel .mainLeftMenu,.thirdLevel'),
         banner = $('.thirdLevel .mainBigBanner');
@@ -78,7 +79,8 @@ $(document).ready(function () {
     });
 
     //меню каталог товаров на главной
-    $(".secondLvl a").on("click", function () {
+    $(".secondLvl a").on("click", function (e) {
+    	e.preventDefault();
         window.location.href = $(this).attr("href");
     });
     $('.mainLeftMenu>ul>div>div>li').on("click", function () {
@@ -98,7 +100,8 @@ $(document).ready(function () {
 
 
     });
-    $('.mainLeftMenu>ul>div>div>li>a').on("click", function () {
+    $('.mainLeftMenu>ul>div>div>li>a').on("click", function (e) {
+    	e.preventDefault();
         var el = $(this).parent();
         el.removeClass("hover");
         if (el.find("ul").length > 0) {
@@ -134,15 +137,16 @@ $(document).ready(function () {
             
         }
     });
-    $(".bottomBlockMailLeft .link1").on("click", function () {
+    $(".bottomBlockMailLeft .link1").on("click", function (e) {
+    	e.preventDefault();
         var el = $(this).closest(".mainLeftMenu");
         el.find(".firstLvlLi").addClass("activeFirstLclLi");
         el.find(".firstLvlLi").find(".secondLvl").slideDown(300);
         el.find(".link2").show();
         $(this).hide();
-        
     });
-    $(".bottomBlockMailLeft .link2").on("click", function () {
+    $(".bottomBlockMailLeft .link2").on("click", function (e) {
+    	e.preventDefault();
         var el = $(this).closest(".mainLeftMenu");
         el.find(".firstLvlLi").removeClass("activeFirstLclLi");
         el.find(".firstLvlLi").find(".secondLvl").slideUp(300);
@@ -151,8 +155,8 @@ $(document).ready(function () {
         
     });
 
-    $(".firstLvlLi>a").on("click", function () {
-
+    $(".firstLvlLi>a").on("click", function (e) {
+		e.preventDefault();
         var el = $(this).closest(".mainLeftMenu").find(".activeFirstLclLi");
         if (el.length == 0) {
             $(".bottomBlockMailLeft .link1").show();
@@ -166,7 +170,8 @@ $(document).ready(function () {
 
 
     //верхнее меню переключение
-    $('#secondLvlBlocks2 li a').on("click", function () {
+    $('#secondLvlBlocks2 li a').on("click", function (e) {
+    	e.preventDefault();
         $('#secondLvlBlocks2 li a').removeClass('active');
         $(this).addClass('active');
     });
@@ -271,13 +276,14 @@ $(document).ready(function () {
     });
 
 
-    $(".quantityPlus").on("click", function () {
+    $(".quantityPlus").on("click", function (e) {
+    	e.preventDefault();
         changeCount($(this), 1);
         
     });
-    $(".quantityMinus").on("click", function () {
+    $(".quantityMinus").on("click", function (e) {
+    	e.preventDefault();
         changeCount($(this), 0);
-        
     });
 
 
@@ -331,9 +337,9 @@ $(document).ready(function () {
 
 
     //кружочек корзина смена картинки при клике
-    $('.changingBasket').on("click", function () {
+    $('.changingBasket').on("click", function (e) {
+    	e.preventDefault();
         $(this).toggleClass("active");
-        
     });
     
     //кружочек лайк смена картинки при клике
@@ -360,15 +366,15 @@ $(document).ready(function () {
         .jcarouselControl({
         target: '-=1'
         });*/
-        el.find('.jcarousel-control-prev').off("click").on("click", function () {
+        el.find('.jcarousel-control-prev').off("click").on("click", function (e) {
+        	e.preventDefault();
             el.find(".jcarousel ul").stop(true, true);
             el.find(".jcarousel").jcarousel('scroll', '-=1');
-            
         });
-        el.find('.jcarousel-control-next').off("click").on("click", function () {
+        el.find('.jcarousel-control-next').off("click").on("click", function (e) {
+        	e.preventDefault();
             el.find(".jcarousel ul").stop(true, true);
             el.find(".jcarousel").jcarousel('scroll', '+=1');
-            
         });
         /*  el.find('.jcarousel-control-next')
         .on('jcarouselcontrol:active', function () {
@@ -425,8 +431,8 @@ $(document).ready(function () {
 
     //попап авторизация/восстановление пароля
     if ($('.authorisationLink').length > 0) {
-        $('.authorisationLink a').on("click", function () {
-
+        $('.authorisationLink a').on("click", function (e) {
+			e.preventDefault();
             //показать попап
             $('.authHiddenBlock').show();
 
@@ -457,8 +463,6 @@ $(document).ready(function () {
 
             //показать маску
             popupMask.show();
-
-            
         });
         $('.authHiddenBlock .authClose').on("click", function () {
             //скрыть попап авторизация/восстановление пароля
@@ -469,7 +473,8 @@ $(document).ready(function () {
 
     //попап регистрация
     if ($('.registrationLink').length > 0) {
-        $('.registrationLink a').on("click", function () {
+        $('.registrationLink a').on("click", function (e) {
+        	e.preventDefault();
             //показать попап
             $('.regHiddenBlock').show();
             //по умолчанию расрыта форма
@@ -486,8 +491,7 @@ $(document).ready(function () {
             //удалить выделение полей (ошибок заполнения)
             $('.regHiddenBlock form .error').removeClass(".error");
             //показать маску
-            popupMask.show();
-            
+            popupMask.show(); 
         });
         $('.regHiddenBlock .authClose').on("click", function () {
             $('.regHiddenBlock').hide();
@@ -495,13 +499,13 @@ $(document).ready(function () {
         });
     }
     //поиск
-    $("#linkBlock1 a").on("click", function () {
+    $("#linkBlock1 a").on("click", function (e) {
+    	e.preventDefault();
         $(".searchForm, .searchFormClose").fadeIn(300);
         $(".searchForm input,.searchForm textarea").each(function () {
             $(this).focus().blur();
         });
         $(".searchForm form")[0].reset();
-        
     });
     $(".searchFormClose").on("click", function () {
         $(".searchForm, .searchFormClose").fadeOut(300);
@@ -671,11 +675,11 @@ $(document).ready(function () {
         
     });
 
-    $(".popup .close").on("click", function () {
+    $(".popup .close").on("click", function (e) {
+    	e.preventDefault();
         $(this).parent().fadeOut(300);
         //показать маску
         popupMask.hide();
-        
     });
 
     //валидация формы
@@ -693,9 +697,9 @@ $(document).ready(function () {
 
         //  el.attr("placeholder", el.attr("data-placeholder"));
     });
-    $(".authEnter, #callBackPopup .btn").on("click", function () {
+    $(".authEnter, #callBackPopup .btn").on("click", function (e) {
+        e.preventDefault();
         $(this).closest("form").submit();
-        
     });
 
 
@@ -704,9 +708,9 @@ $(document).ready(function () {
         $(".forgotForm").fadeIn(300);
         
     });
-    $("form .btn, .formAcceptBut").on("click", function () {
+    $("form .btn, .formAcceptBut").on("click", function (e) {
+    	e.preventDefault();
         $(this).closest("form").submit();
-        
     });
     /* $("input, textarea").each(function () {
     var el = $(this), placeholder = el.attr("placeholder");
@@ -786,12 +790,12 @@ $(document).ready(function () {
         el.closest(".locationWrapper").find(".list").fadeToggle(300);
         
     });
-    $(".locationWrapper .list a").on("click", function () {
+    $(".locationWrapper .list a").on("click", function (e) {
+    	e.preventDefault();
         var el = $(this), w = el.closest(".locationWrapper");
         w.find(".sityName").text(el.text());
         w.find(".list").fadeOut(300);
         popupMask.hide();
-        
     });
 
 
@@ -810,10 +814,10 @@ $(document).ready(function () {
         $(".overflowMask").show();
 
     });
-    $('.closeHidBlock, .bootomMenuHiddenBlock .cancelButton').on('click', function () {
+    $('.closeHidBlock, .bootomMenuHiddenBlock .cancelButton').on('click', function (e) {
+        e.preventDefault();
         treatment.fadeOut(300);
         $(".overflowMask").hide();
-        
     });
     var file_api = ( window.File && window.FileReader && window.FileList && window.Blob ) ? true : false;
     $("input[type=file]").on('change', function () {
@@ -850,9 +854,9 @@ $(document).ready(function () {
 
     //замена картинок в корзине "действия"
 
-    $('.elementActions .likedButton').on("click", function () {
+    $('.elementActions .likedButton').on("click", function (e) {
+    	e.preventDefault();
         $(this).toggleClass('activeLikeBut');
-        
     });
     /*
     $(".elementActions .deleteButton").on("click", function () {
@@ -861,11 +865,11 @@ $(document).ready(function () {
         
     });
     */
-    $('.elementActions .productBasketBlock, .productWrapper .productBasketBlock').on("click", function () {
+    $('.elementActions .productBasketBlock, .productWrapper .productBasketBlock').on("click", function (e) {
+    	e.preventDefault();
         if (!$(this).hasClass("active")) {
             $(this).addClass('active');
         }           
-        
     });
 
 
@@ -1160,9 +1164,9 @@ $(document).ready(function () {
             return true;
         });
 
-        $(".turnButton").on("click", function () {
+        $(".turnButton").on("click", function (e) {
+        	e.preventDefault();
             $('.horizontalFilterWrap .productFilterWrap p').click();
-            
         });
     }
 
@@ -1170,31 +1174,32 @@ $(document).ready(function () {
 
     //Меню в личном кабинете счета
     if ($('.billingsListMenu').length > 0) {
-        $('.billingsListMenu a').on('click', function () {
+        $('.billingsListMenu a').on('click', function (e) {
+        	e.preventDefault();
             var el = $(this), id = el.attr("href");
             $('.billingsListMenu a').removeClass('activeBillingMenu');
             el.addClass('activeBillingMenu');
             el.closest(".settingsWrap").find(".activeBillingsBlock").hide();
             $(id).fadeIn(700);
-            
         });
     }
 
 
     //Меню в личном кабинете аакты
     if ($('.actsListMenu').length > 0) {
-        $('.actsListMenu a').on('click', function () {
+        $('.actsListMenu a').on('click', function (e) {
+        	e.preventDefault();
             var el = $(this), id = el.attr("href");
             $('.actsListMenu a').removeClass('activeActsMenu');
             el.addClass('activeActsMenu');
             el.closest(".settingsWrap").find(".activeBillingsBlock").hide();
             $(id).fadeIn(700);
-            
         });
     }
 
 
-    $(".ordersMenu a").on('click', function () {
+    $(".ordersMenu a").on('click', function (e) {
+    	e.preventDefault();
         var el = $(this), id = el.attr("href");
         el.parent().find("a").removeClass('activeElement');
         el.addClass('activeElement');
@@ -1202,7 +1207,6 @@ $(document).ready(function () {
         $(id).fadeIn(700);
         el.closest(".settingsBlock").find(".activeOrder").removeClass("activeOrder");
         el.closest(".settingsBlock").find(".orderContainer .orderBodyWrap").hide();
-        
     });
 
 
@@ -1226,34 +1230,34 @@ $(document).ready(function () {
     $(".listType").click();
 
     //табы
-    $(".infoBlocksMenu a").on("click", function () {
+    $(".infoBlocksMenu a").on("click", function (e) {
+    	e.preventDefault();
         var el = $(this), id = el.attr("href");
         $(".infoBlocksMenu a").removeClass("activeInfoBlock");
         $(".infoBlocksContent").hide();
         el.addClass("activeInfoBlock");
         $(id).fadeIn(500);
-        
     });
     //табы корзина
-    $("body").on("click", ".basketBody .basketBodyMenu a", function () {
+    $("body").on("click", ".basketBody .basketBodyMenu a", function (e) {
         var el = $(this), id = el.attr("href"), delivery_id = el.data("delivery-button-id");
         $(".dataPayer").length ? $("input#" + delivery_id).click() : ""; // если мы в оформлении заказа
         $(".basketBody .basketBodyMenu a").removeClass("active");
         $(".basketBlock").hide();
         el.addClass("active");
         $(id).fadeIn(500);
-        
     });
 
-    $(".smallPreviewImg a").on("click", function () {
+    $(".smallPreviewImg a").on("click", function (e) {
+    	e.preventDefault();
         var el = $(this), id = el.attr("href");
         $(".previewImg img").hide().attr("src", id).fadeIn(700);
         $(".smallPreviewImg a").removeClass("active");
         el.addClass("active");
-        
     });
 
-    $(".productCardDesc .elementQuant").on("click", function () {
+    $(".productCardDesc .elementQuant").on("click", function (e) {
+    	e.preventDefault();
         $(this).closest(".middleSelectBlock").addClass("active");
     });
     $(".productCardDesc .elementQuant input").on("focus", function () {
@@ -1269,7 +1273,8 @@ $(document).ready(function () {
         $(this).closest(".middleSelectBlock").removeClass("active");
     });
 
-    $(".contactsWindow .close").on("click", function () {
+    $(".contactsWindow .close").on("click", function (e) {
+    	e.preventDefault();
         var el = $(this);
         el.parent().fadeOut(300);
     });
@@ -1310,19 +1315,18 @@ $(document).ready(function () {
     });
 
     //
-    $(".dataPayer .btn1").on("click", function () {
+    $(".dataPayer .btn1").on("click", function (e) {
+    	e.preventDefault();
         $(".hiddenOform").fadeIn(300);
         //показать маску
         popupMask.show();
 
         $(".hidTreatmentBody").hide();
-        //
-
     });
 
 
-    $(".sendButton").on("click", function () {
-
+    $(".sendButton").on("click", function (e) {
+		e.preventDefault();
         $(".hidTreatmentBody").hide();
         $(".hidingFormNewTreatment .message").fadeIn(300);
         setTimeout(function(){
@@ -1341,10 +1345,10 @@ $(document).ready(function () {
 	// Функционал избранного
 	
 	// Если пользователь не авторизован
-	$(".js_favorite_need_auth").on("click", function() {
+	$(".js_favorite_need_auth").on("click", function(e) {
+		e.preventDefault();
 		$("html, body").animate({ scrollTop: 0 }, "slow");
 		$(".authorisationLink a").click(); 
-		
 	});
 	
 	// Если пользователь авторизован, то добавим новую подписку
