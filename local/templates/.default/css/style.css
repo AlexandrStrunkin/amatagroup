@@ -7094,6 +7094,14 @@ border-color: #232323 !important;
     margin: -1px;
 }
 
+.dropdown-item-text {
+	padding: 10px 0 10px !important;
+}
+
+.dropdown-item-text span {
+	display: inline !important;
+}
+
 .catalogElementsBlock {
     margin-bottom: 38px;
 }
@@ -7477,10 +7485,37 @@ border-color: #232323 !important;
 }
 
 .dataPayer .row4 .small {
-    width: 270px;
+    width: 257px;
     margin-right: 28px;
     display: block;
     float: left;
+}
+
+/* Стилизация инпута location */
+.row4 .bx-ui-sls-fake{
+	height: 48px !important;
+}
+
+.row4 .bx-sls .dropdown-block {
+	border: 1px solid #bdbdbd !important;
+    border-radius: 5px !important;
+}
+
+.row4 .bx-sls .bx-ui-sls-clear {
+	margin-top: 10px !important;
+}
+
+.row4 .bx-sls .dropdown-icon {
+	top: -3px !important;
+}
+
+.row4 .bx-sls .bx-ui-sls-route {
+	top: 7px !important;
+}
+
+.order_summary {
+	border-right: 0 !important;
+	width: 100% !important;
 }
 
 .dataPayer .row4 .small:last-child {

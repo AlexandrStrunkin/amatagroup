@@ -93,7 +93,7 @@ $(document).ready(function () {
                 el.css({'top': position.top});
                 setTimeout(animateLiMoving, 0, el[0], position);
             }
-            return false;
+            
         }
 
 
@@ -131,7 +131,7 @@ $(document).ready(function () {
                 el.click();
             }
 
-            return false;
+            
         }
     });
     $(".bottomBlockMailLeft .link1").on("click", function () {
@@ -140,7 +140,7 @@ $(document).ready(function () {
         el.find(".firstLvlLi").find(".secondLvl").slideDown(300);
         el.find(".link2").show();
         $(this).hide();
-        return false;
+        
     });
     $(".bottomBlockMailLeft .link2").on("click", function () {
         var el = $(this).closest(".mainLeftMenu");
@@ -148,7 +148,7 @@ $(document).ready(function () {
         el.find(".firstLvlLi").find(".secondLvl").slideUp(300);
         el.find(".link1").show();
         $(this).hide();
-        return false;
+        
     });
 
     $(".firstLvlLi>a").on("click", function () {
@@ -273,11 +273,11 @@ $(document).ready(function () {
 
     $(".quantityPlus").on("click", function () {
         changeCount($(this), 1);
-        return false;
+        
     });
     $(".quantityMinus").on("click", function () {
         changeCount($(this), 0);
-        return false;
+        
     });
 
 
@@ -333,7 +333,7 @@ $(document).ready(function () {
     //кружочек корзина смена картинки при клике
     $('.changingBasket').on("click", function () {
         $(this).toggleClass("active");
-        return false;
+        
     });
     
     //кружочек лайк смена картинки при клике
@@ -363,12 +363,12 @@ $(document).ready(function () {
         el.find('.jcarousel-control-prev').off("click").on("click", function () {
             el.find(".jcarousel ul").stop(true, true);
             el.find(".jcarousel").jcarousel('scroll', '-=1');
-            return false;
+            
         });
         el.find('.jcarousel-control-next').off("click").on("click", function () {
             el.find(".jcarousel ul").stop(true, true);
             el.find(".jcarousel").jcarousel('scroll', '+=1');
-            return false;
+            
         });
         /*  el.find('.jcarousel-control-next')
         .on('jcarouselcontrol:active', function () {
@@ -458,7 +458,7 @@ $(document).ready(function () {
             //показать маску
             popupMask.show();
 
-            return false;
+            
         });
         $('.authHiddenBlock .authClose').on("click", function () {
             //скрыть попап авторизаци€/восстановление парол€
@@ -487,7 +487,7 @@ $(document).ready(function () {
             $('.regHiddenBlock form .error').removeClass(".error");
             //показать маску
             popupMask.show();
-            return false;
+            
         });
         $('.regHiddenBlock .authClose').on("click", function () {
             $('.regHiddenBlock').hide();
@@ -501,7 +501,7 @@ $(document).ready(function () {
             $(this).focus().blur();
         });
         $(".searchForm form")[0].reset();
-        return false;
+        
     });
     $(".searchFormClose").on("click", function () {
         $(".searchForm, .searchFormClose").fadeOut(300);
@@ -520,7 +520,7 @@ $(document).ready(function () {
     $(".cancelInp").on("click", function(){
         $(this).closest("form").find("input,textarea").removeClass("error");
         $(this).closest("form")[0].reset();
-        return false;
+        
     });
 
 
@@ -577,7 +577,7 @@ $(document).ready(function () {
                 //показать маску
                 popupMask.show();
 
-                return false;
+                
             });
 
         });
@@ -589,7 +589,7 @@ $(document).ready(function () {
         popupMask.fadeOut(300);
     });
 
-    $('input, textarea').on('blur', function () {
+    $('body').on('blur', 'input, textarea', function () {
         var el = $(this);
         if (el.val() != '') {
             el.css({'border-color': '#818181', 'color': '#000'});
@@ -607,7 +607,7 @@ $(document).ready(function () {
         }
     });
 
-    $('input, textarea').on('focus', function () {
+    $('body').on('focus', 'input, textarea', function () {
         $(this).css({'border-color': '#83D0F5', 'color': '#000'});
         //удалить выделение полей (ошибок заполнени€)
         // $('.hiddenQuestionBlock .error').removeClass(".error");
@@ -668,14 +668,14 @@ $(document).ready(function () {
         //показать маску
         popupMask.show();
 
-        return false;
+        
     });
 
     $(".popup .close").on("click", function () {
         $(this).parent().fadeOut(300);
         //показать маску
         popupMask.hide();
-        return false;
+        
     });
 
     //валидаци€ формы
@@ -695,18 +695,18 @@ $(document).ready(function () {
     });
     $(".authEnter, #callBackPopup .btn").on("click", function () {
         $(this).closest("form").submit();
-        return false;
+        
     });
 
 
     $(".forgotPassword").on("click", function () {
         $(".authForm").hide();
         $(".forgotForm").fadeIn(300);
-        return false;
+        
     });
     $("form .btn, .formAcceptBut").on("click", function () {
         $(this).closest("form").submit();
-        return false;
+        
     });
     /* $("input, textarea").each(function () {
     var el = $(this), placeholder = el.attr("placeholder");
@@ -771,7 +771,7 @@ $(document).ready(function () {
 
 
         }
-        return false;
+        
     });
     $(".couponInputBlock input").on("keydown keypress keyup", function () {
         var el = $(this), v = el.val(), button = el.parent().find("button");
@@ -784,14 +784,14 @@ $(document).ready(function () {
         var el = $(this);
         popupMask.toggle();
         el.closest(".locationWrapper").find(".list").fadeToggle(300);
-        return false;
+        
     });
     $(".locationWrapper .list a").on("click", function () {
         var el = $(this), w = el.closest(".locationWrapper");
         w.find(".sityName").text(el.text());
         w.find(".list").fadeOut(300);
         popupMask.hide();
-        return false;
+        
     });
 
 
@@ -813,7 +813,7 @@ $(document).ready(function () {
     $('.closeHidBlock, .bootomMenuHiddenBlock .cancelButton').on('click', function () {
         treatment.fadeOut(300);
         $(".overflowMask").hide();
-        return false;
+        
     });
     var file_api = ( window.File && window.FileReader && window.FileList && window.Blob ) ? true : false;
     $("input[type=file]").on('change', function () {
@@ -825,7 +825,7 @@ $(document).ready(function () {
                 fileName = $(this).val().replace("C:\\fakepath\\", '');
         }
         $(".downloadText").text(fileName);
-        return false;
+        
     });
 
 
@@ -852,20 +852,20 @@ $(document).ready(function () {
 
     $('.elementActions .likedButton').on("click", function () {
         $(this).toggleClass('activeLikeBut');
-        return false;
+        
     });
     /*
     $(".elementActions .deleteButton").on("click", function () {
         var el = $(this);
         el.closest("tr").hide();
-        return false;
+        
     });
     */
     $('.elementActions .productBasketBlock, .productWrapper .productBasketBlock').on("click", function () {
         if (!$(this).hasClass("active")) {
             $(this).addClass('active');
         }           
-        return false;
+        
     });
 
 
@@ -951,7 +951,7 @@ $(document).ready(function () {
 
         $('.basketBodyMenu p').removeClass('active');
         $(this).addClass('active');
-        return false;
+        
     })
 
     $('.basketBodyMenu p:nth-child(1)').addClass('active');
@@ -1001,7 +1001,7 @@ $(document).ready(function () {
         $("html, body").animate({scrollTop: el.offset().top-15}, 200);
         /*}, 400);*/
 
-        return false;
+        
     });
 
 
@@ -1091,7 +1091,7 @@ $(document).ready(function () {
     if ($('.hidingMenu p').length > 0) {
         $('.hidingMenu p').on("click", function () {
             $(this).closest(".hidingMenu").hide();
-            return false;
+            
 
         });
     }
@@ -1162,7 +1162,7 @@ $(document).ready(function () {
 
         $(".turnButton").on("click", function () {
             $('.horizontalFilterWrap .productFilterWrap p').click();
-            return false;
+            
         });
     }
 
@@ -1176,7 +1176,7 @@ $(document).ready(function () {
             el.addClass('activeBillingMenu');
             el.closest(".settingsWrap").find(".activeBillingsBlock").hide();
             $(id).fadeIn(700);
-            return false;
+            
         });
     }
 
@@ -1189,7 +1189,7 @@ $(document).ready(function () {
             el.addClass('activeActsMenu');
             el.closest(".settingsWrap").find(".activeBillingsBlock").hide();
             $(id).fadeIn(700);
-            return false;
+            
         });
     }
 
@@ -1202,7 +1202,7 @@ $(document).ready(function () {
         $(id).fadeIn(700);
         el.closest(".settingsBlock").find(".activeOrder").removeClass("activeOrder");
         el.closest(".settingsBlock").find(".orderContainer .orderBodyWrap").hide();
-        return false;
+        
     });
 
 
@@ -1219,7 +1219,7 @@ $(document).ready(function () {
             menu.animate({"margin-left": -300}, 300);
             block.animate({"margin-left": 0}, 300);
         }
-        return false;
+        
 
 
     });
@@ -1232,16 +1232,17 @@ $(document).ready(function () {
         $(".infoBlocksContent").hide();
         el.addClass("activeInfoBlock");
         $(id).fadeIn(500);
-        return false;
+        
     });
     //табы корзина
-    $(".basketBody .basketBodyMenu a").on("click", function () {
-        var el = $(this), id = el.attr("href");
+    $("body").on("click", ".basketBody .basketBodyMenu a", function () {
+        var el = $(this), id = el.attr("href"), delivery_id = el.data("delivery-button-id");
+        $(".dataPayer").length ? $("input#" + delivery_id).click() : ""; // если мы в оформлении заказа
         $(".basketBody .basketBodyMenu a").removeClass("active");
         $(".basketBlock").hide();
         el.addClass("active");
         $(id).fadeIn(500);
-        return false;
+        
     });
 
     $(".smallPreviewImg a").on("click", function () {
@@ -1249,7 +1250,7 @@ $(document).ready(function () {
         $(".previewImg img").hide().attr("src", id).fadeIn(700);
         $(".smallPreviewImg a").removeClass("active");
         el.addClass("active");
-        return false;
+        
     });
 
     $(".productCardDesc .elementQuant").on("click", function () {
@@ -1315,7 +1316,7 @@ $(document).ready(function () {
         popupMask.show();
 
         $(".hidTreatmentBody").hide();
-        return false;
+        //
 
     });
 
@@ -1327,7 +1328,7 @@ $(document).ready(function () {
         setTimeout(function(){
             $(".hidingFormNewTreatment").fadeOut(300);
             }, 2000);
-        return false;
+        
     });
 
     //обработка клика по элементам выпадающего списка
@@ -1343,7 +1344,7 @@ $(document).ready(function () {
 	$(".js_favorite_need_auth").on("click", function() {
 		$("html, body").animate({ scrollTop: 0 }, "slow");
 		$(".authorisationLink a").click(); 
-		return false;
+		
 	});
 	
 	// ≈сли пользователь авторизован, то добавим новую подписку
