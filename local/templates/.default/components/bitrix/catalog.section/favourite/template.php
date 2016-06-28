@@ -168,7 +168,7 @@
 
                                         ?>
 
-                                        <tr id="<? echo $strMainID; ?>">
+                                        <tr id="<? echo $strMainID; ?>" class="js_favorite_block">
                                             <td class="elementName">
                                                 <div class="itemImgContainet">
                                                     <a href="<?=$arItem['DETAIL_PAGE_URL'];?>">
@@ -590,7 +590,13 @@
                                                     </div>      
                                                     <?}?>
 
-                                                <a href="" class="deleteButton" title="<?=GetMessage("REMOVE_FROM_FAVOURITE")?>"><p></p></a>
+                                                <a href="javascript:void(0)" 
+									               class="deleteButton js_delete_from_favorite_list"
+									               title="<?=GetMessage("REMOVE_FROM_FAVOURITE")?>"
+									               data-favorite-delete="<?= $arItem['USER_HAVE_ITEM_IN_FAVORITE'] ? "Y" : "" ?>"
+									               data-favorite-item-id="<?= $arItem['USER_HAVE_ITEM_IN_FAVORITE'] ?>">
+									            <p></p>
+									            </a>
                                             </td>   
 
                                         </tr>                                 
@@ -635,6 +641,10 @@
         <?$this->EndViewTarget();?>
         <?}?>   
     <?}?>
+    
+    <p class="no_items_in_favorite" <? if (!empty($arResult['ITEMS'])) { ?> style="display: none" <? } ?>>
+        <?= GetMessage("HAVE_NOT_FAVORITE_YET") ?>
+    </p>
 
 <?$this->SetViewTarget('catalog_section_description'); //show in header.php?> 
 <?=$arResult["DESCRIPTION"]?>

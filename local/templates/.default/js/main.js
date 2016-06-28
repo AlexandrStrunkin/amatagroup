@@ -1383,6 +1383,24 @@ $(document).ready(function () {
         	refreshFavoriteIcon(result.total);
 	    }.bind(this));
 	})
+	
+	// Удаление подписки со страницы избранного
+	$("body").on("click", ".js_delete_from_favorite_list", function() {
+		$.post("/ajax/manage_favorite.php", {
+			id: $(this).data("favorite-item-id"),
+			delete_item: $(this).data("favorite-delete")
+		}, function(result) {
+			result = JSON.parse(result);
+			if ($(".deleteButton ").length > 1) {
+				$(this).closest(".js_favorite_block").remove();
+			} else {
+				$(".elementsTable").remove();
+				$(".no_items_in_favorite").show();
+			}
+
+        	refreshFavoriteIcon(result.total);
+	    }.bind(this));
+	})
 
     // торговые предложения в карточке товара
     $(".firstFilter p.js-offer-option").on("click", function() {
