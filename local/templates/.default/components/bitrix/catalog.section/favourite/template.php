@@ -11,7 +11,19 @@
     /** @var string $componentPath */
     /** @var CBitrixComponent $component */
     $this->setFrameMode(true);
-?>                
+?>
+<div class="catalogElementsBlock">
+    <div class="widthWrapper">
+
+        <div class="allElementWrap">
+            <div class="elementBlocksWrap smallElementList">
+
+                <div class="basketBody">
+                    <div class="basketBodyMenu">
+                        <a href="<?=$arParams["BASKET_URL"]?>"><?=GetMessage("SALE_BASKET")?></a>
+                        <a href="#!" class="active"><?=GetMessage("SALE_FAVOURITE")?></a>
+                    </div>
+                </div>
 <?
     if (!empty($arResult['ITEMS'])) {
         $templateLibrary = array('popup');
@@ -89,21 +101,6 @@
         $arElementDeleteParams = array("CONFIRM" => GetMessage('CT_BCS_TPL_ELEMENT_DELETE_CONFIRM'));       
 
     ?>
-
-    <div class="catalogElementsBlock">
-        <div class="widthWrapper">
-
-            <div class="allElementWrap">
-                <div class="elementBlocksWrap smallElementList">
-
-                    <div class="basketBody">
-                        <div class="basketBodyMenu">
-                            <a href="<?=$arParams["BASKET_URL"]?>"><?=GetMessage("SALE_BASKET")?></a>
-                            <a href="#!" class="active"><?=GetMessage("SALE_FAVOURITE")?></a>
-                        </div>
-                    </div>
-
-
                     <div class="elementsTable">
                         <div class="basketBlock basketBody">
                             <table>
@@ -623,14 +620,6 @@
 
                         </div>
                     </div>
-                </div>  
-
-            </div>
-
-        </div>
-
-    </div>
-
 
     <script type="text/javascript">
         BX.message({
@@ -662,6 +651,11 @@
     <p class="no_items_in_favorite" <? if (!empty($arResult['ITEMS'])) { ?> style="display: none" <? } ?>>
         <?= GetMessage("HAVE_NOT_FAVORITE_YET") ?>
     </p>
+    
+            </div>
+        </div>
+    </div>
+</div>
 
 <?$this->SetViewTarget('catalog_section_description'); //show in header.php?> 
 <?=$arResult["DESCRIPTION"]?>
