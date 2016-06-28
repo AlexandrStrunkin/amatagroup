@@ -22,8 +22,7 @@
                             $arHeader["name"] = (isset($arHeader["name"]) ? (string)$arHeader["name"] : '');
                             if ($arHeader["name"] == '')
                                 $arHeader["name"] = GetMessage("SALE_".$arHeader["id"]);
-                            $arHeaders[] = $arHeader["id"];
-
+                            $arHeaders[] = $arHeader["id"];     
                         }?>
                         <th class="elementName item" id="col_NAME"><?=GetMessage("SALE_PRODUCT_NAME")?></th>
                         <th class="elementColor custom"><?=GetMessage("SALE_PRODUCT_OFFER")?></th>
@@ -133,8 +132,8 @@
                                 </td>
 
                                 <td class="elementActions">
-                                    <a href="" class="likedButton js_add_to_favorite"><p></p></a>
-                                    <a href="<?=str_replace("#ID#", $arItem["ID"], $arUrls["delete"])?>" class="deleteButton"><p></p></a>
+                                    <a href="" class="likedButton js_add_to_favorite" title=""><p></p></a>
+                                    <a href="<?=str_replace("#ID#", $arItem["ID"], $arUrls["delete"])?>" class="deleteButton" title="<?=GetMessage("SALE_DELETE_PRODUCT")?>"><p></p></a>
                                 </td>        
 
                             </tr>

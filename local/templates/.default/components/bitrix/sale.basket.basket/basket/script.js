@@ -1125,5 +1125,5 @@ BX.ready(function() {
 	}
 	couponBlock = BX('coupons_block');
 	if (!!couponBlock)
-		BX.bindDelegate(couponBlock, 'click', { 'attribute': 'data-coupon' }, BX.delegate(function(e){deleteCoupon(e); }, this));
+		BX.bindDelegate(couponBlock, 'click', { 'attribute': 'data-coupon' }, BX.delegate(function(e){deleteCoupon(e); }, this));   
 });

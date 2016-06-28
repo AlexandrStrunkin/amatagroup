@@ -40,6 +40,11 @@ class Favorite {
 	 * */
 	public static function getListForUser() {
 		global $USER;
+        
+        if (!$USER->IsAuthorized()) {
+            return false;
+        }
+        
 		$users_favorite = array();
 		$product_list = CIBlockElement::GetList(
 			array(),
