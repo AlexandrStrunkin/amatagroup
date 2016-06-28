@@ -4,6 +4,9 @@ if (!defined('B_PROLOG_INCLUDED') || B_PROLOG_INCLUDED !== true) die();
 /** @var array $arParams */
 /** @var array $arResult */
 /** @global CDatabase $DB */
+
+global $USER;
+
 if (!isset($arParams['LINE_ELEMENT_COUNT']))
 	$arParams['LINE_ELEMENT_COUNT'] = 3;
 $arParams['LINE_ELEMENT_COUNT'] = intval($arParams['LINE_ELEMENT_COUNT']);
@@ -59,6 +62,8 @@ if (!empty($arResult['ITEMS']))
 	$skuPropList = array(); // array("id_catalog" => array(...))
 	$skuPropIds = array(); // array("id_catalog" => array(...))
 	$skuPropKeys = array(); // array("id_catalog" => array(...))
+	
+	$arResult['USER_AUTHORIZED'] = $USER->IsAuthorized() ? true : false;
 
 	if (!$boolConvert)
 		$strBaseCurrency = CCurrency::GetBaseCurrency();
@@ -98,6 +103,9 @@ if (!empty($arResult['ITEMS']))
 
 	foreach ($arResult['ITEMS'] as $key => $arItem)
 	{
+		if ($arResult['USER_AUTHORIZED']) {
+			$arItem['USER_HAVE_ITEM_IN_FAVORITE'] = Favorite::checkIsExists($USER->GetID(), $arItem['ID']);
+		}	
 		$arItem['CATALOG_QUANTITY'] = (
 		0 < $arItem['CATALOG_QUANTITY'] && is_float($arItem['CATALOG_MEASURE_RATIO'])
 			? floatval($arItem['CATALOG_QUANTITY'])

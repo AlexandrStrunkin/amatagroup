@@ -36,7 +36,6 @@
                 <tbody>
                     <?      
                         foreach ($arResult["GRID"]["ROWS"] as $k => $arItem):
-
                             if ($arItem["DELAY"] == "N" && $arItem["CAN_BUY"] == "Y"): 
                             ?>            
 
@@ -133,7 +132,13 @@
                                 </td>
 
                                 <td class="elementActions">
-                                    <a href="" class="likedButton js_add_to_favorite"><p></p></a>
+                                    <a href="javascript:void(0)" 
+						               class="list_favorite likedButton <?= $arResult['USER_AUTHORIZED'] ?  ($arItem['USER_HAVE_ITEM_IN_FAVORITE'] ? " activeLikeBut already_in_favorite" : " js_add_to_favorite") : " js_favorite_need_auth" ?>"
+						               data-favorite-product-id="<?= $arResult["ITEMS_PROPS"][$arItem["PRODUCT_ID"]]["CML2_LINK"] ? $arResult["ITEMS_PROPS"][$arItem["PRODUCT_ID"]]["CML2_LINK"] : $arItem["PRODUCT_ID"] ?>"
+						               data-favorite-delete="<?= $arItem['USER_HAVE_ITEM_IN_FAVORITE'] ? "Y" : "" ?>"
+						               data-favorite-item-id="<?= $arItem['USER_HAVE_ITEM_IN_FAVORITE'] ?>">
+						               <p></p>
+						            </a>
                                     <a href="<?=str_replace("#ID#", $arItem["ID"], $arUrls["delete"])?>" class="deleteButton"><p></p></a>
                                 </td>        
 
@@ -201,30 +206,6 @@
                             <input type="text" id="coupon" name="COUPON" value="" onchange="enterCoupon();" placeholder="<?=GetMessage("SALE_ENTER_COUPON")?>">
                             <button disabled onclick="enterCoupon();"><?=GetMessage("SALE_SEND_COUPON")?></button>
                         </div><?
-                            /*  //список введенных купонов
-                            if (!empty($arResult['COUPON_LIST'])) {
-                            foreach ($arResult['COUPON_LIST'] as $oneCoupon) {
-                            $couponClass = 'disabled';
-                            switch ($oneCoupon['STATUS']) {
-                            case DiscountCouponsManager::STATUS_NOT_FOUND:
-                            case DiscountCouponsManager::STATUS_FREEZE:
-                            $couponClass = 'bad';
-                            break;
-                            case DiscountCouponsManager::STATUS_APPLYED:
-                            $couponClass = 'good';
-                            break;
-                            }
-                            ?><div class="bx_ordercart_coupon">
-                            <div class="bx_ordercart_coupon_notes">
-                            <?
-                            if (isset($oneCoupon['CHECK_CODE_TEXT'])) {
-                            echo htmlspecialcharsbx($oneCoupon['COUPON'])." - ".(is_array($oneCoupon['CHECK_CODE_TEXT']) ? implode('<br>', $oneCoupon['CHECK_CODE_TEXT']) : $oneCoupon['CHECK_CODE_TEXT']);
-                            }
-                            ?></div>
-                            </div><?
-                            }
-                            unset($couponClass, $oneCoupon);
-                            }*/
                         } 
                     ?>
                 </div>

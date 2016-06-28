@@ -3312,7 +3312,7 @@ opacity: 0.7;
     padding-left: 28px;
     padding-top: 1px;
     text-align: left;
-    width: 200px;
+    width: 205px;
 }
 
 .basketBody th.elementPrice {
@@ -5397,6 +5397,13 @@ border-color: transparent transparent #fff;
 
 .productSlider .infoDocName {
     margin-left: 19px;
+}
+
+.no_items_in_favorite {
+	display: block;
+    margin: 0 auto 30px;
+    width: 1182px;
+    font-family: "MuseoSansCyrl-700";
 }
 
 .infoDocumentsBlock .productWrapper {
