@@ -3,18 +3,16 @@
     $APPLICATION->SetTitle("Избранное");
 ?><?
     $favouriteList = Favorite::getListForUser(); 
+    global $favouriteFilter;
+    $favouriteFilter = array(
+        "=ID" => $favouriteList,
+    );
 
-    if (!empty($favouriteList) && is_array($favouriteList)) {
-        global $favouriteFilter;
-        $favouriteFilter = array(
-            "=ID" => $favouriteList,
-        );
-
-        $catalogParams = getCatalogViewParams();  //sets in init.php
-        $arParams["ELEMENT_SORT_FIELD"] = $catalogParams["ELEMENT_SORT_FIELD"];
-        $arParams["ELEMENT_SORT_ORDER"] = $catalogParams["ELEMENT_SORT_ORDER"];
-        $arParams["ELEMENT_SORT_FIELD2"] = $catalogParams["ELEMENT_SORT_FIELD2"];
-        $arParams["ELEMENT_SORT_ORDER2"] = $catalogParams["ELEMENT_SORT_ORDER2"];
+    $catalogParams = getCatalogViewParams();  //sets in init.php
+    $arParams["ELEMENT_SORT_FIELD"] = $catalogParams["ELEMENT_SORT_FIELD"];
+    $arParams["ELEMENT_SORT_ORDER"] = $catalogParams["ELEMENT_SORT_ORDER"];
+    $arParams["ELEMENT_SORT_FIELD2"] = $catalogParams["ELEMENT_SORT_FIELD2"];
+    $arParams["ELEMENT_SORT_ORDER2"] = $catalogParams["ELEMENT_SORT_ORDER2"];
 
     ?> <?$APPLICATION->IncludeComponent(
             "bitrix:catalog.section",
@@ -122,12 +120,7 @@
             Array(
                 'HIDE_ICONS' => 'Y'
             )
-        );?> <?} else {
-    ?>
-    <p class="no_items_in_favorite">
-        У вас пока нет избранных товаров
-    </p>
-    <?}?> <!--viewedElementBlock-->
+        );?>  <!--viewedElementBlock-->
 <div class="viewedElementBlock">
     <div class="widthWrapper">
         <!--viewedBlock-->

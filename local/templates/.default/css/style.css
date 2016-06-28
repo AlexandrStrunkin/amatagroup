@@ -3315,6 +3315,12 @@ opacity: 0.7;
     width: 205px;
 }
 
+@-moz-document url-prefix() { 
+	.basketBody th.elementColor {
+		width: 203px;
+	}
+}
+
 .basketBody th.elementPrice {
     color: #5a5a5a;
     font: 15px/1 "MuseoSansCyrl-500";
