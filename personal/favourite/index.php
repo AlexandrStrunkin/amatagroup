@@ -124,7 +124,7 @@
             )
         );?> <?} else {
     ?>
-    <p>
+    <p class="no_items_in_favorite">
         У вас пока нет избранных товаров
     </p>
     <?}?> <!--viewedElementBlock-->

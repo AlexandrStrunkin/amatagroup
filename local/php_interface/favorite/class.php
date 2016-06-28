@@ -46,19 +46,21 @@ class Favorite {
         }
         
 		$users_favorite = array();
-		$product_list = CIBlockElement::GetList(
-			array(),
-			array(
-				'IBLOCK_ID'  => FAVORITE_IBLOCK_ID,
-				"CREATED_BY" => $USER->GetID()
-			),
-			false,
-			false,
-			array('ID', 'NAME')
-		);
-		
-		while ($product = $product_list->Fetch()) {
-			array_push($users_favorite, $product['NAME']);
+		if ($USER->GetID()) {
+			$product_list = CIBlockElement::GetList(
+				array(),
+				array(
+					'IBLOCK_ID'  => FAVORITE_IBLOCK_ID,
+					"CREATED_BY" => $USER->GetID()
+				),
+				false,
+				false,
+				array('ID', 'NAME')
+			);
+			
+			while ($product = $product_list->Fetch()) {
+				array_push($users_favorite, $product['NAME']);
+			}
 		}
 		
 		return empty($users_favorite) ? false : $users_favorite;
