@@ -155,6 +155,8 @@
                                 $minPrice = false;
                                 if (isset($arItem['MIN_PRICE']) || isset($arItem['RATIO_PRICE']))
                                     $minPrice = (isset($arItem['RATIO_PRICE']) ? $arItem['RATIO_PRICE'] : $arItem['MIN_PRICE']);
+                                    
+                                    $arItem["MIN_PRICE_TMP"] = $minPrice;
 
                             ?>
 
@@ -164,10 +166,26 @@
                                         <a href="<?=$arItem['DETAIL_PAGE_URL'];?>">
                                             <img src="<?=$arItem["PREVIEW_PICTURE"]["SRC"]?>" alt="<?=$arItem["NAME"]?>">
                                         </a>
-                                    </div>        
+                                    </div>    
 
-                                    <p class="elementStatus statusInStock">В наличии</p>
-                                    <br>
+                                    <?//шильдик скидки
+                                        if ($arItem["MIN_PRICE_TMP"]['DISCOUNT_VALUE'] < $arItem["MIN_PRICE_TMP"]['VALUE'] && $arItem["MIN_PRICE_TMP"]["DISCOUNT_DIFF_PERCENT"] > 0) {?> 
+                                        <p class="elementStatus statusExpected">-<?=$arItem["MIN_PRICE_TMP"]["DISCOUNT_DIFF_PERCENT"];?>%</p>
+                                        <? //шильдик новинки. Если товар  создан менее 2 недель назад
+                                        } else if (date("U") - 86400 * FRESH_PRODUCT_STATUS_LENGTH <= MakeTimeStamp($arItem["DATE_CREATE"], "DD.MM.YYYY HH:MI:SS")) {
+                                        ?>
+                                        <p class="elementStatus statusByOrderEmpty" title="<?=GetMessage("FRESH_PRODUCT")?>">FRESH</p>
+                                        <?} else if (date("U") - 86400 * NEW_PRODUCT_STATUS_LENGTH <= MakeTimeStamp($arItem["DATE_CREATE"], "DD.MM.YYYY HH:MI:SS")) {
+                                        ?>
+                                        <p class="elementStatus statusByOrder" title="<?=GetMessage("NEW_PRODUCT")?>">NEW</p>
+                                        <? 
+                                            //шильдик последние поступления. Если товар  создан менее 2 дней назад
+                                        } else /*if ($arItem["CAN_BUY"] == "Y")*/{?>
+                                        <p class="elementStatus statusInStock"><?=GetMessage("PRODUCT_AVAILABLE")?></p>
+                                        <?}?> 
+                                    <br>     
+
+
                                     <p class="elementTitle">
                                         <span>
                                             <a href="<?=$arItem['DETAIL_PAGE_URL'];?>" title="<?=$arItem["NAME"]?>">
@@ -616,7 +634,7 @@
             SITE_ID: '<? echo SITE_ID; ?>'
         });
     </script>
-    
+
     <?if ($arParams["DISPLAY_BOTTOM_PAGER"]) {?>            
         <?$this->SetViewTarget('catalog_pager'); //show in section.php?>         
         <?echo $arResult["NAV_STRING"];?>                

@@ -1239,7 +1239,7 @@ $(document).ready(function () {
         $(id).fadeIn(500);
     });
     //табы корзина
-    $("body").on("click", ".basketBody .basketBodyMenu a", function (e) {
+    $("body").on("click", ".basketBody .basketBodyMenu a.js_tabs", function (e) {
         var el = $(this), id = el.attr("href"), delivery_id = el.data("delivery-button-id");
         $(".dataPayer").length ? $("input#" + delivery_id).click() : ""; // если мы в оформлении заказа
         $(".basketBody .basketBodyMenu a").removeClass("active");

@@ -24,7 +24,7 @@
     global $availableParams;
     //массив допустимых параметров для отображения каталога КЛЮЧ => МАССИВ ДОПУСТИМЫХ ЗНАЧЕНИЙ
     $availableParams = array(
-        "PAGE_ELEMENT_COUNT" => array(12, 24, 60), //количество элементов на странице
+        "PAGE_ELEMENT_COUNT" => $arPageElementCount, //количество элементов на странице
         "ELEMENT_SORT_FIELD" => $catalogAvailableSort, //поле для первой сортировки
         "ELEMENT_SORT_ORDER" => $catalogAvailableSortDirections, //направление для первой сортировки
         "ELEMENT_SORT_FIELD2" => $catalogAvailableSort, //поле для второй сортировки

@@ -50,4 +50,5 @@ $MESS["SALE_BASKET"] = "Корзина";
 $MESS["SALE_FAVOURITE"] = "Избранное";
 $MESS["SALE_SEND_COUPON"] = "Отправить код";
 $MESS["VIEWED_PRODUCTS"] = "Просмотренные товары";
+$MESS["SALE_DELETE_PRODUCT"] = "Удалить товар из корзины";
 ?>
