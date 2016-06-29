@@ -43,8 +43,8 @@
             <p><?$APPLICATION->IncludeFile(DEFAULT_TEMPLATE_PATH."include/include_areas/email.php", Array(),Array("MODE"=>"html"));?></p>      
         </div>
         <div class="firstLvlBlocks mailtelinfo">
-            <p>Телефон в Москве</p>
-            <a href="tel:74955189603" class="telNumber">+7 495 518 96 03</a>
+            <p><?=GetMessage("PHONE_IN_MOSCOW")?></p>
+            <a href="tel:<?include($_SERVER["DOCUMENT_ROOT"].DEFAULT_TEMPLATE_PATH."include/include_areas/phone.php")?>" class="telNumber"><?$APPLICATION->IncludeFile(DEFAULT_TEMPLATE_PATH."include/include_areas/phone.php", Array(),Array("MODE"=>"html"));?></a>
         </div>
 
         <div class="firstLvlBlocks linksBlock" id="linkBlock1">

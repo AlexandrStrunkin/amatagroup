@@ -133,12 +133,12 @@
                                 <td class="elementActions">
 
                                     <a href="javascript:void(0)" 
-						               class="list_favorite likedButton <?= $arResult['USER_AUTHORIZED'] ?  ($arItem['USER_HAVE_ITEM_IN_FAVORITE'] ? " activeLikeBut already_in_favorite" : " js_add_to_favorite") : " js_favorite_need_auth" ?>"
-						               data-favorite-product-id="<?= $arResult["ITEMS_PROPS"][$arItem["PRODUCT_ID"]]["CML2_LINK"] ? $arResult["ITEMS_PROPS"][$arItem["PRODUCT_ID"]]["CML2_LINK"] : $arItem["PRODUCT_ID"] ?>"
-						               data-favorite-delete="<?= $arItem['USER_HAVE_ITEM_IN_FAVORITE'] ? "Y" : "" ?>"
-						               data-favorite-item-id="<?= $arItem['USER_HAVE_ITEM_IN_FAVORITE'] ?>">
-						               <p></p>
-						            </a>
+                                        class="list_favorite likedButton <?= $arResult['USER_AUTHORIZED'] ?  ($arItem['USER_HAVE_ITEM_IN_FAVORITE'] ? " activeLikeBut already_in_favorite" : " js_add_to_favorite") : " js_favorite_need_auth" ?>"
+                                        data-favorite-product-id="<?= $arResult["ITEMS_PROPS"][$arItem["PRODUCT_ID"]]["CML2_LINK"] ? $arResult["ITEMS_PROPS"][$arItem["PRODUCT_ID"]]["CML2_LINK"] : $arItem["PRODUCT_ID"] ?>"
+                                        data-favorite-delete="<?= $arItem['USER_HAVE_ITEM_IN_FAVORITE'] ? "Y" : "" ?>"
+                                        data-favorite-item-id="<?= $arItem['USER_HAVE_ITEM_IN_FAVORITE'] ?>">
+                                        <p></p>
+                                    </a>
                                     <a href="<?=str_replace("#ID#", $arItem["ID"], $arUrls["delete"])?>" class="deleteButton" title="<?=GetMessage("SALE_DELETE_PRODUCT")?>"><p></p></a>
                                 </td>        
 
@@ -180,12 +180,16 @@
             <div class="decorBlock bx_ordercart_order_sum">
                 <p class="titleText"><?=GetMessage("SALE_PROCESSING")?></p>
 
-                <p class="orderPrice"><?=GetMessage("SALE_ORDER_SUMM")?>
-                    <span id="PRICE_WITHOUT_DISCOUNT">
-                        <?if (floatval($arResult["DISCOUNT_PRICE_ALL"]) > 0):?>
-                            <?=$arResult["PRICE_WITHOUT_DISCOUNT"]?>
-                            <?endif;?>
-                    </span>
+
+                <p class="orderPrice">       
+                    <?=GetMessage("SALE_ORDER_SUMM")?>
+                    <span id="PRICE_WITHOUT_DISCOUNT">  
+                        <?if (floatval($arResult["DISCOUNT_PRICE_ALL"]) > 0) {?>      
+                            <?=$arResult["PRICE_WITHOUT_DISCOUNT"]?>   
+                            <?} else {?>
+                            &nbsp;
+                            <?}?>             
+                    </span>      
                 </p>
 
                 <p class="orderDiscount" ><?=GetMessage("SALE_CONTENT_DISCOUNT")?><span id="TOTAL_DISCOUNT"><?=$arResult["DISCOUNT_PRICE_ALL_FORMATED"]?></span></p>

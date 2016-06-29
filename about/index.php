@@ -18,25 +18,25 @@ $APPLICATION->SetTitle("О магазине");
 		<div class="row">
 			<div class="col-xs-4">
 				<ul class="bxe-list bxe-lis-blue">
-					<li><i class="fa fa-check"></i> <span style="font-size:13px;">Быстрая доставка</span></li>
-					<li><i class="fa fa-check"></i> <span style="font-size:13px;">Низкие цены</span></li>
-					<li><i class="fa fa-check"></i> <span style="font-size:13px;">Широкий ассортимент</span></li>
-					<li><i class="fa fa-check"></i> <span style="font-size:13px;">Бонусы и подарки</span></li>
+					<li><i class="fa fa-check"></i> <span style="">Быстрая доставка</span></li>
+					<li><i class="fa fa-check"></i> <span style="">Низкие цены</span></li>
+					<li><i class="fa fa-check"></i> <span style="">Широкий ассортимент</span></li>
+					<li><i class="fa fa-check"></i> <span style="">Бонусы и подарки</span></li>
 				</ul>
 			</div>
 			<div class="col-xs-4">
 				<ul class="bxe-list bxe-lis-blue">
-					<li><i class="fa fa-check"></i> <span style="font-size:13px;">Отличное обслуживаение</span></li>
-					<li><i class="fa fa-check"></i> <span style="font-size:13px;">Профессиональный менеджеры</span></li>
-					<li><i class="fa fa-check"></i> <span style="font-size:13px;">Гарантия на все товары</span></li>
-					<li><i class="fa fa-check"></i> <span style="font-size:13px;">Надежные поставщики</span></li>
+					<li><i class="fa fa-check"></i> <span style="">Отличное обслуживаение</span></li>
+					<li><i class="fa fa-check"></i> <span style="">Профессиональный менеджеры</span></li>
+					<li><i class="fa fa-check"></i> <span style="">Гарантия на все товары</span></li>
+					<li><i class="fa fa-check"></i> <span style="">Надежные поставщики</span></li>
 				</ul>
 			</div>
 			<div class="col-xs-4">
 				<ul class="bxe-list bxe-lis-blue">
-					<li><i class="fa fa-check"></i> <span style="font-size:13px;">Сезонные скидки</span></li>
-					<li><i class="fa fa-check"></i> <span style="font-size:13px;">Программа лояльности</span></li>
-					<li><i class="fa fa-check"></i> <span style="font-size:13px;">Карты постоянных клиентов</span></li>
+					<li><i class="fa fa-check"></i> <span style="">Сезонные скидки</span></li>
+					<li><i class="fa fa-check"></i> <span style="">Программа лояльности</span></li>
+					<li><i class="fa fa-check"></i> <span style="">Карты постоянных клиентов</span></li>
 				</ul>
 			</div>
 		</div>

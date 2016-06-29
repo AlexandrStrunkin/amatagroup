@@ -4835,18 +4835,18 @@ background: url(../img/arrow.png) no-repeat 50%;
     padding-bottom: 20px;
 }
 
-.infoBlockWrapper .infoText {
+.infoBlockWrapper .infoText, .innerPageWrapper p {
     color: #9a9a9a;
     font: 17px/26px "PT Serif", serif;
     margin-bottom: 30px;
     letter-spacing: 0.2px;
 }
 
-.infoBlockWrapper .infoText a {
+.infoBlockWrapper .infoText a, .innerPageWrapper p a {
     color: #5DB3DC;
 }
 
-.infoBlockWrapper .infoText a:hover {
+.infoBlockWrapper .infoText a:hover, .innerPageWrapper p a:hover {
     text-decoration: underline;
 }
 
@@ -5038,7 +5038,7 @@ textarea {
     padding: 24px 28px;
 }
 
-.infoBlockWrapper .infoBlackTitle {
+.infoBlockWrapper .infoBlackTitle, .innerPageWrapper h2 {
     border-bottom: 1px solid #dddddd;
     color: #000;
     font-family: "MuseoSansCyrl-700";
@@ -5049,7 +5049,7 @@ textarea {
     letter-spacing: 0.6px;
 }
 
-.infoBlockWrapper .infoDocumentList {
+.infoBlockWrapper .infoDocumentList, .innerPageWrapper ul {
     color: #a1a1a1;
     font-family: "MuseoSansCyrl-500";
     font-size: 16px;
@@ -5057,17 +5057,17 @@ textarea {
     margin-top: 46px;
 }
 
-.infoBlockWrapper .infoDocumentList li {
+.infoBlockWrapper .infoDocumentList li, .innerPageWrapper ul li {
     margin-bottom: 17.5px;
     position: relative;
     letter-spacing: 0.2px;
 }
 
-.infoDocumentList li span {
+.infoDocumentList li span, .innerPageWrapper ul li span {
     color: #000;
 }
 
-.infoBlockWrapper .infoDocumentList li:before {
+.infoBlockWrapper .infoDocumentList li:before, .innerPageWrapper ul li:before {
     content: url("../img/libefore12.png");
     left: -20px;
     position: relative;
