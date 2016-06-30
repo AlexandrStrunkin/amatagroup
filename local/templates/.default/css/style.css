@@ -131,7 +131,7 @@ img {
     margin: 0;
     padding: 0;
     outline: none !important;
-    box-sizing: inherit;
+    /*box-sizing: inherit;*/
 }
 
 a {
