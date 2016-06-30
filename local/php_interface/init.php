@@ -52,10 +52,10 @@
 	define("ORDER_APARTMENT", "ORDER_PROP_23"); // Квартира/офис
 	
     /*константы для отображения каталога*/
-    define("DEFAULT_PAGE_ELEMENT_COUNT", $GLOBALS["arPageElementCount"][0]); //количество элементов на странице раздела каталога по умолчанию
-    define("DEFAULT_ELEMENT_SORT_FIELD", $GLOBALS["catalogAvailableSort"][0]); //поле для первой сортировки элементов в каталоге по умолчанию
+    define("DEFAULT_PAGE_ELEMENT_COUNT", $GLOBALS["availableParams"]["PAGE_ELEMENT_COUNT"][0]); //количество элементов на странице раздела каталога по умолчанию
+    define("DEFAULT_ELEMENT_SORT_FIELD", $GLOBALS["availableParams"]["ELEMENT_SORT_FIELD"][0]); //поле для первой сортировки элементов в каталоге по умолчанию
     define("DEFAULT_ELEMENT_SORT_ORDER", $GLOBALS["availableParams"]["ELEMENT_SORT_ORDER"][0]); //направление для первой сортировки элементов в каталоге по умолчанию
-    define("DEFAULT_ELEMENT_SORT_FIELD2", $GLOBALS["catalogAvailableSort"][1]); //поле для второй сортировки элементов в каталоге по умолчанию
+    define("DEFAULT_ELEMENT_SORT_FIELD2", $GLOBALS["availableParams"]["ELEMENT_SORT_FIELD"][1]); //поле для второй сортировки элементов в каталоге по умолчанию
     define("DEFAULT_ELEMENT_SORT_ORDER2", $GLOBALS["availableParams"]["ELEMENT_SORT_ORDER2"][0]); //направление для второй сортировки элементов в каталоге по умолчанию
     define("DEFAULT_CATALOG_SECTION_TEMPLATE", "blocks"); //шаблон для отображения элементов раздела по умолчанию      
     /*///*/
@@ -140,7 +140,6 @@
 
         //при необходимости делаем перезагрузку страницы и удаляем параметры из урла
         if ($pageRefresh) {
-            global $APPLICATION;
             header ("location: ".$_SERVER["HTTP_REFERER"]);
         }
 
@@ -239,7 +238,7 @@
             if ($_GET[$paramKey] && in_array($_GET[$paramKey], $paramValue)) {
                 $result[$paramKey] = $_GET[$paramKey];
             }   
-        }
+        }          
         //после окончания формирования массива перезагружаем страницу
         if (count($result) > 0) {
             setCatalogViewParams($result, true);

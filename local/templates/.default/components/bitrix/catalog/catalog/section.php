@@ -70,7 +70,7 @@
             $arCurSection = array();
     }           
 
-    $catalogParams = getCatalogViewParams();  //sets in init.php
+    $catalogParams = getCatalogViewParams();  //sets in init.php     
     $sectionTemplate = $catalogParams["CATALOG_SECTION_TEMPLATE"];
     $arParams["PAGE_ELEMENT_COUNT"] = $catalogParams["PAGE_ELEMENT_COUNT"];
     $arParams["ELEMENT_SORT_FIELD"] = $catalogParams["ELEMENT_SORT_FIELD"];
