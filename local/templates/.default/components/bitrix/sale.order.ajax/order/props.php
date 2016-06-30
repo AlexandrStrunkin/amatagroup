@@ -23,7 +23,14 @@ include($_SERVER["DOCUMENT_ROOT"].$templateFolder."/props_format.php");
 	<input type="hidden" name="showProps" id="showProps" value="<?=($_POST["showProps"] == 'Y' ? 'Y' : 'N')?>" />
 </h2>
 
-<? PrintPropsForm(array_merge($arResult["ORDER_PROP"]["USER_PROPS_Y"], $arResult["ORDER_PROP"]["USER_PROPS_N"]), $arParams["TEMPLATE_LOCATION"]); ?>
+<?
+if (is_array($arResult["ORDER_PROP"]["RELATED"])) {
+	PrintPropsForm(array_merge($arResult["ORDER_PROP"]["USER_PROPS_Y"], $arResult["ORDER_PROP"]["RELATED"]), $arParams["TEMPLATE_LOCATION"]);
+} else {
+	PrintPropsForm(array_merge($arResult["ORDER_PROP"]["USER_PROPS_Y"], $arResult["ORDER_PROP"]["USER_PROPS_N"]), $arParams["TEMPLATE_LOCATION"]);
+}
+?>
+
 
 <script type="text/javascript">
 	function fGetBuyerProps(el)

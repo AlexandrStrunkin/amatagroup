@@ -865,7 +865,7 @@ $(document).ready(function () {
         
     });
     */
-    $('.elementActions .productBasketBlock, .productWrapper .productBasketBlock').on("click", function (e) {
+    $('body').on("click", ".elementActions .productBasketBlock, .productWrapper .productBasketBlock", function (e) {
     	e.preventDefault();
         if (!$(this).hasClass("active")) {
             $(this).addClass('active');

@@ -240,7 +240,7 @@
 							onclick="submitForm();"
 							/>
 						
-						<a href="#courier" data-delivery-button-id="ID_DELIVERY_ID_<?= $arDelivery["ID"] ?>" class="<?if ($arDelivery["CHECKED"]=="Y") echo " active";?>">
+						<a href="#courier" data-delivery-button-id="ID_DELIVERY_ID_<?= $arDelivery["ID"] ?>" class="js_tabs <?if ($arDelivery["CHECKED"]=="Y") echo " active";?>">
 							<?= htmlspecialcharsbx($arDelivery["NAME"])?>
 						</a>
 				<?
@@ -249,14 +249,16 @@
 			</div>
 			<? if ($arResult['USERS_SAVED_ADDRESSES']) { ?>
 			<div id="courier" class="basketBlock" style="display: block">
-                <h3>Мои адреса</h3>
+                <h3><?= GetMessage("SOA_ORDER_DELIVERY_MY_ADDRESSES") ?></h3>
                 <!--col1-->
                 <div class="col1">
+                <? $i = 1; ?>
                 <? foreach($arResult['USERS_SAVED_ADDRESSES'] as $address) { ?>
                     <div>
-                        <input type="radio" name="radio" id="radio1" checked value="1"/>
-                        <label for="radio1"><?= $address['NAME'] ?></label>
+                        <input type="radio" name="radio" id="radio<?= $i ?>" checked value="<?= $i ?>"/>
+                        <label for="radio<?= $i ?>"><?= $address['NAME'] ?></label>
                     </div>
+                    <? $i++; ?>
                 <? } ?>
                 </div>
                 <!--END col1-->

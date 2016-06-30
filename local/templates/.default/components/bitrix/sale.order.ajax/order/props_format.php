@@ -59,6 +59,7 @@ if (!function_exists("PrintPropsForm"))
 		{
 			?>	<?
 					$iteration_counter = 0;
+					$last_property = end($arSource);
 				?>
 					<?
 					foreach ($arSource as $arProperties)
@@ -403,10 +404,10 @@ if (!function_exists("PrintPropsForm"))
 							</script>
 						<?endif?>
 
-					<? if (($current_props_group == 3 && ($iteration_counter == 1 || $iteration_counter == 2)) || ($current_props_group == 4 && ($iteration_counter == 6 || $iteration_counter == 9))) { // закрываем col?>
+					<? if (($current_props_group == 3 && ($iteration_counter == 1 || $iteration_counter == 2)) || ($current_props_group == 4 && ($iteration_counter == 6 || $iteration_counter == 9)) || $last_property == $arProperties) { // закрываем col?>
 						</div>	
 					<? } ?>
-					<? if (($current_props_group == 3 && ($iteration_counter == 2 || $iteration_counter == 4)) || ($current_props_group == 4 && $iteration_counter == 9)) { // закрываем row?>
+					<? if (($current_props_group == 3 && ($iteration_counter == 2 || $iteration_counter == 4)) || ($current_props_group == 4 && $iteration_counter == 9) || $last_property == $arProperties) { // закрываем row?>
 						</div>	
 					<? } ?>
 					<? $iteration_counter++; ?>
