@@ -44,7 +44,8 @@
 	define("USER_SAVED_ADDRESSES_BUILDING_PROPERTY", 435); // Дом
 	define("USER_SAVED_ADDRESSES_APARTMENT_PROPERTY", 436); // Квартира/офис
 	define("USER_SAVED_ADDRESSES_BX_LOCATION_ID_PROPERTY", 437); // ID местоположения битрикс
-
+	
+	define("ORDER_LOCATION_ID", 18); // местоположение
 	define("ORDER_LOCATION", "ORDER_PROP_18"); // местоположение
 	define("ORDER_STREET", "ORDER_PROP_20"); // улица
 	define("ORDER_HOUSING", "ORDER_PROP_21"); // Строение/корпус

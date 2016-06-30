@@ -2,6 +2,21 @@
 ?>
 
 <script type="text/javascript">
+	$(document).ready(function() {
+		// переключение избранных адресов
+		$("body").on("click", ".saved_address_container", function() {
+	    	$("#<?= ORDER_HOUSING ?>").val($(this).data("housing-value"));
+	    	$("#<?= ORDER_STREET ?>").val($(this).data("street-value"));
+	    	$("#<?= ORDER_BUILDING ?>").val($(this).data("building-value"));
+	    	$("#<?= ORDER_APARTMENT ?>").val($(this).data("apartment-value"));
+	    	BX.saleOrderAjax.properties[<?= ORDER_LOCATION_ID ?>].control.setValueByLocationId($(this).data("location-id"));
+	    	$.post("/ajax/saved_addresses_handling.php", {
+				address_id: $(this).data("address-id")
+			}, function(result) {
+		    });
+	    });
+	})
+
 	function fShowStore(id, showImages, formWidth, siteId)
 	{
 		var strUrl = '<?=$templateFolder?>' + '/map.php';
@@ -240,7 +255,7 @@
 							onclick="submitForm();"
 							/>
 						
-						<a href="#courier" data-delivery-button-id="ID_DELIVERY_ID_<?= $arDelivery["ID"] ?>" class="<?if ($arDelivery["CHECKED"]=="Y") echo " active";?>">
+						<a href="#courier" data-delivery-button-id="ID_DELIVERY_ID_<?= $arDelivery["ID"] ?>" class="js_tabs <?if ($arDelivery["CHECKED"]=="Y") echo " active";?>">
 							<?= htmlspecialcharsbx($arDelivery["NAME"])?>
 						</a>
 				<?
@@ -249,13 +264,20 @@
 			</div>
 			<? if ($arResult['USERS_SAVED_ADDRESSES']) { ?>
 			<div id="courier" class="basketBlock" style="display: block">
-                <h3>Мои адреса</h3>
+                <h3><?= GetMessage("SOA_ORDER_DELIVERY_MY_ADDRESSES") ?></h3>
                 <!--col1-->
                 <div class="col1">
                 <? foreach($arResult['USERS_SAVED_ADDRESSES'] as $address) { ?>
-                    <div>
-                        <input type="radio" name="radio" id="radio1" checked value="1"/>
-                        <label for="radio1"><?= $address['NAME'] ?></label>
+                    <div class="saved_address_container"
+                    	data-location-id = "<?= $address['PROPERTY_BX_LOCATION_ID_VALUE'] ?>"
+                    	data-street-value = "<?= $address['PROPERTY_STREET_VALUE'] ?>"
+                    	data-housing-value = "<?= $address['PROPERTY_HOUSING_VALUE'] ?>"
+                    	data-building-value = "<?= $address['PROPERTY_BUILDING_VALUE'] ?>"
+                    	data-apartment-value = "<?= $address['PROPERTY_APARTMENT_VALUE'] ?>"
+                    	data-address-id = "<?= $address['ID'] ?>"
+                    	>
+                        <input type="radio" name="radio" id="radio<?= $address['ID'] ?>" <?= $_SESSION['SAVED_ADDRESS_ID'] == $address['ID'] ? "checked" : "" ?> value="<?= $address['ID'] ?>"/>
+                        <label for="radio<?= $address['ID'] ?>"><?= $address['NAME'] ?></label>
                     </div>
                 <? } ?>
                 </div>

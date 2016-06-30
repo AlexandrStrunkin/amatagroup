@@ -245,7 +245,7 @@ if (!function_exists("cmpBySort"))
 				include($_SERVER["DOCUMENT_ROOT"].$templateFolder."/paysystem.php");
 			}
 
-			include($_SERVER["DOCUMENT_ROOT"].$templateFolder."/related_props.php");
+			//include($_SERVER["DOCUMENT_ROOT"].$templateFolder."/related_props.php");
 
 			include($_SERVER["DOCUMENT_ROOT"].$templateFolder."/summary.php");
 			if(strlen($arResult["PREPAY_ADIT_FIELDS"]) > 0)

@@ -2,7 +2,7 @@
 $MESS['SOA_TEMPL_PERSON_TYPE'] = "Тип плательщика";
 $MESS['SOA_TEMPL_BUTTON'] = "Оформить заказ";
 $MESS['SOA_TEMPL_PROP_INFO'] = "Информация для оплаты и доставки заказа";
-$MESS['SOA_TEMPL_PROP_CHOOSE'] = "Выберите профиль:";
+$MESS['SOA_TEMPL_PROP_CHOOSE'] = "Юридическое лицо";
 $MESS['SOA_TEMPL_EXISTING_PROFILE'] = "Профиль покупателя:";
 $MESS['SOA_TEMPL_PROP_NEW_PROFILE'] = "Новый профиль";
 $MESS['SOA_TEMPL_PAY_SYSTEM'] = "Платежная система";
@@ -70,6 +70,7 @@ $MESS['SALE_PRODUCTS_SUMMARY'] = "Товары в заказе";
 $MESS['SALE_PACKS_COUNT'] = "Необходимо коробок (штук)";
 $MESS['SOA_ORDER_DELIVERY_EXTRA_PARAMS'] = "Дополнительные параметры для доставки";
 $MESS['SOA_ORDER_DELIVERY_EXTRA_PARAMS_SAVE_ERROR'] = "Ошибка сохранения данных";
+$MESS['SOA_ORDER_DELIVERY_MY_ADDRESSES'] = "Мои адреса";
 $MESS['SOA_OTHER_LOCATION'] = "Другое местоположение";
 $MESS['SOA_LOCATION_NOT_FOUND'] = "Местоположение не найдено";
 $MESS['SOA_LOCATION_NOT_FOUND_PROMPT'] = "Нажмите #ANCHOR#добавить местоположение#ANCHOR_END#, чтобы мы узнали, куда нам доставить ваш заказ";

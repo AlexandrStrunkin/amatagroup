@@ -59,6 +59,7 @@ if (!function_exists("PrintPropsForm"))
 		{
 			?>	<?
 					$iteration_counter = 0;
+					$last_property = end($arSource);
 				?>
 					<?
 					foreach ($arSource as $arProperties)
@@ -77,14 +78,7 @@ if (!function_exists("PrintPropsForm"))
 							<div class = "<?= $iteration_counter == 0 || $iteration_counter == 5 ? "col1" : "col2" ?>">	
 						<? } ?>
 						<? if ($current_props_group == 3 && $iteration_counter == 2) { ?>
-							<label>
-                                <span>ёридическое лицо</span>
-                                <select name="person">
-                                    <option value="1">ќќќ У ћир детского безуми€ Ф</option>
-                                    <option value="2">ќќќ Уёридическое лицо 1 Ф</option>
-                                    <option value="3">„ѕ Уёридическое лицо 2 Ф</option>
-                                </select>
-                            </label>
+							<? $APPLICATION->ShowViewContent('user_profile'); ?>
 						<? } ?>
 						<?
 						if ($arProperties["TYPE"] == "CHECKBOX")
@@ -410,10 +404,10 @@ if (!function_exists("PrintPropsForm"))
 							</script>
 						<?endif?>
 
-					<? if (($current_props_group == 3 && ($iteration_counter == 1 || $iteration_counter == 2)) || ($current_props_group == 4 && ($iteration_counter == 6 || $iteration_counter == 9))) { // закрываем col?>
+					<? if (($current_props_group == 3 && ($iteration_counter == 1 || $iteration_counter == 2)) || ($current_props_group == 4 && ($iteration_counter == 6 || $iteration_counter == 9)) || $last_property == $arProperties) { // закрываем col?>
 						</div>	
 					<? } ?>
-					<? if (($current_props_group == 3 && ($iteration_counter == 2 || $iteration_counter == 4)) || ($current_props_group == 4 && $iteration_counter == 9)) { // закрываем row?>
+					<? if (($current_props_group == 3 && ($iteration_counter == 2 || $iteration_counter == 4)) || ($current_props_group == 4 && $iteration_counter == 9) || $last_property == $arProperties) { // закрываем row?>
 						</div>	
 					<? } ?>
 					<? $iteration_counter++; ?>
