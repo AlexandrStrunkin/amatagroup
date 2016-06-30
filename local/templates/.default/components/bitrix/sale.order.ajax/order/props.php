@@ -1,103 +1,29 @@
 <?if(!defined("B_PROLOG_INCLUDED") || B_PROLOG_INCLUDED!==true)die();
 include($_SERVER["DOCUMENT_ROOT"].$templateFolder."/props_format.php");
 ?>
-<div class="section">
-	<?
-	$bHideProps = true;
-
-	if (is_array($arResult["ORDER_PROP"]["USER_PROFILES"]) && !empty($arResult["ORDER_PROP"]["USER_PROFILES"])):
-		if ($arParams["ALLOW_NEW_PROFILE"] == "Y"):
-		?>
-			<div class="bx_block r1x3">
-				<?=GetMessage("SOA_TEMPL_PROP_CHOOSE")?>
-			</div>
-			<div class="bx_block r3x1">
-				<select name="PROFILE_ID" id="ID_PROFILE_ID" onChange="SetContact(this.value)">
-					<option value="0"><?=GetMessage("SOA_TEMPL_PROP_NEW_PROFILE")?></option>
-					<?
-					foreach($arResult["ORDER_PROP"]["USER_PROFILES"] as $arUserProfiles)
-					{
-						?>
-						<option value="<?= $arUserProfiles["ID"] ?>"<?if ($arUserProfiles["CHECKED"]=="Y") echo " selected";?>><?=$arUserProfiles["NAME"]?></option>
-						<?
-					}
-					?>
-				</select>
-				<div style="clear: both;"></div>
-			</div>
-		<?
-		else:
-		?>
-			<div class="bx_block r1x3">
-				<?=GetMessage("SOA_TEMPL_EXISTING_PROFILE")?>
-			</div>
-			<div class="bx_block r3x1">
-					<?
-					if (count($arResult["ORDER_PROP"]["USER_PROFILES"]) == 1)
-					{
-						foreach($arResult["ORDER_PROP"]["USER_PROFILES"] as $arUserProfiles)
-						{
-							echo "<strong>".$arUserProfiles["NAME"]."</strong>";
-							?>
-							<input type="hidden" name="PROFILE_ID" id="ID_PROFILE_ID" value="<?=$arUserProfiles["ID"]?>" />
-							<?
-						}
-					}
-					else
-					{
-						?>
-						<select name="PROFILE_ID" id="ID_PROFILE_ID" onChange="SetContact(this.value)">
-							<?
-							foreach($arResult["ORDER_PROP"]["USER_PROFILES"] as $arUserProfiles)
-							{
-								?>
-								<option value="<?= $arUserProfiles["ID"] ?>"<?if ($arUserProfiles["CHECKED"]=="Y") echo " selected";?>><?=$arUserProfiles["NAME"]?></option>
-								<?
-							}
-							?>
-						</select>
-						<?
-					}
-					?>
-				<div style="clear: both;"></div>
-			</div>
-		<?
-		endif;
-	else:
-		$bHideProps = false;
-	endif;
-	?>
-</div>
+<? $this->SetViewTarget('user_profile'); ?>
+<? $profile_choose_disabled = is_array($arResult["ORDER_PROP"]["USER_PROFILES"]) && !empty($arResult["ORDER_PROP"]["USER_PROFILES"]) ? false : true ?>
+<label>
+    <span><?= GetMessage("SOA_TEMPL_PROP_CHOOSE") ?></span>
+	<select <?= $profile_choose_disabled ? "disabled" : ""?> name="PROFILE_ID" id="ID_PROFILE_ID" onChange="SetContact(this.value)">
+		<option value="0"><?=GetMessage("SOA_TEMPL_PROP_NEW_PROFILE")?></option>
+		<? foreach($arResult["ORDER_PROP"]["USER_PROFILES"] as $arUserProfiles) { ?>
+			<option value="<?= $arUserProfiles["ID"] ?>"<?if ($arUserProfiles["CHECKED"]=="Y") echo " selected";?>><?=$arUserProfiles["NAME"]?></option>
+		<? } ?>
+	</select>
+</label>
+<? $this->EndViewTarget(); ?>
 <h2>
 	<?=GetMessage("SOA_TEMPL_BUYER_INFO")?>
 	<?
 	if (array_key_exists('ERROR', $arResult) && is_array($arResult['ERROR']) && !empty($arResult['ERROR']))
 	{
 		$bHideProps = false;
-	}
-
-	if ($bHideProps && $_POST["showProps"] != "Y"):
-	?>
-		<a href="#" class="slide" onclick="fGetBuyerProps(this); return false;">
-			<?=GetMessage('SOA_TEMPL_BUYER_SHOW');?>
-		</a>
-	<?
-	elseif (($bHideProps && $_POST["showProps"] == "Y")):
-	?>
-		<a href="#" class="slide" onclick="fGetBuyerProps(this); return false;">
-			<?=GetMessage('SOA_TEMPL_BUYER_HIDE');?>
-		</a>
-	<?
-	endif;
-	?>
+	} ?>
 	<input type="hidden" name="showProps" id="showProps" value="<?=($_POST["showProps"] == 'Y' ? 'Y' : 'N')?>" />
 </h2>
 
-<?
-PrintPropsForm(array_merge($arResult["ORDER_PROP"]["USER_PROPS_Y"], $arResult["ORDER_PROP"]["USER_PROPS_N"]), $arParams["TEMPLATE_LOCATION"]);
-//PrintPropsForm($arResult["ORDER_PROP"]["USER_PROPS_N"], $arParams["TEMPLATE_LOCATION"]);
-?>
-
+<? PrintPropsForm(array_merge($arResult["ORDER_PROP"]["USER_PROPS_Y"], $arResult["ORDER_PROP"]["USER_PROPS_N"]), $arParams["TEMPLATE_LOCATION"]); ?>
 
 <script type="text/javascript">
 	function fGetBuyerProps(el)
