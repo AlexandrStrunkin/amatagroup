@@ -344,7 +344,9 @@ $(document).ready(function () {
     
     //кружочек лайк смена картинки при клике
     $('.changingLike:not(.js_favorite_need_auth)').on("click", function () {
-        $(this).children("a").toggleClass("active");
+    	if (!$(this).children("a").hasClass("js_favorite_need_auth")) {
+    		$(this).children("a").toggleClass("active");	
+    	}
     });
 
 
@@ -352,9 +354,11 @@ $(document).ready(function () {
     ///карусель
     $('.jcarousel-wrapper').each(function () {
         var el = $(this);
-        el.find(".jcarousel").jcarousel({
-            wrap: 'circular', animation: 300
-        });
+        if (el.find(".jcarousel").children().length) {
+	        el.find(".jcarousel").jcarousel({
+	            wrap: 'circular', animation: 300
+	        });
+        }
 
         /*  el.find('.jcarousel-control-prev')
         .on('jcarouselcontrol:active', function () {
