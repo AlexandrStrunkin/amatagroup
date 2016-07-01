@@ -344,7 +344,9 @@ $(document).ready(function () {
     
     //кружочек лайк смена картинки при клике
     $('.changingLike:not(.js_favorite_need_auth)').on("click", function () {
-        $(this).children("a").toggleClass("active");
+    	if (!$(this).children("a").hasClass("js_favorite_need_auth")) {
+    		$(this).children("a").toggleClass("active");	
+    	}
     });
 
 
