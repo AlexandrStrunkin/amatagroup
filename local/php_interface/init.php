@@ -320,37 +320,87 @@
 	
 	function addUserLocationToSaved(&$arFields) {
 		global $USER;
+		// очищаем ID выбранного адреса избранного
+		unset($_SESSION['SAVED_ADDRESS_ID']);
 		
-		$location_string = "";
-		$location = CSaleLocation::GetByID((int)$_REQUEST[ORDER_LOCATION]);
-		if (is_array($location)) {
-			$location_string .= ($location["CITY_NAME_ORIG"] ? $location["CITY_NAME_ORIG"] : $location["REGION_NAME_ORIG"]) . ", "; // город или область
-			$location_string .= $_REQUEST[ORDER_STREET] ? "ул. " . $_REQUEST[ORDER_STREET] . ", " : ""; // улица
-			$location_string .= $_REQUEST[ORDER_HOUSING] ? "корпус " . $_REQUEST[ORDER_HOUSING] . ", " : ""; // корпус
-			$location_string .= $_REQUEST[ORDER_BUILDING] ? "д. " . $_REQUEST[ORDER_BUILDING] . ", " : ""; // дом
-			$location_string .= $_REQUEST[ORDER_APARTMENT] ? "кв. " . $_REQUEST[ORDER_APARTMENT] . ", " : ""; // квартира
+		$request_location  = (int)$_POST[ORDER_LOCATION];
+		$request_street    = trim((string)$_POST[ORDER_STREET]);
+		$request_housing   = (int)$_POST[ORDER_HOUSING];
+		$request_building  = (int)$_POST[ORDER_BUILDING];
+		$request_apartment = (int)$_POST[ORDER_APARTMENT];
+		
+		if (!isLocationAlreadySaved($request_location, $request_street, $request_housing, $request_building, $request_apartment)) {
+			$location_string = "";
+			$location = CSaleLocation::GetByID($request_location);
+			if (is_array($location)) {
+				$location_string .= ($location["CITY_NAME_ORIG"] ? $location["CITY_NAME_ORIG"] : $location["REGION_NAME_ORIG"]) . ", "; // город или область
+				$location_string .= $request_street ? "ул. " . $request_street . ", " : ""; // улица
+				$location_string .= $request_housing ? "корпус " . $request_housing . ", " : ""; // корпус
+				$location_string .= $request_building ? "д. " . $request_building . ", " : ""; // дом
+				$location_string .= $request_apartment ? "кв. " . $request_apartment . ", " : ""; // квартира
+			}
+			$new_saved_location = new CIBlockElement;
+	
+			$properties = array();
+			$properties[USER_SAVED_ADDRESSES_BX_LOCATION_ID_PROPERTY] = $request_location;
+			$properties[USER_SAVED_ADDRESSES_STREET_PROPERTY] = $request_street;
+			$properties[USER_SAVED_ADDRESSES_HOUSING_PROPERTY] = $request_housing;
+			$properties[USER_SAVED_ADDRESSES_BUILDING_PROPERTY] = $request_building;
+			$properties[USER_SAVED_ADDRESSES_APARTMENT_PROPERTY] = $request_apartment;
+			
+			$saved_location_data = Array(
+				"MODIFIED_BY"       => $USER->GetID(),
+				"IBLOCK_SECTION_ID" => false,
+				"IBLOCK_ID"         => USER_SAVED_ADDRESSES_IBLOCK_ID,
+				"PROPERTY_VALUES"   => $properties,
+				"NAME"              => $location_string,
+				"ACTIVE"            => "Y"
+			);
+			
+			$location_id = $new_saved_location->Add($saved_location_data);
+	
+			return $location_id ? $location_id : $new_saved_location -> LAST_ERROR;	
 		}
-		$new_saved_location = new CIBlockElement;
+	}
 
-		$properties = array();
-		$properties[USER_SAVED_ADDRESSES_BX_LOCATION_ID_PROPERTY] = $_REQUEST[ORDER_LOCATION];
-		$properties[USER_SAVED_ADDRESSES_STREET_PROPERTY] = $_REQUEST[ORDER_STREET];
-		$properties[USER_SAVED_ADDRESSES_HOUSING_PROPERTY] = $_REQUEST[ORDER_HOUSING];
-		$properties[USER_SAVED_ADDRESSES_BUILDING_PROPERTY] = $_REQUEST[ORDER_BUILDING];
-		$properties[USER_SAVED_ADDRESSES_APARTMENT_PROPERTY] = $_REQUEST[ORDER_APARTMENT];
+	/**
+	 * 
+	 * ѕровер€ем, добавлено ли уже такое местопложение.
+	 * 
+	 * @param int $location_id
+	 * @param string $street
+	 * @param int $housing
+	 * @param int $building
+	 * @param int $apartment
+	 * 
+	 * @return bool
+	 * 
+	 * */
+
+	function isLocationAlreadySaved($location_id, $street, $housing = false, $building, $apartment) {
+		global $USER;
+		$result = false;
 		
-		$saved_location_data = Array(
-			"MODIFIED_BY"       => $USER->GetID(),
-			"IBLOCK_SECTION_ID" => false,
-			"IBLOCK_ID"         => USER_SAVED_ADDRESSES_IBLOCK_ID,
-			"PROPERTY_VALUES"   => $properties,
-			"NAME"              => $location_string,
-			"ACTIVE"            => "Y"
+		$select = Array(
+			"ID"
+		);
+		$filter = Array(
+			"IBLOCK_ID"               => USER_SAVED_ADDRESSES_IBLOCK_ID,
+			"CREATED_BY"              => $USER->GetID(),
+			"ACTIVE"                  => "Y",
+			"PROPERTY_BX_LOCATION_ID" => (int)$location_id,
+			"PROPERTY_STREET"         => trim((string)$street),
+			"PROPERTY_HOUSING"        => (int)$housing,
+			"PROPERTY_BUILDING"       => (int)$building,
+			"PROPERTY_APARTMENT"      => (int)$apartment,
 		);
 		
-		$location_id = $new_saved_location->Add($saved_location_data);
-
-		return $location_id ? $location_id : $new_saved_location -> LAST_ERROR;
+		$saved_addresses = CIBlockElement::GetList(Array(), $filter, false, false, $select);
+		if ($address = $saved_addresses->Fetch()) { 
+			$result = true;
+		}
+		
+		return $result;
 	}
 	
 ?>
