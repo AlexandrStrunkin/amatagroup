@@ -354,9 +354,11 @@ $(document).ready(function () {
     ///карусель
     $('.jcarousel-wrapper').each(function () {
         var el = $(this);
-        el.find(".jcarousel").jcarousel({
-            wrap: 'circular', animation: 300
-        });
+        if (el.find(".jcarousel").children().length) {
+	        el.find(".jcarousel").jcarousel({
+	            wrap: 'circular', animation: 300
+	        });
+        }
 
         /*  el.find('.jcarousel-control-prev')
         .on('jcarouselcontrol:active', function () {
