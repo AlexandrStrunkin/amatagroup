@@ -8314,3 +8314,19 @@ display: none;
 .hiddenQuestionBlock .phoneInput {
     margin-bottom: 0;
 }
+
+.order_completed {
+	font-family: 'MuseoSansCyrl-500';
+	padding-bottom: 40px;
+}
+
+.order_completed a, .order_completed a:visited {
+	color: #7ABEE1;
+}
+
+.order_complited_title {
+	color: #323232;
+    font: 26px/1 'MuseoSansCyrl-900';
+    margin: 3px 0 8px;
+    letter-spacing: 1px;
+}
