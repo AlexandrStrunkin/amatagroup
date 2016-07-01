@@ -1,9 +1,10 @@
 <?if(!defined("B_PROLOG_INCLUDED") || B_PROLOG_INCLUDED!==true)die();?>
+<div class="order_completed">
 <?
 if (!empty($arResult["ORDER"]))
 {
 	?>
-	<b><?=GetMessage("SOA_TEMPL_ORDER_COMPLETE")?></b><br /><br />
+	<b class="order_complited_title"><?=GetMessage("SOA_TEMPL_ORDER_COMPLETE")?></b><br /><br />
 	<table class="sale_order_full_table">
 		<tr>
 			<td>
@@ -17,14 +18,13 @@ if (!empty($arResult["ORDER"]))
 	if (!empty($arResult["PAY_SYSTEM"]))
 	{
 		?>
-		<br /><br />
+		<br />
 
 		<table class="sale_order_full_table">
 			<tr>
 				<td class="ps_logo">
-					<div class="pay_name"><?=GetMessage("SOA_TEMPL_PAY")?></div>
-					<?=CFile::ShowImage($arResult["PAY_SYSTEM"]["LOGOTIP"], 100, 100, "border=0", "", false);?>
-					<div class="paysystem_name"><?= $arResult["PAY_SYSTEM"]["NAME"] ?></div><br>
+					<div class="pay_name"><?=GetMessage("SOA_TEMPL_PAY")?> - <?= $arResult["PAY_SYSTEM"]["NAME"] ?></div>
+					<br />
 				</td>
 			</tr>
 			<?
@@ -94,3 +94,4 @@ else
 	<?
 }
 ?>
+</div>
