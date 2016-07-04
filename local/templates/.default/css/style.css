@@ -8330,3 +8330,9 @@ display: none;
     margin: 3px 0 8px;
     letter-spacing: 1px;
 }
+
+#auth_form .errorText {
+	font-family: "PT Serif";
+	margin-top: 20px;
+	color: red;
+}
