@@ -701,10 +701,10 @@ $(document).ready(function () {
 
         //  el.attr("placeholder", el.attr("data-placeholder"));
     });
-    $(".authEnter, #callBackPopup .btn").on("click", function (e) {
+    /*$(".authEnter, #callBackPopup .btn").on("click", function (e) {
         e.preventDefault();
         $(this).closest("form").submit();
-    });
+    });*/
 
 
     $(".forgotPassword").on("click", function () {
