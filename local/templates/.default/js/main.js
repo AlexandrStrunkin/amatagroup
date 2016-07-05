@@ -1426,6 +1426,7 @@ $(document).ready(function () {
         $("#discount_label_" + current_offer_id).show();
         $(".js-add-to-basket").attr("href", current_offer_buy_link);
         $(".js-add-to-basket").data("offer-id", current_offer_id);
+        return false;
     });
 
     //обработка нажати€ кнопки добавлени€ в корзину из шаблона списка товаров каталога и карточки
