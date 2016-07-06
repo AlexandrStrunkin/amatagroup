@@ -5547,6 +5547,15 @@ border-color: transparent transparent #fff;
     font-size: 15px;
     padding: 10px 4px;
     text-align: center;
+    border: none;
+	color: white !important;
+	width: 100%;
+	cursor: pointer;
+}
+
+.regHiddenBlock .errortext {
+	display: block;
+	margin-top: 15px;
 }
 
 .forgotPassword {
