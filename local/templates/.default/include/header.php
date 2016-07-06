@@ -1,5 +1,6 @@
 <!--header-->
 <header>
+	<? global $USER ?>
     <!--widthWrapper-->
     <div class="widthWrapper">
     <!--indexPageHeader-->
@@ -128,33 +129,32 @@
 
         <div class="secondLvlBlocks" id="secondLvlBlocks3">
 
-
-
+            <div class="regHiddenBlock">
+                <p class="authClose"></p>
+                <?$APPLICATION->IncludeComponent("bitrix:main.register", "popup_register", Array(
+					"AUTH" => "Y",	// Автоматически авторизовать пользователей
+						"REQUIRED_FIELDS" => array(	// Поля, обязательные для заполнения
+							0 => "NAME",
+						),
+						"SET_TITLE" => "N",	// Устанавливать заголовок страницы
+						"SHOW_FIELDS" => array(	// Поля, которые показывать в форме
+							0 => "NAME",
+							1 => "PERSONAL_PHONE",
+						),
+						"SUCCESS_PAGE" => "",	// Страница окончания регистрации
+						"USER_PROPERTY" => "",	// Показывать доп. свойства
+						"USER_PROPERTY_NAME" => "",	// Название блока пользовательских свойств
+						"USE_BACKURL" => "Y",	// Отправлять пользователя по обратной ссылке, если она есть
+					),
+					false
+				);?>
+            </div>
+            
             <?if(!$USER->IsAuthorized()){?>
                 <p class="registrationLink"><a href=""><?=GetMessage("REGISTRATION")?></a></p>
                 <?} else {?>
                 <p class="personalLink"><a href="/personal/"><?=GetMessage("PERSONAL")?></a></p>
                 <?}?>
-
-            <div class="regHiddenBlock">
-                <p class="authClose"></p>
-
-                <form method="post">
-                    <p class="authTitle">Регистрация</p>
-                    <input type="text" class="authInput" name="name" placeholder="Имя">
-                    <input type="text" class="authInput" name="surname" placeholder="Фамилия">
-                    <input type="text" class="authInput" name="email" placeholder="Email">
-                    <input type="password" class="authInputPass" name="pass" placeholder="Пароль">
-                    <input type="password" class="authInputPass" name="confirmpass" placeholder="Повторите пароль">
-                    <div class="btn-container">
-                        <a href="" class="authEnter">Зарегистрироваться</a>
-                    </div>
-                </form>
-                <div class="message">
-                    Регистрация будет подтверждена после проверки. Для полноценного использования сайта - необходимо
-                    дождаться подтверждения регистрации.
-                </div>
-            </div>
 
             <?if(!$USER->IsAuthorized()){?>
                 <p class="authorisationLink"><a href=""><?=GetMessage("AUTH")?></a></p>

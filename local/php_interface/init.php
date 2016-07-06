@@ -33,7 +33,8 @@
     );       
 
 
-    define("DEFAULT_TEMPLATE_PATH", SITE_DIR."local/templates/.default/"); //path of ".default" site template 
+    define("DEFAULT_TEMPLATE_PATH", SITE_DIR."local/templates/.default/"); //path of ".default" site template
+    define("NEWS_IBLOCK_ID", 1);
     define("CATALOG_IBLOCK_ID", 5); //main catalog
     define("OFFERS_IBLOCK_ID", 6);  //offers
     define("FAVORITE_IBLOCK_ID", 12);
@@ -85,7 +86,7 @@
     AddEventHandler("main", "OnBeforeUserUpdate", Array("OnBeforeUserRegisterHandler", "OnBeforeUserRegister"));
     class OnBeforeUserRegisterHandler {
         function OnBeforeUserRegister(&$arFields) {                            
-            $arFields['LOGIN'] = $arFields['EMAIL'];   
+            $arFields['EMAIL'] = $arFields['LOGIN'];
             return $arFields;    
         }
     }
