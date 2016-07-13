@@ -71,7 +71,7 @@ if (!function_exists("PrintPropsForm"))
 						<? } ?>
 						<? if ($current_props_group == 4 && $iteration_counter == 5) { // ÍÎÂÛÉ ÀÄÐÅÑ ÄÎÑÒÀÂÊÈ ?>
 							<? $APPLICATION->ShowViewContent('delivery'); ?>
-							<div class="row4">
+							<div class="row4" <?= $_SESSION['SAVED_ADDRESS_ID'] ? "style='display:none'" : "" ?> >
 								<h3><?= GetMessage("SOA_TEMPL_DELIVERY_BLOCK_TITLE") ?></h3>
 						<? } ?>
 						<? if (($current_props_group == 3 && ($iteration_counter == 0 || $iteration_counter == 2)) || ($current_props_group == 4 && ($iteration_counter == 5 || $iteration_counter == 7))) { ?>

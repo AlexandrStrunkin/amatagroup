@@ -52,6 +52,7 @@
 	define("ORDER_HOUSING", "ORDER_PROP_21"); // Строение/корпус
 	define("ORDER_BUILDING", "ORDER_PROP_22"); // Дом
 	define("ORDER_APARTMENT", "ORDER_PROP_23"); // Квартира/офис
+	define("DEFAULT_LOCATION_ID", 129); // Дефолтное местоположение - Москва
 	
     /*константы для отображения каталога*/
     define("DEFAULT_PAGE_ELEMENT_COUNT", $GLOBALS["availableParams"]["PAGE_ELEMENT_COUNT"][0]); //количество элементов на странице раздела каталога по умолчанию
@@ -61,7 +62,10 @@
     define("DEFAULT_ELEMENT_SORT_ORDER2", $GLOBALS["availableParams"]["ELEMENT_SORT_ORDER2"][0]); //направление для второй сортировки элементов в каталоге по умолчанию
     define("DEFAULT_CATALOG_SECTION_TEMPLATE", "blocks"); //шаблон для отображения элементов раздела по умолчанию      
     /*///*/
-
+	
+	/* службы доставки */
+	define("COURIER_DELIVERY", 2);
+	
     define("NEW_PRODUCT_STATUS_LENGTH", 14); //количество дней, котрое товар считается новинкой
     define("FRESH_PRODUCT_STATUS_LENGTH", 2); //количество дней, котрое товар считается последним поступлением
     
@@ -324,43 +328,45 @@
 		// очищаем ID выбранного адреса избранного
 		unset($_SESSION['SAVED_ADDRESS_ID']);
 		
-		$request_location  = (int)$_POST[ORDER_LOCATION];
-		$request_street    = trim((string)$_POST[ORDER_STREET]);
-		$request_housing   = (int)$_POST[ORDER_HOUSING];
-		$request_building  = (int)$_POST[ORDER_BUILDING];
-		$request_apartment = (int)$_POST[ORDER_APARTMENT];
+		if ($arFields['DELIVERY_ID'] != COURIER_DELIVERY) {
+			$request_location  = (int)$_POST[ORDER_LOCATION];
+			$request_street    = trim((string)$_POST[ORDER_STREET]);
+			$request_housing   = (int)$_POST[ORDER_HOUSING];
+			$request_building  = (int)$_POST[ORDER_BUILDING];
+			$request_apartment = (int)$_POST[ORDER_APARTMENT];
+			
+			if (!isLocationAlreadySaved($request_location, $request_street, $request_housing, $request_building, $request_apartment)) {
+				$location_string = "";
+				$location = CSaleLocation::GetByID($request_location);
+				if (is_array($location)) {
+					$location_string .= ($location["CITY_NAME_ORIG"] ? $location["CITY_NAME_ORIG"] : $location["REGION_NAME_ORIG"]) . ", "; // город или область
+					$location_string .= $request_street ? "ул. " . $request_street . ", " : ""; // улица
+					$location_string .= $request_housing ? "корпус " . $request_housing . ", " : ""; // корпус
+					$location_string .= $request_building ? "д. " . $request_building . ", " : ""; // дом
+					$location_string .= $request_apartment ? "кв. " . $request_apartment . ", " : ""; // квартира
+				}
+				$new_saved_location = new CIBlockElement;
 		
-		if (!isLocationAlreadySaved($request_location, $request_street, $request_housing, $request_building, $request_apartment)) {
-			$location_string = "";
-			$location = CSaleLocation::GetByID($request_location);
-			if (is_array($location)) {
-				$location_string .= ($location["CITY_NAME_ORIG"] ? $location["CITY_NAME_ORIG"] : $location["REGION_NAME_ORIG"]) . ", "; // город или область
-				$location_string .= $request_street ? "ул. " . $request_street . ", " : ""; // улица
-				$location_string .= $request_housing ? "корпус " . $request_housing . ", " : ""; // корпус
-				$location_string .= $request_building ? "д. " . $request_building . ", " : ""; // дом
-				$location_string .= $request_apartment ? "кв. " . $request_apartment . ", " : ""; // квартира
+				$properties = array();
+				$properties[USER_SAVED_ADDRESSES_BX_LOCATION_ID_PROPERTY] = $request_location;
+				$properties[USER_SAVED_ADDRESSES_STREET_PROPERTY] = $request_street;
+				$properties[USER_SAVED_ADDRESSES_HOUSING_PROPERTY] = $request_housing;
+				$properties[USER_SAVED_ADDRESSES_BUILDING_PROPERTY] = $request_building;
+				$properties[USER_SAVED_ADDRESSES_APARTMENT_PROPERTY] = $request_apartment;
+				
+				$saved_location_data = Array(
+					"MODIFIED_BY"       => $USER->GetID(),
+					"IBLOCK_SECTION_ID" => false,
+					"IBLOCK_ID"         => USER_SAVED_ADDRESSES_IBLOCK_ID,
+					"PROPERTY_VALUES"   => $properties,
+					"NAME"              => $location_string,
+					"ACTIVE"            => "Y"
+				);
+				
+				$location_id = $new_saved_location->Add($saved_location_data);
+		
+				return $location_id ? $location_id : $new_saved_location -> LAST_ERROR;	
 			}
-			$new_saved_location = new CIBlockElement;
-	
-			$properties = array();
-			$properties[USER_SAVED_ADDRESSES_BX_LOCATION_ID_PROPERTY] = $request_location;
-			$properties[USER_SAVED_ADDRESSES_STREET_PROPERTY] = $request_street;
-			$properties[USER_SAVED_ADDRESSES_HOUSING_PROPERTY] = $request_housing;
-			$properties[USER_SAVED_ADDRESSES_BUILDING_PROPERTY] = $request_building;
-			$properties[USER_SAVED_ADDRESSES_APARTMENT_PROPERTY] = $request_apartment;
-			
-			$saved_location_data = Array(
-				"MODIFIED_BY"       => $USER->GetID(),
-				"IBLOCK_SECTION_ID" => false,
-				"IBLOCK_ID"         => USER_SAVED_ADDRESSES_IBLOCK_ID,
-				"PROPERTY_VALUES"   => $properties,
-				"NAME"              => $location_string,
-				"ACTIVE"            => "Y"
-			);
-			
-			$location_id = $new_saved_location->Add($saved_location_data);
-	
-			return $location_id ? $location_id : $new_saved_location -> LAST_ERROR;	
 		}
 	}
 

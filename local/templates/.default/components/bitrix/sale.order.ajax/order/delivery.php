@@ -5,11 +5,19 @@
 	$(document).ready(function() {
 		// переключение избранных адресов
 		$("body").on("click", ".saved_address_container", function() {
-	    	$("#<?= ORDER_HOUSING ?>").val($(this).data("housing-value"));
+			var location_id = $(this).data("location-id") ? $(this).data("location-id") : <?= DEFAULT_LOCATION_ID ?>;
+			
+			if (!$(this).hasClass("add_new_address")) { // выбираем уже сохраненный адрес
+				$(".row4").hide();
+		    } else { // создаем новый
+		    	$(".row4").show();
+		    }
+		    
+		    $("#<?= ORDER_HOUSING ?>").val($(this).data("housing-value"));
 	    	$("#<?= ORDER_STREET ?>").val($(this).data("street-value"));
 	    	$("#<?= ORDER_BUILDING ?>").val($(this).data("building-value"));
 	    	$("#<?= ORDER_APARTMENT ?>").val($(this).data("apartment-value"));
-	    	BX.saleOrderAjax.properties[<?= ORDER_LOCATION_ID ?>].control.setValueByLocationId($(this).data("location-id"));
+	    	BX.saleOrderAjax.properties[<?= ORDER_LOCATION_ID ?>].control.setValueByLocationId(location_id);
 	    	$.post("/ajax/saved_addresses_handling.php", {
 				address_id: $(this).data("address-id")
 			}, function(result) {
@@ -255,7 +263,7 @@
 							onclick="submitForm();"
 							/>
 						
-						<a href="#courier" data-delivery-button-id="ID_DELIVERY_ID_<?= $arDelivery["ID"] ?>" class="js_tabs <?if ($arDelivery["CHECKED"]=="Y") echo " active";?>">
+						<a href="#<?= $arDelivery["ID"] == COURIER_DELIVERY ? "courier" : "company" ?>" data-delivery-button-id="ID_DELIVERY_ID_<?= $arDelivery["ID"] ?>" class="js_tabs <?if ($arDelivery["CHECKED"]=="Y") echo " active";?>">
 							<?= htmlspecialcharsbx($arDelivery["NAME"])?>
 						</a>
 				<?
@@ -263,10 +271,14 @@
 		}?>
 			</div>
 			<? if ($arResult['USERS_SAVED_ADDRESSES']) { ?>
-			<div id="courier" class="basketBlock" style="display: block">
+			<div id="company" class="basketBlock" data-del-id="<?=$arResult['USER_VALS']['DELIVERY_ID']?>" <? if ($arResult['USER_VALS']['DELIVERY_ID'] == COURIER_DELIVERY) { ?>style="display: none"<? } ?>>
                 <h3><?= GetMessage("SOA_ORDER_DELIVERY_MY_ADDRESSES") ?></h3>
                 <!--col1-->
                 <div class="col1">
+                	<div class="saved_address_container add_new_address" data-address-id = "">
+                        <input type="radio" name="radio" id="radio_new_saved_address" <?= !$_SESSION['SAVED_ADDRESS_ID'] ? "checked" : "" ?> value=""/>
+                        <label for="radio_new_saved_address"><?= GetMessage("SOA_TEMPL_ADD_NEW_ADDRESS") ?></label>
+                    </div>
                 <? foreach($arResult['USERS_SAVED_ADDRESSES'] as $address) { ?>
                     <div class="saved_address_container"
                     	data-location-id = "<?= $address['PROPERTY_BX_LOCATION_ID_VALUE'] ?>"
@@ -282,6 +294,9 @@
                 <? } ?>
                 </div>
                 <!--END col1-->
+            </div>
+            <div id="courier" class="basketBlock" <? if ($arResult['USER_VALS']['DELIVERY_ID'] != COURIER_DELIVERY) { ?>style="display: none"<? } ?>>
+                <h3><?= GetMessage("SOA_TEMPL_TAKE_BY_YOURSELF") ?></h3>
             </div>
             <? } ?>
 		</div>

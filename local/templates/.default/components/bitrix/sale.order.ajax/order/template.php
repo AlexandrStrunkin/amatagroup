@@ -191,7 +191,11 @@ if (!function_exists("cmpBySort"))
 			            $(".hidingMenu").parent().removeClass("active");
 			            $(".hidingMenu").hide();
 			        });
-			
+			    }
+			    
+			    // скрываем выбор создание адресов для самовывоза
+			    if ($("#ID_DELIVERY_ID_<?= COURIER_DELIVERY ?>").is(":checked")) {
+			    	$(".row4").hide();
 			    }
 			}
 
