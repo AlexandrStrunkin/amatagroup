@@ -171,7 +171,6 @@ $(document).ready(function () {
 
     //верхнее меню переключение
     $('#secondLvlBlocks2 li a').on("click", function (e) {
-    	e.preventDefault();
         $('#secondLvlBlocks2 li a').removeClass('active');
         $(this).addClass('active');
     });
