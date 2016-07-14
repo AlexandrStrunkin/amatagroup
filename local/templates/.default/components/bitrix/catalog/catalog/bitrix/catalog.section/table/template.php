@@ -181,7 +181,7 @@
                                         <? 
                                             //шильдик последние поступления. Если товар  создан менее 2 дней назад
                                         } else /*if ($arItem["CAN_BUY"] == "Y")*/{?>
-                                        <p class="elementStatus statusInStock"><?=GetMessage("PRODUCT_AVAILABLE")?></p>
+                                        <p class="elementStatus statusInStock" style="<?= $arItem["CAN_BUY"] == "Y" ? "display:block" : "display:none" ?>" ><?= GetMessage("PRODUCT_AVAILABLE") ?></p>
                                         <?}?> 
                                     <br>     
 
