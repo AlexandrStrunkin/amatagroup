@@ -1472,12 +1472,14 @@ $(document).ready(function () {
             $("a[data-item-id = " + item_id + "]").attr("href", href);
             $(".js-item-price[data-item-id = " + item_id + "]").hide();
             $(".js-item-price[data-offer-id = " + offerId + "]").show();
+            $(this).closest("tr").find(".statusInStock").show();
         }
         else if (parseInt(item_id) > 0) {
             $("a[data-item-id = " + item_id + "]").parent().addClass("basketButtonInvisible");
             $("a[data-item-id = " + item_id + "]").removeAttr("href");
             $(".js-item-price[data-item-id = " + item_id + "]").hide();
             $(".js-item-price[data-item-id = " + item_id + "]:first").show();
+            $(this).closest("tr").find(".statusInStock").hide();
         }
     })
 
