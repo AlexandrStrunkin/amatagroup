@@ -19,16 +19,22 @@ $arUrlRewrite = array(
 		"PATH" => "/catalog/index.php",
 	),
 	array(
-		"CONDITION" => "#^/store/#",
-		"RULE" => "",
-		"ID" => "bitrix:catalog.store",
-		"PATH" => "/store/index.php",
+		"CONDITION" => "#^\\??(.*)#",
+		"RULE" => "&\$1",
+		"ID" => "bitrix:catalog.section",
+		"PATH" => "/personal/favourite/index.php",
 	),
 	array(
 		"CONDITION" => "#^\\??(.*)#",
 		"RULE" => "&\$1",
 		"ID" => "bitrix:catalog.section",
-		"PATH" => "/personal/favourite/index.php",
+		"PATH" => "/local/templates/amatagroup_index/header.php",
+	),
+	array(
+		"CONDITION" => "#^/store/#",
+		"RULE" => "",
+		"ID" => "bitrix:catalog.store",
+		"PATH" => "/store/index.php",
 	),
 	array(
 		"CONDITION" => "#^/news/#",
