@@ -59,16 +59,7 @@ $this->setFrameMode(true);
 		}
 		?><br />
 	<?endforeach;
-	foreach($arResult["DISPLAY_PROPERTIES"] as $pid=>$arProperty):?>
 
-		<?=$arProperty["NAME"]?>:&nbsp;
-		<?if(is_array($arProperty["DISPLAY_VALUE"])):?>
-			<?=implode("&nbsp;/&nbsp;", $arProperty["DISPLAY_VALUE"]);?>
-		<?else:?>
-			<?=$arProperty["DISPLAY_VALUE"];?>
-		<?endif?>
-		<br />
-	<?endforeach;
 	if(array_key_exists("USE_SHARE", $arParams) && $arParams["USE_SHARE"] == "Y")
 	{
 		?>

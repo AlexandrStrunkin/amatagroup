@@ -111,24 +111,24 @@
 
         <div class="secondLvlBlocks" id="secondLvlBlocks2">
             <?$APPLICATION->IncludeComponent(
-	"bitrix:menu",
-	"top_additional",
-	array(
-		"COMPONENT_TEMPLATE" => "top_additional",
-		"ROOT_MENU_TYPE" => "top_additional",
-		"MENU_CACHE_TYPE" => "A",
-		"MENU_CACHE_TIME" => "3600",
-		"MENU_CACHE_USE_GROUPS" => "N",
-		"MENU_CACHE_GET_VARS" => array(
-		),
-		"MAX_LEVEL" => "1",
-		"CHILD_MENU_TYPE" => "left",
-		"USE_EXT" => "N",
-		"DELAY" => "N",
-		"ALLOW_MULTI_SELECT" => "N"
-	),
-	false
-);?>
+	            "bitrix:menu",
+	            "top_additional",
+	            array(
+		            "COMPONENT_TEMPLATE" => "top_additional",
+		            "ROOT_MENU_TYPE" => "top_additional",
+		            "MENU_CACHE_TYPE" => "A",
+		            "MENU_CACHE_TIME" => "3600",
+		            "MENU_CACHE_USE_GROUPS" => "N",
+		            "MENU_CACHE_GET_VARS" => array(
+		            ),
+		            "MAX_LEVEL" => "1",
+		            "CHILD_MENU_TYPE" => "left",
+		            "USE_EXT" => "N",
+		            "DELAY" => "N",
+		            "ALLOW_MULTI_SELECT" => "N"
+	            ),
+	            false
+            );?>
         </div>
 
         <div class="secondLvlBlocks" id="secondLvlBlocks3">
@@ -201,7 +201,7 @@
     <!--thirdLevel-->
     <div class="thirdLevel">
 
-        <div class="mainLeftMenu">
+
             <?$APPLICATION->IncludeComponent(
                     "bitrix:catalog.section.list",
                     "catalog_menu",
@@ -231,7 +231,6 @@
                     ),
                     false
                 );?>
-        </div>
 
         <div class="mainBigBanner">
 

@@ -2,7 +2,7 @@
 require($_SERVER["DOCUMENT_ROOT"]."/bitrix/header.php");
 $APPLICATION->SetTitle("Бренды");
 ?>
-
+ <?$Filter_brands[">PREVIEW_PICTURE"] = 0;?>
 <?$APPLICATION->IncludeComponent(
 	"bitrix:news", 
 	"brands", 
@@ -38,7 +38,7 @@ $APPLICATION->SetTitle("Бренды");
 		),
 		"DETAIL_SET_CANONICAL_URL" => "N",
 		"DISPLAY_AS_RATING" => "rating",
-		"DISPLAY_BOTTOM_PAGER" => "Y",
+		"DISPLAY_BOTTOM_PAGER" => "N",
 		"DISPLAY_DATE" => "Y",
 		"DISPLAY_NAME" => "Y",
 		"DISPLAY_PICTURE" => "Y",
@@ -62,14 +62,14 @@ $APPLICATION->SetTitle("Бренды");
 		"MESSAGE_404" => "",
 		"META_DESCRIPTION" => "-",
 		"META_KEYWORDS" => "-",
-		"NEWS_COUNT" => "20",
+		"NEWS_COUNT" => "50",
 		"PAGER_BASE_LINK_ENABLE" => "N",
 		"PAGER_DESC_NUMBERING" => "N",
 		"PAGER_DESC_NUMBERING_CACHE_TIME" => "36000",
 		"PAGER_SHOW_ALL" => "N",
 		"PAGER_SHOW_ALWAYS" => "N",
 		"PAGER_TEMPLATE" => ".default",
-		"PAGER_TITLE" => "Новости",
+		"PAGER_TITLE" => "Бренды",
 		"PERIOD_NEW_TAGS" => "",
 		"PREVIEW_TRUNCATE_LEN" => "",
 		"SEF_MODE" => "Y",
@@ -84,7 +84,7 @@ $APPLICATION->SetTitle("Бренды");
 		"TAGS_CLOUD_ELEMENTS" => "150",
 		"TAGS_CLOUD_WIDTH" => "100%",
 		"USE_CATEGORIES" => "N",
-		"USE_FILTER" => "N",
+		"USE_FILTER" => "Y",
 		"USE_PERMISSIONS" => "N",
 		"USE_RATING" => "N",
 		"USE_REVIEW" => "N",
@@ -93,6 +93,15 @@ $APPLICATION->SetTitle("Бренды");
 		"USE_SHARE" => "N",
 		"COMPONENT_TEMPLATE" => "brands",
 		"SEF_FOLDER" => "/brands/",
+		"FILTER_NAME" => "Filter_brands",
+		"FILTER_FIELD_CODE" => array(
+			0 => "",
+			1 => "",
+		),
+		"FILTER_PROPERTY_CODE" => array(
+			0 => "",
+			1 => "",
+		),
 		"SEF_URL_TEMPLATES" => array(
 			"news" => "",
 			"section" => "",
