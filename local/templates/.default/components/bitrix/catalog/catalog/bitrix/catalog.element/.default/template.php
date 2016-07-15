@@ -170,21 +170,21 @@ $arFirstPhoto = current($arResult['MORE_PHOTO']);
         </div>
         <!--END productInfo-->
         <!--productPrice-->
-        <?// TODO: Выводимая цена для торговых предложений нифига не минимальная?>
-        <div class="productPrice">
-        	<?
-			$minPrice = (isset($arResult['RATIO_PRICE']) ? $arResult['RATIO_PRICE'] : $arResult['MIN_PRICE']);
-			$boolDiscountShow = (0 < $minPrice['DISCOUNT_DIFF']); ?>
-			<strong><?= GetMessage("CT_PRICE") ?>: 
-			<? if ($arParams['SHOW_OLD_PRICE'] == 'Y') { ?>
-				<span class="discount_price"><?= ($boolDiscountShow ? $minPrice['PRINT_VALUE'] : ''); ?></span>
-			<? } ?>
-			</strong>
-			<span class="actual_price"><?= $minPrice['PRINT_DISCOUNT_VALUE']; ?></span>
-        </div>
         <!-- Цены предложений, если они есть -->
-        <? if (isset($arResult['OFFERS']) && !empty($arResult['OFFERS'])) { 
-               foreach ($arResult["OFFERS"] as $offer) { ?>
+        <? if (isset($arResult['OFFERS']) && !empty($arResult['OFFERS'])) {
+        	$first_offer = $arResult["OFFERS"][0]; ?>
+            <div class="productPrice">
+	        	<?
+				$minPrice = (isset($first_offer['RATIO_PRICE']) ? $first_offer['RATIO_PRICE'] : $first_offer['MIN_PRICE']);
+				$boolDiscountShow = (0 < $minPrice['DISCOUNT_DIFF']); ?>
+				<strong><?= GetMessage("CT_PRICE") ?>: 
+				<? if ($arParams['SHOW_OLD_PRICE'] == 'Y') { ?>
+					<span class="discount_price"><?= ($boolDiscountShow ? $minPrice['PRINT_VALUE'] : ''); ?></span>
+				<? } ?>
+				</strong>
+				<span class="actual_price"><?= $minPrice['PRINT_DISCOUNT_VALUE']; ?></span>
+	        </div>
+            <? foreach ($arResult["OFFERS"] as $offer) { ?>
                	<div class="productPrice" data-price-offer-id="<?= $offer['ID'] ?>" style="display: none">
 		        	<?
 					$minPrice = (isset($offer['RATIO_PRICE']) ? $offer['RATIO_PRICE'] : $offer['MIN_PRICE']);
@@ -197,7 +197,19 @@ $arFirstPhoto = current($arResult['MORE_PHOTO']);
 					<span class="actual_price"><?= $minPrice['PRINT_DISCOUNT_VALUE']; ?></span>
 		        </div>
         	<? }
-			} ?>
+		   } else { // одиночный товар ?>
+		   	<div class="productPrice">
+	        	<?
+				$minPrice = (isset($arResult['RATIO_PRICE']) ? $arResult['RATIO_PRICE'] : $arResult['MIN_PRICE']);
+				$boolDiscountShow = (0 < $minPrice['DISCOUNT_DIFF']); ?>
+				<strong><?= GetMessage("CT_PRICE") ?>: 
+				<? if ($arParams['SHOW_OLD_PRICE'] == 'Y') { ?>
+					<span class="discount_price"><?= ($boolDiscountShow ? $minPrice['PRINT_VALUE'] : ''); ?></span>
+				<? } ?>
+				</strong>
+				<span class="actual_price"><?= $minPrice['PRINT_DISCOUNT_VALUE']; ?></span>
+        	</div>
+		<? } ?>
         <!--END productPrice-->
         <!--productCount-->
         <div class="productCount">
@@ -220,7 +232,22 @@ $arFirstPhoto = current($arResult['MORE_PHOTO']);
 	            <strong><?= GetMessage("CT_OFFERS") ?>:</strong>
 
 	            <div class="firstFilter item_card_offers">
-	                <p data-sort="" data-offer-id="0" class="firstFiltElement1" id="activeFirstFilt"><span class="col"></span>Не выбрано</p>
+	            	<?
+                    $offerNameVisible = $first_offer["NAME"];
+                    $offerName = array();
+                    ?>
+                    <? foreach ($arParams["~OFFER_TREE_PROPS"] as $offerPropName) { ?>
+                        <? 
+                            if ($first_offer["PROPERTIES"][$offerPropName]["VALUE"]) {
+                                $offerName[] = $first_offer["PROPERTIES"][$offerPropName]["VALUE"];
+                        } ?>
+                    <? } ?>
+                    <?
+                    if (count($offerName) > 0) {
+                        $offerNameVisible = trim(implode(", ", $offerName));
+                    }     
+                    ?>
+                    <p data-sort=""  data-offer-id="<?= $first_offer["ID"] ?>" id="activeFirstFilt" data-item-can-buy="<?= $first_offer["CATALOG_QUANTITY"] ?>" data-offer-buy-link="<?= $first_offer["ADD_URL"] ?>" class="firstFiltElement1"><span class="col"></span><?= $offerNameVisible ?></p>
 	                <div class="hidingMenu">
 	                	<?foreach ($arResult["OFFERS"] as $offer) {?>
 		                    <?
@@ -269,7 +296,7 @@ $arFirstPhoto = current($arResult['MORE_PHOTO']);
 		$addToBasketBtnMessage = GetMessage('CT_BCE_CATALOG_ADD');
 		$notAvailableMessage = ($arParams['MESS_NOT_AVAILABLE'] != '' ? $arParams['MESS_NOT_AVAILABLE'] : GetMessageJS('CT_BCE_CATALOG_NOT_AVAILABLE')); ?>
 		<? if ($canBuy) {?>
-			<a href="<?= $arResult['ADD_URL'] ?>" data-offer-id="0" data-item-have-offers="<?= $item_have_offers ?>" data-main-item-id="<?= $arResult['ID'] ?>" class="js-add-to-basket addBtn"><span></span><? echo $addToBasketBtnMessage; ?></a> 
+			<a href="<?= $first_offer['ADD_URL'] ?>" data-offer-id="<?= $first_offer["ID"] ?>" data-item-have-offers="<?= $item_have_offers ?>" data-main-item-id="<?= $arResult['ID'] ?>" class="js-add-to-basket addBtn"><span></span><? echo $addToBasketBtnMessage; ?></a> 
 		<? } ?>
 		<span id="<? echo $arItemIDs['NOT_AVAILABLE_MESS']; ?>" class="bx_notavailable" style="display: <? echo (!$canBuy ? '' : 'none'); ?>;"><? echo $notAvailableMessage; ?></span>
     </div>
