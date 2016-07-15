@@ -68,9 +68,9 @@
         }
         if (!isset($arCurSection))
             $arCurSection = array();
-    }           
+    }
 
-    $catalogParams = getCatalogViewParams();  //sets in init.php     
+    $catalogParams = getCatalogViewParams();  //sets in init.php
     $sectionTemplate = $catalogParams["CATALOG_SECTION_TEMPLATE"];
     $arParams["PAGE_ELEMENT_COUNT"] = $catalogParams["PAGE_ELEMENT_COUNT"];
     $arParams["ELEMENT_SORT_FIELD"] = $catalogParams["ELEMENT_SORT_FIELD"];
@@ -98,19 +98,19 @@
             <div class="productFilterWrap">
                 <p class="activeTopLeftBut"><?=GetMessage("CATALOG_FILTER")?></p>
             </div>
-            <div class="sortingWrap">  
-                <p><?=GetMessage("ORDER_BY")?></p>  
+            <div class="sortingWrap">
+                <p><?=GetMessage("ORDER_BY")?></p>
 
-                <div class="firstFilter">                      
-                    <?getCatalogOptionBlock("ELEMENT_SORT_FIELD"); //sets in init.php?>                    
+                <div class="firstFilter">
+                    <?getCatalogOptionBlock("ELEMENT_SORT_FIELD"); //sets in init.php?>
                 </div>
 
-                <div class="secondFilter">            
-                    <?getCatalogOptionBlock("ELEMENT_SORT_ORDER"); //sets in init.php?>     
-                </div>                 
+                <div class="secondFilter">
+                    <?getCatalogOptionBlock("ELEMENT_SORT_ORDER"); //sets in init.php?>
+                </div>
             </div>
             <div class="displayTypeWrap">
-                <?if ($sectionTemplate == "blocks") {?> 
+                <?if ($sectionTemplate == "blocks") {?>
                     <div class="blockType checked"></div>
                     <div class="listType" data-href="?CATALOG_SECTION_TEMPLATE=table"></div>
                     <?} else {?>
@@ -121,9 +121,9 @@
 
             <div class="quantityWrap">
                 <p class="quantityFiltTitle"><?=GetMessage("PAGE_ELEMENT_COUNT")?></p>
-                <div class="quantOnPageFilt">                  
-                    <?getCatalogOptionBlock("PAGE_ELEMENT_COUNT"); //sets in init.php?>                           
-                </div>                      
+                <div class="quantOnPageFilt">
+                    <?getCatalogOptionBlock("PAGE_ELEMENT_COUNT"); //sets in init.php?>
+                </div>
             </div>
 
         </div>
@@ -167,13 +167,13 @@
 
             <!--elementBlocksWrap-->
 
-            <? 
+            <?
                 if (isset($arParams['USE_COMMON_SETTINGS_BASKET_POPUP']) && $arParams['USE_COMMON_SETTINGS_BASKET_POPUP'] == 'Y')
                     $basketAction = (isset($arParams['COMMON_ADD_TO_BASKET_ACTION']) ? $arParams['COMMON_ADD_TO_BASKET_ACTION'] : '');
                 else
                     $basketAction = (isset($arParams['SECTION_ADD_TO_BASKET_ACTION']) ? $arParams['SECTION_ADD_TO_BASKET_ACTION'] : '');
 
-                $intSectionID = 0;   
+                $intSectionID = 0;
 
             ?>
             <?$intSectionID = $APPLICATION->IncludeComponent(
@@ -275,7 +275,7 @@
                         'DISABLE_INIT_JS_IN_COMPONENT' => (isset($arParams['DISABLE_INIT_JS_IN_COMPONENT']) ? $arParams['DISABLE_INIT_JS_IN_COMPONENT'] : '')
                     ),
                     $component
-                );?>                
+                );?>
             <!--END elementBlocksWrap-->
         </div>
         <!--END allElementWrap-->
@@ -288,9 +288,9 @@
             <div class="elemOnPageWrapp">
                 <p class="quantityFiltTitle"><?=GetMessage("PAGE_ELEMENT_COUNT")?></p>
 
-                <div class="quantOnPageFiltBot">                     
+                <div class="quantOnPageFiltBot">
 
-                    <?getCatalogOptionBlock("PAGE_ELEMENT_COUNT"); //sets in init.php?>   
+                    <?getCatalogOptionBlock("PAGE_ELEMENT_COUNT"); //sets in init.php?>
 
                 </div>
 
@@ -298,7 +298,7 @@
         </div>
         <!--END bottomHorNavig-->
     </div>
-</div> 
+</div>
 <!--viewedElementBlock-->
 <div class="viewedElementBlock">
     <div class="widthWrapper">
