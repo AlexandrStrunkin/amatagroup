@@ -8350,3 +8350,31 @@ display: none;
 	margin-top: 20px;
 	color: red;
 }
+
+.detail_news {
+	text-align: justify;
+	vertical-align: top;
+}
+
+.detail_news img {
+	float: left;
+	margin: 0 25px 25px 0;
+}
+
+.detail_news .date {
+	border: 1px solid #e6e6e6;
+    border-radius: 30px;
+    color: #000;
+    font: 12px/1 "MuseoSansCyrl-500";
+    padding: 6px 16px;
+    letter-spacing: 0.2px;
+    margin-right: 1px;
+    width: 61px;
+}
+
+.detail_news .detail_text {
+	color: #9a9a9a;
+    font: 17px/26px "PT Serif", serif;
+    margin-bottom: 30px;
+    letter-spacing: 0.2px;
+}
