@@ -170,7 +170,7 @@ $this->setFrameMode(true);
    <?$arrFilter = array("PROPERTY_BREND_VALUE" => $BrandElementID["NAME"])?>
     <?$APPLICATION -> IncludeComponent(
 	"bitrix:catalog.section",
-	"blocks",
+	"catalog_blog",
 	array(
 		"ACTION_VARIABLE" => "action",
 		"ADD_PICT_PROP" => "-",

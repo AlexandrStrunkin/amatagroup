@@ -14,7 +14,8 @@
 ?>
 
 <!--elmentsList-->
-<ul class="productList" id="productList2">
+<div class="newsBlock">
+<ul class="productList" style="display: block;">
 
     <?
         if (!empty($arResult['ITEMS'])) {
@@ -186,13 +187,14 @@
                     <div>
                         <a href="<? echo $arItem['DETAIL_PAGE_URL']; ?>" class="productName"><?=$arItem["NAME"]?></a>
 
+                        <?arshow($arItem['CAN_BUY'])?>
                         <?if ((!isset($arItem['OFFERS']) || empty($arItem['OFFERS'])) && $arItem['CAN_BUY']) {?>
 
                             <div id="<? echo $arItemIDs['BASKET_ACTIONS']; ?>" <?if ($arItem['IN_BASKET'] == "Y"){?>title="<?=GetMessage("PRODUCT_ALREADY_IN_BASKET")?>"<?}?>  class="bx_catalog_item_controls_blocktwo productBasketBlock changingBasket <?if ($arItem['IN_BASKET'] == "Y"){?> active<?}?>">
                                 <a id="<? echo $arItemIDs['BUY_LINK']; ?>" class="blockLink bx_bt_button bx_medium <?if ($arItem['IN_BASKET'] != "Y") {?>js-add-to-basket <?}?>" href="<?=$arItem['ADD_URL']?>" rel="nofollow"></a>
                             </div>
 
-                        <?}?>
+                            <?}?>
 
                         <div class="productLikeBlock changingLike">
                         	<a href="javascript:void(0)"
@@ -223,9 +225,6 @@
                             if (date("U") - 86400 * FRESH_PRODUCT_STATUS_LENGTH <= MakeTimeStamp($arItem["DATE_CREATE"], "DD.MM.YYYY HH:MI:SS")) {
                             ?>
                             <div class="freshLogoWrapper" title="<?=GetMessage("FRESH_PRODUCT")?>">FRESH</div>
-                            <?}?>
-                            <?if($arItem["PROPERTIES"]["BESTSELLERS"]["VALUE_XML_ID"] == 'Y'){?>
-                                <div class="bestLogoWrapper">BEST</div>
                             <?}?>
 
 
@@ -511,6 +510,7 @@
             }
         ?>
     </ul>
+    </div>
     <!--END elmentsList-->
 
     <div style="clear: both;"></div>
