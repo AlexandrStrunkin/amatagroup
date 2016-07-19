@@ -60,18 +60,6 @@ $arUrlRewrite = array(
 		"ID" => "bitrix:news",
 		"PATH" => "/news/index.php",
 	),
-	array(
-		"CONDITION" => "#^\\??(.*)#",
-		"RULE" => "&\$1",
-		"ID" => "bitrix:catalog.section",
-		"PATH" => "/local/templates/amatagroup_index/header.php",
-	),
-	array(
-		"CONDITION" => "#^\\??(.*)#",
-		"RULE" => "&\$1",
-		"ID" => "bitrix:catalog.section",
-		"PATH" => "/personal/favourite/index.php",
-	),
 );
 
 ?>

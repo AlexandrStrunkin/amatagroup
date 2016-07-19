@@ -32,7 +32,7 @@
 		"PAGER_TEMPLATE" => $arParams["DETAIL_PAGER_TEMPLATE"],
 		"PAGER_SHOW_ALL" => $arParams["DETAIL_PAGER_SHOW_ALL"],
 		"CHECK_DATES" => $arParams["CHECK_DATES"],
-
+		"ADD_ELEMENT_CHAIN" => $arParams["ADD_ELEMENT_CHAIN"],
 		"ELEMENT_ID" => $arResult["VARIABLES"]["ELEMENT_ID"],
 		"ELEMENT_CODE" => $arResult["VARIABLES"]["ELEMENT_CODE"],
 		"IBLOCK_URL" => $arResult["FOLDER"].$arResult["URL_TEMPLATES"]["news"],
