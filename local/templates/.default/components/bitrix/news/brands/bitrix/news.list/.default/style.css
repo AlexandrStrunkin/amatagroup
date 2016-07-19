@@ -10,3 +10,63 @@ div.news-list img.preview_picture
 .news-date-time {
 	color:#486DAA;
 }
+.wrap-sk-menu-abc {
+    padding: 4px 8px 7px 8px;
+    margin: 0 0 -10px 0;
+    display: inline-block;
+    color: #6a6a6a;
+}
+.widthWrapper .wrap-sk-menu-abc .sk-menu-abc {
+    margin: 0;
+    padding: 0;
+    background: transparent;
+    -webkit-border-radius: 0;
+    -moz-border-radius: 0;
+    border-radius: 0;
+}
+.widthWrapper .wrap-sk-menu-abc .sk-menu-abc > li {
+    padding: 0 3px 4px 3px;
+    display: inline-block;
+    float: left;
+    position: relative;
+    letter-spacing:normal;
+    margin: 0;
+    color:#6a6a6a;
+}
+.widthWrapper .wrap-sk-menu-abc .sk-menu-abc-devider {
+    margin: 0 0 -10px 0!important;
+    top: -20px;
+    font-size: 16px;
+    height: 21px;
+}
+.widthWrapper .wrap-sk-menu-abc .sk-menu-abc li:before{
+    content: '';
+}
+.widthWrapper .wrap-sk-menu-abc .sk-menu-abc > li > a {
+    color: #6a6a6a;
+    text-decoration: none;
+}
+.widthWrapper .wrap-sk-menu-abc .sk-menu-abc-sub {
+    display: none;
+    padding: 10px 30px 0 10px;
+    position: absolute;
+    top: -25px;
+    left: -15px;
+    background: #fff;
+    border-top: 0;
+    white-space: nowrap;
+    z-index: 103;
+    -webkit-box-shadow: 0 3px 4px 0 rgba(0,0,0,0.3);
+    -moz-box-shadow: 0 3px 4px 0 rgba(0,0,0,0.3);
+    box-shadow: 0 3px 4px 0 rgba(0,0,0,0.3);
+}
+.widthWrapper .wrap-sk-menu-abc .sk-menu-abc > li:hover .sk-menu-abc-sub {
+    display: block;
+}
+.widthWrapper .wrap-sk-menu-abc .sk-menu-abc-sub > li {
+    margin: 0 0 11px 0;
+}
+.widthWrapper .wrap-sk-menu-abc .sk-menu-abc-sub > li > a {
+    color: #4b4646;
+    text-decoration: none;
+}

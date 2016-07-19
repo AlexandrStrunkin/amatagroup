@@ -11,6 +11,60 @@
 /** @var string $componentPath */
 /** @var CBitrixComponent $component */
 $this->setFrameMode(true);
+
+    function isNumeric($strChar) {
+        $intOrd = ord($strChar);
+        if($intOrd >= 48 && $intOrd <= 57)
+            return true;
+        else return false;
+    }
+
+    $strBrandHtml = '';
+    $strNumeric = '';
+    $isEnglish = true;
+
+    foreach ($arResult["ITEMS"] as $arProd) {
+        $strLetter = ToUpper(substr($arProd["NAME"], 0, 1));
+        if (isNumeric($strLetter)) {
+            $strLetter = '123';
+        }
+
+        if ($strLetter != $strLastLetter) {
+            $strLastLetter = $strLetter;
+            if(!empty($strBrandHtml)) {
+                $strBrandHtml .= '</ul></li>';
+            }
+
+            if (ord($strLetter) >= 192 && $isEnglish) {
+                $isEnglish = false;
+                $strBrandHtml .= '<li class="sk-menu-abc-devider"> | </li>';
+            }
+
+            if ($strLetter == '123') {
+                $strNumeric .= '<li class="sk-menu-abc-devider"> | </li><li><a href="#">'.$strLetter.'</a><ul class="sk-menu-abc-sub">';
+            } else {
+
+                $strBrandHtml .= '<li><a href="#">'.$strLetter.'</a><ul class="sk-menu-abc-sub">';
+            }
+        }
+
+        if ($strLetter == '123') {
+            $strNumeric .= '<li><a href="/brands/'.$arProd["ID"].'/">'.$arProd["NAME"].'</a></li>';
+        } else {
+            $strBrandHtml .= '<li><a href="/brands/'.$arProd["ID"].'/">'.$arProd["NAME"].'</a></li>';
+        }
+    }
+
+    if(!empty($strBrandHtml)) {
+        $strBrandHtml .= '</ul>';
+        if(!empty($strNumeric)) $strNumeric .= '</ul>';?>
+    <div class="wrap-sk-menu-abc">
+        <ul class="sk-menu-abc">
+            <li>Бренды:</li>
+            <?=$strBrandHtml.$strNumeric?>
+        </ul>
+    </div><?
+    }
 ?>
 
 <div class="brandPhotoWrapper">
