@@ -24,14 +24,17 @@
         <h1><?$APPLICATION->ShowTitle()?></h1>
 
         <!--breadcrumb-->
-        <?$APPLICATION->IncludeComponent("bitrix:breadcrumb", "nav_chain", Array(
-                "COMPONENT_TEMPLATE" => ".default",
-                "START_FROM" => "0",    // Номер пункта, начиная с которого будет построена навигационная цепочка
-                "PATH" => "",    // Путь, для которого будет построена навигационная цепочка (по умолчанию, текущий путь)
-                "SITE_ID" => "s1",    // Cайт (устанавливается в случае многосайтовой версии, когда DOCUMENT_ROOT у сайтов разный)
-                ),
-                false
-            );?>    
+        <?$APPLICATION->IncludeComponent(
+	"bitrix:breadcrumb", 
+	"nav_chain", 
+	array(
+		"COMPONENT_TEMPLATE" => "nav_chain",
+		"START_FROM" => "0",
+		"PATH" => "",
+		"SITE_ID" => "s1"
+	),
+	false
+);?>    
         <!--END breadcrumb--> 
 
         <p class="titleText">     
