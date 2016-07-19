@@ -752,7 +752,7 @@ body {
     top: 20px;
 }
 
-.infoBlockWrapper .productWrapper .newProductWrapper {
+.innerPageWrapper .productWrapper .newProductWrapper {
     padding: 4px 13px 5px;
 }
 
@@ -4798,7 +4798,7 @@ background: url(../img/arrow.png) no-repeat 50%;
     margin-right: 0;
 }
 
-.infoBlockWrapper h1 {
+.innerPageWrapper h1 {
     color: #000;
     font: 36px/1 "VentiCF-Black";
     margin: 9px 0 0;
@@ -4806,7 +4806,7 @@ background: url(../img/arrow.png) no-repeat 50%;
     letter-spacing: -1px;
 }
 
-.infoBlockWrapper h1 span:first-child {
+.innerPageWrapper h1 span:first-child {
     letter-spacing: -0.4px;
     color: inherit;
     font: inherit;
@@ -4815,7 +4815,7 @@ background: url(../img/arrow.png) no-repeat 50%;
     padding: 0;
 }
 
-.infoBlockWrapper h1 .infoTitleDate {
+.innerPageWrapper h1 .infoTitleDate {
     border: 1px solid #e6e6e6;
     border-radius: 30px;
     color: #000;
@@ -4828,7 +4828,7 @@ background: url(../img/arrow.png) no-repeat 50%;
     margin-right: 1px;
 }
 
-.infoBlockWrapper .littleInfoTitle {
+.innerPageWrapper .littleInfoTitle {
     border-bottom: 1px solid #dddddd;
     color: #000;
     font-family: "MuseoSansCyrl-700";
@@ -4837,22 +4837,22 @@ background: url(../img/arrow.png) no-repeat 50%;
     padding-bottom: 20px;
 }
 
-.infoBlockWrapper .infoText, .innerPageWrapper p {
+.innerPageWrapper .infoText, .innerPageWrapper p {
     color: #9a9a9a;
     font: 17px/26px "PT Serif", serif;
     margin-bottom: 30px;
     letter-spacing: 0.2px;
 }
 
-.infoBlockWrapper .infoText a, .innerPageWrapper p a {
+.innerPageWrapper .infoText a, .innerPageWrapper p a {
     color: #5DB3DC;
 }
 
-.infoBlockWrapper .infoText a:hover, .innerPageWrapper p a:hover {
+.innerPageWrapper .infoText a:hover, .innerPageWrapper p a:hover {
     text-decoration: underline;
 }
 
-.infoBlockWrapper .viewedBlock {
+.innerPageWrapper .viewedBlock {
     border: none;
     margin-top: 70px;
     padding: 64px 0 38px;
@@ -4862,7 +4862,7 @@ background: url(../img/arrow.png) no-repeat 50%;
     background-color: #F5F5F5;
 }
 
-.infoBlockWrapper .viewedBlock .reviesElement {
+.innerPageWrapper .viewedBlock .reviesElement {
     border: none;
     margin-right: 22px;
 }
@@ -4879,12 +4879,12 @@ background: url(../img/arrow.png) no-repeat 50%;
     background-color: #E1DFDF;
 }
 
-.infoBlockWrapper .productExampleBlock {
+.innerPageWrapper .productExampleBlock {
     float: left;
     margin-bottom: 60px;
 }
 
-.infoBlockWrapper .productExampleBlock:nth-child(2n) {
+.innerPageWrapper .productExampleBlock:nth-child(2n) {
     margin-right: 18px;
 }
 
@@ -5021,7 +5021,7 @@ textarea {
     width: 1182px;
 }
 
-.infoBlockWrapper .tableBorderWrapper {
+.innerPageWrapper .tableBorderWrapper {
     border: 1px solid #cbcbcb;
     border-radius: 4px;
     margin: 58px 0 0;
@@ -5040,7 +5040,7 @@ textarea {
     padding: 24px 28px;
 }
 
-.infoBlockWrapper .infoBlackTitle, .innerPageWrapper h2 {
+.innerPageWrapper .infoBlackTitle, .innerPageWrapper h2 {
     border-bottom: 1px solid #dddddd;
     color: #000;
     font-family: "MuseoSansCyrl-700";
@@ -5051,7 +5051,7 @@ textarea {
     letter-spacing: 0.6px;
 }
 
-.infoBlockWrapper .infoDocumentList, .innerPageWrapper ul {
+.innerPageWrapper .infoDocumentList, .innerPageWrapper ul {
     color: #a1a1a1;
     font-family: "MuseoSansCyrl-500";
     font-size: 16px;
@@ -5059,7 +5059,7 @@ textarea {
     margin-top: 46px;
 }
 
-.infoBlockWrapper .infoDocumentList li, .innerPageWrapper ul li {
+.innerPageWrapper .infoDocumentList li, .innerPageWrapper ul li {
     margin-bottom: 17.5px;
     position: relative;
     letter-spacing: 0.2px;
@@ -5069,14 +5069,14 @@ textarea {
     color: #000;
 }
 
-.infoBlockWrapper .infoDocumentList li:before, .innerPageWrapper ul li:before {
+.innerPageWrapper .infoDocumentList li:before, .innerPageWrapper ul li:before {
     content: url("../img/libefore12.png");
     left: -20px;
     position: relative;
     top: -1px;
 }
 
-.infoBlockWrapper .warningText {
+.innerPageWrapper .warningText {
     color: #ea8b64;
     font-family: "PT Serif", serif;
     font-size: 16px;
@@ -5086,7 +5086,7 @@ textarea {
     letter-spacing: -0.05px;
 }
 
-.infoBlockWrapper .infoBlocksMenu {
+.innerPageWrapper .infoBlocksMenu {
     border-bottom: 1px solid #d8d8d8;
     color: #aaaaaa;
     font-family: "MuseoSansCyrl-500";
@@ -5095,7 +5095,7 @@ textarea {
     padding-bottom: 0;
 }
 
-.infoBlockWrapper .infoBlocksMenu a {
+.innerPageWrapper .infoBlocksMenu a {
     display: inline-block;
     margin-right: 24px;
     cursor: pointer;
@@ -5103,18 +5103,22 @@ textarea {
     letter-spacing: 0.3px;
 }
 
-.infoBlockWrapper .infoBlocksMenu .activeInfoBlock {
+.innerPageWrapper .infoBlocksMenu .activeInfoBlock {
     border-bottom: 3px solid;
     color: #0b0b0b;
     margin-bottom: -2px;
     padding-bottom: 14px;
 }
 
-.infoBlockWrapper .infoNewsList {
+.innerPageWrapper .infoNewsList {
     margin-top: 34px;
 }
 
-.infoBlockWrapper .infoNewsList .imageWrapper {
+.infoNewsList li:before {
+	content: "" !important;
+}
+
+.innerPageWrapper .infoNewsList .imageWrapper {
     background: #fff none repeat scroll 0 0;
     border-radius: 4px;
     float: left;
@@ -5125,19 +5129,20 @@ textarea {
     width: 260px;
 }
 
-.infoBlockWrapper .infoNewsList .imageWrapper img {
+.innerPageWrapper .infoNewsList .imageWrapper img {
     vertical-align: middle;
 }
 
-.infoBlockWrapper .infoNewsList .dateText {
+.innerPageWrapper .infoNewsList .dateText {
     color: #5a5a5a;
     font-family: "MuseoSansCyrl-500";
     font-size: 13px;
     padding-bottom: 8px;
     padding-top: 8px;
+    margin-bottom: 0 !important;
 }
 
-.infoBlockWrapper .infoNewsList .newsName {
+.innerPageWrapper .infoNewsList .newsName {
     color: #323232;
     font: 20px/1 "MuseoSansCyrl-700";
     margin: 5px 0 13px;
@@ -5145,11 +5150,11 @@ textarea {
     letter-spacing: 0.37px;
 }
 
-.infoBlockWrapper .infoNewsList .newsName:hover {
+.innerPageWrapper .infoNewsList .newsName:hover {
     color: #5db3dc;
 }
 
-.infoBlockWrapper .infoNewsList .newsText {
+.innerPageWrapper .infoNewsList .newsText {
     color: #888888;
     font: 15px/24px "PT Serif", serif;
     padding-right: 100px;
@@ -5157,7 +5162,7 @@ textarea {
     padding-bottom: 3px;
 }
 
-.infoBlockWrapper .infoNewsList .detailNews {
+.innerPageWrapper .infoNewsList .detailNews {
     border: 1px solid #c1c1c1;
     border-radius: 4px;
     color: #5a5a5a;
@@ -5170,7 +5175,7 @@ textarea {
     width: 100px;
 }
 
-.infoBlockWrapper .infoNewsList .detailNews:hover {
+.innerPageWrapper .infoNewsList .detailNews:hover {
     border-color: #7fcbef;
     color: #5db3dc;
 }
@@ -5286,7 +5291,7 @@ border-color: transparent transparent #fff;
     text-shadow: 0 2px 2px rgba(255, 255, 255, 0.1), 0 -1px 1px rgba(0, 0, 0, 0.1);
 }
 
-.infoBlockWrapper .brandsWrapper {
+.innerPageWrapper .brandsWrapper {
     border-bottom: 1px solid #e1dfdf;
     margin-top: 57px;
     padding-bottom: 44px;
@@ -6195,30 +6200,30 @@ input[type="radio"]:checked + label::before {
     text-align: left;
 }
 
-.infoBlockWrapper .infoTitleBlock {
+.innerPageWrapper .infoTitleBlock {
     letter-spacing: 0.5px;
 }
 
-.infoBlockWrapper .viewedTitle {
+.innerPageWrapper .viewedTitle {
     font: 20px/1 'MuseoSansCyrl-700', sans-serif !important;
     letter-spacing: 0.7px;
     padding-bottom: 47px;
 }
 
-.infoBlockWrapper .productCarousel .jcarousel-control-prev,
-.infoBlockWrapper .productCarousel .jcarousel-control-next {
+.innerPageWrapper .productCarousel .jcarousel-control-prev,
+.innerPageWrapper .productCarousel .jcarousel-control-next {
     top: -64px;
 }
 
-.infoBlockWrapper .productCarousel .jcarousel li {
+.innerPageWrapper .productCarousel .jcarousel li {
     width: 278px;
 }
 
-.infoBlockWrapper .selectric .button {
+.innerPageWrapper .selectric .button {
     top: 4px;
 }
 
-.infoBlockWrapper .questionInfoForm .rightBlock .selectric .label {
+.innerPageWrapper .questionInfoForm .rightBlock .selectric .label {
     font-family: 'MuseoSansCyrl-500';
 }
 
@@ -6330,8 +6335,8 @@ input[type="radio"]:checked + label::before {
     top: -80px;
 }
 
-.infoBlocksContent, .basketBlock {
-    /*display: none;*/
+.infoBlocksContent {
+    display: none;
 }
 
 /***********************/
@@ -7426,15 +7431,15 @@ border-color: #232323 !important;
     overflow: hidden;
 }
 
-.infoBlockWrapper .elmentsList .productWrapper .price {
+.innerPageWrapper .elmentsList .productWrapper .price {
     margin-left: -1px;
 }
 
-.infoBlockWrapper .elmentsList .productimg {
+.innerPageWrapper .elmentsList .productimg {
     height: 216px;
 }
 
-.infoBlockWrapper .elmentsList .productWrapper .productName {
+.innerPageWrapper .elmentsList .productWrapper .productName {
     letter-spacing: 0.2px;
     padding-top: 18px;
 }
@@ -7739,7 +7744,7 @@ border-color: #232323 !important;
     color: #807d7d;
 }
 
-.infoBlockWrapper .infoTitleBlock span.infoTitleDate::before {
+.innerPageWrapper .infoTitleBlock span.infoTitleDate::before {
     display: none;
 }
 
@@ -8346,4 +8351,32 @@ display: none;
 	font-family: "PT Serif";
 	margin-top: 20px;
 	color: red;
+}
+
+.detail_news {
+	text-align: justify;
+	vertical-align: top;
+}
+
+.detail_news img {
+	float: left;
+	margin: 0 25px 25px 0;
+}
+
+.detail_news .date {
+	border: 1px solid #e6e6e6;
+    border-radius: 30px;
+    color: #000;
+    font: 12px/1 "MuseoSansCyrl-500";
+    padding: 6px 16px;
+    letter-spacing: 0.2px;
+    margin-right: 1px;
+    width: 61px;
+}
+
+.detail_news .detail_text {
+	color: #9a9a9a;
+    font: 17px/26px "PT Serif", serif;
+    margin-bottom: 30px;
+    letter-spacing: 0.2px;
 }
