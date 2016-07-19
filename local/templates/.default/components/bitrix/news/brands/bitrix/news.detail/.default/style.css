@@ -1,0 +1,30 @@
+.widthWrapper.innerPageWrapper ul li {
+    margin-bottom: auto;
+    position: relative;
+    letter-spacing: normal;
+}
+.widthWrapper .newsBlock .productList li {
+    float: left;
+    height: 340px;
+    margin-right: 10px;
+    width: 280px;
+    margin-bottom: 20px;
+    cursor: pointer;
+}
+.widthWrapper.innerPageWrapper ul li:before{
+    content:'';
+}
+.newsBlock .productWrapper {
+    background-color: #ffffff;
+    border-radius: 4px;
+    height: 340px;
+    padding: 0 20px;
+    width: 240px;
+    float: left;
+}
+.widthWrapper.innerPageWrapper p {
+     color: #000000;
+     font: normal;
+     margin-bottom: 0;
+     letter-spacing: normal;
+}

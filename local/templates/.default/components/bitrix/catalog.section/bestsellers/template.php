@@ -192,7 +192,7 @@
                                 <a id="<? echo $arItemIDs['BUY_LINK']; ?>" class="blockLink bx_bt_button bx_medium <?if ($arItem['IN_BASKET'] != "Y") {?>js-add-to-basket <?}?>" href="<?=$arItem['ADD_URL']?>" rel="nofollow"></a>
                             </div>
 
-                            <?}?>
+                        <?}?>
 
                         <div class="productLikeBlock changingLike">
                         	<a href="javascript:void(0)"
@@ -210,7 +210,6 @@
 
                         <?//шильдик скидки
                             if ($arItem["MIN_PRICE_TMP"]['DISCOUNT_VALUE'] < $arItem["MIN_PRICE_TMP"]['VALUE'] && $arItem["MIN_PRICE_TMP"]["DISCOUNT_DIFF_PERCENT"] > 0) {?>
-                            <div class="saleLogoWrapper">SALE</div>
                             <div class="discountLogoWrapper">-<?=$arItem["MIN_PRICE_TMP"]["DISCOUNT_DIFF_PERCENT"];?>%</div>
                             <?}?>
 

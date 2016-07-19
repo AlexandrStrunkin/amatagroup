@@ -17,6 +17,7 @@
     $arSectionDeleteParams = array("CONFIRM" => GetMessage('CT_BCSL_ELEMENT_DELETE_CONFIRM'));
 
 ?>
+ <div class="mainLeftMenu">
 <?if (0 < $arResult["SECTIONS_COUNT"]) {?>
     <ul class="js-catalog-menu">
         <?
@@ -31,11 +32,11 @@
                         $str = '<ul>';
 
                         if ($arSection["DEPTH_LEVEL"] == 2) {
-                            $str = '<ul class="secondLvlCatalog firstLvl">'; 
+                            $str = '<ul class="secondLvlCatalog firstLvl">';
                         }
 
                         if ($arSection["DEPTH_LEVEL"] == 3) {
-                            $str = '<ul class="secondLvl">'; 
+                            $str = '<ul class="secondLvl">';
                         }
                         echo "\n",str_repeat("\t", $arSection['RELATIVE_DEPTH_LEVEL']),$str;
                     }
@@ -78,7 +79,9 @@
     </ul>
     <?}?>
 
-<div class="bottomBlockMailLeft">
-    <a href="" class="link1"><p><?=GetMessage("OPEN_ALL")?></p></a>
-    <a href="" class="link2"><p><?=GetMessage("CLOSE_ALL")?></p></a>
+    <div class="bottomBlockMailLeft">
+        <a href="" class="link1"><p><?=GetMessage("OPEN_ALL")?></p></a>
+        <a href="" class="link2"><p><?=GetMessage("CLOSE_ALL")?></p></a>
+    </div>
+
 </div>

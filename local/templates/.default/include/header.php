@@ -12,7 +12,7 @@
             <div class="list">
                 <a href="">Абаза</a>
                 <a href="">Абакан</a>
-                <a href="">Абдулино</a>                         
+                <a href="">Абдулино</a>
             </div>
         </div>
 
@@ -30,7 +30,7 @@
                 "ALLOW_MULTI_SELECT" => "N",	// Разрешить несколько активных пунктов одновременно
                 ),
                 false
-            );?>       
+            );?>
 
     </div>
     <!--END indexPageHeader-->
@@ -40,8 +40,8 @@
             <a href="/"><img src="<?=DEFAULT_TEMPLATE_PATH?>img/headMainLogo.png" alt=""/></a>
         </div>
         <div class="firstLvlBlocks mailtelinfo">
-            <p><?=GetMessage("WRITE_FOR_US")?></p>     
-            <p><?$APPLICATION->IncludeFile(DEFAULT_TEMPLATE_PATH."include/include_areas/email.php", Array(),Array("MODE"=>"html"));?></p>      
+            <p><?=GetMessage("WRITE_FOR_US")?></p>
+            <p><?$APPLICATION->IncludeFile(DEFAULT_TEMPLATE_PATH."include/include_areas/email.php", Array(),Array("MODE"=>"html"));?></p>
         </div>
         <div class="firstLvlBlocks mailtelinfo">
             <p><?=GetMessage("PHONE_IN_MOSCOW")?></p>
@@ -51,8 +51,8 @@
         <div class="firstLvlBlocks linksBlock" id="linkBlock1">
 
             <?$APPLICATION->IncludeComponent(
-				"bitrix:search.title", 
-				"search_field", 
+				"bitrix:search.title",
+				"search_field",
 				array(
 					"COMPONENT_TEMPLATE" => "search_field",
 					"NUM_CATEGORIES" => "1",
@@ -76,19 +76,19 @@
 				false
 			);?>
 
-        </div>    
+        </div>
 
         <div class="firstLvlBlocks linksBlock" id="linkBlock2">
             <a href="/personal/favourite/"><p>Избранное</p></a>
             <p class="quantityOfLiked">
             	<?= $USER->IsAuthorized() ? Favorite::countFavoriteProducts() : 0 ?>
          	</p>
-        </div>  
+        </div>
 
-        <div class="firstLvlBlocks linksBlock js-small-basket" id="linkBlock3">    
+        <div class="firstLvlBlocks linksBlock js-small-basket" id="linkBlock3">
             <?$APPLICATION->IncludeComponent(
-                    "bitrix:sale.basket.basket.small", 
-                    "small_basket", 
+                    "bitrix:sale.basket.basket.small",
+                    "small_basket",
                     array(
                         "COMPONENT_TEMPLATE" => "small_basket",
                         "PATH_TO_BASKET" => "/personal/cart/",
@@ -104,27 +104,31 @@
     </div>
     <!--END firstLevel-->
     <!--secondLevel-->
-    <div class="secondLevel">                                       
+    <div class="secondLevel">
         <div class="secondLvlBlocks <?if ($curPage == SITE_DIR."index.php"){?>activeBlock<?}?> menuControle" id="<?if ($curPage == SITE_DIR."index.php"){?>secondLvlBlocks1<?} else {?>secondLvlBlocks4<?}?>">
             <p><?=GetMessage("CATALOG")?></p>
         </div>
 
-        <div class="secondLvlBlocks" id="secondLvlBlocks2">             
-            <?$APPLICATION->IncludeComponent("bitrix:menu", "top_additional", Array(
-                    "COMPONENT_TEMPLATE" => "top_additional",
-                    "ROOT_MENU_TYPE" => "top_additional",    // Тип меню для первого уровня
-                    "MENU_CACHE_TYPE" => "A",    // Тип кеширования
-                    "MENU_CACHE_TIME" => "3600",    // Время кеширования (сек.)
-                    "MENU_CACHE_USE_GROUPS" => "N",    // Учитывать права доступа
-                    "MENU_CACHE_GET_VARS" => "",    // Значимые переменные запроса
-                    "MAX_LEVEL" => "1",    // Уровень вложенности меню
-                    "CHILD_MENU_TYPE" => "left",    // Тип меню для остальных уровней
-                    "USE_EXT" => "N",    // Подключать файлы с именами вида .тип_меню.menu_ext.php
-                    "DELAY" => "N",    // Откладывать выполнение шаблона меню
-                    "ALLOW_MULTI_SELECT" => "N",    // Разрешить несколько активных пунктов одновременно
-                    ),
-                    false
-                );?>       
+        <div class="secondLvlBlocks" id="secondLvlBlocks2">
+            <?$APPLICATION->IncludeComponent(
+	            "bitrix:menu",
+	            "top_additional",
+	            array(
+		            "COMPONENT_TEMPLATE" => "top_additional",
+		            "ROOT_MENU_TYPE" => "top_additional",
+		            "MENU_CACHE_TYPE" => "A",
+		            "MENU_CACHE_TIME" => "3600",
+		            "MENU_CACHE_USE_GROUPS" => "N",
+		            "MENU_CACHE_GET_VARS" => array(
+		            ),
+		            "MAX_LEVEL" => "1",
+		            "CHILD_MENU_TYPE" => "left",
+		            "USE_EXT" => "N",
+		            "DELAY" => "N",
+		            "ALLOW_MULTI_SELECT" => "N"
+	            ),
+	            false
+            );?>
         </div>
 
         <div class="secondLvlBlocks" id="secondLvlBlocks3">
@@ -149,7 +153,7 @@
 					false
 				);?>
             </div>
-            
+
             <?if(!$USER->IsAuthorized()){?>
                 <p class="registrationLink"><a href=""><?=GetMessage("REGISTRATION")?></a></p>
                 <?} else {?>
@@ -166,7 +170,7 @@
 
 
                 <p class="authClose"></p>
-                <!--authForm-->    
+                <!--authForm-->
                 <?$APPLICATION->IncludeComponent("bitrix:system.auth.form", "popup_auth", Array(), false);?>
                 <!--END authForm-->
 
@@ -197,10 +201,10 @@
     <!--thirdLevel-->
     <div class="thirdLevel">
 
-        <div class="mainLeftMenu">    
+
             <?$APPLICATION->IncludeComponent(
-                    "bitrix:catalog.section.list", 
-                    "catalog_menu", 
+                    "bitrix:catalog.section.list",
+                    "catalog_menu",
                     array(
                         "COMPONENT_TEMPLATE" => "catalog_menu",
                         "IBLOCK_TYPE" => "1c_catalog",
@@ -226,8 +230,7 @@
                         "ADD_SECTIONS_CHAIN" => "Y"
                     ),
                     false
-                );?>      
-        </div>
+                );?>
 
         <div class="mainBigBanner">
 
