@@ -25,16 +25,16 @@
 
         <!--breadcrumb-->
         <?$APPLICATION->IncludeComponent(
-	"bitrix:breadcrumb", 
-	"nav_chain", 
-	array(
-		"COMPONENT_TEMPLATE" => "nav_chain",
-		"START_FROM" => "0",
-		"PATH" => "",
-		"SITE_ID" => "s1"
-	),
-	false
-);?>    
+			"bitrix:breadcrumb", 
+			"nav_chain", 
+			array(
+				"COMPONENT_TEMPLATE" => "nav_chain",
+				"START_FROM" => "0",
+				"PATH" => "",
+				"SITE_ID" => "s1"
+			),
+			false
+		);?>    
         <!--END breadcrumb--> 
 
         <p class="titleText">     
