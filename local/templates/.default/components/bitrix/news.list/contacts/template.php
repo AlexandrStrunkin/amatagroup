@@ -19,7 +19,7 @@ $this->setFrameMode(true);
     <div id="map-normal-mode" class="map-normal-mode"></div>
     <div id="map" class="map"></div>
     <?
-    	$containers_counter = 0;
+		$containers_counter = 0;
 		$lat_center = 0;
 		$lng_center = 0;
 		$google_coordinates = array();
@@ -68,12 +68,13 @@ $this->setFrameMode(true);
 	                <? } ?>
 	            </div>
 	            <!--END manager-->
-	            <?	$exploded_coordinates = explode(",", $arItem["PROPERTIES"]["COORDINATES"]["VALUE"]);
+	            <?	
+					$exploded_coordinates = explode(",", $arItem["PROPERTIES"]["COORDINATES"]["VALUE"]);
 					$lat_center += $exploded_coordinates[0];
 					$lng_center += $exploded_coordinates[1];
 	            	array_push(
-	            		$google_coordinates,
-	            		"{lat: " . $exploded_coordinates[0] . ", lng: " . $exploded_coordinates[1] . ", disabled: 0}"
+						$google_coordinates,
+						"{lat: " . $exploded_coordinates[0] . ", lng: " . $exploded_coordinates[1] . ", disabled: 0}"
 					);
 	            ?>
 	        </div>
@@ -98,8 +99,8 @@ $this->setFrameMode(true);
         var coords = [<?= implode(",", $google_coordinates) ?>];
         
         <?	
-        	$total_baloons = count($google_coordinates);
-        	$lat_center = floatval($lat_center / $total_baloons);
+			$total_baloons = count($google_coordinates);
+			$lat_center = floatval($lat_center / $total_baloons);
 			$lng_center = floatval($lng_center / $total_baloons);
         ?>
 
