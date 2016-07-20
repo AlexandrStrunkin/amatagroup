@@ -1250,6 +1250,16 @@ $(document).ready(function () {
         el.addClass("active");
         $(id).fadeIn(500);
     });
+    //табы табы гугловых карт
+    $("body").on("click", ".js_google_tabs", function (e) {
+    	e.preventDefault();
+        var el = $(this),
+        	id = el.attr("href");
+        el.parent().find("a").removeClass("active");
+        el.closest("div.basketBody").find(".basketBlock").hide();
+        el.addClass("active");
+        el.closest("div.basketBody").find(id).fadeIn(500);
+    });
 
     $(".smallPreviewImg a").on("click", function (e) {
     	e.preventDefault();
