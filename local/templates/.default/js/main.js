@@ -1243,6 +1243,7 @@ $(document).ready(function () {
     });
     //табы корзина
     $("body").on("click", ".basketBody .basketBodyMenu a.js_tabs", function (e) {
+    	e.preventDefault();
         var el = $(this), id = el.attr("href"), delivery_id = el.data("delivery-button-id");
         $(".dataPayer").length ? $("input#" + delivery_id).click() : ""; // если мы в оформлении заказа
         $(".basketBody .basketBodyMenu a").removeClass("active");
