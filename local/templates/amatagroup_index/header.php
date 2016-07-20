@@ -399,7 +399,7 @@
             <!--END productBlockWrapper-->
             <!--brandsWrapper-->
             <div class="brandsWrapper">
-            <?$Filter_brands[">PREVIEW_PICTURE"] = 0;?>
+            <?$Filter_brands = array(">PREVIEW_PICTURE" => 0, 'PROPERTY_MAIN_DUSPLAY_VALUE' => 'Да');?>
                 <?$APPLICATION->IncludeComponent(
 	                "bitrix:news.list",
 	                "brands_index",
@@ -434,7 +434,7 @@
 		                "INCLUDE_IBLOCK_INTO_CHAIN" => "Y",
 		                "INCLUDE_SUBSECTIONS" => "Y",
 		                "MESSAGE_404" => "",
-		                "NEWS_COUNT" => "50",
+		                "NEWS_COUNT" => "8",
 		                "PAGER_BASE_LINK_ENABLE" => "N",
 		                "PAGER_DESC_NUMBERING" => "N",
 		                "PAGER_DESC_NUMBERING_CACHE_TIME" => "36000",
@@ -446,7 +446,7 @@
 		                "PARENT_SECTION_CODE" => "",
 		                "PREVIEW_TRUNCATE_LEN" => "",
 		                "PROPERTY_CODE" => array(
-			                0 => "",
+			                0 => "MAIN_DUSPLAY",
 			                1 => "",
 		                ),
 		                "SET_BROWSER_TITLE" => "Y",
@@ -479,8 +479,8 @@
                     <!--jcarousel-->
                     <div class="jcarousel">
                     	<?$APPLICATION->IncludeComponent(
-							"bitrix:news.list", 
-							"partners_reviews", 
+							"bitrix:news.list",
+							"partners_reviews",
 							array(
 								"ACTIVE_DATE_FORMAT" => "d.m.Y",
 								"ADD_SECTIONS_CHAIN" => "N",

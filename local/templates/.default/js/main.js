@@ -95,7 +95,7 @@ $(document).ready(function () {
                 el.css({'top': position.top});
                 setTimeout(animateLiMoving, 0, el[0], position);
             }
-            
+
         }
 
 
@@ -134,7 +134,7 @@ $(document).ready(function () {
                 el.click();
             }
 
-            
+
         }
     });
     $(".bottomBlockMailLeft .link1").on("click", function (e) {
@@ -152,7 +152,7 @@ $(document).ready(function () {
         el.find(".firstLvlLi").find(".secondLvl").slideUp(300);
         el.find(".link1").show();
         $(this).hide();
-        
+
     });
 
     $(".firstLvlLi>a").on("click", function (e) {
@@ -241,9 +241,9 @@ $(document).ready(function () {
         });
 
     }
-    
-    
-    
+
+
+
     function changeCount(el, plus) {
         var el1 = el, el = el.parent().find(".quantityText"),
         count = parseFloat(el.val()),
@@ -278,7 +278,7 @@ $(document).ready(function () {
     $(".quantityPlus").on("click", function (e) {
     	e.preventDefault();
         changeCount($(this), 1);
-        
+
     });
     $(".quantityMinus").on("click", function (e) {
     	e.preventDefault();
@@ -340,11 +340,11 @@ $(document).ready(function () {
     	e.preventDefault();
         $(this).toggleClass("active");
     });
-    
+
     //кружочек лайк смена картинки при клике
     $('.changingLike:not(.js_favorite_need_auth)').on("click", function () {
     	if (!$(this).children("a").hasClass("js_favorite_need_auth")) {
-    		$(this).children("a").toggleClass("active");	
+    		$(this).children("a").toggleClass("active");
     	}
     });
 
@@ -494,7 +494,7 @@ $(document).ready(function () {
             //удалить выделение полей (ошибок заполнения)
             $('.regHiddenBlock form .error').removeClass(".error");
             //показать маску
-            popupMask.show(); 
+            popupMask.show();
         });
         $('.regHiddenBlock .authClose').on("click", function () {
             $('.regHiddenBlock').hide();
@@ -527,7 +527,7 @@ $(document).ready(function () {
     $(".cancelInp").on("click", function(){
         $(this).closest("form").find("input,textarea").removeClass("error");
         $(this).closest("form")[0].reset();
-        
+
     });
 
 
@@ -584,7 +584,7 @@ $(document).ready(function () {
                 //показать маску
                 popupMask.show();
 
-                
+
             });
 
         });
@@ -675,7 +675,7 @@ $(document).ready(function () {
         //показать маску
         popupMask.show();
 
-        
+
     });
 
     $(".popup .close").on("click", function (e) {
@@ -709,11 +709,19 @@ $(document).ready(function () {
     $(".forgotPassword").on("click", function () {
         $(".authForm").hide();
         $(".forgotForm").fadeIn(300);
-        
+
     });
     $("form .btn, .formAcceptBut").on("click", function (e) {
-    	e.preventDefault();
-        $(this).closest("form").submit();
+        $(this).closest("form").each(function(){
+            if($(this).val() != ''){
+              // Если поле не пустое удаляем класс-указание
+              return true;
+            } else {
+              // Если поле пустое добавляем класс-указание
+              $(this).closest("form").submit();
+            }
+          });
+
     });
     /* $("input, textarea").each(function () {
     var el = $(this), placeholder = el.attr("placeholder");
@@ -778,7 +786,7 @@ $(document).ready(function () {
 
 
         }
-        
+
     });
     $(".couponInputBlock input").on("keydown keypress keyup", function () {
         var el = $(this), v = el.val(), button = el.parent().find("button");
@@ -791,7 +799,7 @@ $(document).ready(function () {
         var el = $(this);
         popupMask.toggle();
         el.closest(".locationWrapper").find(".list").fadeToggle(300);
-        
+
     });
     $(".locationWrapper .list a").on("click", function (e) {
     	e.preventDefault();
@@ -832,7 +840,7 @@ $(document).ready(function () {
                 fileName = $(this).val().replace("C:\\fakepath\\", '');
         }
         $(".downloadText").text(fileName);
-        
+
     });
 
 
@@ -865,14 +873,14 @@ $(document).ready(function () {
     $(".elementActions .deleteButton").on("click", function () {
         var el = $(this);
         el.closest("tr").hide();
-        
+
     });
     */
     $('body').on("click", ".elementActions .productBasketBlock, .productWrapper .productBasketBlock", function (e) {
     	e.preventDefault();
         if (!$(this).hasClass("active")) {
             $(this).addClass('active');
-        }           
+        }
     });
 
 
@@ -958,7 +966,7 @@ $(document).ready(function () {
 
         $('.basketBodyMenu p').removeClass('active');
         $(this).addClass('active');
-        
+
     })
 
     $('.basketBodyMenu p:nth-child(1)').addClass('active');
@@ -1008,11 +1016,11 @@ $(document).ready(function () {
         $("html, body").animate({scrollTop: el.offset().top-15}, 200);
         /*}, 400);*/
 
-        
+
     });
 
 
-    if ($('.js-range').length > 0) {       
+    if ($('.js-range').length > 0) {
         var el = $(".js-range");
         el.each(function(){
             var el = $(this);
@@ -1084,7 +1092,7 @@ $(document).ready(function () {
         $(".irs-slider.to").on("mouseenter", function () {
             $(".irs-to").addClass("active");
         }).on("mouseleave", function () {
-            $(".irs-to").removeClass("active");   
+            $(".irs-to").removeClass("active");
         });
     }
 
@@ -1098,7 +1106,7 @@ $(document).ready(function () {
     if ($('.hidingMenu p').length > 0) {
         $('.hidingMenu p').on("click", function () {
             $(this).closest(".hidingMenu").hide();
-            
+
 
         });
     }
@@ -1226,7 +1234,7 @@ $(document).ready(function () {
             menu.animate({"margin-left": -300}, 300);
             block.animate({"margin-left": 0}, 300);
         }
-        
+
 
 
     });
@@ -1345,7 +1353,7 @@ $(document).ready(function () {
         setTimeout(function(){
             $(".hidingFormNewTreatment").fadeOut(300);
             }, 2000);
-        
+
     });
 
     //обработка клика по элементам выпадающего списка
@@ -1356,14 +1364,14 @@ $(document).ready(function () {
     });
 
 	// Функционал избранного
-	
+
 	// Если пользователь не авторизован
 	$(".js_favorite_need_auth").on("click", function(e) {
 		e.preventDefault();
 		$("html, body").animate({ scrollTop: 0 }, "slow");
-		$(".authorisationLink a").click(); 
+		$(".authorisationLink a").click();
 	});
-	
+
 	// Если пользователь авторизован, то добавим новую подписку
 	$("body").on("click", ".js_add_to_favorite", function() {
 		$.post("/ajax/manage_favorite.php", {
@@ -1380,7 +1388,7 @@ $(document).ready(function () {
 	        }
 	    }.bind(this));
 	})
-	
+
 	// Если пользователь уже имеет подписку на товар, то удалим ее
 	$("body").on("click", ".already_in_favorite", function() {
 		$.post("/ajax/manage_favorite.php", {
@@ -1396,7 +1404,7 @@ $(document).ready(function () {
         	refreshFavoriteIcon(result.total);
 	    }.bind(this));
 	})
-	
+
 	// Удаление подписки со страницы избранного
 	$("body").on("click", ".js_delete_from_favorite_list", function() {
 		$.post("/ajax/manage_favorite.php", {
@@ -1439,8 +1447,8 @@ $(document).ready(function () {
     });
 
     //обработка нажатия кнопки добавления в корзину из шаблона списка товаров каталога и карточки
-    $(".js-add-to-basket").on("click", function(e){ 
-        e.preventDefault();   
+    $(".js-add-to-basket").on("click", function(e){
+        e.preventDefault();
         var ulr = $(this).attr("href");
 
         var itemId = $(this).data("item-id");
@@ -1464,13 +1472,13 @@ $(document).ready(function () {
 
         //если есть поле ввода количества и имя переменной для передачи количества
         if (itemQuantity > 0 && quantityVariable != "" && ulr != "") {
-            ulr = ulr + "&" + quantityVariable + "=" + itemQuantity; 
+            ulr = ulr + "&" + quantityVariable + "=" + itemQuantity;
         }
 
         if (ulr) {
             //делаем запрос на нужный урл и преезагружаем область с маленькой корзиной
             $(".js-small-basket").load(ulr + " .js-small-basket > * ");
-        }    
+        }
     })
 
     $(".js-offer-select").on("change", function(){
@@ -1564,9 +1572,9 @@ function pullDownMenu(filterName, activeOptionId) {
 /**
  *
  * Обновляем иконку в хедере
- * 
+ *
  * @param int total
- * @return void 
+ * @return void
  **/
 function refreshFavoriteIcon(total) {
 	$(".quantityOfLiked").html(total);
@@ -1588,4 +1596,4 @@ function animateSecondLvl() {
         $('.secondLvlCatalog .mCSB_draggerContainer').css("visibility", "visible");
     });
     $('.bottomBlockMailLeft').show();
-}       
+}
