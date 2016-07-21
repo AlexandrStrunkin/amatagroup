@@ -6,14 +6,9 @@
     <!--indexPageHeader-->
     <div class="indexPageHeader">
         <div class="locationWrapper">
+        	<? $detected_city = getAltasibCity() ?>
             <p>Город :</p>
-            <a href="" class="sityName">Санкт-Петербург</a>
-
-            <div class="list">
-                <a href="">Абаза</a>
-                <a href="">Абакан</a>
-                <a href="">Абдулино</a>
-            </div>
+            <a href="javascript:void(0)" class="sityName"><?= $detected_city ? $detected_city : "Москва" ?></a>
         </div>
 
         <?$APPLICATION->IncludeComponent("bitrix:menu", "top_menu", Array(

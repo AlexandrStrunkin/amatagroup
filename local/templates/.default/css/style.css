@@ -244,12 +244,6 @@ body {
     margin-right: 17px;
 }
 
-.locationWrapper a:after {
-    content: url("../img/cityrecht.png");
-    left: 20px;
-    position: relative;
-}
-
 .firstLevel {
     border: 1px solid #e6e6e6;
     border-top-left-radius: 4px;
@@ -8409,4 +8403,8 @@ display: none;
 
 .confidens_slider_arrow:hover {
 	border-color: #c0c0c0;
+}
+
+.altasib_geobase_yc_btn{
+	background: #58a8cf !important;
 }

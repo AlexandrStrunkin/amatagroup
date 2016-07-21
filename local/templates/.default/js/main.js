@@ -785,14 +785,12 @@ $(document).ready(function () {
         button.removeAttr("disabled");
         if (v.length == 0) button.attr("disabled", true);
     });
-
-    //
-    $(".sityName").on("click", function () {
-        var el = $(this);
-        popupMask.toggle();
-        el.closest(".locationWrapper").find(".list").fadeToggle(300);
-        
-    });
+	
+	$(document).on("click", ".altasib_geobase_yc_btn", function(){
+		var detected_city = $(".altasib_geobase_your_city").html();
+		$(".sityName").html(detected_city);
+	});
+	
     $(".locationWrapper .list a").on("click", function (e) {
     	e.preventDefault();
         var el = $(this), w = el.closest(".locationWrapper");
