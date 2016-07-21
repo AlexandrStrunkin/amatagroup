@@ -23,13 +23,13 @@ if(!defined("B_PROLOG_INCLUDED")||B_PROLOG_INCLUDED!==true)die();
 	?>
 
     <p class="close"></p>
-	<form action="<?=POST_FORM_ACTION_URI?>" method="POST">
+	<form action="<?=POST_FORM_ACTION_URI?>" method="POST" id="form_index">
 		<?=bitrix_sessid_post()?>
         <p class="title"><?=GetMessage("MFT_CALL")?></p>
 
-		<input type="text" placeholder="<?=GetMessage('MFT_NAME')?>" class="input" name="user_name" value="<?=$arResult["AUTHOR_NAME"]?>"/>
+		<input type="text" required  placeholder="<?=GetMessage('MFT_NAME')?>" class="input" name="user_name" value="<?=$arResult["AUTHOR_NAME"]?>"/>
 
-        <input type="number" placeholder="<?=GetMessage('MFT_PHONE')?>" class="input" name="user_tell" value="<?=$arResult["AUTHOR_TELL"]?>"/>
+        <input type="number" required placeholder="<?=GetMessage('MFT_PHONE')?>" class="input" name="user_tell" value="<?=$arResult["AUTHOR_TELL"]?>"/>
 
 		<?if($arParams["USE_CAPTCHA"] == "Y"):?>
 			<strong><?=GetMessage("MFT_CAPTCHA")?></strong><br/>

@@ -711,24 +711,17 @@ $(document).ready(function () {
         $(".forgotForm").fadeIn(300);
 
     });
-    $("form .btn, .formAcceptBut").on("click", function (e) {
-        $(this).closest("form").each(function(){
-            if($(this).val() != ''){
-              // Если поле не пустое удаляем класс-указание
-              return true;
-            } else {
-              // Если поле пустое добавляем класс-указание
-              $(this).closest("form").submit();
-            }
-          });
+/*    $("form .btn, .formAcceptBut").on("click", function (e) {
+        $(this).closest("form").submit();
+    });    */
 
-    });
+
     /* $("input, textarea").each(function () {
     var el = $(this), placeholder = el.attr("placeholder");
     el.attr("data-placeholder", placeholder);
     });*/
 
-    $("form").on("submit", function () {
+    $("form").on("submit", function (e) {
         var el = $(this), input = el.find("input,textarea"), dataError = 0;
 
 
@@ -739,7 +732,7 @@ $(document).ready(function () {
             if (el.hasClass("selectric-input")) return;
 
             el.removeClass("error");
-            if ((val == "")/* || val.length < 3*/) {
+            if ((val == "")) {
                 el.addClass("error").attr("placeholder", "Поле не заполнено");
                 dataError = 1;
             } else
@@ -774,6 +767,17 @@ $(document).ready(function () {
 
         if (!dataError) {
             //сабмит
+            var form_id = $(this).attr('id');
+            if(form_id == 'leave_question_catalog'){
+                var form = $('#leave_question_catalog').serialize();
+                $.ajax({
+                    url: '/ajax/leave_question_catalog.php', //the URL to your node.js server that has data
+                    type: 'POST',
+                    data:  form,
+                    success:function(data){
+                    }
+                }).done(function(data){});
+            };
             //это пока, чтобы  не попадать на 405 ошибку
             var mes = el.parent().find(".message");
 
@@ -781,12 +785,12 @@ $(document).ready(function () {
                 el.hide();
                 mes.show();
             } else {
-                //window.location.reload();
+
             }
 
 
         }
-
+        e.preventDefault();
     });
     $(".couponInputBlock input").on("keydown keypress keyup", function () {
         var el = $(this), v = el.val(), button = el.parent().find("button");
@@ -1597,3 +1601,15 @@ function animateSecondLvl() {
     });
     $('.bottomBlockMailLeft').show();
 }
+
+function leave_quastion(){
+    var form = $('#leave_question').serialize();
+    $.ajax({
+        url: '/ajax/send_quastion.php', //the URL to your node.js server that has data
+        type: 'POST',
+        data:  form,
+    }).done(function(data){
+       $('#leave_question .message').show();
+       $('#leave_question .message').html('Заполните все поля!')
+    });
+};

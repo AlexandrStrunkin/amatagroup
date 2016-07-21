@@ -7,20 +7,21 @@
             <div class="hiddenQuestionBlock">
                 <p class="authClose"></p>
 
-                <form method="post">
+                <form method="post" id="leave_question" action="javascript:void(null);" onsubmit="leave_quastion()">
                     <p class="authTitle">Оставить вопрос</p>
-                    <input type="text" placeholder="Представьтесь" name="name" class='nameInput'>
+                    <input type="text" required placeholder="Представьтесь" name="name" class='nameInput'>
                     <select name="generator">
-                        <option value="-1">Производитель</option>
+                        <option value="Производитель">Производитель</option>
                         <!--пустое значение = -1-->
-                        <option value="1">Гандылян</option>
-                        <option value="2">Мечта</option>
+                        <option value="Гандылян">Гандылян</option>
+                        <option value="Мечта">Мечта</option>
                     </select>
-                    <input type="text" placeholder="Почта" name="email" class="emailInput">
-                    <input type="text" placeholder="Номер телефона" name="phone" class='phoneInput nameInput'>
-                    <input type="text" placeholder="Название компании" name="company" class='nameInput'>
-                    <textarea placeholder="Текст вопроса" name="text"></textarea>
-                    <a href="#!" class="btn">Отправить вопрос</a>
+                    <input type="email" required placeholder="Почта" name="email" class="emailInput">
+                    <input type="tel" required placeholder="Номер телефона" name="phone" class='phoneInput nameInput'>
+                    <input type="text" required placeholder="Название компании" name="company" class='nameInput'>
+                    <textarea required placeholder="Текст вопроса" name="text"></textarea>
+                    <input type="submit" class="btn" name="submit" value="Отправить вопрос" >
+
 
                     <p class="description">Все поля обязательны для заполнения!</p>
                 </form>
@@ -81,8 +82,8 @@
 
     <!--popup (обратный звонок)-->
         <?$APPLICATION->IncludeComponent(
-	"bitrix:main.feedback", 
-	"back_call", 
+	"bitrix:main.feedback",
+	"back_call",
 	array(
 		"EMAIL_TO" => "st@webgk.ru",
 		"EVENT_MESSAGE_ID" => array(
@@ -98,5 +99,8 @@
 	false
 );?>
     <!--END popup-->
+
+
+
 </footer>
 <!--END footer-->
