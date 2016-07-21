@@ -303,8 +303,10 @@ $arFirstPhoto = current($arResult['MORE_PHOTO']);
     <!--END productCardDesc-->
     <div class="basketBody tabs">
     <div class="basketBodyMenu tabsLinks">
-        <a href="#characters" class="active"><?= GetMessage("CT_CHARACTERISTICS") ?></a>
-        <a href="#docs"><?= GetMessage("CT_DOCS") ?></a>
+        <a href="#characters" class="active js_tabs"><?= GetMessage("CT_CHARACTERISTICS") ?></a>
+        <? if (is_array($arResult['PROPERTIES']['FILES']['VALUE']) && !empty($arResult['PROPERTIES']['FILES']['VALUE'])) { ?>
+        	<a href="#docs" class="js_tabs"><?= GetMessage("CT_DOCS") ?></a>
+        <? } ?>
         <!--<a href="#video">Видео</a>-->
     </div>
     <div id="characters" class="basketBlock productSlider" style="display: block">
@@ -319,65 +321,38 @@ $arFirstPhoto = current($arResult['MORE_PHOTO']);
 			<? } ?>
 		</div>
     </div>
+    <? if (is_array($arResult['PROPERTIES']['FILES']['VALUE']) && !empty($arResult['PROPERTIES']['FILES']['VALUE'])) { ?>
     <div id="docs" class="basketBlock productSlider" style="display: none">
         <!--jcarousel-wrapper-->
         <div class="jcarousel-wrapper">
             <!--jcarousel-->
             <div class="jcarousel">
                 <ul>
-                    <li>
+                <? 
+			    $files_count = count($arResult['PROPERTIES']['FILES']['VALUE']);
+			    foreach ($arResult['PROPERTIES']['FILES']['VALUE'] as $file_id) {
+			    	$file = CFile::GetFileArray($file_id);
+					$file_name = array_shift(explode(".", $file['FILE_NAME']));?>
+					<li>
                         <div class="reviesElement">
                             <div class="productWrapper">
-
-                                <a href="" class="productimg"><img src="/img/pdf.png" alt=""></a>
-                                <a href="" class="infoDocDownload"></a>
-                                <p class="infoDocName">Инструкция по сборке</p>
+                                <a href="<?= $file['SRC'] ?>" class="productimg"><img src="/img/pdf.png" alt=""></a>
+                                <a href="<?= $file['SRC'] ?>" class="infoDocDownload" download></a>
+                                <p class="infoDocName"><?= $file_name ?></p>
                             </div>
                         </div>
                     </li>
-                    <li>
-                        <div class="reviesElement">
-                            <div class="productWrapper">
-                                <a href="" class="productimg"><img src="/img/pdf.png" alt=""></a>
-                                <a href="" class="infoDocDownload"></a>
-                                <p class="infoDocName">Инструкция по сборке</p>
-                            </div>
-                        </div>
-                    </li>
-                    <li>
-                        <div class="reviesElement">
-                            <div class="productWrapper">
-                                <a href="" class="productimg"><img src="/img/pdf.png" alt=""></a>
-                                <a href="" class="infoDocDownload"></a>
-                                <p class="infoDocName">Инструкция по сборке</p>
-                            </div>
-                        </div>
-                    </li>
-                    <li>
-                        <div class="reviesElement">
-                            <div class="productWrapper">
-                                <a href="" class="productimg"><img src="/img/pdf.png" alt=""></a>
-                                <a href="" class="infoDocDownload"></a>
-                                <p class="infoDocName">Инструкция по сборке</p>
-                            </div>
-                        </div>
-                    </li>
-                    <li>
-                        <div class="reviesElement">
-                            <div class="productWrapper">
-                                <a href="" class="productimg"><img src="/img/pdf.png" alt=""></a>
-                                <a href="" class="infoDocDownload"></a>
-                                <p class="infoDocName">Инструкция по сборке</p>
-                            </div>
-                        </div>
-                    </li>
+			    <? } ?>
                 </ul>
             </div>
-            <a href="" class="jcarousel-control-prev"></a>
-            <a href="" class="jcarousel-control-next"></a>
+            <? if ($files_count > 4) { ?>
+	            <a href="" class="jcarousel-control-prev"></a>
+	            <a href="" class="jcarousel-control-next"></a>
+            <? } ?>
         </div>
         <!--END jcarousel-wrapper-->
     </div>
+    <? } ?>
     <div id="video" class="basketBlock productSlider" style="display: none">
         <!--jcarousel-wrapper-->
         <div class="jcarousel-wrapper">

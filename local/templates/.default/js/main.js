@@ -797,6 +797,7 @@ $(document).ready(function () {
         button.removeAttr("disabled");
         if (v.length == 0) button.attr("disabled", true);
     });
+<<<<<<< HEAD
 
     //
     $(".sityName").on("click", function () {
@@ -805,6 +806,14 @@ $(document).ready(function () {
         el.closest(".locationWrapper").find(".list").fadeToggle(300);
 
     });
+=======
+	
+	$(document).on("click", ".altasib_geobase_yc_btn", function(){
+		var detected_city = $(".altasib_geobase_your_city").html();
+		$(".sityName").html(detected_city);
+	});
+	
+>>>>>>> upstream/master
     $(".locationWrapper .list a").on("click", function (e) {
     	e.preventDefault();
         var el = $(this), w = el.closest(".locationWrapper");
@@ -1255,6 +1264,7 @@ $(document).ready(function () {
     });
     //табы корзина
     $("body").on("click", ".basketBody .basketBodyMenu a.js_tabs", function (e) {
+    	e.preventDefault();
         var el = $(this), id = el.attr("href"), delivery_id = el.data("delivery-button-id");
         $(".dataPayer").length ? $("input#" + delivery_id).click() : ""; // если мы в оформлении заказа
         $(".basketBody .basketBodyMenu a").removeClass("active");
