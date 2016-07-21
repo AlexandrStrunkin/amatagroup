@@ -314,21 +314,21 @@
 
                 <p class="littleBannerText">Качества и достоинства выделяющие нас</p>
 
-                <p class="advantagesLink"><a href="">Посмотреть</a></p>
+                <p class="advantagesLink"><a href="/privilege/">Посмотреть</a></p>
             </div>
             <div id="retailBlock">
                 <p class="litleBannerTitle">Купить в розницу</p>
 
                 <p class="littleBannerText">Богатый выбор товаров <br/> по привлекательным ценам</p>
 
-                <p class="retailLink"><a href="">Точки продаж</a></p>
+                <p class="retailLink"><a href="/retail/">Точки продаж</a></p>
             </div>
             <div id="worhWithUsBlock">
                 <p class="litleBannerTitle">Работа с нами</p>
 
                 <p class="littleBannerText">Начать сотрудничество <br/> с нами очень просто</p>
 
-                <p class="worhWithUsLink"><a href="">С чего начать</a></p>
+                <p class="worhWithUsLink"><a href="/work-with-us/">С чего начать</a></p>
             </div>
         </div>
     </div>
