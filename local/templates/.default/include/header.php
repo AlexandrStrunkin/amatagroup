@@ -6,14 +6,9 @@
     <!--indexPageHeader-->
     <div class="indexPageHeader">
         <div class="locationWrapper">
+        	<? $detected_city = getAltasibCity() ?>
             <p>Город :</p>
-            <a href="" class="sityName">Санкт-Петербург</a>
-
-            <div class="list">
-                <a href="">Абаза</a>
-                <a href="">Абакан</a>
-                <a href="">Абдулино</a>
-            </div>
+            <a href="javascript:void(0)" class="sityName"><?= $detected_city ? $detected_city : "Москва" ?></a>
         </div>
 
         <?$APPLICATION->IncludeComponent("bitrix:menu", "top_menu", Array(
@@ -319,21 +314,21 @@
 
                 <p class="littleBannerText">Качества и достоинства выделяющие нас</p>
 
-                <p class="advantagesLink"><a href="">Посмотреть</a></p>
+                <p class="advantagesLink"><a href="/privilege/">Посмотреть</a></p>
             </div>
             <div id="retailBlock">
                 <p class="litleBannerTitle">Купить в розницу</p>
 
                 <p class="littleBannerText">Богатый выбор товаров <br/> по привлекательным ценам</p>
 
-                <p class="retailLink"><a href="">Точки продаж</a></p>
+                <p class="retailLink"><a href="/retail/">Точки продаж</a></p>
             </div>
             <div id="worhWithUsBlock">
                 <p class="litleBannerTitle">Работа с нами</p>
 
                 <p class="littleBannerText">Начать сотрудничество <br/> с нами очень просто</p>
 
-                <p class="worhWithUsLink"><a href="">С чего начать</a></p>
+                <p class="worhWithUsLink"><a href="/work-with-us/">С чего начать</a></p>
             </div>
         </div>
     </div>

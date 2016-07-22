@@ -785,14 +785,12 @@ $(document).ready(function () {
         button.removeAttr("disabled");
         if (v.length == 0) button.attr("disabled", true);
     });
-
-    //
-    $(".sityName").on("click", function () {
-        var el = $(this);
-        popupMask.toggle();
-        el.closest(".locationWrapper").find(".list").fadeToggle(300);
-        
-    });
+	
+	$(document).on("click", ".altasib_geobase_yc_btn", function(){
+		var detected_city = $(".altasib_geobase_your_city").html();
+		$(".sityName").html(detected_city);
+	});
+	
     $(".locationWrapper .list a").on("click", function (e) {
     	e.preventDefault();
         var el = $(this), w = el.closest(".locationWrapper");
@@ -1243,12 +1241,23 @@ $(document).ready(function () {
     });
     //табы корзина
     $("body").on("click", ".basketBody .basketBodyMenu a.js_tabs", function (e) {
+    	e.preventDefault();
         var el = $(this), id = el.attr("href"), delivery_id = el.data("delivery-button-id");
         $(".dataPayer").length ? $("input#" + delivery_id).click() : ""; // если мы в оформлении заказа
         $(".basketBody .basketBodyMenu a").removeClass("active");
         $(".basketBlock").hide();
         el.addClass("active");
         $(id).fadeIn(500);
+    });
+    //табы табы гугловых карт
+    $("body").on("click", ".js_google_tabs", function (e) {
+    	e.preventDefault();
+        var el = $(this),
+        	id = el.attr("href");
+        el.parent().find("a").removeClass("active");
+        el.closest("div.basketBody").find(".basketBlock").hide();
+        el.addClass("active");
+        el.closest("div.basketBody").find(id).fadeIn(500);
     });
 
     $(".smallPreviewImg a").on("click", function (e) {

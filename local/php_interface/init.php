@@ -84,6 +84,18 @@
         print_r($array);
         echo "</pre>";
     }
+    
+    /**
+	 * 
+	 * Возвращает автоматически определенный город при помощи модуля Altasib
+	 * Требует установленного модуля http://marketplace.1c-bitrix.ru/solutions/altasib.geobase/
+	 * 
+	 * @return bool|string
+	 * 
+	 * */
+    function getAltasibCity() {
+    	return $_SESSION["ALTASIB_GEOBASE_CODE"]["CITY"]["NAME"] ? $_SESSION["ALTASIB_GEOBASE_CODE"]["CITY"]["NAME"] : false;
+    }
 
     //подмена логина на EMAIL при регистрации и изменении пользователя
     AddEventHandler("main", "OnBeforeUserRegister", Array("OnBeforeUserRegisterHandler", "OnBeforeUserRegister"));

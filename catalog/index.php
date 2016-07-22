@@ -3,8 +3,8 @@ require($_SERVER["DOCUMENT_ROOT"]."/bitrix/header.php");
 $filterView = (COption::GetOptionString("main", "wizard_template_id", "eshop_adapt_horizontal", SITE_ID) == "eshop_adapt_vertical" ? "HORIZONTAL" : "VERTICAL");
 ?>
 <?$APPLICATION->IncludeComponent(
-	"bitrix:catalog",
-	"catalog",
+	"bitrix:catalog", 
+	"catalog", 
 	array(
 		"IBLOCK_TYPE" => "1c_catalog",
 		"IBLOCK_ID" => "5",
@@ -630,6 +630,25 @@ $filterView = (COption::GetOptionString("main", "wizard_template_id", "eshop_ada
 		"DISABLE_INIT_JS_IN_COMPONENT" => "N",
 		"DETAIL_SET_VIEWED_IN_COMPONENT" => "N",
 		"CACHE_NOTES" => "",
+		"USE_GIFTS_DETAIL" => "Y",
+		"USE_GIFTS_SECTION" => "Y",
+		"USE_GIFTS_MAIN_PR_SECTION_LIST" => "Y",
+		"GIFTS_DETAIL_PAGE_ELEMENT_COUNT" => "3",
+		"GIFTS_DETAIL_HIDE_BLOCK_TITLE" => "N",
+		"GIFTS_DETAIL_BLOCK_TITLE" => "Выберите один из подарков",
+		"GIFTS_DETAIL_TEXT_LABEL_GIFT" => "Подарок",
+		"GIFTS_SECTION_LIST_PAGE_ELEMENT_COUNT" => "3",
+		"GIFTS_SECTION_LIST_HIDE_BLOCK_TITLE" => "N",
+		"GIFTS_SECTION_LIST_BLOCK_TITLE" => "Подарки к товарам этого раздела",
+		"GIFTS_SECTION_LIST_TEXT_LABEL_GIFT" => "Подарок",
+		"GIFTS_SHOW_DISCOUNT_PERCENT" => "Y",
+		"GIFTS_SHOW_OLD_PRICE" => "Y",
+		"GIFTS_SHOW_NAME" => "Y",
+		"GIFTS_SHOW_IMAGE" => "Y",
+		"GIFTS_MESS_BTN_BUY" => "Выбрать",
+		"GIFTS_MAIN_PRODUCT_DETAIL_PAGE_ELEMENT_COUNT" => "3",
+		"GIFTS_MAIN_PRODUCT_DETAIL_HIDE_BLOCK_TITLE" => "N",
+		"GIFTS_MAIN_PRODUCT_DETAIL_BLOCK_TITLE" => "Выберите один из товаров, чтобы получить подарок",
 		"SEF_URL_TEMPLATES" => array(
 			"sections" => "",
 			"section" => "#SECTION_CODE_PATH#/",
