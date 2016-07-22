@@ -1,9 +1,6 @@
-<?
-require($_SERVER["DOCUMENT_ROOT"]."/bitrix/header.php");
-$APPLICATION->SetTitle("Корзина");
-?><?$APPLICATION->IncludeComponent(
-	"bitrix:sale.basket.basket", 
-	"basket", 
+<?$APPLICATION->IncludeComponent(
+	"bitrix:sale.basket.basket",
+	"basket",
 	array(
 		"COUNT_DISCOUNT_4_ALL_QUANTITY" => "Y",
 		"COLUMNS_LIST" => array(
@@ -33,4 +30,4 @@ $APPLICATION->SetTitle("Корзина");
 		"ACTION_VARIABLE" => "action"
 	),
 	false
-);?><?require($_SERVER["DOCUMENT_ROOT"]."/bitrix/footer.php");?>
+);?>
