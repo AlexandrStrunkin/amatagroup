@@ -8408,3 +8408,20 @@ display: none;
 .altasib_geobase_yc_btn{
 	background: #58a8cf !important;
 }
+
+.about_tabs {
+	padding-top: 30px;
+}
+
+.about_tabs h3 {
+    color: #878787;
+    font: 18px/1 'MuseoSansCyrl-500';
+    letter-spacing: 0.03px;
+    margin-bottom: 20px;
+}
+
+.achievements_wrapper {
+	display: flex;
+    align-items: center;
+    justify-content: space-around;
+}
