@@ -398,7 +398,7 @@
             <!--END productBlockWrapper-->
             <!--brandsWrapper-->
             <div class="brandsWrapper">
-            <?$Filter_brands = array(">PREVIEW_PICTURE" => 0, 'PROPERTY_MAIN_DUSPLAY_VALUE' => 'Да');?>
+            <?$Filter_brands = array(">PREVIEW_PICTURE" => 0, '!PROPERTY_MAIN_DISPLAY_VALUE' => false);?>
                 <?$APPLICATION->IncludeComponent(
 	                "bitrix:news.list",
 	                "brands_index",
@@ -445,7 +445,7 @@
 		                "PARENT_SECTION_CODE" => "",
 		                "PREVIEW_TRUNCATE_LEN" => "",
 		                "PROPERTY_CODE" => array(
-			                0 => "MAIN_DUSPLAY",
+			                0 => "MAIN_DISPLAY",
 			                1 => "",
 		                ),
 		                "SET_BROWSER_TITLE" => "Y",

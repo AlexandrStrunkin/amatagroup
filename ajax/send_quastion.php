@@ -13,18 +13,17 @@
 $el = new CIBlockElement;
 
 $PROP = array();
-$PROP[455] = $name;
-$PROP[456] = $generator;
-$PROP[457] = $email;
-$PROP[458] = $phone;
-$PROP[459] = $company;
-$PROP[460] = $text;
+$PROP['F_GENERATOR'] = $generator;
+$PROP['F_EMAIL'] = $email;
+$PROP['PHONE'] = $phone;
+$PROP['COMPANY'] = $company;
+$PROP['TEXT'] = $text;
 
 
 $arLoadProductArray = Array(
   "MODIFIED_BY"    => $USER->GetID(), // элемент изменен текущим пользователем
   "IBLOCK_SECTION_ID" => false,          // элемент лежит в корне раздела
-  "IBLOCK_ID"      => 18,
+  "IBLOCK_ID"      => IBLOCK_ID_QUASTION,
   "PROPERTY_VALUES"=> $PROP,
   "NAME"           => $company.' '.$name,
   "ACTIVE"         => "Y",            // активен
@@ -34,8 +33,10 @@ $arLoadProductArray = Array(
 
 $PRODUCT_ID = $el->Add($arLoadProductArray);
 
-$arSend = array("NAME" => $name, "GENERATOR" => $generator, "EMAIL" => $email, "PHONE" => $phone, "COMPANY" => $company, "TEXT" => $text);
-CEvent::Send("FEEDBACK_FORM", SITE_ID, $arSend, 'N', 76);
+if($PRODUCT_ID > 0){
+    $arSend = array("NAME" => $name, "GENERATOR" => $generator, "EMAIL" => $email, "PHONE" => $phone, "COMPANY" => $company, "TEXT" => $text);
+    CEvent::Send("FEEDBACK_FORM", SITE_ID, $arSend, 'N', 76);
+}
 ?>
 
 <?

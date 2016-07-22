@@ -8,25 +8,23 @@
                 <p class="authClose"></p>
 
                 <form method="post" id="leave_question" action="javascript:void(null);" onsubmit="leave_quastion()">
-                    <p class="authTitle">Оставить вопрос</p>
-                    <input type="text" required placeholder="Представьтесь" name="name" class='nameInput'>
+                    <p class="authTitle"><?=GetMessage('SEND_QUASTION')?></p>
+                    <input type="text" required placeholder="<?=GetMessage('REPRESENTATIVE')?>" name="name" class='nameInput'>
                     <select name="generator">
-                        <option value="Производитель">Производитель</option>
+                        <option value="<?=GetMessage('MANUFACTIRER')?>"><?=GetMessage('MANUFACTIRER')?></option>
                         <!--пустое значение = -1-->
-                        <option value="Гандылян">Гандылян</option>
-                        <option value="Мечта">Мечта</option>
+                        <option value="<?=GetMessage('GANDULIAN')?>"><?=GetMessage('GANDULIAN')?></option>
+                        <option value="<?=GetMessage('DREAM')?>"><?=GetMessage('DREAM')?></option>
                     </select>
-                    <input type="email" required placeholder="Почта" name="email" class="emailInput">
-                    <input type="tel" required placeholder="Номер телефона" name="phone" class='phoneInput nameInput'>
-                    <input type="text" required placeholder="Название компании" name="company" class='nameInput'>
-                    <textarea required placeholder="Текст вопроса" name="text"></textarea>
-                    <input type="submit" class="btn" name="submit" value="Отправить вопрос" >
-
-
-                    <p class="description">Все поля обязательны для заполнения!</p>
+                    <input type="email" required placeholder="<?=GetMessage('EMAIL')?>" name="email" class="emailInput">
+                    <input type="tel" required placeholder="<?=GetMessage('PHONE')?>" name="phone" class='phoneInput nameInput'>
+                    <input type="text" required placeholder="<?=GetMessage('NAME_COMPANY')?>" name="company" class='nameInput'>
+                    <textarea required placeholder="<?=GetMessage('TEXT_QUASTION')?>" name="text"></textarea>
+                    <input type="submit" class="btn" name="submit" value="<?=GetMessage('SEND_QUASTION')?>" >
+                    <p class="description"><?=GetMessage('REQUIRED_FIELDS');?></p>
                 </form>
                 <div class="message">
-                    Ваш вопрос отправлен. Наши консультанты свяжуться с вами по указанным координатам
+                    <?=GetMessage('MESSAGE_YES');?>
                 </div>
             </div>
             <!--END hiddenQuestionBlock-->
@@ -42,7 +40,7 @@
                 <table>
                     <tr>
                         <td class="writeCreatorBlock">
-                            <p><a href="#!">Написать производителю</a></p>
+                            <p><a href="#!"><?=GetMessage('WRITE_MANUFACTURER')?></a></p>
 
                         </td>
                         <td class="deliveryBlock">
@@ -62,15 +60,15 @@
 
                         </td>
                         <td class="callBackBlock">
-                            <p><a href="javascript:void(0);">Заказать обратный звонок</a></p>
+                            <p><a href="javascript:void(0);"><?=GetMessage('CALL_BACK')?></a></p>
                         </td>
                     </tr>
                     <tr>
                         <td colspan="2" class="copyRightBlock">
-                            <p>2014-2016 Интернет-магазин детских вещей "Амата", все права защищены.</p>
+                            <p><?=GetMessage('COPYRIGHT')?></p>
                         </td>
                         <td class="theCreator">
-                            <p>Создание сайта - студия <a href="">WebGK</a></p>
+                            <p><?=GetMessage('CREATED_SITE')?></p>
                         </td>
                     </tr>
                 </table>
