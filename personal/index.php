@@ -31,8 +31,48 @@ $APPLICATION->SetTitle("Персональный раздел");
                 );?>
             </div>
          </div>
+         <div class="settingsWrap">
+                    <p class="blockTitle">Счета<span class="whiteCount">25</span></p>
 
-         <?include('cart/index.php')?>
+                    <div class="settingsBlock">
+                        <div class="billingsListMenu">
+                            <a href="#billingsActive" class="activeBillingMenu active">Активные <span
+                                    style="background-color: #FCE47C">3</span></a>
+
+                            <a href="#billingsPaid">Оплаченные <span style="background-color: #DEE8B7">7</span>
+                            </a>
+                        </div>
+                        <div id="billingsActive" class="activeBillingsBlock">
+                            <div class="viewedBlock productCarousel elmentsList">
+                                <div class="jcarousel-wrapper">
+                                    <!--jcarousel-->
+                                    <div class="jcarousel " data-jcarousel="true">
+
+                                    </div>
+                                    <a href="" class="jcarousel-control-prev"></a>
+                                    <a href="" class="jcarousel-control-next"></a>
+
+                                </div>
+                            </div>
+
+                        </div>
+                        <div id="billingsPaid" class="activeBillingsBlock" style="display: none">
+                            <div class="viewedBlock productCarousel elmentsList">
+                                <div class="jcarousel-wrapper">
+                                    <!--jcarousel-->
+                                    <div class="jcarousel " data-jcarousel="true">
+
+                                    </div>
+                                    <a href="" class="jcarousel-control-prev"></a>
+                                    <a href="" class="jcarousel-control-next"></a>
+
+                                </div>
+                            </div>
+
+                        </div>
+
+                    </div>
+                </div>
 
     </div>
 </div>

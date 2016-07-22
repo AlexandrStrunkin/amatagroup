@@ -5,7 +5,8 @@ $MESS ['LAST_NAME'] = "Фамилия";
 $MESS ['SECOND_NAME'] = "Отчество";
 $MESS ['NEW_PASSWORD_CONFIRM'] = "Подтверждение пароля";
 $MESS ['NEW_PASSWORD_REQ'] = "Новый пароль";
-$MESS ['MAIN_SAVE'] = "Сохранить настройки профиля";
+$MESS ['EMAIL'] = "Почта";
+$MESS ['MAIN_SAVE'] = "Сохранить";
 $MESS ['MAIN_PSWD'] = "Пароль";
 $MESS ['LEGEND_PROFILE'] = "Личные данные";
 ?>
