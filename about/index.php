@@ -239,5 +239,38 @@ $APPLICATION->SetTitle("О магазине");
             );?>
             <? unset($filter) ?>
             </div>
+            <script src="http://ajax.aspnetcdn.com/ajax/jquery.validate/1.11.1/jquery.validate.min.js"></script>
+            <div id="question_form">
+            	<h2>Задать вопрос</h2>
+            	<div id="form_container">
+            		<div class="tableBorderWrapper">
+	                    <form method="post" id="ask_question">
+	                        <table class="questionInfoForm about_question_form">
+	                            <tr>
+	                                <td colspan="2" class="inputsBlock">
+	                                    <div class="leftBlock">
+	                                        <input type="text" name="name" placeholder="Имя" pattern="[A-Za-zА-Яа-яЁё]{6,}" title="Поле не может быть пустым" required>
+	                                        <input type="email" name="email" placeholder="Почта" required>
+	                                        <input type="text" name="company_name" placeholder="Название компании" pattern="[A-Za-zА-Яа-яЁё]{6,}" title="Поле не может быть пустым" required>
+	                                    </div>
+	                                    <div class="rightBlock">
+	                                        <textarea placeholder="Введите ваш вопрос" name="text" pattern="[A-Za-zА-Яа-яЁё]{6,}" title="Поле не может быть пустым" required></textarea>
+	                                    </div>
+	                                </td>
+	                            </tr>
+	                            <tr >
+	                            	<td>
+	                                    <div class="form_result">
+	                                    </div>
+	                                </td>
+	                                <td class="buttonsBlock">
+	                                    <input type="submit" value="Отправить" class="formAcceptBut">
+	                                </td>
+	                            </tr>
+	                        </table>
+	                    </form>
+	                </div>
+            	</div>
+            </div>
         </div>
 <?require($_SERVER["DOCUMENT_ROOT"]."/bitrix/footer.php");?>
