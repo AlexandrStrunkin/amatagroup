@@ -36,7 +36,6 @@ $APPLICATION->SetTitle("Персональный раздел");
 		"CUSTOM_SELECT_PROPS" => array(
 		),
 		"HISTORIC_STATUSES" => array(
-			0 => "F",
 		),
 		"SEF_URL_TEMPLATES" => array(
 			"list" => "index.php",
