@@ -5049,7 +5049,6 @@ textarea {
     color: #a1a1a1;
     font-family: "MuseoSansCyrl-500";
     font-size: 16px;
-    margin-left: 20px;
     margin-top: 46px;
 }
 
@@ -5085,7 +5084,6 @@ textarea {
     color: #aaaaaa;
     font-family: "MuseoSansCyrl-500";
     font-size: 20px;
-    margin-top: 98px;
     padding-bottom: 0;
 }
 
@@ -5121,10 +5119,7 @@ textarea {
     margin-right: 38px;
     text-align: center;
     width: 260px;
-}
-
-.innerPageWrapper .infoNewsList .imageWrapper img {
-    vertical-align: middle;
+    overflow: hidden;
 }
 
 .innerPageWrapper .infoNewsList .dateText {
@@ -5132,14 +5127,13 @@ textarea {
     font-family: "MuseoSansCyrl-500";
     font-size: 13px;
     padding-bottom: 8px;
-    padding-top: 8px;
     margin-bottom: 0 !important;
 }
 
 .innerPageWrapper .infoNewsList .newsName {
     color: #323232;
     font: 20px/1 "MuseoSansCyrl-700";
-    margin: 5px 0 13px;
+    margin: 0px 0 13px;
     display: inline-block;
     letter-spacing: 0.37px;
 }
@@ -5184,11 +5178,6 @@ textarea {
 .infoNewsList li:last-child {
     border-bottom: none;
     margin-bottom: 22px;
-}
-
-.infoNewsList li:last-child .dateText {
-    padding-top: 12px;
-    padding-bottom: 14px;
 }
 
 .infoNewsList li:last-child .detailNews {
