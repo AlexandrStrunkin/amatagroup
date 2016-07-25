@@ -39,12 +39,17 @@
     define("OFFERS_IBLOCK_ID", 6);  //offers
     define("FAVORITE_IBLOCK_ID", 12);
 	define("USER_SAVED_ADDRESSES_IBLOCK_ID", 13);
+	define("USER_QUESTIONS_IBLOCK_ID", 22);
 	
 	define("USER_SAVED_ADDRESSES_STREET_PROPERTY", 433); // улица
 	define("USER_SAVED_ADDRESSES_HOUSING_PROPERTY", 434); // Строение/корпус
 	define("USER_SAVED_ADDRESSES_BUILDING_PROPERTY", 435); // Дом
 	define("USER_SAVED_ADDRESSES_APARTMENT_PROPERTY", 436); // Квартира/офис
 	define("USER_SAVED_ADDRESSES_BX_LOCATION_ID_PROPERTY", 437); // ID местоположения битрикс
+	
+	define("USER_QUESTIONS_EMAIL_PROPERTY", 468);
+	define("USER_QUESTIONS_COMPANY_PROPERTY", 469);
+	define("USER_QUESTIONS_QUESTION_PROPERTY", 470);
 	
 	define("ORDER_LOCATION_ID", 18); // местоположение
 	define("ORDER_LOCATION", "ORDER_PROP_18"); // местоположение
