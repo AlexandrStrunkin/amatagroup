@@ -714,7 +714,6 @@ $(document).ready(function () {
 			form: $(this).serialize()
 		}, function(result) {
 			data = JSON.parse(result);
-			console.log(data);
 			$(".form_result").html(data.text);
 			if (!data.success) {
 				$(".form_result").addClass("form_validation_failed");
