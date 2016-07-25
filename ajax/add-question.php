@@ -10,12 +10,12 @@
 	$new_question = new CIBlockElement;
 	$properties = array(
 		USER_QUESTIONS_EMAIL_PROPERTY    => $form_data["email"],
-		USER_QUESTIONS_COMPANY_PROPERTY  => $form_data["company_name"],
-		USER_QUESTIONS_QUESTION_PROPERTY => $form_data["text"]
+		USER_QUESTIONS_COMPANY_PROPERTY  => iconv("utf-8", "windows-1251", $form_data["company_name"]),
+		USER_QUESTIONS_QUESTION_PROPERTY => iconv("utf-8", "windows-1251", $form_data["text"])
 	);
     $data = array(
         "IBLOCK_ID"       => USER_QUESTIONS_IBLOCK_ID,
-		"NAME"            => $form_data["name"],
+		"NAME"            => iconv("utf-8", "windows-1251", $form_data["name"]),
 		"ACTIVE"          => "Y",
 		"PROPERTY_VALUES" => $properties,
 	);
