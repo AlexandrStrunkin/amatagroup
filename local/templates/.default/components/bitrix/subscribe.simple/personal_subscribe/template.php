@@ -25,23 +25,12 @@
 	<?if($arResult["MESSAGE"]):?>
 		<p class="notetext"><?echo $arResult["MESSAGE"]?></p>
 	<?endif?>
-	<form method="POST" action="<?echo $arResult["FORM_ACTION"]?>">
+	<!--<form method="POST" action="<?echo $arResult["FORM_ACTION"]?>">   -->
 		    <?foreach($arResult["RUBRICS"] as $arRubric):?>
-			    <input id="subscriptionNews" checked="" name="RUB_ID[]" value="<?echo $arRubric["ID"]?>"  type="checkbox">
+			    <input id="RUB_<?echo $arRubric["ID"]?>" class="subscriptionNews" checked="" name="RUB_ID[]" value="<?echo $arRubric["ID"]?>"  type="checkbox" <?if($arRubric["CHECKED"]) echo "checked";?>>
 		    <?endforeach?>
-        <label for="subscriptionNews">Хочу получать новости и акции компании</label>
+        <label for="RUB_<?echo $arRubric["ID"]?>">Хочу получать новости и акции компании</label>
 		<?echo bitrix_sessid_post();?>
-		<input type="submit" name="Update" value="<?echo GetMessage("CT_BSS_FORM_BUTTON")?>">
-	</form>
-	<?$frame->beginStub();?>
-	<form method="POST" action="<?echo $arResult["FORM_ACTION"]?>">
-
-		<?foreach($arResult["RUBRICS"] as $arRubric):?>
-            <input id="subscriptionNews" hidden="" checked="" name="RUB_ID[]" value="<?echo $arRubric["ID"]?>" id="RUB_<?echo $arRubric["ID"]?>" type="checkbox" <?if($arRubric["CHECKED"]) echo "checked";?>>
-            <label for="RUB_<?echo $arRubric["ID"]?>"><?echo $arRubric["NAME"]?></label>
-		<?endforeach?>
-		<input type="submit" name="Update" value="<?echo GetMessage("CT_BSS_FORM_BUTTON")?>">
-
-	</form>
-	<?$frame->end();?>
+		<!--<input type="submit" name="Update" value="<?echo GetMessage("CT_BSS_FORM_BUTTON")?>">    -->
+	<!--</form>-->
 <?endif?>

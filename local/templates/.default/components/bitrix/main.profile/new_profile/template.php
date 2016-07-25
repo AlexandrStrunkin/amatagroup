@@ -67,7 +67,7 @@ if ($arResult['DATA_SAVED'] == 'Y')
         <div class="thirdBlack">
             <div class="inputBlock">
                 <input type="reset" value="Отменить" class="cancelInp">
-                <input name="save" value="<?=GetMessage("MAIN_SAVE")?>" class="bx_bt_button bx_big shadow saveInp" type="submit">
+                <input name="save" value="<?=GetMessage("MAIN_SAVE")?>" class="saveInp" type="submit">
             </div>
         </div>
     </form>

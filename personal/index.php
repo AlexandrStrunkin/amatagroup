@@ -11,24 +11,41 @@ $APPLICATION->SetTitle("Персональный раздел");
          <div class="settingsWrap">
           <p class="blockTitle">Мои заказы</p>
             <div class="settingsBlock">
-                <?$APPLICATION->IncludeComponent("bitrix:sale.personal.order", "", array(
-                    "SEF_MODE" => "Y",
-                    "SEF_FOLDER" => "/personal/order/",
-                    "ORDERS_PER_PAGE" => "10",
-                    "PATH_TO_PAYMENT" => "/personal/order/payment/",
-                    "PATH_TO_BASKET" => "/personal/cart/",
-                    "SET_TITLE" => "Y",
-                    "SAVE_IN_SESSION" => "N",
-                    "NAV_TEMPLATE" => "arrows",
-                    "SEF_URL_TEMPLATES" => array(
-                        "list" => "index.php",
-                        "detail" => "detail/#ID#/",
-                        "cancel" => "cancel/#ID#/",
-                    ),
-                    "SHOW_ACCOUNT_NUMBER" => "Y"
-                    ),
-                    false
-                );?>
+                <?$APPLICATION->IncludeComponent(
+	"bitrix:sale.personal.order", 
+	".default", 
+	array(
+		"SEF_MODE" => "Y",
+		"SEF_FOLDER" => "/personal/order/",
+		"ORDERS_PER_PAGE" => "10",
+		"PATH_TO_PAYMENT" => "/personal/order/payment/",
+		"PATH_TO_BASKET" => "/personal/cart/",
+		"SET_TITLE" => "Y",
+		"SAVE_IN_SESSION" => "N",
+		"NAV_TEMPLATE" => "arrows",
+		"SHOW_ACCOUNT_NUMBER" => "Y",
+		"COMPONENT_TEMPLATE" => ".default",
+		"PROP_1" => array(
+		),
+		"PROP_2" => array(
+		),
+		"ACTIVE_DATE_FORMAT" => "d.m.Y",
+		"CACHE_TYPE" => "A",
+		"CACHE_TIME" => "3600",
+		"CACHE_GROUPS" => "Y",
+		"CUSTOM_SELECT_PROPS" => array(
+		),
+		"HISTORIC_STATUSES" => array(
+			0 => "F",
+		),
+		"SEF_URL_TEMPLATES" => array(
+			"list" => "index.php",
+			"detail" => "detail/#ID#/",
+			"cancel" => "cancel/#ID#/",
+		)
+	),
+	false
+);?>
             </div>
          </div>
          <div class="settingsWrap">

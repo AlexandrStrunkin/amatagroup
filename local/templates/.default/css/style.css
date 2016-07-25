@@ -2454,7 +2454,7 @@ transition: all 0.3s;
     font-family: "MuseoSansCyrl-500" !important;
     font-size: 15px !important;
     height: 50px !important;
-    margin: 36px 16px 36px 42px !important;
+    margin: 36px 16px 36px 0 !important;
     padding-left: 0 !important;
     width: 274px !important;
     cursor: pointer;

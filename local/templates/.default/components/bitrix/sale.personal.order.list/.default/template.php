@@ -1,0 +1,124 @@
+<?if(!defined("B_PROLOG_INCLUDED") || B_PROLOG_INCLUDED!==true)die();?>
+
+<?if(!empty($arResult['ERRORS']['FATAL'])):?>
+
+	<?foreach($arResult['ERRORS']['FATAL'] as $error):?>
+		<?=ShowError($error)?>
+	<?endforeach?>
+
+<?else:?>
+
+	<?if(!empty($arResult['ERRORS']['NONFATAL'])):?>
+
+		<?foreach($arResult['ERRORS']['NONFATAL'] as $error):?>
+			<?=ShowError($error)?>
+		<?endforeach?>
+
+	<?endif?>
+    <div class="ordersMenu">
+        <a href="#ordersActive" class="activeElement">Активные</a>
+        <a href="#ordersCompleted">Выполненные</a>
+        <a href="#ordersCancelled">Отмененные</a>
+    </div>
+
+	<?if(!empty($arResult['ORDERS'])):?>
+
+		<?foreach($arResult["ORDER_BY_STATUS"] as $key => $group):?>
+
+			<?foreach($group as $k => $order):?>
+
+				<?if(!$k){?>
+                    <?if($arResult["INFO"]["STATUS"]["PSEUDO_CANCELLED"]) {?>
+                        <div id="ordersCancelled" class="ordersContainer ordersContainer3">
+                    <?} elseif ($arResult["INFO"]["STATUS"]["F"]){?>
+                        <div id="ordersCompleted" class="ordersContainer ordersContainer2">
+                    <?}  else {?>
+                        <div id="ordersActive" class="ordersContainer ordersContainer1">
+                    <?}?>
+						<h2><?=GetMessage("SPOL_STATUS")?> "<?=$arResult["INFO"]["STATUS"][$key]["NAME"] ?>"</h2>
+						<div class="bx_mos_desc"><?=$arResult["INFO"]["STATUS"][$key]["DESCRIPTION"] ?></div>
+
+				<?}?>
+                    <div class="orderContainer disableOrder">
+
+                        <p class="activeOrderTitle">
+                            <?=GetMessage('SPOL_ORDER')?> <?=GetMessage('SPOL_NUM_SIGN')?><?=$order["ORDER"]["ACCOUNT_NUMBER"]?>
+                        </p>
+
+                        <div class="statusLogo <?=$arResult["INFO"]["STATUS"][$key]['COLOR']?>">
+                            <?=$arResult["INFO"]["STATUS"][$key]["NAME"]?>
+                        </div>
+
+                        <div class="orderBodyWrap">
+                        <a href="<?=$order["ORDER"]["URL_TO_DETAIL"]?>"><?=GetMessage('SPOL_ORDER_DETAIL')?></a>
+
+						<strong><?=GetMessage('SPOL_PAY_SUM')?>:</strong> <?=$order["ORDER"]["FORMATED_PRICE"]?> <br />
+
+						<strong><?=GetMessage('SPOL_PAYED')?>:</strong> <?=GetMessage('SPOL_'.($order["ORDER"]["PAYED"] == "Y" ? 'YES' : 'NO'))?> <br />
+
+						<? // PAY SYSTEM ?>
+						<?if(intval($order["ORDER"]["PAY_SYSTEM_ID"])):?>
+							<strong><?=GetMessage('SPOL_PAYSYSTEM')?>:</strong> <?=$arResult["INFO"]["PAY_SYSTEM"][$order["ORDER"]["PAY_SYSTEM_ID"]]["NAME"]?> <br />
+						<?endif?>
+
+						<? // DELIVERY SYSTEM ?>
+						<?if($order['HAS_DELIVERY']):?>
+
+							<strong><?=GetMessage('SPOL_DELIVERY')?>:</strong>
+
+							<?if(intval($order["ORDER"]["DELIVERY_ID"])):?>
+
+								<?=$arResult["INFO"]["DELIVERY"][$order["ORDER"]["DELIVERY_ID"]]["NAME"]?> <br />
+
+							<?elseif(strpos($order["ORDER"]["DELIVERY_ID"], ":") !== false):?>
+
+								<?$arId = explode(":", $order["ORDER"]["DELIVERY_ID"])?>
+								<?=$arResult["INFO"]["DELIVERY_HANDLERS"][$arId[0]]["NAME"]?> (<?=$arResult["INFO"]["DELIVERY_HANDLERS"][$arId[0]]["PROFILES"][$arId[1]]["TITLE"]?>) <br />
+
+							<?endif?>
+
+						<?endif?>
+
+						<strong><?=GetMessage('SPOL_BASKET')?>:</strong>
+						<ul class="bx_item_list">
+
+							<?foreach ($order["BASKET_ITEMS"] as $item):?>
+
+								<li>
+									<?if(strlen($item["DETAIL_PAGE_URL"])):?>
+										<a href="<?=$item["DETAIL_PAGE_URL"]?>" target="_blank">
+									<?endif?>
+										<?=$item['NAME']?>
+									<?if(strlen($item["DETAIL_PAGE_URL"])):?>
+										</a>
+									<?endif?>
+									<nobr>&nbsp;&mdash; <?=$item['QUANTITY']?> <?=(isset($item["MEASURE_NAME"]) ? $item["MEASURE_NAME"] : GetMessage('SPOL_SHT'))?></nobr>
+								</li>
+
+							<?endforeach?>
+
+						</ul>
+
+						<?=$order["ORDER"]["DATE_STATUS_FORMATED"];?>
+
+						<?if($order["ORDER"]["CANCELED"] != "Y"):?>
+							<a href="<?=$order["ORDER"]["URL_TO_CANCEL"]?>" style="min-width:140px"class="bx_big bx_bt_button_type_2 bx_cart bx_order_action"><?=GetMessage('SPOL_CANCEL_ORDER')?></a>
+						<?endif?>
+
+						<a href="<?=$order["ORDER"]["URL_TO_COPY"]?>" style="min-width:140px"class="bx_big bx_bt_button_type_2 bx_cart bx_order_action"><?=GetMessage('SPOL_REPEAT_ORDER')?></a>
+                    </div>
+               </div>
+             </div>
+			<?endforeach?>
+
+		<?endforeach?>
+
+		<?if(strlen($arResult['NAV_STRING'])):?>
+			<?=$arResult['NAV_STRING']?>
+		<?endif?>
+
+	<?else:?>
+		<?=GetMessage('SPOL_NO_ORDERS')?>
+	<?endif?>
+
+<?endif?>
