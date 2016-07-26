@@ -8452,3 +8452,17 @@ display: none;
 .form_validation_failed {
 	color: #f4c5b1;
 }
+
+.files_in_prices .reviesElement {
+	position: static;
+	float: none;
+}
+
+.files_in_prices > div {
+	display: inline-block;
+	margin-right: 19px !important;
+}
+
+.files_in_prices > div:nth-child(4n+4) {
+	margin-right: 0 !important;
+}
