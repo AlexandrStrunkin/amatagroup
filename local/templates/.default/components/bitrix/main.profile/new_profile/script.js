@@ -7,5 +7,9 @@ $(document).ready(function () {
        } else {
             $(".subscriptionNews").attr("checked", false);
        }
-    })
-})
+    });
+    $('.settingsWrap').on('click', '.blockTitle', function(){
+        $("#ordersCompleted").load("?show_all #ordersCompleted > *");
+        $("#ordersCancelled").load("?show_all #ordersCancelled > *");
+    });
+});

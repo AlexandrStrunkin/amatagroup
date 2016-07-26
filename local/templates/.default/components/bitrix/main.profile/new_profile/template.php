@@ -47,22 +47,22 @@ if ($arResult['DATA_SAVED'] == 'Y')
                 <input type="email" name="EMAIL" maxlength="50" value="<?=$arResult["arUser"]["EMAIL"]?>" />
             </div>
             <div class="inputBlock subscribeInp">
-                <?$APPLICATION->IncludeComponent("bitrix:subscribe.simple", "personal_subscribe", Array(
-                    "AJAX_MODE" => "N",    // Включить режим AJAX
-                    "SHOW_HIDDEN" => "Y",    // Показать скрытые рубрики подписки
-                    "CACHE_TYPE" => "A",    // Тип кеширования
-                    "CACHE_TIME" => "3600",    // Время кеширования (сек.)
-                    "SET_TITLE" => "Y",    // Устанавливать заголовок страницы
-                    "AJAX_OPTION_JUMP" => "N",    // Включить прокрутку к началу компонента
-                    "AJAX_OPTION_STYLE" => "Y",    // Включить подгрузку стилей
-                    "AJAX_OPTION_HISTORY" => "N",    // Включить эмуляцию навигации браузера
-                    ),
-                false
-                );?>
+            <?
+            CModule::IncludeModule("subscribe");
+            $aSubscr = CSubscription::GetUserSubscription();
+
+            // Вывод рубрик можно производить таким способом
+            $arOrder = Array("SORT"=>"ASC", "NAME"=>"ASC");
+            $arFilter = Array("ACTIVE"=>"Y", "LID"=>LANG);
+            $rsRubric = CRubric::GetList($arOrder, $arFilter);
+            $arRubrics = array();
+            while($arRubric = $rsRubric->GetNext()) {  ?>
+                <input id="RUB_<?=$arRubric["ID"]?>" type="checkbox" class="subscriptionNews" name="RUB_ID[]" checked="" value="<?= $arRubric["ID"]?>">
+            <?}?>
+            <label for="subscriptionNews?>">Хочу получать новости и акции компании</label>
+
             </div>
         </div>
-
-
 
         <div class="thirdBlack">
             <div class="inputBlock">

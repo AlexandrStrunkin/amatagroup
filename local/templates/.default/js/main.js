@@ -988,7 +988,8 @@ $(document).ready(function () {
 
     //открытие блоков детального заказа в ЛК
 
-    $('.settingsWrap .orderContainer .activeOrderTitle').on("click", function () {
+    $(document).on("click", '.settingsWrap .orderContainer .activeOrderTitle', function () {
+        console.log('yes');
         var el = $(this).parent(), top = el.offset().top-15;
         if (el.hasClass('activeOrder')) {
             $('.orderBodyWrap').slideUp(0);
@@ -1005,8 +1006,6 @@ $(document).ready(function () {
         /*setTimeout(function(){*/
         $("html, body").animate({scrollTop: el.offset().top-15}, 200);
         /*}, 400);*/
-
-
     });
 
 
