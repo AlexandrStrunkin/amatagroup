@@ -708,6 +708,7 @@ $(document).ready(function () {
         
     });
     
+    // форма вопроса в /about
     $("#ask_question").on("submit", function(e) {
     	e.preventDefault();
 		$.post("/ajax/add-question.php", {
@@ -719,6 +720,27 @@ $(document).ready(function () {
 				$(".form_result").addClass("form_validation_failed");
 			} else {
 				document.getElementById("ask_question").reset();
+			}
+			$(".form_result").fadeIn(200);
+			setTimeout(function(){
+				$(".form_result").fadeOut(200);
+				$(".form_result").removeClass("form_validation_failed");
+			}, 5500);
+	    });
+    })
+    
+    // форма вопроса в /question
+    $("#faq_question").on("submit", function(e) {
+    	e.preventDefault();
+		$.post("/ajax/add-faq-question.php", {
+			form: $(this).serialize()
+		}, function(result) {
+			data = JSON.parse(result);
+			$(".form_result").html(data.text);
+			if (!data.success) {
+				$(".form_result").addClass("form_validation_failed");
+			} else {
+				document.getElementById("faq_question").reset();
 			}
 			$(".form_result").fadeIn(200);
 			setTimeout(function(){
