@@ -12,20 +12,7 @@
 /** @var CBitrixComponent $component */
 $this->setFrameMode(true);
 ?>
-<p class="brandTitle"><a href="/brands/"><?=$arResult["NAME"]?></a></p>
 
-<p class="brandText">
-<?$APPLICATION->IncludeComponent(
-    "bitrix:main.include",
-    "",
-    Array(
-        "AREA_FILE_SHOW" => "file",
-        "AREA_FILE_SUFFIX" => "inc",
-        "EDIT_TEMPLATE" => "standard.php",
-        "PATH" => "/include/brands.php"
-    )
-);?>
-</p><br>
 <div class="brandPhotoWrapper">
 <?if($arParams["DISPLAY_TOP_PAGER"]):?>
 	<?=$arResult["NAV_STRING"]?><br />

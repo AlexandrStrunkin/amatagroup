@@ -398,6 +398,20 @@
             <!--END productBlockWrapper-->
             <!--brandsWrapper-->
             <div class="brandsWrapper">
+            <p class="brandTitle"><a href="/brands/">Бренды</a></p>
+
+			<p class="brandText">
+			<?$APPLICATION->IncludeComponent(
+			    "bitrix:main.include",
+			    "",
+			    Array(
+			        "AREA_FILE_SHOW" => "file",
+			        "AREA_FILE_SUFFIX" => "inc",
+			        "EDIT_TEMPLATE" => "standard.php",
+			        "PATH" => "/include/brands.php"
+			    )
+			);?>
+			</p><br>
             <?$Filter_brands[">PREVIEW_PICTURE"] = 0;?>
                 <?$APPLICATION->IncludeComponent(
 	                "bitrix:news.list",
@@ -430,8 +444,8 @@
 		                "HIDE_LINK_WHEN_NO_DETAIL" => "N",
 		                "IBLOCK_ID" => "14",
 		                "IBLOCK_TYPE" => "services",
-		                "INCLUDE_IBLOCK_INTO_CHAIN" => "Y",
-		                "INCLUDE_SUBSECTIONS" => "Y",
+		                "INCLUDE_IBLOCK_INTO_CHAIN" => "N",
+		                "INCLUDE_SUBSECTIONS" => "N",
 		                "MESSAGE_404" => "",
 		                "NEWS_COUNT" => "50",
 		                "PAGER_BASE_LINK_ENABLE" => "N",

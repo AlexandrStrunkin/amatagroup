@@ -5049,7 +5049,6 @@ textarea {
     color: #a1a1a1;
     font-family: "MuseoSansCyrl-500";
     font-size: 16px;
-    margin-left: 20px;
     margin-top: 46px;
 }
 
@@ -5085,7 +5084,6 @@ textarea {
     color: #aaaaaa;
     font-family: "MuseoSansCyrl-500";
     font-size: 20px;
-    margin-top: 98px;
     padding-bottom: 0;
 }
 
@@ -5121,10 +5119,7 @@ textarea {
     margin-right: 38px;
     text-align: center;
     width: 260px;
-}
-
-.innerPageWrapper .infoNewsList .imageWrapper img {
-    vertical-align: middle;
+    overflow: hidden;
 }
 
 .innerPageWrapper .infoNewsList .dateText {
@@ -5132,14 +5127,13 @@ textarea {
     font-family: "MuseoSansCyrl-500";
     font-size: 13px;
     padding-bottom: 8px;
-    padding-top: 8px;
     margin-bottom: 0 !important;
 }
 
 .innerPageWrapper .infoNewsList .newsName {
     color: #323232;
     font: 20px/1 "MuseoSansCyrl-700";
-    margin: 5px 0 13px;
+    margin: 0px 0 13px;
     display: inline-block;
     letter-spacing: 0.37px;
 }
@@ -5186,11 +5180,6 @@ textarea {
     margin-bottom: 22px;
 }
 
-.infoNewsList li:last-child .dateText {
-    padding-top: 12px;
-    padding-bottom: 14px;
-}
-
 .infoNewsList li:last-child .detailNews {
     margin-top: 23px;
 }
@@ -5200,7 +5189,6 @@ textarea {
     color: #000;
     font-family: "MuseoSansCyrl-700";
     font-size: 20px;
-    margin-top: 90px;
     padding-bottom: 16px;
     margin-bottom: 40px;
     letter-spacing: 0.5px;
@@ -8407,4 +8395,73 @@ display: none;
 
 .altasib_geobase_yc_btn{
 	background: #58a8cf !important;
+}
+
+.about_tabs {
+	padding-top: 30px;
+}
+
+.about_tabs h3 {
+    color: #878787;
+    font: 18px/1 'MuseoSansCyrl-500';
+    letter-spacing: 0.03px;
+    margin-bottom: 20px;
+}
+
+.achievements_wrapper {
+	display: flex;
+    align-items: center;
+    justify-content: space-around;
+}
+
+.about_question_form .rightBlock {
+	top: 10px;
+}
+
+.about_question_form textarea {
+    height: 152px;
+    width: 92%;
+}
+
+.about_question_form .buttonsBlock {
+	text-align: right;
+}
+
+.about_question_form .formAcceptBut {
+	cursor: pointer;
+	margin: 0;
+}
+
+.about_question_form tr:last-child td:first-child {
+	border-right: 0;
+}
+
+.about_question_form tr:last-child td:last-child {
+	border-left: 0;
+}
+
+.form_result {
+	font-family: "MuseoSansCyrl-500";
+	font-size: 16px;
+	color: #89c178;
+	margin-left: 28px;
+	display: none;
+}
+
+.form_validation_failed {
+	color: #f4c5b1;
+}
+
+.files_in_prices .reviesElement {
+	position: static;
+	float: none;
+}
+
+.files_in_prices > div {
+	display: inline-block;
+	margin-right: 19px !important;
+}
+
+.files_in_prices > div:nth-child(4n+4) {
+	margin-right: 0 !important;
 }
