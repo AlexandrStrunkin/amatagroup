@@ -4,7 +4,7 @@
 	parse_str($_POST['form'], $form_data);
 	$result = array(
 		"success" => false,
-		"text"    => "Извините, произошла ошибка, попробуйте позже."
+		"text"    => "РР·РІРёРЅРёС‚Рµ, РїСЂРѕРёР·РѕС€Р»Р° РѕС€РёР±РєР°, РїРѕРїСЂРѕР±СѓР№С‚Рµ РїРѕР·Р¶Рµ."
 	);
 	
 	$new_question = new CIBlockElement;
@@ -23,7 +23,7 @@
 	if ($added_id = $new_question->Add($data)) {
 	    $result = array(
 			"success" => true,
-			"text"    => "Ваш вопрос принят"
+			"text"    => "Р’Р°С€ РІРѕРїСЂРѕСЃ РїСЂРёРЅСЏС‚"
 		);
 	}
 	
