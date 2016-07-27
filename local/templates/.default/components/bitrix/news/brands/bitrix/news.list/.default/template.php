@@ -11,10 +11,10 @@
 /** @var string $componentPath */
 /** @var CBitrixComponent $component */
 $this->setFrameMode(true);
-
-    function isNumeric($strChar) {
-        $intOrd = ord($strChar);
-        if($intOrd >= 48 && $intOrd <= 57)
+     // создает у брендов алфавитный пор€док ..
+    function isNumeric($strChar) {   // провер€ет €вл€ютс€ ли первые символы цифрами
+        $intOrd = ord($strChar);      // определ€ем код символа первой буквы
+        if($intOrd >= 48 && $intOrd <= 57)  // возвращаем код если он попал в данны диапозон
             return true;
         else return false;
     }
@@ -54,7 +54,7 @@ $this->setFrameMode(true);
             $strBrandHtml .= '<li><a href="/brands/'.$arProd["ID"].'/">'.$arProd["NAME"].'</a></li>';
         }
     }
-
+      // создает у брендов алфавитный пор€док ..
     if(!empty($strBrandHtml)) {
         $strBrandHtml .= '</ul>';
         if(!empty($strNumeric)) $strNumeric .= '</ul>';?>
