@@ -27,14 +27,13 @@
 
 <div class="leftFiltersBlock bx-filter <?=$templateData["TEMPLATE_CLASS"]?>" style="display: block">
     <div class="">           
-
         <form name="<?echo $arResult["FILTER_NAME"]."_form"?>" action="<?echo $arResult["FORM_ACTION"]?>" method="get" class="smartfilter">
             <?foreach($arResult["HIDDEN"] as $arItem):?>
                 <input type="hidden" name="<?echo $arItem["CONTROL_NAME"]?>" id="<?echo $arItem["CONTROL_ID"]?>" value="<?echo $arItem["HTML_VALUE"]?>" />
                 <?endforeach;?>
             
                 <?foreach($arResult["ITEMS"] as $key=>$arItem) {//prices
-
+						
                         $activeFilterItem = false;
 
                         $key = $arItem["ENCODED_ID"];
@@ -112,6 +111,11 @@
 
                     //not prices
                     foreach($arResult["ITEMS"] as $key=>$arItem) {
+                    	// временный костыль для фильтра по цене
+                    	if ($arItem['ID'] == 353) {
+							continue;
+						}
+						
                         if(empty($arItem["VALUES"]) || isset($arItem["PRICE"]))
                             continue;
 

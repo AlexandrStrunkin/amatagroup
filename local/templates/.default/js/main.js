@@ -700,10 +700,6 @@ $(document).ready(function () {
 
         //  el.attr("placeholder", el.attr("data-placeholder"));
     });
-    /*$(".authEnter, #callBackPopup .btn").on("click", function (e) {
-        e.preventDefault();
-        $(this).closest("form").submit();
-    });*/
 
 
     $(".forgotPassword").on("click", function () {
@@ -711,15 +707,49 @@ $(document).ready(function () {
         $(".forgotForm").fadeIn(300);
 
     });
-/*    $("form .btn, .formAcceptBut").on("click", function (e) {
-        $(this).closest("form").submit();
-    });    */
 
+    // форма вопроса в /about
+    $("#ask_question").on("submit", function(e) {
+    	e.preventDefault();
+		$.post("/ajax/add-question.php", {
+			form: $(this).serialize()
+		}, function(result) {
+			data = JSON.parse(result);
+			$(".form_result").html(data.text);
+			if (!data.success) {
+				$(".form_result").addClass("form_validation_failed");
+			} else {
+				document.getElementById("ask_question").reset();
+			}
+			$(".form_result").fadeIn(200);
+			setTimeout(function(){
+				$(".form_result").fadeOut(200);
+				$(".form_result").removeClass("form_validation_failed");
+			}, 5500);
+	    });
+    })
 
-    /* $("input, textarea").each(function () {
-    var el = $(this), placeholder = el.attr("placeholder");
-    el.attr("data-placeholder", placeholder);
-    });*/
+    // форма вопроса в /question
+    $("#faq_question").on("submit", function(e) {
+    	e.preventDefault();
+		$.post("/ajax/add-faq-question.php", {
+			form: $(this).serialize()
+		}, function(result) {
+			data = JSON.parse(result);
+			$(".form_result").html(data.text);
+			if (!data.success) {
+				$(".form_result").addClass("form_validation_failed");
+			} else {
+				document.getElementById("faq_question").reset();
+			}
+			$(".form_result").fadeIn(200);
+			setTimeout(function(){
+				$(".form_result").fadeOut(200);
+				$(".form_result").removeClass("form_validation_failed");
+			}, 5500);
+	    });
+    })
+>>>>>>> upstream/master
 
     $("form").on("submit", function (e) {
         var el = $(this), input = el.find("input,textarea"), dataError = 0;
