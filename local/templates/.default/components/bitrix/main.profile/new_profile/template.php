@@ -49,14 +49,14 @@ if ($arResult['DATA_SAVED'] == 'Y')
             </div>
             <div class="inputBlock subscribeInp">
             <input class="subscriptionNews" type="checkbox" name="RUB_ID" <?=($aSubscr["ACTIVE"] == 'Y')? 'checked="checked" value="1"' : ''?>>
-            <label for="subscriptionNews">Хочу получать новости и акции компании</label>
+            <label for="subscriptionNews"><?=GetMessage('SUBSCRIPTIONNEWS')?></label>
 
             </div>
         </div>
 
         <div class="thirdBlack">
             <div class="inputBlock">
-                <input type="reset" value="Отменить" class="cancelInp">
+                <input type="reset" value="<?=GetMessage('CANCEL')?>" class="cancelInp">
                 <input name="save" value="<?=GetMessage("MAIN_SAVE")?>" class="saveInp" onclick="" type="submit">
             </div>
         </div>

@@ -16,9 +16,9 @@
 
 	<?endif?>
     <div class="ordersMenu">
-        <a href="#ordersActive" class="activeElement">Активные</a>
-        <a href="#ordersCompleted">Выполненные</a>
-        <a href="#ordersCancelled">Отмененные</a>
+        <a href="#ordersActive" class="activeElement"><?=GetMessage('ACTIVE')?></a>
+        <a href="#ordersCompleted"><?=GetMessage('COMPLITED')?></a>
+        <a href="#ordersCancelled"><?=GetMessage('CANSELED')?></a>
     </div>
 	<?if(!empty($arResult['ORDERS'])):?>
 
@@ -45,14 +45,14 @@
                         <div><p class="orderListTitle"><?=GetMessage('SPOL_BASKET')?></p></div>
                             <table>
                                 <thead>
-                                <tr>
-                                    <th>Фото</th>
-                                    <th>Наименование</th>
-                                    <th>Цвет</th>
-                                    <th>Цена, Р</th>
-                                    <th>Кол-во</th>
-                                    <th>Итого, Р</th>
-                                </tr>
+                                    <tr>
+                                        <th><?=GetMessage('PICTURE')?></th>
+                                        <th><?=GetMessage('NAME')?></th>
+                                        <th><?=GetMessage('COLOR')?></th>
+                                        <th><?=GetMessage('PRICE')?></th>
+                                        <th><?=GetMessage('COUNT')?></th>
+                                        <th><?=GetMessage('TOTAL')?></th>
+                                    </tr>
                                 </thead>
                                 <?foreach ($order["BASKET_ITEMS"] as $item):?>
                                     <?$element_id = CIblockElement::GetByID($item["PRODUCT_ID"]) -> Fetch()?>
@@ -151,15 +151,15 @@
                         <div class="orderBodyWrap">
                         <div><p class="orderListTitle"><?=GetMessage('SPOL_BASKET')?></p></div>
                             <table>
-                                <thead>
-                                <tr>
-                                    <th>Фото</th>
-                                    <th>Наименование</th>
-                                    <th>Цвет</th>
-                                    <th>Цена, Р</th>
-                                    <th>Кол-во</th>
-                                    <th>Итого, Р</th>
-                                </tr>
+                                 <thead>
+                                    <tr>
+                                        <th><?=GetMessage('PICTURE')?></th>
+                                        <th><?=GetMessage('NAME')?></th>
+                                        <th><?=GetMessage('COLOR')?></th>
+                                        <th><?=GetMessage('PRICE')?></th>
+                                        <th><?=GetMessage('COUNT')?></th>
+                                        <th><?=GetMessage('TOTAL')?></th>
+                                    </tr>
                                 </thead>
                                 <?foreach ($order["BASKET_ITEMS"] as $item):?>
                                     <?$element_id = CIblockElement::GetByID($item["PRODUCT_ID"]) -> Fetch()?>
@@ -258,15 +258,15 @@
                         <div class="orderBodyWrap">
                         <div><p class="orderListTitle"><?=GetMessage('SPOL_BASKET')?></p></div>
                             <table>
-                                <thead>
-                                <tr>
-                                    <th>Фото</th>
-                                    <th>Наименование</th>
-                                    <th>Цвет</th>
-                                    <th>Цена, Р</th>
-                                    <th>Кол-во</th>
-                                    <th>Итого, Р</th>
-                                </tr>
+                                 <thead>
+                                    <tr>
+                                        <th><?=GetMessage('PICTURE')?></th>
+                                        <th><?=GetMessage('NAME')?></th>
+                                        <th><?=GetMessage('COLOR')?></th>
+                                        <th><?=GetMessage('PRICE')?></th>
+                                        <th><?=GetMessage('COUNT')?></th>
+                                        <th><?=GetMessage('TOTAL')?></th>
+                                    </tr>
                                 </thead>
                                 <?foreach ($order["BASKET_ITEMS"] as $item):?>
                                     <?$element_id = CIblockElement::GetByID($item["PRODUCT_ID"]) -> Fetch()?>

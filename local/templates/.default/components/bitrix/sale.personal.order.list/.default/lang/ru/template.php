@@ -21,4 +21,15 @@ $MESS["SPOL_NO"] = "Нет";
 $MESS["SPOL_NUM_SIGN"] = "№";
 $MESS["COMMENT"] = "Комментарий к заказу";
 $MESS["DELIVERY_ADRESS"] = "Адрес доставки";
+$MESS["ACTIVE"] = "Активные";
+$MESS["COMPLITED"] = "Выполненные";
+$MESS["CANSELED"] = "Отмененные";
+
+$MESS["PICTURE"] = "Фото";
+$MESS["NAME"] = "Наименование";
+$MESS["COLOR"] = "Цвет";
+$MESS["PRICE"] = "Цена, Р";
+$MESS["COUNT"] = "Кол-во";
+$MESS["TOTAL"] = "Итого, Р";
+
 ?>

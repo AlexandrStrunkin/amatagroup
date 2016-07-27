@@ -39,7 +39,8 @@
     define("OFFERS_IBLOCK_ID", 6);  //offers
     define("FAVORITE_IBLOCK_ID", 12);
 	define("USER_SAVED_ADDRESSES_IBLOCK_ID", 13);
-
+    define("USER_QUESTIONS_IBLOCK_ID", 22);
+    define("USER_QUESTIONS_FAQ_IBLOCK_ID", 24);
 	define("USER_SAVED_ADDRESSES_STREET_PROPERTY", 433); // улица
 	define("USER_SAVED_ADDRESSES_HOUSING_PROPERTY", 434); // Строение/корпус
 	define("USER_SAVED_ADDRESSES_BUILDING_PROPERTY", 435); // Дом

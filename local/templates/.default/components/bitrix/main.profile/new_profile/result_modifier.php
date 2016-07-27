@@ -38,7 +38,6 @@ if($aSubscr["ID"] > 0) {
             CSubscription::Authorize($ID);
         }
     }
-    arshow($ID);
 }
 ?>
 
