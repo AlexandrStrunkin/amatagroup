@@ -4,8 +4,10 @@ $(document).ready(function () {
        // $(".subscribeInp input[type = 'checkbox']").prop("checked").attr('checked',true)
        if($(this).prop("checked")){
             $(".subscriptionNews").attr("checked", true);
+            $(".subscriptionNews").val('1');
        } else {
             $(".subscriptionNews").attr("checked", false);
+            $(".subscriptionNews").val('');
        }
     });
     $('.settingsWrap').on('click', '.blockTitle', function(){
@@ -13,3 +15,4 @@ $(document).ready(function () {
         $("#ordersCancelled").load("?show_all #ordersCancelled > *");
     });
 });
+

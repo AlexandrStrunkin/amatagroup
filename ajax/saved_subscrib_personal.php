@@ -1,23 +1,26 @@
 <?
 CModule::IncludeModule("subscribe");
+$aSubscr = CSubscription::GetUserSubscription();
 
+$str_CONFIRMED = $_POST('str_CONFIRMED');
 
 $subscr = new CSubscription;
 //confirmation code from letter or confirmation form
-if($CONFIRM_CODE <> "" && $aSubscr["ID"] > 0 && empty($action))
-{
-    if($str_CONFIRMED <> "Y")
-    {
+if($RUB_ID <> "" && $aSubscr["ID"] > 0) {
+    if($str_CONFIRMED <> "Y") {
         //subscribtion confirmation
-        if($subscr->Update($aSubscr["ID"], array("CONFIRM_CODE"=>$CONFIRM_CODE))){
+        if($subscr->Update($aSubscr["ID"], array("CONFIRM_CODE"=>$str_CONFIRMED))){
             $str_CONFIRMED = "Y";
         }
-        $strWarning .= $subscr->LAST_ERROR;
-        $iMsg = $subscr->LAST_MESSAGE;
+    } else {
+        if($subscr->Update($aSubscr["ID"], array("CONFIRM_CODE"=>$str_CONFIRMED))){
+            $str_CONFIRMED = "N";
+        }
     }
+    arshow($subscr);
 } else {
     $arFields = Array(
-        "USER_ID" => ($USER->IsAuthorized()? $USER->GetID():false),
+        "USER_ID" => ($USER -> IsAuthorized()? $USER -> GetID():false),
         "FORMAT" => ($FORMAT <> "html"? "text":"html"),
         "EMAIL" => $arResult["arUser"]["EMAIL"],
         "ACTIVE" => "Y",

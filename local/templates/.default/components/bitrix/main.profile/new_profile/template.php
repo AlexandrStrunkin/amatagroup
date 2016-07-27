@@ -2,6 +2,7 @@
 ?>
 <?=ShowError($arResult["strProfileError"]);?>
 <?
+$aSubscr = CSubscription::GetUserSubscription();
 if ($arResult['DATA_SAVED'] == 'Y')
     echo ShowNote(GetMessage('PROFILE_DATA_SAVED'));
 ?>
@@ -47,19 +48,8 @@ if ($arResult['DATA_SAVED'] == 'Y')
                 <input type="email" name="EMAIL" maxlength="50" value="<?=$arResult["arUser"]["EMAIL"]?>" />
             </div>
             <div class="inputBlock subscribeInp">
-            <?
-            CModule::IncludeModule("subscribe");
-            $aSubscr = CSubscription::GetUserSubscription();
-
-            // Вывод рубрик можно производить таким способом
-            $arOrder = Array("SORT"=>"ASC", "NAME"=>"ASC");
-            $arFilter = Array("ACTIVE"=>"Y", "LID"=>LANG);
-            $rsRubric = CRubric::GetList($arOrder, $arFilter);
-            $arRubrics = array();
-            while($arRubric = $rsRubric->GetNext()) {  ?>
-                <input id="RUB_<?=$arRubric["ID"]?>" type="checkbox" class="subscriptionNews" name="RUB_ID[]" checked="" value="<?= $arRubric["ID"]?>">
-            <?}?>
-            <label for="subscriptionNews?>">Хочу получать новости и акции компании</label>
+            <input class="subscriptionNews" type="checkbox" name="RUB_ID" <?=($aSubscr["ACTIVE"] == 'Y')? 'checked="checked" value="1"' : ''?>>
+            <label for="subscriptionNews">Хочу получать новости и акции компании</label>
 
             </div>
         </div>
@@ -67,7 +57,7 @@ if ($arResult['DATA_SAVED'] == 'Y')
         <div class="thirdBlack">
             <div class="inputBlock">
                 <input type="reset" value="Отменить" class="cancelInp">
-                <input name="save" value="<?=GetMessage("MAIN_SAVE")?>" class="saveInp" type="submit">
+                <input name="save" value="<?=GetMessage("MAIN_SAVE")?>" class="saveInp" onclick="" type="submit">
             </div>
         </div>
     </form>
