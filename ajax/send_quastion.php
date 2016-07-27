@@ -1,4 +1,4 @@
-<?require($_SERVER["DOCUMENT_ROOT"]."/bitrix/header.php");?>
+<?require($_SERVER["DOCUMENT_ROOT"]."/bitrix/modules/main/include/prolog_before.php");?>
 <?
 
     $name = utf8win1251($_POST["name"]);
@@ -21,19 +21,19 @@ $PROP['TEXT'] = $text;
 
 
 $arLoadProductArray = Array(
-  "MODIFIED_BY"    => $USER->GetID(), // элемент изменен текущим пользователем
-  "IBLOCK_SECTION_ID" => false,          // элемент лежит в корне раздела
-  "IBLOCK_ID"      => IBLOCK_ID_QUASTION,
-  "PROPERTY_VALUES"=> $PROP,
-  "NAME"           => $company.' '.$name,
-  "ACTIVE"         => "Y",            // активен
-  "PREVIEW_TEXT"   => "",
-  "DETAIL_TEXT"    => "",
-  );
+    "MODIFIED_BY"    => $USER->GetID(), // элемент изменен текущим пользователем
+    "IBLOCK_SECTION_ID" => false,          // элемент лежит в корне раздела
+    "IBLOCK_ID"      => IBLOCK_ID_QUASTION,
+    "PROPERTY_VALUES"=> $PROP,
+    "NAME"           => $company.' '.$name,
+    "ACTIVE"         => "Y",            // активен
+    "PREVIEW_TEXT"   => "",
+    "DETAIL_TEXT"    => "",
+);
 
-$PRODUCT_ID = $el->Add($arLoadProductArray);
+$element_id = $el->Add($arLoadProductArray);
 
-if($PRODUCT_ID > 0){
+if($element_id > 0){
     $arSend = array("NAME" => $name, "GENERATOR" => $generator, "EMAIL" => $email, "PHONE" => $phone, "COMPANY" => $company, "TEXT" => $text);
     CEvent::Send("FEEDBACK_FORM", SITE_ID, $arSend, 'N', 76);
 }
