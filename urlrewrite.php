@@ -19,10 +19,10 @@ $arUrlRewrite = array(
 		"PATH" => "/personal/order/index.php",
 	),
 	array(
-		"CONDITION" => "#^/catalog/#",
+		"CONDITION" => "#^/new-products/#",
 		"RULE" => "",
-		"ID" => "bitrix:catalog",
-		"PATH" => "/catalog/index.php",
+		"ID" => "bitrix:news",
+		"PATH" => "/new-products/index.php",
 	),
 	array(
 		"CONDITION" => "#^/catalog/#",
@@ -31,10 +31,28 @@ $arUrlRewrite = array(
 		"PATH" => "/catalog/filter/index.php",
 	),
 	array(
+		"CONDITION" => "#^/catalog/#",
+		"RULE" => "",
+		"ID" => "bitrix:catalog",
+		"PATH" => "/catalog/index.php",
+	),
+	array(
+		"CONDITION" => "#^/content/#",
+		"RULE" => "",
+		"ID" => "bitrix:news",
+		"PATH" => "/content/index.php",
+	),
+	array(
 		"CONDITION" => "#^/brands/#",
 		"RULE" => "",
 		"ID" => "bitrix:news",
 		"PATH" => "/brands/index.php",
+	),
+	array(
+		"CONDITION" => "#^/promo/#",
+		"RULE" => "",
+		"ID" => "bitrix:news",
+		"PATH" => "/promo/index.php",
 	),
 	array(
 		"CONDITION" => "#^/store/#",
@@ -65,6 +83,12 @@ $arUrlRewrite = array(
 		"RULE" => "",
 		"ID" => "bitrix:news",
 		"PATH" => "/news/index.php",
+	),
+	array(
+		"CONDITION" => "#^#",
+		"RULE" => "",
+		"ID" => "bitrix:news",
+		"PATH" => "/test.php",
 	),
 );
 
