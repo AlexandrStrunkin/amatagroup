@@ -14,9 +14,11 @@ $this->setFrameMode(true);
      // создает у брендов алфавитный пор€док ..
     function isNumeric($strChar) {   // провер€ет €вл€ютс€ ли первые символы цифрами
         $intOrd = ord($strChar);      // определ€ем код символа первой буквы
-        if($intOrd >= 48 && $intOrd <= 57)  // возвращаем код если он попал в данны диапозон
+        if($intOrd >= 48 && $intOrd <= 57) {  // возвращаем код если он попал в данны диапозон
             return true;
-        else return false;
+        } else {
+            return false;
+        }
     }
 
     $strBrandHtml = '';
@@ -28,7 +30,6 @@ $this->setFrameMode(true);
         if (isNumeric($strLetter)) {
             $strLetter = '123';
         }
-
         if ($strLetter != $strLastLetter) {
             $strLastLetter = $strLetter;
             if(!empty($strBrandHtml)) {
@@ -43,7 +44,6 @@ $this->setFrameMode(true);
             if ($strLetter == '123') {
                 $strNumeric .= '<li class="sk-menu-abc-devider"> | </li><li><a href="#">'.$strLetter.'</a><ul class="sk-menu-abc-sub">';
             } else {
-
                 $strBrandHtml .= '<li><a href="#">'.$strLetter.'</a><ul class="sk-menu-abc-sub">';
             }
         }
@@ -57,7 +57,9 @@ $this->setFrameMode(true);
       // создает у брендов алфавитный пор€док ..
     if(!empty($strBrandHtml)) {
         $strBrandHtml .= '</ul>';
-        if(!empty($strNumeric)) $strNumeric .= '</ul>';?>
+        if(!empty($strNumeric)){
+            $strNumeric .= '</ul>';
+        }?>
     <div class="wrap-sk-menu-abc">
         <ul class="sk-menu-abc">
             <li>Ѕренды:</li>
