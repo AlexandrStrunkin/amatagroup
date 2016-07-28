@@ -2,17 +2,52 @@
 require($_SERVER["DOCUMENT_ROOT"]."/bitrix/header.php");
 $APPLICATION->SetTitle("Персональный раздел");
 ?>
-<div class="bx_page">
-	<p>В личном кабинете Вы можете проверить текущее состояние корзины, ход выполнения Ваших заказов, просмотреть или изменить личную информацию, а также подписаться на новости и другие информационные рассылки. </p>
-	<div>
-		<h2>Личная информация</h2>
-		<a href="profile/">Изменить регистрационные данные</a>
-	</div>
-	<div>
-		<h2>Заказы</h2>
-		<a href="order/">Ознакомиться с состоянием заказов</a><br/>
-		<a href="cart/">Посмотреть содержимое корзины</a><br/>
-		<a href="order/">Посмотреть историю заказов</a><br/>
-	</div>
+<div class="widthWrapper">
+    <div class="mainSectionWrap">
+        <div class="settingsWrap">
+	        <p class="blockTitle active">Мои настройки</p>
+                <?include('profile/index.php')?>
+         </div>
+         <div class="settingsWrap">
+          <p class="blockTitle">Мои заказы</p>
+            <div class="settingsBlock" id="order_list">
+                <?$APPLICATION->IncludeComponent(
+	                "bitrix:sale.personal.order",
+	                ".default",
+	                array(
+		                "SEF_MODE" => "Y",
+		                "SEF_FOLDER" => "/personal/order/",
+		                "ORDERS_PER_PAGE" => "10",
+		                "PATH_TO_PAYMENT" => "/personal/order/payment/",
+		                "PATH_TO_BASKET" => "/personal/cart/",
+		                "SET_TITLE" => "Y",
+		                "SAVE_IN_SESSION" => "Y",
+		                "NAV_TEMPLATE" => "arrows",
+		                "SHOW_ACCOUNT_NUMBER" => "Y",
+		                "COMPONENT_TEMPLATE" => ".default",
+		                "PROP_1" => array(
+		                ),
+		                "PROP_2" => array(
+		                ),
+		                "ACTIVE_DATE_FORMAT" => "d.m.Y",
+		                "CACHE_TYPE" => "A",
+		                "CACHE_TIME" => "3600",
+		                "CACHE_GROUPS" => "Y",
+		                "CUSTOM_SELECT_PROPS" => array(
+		                ),
+		                "HISTORIC_STATUSES" => array(),
+		                "SEF_URL_TEMPLATES" => array(
+			                "list" => "index.php",
+			                "detail" => "detail/#ID#/",
+			                "cancel" => "cancel/#ID#/",
+		                )
+	                ),
+	                false
+                );?>
+            </div>
+         </div>
+
+
+    </div>
 </div>
 <?require($_SERVER["DOCUMENT_ROOT"]."/bitrix/footer.php");?>
