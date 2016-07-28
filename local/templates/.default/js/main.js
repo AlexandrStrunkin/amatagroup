@@ -749,7 +749,7 @@ $(document).ready(function () {
 			}, 5500);
 	    });
     })
->>>>>>> upstream/master
+
 
     $("form").on("submit", function (e) {
         var el = $(this), input = el.find("input,textarea"), dataError = 0;
