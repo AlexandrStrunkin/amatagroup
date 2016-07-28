@@ -478,7 +478,6 @@
 	                ),
 	                false
                 );?>
-            </div>
             <!--END brandsWrapper-->
             <!--partnerReviews-->
             <div class="productCarousel partnerReviews">
