@@ -40,9 +40,10 @@ $filterView = (COption::GetOptionString("main", "wizard_template_id", "eshop_ada
 			1 => "",
 		),
 		"FILTER_PROPERTY_CODE" => array(
-			0 => "CML2_MANUFACTURER",
-			1 => "BREND",
-			2 => "",
+			0 => "TSVET",
+			1 => "CML2_MANUFACTURER",
+			2 => "BREND",
+			3 => "",
 		),
 		"FILTER_PRICE_CODE" => array(
 			0 => "Оптовая 1 Для сайта",
@@ -52,9 +53,10 @@ $filterView = (COption::GetOptionString("main", "wizard_template_id", "eshop_ada
 			1 => "",
 		),
 		"FILTER_OFFERS_PROPERTY_CODE" => array(
-			0 => "CML2_MANUFACTURER",
-			1 => "BREND",
-			2 => "",
+			0 => "TSVET",
+			1 => "CML2_MANUFACTURER",
+			2 => "BREND",
+			3 => "",
 		),
 		"USE_REVIEW" => "N",
 		"MESSAGES_PER_PAGE" => "10",

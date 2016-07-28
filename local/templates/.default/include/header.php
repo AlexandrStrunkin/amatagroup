@@ -328,7 +328,7 @@
 
                 <p class="littleBannerText">Начать сотрудничество <br/> с нами очень просто</p>
 
-                <p class="worhWithUsLink"><a href="/work-with-us/">С чего начать</a></p>
+                <p class="worhWithUsLink"><a href="/partnership/">С чего начать</a></p>
             </div>
         </div>
     </div>

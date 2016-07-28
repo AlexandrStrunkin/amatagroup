@@ -96,14 +96,14 @@ $arFirstPhoto = current($arResult['MORE_PHOTO']);
     <div class="productCardImg">
         <!--logosContainer-->
         <div class="logosContainer">
-        	<? 
+        	<?
         	if ('Y' == $arParams['SHOW_DISCOUNT_PERCENT']) {
 				if (!isset($arResult['OFFERS']) || empty($arResult['OFFERS'])) {
 					if (0 < $arResult['MIN_PRICE']['DISCOUNT_DIFF']) { ?>
 						<div class="discountLogoWrapper" id="<? echo $arItemIDs['DISCOUNT_PICT_ID'] ?>"><? echo -$arResult['MIN_PRICE']['DISCOUNT_DIFF_PERCENT']; ?>%</div>
 				<?	}
-				} else { 
-					foreach ($arResult['OFFERS'] as $offer) { 
+				} else {
+					foreach ($arResult['OFFERS'] as $offer) {
 						if (0 < $offer['MIN_PRICE']['DISCOUNT_DIFF']) { ?>
 							<div class="discountLogoWrapper" style="display: none" id="discount_label_<?= $offer['ID'] ?>"><? echo -$arResult['MIN_PRICE']['DISCOUNT_DIFF_PERCENT']; ?>%</div>
 						<? } ?>
@@ -138,7 +138,7 @@ $arFirstPhoto = current($arResult['MORE_PHOTO']);
 				if (is_array($arResult['PROPERTIES']['MORE_PHOTO']['VALUE'])) {
 					foreach ($arResult['PROPERTIES']['MORE_PHOTO']['VALUE'] as $photo_id) { ?>
 						<a href="<?= CFile::GetPath($photo_id) ?>"><img src="<?= CFile::GetPath($photo_id) ?>" alt=""/></a>
-				<? 	} 
+				<? 	}
 				}
 				unset($arOnePhoto);
 			?>
@@ -157,7 +157,7 @@ $arFirstPhoto = current($arResult['MORE_PHOTO']);
         <!--productInfo-->
         <div class="productInfo">
             <div class="brandText">
-            	<strong><?= GetMessage("CT_BRAND") ?>:</strong> 
+            	<strong><?= GetMessage("CT_BRAND") ?>:</strong>
             	<a href=""><?= $arResult['DISPLAY_PROPERTIES']['BREND']['DISPLAY_VALUE'] ? $arResult['DISPLAY_PROPERTIES']['BREND']['DISPLAY_VALUE'] : "Не задан" ?></a>
             </div>
             <div class="productArticle">
@@ -177,7 +177,7 @@ $arFirstPhoto = current($arResult['MORE_PHOTO']);
 	        	<?
 				$minPrice = (isset($first_offer['RATIO_PRICE']) ? $first_offer['RATIO_PRICE'] : $first_offer['MIN_PRICE']);
 				$boolDiscountShow = (0 < $minPrice['DISCOUNT_DIFF']); ?>
-				<strong><?= GetMessage("CT_PRICE") ?>: 
+				<strong><?= GetMessage("CT_PRICE") ?>:
 				<? if ($arParams['SHOW_OLD_PRICE'] == 'Y') { ?>
 					<span class="discount_price"><?= ($boolDiscountShow ? $minPrice['PRINT_VALUE'] : ''); ?></span>
 				<? } ?>
@@ -189,7 +189,7 @@ $arFirstPhoto = current($arResult['MORE_PHOTO']);
 		        	<?
 					$minPrice = (isset($offer['RATIO_PRICE']) ? $offer['RATIO_PRICE'] : $offer['MIN_PRICE']);
 					$boolDiscountShow = (0 < $minPrice['DISCOUNT_DIFF']); ?>
-					<strong><?= GetMessage("CT_PRICE") ?>: 
+					<strong><?= GetMessage("CT_PRICE") ?>:
 					<? if ($arParams['SHOW_OLD_PRICE'] == 'Y') { ?>
 						<span class="discount_price"><?= ($boolDiscountShow ? $minPrice['PRINT_VALUE'] : ''); ?></span>
 					<? } ?>
@@ -202,7 +202,7 @@ $arFirstPhoto = current($arResult['MORE_PHOTO']);
 	        	<?
 				$minPrice = (isset($arResult['RATIO_PRICE']) ? $arResult['RATIO_PRICE'] : $arResult['MIN_PRICE']);
 				$boolDiscountShow = (0 < $minPrice['DISCOUNT_DIFF']); ?>
-				<strong><?= GetMessage("CT_PRICE") ?>: 
+				<strong><?= GetMessage("CT_PRICE") ?>:
 				<? if ($arParams['SHOW_OLD_PRICE'] == 'Y') { ?>
 					<span class="discount_price"><?= ($boolDiscountShow ? $minPrice['PRINT_VALUE'] : ''); ?></span>
 				<? } ?>
@@ -237,7 +237,7 @@ $arFirstPhoto = current($arResult['MORE_PHOTO']);
                     $offerName = array();
                     ?>
                     <? foreach ($arParams["~OFFER_TREE_PROPS"] as $offerPropName) { ?>
-                        <? 
+                        <?
                             if ($first_offer["PROPERTIES"][$offerPropName]["VALUE"]) {
                                 $offerName[] = $first_offer["PROPERTIES"][$offerPropName]["VALUE"];
                         } ?>
@@ -245,7 +245,7 @@ $arFirstPhoto = current($arResult['MORE_PHOTO']);
                     <?
                     if (count($offerName) > 0) {
                         $offerNameVisible = trim(implode(", ", $offerName));
-                    }     
+                    }
                     ?>
                     <p data-sort=""  data-offer-id="<?= $first_offer["ID"] ?>" id="activeFirstFilt" data-item-can-buy="<?= $first_offer["CATALOG_QUANTITY"] ?>" data-offer-buy-link="<?= $first_offer["ADD_URL"] ?>" class="firstFiltElement1"><span class="col"></span><?= $offerNameVisible ?></p>
 	                <div class="hidingMenu">
@@ -255,7 +255,7 @@ $arFirstPhoto = current($arResult['MORE_PHOTO']);
 		                    $offerName = array();
 		                    ?>
 		                    <? foreach ($arParams["~OFFER_TREE_PROPS"] as $offerPropName) { ?>
-		                        <? 
+		                        <?
 		                            if ($offer["PROPERTIES"][$offerPropName]["VALUE"]) {
 		                                $offerName[] = $offer["PROPERTIES"][$offerPropName]["VALUE"];
 		                        } ?>
@@ -263,7 +263,7 @@ $arFirstPhoto = current($arResult['MORE_PHOTO']);
 	                        <?
 	                        if (count($offerName) > 0) {
                                 $offerNameVisible = trim(implode(", ", $offerName));
-                            }     
+                            }
 	                        ?>
 		                    <p data-offer-id="<?= $offer["ID"] ?>" data-item-can-buy="<?= $offer["CATALOG_QUANTITY"] ?>" data-offer-buy-link="<?= $offer["ADD_URL"] ?>" class="js-offer-option"><?= $offerNameVisible ?></p>
 	                    <?}?>
@@ -275,7 +275,7 @@ $arFirstPhoto = current($arResult['MORE_PHOTO']);
         <!--END productColor-->
 
         <div class="productFavorites">
-            <a href="javascript:void(0)" 
+            <a href="javascript:void(0)"
                class="<?= $arResult['USER_AUTHORIZED'] ? ($arResult['USER_HAVE_ITEM_IN_FAVORITE'] ? "already_in_favorite" : "js_add_to_favorite") : "js_favorite_need_auth" ?>"
                data-favorite-product-id="<?= $arResult["ID"] ?>"
                data-favorite-delete="<?= $arResult['USER_HAVE_ITEM_IN_FAVORITE'] ? "Y" : "" ?>"
@@ -284,7 +284,7 @@ $arFirstPhoto = current($arResult['MORE_PHOTO']);
             </a>
         </div>
         <div class="productComment">
-            <a href=""><?= GetMessage("CT_ASK_QUESTION") ?></a>
+            <a href="javascript:void(0);"><?= GetMessage("CT_ASK_QUESTION") ?></a>
         </div>
         <?
         if (isset($arResult['OFFERS']) && !empty($arResult['OFFERS'])) {
@@ -296,7 +296,7 @@ $arFirstPhoto = current($arResult['MORE_PHOTO']);
 		$addToBasketBtnMessage = GetMessage('CT_BCE_CATALOG_ADD');
 		$notAvailableMessage = ($arParams['MESS_NOT_AVAILABLE'] != '' ? $arParams['MESS_NOT_AVAILABLE'] : GetMessageJS('CT_BCE_CATALOG_NOT_AVAILABLE')); ?>
 		<? if ($canBuy) {?>
-			<a href="<?= $first_offer['ADD_URL'] ?>" data-offer-id="<?= $first_offer["ID"] ?>" data-item-have-offers="<?= $item_have_offers ?>" data-main-item-id="<?= $arResult['ID'] ?>" class="js-add-to-basket addBtn"><span></span><? echo $addToBasketBtnMessage; ?></a> 
+			<a href="<?= $first_offer['ADD_URL'] ?>" data-offer-id="<?= $first_offer["ID"] ?>" data-item-have-offers="<?= $item_have_offers ?>" data-main-item-id="<?= $arResult['ID'] ?>" class="js-add-to-basket addBtn"><span></span><? echo $addToBasketBtnMessage; ?></a>
 		<? } ?>
 		<span id="<? echo $arItemIDs['NOT_AVAILABLE_MESS']; ?>" class="bx_notavailable" style="display: <? echo (!$canBuy ? '' : 'none'); ?>;"><? echo $notAvailableMessage; ?></span>
     </div>
@@ -413,3 +413,23 @@ $arFirstPhoto = current($arResult['MORE_PHOTO']);
         <!--END jcarousel-wrapper-->
     </div>
 </div>
+    <!--END forma cataloga-->
+    <div class="hiddenProductComment" style="display: none;">
+        <p class="authClose"></p>
+        <form method="post" id="leave_question_catalog">
+            <p class="authTitle">Оставить вопрос</p>
+            <input type="text" placeholder="Представьтесь" name="name" class="nameInput">
+            <input type="text" placeholder="Почта" name="email" class="emailInput">
+            <input type="text" placeholder="Телефон" name="phone" class="emailInput phoneInput">
+            <input type="text" placeholder="Название компании" name="company" class="nameInput">
+            <textarea placeholder="Текст вопроса" name="text"></textarea>
+            <input type="hidden" name="product_id" value="<?=$arResult["ID"]?>" >
+            <input type="submit" class="btn" name="submit" value="Отправить вопрос" >
+
+            <p class="description">Все поля обязательны для заполнения!</p>
+        </form>
+        <div class="message">
+            Ваш вопрос отправлен. Наши консультанты свяжуться с вами по указанным координатам
+        </div>
+    </div>
+     <!--END forma cataloga-->
