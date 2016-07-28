@@ -398,6 +398,7 @@
             <!--END productBlockWrapper-->
             <!--brandsWrapper-->
             <div class="brandsWrapper">
+
             <p class="brandTitle"><a href="/brands/">Бренды</a></p>
 
 			<p class="brandText">
@@ -447,7 +448,7 @@
 		                "INCLUDE_IBLOCK_INTO_CHAIN" => "N",
 		                "INCLUDE_SUBSECTIONS" => "N",
 		                "MESSAGE_404" => "",
-		                "NEWS_COUNT" => "50",
+		                "NEWS_COUNT" => "8",
 		                "PAGER_BASE_LINK_ENABLE" => "N",
 		                "PAGER_DESC_NUMBERING" => "N",
 		                "PAGER_DESC_NUMBERING_CACHE_TIME" => "36000",
@@ -459,7 +460,7 @@
 		                "PARENT_SECTION_CODE" => "",
 		                "PREVIEW_TRUNCATE_LEN" => "",
 		                "PROPERTY_CODE" => array(
-			                0 => "",
+			                0 => "MAIN_DISPLAY",
 			                1 => "",
 		                ),
 		                "SET_BROWSER_TITLE" => "Y",
@@ -489,8 +490,8 @@
 
 
                 	<?$APPLICATION->IncludeComponent(
-						"bitrix:news.list", 
-						"partners_reviews", 
+						"bitrix:news.list",
+						"partners_reviews",
 						array(
 							"ACTIVE_DATE_FORMAT" => "d.m.Y",
 							"ADD_SECTIONS_CHAIN" => "N",
@@ -567,8 +568,8 @@
         				<div class="previews_slider_navigation_arrow confidens_slider_arrow" data-preview-slider-direction="next"><span></span></div>
         				<div id="confidens_slider_wrapper">
 						<?$APPLICATION->IncludeComponent(
-							"bitrix:news.list", 
-							"confidens", 
+							"bitrix:news.list",
+							"confidens",
 								array(
 									"ACTIVE_DATE_FORMAT" => "d.m.Y",
 									"ADD_SECTIONS_CHAIN" => "N",

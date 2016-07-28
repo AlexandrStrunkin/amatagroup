@@ -5710,13 +5710,15 @@ top: 140px !important;
 .hiddenQuestionBlock a, .btn, .hiddenProductComment a {
     background-color: #5db3dc;
     border-radius: 40px;
-    color: #fff;
+    color: #fff!important;
     display: block;
     float: right;
     font-family: "MuseoSansCyrl-500";
     font-size: 15px;
     margin-top: 40px;
     padding: 10px 18px;
+    border:none;
+    cursor: pointer;
 }
 
 .hiddenQuestionBlock .description, .hiddenProductComment .description {
@@ -6384,6 +6386,9 @@ input[type="radio"]:checked + label::before {
     box-sizing: border-box;
     text-align: center;
     margin-top: 25px;
+    border: none;
+    cursor:pointer;
+    color: #fff!important;
 }
 
 .mainLeftMenu > ul .mCSB_scrollTools_vertical {

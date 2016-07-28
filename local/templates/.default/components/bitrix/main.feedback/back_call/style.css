@@ -1,0 +1,23 @@
+
+.bx_mfeedback textarea {
+	width:100%;
+	display: block;
+	-webkit-box-sizing:border-box;
+	-moz-box-sizing:border-box;
+	box-sizing:border-box;
+	padding: 6px;
+	outline: none;
+	border: 1px solid #c1c5c8;
+	border-radius: 2px;
+	background: #fff;
+	box-shadow: inset 2px 2px 2px -1px rgba(180,188,191,0.5);
+	color: #000;
+	vertical-align: middle;
+	font-size: 14px;
+	max-width:400px
+}
+
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+    -webkit-appearance: none;
+}
