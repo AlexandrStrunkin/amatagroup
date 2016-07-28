@@ -23,16 +23,11 @@
 	<?if(!empty($arResult['ORDERS'])):?>
 
 		<?foreach($arResult["ORDER_BY_STATUS"] as $key => $group):?>
-
             <? if($arResult["INFO"]["STATUS"][$key]["ID"] != 'F' && !$status_active) {?>
                 <?$status_active = 'Y';?>
                 <div id="ordersActive" class="ordersContainer ordersContainer1">
                 <?foreach($group as $k => $order):?>
-                     <?$dbOrderProps = CSaleOrderPropsValue::GetList(array(), array("ORDER_ID" => $order["ORDER"]["ID"]));?>
-                     <?while ($arOrderProps = $dbOrderProps->GetNext()){
-                           $adress[$arOrderProps["CODE"]] = $arOrderProps;
-                     };?>
-                     <?$location = CSaleLocation::GetByID($adress["LOCATION"]["ID"], LANGUAGE_ID);?>
+
                     <div class="orderContainer disableOrder">
                         <p class="activeOrderTitle">
                             <?=GetMessage('SPOL_ORDER')?> <?=GetMessage('SPOL_NUM_SIGN')?><?=$order["ORDER"]["ACCOUNT_NUMBER"]?>
@@ -54,24 +49,21 @@
                                         <th><?=GetMessage('TOTAL')?></th>
                                     </tr>
                                 </thead>
+                                <??>
                                 <?foreach ($order["BASKET_ITEMS"] as $item):?>
-                                    <?$element_id = CIblockElement::GetByID($item["PRODUCT_ID"]) -> Fetch()?>
-                                    <?$picture = CFile::GetPath($element_id["DETAIL_PICTURE"]);?>
-                                    <?$db_props_articul = CIBlockElement::GetProperty($element_id["IBLOCK_ID"], $element_id["ID"], "sort", "asc", Array('CODE' => 'CML2_ARTICLE')) -> Fetch();?>
-                                    <?$db_props_color = CIBlockElement::GetProperty($element_id["IBLOCK_ID"], $element_id["ID"], "sort", "asc", Array('CODE' => 'TSVET')) -> Fetch();?>
                                       <tr>
                                           <td class="photoColumn">
-                                            <a href="<?=$item["DETAIL_PAGE_URL"]?>"><img width="55" src="<?=$picture?>" alt=""/></a>
+                                            <a href="<?=$item["DETAIL_PAGE_URL"]?>"><img width="55" src="<?=$item["PICTURE"]?>" alt=""/></a>
                                           </td>
                                     </td>
                                     <td class="nameColumn">
                                         <?if(strlen($item["DETAIL_PAGE_URL"])):?>
                                         <a href="<?=$item["DETAIL_PAGE_URL"]?>" target="_blank"><?=$item['NAME']?></a>
                                         <?endif?>
-                                        <p class="identificationNumber"><?=$db_props_articul["VALUE"]?></p>
+                                        <p class="identificationNumber"><?=$item["PROPERTY"]['CML2_ARTICLE']["VALUE"]?></p>
                                     </td>
                                     <td class="colorColumn">
-                                        <p><?=$db_props_color["VALUE_ENUM"]?></p>
+                                        <p><?=$item["PROPERTY"]['TSVET']["VALUE_ENUM"]?></p>
                                     </td>
                                     <td class="priceColumn">
                                         <p><?=$item['PRICE'] * 1?> <span class="rub">c</span></p>
@@ -104,7 +96,7 @@
                             </div>
                             <div class="addressWrap">
                                 <p class="optionsTitle"><?=GetMessage('DELIVERY_ADRESS')?></p>
-                                <p><?=$location["COUNTRY_NAME"].' '.$location["REGION_NAME"].' '.$location["CITY_NAME_ORIG"].' ул. '.$adress["STREET"]["VALUE"].''.$adress["HOUSING"]["VALUE"].' '.$adress["BUILDING"]["VALUE"].' '.$adress["APARTAMENT"]["VALUE"] ?></p>
+                                <p><?=$order["LOCATION"]["COUNTRY_NAME"].' '.$order["LOCATION"]["REGION_NAME"].' '.$order["LOCATION"]["CITY_NAME_ORIG"].' ул. '.$order["ADRESS"]["STREET"]["VALUE"].''.$order["ADRESS"]["HOUSING"]["VALUE"].' '.$order["ADRESS"]["BUILDING"]["VALUE"].' '.$order["ADRESS"]["APARTAMENT"]["VALUE"] ?></p>
                             </div>
 
                              <? // PAY SYSTEM ?>
@@ -135,11 +127,6 @@
                 <?$status_complited = 'F';?>
                 <div id="ordersCompleted" class="ordersContainer ordersContainer2">
                 <?foreach($group as $k => $order):?>
-                    <?$dbOrderProps = CSaleOrderPropsValue::GetList(array(), array("ORDER_ID" => $order["ORDER"]["ID"]));?>
-                     <?while ($arOrderProps = $dbOrderProps->GetNext()){
-                           $adress[$arOrderProps["CODE"]] = $arOrderProps;
-                     };?>
-                     <?$location = CSaleLocation::GetByID($adress["LOCATION"]["ID"], LANGUAGE_ID);?>
                     <div class="orderContainer disableOrder">
                         <p class="activeOrderTitle">
                             <?=GetMessage('SPOL_ORDER')?> <?=GetMessage('SPOL_NUM_SIGN')?><?=$order["ORDER"]["ACCOUNT_NUMBER"]?>
@@ -162,23 +149,19 @@
                                     </tr>
                                 </thead>
                                 <?foreach ($order["BASKET_ITEMS"] as $item):?>
-                                    <?$element_id = CIblockElement::GetByID($item["PRODUCT_ID"]) -> Fetch()?>
-                                    <?$picture = CFile::GetPath($element_id["DETAIL_PICTURE"]);?>
-                                    <?$db_props_articul = CIBlockElement::GetProperty($element_id["IBLOCK_ID"], $element_id["ID"], "sort", "asc", Array('CODE' => 'CML2_ARTICLE')) -> Fetch();?>
-                                    <?$db_props_color = CIBlockElement::GetProperty($element_id["IBLOCK_ID"], $element_id["ID"], "sort", "asc", Array('CODE' => 'TSVET')) -> Fetch();?>
                                       <tr>
                                           <td class="photoColumn">
-                                            <a href="<?=$item["DETAIL_PAGE_URL"]?>"><img width="55" src="<?=$picture?>" alt=""/></a>
+                                            <a href="<?=$item["DETAIL_PAGE_URL"]?>"><img width="55" src="<?=$item["PICTURE"]?>" alt=""/></a>
                                           </td>
                                     </td>
                                     <td class="nameColumn">
                                         <?if(strlen($item["DETAIL_PAGE_URL"])):?>
                                         <a href="<?=$item["DETAIL_PAGE_URL"]?>" target="_blank"><?=$item['NAME']?></a>
                                         <?endif?>
-                                        <p class="identificationNumber"><?=$db_props_articul["VALUE"]?></p>
+                                        <p class="identificationNumber"><?=$item["PROPERTY"]['CML2_ARTICLE']["VALUE"]?></p>
                                     </td>
                                     <td class="colorColumn">
-                                        <p><?=$db_props_color["VALUE_ENUM"]?></p>
+                                        <p><?=$item["PROPERTY"]['TSVET']["VALUE_ENUM"]?></p>
                                     </td>
                                     <td class="priceColumn">
                                         <p><?=$item['PRICE'] * 1?> <span class="rub">c</span></p>
@@ -211,7 +194,7 @@
                             </div>
                             <div class="addressWrap">
                                 <p class="optionsTitle"><?=GetMessage('DELIVERY_ADRESS')?></p>
-                                <p><?=$location["COUNTRY_NAME"].' '.$location["REGION_NAME"].' '.$location["CITY_NAME_ORIG"].' ул. '.$adress["STREET"]["VALUE"].''.$adress["HOUSING"]["VALUE"].' '.$adress["BUILDING"]["VALUE"].' '.$adress["APARTAMENT"]["VALUE"] ?></p>
+                                <p><?=$order["LOCATION"]["COUNTRY_NAME"].' '.$order["LOCATION"]["REGION_NAME"].' '.$order["LOCATION"]["CITY_NAME_ORIG"].' ул. '.$order["ADRESS"]["STREET"]["VALUE"].''.$order["ADRESS"]["HOUSING"]["VALUE"].' '.$order["ADRESS"]["BUILDING"]["VALUE"].' '.$order["ADRESS"]["APARTAMENT"]["VALUE"] ?></p>
                             </div>
 
                              <? // PAY SYSTEM ?>
@@ -242,11 +225,6 @@
                 <?$status_close = 'N';?>
                 <div id="ordersCancelled" class="ordersContainer ordersContainer3">
                 <?foreach($group as $k => $order):?>
-                   <?$dbOrderProps = CSaleOrderPropsValue::GetList(array(), array("ORDER_ID" => $order["ORDER"]["ID"]));?>
-                     <?while ($arOrderProps = $dbOrderProps->GetNext()){
-                           $adress[$arOrderProps["CODE"]] = $arOrderProps;
-                     };?>
-                     <?$location = CSaleLocation::GetByID($adress["LOCATION"]["ID"], LANGUAGE_ID);?>
                     <div class="orderContainer disableOrder">
                         <p class="activeOrderTitle">
                             <?=GetMessage('SPOL_ORDER')?> <?=GetMessage('SPOL_NUM_SIGN')?><?=$order["ORDER"]["ACCOUNT_NUMBER"]?>
@@ -269,23 +247,19 @@
                                     </tr>
                                 </thead>
                                 <?foreach ($order["BASKET_ITEMS"] as $item):?>
-                                    <?$element_id = CIblockElement::GetByID($item["PRODUCT_ID"]) -> Fetch()?>
-                                    <?$picture = CFile::GetPath($element_id["DETAIL_PICTURE"]);?>
-                                    <?$db_props_articul = CIBlockElement::GetProperty($element_id["IBLOCK_ID"], $element_id["ID"], "sort", "asc", Array('CODE' => 'CML2_ARTICLE')) -> Fetch();?>
-                                    <?$db_props_color = CIBlockElement::GetProperty($element_id["IBLOCK_ID"], $element_id["ID"], "sort", "asc", Array('CODE' => 'TSVET')) -> Fetch();?>
                                       <tr>
                                           <td class="photoColumn">
-                                            <a href="<?=$item["DETAIL_PAGE_URL"]?>"><img width="55" src="<?=$picture?>" alt=""/></a>
+                                            <a href="<?=$item["DETAIL_PAGE_URL"]?>"><img width="55" src="<?=$item["PICTURE"]?>" alt=""/></a>
                                           </td>
                                     </td>
                                     <td class="nameColumn">
                                         <?if(strlen($item["DETAIL_PAGE_URL"])):?>
                                         <a href="<?=$item["DETAIL_PAGE_URL"]?>" target="_blank"><?=$item['NAME']?></a>
                                         <?endif?>
-                                        <p class="identificationNumber"><?=$db_props_articul["VALUE"]?></p>
+                                        <p class="identificationNumber"><?=$item["PROPERTY"]['CML2_ARTICLE']["VALUE"]?></p>
                                     </td>
                                     <td class="colorColumn">
-                                        <p><?=$db_props_color["VALUE_ENUM"]?></p>
+                                        <p><?=$item["PROPERTY"]['TSVET']["VALUE_ENUM"]?></p>
                                     </td>
                                     <td class="priceColumn">
                                         <p><?=$item['PRICE'] * 1?> <span class="rub">c</span></p>
@@ -318,7 +292,7 @@
                             </div>
                             <div class="addressWrap">
                                 <p class="optionsTitle"><?=GetMessage('DELIVERY_ADRESS')?></p>
-                                <p><?=$location["COUNTRY_NAME"].' '.$location["REGION_NAME"].' '.$location["CITY_NAME_ORIG"].' ул. '.$adress["STREET"]["VALUE"].''.$adress["HOUSING"]["VALUE"].' '.$adress["BUILDING"]["VALUE"].' '.$adress["APARTAMENT"]["VALUE"] ?></p>
+                                <p><?=$order["LOCATION"]["COUNTRY_NAME"].' '.$order["LOCATION"]["REGION_NAME"].' '.$order["LOCATION"]["CITY_NAME_ORIG"].' ул. '.$order["ADRESS"]["STREET"]["VALUE"].''.$order["ADRESS"]["HOUSING"]["VALUE"].' '.$order["ADRESS"]["BUILDING"]["VALUE"].' '.$order["ADRESS"]["APARTAMENT"]["VALUE"] ?></p>
                             </div>
 
                              <? // PAY SYSTEM ?>

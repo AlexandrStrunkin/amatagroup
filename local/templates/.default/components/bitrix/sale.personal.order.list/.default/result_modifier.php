@@ -52,4 +52,31 @@
 			$arResult["ORDER_BY_STATUS"][$stat][] = $order;
 		}
 	}
-?>
+    foreach($arResult["ORDER_BY_STATUS"] as $key => $group){
+        foreach($group as $k => $order){
+        $dbOrderProps = CSaleOrderPropsValue::GetList(array(), array("ORDER_ID" => $order["ORDER"]["ID"]));
+             while ($arOrderProps = $dbOrderProps->GetNext()){
+                   $adress[$arOrderProps["CODE"]] = $arOrderProps;
+             };
+        $location = CSaleLocation::GetByID($adress["LOCATION"]["ID"], LANGUAGE_ID);
+        $order["ADRESS"] = $adress;
+        $order["LOCATION"] = $location;
+        foreach ($order["BASKET_ITEMS"] as $i => $item) {
+            $element_id = CIblockElement::GetByID($item["PRODUCT_ID"]) -> Fetch();
+            $picture = CFile::GetPath($element_id["DETAIL_PICTURE"]);
+            $db_props_articul = CIBlockElement::GetProperty($element_id["IBLOCK_ID"], $element_id["ID"], "sort", "asc", Array('CODE' => 'CML2_ARTICLE')) -> Fetch();
+            $db_props_color = CIBlockElement::GetProperty($element_id["IBLOCK_ID"], $element_id["ID"], "sort", "asc", Array('CODE' => 'TSVET')) -> Fetch();
+            $item["PICTURE"] = $picture;
+            $item["PROPERTY"]['CML2_ARTICLE'] = $db_props_articul;
+            $item["PROPERTY"]['TSVET'] = $db_props_color;
+            $order["BASKET_ITEMS"][$i] = $item;
+        }
+
+        $group[$k] = $order;
+
+        }
+        $arResult["ORDER_BY_STATUS"][$key] = $group;
+    }
+
+
+
