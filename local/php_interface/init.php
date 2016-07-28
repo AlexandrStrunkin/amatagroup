@@ -39,8 +39,10 @@
     define("OFFERS_IBLOCK_ID", 6);  //offers
     define("FAVORITE_IBLOCK_ID", 12);
 	define("USER_SAVED_ADDRESSES_IBLOCK_ID", 13);
+
     define("USER_QUESTIONS_IBLOCK_ID", 22);
     define("USER_QUESTIONS_FAQ_IBLOCK_ID", 24);
+
 	define("USER_SAVED_ADDRESSES_STREET_PROPERTY", 433); // улица
 	define("USER_SAVED_ADDRESSES_HOUSING_PROPERTY", 434); // —троение/корпус
 	define("USER_SAVED_ADDRESSES_BUILDING_PROPERTY", 435); // ƒом
@@ -77,6 +79,10 @@
     define("NEW_PRODUCT_STATUS_LENGTH", 14); //количество дней, котрое товар считаетс€ новинкой
     define("FRESH_PRODUCT_STATUS_LENGTH", 2); //количество дней, котрое товар считаетс€ последним поступлением
 
+    define("IBLOCK_ID_QUASTION_PRODUCT", 19); // инфоблок задать вопрос по товару
+    define("IBLOCK_ID_QUASTION", 18); // инфоблок оставить вопрос
+
+
     // файл с кодом дл€ избранного
 	file_exists($_SERVER['DOCUMENT_ROOT'] . '/local/php_interface/favorite/class.php') ? require_once($_SERVER['DOCUMENT_ROOT'] . '/local/php_interface/favorite/class.php') : "";
 
@@ -110,7 +116,7 @@
     AddEventHandler("main", "OnBeforeUserUpdate", Array("OnBeforeUserRegisterHandler", "OnBeforeUserRegister"));
     class OnBeforeUserRegisterHandler {
         function OnBeforeUserRegister(&$arFields) {
-            $arFields['LOGIN'] = $arFields['EMAIL'];
+            $arFields['LOGIN'] = $arFields['EMAIL']; 
             return $arFields;
         }
     }
