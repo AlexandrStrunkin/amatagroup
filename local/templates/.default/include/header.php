@@ -321,7 +321,7 @@
 
                 <p class="littleBannerText">Богатый выбор товаров <br/> по привлекательным ценам</p>
 
-                <p class="retailLink"><a href="/retail/">Точки продаж</a></p>
+                <p class="retailLink"><a href="/where-to-buy/">Точки продаж</a></p>
             </div>
             <div id="worhWithUsBlock">
                 <p class="litleBannerTitle">Работа с нами</p>
