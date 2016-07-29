@@ -1,0 +1,86 @@
+div.news-list
+{
+	word-wrap: break-word;
+}
+div.news-list img.preview_picture
+{
+	float:left;
+	margin:0 4px 6px 0;
+}
+.news-date-time {
+	color:#486DAA;
+}
+.contactsWindow .tabs .tabsLinks a.active {
+	color: #ea8b64 !important;
+}
+.contactsWindow .tabs .tabsLinks a.active:after {
+	background: #ea8b64 !important;
+}
+.contactsWindow .btnContainer a:hover, .contactsWindow .btnContainer a {
+	background: #ea8b64 !important;
+}
+.retail_city_table {
+	border: 1px solid #e6e6e6;
+	border-radius: 4px;
+	font-size: 17px;
+	font-family: "MuseoSansCyrl-500";
+	color: #4f4f4f;
+	width: 100%;
+	margin-bottom: 25px;
+	border-collapse: collapse;
+}
+
+.retail_city_table td:first-child {
+	border-right: 1px solid #e6e6e6;
+	width: 760px;
+	box-sizing: border-box;
+	padding: 25px 18px;
+}
+
+.retail_select .selectric {
+	width: 365px;
+}
+
+.retail_select .selectric .button {
+	top: 0 !important;
+}
+
+.retail_select .selectric-items {
+	left: 26px !important;
+}
+
+.retail_select li:before {
+	content: "" !important;
+}
+
+.retail_select .selectric-items ul {
+	margin-top: 0 !important;
+}
+
+.retail_select li {
+	margin-bottom: 0 !important;
+}
+
+.retail_select .selectric-open .label {
+	color: #f7b69b !important;
+}
+
+.retail_select .selectric-hover .selectric {
+	border-color: #f7b69b !important;
+}
+
+.retail_select .selectric-hover .label {
+	color: #f7b69b !important;
+}
+
+.retail_select .selectric-items li:hover {
+	color: #f7b69b !important;
+}
+
+.retail_select .selectric .button:after {
+	background-image: url("/img/select_retail.png") !important;
+}
+
+.retail_select .selectric-scroll li:first-child {
+	display: none;
+}

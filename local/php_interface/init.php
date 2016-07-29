@@ -42,6 +42,8 @@
 
     define("USER_QUESTIONS_IBLOCK_ID", 22);
     define("USER_QUESTIONS_FAQ_IBLOCK_ID", 24);
+	
+	define("RETAIL_IBLOCK_ID", 28);
 
 	define("USER_SAVED_ADDRESSES_STREET_PROPERTY", 433); // улица
 	define("USER_SAVED_ADDRESSES_HOUSING_PROPERTY", 434); // Строение/корпус
