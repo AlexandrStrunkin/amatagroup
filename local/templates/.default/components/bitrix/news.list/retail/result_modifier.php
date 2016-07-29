@@ -9,8 +9,6 @@ while ($ar_result = $db_list->GetNext()) {
 		);
 	} else {
 		if (!$arResult['CITY_LIST'][$ar_result['IBLOCK_SECTION_ID']]['COORD']) {
-			//$exploded_coordinates = explode(",", $ar_result["PROPERTY_COORDINATES_VALUE"]);
-			//$arResult['CITY_LIST'][$ar_result['IBLOCK_SECTION_ID']]['COORD'] = "{lat: " . $exploded_coordinates[0] . ", lng: " . $exploded_coordinates[1] . "}";
 			$arResult['CITY_LIST'][$ar_result['IBLOCK_SECTION_ID']]['COORD'] = $ar_result["PROPERTY_COORDINATES_VALUE"];
 		}
 	}
