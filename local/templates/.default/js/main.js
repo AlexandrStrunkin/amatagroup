@@ -1261,10 +1261,12 @@ $(document).ready(function () {
         el.toggleClass('activeTopLeftBut');
         block.toggleClass("smallElementList");
         if (block.hasClass("smallElementList")) {
-            menu.animate({"margin-left": 0}, 300);
+        	menu.css("visibility", "visible");
+            menu.animate({"margin-left": 0, "opacity": 1}, 300);
             block.animate({"margin-left": 302}, 300);
         } else {
-            menu.animate({"margin-left": -300}, 300);
+            menu.animate({"margin-left": -300, "opacity": 0}, 300);
+            menu.css("visibility", "hidden");
             block.animate({"margin-left": 0}, 300);
         }
 
