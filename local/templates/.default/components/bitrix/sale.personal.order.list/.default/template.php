@@ -96,7 +96,7 @@
                             </div>
                             <div class="addressWrap">
                                 <p class="optionsTitle"><?=GetMessage('DELIVERY_ADRESS')?></p>
-                                <p><?=$order["LOCATION"]["COUNTRY_NAME"].' '.$order["LOCATION"]["REGION_NAME"].' '.$order["LOCATION"]["CITY_NAME_ORIG"].' ул. '.$order["ADRESS"]["STREET"]["VALUE"].''.$order["ADRESS"]["HOUSING"]["VALUE"].' '.$order["ADRESS"]["BUILDING"]["VALUE"].' '.$order["ADRESS"]["APARTAMENT"]["VALUE"] ?></p>
+                                <p><?=$order["LOCATION"]["COUNTRY_NAME"].' '.$order["LOCATION"]["REGION_NAME"].' '.$order["LOCATION"]["CITY_NAME_ORIG"].' '.GetMessage("UL").' '.$order["ADRESS"]["STREET"]["VALUE"].''.$order["ADRESS"]["HOUSING"]["VALUE"].' '.$order["ADRESS"]["BUILDING"]["VALUE"].' '.$order["ADRESS"]["APARTAMENT"]["VALUE"] ?></p>
                             </div>
 
                              <? // PAY SYSTEM ?>
@@ -194,7 +194,7 @@
                             </div>
                             <div class="addressWrap">
                                 <p class="optionsTitle"><?=GetMessage('DELIVERY_ADRESS')?></p>
-                                <p><?=$order["LOCATION"]["COUNTRY_NAME"].' '.$order["LOCATION"]["REGION_NAME"].' '.$order["LOCATION"]["CITY_NAME_ORIG"].' ул. '.$order["ADRESS"]["STREET"]["VALUE"].''.$order["ADRESS"]["HOUSING"]["VALUE"].' '.$order["ADRESS"]["BUILDING"]["VALUE"].' '.$order["ADRESS"]["APARTAMENT"]["VALUE"] ?></p>
+                                <p><?=$order["LOCATION"]["COUNTRY_NAME"].' '.$order["LOCATION"]["REGION_NAME"].' '.$order["LOCATION"]["CITY_NAME_ORIG"].' '.GetMessage("UL").' '.$order["ADRESS"]["STREET"]["VALUE"].''.$order["ADRESS"]["HOUSING"]["VALUE"].' '.$order["ADRESS"]["BUILDING"]["VALUE"].' '.$order["ADRESS"]["APARTAMENT"]["VALUE"] ?></p>
                             </div>
 
                              <? // PAY SYSTEM ?>
@@ -292,7 +292,7 @@
                             </div>
                             <div class="addressWrap">
                                 <p class="optionsTitle"><?=GetMessage('DELIVERY_ADRESS')?></p>
-                                <p><?=$order["LOCATION"]["COUNTRY_NAME"].' '.$order["LOCATION"]["REGION_NAME"].' '.$order["LOCATION"]["CITY_NAME_ORIG"].' ул. '.$order["ADRESS"]["STREET"]["VALUE"].''.$order["ADRESS"]["HOUSING"]["VALUE"].' '.$order["ADRESS"]["BUILDING"]["VALUE"].' '.$order["ADRESS"]["APARTAMENT"]["VALUE"] ?></p>
+                                <p><?=$order["LOCATION"]["COUNTRY_NAME"].' '.$order["LOCATION"]["REGION_NAME"].' '.$order["LOCATION"]["CITY_NAME_ORIG"].' '.GetMessage("UL").' '.$order["ADRESS"]["STREET"]["VALUE"].''.$order["ADRESS"]["HOUSING"]["VALUE"].' '.$order["ADRESS"]["BUILDING"]["VALUE"].' '.$order["ADRESS"]["APARTAMENT"]["VALUE"] ?></p>
                             </div>
 
                              <? // PAY SYSTEM ?>

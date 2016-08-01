@@ -31,5 +31,6 @@ $MESS["COLOR"] = "Цвет";
 $MESS["PRICE"] = "Цена, Р";
 $MESS["COUNT"] = "Кол-во";
 $MESS["TOTAL"] = "Итого, Р";
+$MESS["UL"] = "ул.";
 
 ?>
