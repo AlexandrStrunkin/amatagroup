@@ -4,6 +4,8 @@
 use Bitrix\Main\Loader;
 use \Bitrix\Catalog\CatalogViewedProductTable as CatalogViewedProductTable;
 global $APPLICATION;
+$APPLICATION->SetAdditionalCSS("/vendor/fancybox/jquery.fancybox.css");
+$APPLICATION->AddHeadScript("/vendor/fancybox/jquery.fancybox.pack.js");
 $user_id = CSaleBasket::GetBasketUserID(); // нужен именно ID юзера в корзине !
 if($user_id  > 0) {
 	$product_id = $arResult['ID'];
@@ -33,6 +35,7 @@ if (isset($templateData['JS_OBJ']))
 {
 ?><script type="text/javascript">
 BX.ready(BX.defer(function(){
+	$(".fancybox").fancybox();
 	// простенький слайдер для превьюх в карточке товара
 	var preview_slider = new PreviewSlider({
 		slide_distance: 104,

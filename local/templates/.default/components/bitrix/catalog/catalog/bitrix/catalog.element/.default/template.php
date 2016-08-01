@@ -122,7 +122,9 @@ $arFirstPhoto = current($arResult['MORE_PHOTO']);
         <!--END logosContainer-->
         <!--previewImg-->
         <div class="previewImg">
-            <img id="<? echo $arItemIDs['PICT']; ?>" src="<? echo $arFirstPhoto['SRC']; ?>" alt="<? echo $strAlt; ?>" title="<? echo $strTitle; ?>">
+        	<a class="fancybox" href="<?= $arFirstPhoto['SRC'] ?>">
+            	<img id="<? echo $arItemIDs['PICT']; ?>" src="<?= getResizedImage($arFirstPhoto['ID'], ELEMENT_CARD_MAIN_WIDTH, ELEMENT_CARD_MAIN_HEIGHT, BX_RESIZE_IMAGE_PROPORTIONAL_ALT) ?>" alt="<? echo $strAlt; ?>" title="<? echo $strTitle; ?>">
+        	</a>
         </div>
         <!--END previewImg-->
         <!--smallPreviewImg-->
@@ -132,12 +134,16 @@ $arFirstPhoto = current($arResult['MORE_PHOTO']);
         	<div id="previews_slider_wrapper">
 	        <? if (is_array($arResult['MORE_PHOTO'])) { ?>
 	        	<? foreach ($arResult['MORE_PHOTO'] as &$arOnePhoto) { ?>
-					<a href="<?= $arOnePhoto['SRC'] ?>"><img src="<?= $arOnePhoto['SRC'] ?>" alt=""/></a>
+					<a href="<?= $arOnePhoto['SRC'] ?>">
+						<img src="<?= getResizedImage($arOnePhoto['ID'], ELEMENT_CARD_PREVIEW_WIDTH, ELEMENT_CARD_PREVIEW_HEIGHT, BX_RESIZE_IMAGE_PROPORTIONAL_ALT) ?>" alt=""/>
+					</a>
 				<? } ?>
 			<? }
 				if (is_array($arResult['PROPERTIES']['MORE_PHOTO']['VALUE'])) {
 					foreach ($arResult['PROPERTIES']['MORE_PHOTO']['VALUE'] as $photo_id) { ?>
-						<a href="<?= CFile::GetPath($photo_id) ?>"><img src="<?= CFile::GetPath($photo_id) ?>" alt=""/></a>
+						<a href="<?= CFile::GetPath($photo_id) ?>">
+							<img src="<?= getResizedImage($photo_id, ELEMENT_CARD_PREVIEW_WIDTH, ELEMENT_CARD_PREVIEW_HEIGHT, BX_RESIZE_IMAGE_PROPORTIONAL_ALT) ?>" alt=""/>
+						</a>
 				<? 	}
 				}
 				unset($arOnePhoto);
