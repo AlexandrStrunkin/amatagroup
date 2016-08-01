@@ -43,4 +43,8 @@ $MESS["CT_ALREADY_IN_FAVORITE"] = "В избранном";
 $MESS["CT_ASK_QUESTION"] = "Задать вопрос";
 $MESS["CT_CHARACTERISTICS"] = "Характеристики";
 $MESS["CT_DOCS"] = "Документация";
+$MESS["FORM_TITLE"] = "Оставить вопрос";
+$MESS["FORM_FIELDS_REQUIRED"] = "Все поля обязательны для заполнения!";
+$MESS["FORM_QUESTION_ACCEPTED"] = "Ваш вопрос отправлен. Наши консультанты свяжуться с вами по указанным координатам";
+$MESS["FORM_SEND_QUESTION"] = "Отправить вопрос";
 ?>
