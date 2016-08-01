@@ -65,6 +65,11 @@
 	define("ORDER_BUILDING", "ORDER_PROP_22"); // Дом
 	define("ORDER_APARTMENT", "ORDER_PROP_23"); // Квартира/офис
 	define("DEFAULT_LOCATION_ID", 129); // Дефолтное местоположение - Москва
+	
+	define("ELEMENT_CARD_PREVIEW_HEIGHT", 83);
+	define("ELEMENT_CARD_PREVIEW_WIDTH", 76);
+	define("ELEMENT_CARD_MAIN_HEIGHT", 520);
+	define("ELEMENT_CARD_MAIN_WIDTH", 520);
 
     /*константы для отображения каталога*/
     define("DEFAULT_PAGE_ELEMENT_COUNT", $GLOBALS["availableParams"]["PAGE_ELEMENT_COUNT"][0]); //количество элементов на странице раздела каталога по умолчанию
@@ -112,7 +117,24 @@
     function getAltasibCity() {
     	return $_SESSION["ALTASIB_GEOBASE_CODE"]["CITY"]["NAME"] ? $_SESSION["ALTASIB_GEOBASE_CODE"]["CITY"]["NAME"] : false;
     }
-
+	
+	/**
+	 * 
+	 * @param int $photo_id
+	 * @param int $width
+	 * @param int $height
+	 * @param string $type
+	 * @return string $src
+	 * 
+	 * */
+    function getResizedImage($photo_id, $width, $height, $type) {
+    	$file_path = CFile::GetPath($photo_id);
+    	if ($file_path && (int)$width && (int)$height && strval($width)) {
+    		$preview_img_file = CFile::ResizeImageGet($photo_id, array('width' => $width, 'height' => $height), $type, true);
+			return $preview_img_file['src'];
+    	}
+    }
+	
     //подмена логина на EMAIL при регистрации и изменении пользователя
     AddEventHandler("main", "OnBeforeUserRegister", Array("OnBeforeUserRegisterHandler", "OnBeforeUserRegister"));
     AddEventHandler("main", "OnBeforeUserUpdate", Array("OnBeforeUserRegisterHandler", "OnBeforeUserRegister"));

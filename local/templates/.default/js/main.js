@@ -1307,6 +1307,7 @@ $(document).ready(function () {
     	e.preventDefault();
         var el = $(this), id = el.attr("href");
         $(".previewImg img").hide().attr("src", id).fadeIn(700);
+        $(".previewImg a").attr("href", id);
         $(".smallPreviewImg a").removeClass("active");
         el.addClass("active");
     });
