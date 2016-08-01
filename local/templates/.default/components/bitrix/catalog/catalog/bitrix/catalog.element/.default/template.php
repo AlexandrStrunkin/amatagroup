@@ -419,23 +419,24 @@ $arFirstPhoto = current($arResult['MORE_PHOTO']);
         <!--END jcarousel-wrapper-->
     </div>
 </div>
-    <!--END forma cataloga-->
+    <!--Catalog form-->
     <div class="hiddenProductComment" style="display: none;">
         <p class="authClose"></p>
         <form method="post" id="leave_question_catalog">
-            <p class="authTitle">Оставить вопрос</p>
+            <p class="authTitle"><?= GetMessage("FORM_TITLE") ?></p>
             <input type="text" placeholder="Представьтесь" name="name" class="nameInput">
             <input type="text" placeholder="Почта" name="email" class="emailInput">
             <input type="text" placeholder="Телефон" name="phone" class="emailInput phoneInput">
             <input type="text" placeholder="Название компании" name="company" class="nameInput">
             <textarea placeholder="Текст вопроса" name="text"></textarea>
             <input type="hidden" name="product_id" value="<?=$arResult["ID"]?>" >
-            <input type="submit" class="btn" name="submit" value="Отправить вопрос" >
-
-            <p class="description">Все поля обязательны для заполнения!</p>
+            <input type="hidden" name="product_href" value="<?= isset($_SERVER["HTTPS"]) ? 'https' : 'http' .  "://" . $_SERVER['HTTP_HOST'] . $_SERVER['REQUEST_URI'] ?>" >
+            <input type="hidden" name="form_type" value="<?= QUESTION_PRODUCT_CARD ?>" >
+            <input type="submit" class="btn" name="submit" value="<?= GetMessage("FORM_SEND_QUESTION") ?>" >
+            <p class="description"><?= GetMessage("FORM_FIELDS_REQUIRED") ?></p>
         </form>
         <div class="message">
-            Ваш вопрос отправлен. Наши консультанты свяжуться с вами по указанным координатам
+            <?= GetMessage("FORM_QUESTION_ACCEPTED") ?>
         </div>
     </div>
-     <!--END forma cataloga-->
+     <!--END Catalog form-->
