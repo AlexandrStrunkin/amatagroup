@@ -475,8 +475,8 @@ $(document).ready(function () {
     }
 
     //попап регистрация
-    if ($('.registrationLink').length > 0) {
-        $('.registrationLink a').on("click", function (e) {
+    if ($('.registrationLink_fly').length > 0) {
+        $('.registrationLink_fly a').on("click", function (e) {
         	e.preventDefault();
             //показать попап
             $('.regHiddenBlock').show();

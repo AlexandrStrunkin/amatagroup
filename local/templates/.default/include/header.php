@@ -150,7 +150,7 @@
             </div>
 
             <?if(!$USER->IsAuthorized()){?>
-                <p class="registrationLink"><a href=""><?=GetMessage("REGISTRATION")?></a></p>
+                <p class="registrationLink"><a href="/auth/registration/"><?=GetMessage("REGISTRATION")?></a></p>
                 <?} else {?>
                 <p class="personalLink"><a href="/personal/"><?=GetMessage("PERSONAL")?></a></p>
                 <?}?>
