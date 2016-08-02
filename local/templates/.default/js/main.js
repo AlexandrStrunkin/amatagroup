@@ -1307,8 +1307,10 @@ $(document).ready(function () {
 
     $(".smallPreviewImg a").on("click", function (e) {
     	e.preventDefault();
-        var el = $(this), id = el.attr("href");
-        $(".previewImg img").hide().attr("src", id).fadeIn(700);
+        var el = $(this),
+        	id = el.attr("href"), // непережатая фотка
+        	preview_path = el.data("preview-image"); // фотка для показа в окошке главного превью
+        $(".previewImg img").hide().attr("src", preview_path).fadeIn(700);
         $(".previewImg a").attr("href", id);
         $(".smallPreviewImg a").removeClass("active");
         el.addClass("active");
