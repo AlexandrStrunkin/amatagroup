@@ -177,7 +177,15 @@ $arFirstPhoto = current($arResult['MORE_PHOTO']);
         <div class="productInfo">
             <div class="brandText">
             	<strong><?= GetMessage("CT_BRAND") ?>:</strong>
-            	<a href=""><?= $arResult['DISPLAY_PROPERTIES']['BREND']['DISPLAY_VALUE'] ? $arResult['DISPLAY_PROPERTIES']['BREND']['DISPLAY_VALUE'] : "Не задан" ?></a>
+            	<? if ($arResult['BRAND_DETAIL_HREF']) {?>
+            	<a href="<?= $arResult['BRAND_DETAIL_HREF'] ?>">
+            		<?= $arResult['DISPLAY_PROPERTIES']['BREND']['DISPLAY_VALUE'] ? $arResult['DISPLAY_PROPERTIES']['BREND']['DISPLAY_VALUE'] : "Не задан" ?>
+            	</a>
+            	<? } else { ?>
+            	<span>
+            		<?= $arResult['DISPLAY_PROPERTIES']['BREND']['DISPLAY_VALUE'] ? $arResult['DISPLAY_PROPERTIES']['BREND']['DISPLAY_VALUE'] : "Не задан" ?>
+            	</span>
+            	<? } ?>
             </div>
             <div class="productArticle">
             	<strong><?= GetMessage("CT_VENDOR_CODE") ?>:</strong>

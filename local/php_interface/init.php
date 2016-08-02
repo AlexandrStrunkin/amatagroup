@@ -39,6 +39,7 @@
     define("OFFERS_IBLOCK_ID", 6);  //offers
     define("FAVORITE_IBLOCK_ID", 12);
 	define("USER_SAVED_ADDRESSES_IBLOCK_ID", 13);
+	define("BRANDS_IBLOCK_ID", 14);
 
     define("USER_QUESTIONS_IBLOCK_ID", 22);
     define("USER_QUESTIONS_FAQ_IBLOCK_ID", 24);
