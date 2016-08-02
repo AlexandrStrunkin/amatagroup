@@ -769,6 +769,11 @@ body {
     margin-bottom: 48px;
 }
 
+.brandText span {
+	font: 15px/1 'MuseoSansCyrl-700', sans-serif;
+	color: #b8b8b8;
+}
+
 .brandPhotoWrapper a {
     border: 1px solid #dadada;
     border-radius: 4px;
@@ -8465,4 +8470,10 @@ display: none;
 
 .files_in_prices > div:nth-child(4n+4) {
 	margin-right: 0 !important;
+}
+
+.brand_detail_page_title {
+	color: #323232;
+    font: 20px/1 'MuseoSansCyrl-900';
+    letter-spacing: 1px;
 }

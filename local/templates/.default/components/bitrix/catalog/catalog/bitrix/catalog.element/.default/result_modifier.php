@@ -210,6 +210,22 @@ if ($arResult['MODULES']['catalog'])
 	}
 }
 
+if (isset($arResult['PROPERTIES']['BREND']) && !empty($arResult['PROPERTIES']['BREND'])) {
+	$brands = CIBlockElement::GetList(
+		Array(),
+		Array(
+			"IBLOCK_ID" => BRANDS_IBLOCK_ID,
+			"NAME"      => trim($arResult['PROPERTIES']['BREND']['VALUE'])
+		),
+		false,
+		Array("nPageSize" => 1),
+		Array("ID")
+	);
+	if ($brand = $brands->Fetch()) {
+		$arResult['BRAND_DETAIL_HREF'] = "/brands/" . $brand['ID'] . "/";
+	}
+}
+
 $arResult['CHECK_QUANTITY'] = false;
 if (!isset($arResult['CATALOG_MEASURE_RATIO']))
 	$arResult['CATALOG_MEASURE_RATIO'] = 1;
