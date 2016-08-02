@@ -152,10 +152,10 @@ $arFirstPhoto = current($arResult['MORE_PHOTO']);
 					foreach ($arResult['OFFERS'] as $offer) { ?>
 						<?
 						// если фото в поле превью
-						if (isset($offer['PREVIEW_PICTURE']) || !empty($offer['PREVIEW_PICTURE'])) {
+						if (isset($offer['DETAIL_PICTURE']) || !empty($offer['DETAIL_PICTURE'])) {
 						?>
-							<a href="<?= $offer['PREVIEW_PICTURE']['SRC'] ?>" data-preview-image="<?= getResizedImage($offer['PREVIEW_PICTURE']['ID'], ELEMENT_CARD_MAIN_WIDTH, ELEMENT_CARD_MAIN_HEIGHT, BX_RESIZE_IMAGE_PROPORTIONAL_ALT) ?>">
-								<img src="<?= getResizedImage($offer['PREVIEW_PICTURE']['ID'], ELEMENT_CARD_PREVIEW_WIDTH, ELEMENT_CARD_PREVIEW_HEIGHT, BX_RESIZE_IMAGE_PROPORTIONAL_ALT) ?>" alt=""/>
+							<a href="<?= $offer['DETAIL_PICTURE']['SRC'] ?>" data-preview-image="<?= getResizedImage($offer['DETAIL_PICTURE']['ID'], ELEMENT_CARD_MAIN_WIDTH, ELEMENT_CARD_MAIN_HEIGHT, BX_RESIZE_IMAGE_PROPORTIONAL_ALT) ?>">
+								<img src="<?= getResizedImage($offer['DETAIL_PICTURE']['ID'], ELEMENT_CARD_PREVIEW_WIDTH, ELEMENT_CARD_PREVIEW_HEIGHT, BX_RESIZE_IMAGE_PROPORTIONAL_ALT) ?>" alt=""/>
 							</a>
 						<? } ?>
 				<? 	}
