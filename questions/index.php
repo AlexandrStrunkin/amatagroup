@@ -77,12 +77,13 @@ $APPLICATION->SetTitle("Вопрос-ответ");
                     <tr>
                         <td colspan="2" class="inputsBlock">
                             <div class="leftBlock">
-                                <input type="text" name="name" placeholder="Имя" pattern="[A-Za-zА-Яа-яЁё ]{6,}" title="Поле не может быть пустым" required>
+                                <input type="text" name="name" placeholder="Имя" pattern="[A-Za-zА-Яа-яЁё ]{6,}" title="Поле не может быть пустым,а также содержать цифры и спецсимволы" required>
                                 <input type="email" name="email" placeholder="Почта" required>
-                                <input type="text" name="company_name" placeholder="Название компании" pattern="[A-Za-zА-Яа-яЁё ]{6,}" title="Поле не может быть пустым" required>
+                                <input type="text" name="company_name" placeholder="Название компании" pattern="[A-Za-zА-Яа-яЁё ]{6,}" title="Поле не может быть пустым,а также содержать цифры и спецсимволы" required>
+                            	<input type="hidden" name="form_type" value="<?= FAQ_FORM ?>" >
                             </div>
                             <div class="rightBlock">
-                                <textarea placeholder="Введите ваш вопрос" name="text" pattern="[A-Za-zА-Яа-яЁё ]{6,}" title="Поле не может быть пустым" required></textarea>
+                                <textarea placeholder="Введите ваш вопрос" name="text" pattern="{6,}" title="Поле не может быть пустым" required></textarea>
                             </div>
                         </td>
                     </tr>
@@ -99,5 +100,11 @@ $APPLICATION->SetTitle("Вопрос-ответ");
             </form>
         </div>
 	</div>
+	<div class="hiddenProductComment" style="display: none;">
+        <p class="authClose"></p>
+        <div class="message" style="display: block;">
+            Ваш вопрос отправлен. Наши консультанты свяжуться с вами по указанным координатам
+        </div>
+    </div>
 </div>
 <?require($_SERVER["DOCUMENT_ROOT"]."/bitrix/footer.php");?>

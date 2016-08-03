@@ -707,7 +707,9 @@ $(document).ready(function () {
         $(".forgotForm").fadeIn(300);
 
     });
-
+	
+	/*TODO следующие две формы нужно объединить в одну*/
+	
     // форма вопроса в /about
     $("#ask_question").on("submit", function(e) {
     	e.preventDefault();
@@ -719,6 +721,7 @@ $(document).ready(function () {
 			if (!data.success) {
 				$(".form_result").addClass("form_validation_failed");
 			} else {
+				$(".hiddenProductComment").fadeIn();
 				document.getElementById("ask_question").reset();
 			}
 			$(".form_result").fadeIn(200);
@@ -740,6 +743,7 @@ $(document).ready(function () {
 			if (!data.success) {
 				$(".form_result").addClass("form_validation_failed");
 			} else {
+				$(".hiddenProductComment").fadeIn();
 				document.getElementById("faq_question").reset();
 			}
 			$(".form_result").fadeIn(200);
