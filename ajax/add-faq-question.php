@@ -25,6 +25,22 @@
 			"success" => true,
 			"text"    => "Ваш вопрос принят"
 		);
+		
+		$mails = array(
+			FORM_FROM_EMAIL,
+			$form_data["email"]
+		);
+		$form_types = getFormTypes();
+	    $template_fields = array(
+	    	"NAME"         => iconv("utf-8", "windows-1251", $form_data["name"]),
+	    	"COMPANY"      => iconv("utf-8", "windows-1251", $form_data["company_name"]),
+	    	"TEXT"         => iconv("utf-8", "windows-1251", $form_data["text"])
+		);
+		foreach ($mails as $mail) {
+			$template_fields['FORM_TYPE'] = $mail == FORM_FROM_EMAIL ? "(" . iconv("utf-8", "windows-1251", $form_types[$form_data["form_type"]]) . ")" : "";
+			$template_fields['EMAIL'] = $mail;
+			CEvent::Send("FEEDBACK_FORM", SITE_ID, $template_fields, 'N', QUESTION_FORM_TEMPLATE_ID);
+		}
 	}
 	
 	echo json_encode($result);

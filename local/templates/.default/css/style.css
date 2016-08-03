@@ -8446,6 +8446,14 @@ display: none;
 	border-left: 0;
 }
 
+#question_form {
+	position: relative;
+}
+
+#question_form .hiddenProductComment {
+	top: 45px;
+}
+
 .form_result {
 	font-family: "MuseoSansCyrl-500";
 	font-size: 16px;
