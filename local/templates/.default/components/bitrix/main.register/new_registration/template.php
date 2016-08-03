@@ -65,7 +65,7 @@ if(!defined("B_PROLOG_INCLUDED") || B_PROLOG_INCLUDED!==true)
 	    switch ($FIELD)
 	    {
 		    case "PASSWORD":
-			    ?><input size="30" title="<?= GetMessage("MIN_PASSWORD_LENGHT")?>" pattern=".{6,}" <?= $arResult["REQUIRED_FIELDS_FLAGS"][$FIELD] == "Y" ? "required" : "" ?> placeholder="<?=GetMessage("REGISTER_FIELD_".$FIELD)?>" type="password" class="authInputPass" name="REGISTER[<?=$FIELD?>]" value="<?=$arResult["VALUES"][$FIELD]?>" autocomplete="off" class="bx-auth-input" />
+			    ?><input size="30" title="<?= GetMessage("MIN_PASSWORD_LENGHT")?>" pattern=".{6,}" <?= $arResult["REQUIRED_FIELDS_FLAGS"][$FIELD] == "Y" ? "required" : "" ?> placeholder="<?=GetMessage("REGISTER_FIELD_".$FIELD)?>" type="password" id="reg_input_<?=$FIELD?>" class="authInputPass rfield new" name="REGISTER[<?=$FIELD?>]" value="<?=$arResult["VALUES"][$FIELD]?>" autocomplete="off" class="bx-auth-input" />
     <?if($arResult["SECURE_AUTH"]):?>
 				    <span class="bx-auth-secure" id="bx_auth_secure" title="<?echo GetMessage("AUTH_SECURE_NOTE")?>" style="display:none">
 					    <div class="bx-auth-secure-icon"></div>
@@ -82,7 +82,7 @@ if(!defined("B_PROLOG_INCLUDED") || B_PROLOG_INCLUDED!==true)
 <?
 			break;
 		case "CONFIRM_PASSWORD":
-			?><input size="30" title="<?= GetMessage("MIN_PASSWORD_LENGHT")?>" pattern=".{6,}" <?= $arResult["REQUIRED_FIELDS_FLAGS"][$FIELD] == "Y" ? "required" : "" ?> placeholder="<?=GetMessage("REGISTER_FIELD_".$FIELD)?>" type="password" class="authInputPass" name="REGISTER[<?=$FIELD?>]" value="<?=$arResult["VALUES"][$FIELD]?>" autocomplete="off" /><?
+			?><input size="30" title="<?= GetMessage("MIN_PASSWORD_LENGHT")?>" pattern=".{6,}" <?= $arResult["REQUIRED_FIELDS_FLAGS"][$FIELD] == "Y" ? "required" : "" ?> placeholder="<?=GetMessage("REGISTER_FIELD_".$FIELD)?>" type="password" id="reg_input_<?=$FIELD?>" class="authInputPass rfield confirmation" name="REGISTER[<?=$FIELD?>]" value="<?=$arResult["VALUES"][$FIELD]?>" autocomplete="off" /><?
 			break;
 
 		case "PERSONAL_GENDER":
@@ -109,16 +109,24 @@ if(!defined("B_PROLOG_INCLUDED") || B_PROLOG_INCLUDED!==true)
 			?><input size="30" type="file" name="REGISTER_FILES_<?=$FIELD?>" /><?
 			break;
 
-		case "PERSONAL_NOTES":
+        case "LOGIN":
+            ?><input size="30" class="authInput"
+                     type="hidden"
+                     name="REGISTER[<?=$FIELD?>]"
+                     id="reg_input_<?=$FIELD?>"
+                     value="text"
+                     <?= $arResult["REQUIRED_FIELDS_FLAGS"][$FIELD] == "Y" ? "required" : "" ?> /><?
+        break;
+        case "PERSONAL_NOTES":
 		case "WORK_NOTES":
 			?><textarea cols="30" rows="5" name="REGISTER[<?=$FIELD?>]"><?=$arResult["VALUES"][$FIELD]?></textarea><?
 			break;
 		default:
 
 			if ($FIELD == "PERSONAL_BIRTHDAY"):?><small><?=$arResult["DATE_FORMAT"]?></small><br /><?endif;
-			?><input size="30" class="authInput" placeholder="<?=GetMessage("REGISTER_FIELD_".$FIELD)?>"
+			?><input size="30" class="authInput <?=($FIELD != "PERSONAL_PHONE")? 'rfield':''?>" placeholder="<?=GetMessage("REGISTER_FIELD_".$FIELD)?>"
 					 type="<?= $FIELD == "LOGIN" ? "email" : "text" ?>"
-					 name="REGISTER_<?=$FIELD?>"
+					 name="REGISTER[<?=$FIELD?>]"
                      id="reg_input_<?=$FIELD?>"
 					 value="<?=$arResult["VALUES"][$FIELD]?>"
 					 <?= $arResult["REQUIRED_FIELDS_FLAGS"][$FIELD] == "Y" ? "required" : "" ?> />
@@ -140,18 +148,7 @@ if(!defined("B_PROLOG_INCLUDED") || B_PROLOG_INCLUDED!==true)
 	        }?>
 	    <?endif?>
     <?endforeach?>
-<?// ********************* User properties ***************************************************?>
-<?if($arResult["USER_PROPERTIES"]["SHOW"] == "Y"):?>
-	<tr><td colspan="2"><?=strlen(trim($arParams["USER_PROPERTY_NAME"])) > 0 ? $arParams["USER_PROPERTY_NAME"] : GetMessage("USER_TYPE_EDIT_TAB")?></td></tr>
-	<?foreach ($arResult["USER_PROPERTIES"]["DATA"] as $FIELD_NAME => $arUserField):?>
-	<tr><td><?=$arUserField["EDIT_FORM_LABEL"]?>:<?if ($arUserField["MANDATORY"]=="Y"):?><span class="starrequired">*</span><?endif;?></td><td>
-			<?$APPLICATION->IncludeComponent(
-				"bitrix:system.field.edit",
-				$arUserField["USER_TYPE"]["USER_TYPE_ID"],
-				array("bVarsFromForm" => $arResult["bVarsFromForm"], "arUserField" => $arUserField, "form_name" => "regform"), null, array("HIDE_ICONS"=>"Y"));?></td></tr>
-	<?endforeach;?>
-<?endif;?>
-<?// ******************** /User properties ***************************************************?>
+
 <?
 /* CAPTCHA */
 if ($arResult["USE_CAPTCHA"] == "Y")
@@ -177,15 +174,33 @@ if ($arResult["USE_CAPTCHA"] == "Y")
 ?>
 
 <div class="btn-container">
-    <a href="javascript:void(0)" class="authEnter btn_submit"><?=GetMessage("NEXT")?></a>
+    <a href="javascript:void(0)" class="authEnter btn_submit" ><?=GetMessage("NEXT")?></a>
 </div>
 
 </div>
 
 <div class="wrap_form_2">
-
 <p class="authTitle"><?= GetMessage("AUTH_REGISTER_2")?></p>
+
+<?// ********************* User properties ***************************************************?>
+<div class="additional_fields">
+    <?if($arResult["USER_PROPERTIES"]["SHOW"] == "Y"):?>
+       <b> <?=GetMessage("USER_EDIT_TAB")?><br> </b>
+        <?foreach ($arResult["USER_PROPERTIES"]["DATA"] as $FIELD_NAME => $arUserField):?>
+        <span><?=$arUserField["EDIT_FORM_LABEL"]?>:<?if ($arUserField["MANDATORY"]=="Y"):?><span class="starrequired">*</span><?endif;?></span>
+            <?$APPLICATION->IncludeComponent(
+                "bitrix:system.field.edit",
+                $arUserField["USER_TYPE"]["USER_TYPE_ID"],
+                array("bVarsFromForm" => $arResult["bVarsFromForm"], "arUserField" => $arUserField, "form_name" => "regform"), null, array("HIDE_ICONS"=>"Y")
+            );?>
+        <?endforeach;?>
+    <?endif;?>
+</div>
+<?// ******************** /User properties ***************************************************?>
+
+
 <div class="btn-container">
+    <a href="javascript:void(0)" class="authEnter btn_prew" ><?=GetMessage("PREW")?></a>
 	<input type="submit" class="authEnter" name="register_submit_button" value="<?=GetMessage("AUTH_REGISTER_SUBMIT")?>" />
 </div>
 

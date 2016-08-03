@@ -6,7 +6,8 @@ $arResult['SHOW_FIELDS'] = array(
 	'NAME',
 	'PERSONAL_PHONE',
 	'LOGIN',
+    'EMAIL',
 	'PASSWORD',
 	'CONFIRM_PASSWORD',
 );
-?> 
+?>

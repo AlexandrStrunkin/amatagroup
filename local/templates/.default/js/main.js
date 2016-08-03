@@ -751,7 +751,7 @@ $(document).ready(function () {
     })
 
 
-    $("form").on("submit", function (e) {
+    $(".btn").on("submit", function (e) {
         var el = $(this), input = el.find("input,textarea"), dataError = 0;
 
 
