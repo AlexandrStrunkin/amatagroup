@@ -8485,3 +8485,55 @@ display: none;
     font: 20px/1 'MuseoSansCyrl-900';
     letter-spacing: 1px;
 }
+
+/*компонент main.register шаблон new_registration*/
+.wrap_form_2{
+    display:none;
+}
+.btn-container{
+    width: 60%;
+    border-top: 0!important;
+}
+.wrap_form_1{
+    width: 60%;
+}
+.error input,
+.error textarea {
+  border: 1px solid red;
+}
+
+.error {
+  color: red;
+}
+.btn_prew{
+    float: left;
+    width: 30%;
+    margin-right: 20px;
+}
+.btn-container .authEnter{
+    width: 40%;
+}
+.additional_fields{
+    clear: both;
+}
+.additional_fields{
+    margin: 0 auto;
+    width: 75%;
+}
+.additional_fields > span{
+    float: left;
+    margin-right: 10px;
+    margin-top: 1px;
+}
+.additional_fields > div{
+    margin: 10px 0;
+}
+.additional_fields > b{
+    margin-bottom: 15px;
+    display: block;
+}
+.starrequired{
+   color: red;
+}
+
+/*компонент main.register шаблон new_registration*/
