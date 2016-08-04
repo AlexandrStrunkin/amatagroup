@@ -125,8 +125,9 @@ if(!defined("B_PROLOG_INCLUDED") || B_PROLOG_INCLUDED!==true)
 
 			if ($FIELD == "PERSONAL_BIRTHDAY"):?><small><?=$arResult["DATE_FORMAT"]?></small><br /><?endif;
 			?><input size="30" class="authInput <?=($FIELD != "PERSONAL_PHONE")? 'rfield':''?>" placeholder="<?=GetMessage("REGISTER_FIELD_".$FIELD)?>"
-					 type="<?= $FIELD == "LOGIN" ? "email" : "text" ?>"
+					 type="<?=($FIELD == "PERSONAL_PHONE")? 'tel' : 'text'?>"
 					 name="REGISTER[<?=$FIELD?>]"
+                     class="<?=($FIELD == "PERSONAL_PHONE")? 'overflowMask' : ''?>"
                      id="reg_input_<?=$FIELD?>"
 					 value="<?=$arResult["VALUES"][$FIELD]?>"
 					 <?= $arResult["REQUIRED_FIELDS_FLAGS"][$FIELD] == "Y" ? "required" : "" ?> />
@@ -183,16 +184,18 @@ if ($arResult["USE_CAPTCHA"] == "Y")
 <p class="authTitle"><?= GetMessage("AUTH_REGISTER_2")?></p>
 
 <?// ********************* User properties ***************************************************?>
+<b class="text_submit_2"> <?=GetMessage("USER_EDIT_TAB")?><br> </b>
 <div class="additional_fields">
     <?if($arResult["USER_PROPERTIES"]["SHOW"] == "Y"):?>
-       <b> <?=GetMessage("USER_EDIT_TAB")?><br> </b>
         <?foreach ($arResult["USER_PROPERTIES"]["DATA"] as $FIELD_NAME => $arUserField):?>
         <span><?=$arUserField["EDIT_FORM_LABEL"]?>:<?if ($arUserField["MANDATORY"]=="Y"):?><span class="starrequired">*</span><?endif;?></span>
-            <?$APPLICATION->IncludeComponent(
-                "bitrix:system.field.edit",
-                $arUserField["USER_TYPE"]["USER_TYPE_ID"],
-                array("bVarsFromForm" => $arResult["bVarsFromForm"], "arUserField" => $arUserField, "form_name" => "regform"), null, array("HIDE_ICONS"=>"Y")
-            );?>
+            <label>
+                <?$APPLICATION->IncludeComponent(
+                    "bitrix:system.field.edit",
+                    $arUserField["USER_TYPE"]["USER_TYPE_ID"],
+                    array("bVarsFromForm" => $arResult["bVarsFromForm"], "arUserField" => $arUserField, "form_name" => "regform"), null, array("HIDE_ICONS"=>"Y")
+                );?>
+            </label>
         <?endforeach;?>
     <?endif;?>
 </div>
