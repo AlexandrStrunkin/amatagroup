@@ -7890,7 +7890,7 @@ border-color: #232323 !important;
     padding-bottom: 14px;
 }
 
-input[type=file] {
+/*input[type=file] {
     position: absolute;
     left: 0;
     top: 0;
@@ -7898,7 +7898,7 @@ input[type=file] {
     height: 100%;
     opacity: 0;
     cursor: pointer;
-}
+}    */
 
 input[type=file]::-webkit-file-upload-button {
     cursor: pointer;

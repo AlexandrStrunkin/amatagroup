@@ -43,7 +43,7 @@
 
     define("USER_QUESTIONS_IBLOCK_ID", 22);
     define("USER_QUESTIONS_FAQ_IBLOCK_ID", 24);
-	
+
 	define("RETAIL_IBLOCK_ID", 28);
 
 	define("USER_SAVED_ADDRESSES_STREET_PROPERTY", 433); // улица
@@ -66,16 +66,16 @@
 	define("ORDER_BUILDING", "ORDER_PROP_22"); // Дом
 	define("ORDER_APARTMENT", "ORDER_PROP_23"); // Квартира/офис
 	define("DEFAULT_LOCATION_ID", 129); // Дефолтное местоположение - Москва
-	
+
 	define("ELEMENT_CARD_PREVIEW_HEIGHT", 83);
 	define("ELEMENT_CARD_PREVIEW_WIDTH", 76);
 	define("ELEMENT_CARD_MAIN_HEIGHT", 520);
 	define("ELEMENT_CARD_MAIN_WIDTH", 520);
-	
+
 	define("CARD_QUESTION_FORM_TEMPLATE_ID", 77);
 	define("QUESTION_FORM_TEMPLATE_ID", 78);
 	define("FORM_FROM_EMAIL", "info@amatagroup.ru");
-	
+
 	define("MANUFACTURER_FOOTER_FORM", "MANUFACTURER_FOOTER_FORM");
 	define("CONTACTS_FEEDBACK_FORM", "CONTACTS_FEEDBACK_FORM");
 	define("QUESTION_PRODUCT_CARD", "QUESTION_PRODUCT_CARD");
@@ -116,7 +116,7 @@
         print_r($array);
         echo "</pre>";
     }
-	
+
 	function getFormTypes() {
 		return array(
 			MANUFACTURER_FOOTER_FORM => 'Вопрос производителю из футера',
@@ -138,15 +138,15 @@
     function getAltasibCity() {
     	return $_SESSION["ALTASIB_GEOBASE_CODE"]["CITY"]["NAME"] ? $_SESSION["ALTASIB_GEOBASE_CODE"]["CITY"]["NAME"] : false;
     }
-	
+
 	/**
-	 * 
+	 *
 	 * @param int $photo_id
 	 * @param int $width
 	 * @param int $height
 	 * @param string $type
 	 * @return string $src
-	 * 
+	 *
 	 * */
     function getResizedImage($photo_id, $width, $height, $type) {
     	$file_path = CFile::GetPath($photo_id);
@@ -155,17 +155,36 @@
 			return $preview_img_file['src'];
     	}
     }
-	
+
     //подмена логина на EMAIL при регистрации и изменении пользователя
     AddEventHandler("main", "OnBeforeUserRegister", Array("OnBeforeUserRegisterHandler", "OnBeforeUserRegister"));
     AddEventHandler("main", "OnBeforeUserUpdate", Array("OnBeforeUserRegisterHandler", "OnBeforeUserRegister"));
     class OnBeforeUserRegisterHandler {
         function OnBeforeUserRegister(&$arFields) {
-            $arFields['LOGIN'] = $arFields['EMAIL']; 
+            $arFields['LOGIN'] = $arFields['EMAIL'];
             return $arFields;
         }
     }
-
+    // отправляем пользователю письмо об успешной регистрации
+    AddEventHandler("main", "OnAfterUserAdd", "OnAfterUserRegisterHandler");
+    AddEventHandler("main", "OnAfterUserRegister", "OnAfterUserRegisterHandler");
+        function OnAfterUserRegisterHandler(&$arFields)
+        {
+           if (intval($arFields["ID"])>0)
+           {
+              $toSend = Array();
+              $toSend["PASSWORD"] = $arFields["CONFIRM_PASSWORD"];
+              $toSend["EMAIL"] = $arFields["EMAIL"];
+              $toSend["USER_ID"] = $arFields["ID"];
+              $toSend["USER_IP"] = $arFields["USER_IP"];
+              $toSend["USER_HOST"] = $arFields["USER_HOST"];
+              $toSend["LOGIN"] = $arFields["LOGIN"];
+              $toSend["NAME"] = (trim ($arFields["NAME"]) == "")? $toSend["NAME"] = htmlspecialchars('Не указано'): $arFields["NAME"];
+              $toSend["LAST_NAME"] = (trim ($arFields["LAST_NAME"]) == "")? $toSend["LAST_NAME"] = htmlspecialchars('Не указано'): $arFields["LAST_NAME"];
+              CEvent::SendImmediate ("NEW_USER", SITE_ID, $toSend);
+           }
+           return $arFields;
+        }
 
     /***
     * функция возвращает массив параметров для отображения каталога:
