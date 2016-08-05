@@ -1703,28 +1703,38 @@ $(function() {
                 $('.wrap_form_1').hide('slow');
                 $('.wrap_form_2').show('slow');
             } else {
-
-                console.log('dwd');
-
                 return false; //если в форме встретились ошибки , не  позволяем отослать данные на сервер.
             }
 
         })
       });
+    $('.fields.files input[type="file"]').attr('accept', 'image/jpeg,image/png,application/msword,application/excel,application/x-excel');
     $('.bx-input-file-desc').html('Выберите файл');
     $(".fields.files input[type='file']").change(function(){
          var filename = $(this).val().replace(/.*\\/, "");
-         console.log($(this).parent().next());
          if(filename){
             $(this).next().html(filename);
          } else {
             $(this).next().html('Выберите файл');
          }
+
+    });
+    $(".additional_fields label").click(function() {
+        $(this).next('.reset').css('z-index', 2);
+        console.log($(this).parent());
+    })
+    $(".reset").click(function() {
+        $(this).prev().addClass('reset_input');
+        $('.reset_input input[type="file"]').val('');
+        $('.reset_input .bx-input-file-desc').html('Выберите файл');
+        $(this).prev().removeClass('reset_input');
+        $(this).css('z-index', 0);
     });
  });
 function isValidEmailAddress(emailAddress) {
     var pattern = new RegExp(/^(("[\w-\s]+")|([\w-]+(?:\.[\w-]+)*)|("[\w-\s]+")([\w-]+(?:\.[\w-]+)*))(@((?:[\w-]+\.)*\w[\w-]{0,66})\.([a-z]{2,6}(?:\.[a-z]{2})?)$)|(@\[?((25[0-5]\.|2[0-4][0-9]\.|1[0-9]{2}\.|[0-9]{1,2}\.))((25[0-5]|2[0-4][0-9]|1[0-9]{2}|[0-9]{1,2})\.){2}(25[0-5]|2[0-4][0-9]|1[0-9]{2}|[0-9]{1,2})\]?$)/i);
     return pattern.test(emailAddress);
 }
+
 
 //  компонент main.register шаблон new_registration

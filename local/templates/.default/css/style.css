@@ -8493,12 +8493,12 @@ display: none;
 
 .input_error {
   border: red 1px solid;
-  color: #ef3421;
+  color: #ef3421!important;
   box-shadow: 0 8px 10px 3px #f3d4d1;
 }
 .input_error:focus{
     border: 1px solid #83d0f5;
-    color: #000;
+    color: #000!important;
     box-shadow: none;
 }
 
@@ -8525,7 +8525,7 @@ display: none;
 }
 .additional_fields{
     margin: 0 auto;
-    width: 25%;
+    width: 27%;
     overflow: hidden;
     clear: both;
 }
@@ -8562,10 +8562,12 @@ display: none;
     content: '...';
     position: absolute;
     width: 40px;
-    height: 20px;
+    height: 34px;
     right: 0;
     color: #000;
-    top: 5px;
+    padding-top: 5px;
+    top: 0px;
+    background: #fff;
 }
 .fields.files:hover{
     border: 1px solid #5db3dc;
@@ -8584,6 +8586,7 @@ display: none;
     display: block;
     margin: 5px 0;
     cursor: pointer;
+    z-index: 1;
 }
 .bx-input-file-desc{
     display: block;
@@ -8609,5 +8612,16 @@ display: none;
     text-align: center;
     margin: 15px auto;
 }
-
+.additional_fields .reset{
+    border: 1px solid #807d7d;
+    padding: 5.4px 9px;
+    margin: 6.4px 7px;
+    color: #807d7d;
+    font-size: 18px;
+    cursor: pointer;
+    position: relative;
+    background-color: #fff;
+    right: 35px;
+    z-index: 0;
+}
 /*компонент main.register шаблон new_registration*/

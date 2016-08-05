@@ -28,6 +28,7 @@ if(!defined("B_PROLOG_INCLUDED") || B_PROLOG_INCLUDED!==true)
     <div class="wrap_form_1">
         <p class="authTitle"><?= GetMessage("AUTH_REGISTER")?></p>
 	<?
+
 	if (count($arResult["ERRORS"]) > 0):
 		foreach ($arResult["ERRORS"] as $key => $error)
 			if (intval($key) == 0 && $key !== 0)
@@ -196,6 +197,7 @@ if ($arResult["USE_CAPTCHA"] == "Y")
                     array("bVarsFromForm" => $arResult["bVarsFromForm"], "arUserField" => $arUserField, "form_name" => "regform"), null, array("HIDE_ICONS"=>"Y")
                 );?>
             </label>
+            <input type="button" value="x" title="удалить" class="reset">
         <?endforeach;?>
     <?endif;?>
 </div>
