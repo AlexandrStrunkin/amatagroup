@@ -5821,6 +5821,7 @@ top: -440px;
     border-top: 1px solid #e6e6e6;
     padding-top: 20px;
     margin-top: 20px;
+    overflow: hidden;
 }
 
 .regHiddenBlock .authInputPass {
@@ -8486,6 +8487,7 @@ display: none;
     width: 60%;
     border-top: 0!important;
     margin: 0 auto;
+    overflow: hidden;
 }
 .wrap_form_1{
     width: 60%;
@@ -8495,6 +8497,10 @@ display: none;
   border: red 1px solid;
   color: #ef3421!important;
   box-shadow: 0 8px 10px 3px #f3d4d1;
+}
+.error_file {
+  border: red 1px solid!important;
+  box-shadow: 0 2px 5px 3px #f3d4d1;
 }
 .input_error:focus{
     border: 1px solid #83d0f5;
@@ -8522,12 +8528,14 @@ display: none;
 }
 .btn-container .authEnter{
     width: 40%;
+    float: left;
 }
 .additional_fields{
     margin: 0 auto;
     width: 27%;
     overflow: hidden;
     clear: both;
+    padding-bottom: 15px
 }
 .additional_fields > span{
     float: left;
@@ -8613,15 +8621,17 @@ display: none;
     margin: 15px auto;
 }
 .additional_fields .reset{
-    border: 1px solid #807d7d;
+    border: none;
     padding: 5.4px 9px;
-    margin: 6.4px 7px;
-    color: #807d7d;
+    margin: 7.4px 7px;
     font-size: 18px;
     cursor: pointer;
     position: relative;
     background-color: #fff;
     right: 35px;
     z-index: 0;
+}
+.error_file{
+
 }
 /*компонент main.register шаблон new_registration*/

@@ -1708,7 +1708,8 @@ $(function() {
 
         })
       });
-    $('.fields.files input[type="file"]').attr('accept', 'image/jpeg,image/png,application/msword,application/excel,application/x-excel');
+
+    $('.fields.files input[type="file"]').attr('accept', 'image/jpeg,image/png,application/msword,application/excel,application/x-excel,application/pdf,text/xml');
     $('.bx-input-file-desc').html('Выберите файл');
     $(".fields.files input[type='file']").change(function(){
          var filename = $(this).val().replace(/.*\\/, "");
@@ -1717,11 +1718,9 @@ $(function() {
          } else {
             $(this).next().html('Выберите файл');
          }
-
     });
     $(".additional_fields label").click(function() {
         $(this).next('.reset').css('z-index', 2);
-        console.log($(this).parent());
     })
     $(".reset").click(function() {
         $(this).prev().addClass('reset_input');
@@ -1730,6 +1729,32 @@ $(function() {
         $(this).prev().removeClass('reset_input');
         $(this).css('z-index', 0);
     });
+    $('#form_register .wrap_form_2 .authEnter').click(function(){
+        var file_name = new Array('UF_DOCUMENT_1', 'UF_DOCUMENT_2', 'UF_DOCUMENT_3', 'UF_DOCUMENT_4', 'UF_DOCUMENT_5');//поля обязательные
+        $('#form_register').each(function() {// обрабатываем отправку формы
+            var error = 0;
+            $("form").find(":input[type='file']").each(function() {// проверяем каждое поле в форме
+                for(var i = 0; i < file_name.length; i++){ // если поле присутствует в списке обязательных
+                    if($(this).attr("name") == file_name[i]){ //проверяем поле формы на пустоту
+                        if(!$(this).val()) {// если в поле пустое
+                            $(this).parent().addClass('error_file');// устанавливаем рамку красного цвета
+                            error = 1;// определяем индекс ошибки
+                        } else {
+                            $(this).parent().removeClass('error_file');// устанавливаем рамку обычного цвета
+                            error = 0;
+                        }
+
+                    }
+                }
+           })
+           console.log(error);
+            if (error == 0) { // если ошибок нет то отправляем данные
+               $("#form_register input[type='submit']").click(); debugger;
+            } else {
+                return false; //если в форме встретились ошибки , не  позволяем отослать данные на сервер.
+            }
+        });
+    })
  });
 function isValidEmailAddress(emailAddress) {
     var pattern = new RegExp(/^(("[\w-\s]+")|([\w-]+(?:\.[\w-]+)*)|("[\w-\s]+")([\w-]+(?:\.[\w-]+)*))(@((?:[\w-]+\.)*\w[\w-]{0,66})\.([a-z]{2,6}(?:\.[a-z]{2})?)$)|(@\[?((25[0-5]\.|2[0-4][0-9]\.|1[0-9]{2}\.|[0-9]{1,2}\.))((25[0-5]|2[0-4][0-9]|1[0-9]{2}|[0-9]{1,2})\.){2}(25[0-5]|2[0-4][0-9]|1[0-9]{2}|[0-9]{1,2})\]?$)/i);
