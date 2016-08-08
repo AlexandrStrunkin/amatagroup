@@ -8490,40 +8490,58 @@ display: none;
 .wrap_form_2{
     display:none;
 }
-.btn-container{
+.wrap_form_2 .btn-container{
     width: 60%;
     border-top: 0!important;
+    margin: 0 auto;
 }
 .wrap_form_1{
     width: 60%;
 }
-.error input,
-.error textarea {
-  border: 1px solid red;
+
+.input_error {
+  border: red 1px solid;
+  color: #ef3421!important;
+  box-shadow: 0 8px 10px 3px #f3d4d1;
+}
+.input_error:focus{
+    border: 1px solid #83d0f5;
+    color: #000!important;
+    box-shadow: none;
 }
 
-.error {
-  color: red;
-}
+.input_error::-webkit-input-placeholder {color:#ef3421;}
+.input_error::-moz-placeholder {color:#ef3421;}
+.input_error:-moz-placeholder {color:#ef3421;}
+.input_error:-ms-input-placeholder {color:#ef3421;}
+
+
+.input_error:focus::-webkit-input-placeholder {color:#000;}
+.input_error:focus::-moz-placeholder {color:#000;}
+.input_error:focus:-moz-placeholder {color:#000;}
+.input_error:focus:-ms-input-placeholder {color:#000;}
+
+
 .btn_prew{
     float: left;
     width: 30%;
     margin-right: 20px;
+    margin-left: 60px;
 }
 .btn-container .authEnter{
     width: 40%;
 }
 .additional_fields{
-    clear: both;
-}
-.additional_fields{
     margin: 0 auto;
-    width: 75%;
+    width: 27%;
+    overflow: hidden;
+    clear: both;
 }
 .additional_fields > span{
     float: left;
     margin-right: 10px;
-    margin-top: 1px;
+    clear: both;
+    margin-top: 13px;
 }
 .additional_fields > div{
     margin: 10px 0;
@@ -8535,5 +8553,83 @@ display: none;
 .starrequired{
    color: red;
 }
+/* Making it beautiful */
 
+.fields.files {
+    position: relative;
+    overflow: hidden;
+    width: 100%;
+    height: 30px;
+    border: 1px solid #b2b2b2;
+    border-radius: 3px;
+    padding: 2px 0px;
+    color: #fff;
+    text-align: center;
+}
+.fields.files:before{
+    content: '...';
+    position: absolute;
+    width: 40px;
+    height: 34px;
+    right: 0;
+    color: #000;
+    padding-top: 5px;
+    top: 0px;
+    background: #fff;
+}
+.fields.files:hover{
+    border: 1px solid #5db3dc;
+}
+.bx-input-file-desc:hover{
+    color: #5db3dc;
+}
+.fields.files input[type="file"]{
+    display: none; /* Обязательно скрываем настоящий Input File */
+}
+
+.additional_fields > label{
+    position: relative;
+    float: left;
+    width: 200px;
+    display: block;
+    margin: 5px 0;
+    cursor: pointer;
+    z-index: 1;
+}
+.bx-input-file-desc{
+    display: block;
+    position: absolute;
+    top: -3%;
+    left: 8%;
+    height: 100%;
+    font-family: 'MuseoSansCyrl-500';
+    cursor: pointer;
+    font-size: 15px;
+    color: #807d7d;
+}
+.fields.files span {
+     line-height: 36px; /* Делаем вертикальное выравнивание текста, который написан на кнопке */
+}
+.fields.files input[type="file"] {
+     background: #fff;
+     border: 0;
+}
+.text_submit_2{
+    width: 50%;
+    display: block;
+    text-align: center;
+    margin: 15px auto;
+}
+.additional_fields .reset{
+    border: 1px solid #807d7d;
+    padding: 5.4px 9px;
+    margin: 6.4px 7px;
+    color: #807d7d;
+    font-size: 18px;
+    cursor: pointer;
+    position: relative;
+    background-color: #fff;
+    right: 35px;
+    z-index: 0;
+}
 /*компонент main.register шаблон new_registration*/

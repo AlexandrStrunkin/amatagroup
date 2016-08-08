@@ -12,20 +12,22 @@
     $APPLICATION->AddHeadScript(DEFAULT_TEMPLATE_PATH."js/jquery.jcarousel.min.js");
     $APPLICATION->AddHeadScript(DEFAULT_TEMPLATE_PATH."js/ion.rangeSlider.min.js");
     $APPLICATION->AddHeadScript(DEFAULT_TEMPLATE_PATH."js/circle-progress.js");
-    $APPLICATION->AddHeadScript(DEFAULT_TEMPLATE_PATH."js/main.js");         
+    $APPLICATION->AddHeadScript(DEFAULT_TEMPLATE_PATH."js/main.js");
+    $APPLICATION->AddHeadScript(DEFAULT_TEMPLATE_PATH."js/inputMask.js");
+
 ?>
 
 <?
     $APPLICATION->SetAdditionalCSS("https://fonts.googleapis.com/css?family=PT+Serif:400,400italic&subset=latin,cyrillic");
     $APPLICATION->SetAdditionalCSS(DEFAULT_TEMPLATE_PATH."css/jquery.mCustomScrollbar.css");
-    $APPLICATION->SetAdditionalCSS(DEFAULT_TEMPLATE_PATH."css/selectric.css");            
+    $APPLICATION->SetAdditionalCSS(DEFAULT_TEMPLATE_PATH."css/selectric.css");
     $APPLICATION->SetAdditionalCSS(DEFAULT_TEMPLATE_PATH."css/jcarousel.basic.css");
     $APPLICATION->SetAdditionalCSS(DEFAULT_TEMPLATE_PATH."css/ion.rangeSlider.css");
-    $APPLICATION->SetAdditionalCSS(DEFAULT_TEMPLATE_PATH."css/ion.rangeSlider.skinNice.css");  
-    $APPLICATION->SetAdditionalCSS(DEFAULT_TEMPLATE_PATH."css/style.css");   
-    
+    $APPLICATION->SetAdditionalCSS(DEFAULT_TEMPLATE_PATH."css/ion.rangeSlider.skinNice.css");
+    $APPLICATION->SetAdditionalCSS(DEFAULT_TEMPLATE_PATH."css/style.css");
+
      CAjax::Init();
-?>               
+?>
 
     <?$APPLICATION->ShowHead();?>
     <title><?$APPLICATION->ShowTitle()?></title>
