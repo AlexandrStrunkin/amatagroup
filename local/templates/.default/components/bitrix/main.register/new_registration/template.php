@@ -206,7 +206,8 @@ if ($arResult["USE_CAPTCHA"] == "Y")
 
 <div class="btn-container">
     <a href="javascript:void(0)" class="authEnter btn_prew" ><?=GetMessage("PREW")?></a>
-	<input type="submit" class="authEnter" name="register_submit_button" value="<?=GetMessage("AUTH_REGISTER_SUBMIT")?>" />
+    <a href="javascript:void(0)" class="authEnter" ><?=GetMessage("AUTH_REGISTER_SUBMIT")?></a>
+	<input type="submit" style="display: none;"  name="register_submit_button" />
 </div>
 
 </div>

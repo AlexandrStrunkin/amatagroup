@@ -1,6 +1,6 @@
-<?if(!defined("B_PROLOG_INCLUDED") || B_PROLOG_INCLUDED!==true)die();?>        
+<?if(!defined("B_PROLOG_INCLUDED") || B_PROLOG_INCLUDED!==true)die();?>
 
-<div class="authForm">            
+<div class="authForm">
     <form id="auth_form" name="system_auth_form<?= $arResult["RND"] ?>" method="post" target="_top" action="">
 
         <p class="authTitle"><?= GetMessage("auth_form_comp_auth") ?></p>
@@ -12,11 +12,10 @@
         <label class="rememberMeText" for="rememberMe"><?= GetMessage("AUTH_REMEMBER_SHORT") ?></label>
 
         <a href="javascript:void(0)" class="authEnter"><?= GetMessage("AUTH_LOGIN_BUTTON") ?></a>
-        <a href="" class="forgotPassword"><?= GetMessage("AUTH_FORGOT_PASSWORD_2") ?></a>         
-    </form>   
+        <a href="/auth/?forgot_password=yes" class="forgotPassword"><?= GetMessage("AUTH_FORGOT_PASSWORD_2") ?></a>
+    </form>
 
 </div>
-
 
 <script>
     //ajax authorization data check
@@ -24,7 +23,7 @@
         $(".authEnter").on("click", function(e) {
             $(".errorText").hide();
             var form = $("#auth_form");
-            var formData = form.serialize();             
+            var formData = form.serialize();
             $.ajax({
                 type: "POST",
                 url: "<?= $templateFolder ?>/ajax.php",
@@ -35,12 +34,12 @@
                         $(".errorText").show();
                         return false;
                     } else {
-                        window.location.reload();                          
+                        window.location.reload();
                     }
                 }
             });
         })
-    })   
+    })
 </script>
 
-   
+
