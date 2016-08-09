@@ -12,10 +12,34 @@
         <label class="rememberMeText" for="rememberMe"><?= GetMessage("AUTH_REMEMBER_SHORT") ?></label>
 
         <a href="javascript:void(0)" class="authEnter"><?= GetMessage("AUTH_LOGIN_BUTTON") ?></a>
-        <a href="javascript:void(0)" class="forgotPassword"><?= GetMessage("AUTH_FORGOT_PASSWORD_2") ?></a>
+        <a href="/auth/?forgot_password=yes" class="forgotPassword"><?= GetMessage("AUTH_FORGOT_PASSWORD_2") ?></a>
     </form>
 
 </div>
 
+<script>
+    //ajax authorization data check
+    $(function() {
+        $(".authEnter").on("click", function(e) {
+            $(".errorText").hide();
+            var form = $("#auth_form");
+            var formData = form.serialize();
+            $.ajax({
+                type: "POST",
+                url: "<?= $templateFolder ?>/ajax.php",
+                data: formData,
+                success: function(data){
+                    data = JSON.parse(data);
+                    if (data.result != "OK") {
+                        $(".errorText").show();
+                        return false;
+                    } else {
+                        window.location.reload();
+                    }
+                }
+            });
+        })
+    })
+</script>
 
 

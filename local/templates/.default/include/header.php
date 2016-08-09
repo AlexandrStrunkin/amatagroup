@@ -177,7 +177,7 @@
                         <input type="text" class="authInput" name="email" placeholder="Введите email">
 
                         <div class="btn-container">
-                            <a href="" class="authEnter">Восстановить</a>
+                            <a href="javascript:void(0)" class="authEnter">Восстановить</a>
                         </div>
 
                     </form>

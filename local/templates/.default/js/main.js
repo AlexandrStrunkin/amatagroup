@@ -702,11 +702,7 @@ $(document).ready(function () {
     });
 
 
-    $(".forgotPassword").on("click", function () {
-        $(".authForm").hide();
-        $(".forgotForm").fadeIn(300);
 
-    });
 
     // форма вопроса в /about
     $("#ask_question").on("submit", function(e) {
