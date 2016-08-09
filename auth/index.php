@@ -8,13 +8,13 @@ if (!$userName)
 ?>
 <script>
 	<?if ($userName):?>
-	BX.localStorage.set("eshop_user_name", "<?=CUtil::JSEscape($userName)?>", 604800);
+	    BX.localStorage.set("eshop_user_name", "<?=CUtil::JSEscape($userName)?>", 604800);
 	<?else:?>
-	BX.localStorage.remove("eshop_user_name");
+	    BX.localStorage.remove("eshop_user_name");
 	<?endif?>
 
 	<?if (isset($_REQUEST["backurl"]) && strlen($_REQUEST["backurl"])>0 && preg_match('#^/\w#', $_REQUEST["backurl"])):?>
-	document.location.href = "<?=CUtil::JSEscape($_REQUEST["backurl"])?>";
+	    document.location.href = "<?=CUtil::JSEscape($_REQUEST["backurl"])?>";
 	<?endif?>
 </script>
 
