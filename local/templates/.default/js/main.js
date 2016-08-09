@@ -1736,7 +1736,6 @@ $(function() {
                             error = 1;// определяем индекс ошибки
                         } else {
                             $(this).parent().removeClass('error_file');// устанавливаем рамку обычного цвета
-                            error = 0;
                         }
 
                     }
