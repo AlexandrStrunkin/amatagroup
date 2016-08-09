@@ -1725,28 +1725,20 @@ $(function() {
         $(this).css('z-index', 0);
     });
     $('#form_register .wrap_form_2 .authEnter').click(function(){
-        var file_name = new Array('UF_DOCUMENT_1', 'UF_DOCUMENT_2', 'UF_DOCUMENT_3', 'UF_DOCUMENT_4', 'UF_DOCUMENT_5');//поля обязательные
-        $('#form_register').each(function() {// обрабатываем отправку формы
-            var error = 0;
-            $("#form_register").find(":input[type='file']").each(function() {// проверяем каждое поле в форме
-                for(var i = 0; i < file_name.length; i++){ // если поле присутствует в списке обязательных
-                    if($(this).attr("name") == file_name[i]){ //проверяем поле формы на пустоту
-                        if(!$(this).val()) {// если в поле пустое
-                            $(this).parent().addClass('error_file');// устанавливаем рамку красного цвета
-                            error = 1;// определяем индекс ошибки
-                        } else {
-                            $(this).parent().removeClass('error_file');// устанавливаем рамку обычного цвета
-                        }
-
-                    }
-                }
-           })
-            if (error == 0) { // если ошибок нет то отправляем данные
-               $("#form_register input[type='submit']").click();
+        var error = 0;
+        $("#form_register").find("input[type='file']").each(function() {// проверяем каждое поле в форме
+            if(!$(this).val()) {
+                $(this).parent().addClass('error_file');
+                error = 1;
             } else {
-                return false; //если в форме встретились ошибки , не  позволяем отослать данные на сервер.
+                $(this).parent().removeClass('error_file');
             }
-        });
+       })
+        if (error == 0) { // если ошибок нет то отправляем данные
+           $("#form_register input[type='submit']").click();
+        } else {
+            return false; //если в форме встретились ошибки , не  позволяем отослать данные на сервер.
+        }
     })
  });
 function isValidEmailAddress(emailAddress) {
