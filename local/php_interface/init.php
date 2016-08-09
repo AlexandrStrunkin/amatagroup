@@ -73,11 +73,14 @@
 	define("ELEMENT_CARD_MAIN_WIDTH", 520);
 
 	define("CARD_QUESTION_FORM_TEMPLATE_ID", 77);
+	define("QUESTION_FORM_TEMPLATE_ID", 78);
 	define("FORM_FROM_EMAIL", "info@amatagroup.ru");
 
 	define("MANUFACTURER_FOOTER_FORM", "MANUFACTURER_FOOTER_FORM");
 	define("CONTACTS_FEEDBACK_FORM", "CONTACTS_FEEDBACK_FORM");
 	define("QUESTION_PRODUCT_CARD", "QUESTION_PRODUCT_CARD");
+	define("FAQ_FORM", "FAQ_FORM");
+	define("ABOUT_FORM", "ABOUT_FORM");
 
     /*константы для отображения каталога*/
     define("DEFAULT_PAGE_ELEMENT_COUNT", $GLOBALS["availableParams"]["PAGE_ELEMENT_COUNT"][0]); //количество элементов на странице раздела каталога по умолчанию
@@ -118,7 +121,9 @@
 		return array(
 			MANUFACTURER_FOOTER_FORM => 'Вопрос производителю из футера',
 			CONTACTS_FEEDBACK_FORM   => 'Обратная связь из контактов',
-			QUESTION_PRODUCT_CARD    => 'Задать вопрос из карточки товара'
+			QUESTION_PRODUCT_CARD    => 'Задать вопрос из карточки товара',
+			FAQ_FORM                 => 'Форма "Вопрос-ответ"',
+			ABOUT_FORM               => 'Форма вопроса из раздела "О компании"'
 		);
 	}
 
