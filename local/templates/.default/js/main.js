@@ -1704,7 +1704,7 @@ $(function() {
         })
       });
 
-    $('.fields.files input[type="file"]').attr('accept', 'image/jpeg,image/png,application/msword,application/excel,application/x-excel,application/pdf,text/xml');
+    $('.fields.files input[type="file"]').attr('accept', 'image/jpeg,image/png,application/msword,application/excel,application/x-excel,application/pdf,text/xml,application/vnd.ms-excel');
     $('.bx-input-file-desc').html('Âûבונטעו פאיכ');
     $(".fields.files input[type='file']").change(function(){
          var filename = $(this).val().replace(/.*\\/, "");
