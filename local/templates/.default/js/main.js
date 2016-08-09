@@ -1728,7 +1728,7 @@ $(function() {
         var file_name = new Array('UF_DOCUMENT_1', 'UF_DOCUMENT_2', 'UF_DOCUMENT_3', 'UF_DOCUMENT_4', 'UF_DOCUMENT_5');//поля обязательные
         $('#form_register').each(function() {// обрабатываем отправку формы
             var error = 0;
-            $("form").find(":input[type='file']").each(function() {// проверяем каждое поле в форме
+            $("#form_register").find(":input[type='file']").each(function() {// проверяем каждое поле в форме
                 for(var i = 0; i < file_name.length; i++){ // если поле присутствует в списке обязательных
                     if($(this).attr("name") == file_name[i]){ //проверяем поле формы на пустоту
                         if(!$(this).val()) {// если в поле пустое
@@ -1742,9 +1742,8 @@ $(function() {
                     }
                 }
            })
-           console.log(error);
             if (error == 0) { // если ошибок нет то отправляем данные
-               $("#form_register input[type='submit']").click(); debugger;
+               $("#form_register input[type='submit']").click();
             } else {
                 return false; //если в форме встретились ошибки , не  позволяем отослать данные на сервер.
             }

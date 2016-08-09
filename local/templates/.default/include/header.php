@@ -173,16 +173,16 @@
                 <!--forgotForm-->
                 <div class="forgotForm">
                     <form method="post">
-                        <p class="authTitle">Забыли пароль</p>
-                        <input type="text" class="authInput" name="email" placeholder="Введите email">
+                        <p class="authTitle"><?=GetMessage('PASSWORD')?></p>
+                        <input type="text" class="authInput" name="email" placeholder="<?=GetMessage('REESTABLISH')?>">
 
                         <div class="btn-container">
-                            <a href="javascript:void(0)" class="authEnter">Восстановить</a>
+                            <a href="javascript:void(0)" class="authEnter"><?=GetMessage('MASSAGE')?></a>
                         </div>
 
                     </form>
                     <div class="message">
-                        На email придёт письмо по восстановлению пароля
+                        <?=GetMessage('ENTER_EMAIL')?>
                     </div>
                 </div>
                 <!--END forgotForm-->
