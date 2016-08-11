@@ -1,0 +1,28 @@
+div.subscribe-edit .red {
+	color:red;
+}
+div.subscribe-edit .green {
+	color:green;
+}
+div.subscribe-edit .errorcolor {
+	color:red;
+}
+div.subscribe-edit .successcolor {
+	color:green;
+}
+.subscribe-edit {
+    font-size: 14px;
+    font-family: 'MuseoSansCyrl-500';
+}
+.sub_form_title {
+    font-size: 16px;
+    font-weight: bold;
+    height: 40px;
+    vertical-align: top;
+}
+.subscribe-edit td {
+    padding-bottom: 10px;
+    vertical-align: top;
+}                        
+
+	

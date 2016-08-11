@@ -13,8 +13,8 @@ $APPLICATION->SetTitle("О магазине");
 
             <div class="infoBlocksContent about_tabs" id="history" style="display: block">
 			<?$APPLICATION->IncludeComponent(
-				"bitrix:main.include", 
-				".default", 
+				"bitrix:main.include",
+				".default",
 				array(
 					"AREA_FILE_SHOW" => "file",
 					"AREA_FILE_SUFFIX" => "inc",
@@ -28,7 +28,7 @@ $APPLICATION->SetTitle("О магазине");
             <div class="infoBlocksContent about_tabs" id="achievements">
             	<div class="achievements_wrapper">
             		<?$APPLICATION->IncludeComponent(
-						"bitrix:news.list", 
+						"bitrix:news.list",
 						"achievements",
 						array(
 							"ACTIVE_DATE_FORMAT" => "d.m.Y",
@@ -249,9 +249,9 @@ $APPLICATION->SetTitle("О магазине");
 	                            <tr>
 	                                <td colspan="2" class="inputsBlock">
 	                                    <div class="leftBlock">
-	                                        <input type="text" name="name" placeholder="Имя" pattern="[A-Za-zА-Яа-яЁё ]{6,}" title="Поле не может быть пустым,а также содержать цифры и спецсимволы" required>
+	                                        <input type="text" name="name" placeholder="Имя" pattern="[A-Za-zА-Яа-яЁё ]{2,}" title="Поле не может быть пустым,а также содержать цифры и спецсимволы" required>
 	                                        <input type="email" name="email" placeholder="Почта" required>
-	                                        <input type="text" name="company_name" placeholder="Название компании" pattern="[A-Za-zА-Яа-яЁё ]{6,}" title="Поле не может быть пустым,а также содержать цифры и спецсимволы" required>
+	                                        <input type="text" name="company_name" placeholder="Название компании" pattern="[A-Za-zА-Яа-яЁё ]{2,}" title="Поле не может быть пустым,а также содержать цифры и спецсимволы" required>
 	                                    	<input type="hidden" name="form_type" value="<?= ABOUT_FORM ?>" >
 	                                    </div>
 	                                    <div class="rightBlock">
@@ -261,6 +261,7 @@ $APPLICATION->SetTitle("О магазине");
 	                            </tr>
 	                            <tr >
 	                            	<td>
+                                        <p class="Obligatory_field">* - Поля обязательные для заполнения</p>
 	                                    <div class="form_result">
 	                                    </div>
 	                                </td>
@@ -279,6 +280,6 @@ $APPLICATION->SetTitle("О магазине");
 			        </div>
 			    </div>
             </div>
-            
+
         </div>
 <?require($_SERVER["DOCUMENT_ROOT"]."/bitrix/footer.php");?>
