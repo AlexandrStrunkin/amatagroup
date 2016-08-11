@@ -3932,13 +3932,6 @@ li[data-pos="39"] .firstLvlLi:last-child {
     position: relative;
 }
 
-.firstLvlLi::after {
-    content: url("../img/plusMainLeftMenu.png");
-    left: 230px;
-    position: absolute;
-    top: 9px;
-}
-
 .activeFirstLclLi {
     border: none !important;
 }
@@ -4512,7 +4505,7 @@ background: url(../img/arrow.png) no-repeat 50%;
     text-transform: uppercase;
 }
 
-.firstLvlLi:after {
+.firstLvlLi.bx-context-toolbar-empty-area:after {
     content: url("../img/plusMainLeftMenu.png");
     left: 228px;
     position: absolute;
@@ -8682,5 +8675,14 @@ display: none;
 .bx-authform-social ul li:before{
     content: '';
 }
-
+.title-search-result th,
+.title-search-result a,
+.no_element{
+    color: #000000;
+    font-family: "MuseoSansCyrl-500";
+    font-size: 14px;
+}
+.Obligatory_field{
+    padding-left: 30px;
+}
 /*компонент main.register шаблон new_registration*/

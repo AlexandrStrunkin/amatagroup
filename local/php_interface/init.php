@@ -294,6 +294,7 @@
             <p data-sort="<?=$currentKey?>" class="firstFiltElement1" id="activeFirstFilt"><?=GetMessage("CATALOG_ORDER_BY_".$curParams[$blockName])?></p>
             <div class="hidingMenu">
                 <?foreach ($availableParam as $key => $fieldName){?>
+                <?arshow($catalogAvailableSort);?>
                     <p data-sort="<?=$key?>" data-href="?<?=$blockName?>=<?=$fieldName?>"><?=GetMessage("CATALOG_ORDER_BY_".$fieldName)?></p>
                     <?}?>
             </div>

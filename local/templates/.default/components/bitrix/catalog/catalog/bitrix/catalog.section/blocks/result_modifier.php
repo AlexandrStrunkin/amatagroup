@@ -1,9 +1,9 @@
 <?
     use Bitrix\Main\Type\Collection;
     use Bitrix\Currency\CurrencyTable;
-	
+
 	global $USER;
-	
+
     if (!defined('B_PROLOG_INCLUDED') || B_PROLOG_INCLUDED!==true) die();
     /** @var CBitrixComponentTemplate $this */
     /** @var array $arParams */
@@ -121,7 +121,7 @@
     //получаем текущую корзину пользователя
     $arResult["USER_BASKET"] = getCurrentBasket();
 	$arResult['USER_AUTHORIZED'] = $USER->IsAuthorized() ? true : false;
-	
+
     if (!empty($arResult['ITEMS']))
     {
         $arEmptyPreview = false;
@@ -178,11 +178,11 @@
 
         $arNewItemsList = array();
         foreach ($arResult['ITEMS'] as $key => $arItem) {
-        	
+
 			if ($arResult['USER_AUTHORIZED']) {
 				$arItem['USER_HAVE_ITEM_IN_FAVORITE'] = Favorite::checkIsExists($USER->GetID(), $arItem['ID']);
 			}
-			
+
             $arItem['CHECK_QUANTITY'] = false;
             if (!isset($arItem['CATALOG_MEASURE_RATIO']))
                 $arItem['CATALOG_MEASURE_RATIO'] = 1;
@@ -208,13 +208,13 @@
             $arItem['PREVIEW_PICTURE'] = $productPictures['PICT'];
 
             if ($arItem['DETAIL_PICTURE']) {
-                $arItem['PREVIEW_PICTURE'] = $arItem['DETAIL_PICTURE']; 
+                $arItem['PREVIEW_PICTURE'] = $arItem['DETAIL_PICTURE'];
             }
 
             if ($arItem["PREVIEW_PICTURE"]["ID"] > 0) {
                 $img = CFIle::ResizeImageGet($arItem["PREVIEW_PICTURE"]["ID"], array("width" => 176, "height" => 190), BX_RESIZE_IMAGE_PROPORTIONAL);
                 $arItem["PREVIEW_PICTURE"]["SRC"] = $img["src"];
-            } 
+            }
 
             $arItem['PREVIEW_PICTURE_SECOND'] = $productPictures['SECOND_PICT'];
             $arItem['SECOND_PICT'] = true;
@@ -400,6 +400,7 @@
                             'MEASURE' => $arOffer['~CATALOG_MEASURE_NAME'],
                             'CAN_BUY' => $arOffer['CAN_BUY'],
                         );
+
                         $arMatrix[$keyOffer] = $arOneRow;
                     }
                     if (-1 == $intSelected)
@@ -450,10 +451,10 @@
             }
 
             $arItem['LAST_ELEMENT'] = 'N';
-            $arNewItemsList[$key] = $arItem;   
+            $arNewItemsList[$key] = $arItem;
 
         }
-        
+
         $arNewItemsList[$key]['LAST_ELEMENT'] = 'Y';
         $arResult['ITEMS'] = $arNewItemsList;
         $arResult['SKU_PROPS'] = $arSKUPropList;
@@ -504,5 +505,5 @@
             }
         }
     }
-    
+
 ?>
