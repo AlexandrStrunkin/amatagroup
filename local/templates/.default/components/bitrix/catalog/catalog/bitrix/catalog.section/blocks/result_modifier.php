@@ -459,7 +459,6 @@
         $arResult['ITEMS'] = $arNewItemsList;
         $arResult['SKU_PROPS'] = $arSKUPropList;
         $arResult['DEFAULT_PICTURE'] = $arEmptyPreview;
-
         $arResult['CURRENCIES'] = array();
         if ($arResult['MODULES']['currency'])
         {
