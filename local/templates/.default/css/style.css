@@ -3940,7 +3940,7 @@ li[data-pos="39"] .firstLvlLi:last-child {
     color: #5DB3DC !important;
 }
 
-.activeFirstLclLi::after {
+.Level_next.activeFirstLclLi::after {
     content: url("../img/minusListMainMenuHover.png") !important;
     left: 228px !important;
     top: 10px !important;
@@ -6113,6 +6113,7 @@ input[type="radio"]:checked + label::before {
 .statusInStock {
     border: 1px solid #a3cc7d;
     color: #a3cc7d;
+    float: left;
 }
 
 .statusByOrder {
@@ -8684,5 +8685,18 @@ display: none;
 }
 .Obligatory_field{
     padding-left: 30px;
+}
+.add_basket{
+    position: fixed;
+    display: none;
+    background-color: #3ebcea;
+    bottom: 0;
+    right: 0;
+    width: 180px;
+    color: #fff;
+    padding: 10px;
+    font-family: "MuseoSansCyrl-500";
+    font-size: 14px;
+    border-radius: 9px 0 0;
 }
 /*компонент main.register шаблон new_registration*/

@@ -337,7 +337,6 @@ $(document).ready(function () {
 
     //кружочек корзина смена картинки при клике
     $('.changingBasket').on("click", function (e) {
-    	e.preventDefault();
         $(this).toggleClass("active");
     });
 
@@ -1510,6 +1509,11 @@ $(document).ready(function () {
         if (ulr) {
             //делаем запрос на нужный урл и преезагружаем область с маленькой корзиной
             $(".js-small-basket").load(ulr + " .js-small-basket > * ");
+            $(".add_basket").html('Товар добавлен в корзину');
+            $(".add_basket").fadeIn('medium');
+            setTimeout(function(){
+                $(".add_basket").fadeOut('medium');
+            },2000);
         }
     })
 

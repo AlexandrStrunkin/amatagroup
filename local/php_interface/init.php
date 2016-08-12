@@ -508,47 +508,42 @@
 		return $result;
 	}
 
+    AddEventHandler("iblock", "OnAfterIBlockElementUpdate", "OnPriceUbdate");
     // Функция проверяет товары на наличие цен если их нет то выводит из торговых предложений и добавляет к товарам
-    function OnPriceUbdate(){
-        //если есть ТП
-        $ar_item_id = Array();
-        $mxResult = CCatalogSKU::GetInfoByProductIBlock(IBLOCK_ID_PRODUCT_CATALOG);
-        if (is_array($mxResult))
-        {
-            $rsOffers = CIBlockElement::GetList(array(),array('IBLOCK_ID' => $mxResult['IBLOCK_ID']), false, Array("nPageSize"=>100), array("ID"));
-            if ($rsOffers->SelectedRowsCount() > 0) {
-                while ($arOffer = $rsOffers->GetNext())
-                {
+    function OnPriceUbdate(&$arFields) {
+        if($arFields["IBLOCK_ID"] == IBLOCK_ID_TROUGH_DIRECTORY){
+            //если есть ТП
+            $ar_item_id = Array();
+            $mxResult = CCatalogSKU::GetInfoByProductIBlock(IBLOCK_ID_PRODUCT_CATALOG);
+            if (is_array($mxResult)) {
+                $rsOffers = CIBlockElement::GetList(array(),array('IBLOCK_ID' => $mxResult['IBLOCK_ID']), false, false, array("ID"));
+                if ($rsOffers->SelectedRowsCount() > 0) {
+                    while ($arOffer = $rsOffers->GetNext()) {
 
-                    $ar_price = GetCatalogProductPrice($arOffer["ID"], CATALOG_GROUP_ID_PRICE_BASE);
-                    arshow($ar_price);
-                    //
-                    $db_res = CIBlockElement::GetList(array(),array('IBLOCK_ID' => IBLOCK_ID_TROUGH_DIRECTORY, "ID"=>$ar_price["PRODUCT_ID"]), false, false, Array('ID',"PROPERTY_CML2_LINK"))->Fetch();
-
-                    $arFields = array(
-                        "PRODUCT_ID" => $db_res["PROPERTY_CML2_LINK_VALUE"],
-                        "PRICE" => $ar_price["PRICE"],
-                        "CURRENCY" => "RUB",
-                        "CATALOG_GROUP_ID" => CATALOG_GROUP_ID_PRICE_BASE,
-                    );
-                    $res = CPrice::GetList(
-                        array(),
-                        array(
+                        $ar_price = GetCatalogProductPrice($arOffer["ID"], CATALOG_GROUP_ID_PRICE);
+                        //
+                        $db_res = CIBlockElement::GetList(array(),array('IBLOCK_ID' => IBLOCK_ID_TROUGH_DIRECTORY, "ID"=>$ar_price["PRODUCT_ID"]), false, false, Array('ID',"PROPERTY_CML2_LINK"))->Fetch();
+                        $arFilter = array(
                             "PRODUCT_ID" => $db_res["PROPERTY_CML2_LINK_VALUE"],
+                            "PRICE" => $ar_price["PRICE"],
+                            "CURRENCY" => "RUB",
                             "CATALOG_GROUP_ID" => CATALOG_GROUP_ID_PRICE,
-                        )
-                    );
-                    if ($arr = $res->Fetch())
-                    {
-                        CPrice::Update($arr["ID"], $arFields);
-                    }
-                    else
-                    {
-                        if(!in_array($ar_price["PRODUCT_ID"],$ar_item_id))
-                        {
-                            $obPrice = CPrice::Add($arFields);
+                        );
+                        $res = CPrice::GetList(
+                            array(),
+                            array(
+                                "PRODUCT_ID" => $db_res["PROPERTY_CML2_LINK_VALUE"],
+                                "CATALOG_GROUP_ID" => CATALOG_GROUP_ID_PRICE,
+                            )
+                        );
 
-                            $ar_item_id[] =  $ar_price["PRODUCT_ID"];
+                        if ($arr = $res->Fetch()) {
+                            CPrice::Update($arr["ID"], $arFilter);
+                        } else {
+                            if(!in_array($ar_price["PRODUCT_ID"],$ar_item_id)) {
+                                $obPrice = CPrice::Add($arFilter);
+                                $ar_item_id[] =  $ar_price["PRODUCT_ID"];
+                            }
                         }
                     }
                 }
