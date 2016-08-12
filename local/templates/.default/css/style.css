@@ -4505,7 +4505,7 @@ background: url(../img/arrow.png) no-repeat 50%;
     text-transform: uppercase;
 }
 
-.firstLvlLi.bx-context-toolbar-empty-area:after {
+.firstLvlLi.Level_next:after {
     content: url("../img/plusMainLeftMenu.png");
     left: 228px;
     position: absolute;

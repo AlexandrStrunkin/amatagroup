@@ -26,14 +26,13 @@
 
 
 <div class="leftFiltersBlock bx-filter <?=$templateData["TEMPLATE_CLASS"]?>" style="display: block">
-    <div class="">           
+    <div class="">
         <form name="<?echo $arResult["FILTER_NAME"]."_form"?>" action="<?echo $arResult["FORM_ACTION"]?>" method="get" class="smartfilter">
             <?foreach($arResult["HIDDEN"] as $arItem):?>
                 <input type="hidden" name="<?echo $arItem["CONTROL_NAME"]?>" id="<?echo $arItem["CONTROL_ID"]?>" value="<?echo $arItem["HTML_VALUE"]?>" />
                 <?endforeach;?>
-            
+
                 <?foreach($arResult["ITEMS"] as $key=>$arItem) {//prices
-						
                         $activeFilterItem = false;
 
                         $key = $arItem["ENCODED_ID"];
@@ -50,32 +49,32 @@
                             if ($arItem["DISPLAY_EXPANDED"] == "Y") {
                                 $activeFilterItem = true;
                             }
-                        ?>       
-                         
-                        <div class="typeBlockFilter bx-filter-parameters-box bx-active">  
-                        <span class="bx-filter-container-modef"></span>    
+                        ?>
+
+                        <div class="typeBlockFilter bx-filter-parameters-box bx-active">
+                        <span class="bx-filter-container-modef"></span>
                             <p class="leftFilterName <?if ($activeFilterItem){?> activeFilter<?}?>"><?=GetMessage("PRICE")?>, <span class="rub">c</span></p>
-                             
+
                             <div class="optionContain <?if ($activeFilterItem){?> active<?}?>" >
-                                
+
                                 <input type="text" id="range" value="" name="range" class="js-range"/>
                                 <input type="hidden" class="js-range-min" value="<?=$arItem["VALUES"]["MIN"]["VALUE"]?>"/>
                                 <input type="hidden" class="js-range-max" value="<?=$arItem["VALUES"]["MAX"]["VALUE"]?>"/>
-                                
+
                                 <input class="min-price" type="hidden" name="<?echo $arItem["VALUES"]["MIN"]["CONTROL_NAME"]?>" id="<?echo $arItem["VALUES"]["MIN"]["CONTROL_ID"]?>"
                                     value="<?echo $arItem["VALUES"]["MIN"]["HTML_VALUE"]?>"
                                     size="5"
                                     onkeyup="smartFilter.keyup(this)"
-                                    />     
+                                    />
 
                                 <input class="max-price" type="hidden" name="<?echo $arItem["VALUES"]["MAX"]["CONTROL_NAME"]?>" id="<?echo $arItem["VALUES"]["MAX"]["CONTROL_ID"]?>"
                                     value="<?echo $arItem["VALUES"]["MAX"]["HTML_VALUE"]?>"
                                     size="5"
                                     onkeyup="smartFilter.keyup(this)"
-                                    />     
+                                    />
                             </div>
-                                       
-                        </div>                
+
+                        </div>
 
                         <?
                             $precision = $arItem["DECIMALS"]? $arItem["DECIMALS"]: 0;
@@ -115,14 +114,14 @@
                     	if ($arItem['ID'] == 353) {
 							continue;
 						}
-						
+
                         if(empty($arItem["VALUES"]) || isset($arItem["PRICE"]))
                             continue;
 
                         if ($arItem["DISPLAY_TYPE"] == "A" && ($arItem["VALUES"]["MAX"]["VALUE"] - $arItem["VALUES"]["MIN"]["VALUE"] <= 0))
                             continue;
 
-                        $activeFilterItem = false;        
+                        $activeFilterItem = false;
 
                         if ($arItem["DISPLAY_EXPANDED"] == "Y") {
                             $activeFilterItem = true;
@@ -130,7 +129,7 @@
                     ?>
                     <div class="typeBlockFilter bx-filter-parameters-box">
                         <span class="bx-filter-container-modef"></span>
-                        <p class="leftFilterName <?if ($activeFilterItem){?> activeFilter<?}?>"><?=$arItem["NAME"]?></p>   
+                        <p class="leftFilterName <?if ($activeFilterItem){?> activeFilter<?}?>"><?=$arItem["NAME"]?></p>
 
                         <?
                             $arCur = current($arItem["VALUES"]);
@@ -250,25 +249,25 @@
                                     </div>
                                 </div>
                                 <?
-                                    break;                                       
+                                    break;
 
                                 default://CHECKBOXES
                                 ?>
-                                <div class="optionContain <?if ($activeFilterItem){?> active<?}?>" >                                   
-                                    <?foreach($arItem["VALUES"] as $val => $ar):?>    
+                                <div class="optionContain <?if ($activeFilterItem){?> active<?}?>" >
+                                    <?foreach($arItem["VALUES"] as $val => $ar):?>
                                         <p>
                                             <input type="checkbox" value="<? echo $ar["HTML_VALUE"] ?>" name="<? echo $ar["CONTROL_NAME"] ?>" id="<? echo $ar["CONTROL_ID"] ?>"
                                                 <? echo $ar["CHECKED"]? 'checked="checked"': '' ?>
                                                 onclick="smartFilter.click(this)" hidden=""
                                                 />
                                             <label class="countryText" data-role="label_<?=$ar["CONTROL_ID"]?>" for="<? echo $ar["CONTROL_ID"] ?>"><?=$ar["VALUE"];?></label>
-                                        </p>                
+                                        </p>
                                         <?endforeach;?>
                                 </div>
                                 <?
                             }
                         ?>
-                    </div>  
+                    </div>
                     <?}?>
 
             <div class="bx-filter-popup-result <?if ($arParams["FILTER_VIEW_MODE"] == "VERTICAL") echo $arParams["POPUP_POSITION"]?>" id="modef" <?if(!isset($arResult["ELEMENT_COUNT"])) echo 'style="display:none"';?> style="display: inline-block;">
@@ -280,16 +279,16 @@
 
             <div class="typeBlockFilter">
                 <input class="accept" type="submit" id="set_filter" name="set_filter" value="<?=GetMessage("CT_BCSF_SET_FILTER")?>" />
-                <input class="clear" type="submit" id="del_filter" name="del_filter" value="<?=GetMessage("CT_BCSF_DEL_FILTER")?>" />    
+                <input class="clear" type="submit" id="del_filter" name="del_filter" value="<?=GetMessage("CT_BCSF_DEL_FILTER")?>" />
             </div>
 
             <div class="typeBlockFilter">
                 <button class="turnButton"><?=GetMessage("CLOSE_FILTER")?></button>
-            </div>   
+            </div>
         </form>
 
     </div>
-</div> 
+</div>
 
 
 <script>
