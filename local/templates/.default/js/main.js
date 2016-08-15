@@ -1078,7 +1078,10 @@ $(document).ready(function () {
                     onChange: function () {
                         var activeFrom = $(".irs-slider.from").hasClass("state_hover"), activeTo = $(".irs-slider.to").hasClass("state_hover"),
                         elFrom = $(".irs-from"), elTo = $(".irs-to");
-
+                        width_price = $(".irs-bar").css('width').substring(0, $(".irs-bar").css('width').length - 2);
+                        if(width_price < 60){
+                            $('.irs-single').css('left', '0'); // ограничим движение цены за край блока
+                        }
                         if (activeFrom) {
                             elFrom.addClass("active");
                         } else {

@@ -248,6 +248,8 @@ $arFirstPhoto = current($arResult['MORE_PHOTO']);
 								? 1
 								: $arResult['CATALOG_MEASURE_RATIO']
 							); ?>">
+                        <a href="" class="quantityPlus"></a>
+                        <a href="" class="quantityMinus"></a>
                     </div>
                 </div>
             </div>
@@ -355,7 +357,7 @@ $arFirstPhoto = current($arResult['MORE_PHOTO']);
             <!--jcarousel-->
             <div class="jcarousel">
                 <ul>
-                <? 
+                <?
 			    $files_count = count($arResult['PROPERTIES']['FILES']['VALUE']);
 			    foreach ($arResult['PROPERTIES']['FILES']['VALUE'] as $file_id) {
 			    	$file = CFile::GetFileArray($file_id);
