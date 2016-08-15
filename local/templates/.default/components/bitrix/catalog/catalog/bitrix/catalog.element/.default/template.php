@@ -248,6 +248,8 @@ $arFirstPhoto = current($arResult['MORE_PHOTO']);
 								? 1
 								: $arResult['CATALOG_MEASURE_RATIO']
 							); ?>">
+                        <a href="" class="quantityPlus"></a>
+                        <a href="" class="quantityMinus"></a>
                     </div>
                 </div>
             </div>
