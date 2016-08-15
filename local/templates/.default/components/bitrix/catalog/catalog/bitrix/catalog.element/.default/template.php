@@ -340,13 +340,21 @@ $arFirstPhoto = current($arResult['MORE_PHOTO']);
     </div>
     <div id="characters" class="basketBlock productSlider" style="display: block">
 		<div id="characteristics_wrapper">
+
 			<? foreach ($arResult['DISPLAY_PROPERTIES'] as $property_code => $property) { ?>
+
 				<? if ($property['VALUE'] && !is_array($property['VALUE'])) { ?>
-				<div class="characteristics_block">
-					<div class="characteristic_title"><?= $property['NAME'] ?>:</div>
-					<div class="characteristic_value"><?= $property['VALUE'] ?></div>
-				</div>
+				    <div class="characteristics_block">
+					    <div class="characteristic_title"><?= $property['NAME'] ?>:</div>
+					    <div class="characteristic_value"><?= $property['VALUE'] ?></div>
+				    </div>
 				<? } ?>
+                <?if($property["VALUE"][2] && is_array($property['VALUE'])){?>
+                    <div class="characteristics_block">
+                        <div class="characteristic_title"><?= $property["DESCRIPTION"][2] ?>:</div>
+                        <div class="characteristic_value"><?= $property['VALUE'][2] ?></div>
+                    </div>
+                <?}?>
 			<? } ?>
 		</div>
     </div>

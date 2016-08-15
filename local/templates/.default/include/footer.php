@@ -1,12 +1,12 @@
 <!--footer-->
 <footer>
     <!--backgroundColor-->
+    <p class="add_basket"></p>
     <div class="backgroundColor">
         <div class="whileWeWrapper">
             <!--hiddenQuestionBlock-->
             <div class="hiddenQuestionBlock">
                 <p class="authClose"></p>
-
                 <form method="post" id="leave_question" action="javascript:void(null);" onsubmit="leave_quastion()">
                     <p class="authTitle"><?=GetMessage('SEND_QUASTION')?></p>
                     <input type="text" required placeholder="<?=GetMessage('REPRESENTATIVE')?>" name="name" class='nameInput'>

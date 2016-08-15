@@ -337,7 +337,6 @@ $(document).ready(function () {
 
     //кружочек корзина смена картинки при клике
     $('.changingBasket').on("click", function (e) {
-    	e.preventDefault();
         $(this).toggleClass("active");
     });
 
@@ -1513,6 +1512,11 @@ $(document).ready(function () {
         if (ulr) {
             //делаем запрос на нужный урл и преезагружаем область с маленькой корзиной
             $(".js-small-basket").load(ulr + " .js-small-basket > * ");
+            $(".add_basket").html('Товар добавлен в корзину');
+            $(".add_basket").fadeIn('medium');
+            setTimeout(function(){
+                $(".add_basket").fadeOut('medium');
+            },2000);
         }
     })
 
@@ -1758,8 +1762,12 @@ $(function() {
         } else {
             return false; //если в форме встретились ошибки , не  позволяем отослать данные на сервер.
         }
-    })
+    });
  });
+
+$(function() {
+   $('.firstLvlLi').find(".secondLvl").parent().addClass('Level_next');
+});
 function isValidEmailAddress(emailAddress) {
     var pattern = new RegExp(/^(("[\w-\s]+")|([\w-]+(?:\.[\w-]+)*)|("[\w-\s]+")([\w-]+(?:\.[\w-]+)*))(@((?:[\w-]+\.)*\w[\w-]{0,66})\.([a-z]{2,6}(?:\.[a-z]{2})?)$)|(@\[?((25[0-5]\.|2[0-4][0-9]\.|1[0-9]{2}\.|[0-9]{1,2}\.))((25[0-5]|2[0-4][0-9]|1[0-9]{2}|[0-9]{1,2})\.){2}(25[0-5]|2[0-4][0-9]|1[0-9]{2}|[0-9]{1,2})\]?$)/i);
     return pattern.test(emailAddress);
