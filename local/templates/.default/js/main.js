@@ -337,7 +337,6 @@ $(document).ready(function () {
 
     //кружочек корзина смена картинки при клике
     $('.changingBasket').on("click", function (e) {
-    	e.preventDefault();
         $(this).toggleClass("active");
     });
 
@@ -543,8 +542,8 @@ $(document).ready(function () {
 
 
                 if (popup.hasClass('hiddenProductComment')) {
-                    var top = (win.height() - popup.height() ) / 2 - 10;
-                    popup.css({top: win.scrollTop()  + top});
+                    var top = (win.height() - popup.height() ) ;
+                    popup.css({top: win.scrollTop() - top});
                 }
 
 
@@ -746,9 +745,8 @@ $(document).ready(function () {
     })
 
 
-    $(".btn").on("submit", function (e) {
-        var el = $(this), input = el.find("input,textarea"), dataError = 0;
-
+    $("body").on('click', ".btn", function (e) {
+        var el = $(this).parent('form'), input = el.find("input,textarea"), dataError = 0;
 
         input.each(function () {
             var el = $(this), val = el.val();
@@ -779,7 +777,6 @@ $(document).ready(function () {
 
 
         });
-
         $("select").each(function () {
             var el = $(this), val = el.val();
             if (val == -1) {
@@ -814,6 +811,8 @@ $(document).ready(function () {
             }
 
 
+        } else {
+            return false;
         }
 
         e.preventDefault();
@@ -1027,7 +1026,6 @@ $(document).ready(function () {
     //открытие блоков детального заказа в ЛК
 
     $(document).on("click", '.settingsWrap .orderContainer .activeOrderTitle', function () {
-        console.log('yes');
         var el = $(this).parent(), top = el.offset().top-15;
         if (el.hasClass('activeOrder')) {
             $('.orderBodyWrap').slideUp(0);
@@ -1079,7 +1077,10 @@ $(document).ready(function () {
                     onChange: function () {
                         var activeFrom = $(".irs-slider.from").hasClass("state_hover"), activeTo = $(".irs-slider.to").hasClass("state_hover"),
                         elFrom = $(".irs-from"), elTo = $(".irs-to");
-
+                        width_price = $(".irs-bar").css('width').substring(0, $(".irs-bar").css('width').length - 2);
+                        if(width_price < 60){
+                            $('.irs-single').css('left', '0'); // ограничим движение цены за край блока
+                        }
                         if (activeFrom) {
                             elFrom.addClass("active");
                         } else {
@@ -1163,7 +1164,6 @@ $(document).ready(function () {
         $(".typeBlockFilter label,.irs").on("click", function () {
             var el = $(this).closest(".typeBlockFilter"), close = el.find(".close");
             setTimeout(function(){
-                console.log(el.find("input:checked").length);
                 var l = el.find("input:checked").length;
                 if (l == 0) {
                     close.hide();
@@ -1512,6 +1512,11 @@ $(document).ready(function () {
         if (ulr) {
             //делаем запрос на нужный урл и преезагружаем область с маленькой корзиной
             $(".js-small-basket").load(ulr + " .js-small-basket > * ");
+            $(".add_basket").html('Товар добавлен в корзину');
+            $(".add_basket").fadeIn('medium');
+            setTimeout(function(){
+                $(".add_basket").fadeOut('medium');
+            },2000);
         }
     })
 
@@ -1543,6 +1548,19 @@ $(document).ready(function () {
         }
     })
 
+    // добавление знака "звёздочки", если поле формы "Задать вопрос" обязательное
+
+    $("#form_container .leftBlock input").each(function(){
+        if ($(this).prop("required")) {
+            $(this).attr("placeholder", $(this).attr("placeholder") + " *");
+        }
+    });
+
+    $("#form_container .rightBlock textarea").each(function(){
+        if ($(this).prop("required")) {
+            $(this).attr("placeholder", $(this).attr("placeholder") + " *");
+        }
+    })
 
 });
 
@@ -1635,10 +1653,15 @@ function animateSecondLvl() {
 
 function leave_quastion(){
     var form = $('#leave_question').serialize();
+
     $.ajax({
         url: '/ajax/send_quastion.php', //the URL to your node.js server that has data
         type: 'POST',
         data:  form,
+        success:function(data){
+            $('#leave_question').hide();
+            $('.hiddenQuestionBlock .message').show();
+        }
     }).done(function(data){
        $('#leave_question .message').show();
        $('#leave_question .message').html('Заполните все поля!')
@@ -1739,8 +1762,12 @@ $(function() {
         } else {
             return false; //если в форме встретились ошибки , не  позволяем отослать данные на сервер.
         }
-    })
+    });
  });
+
+$(function() {
+   $('.firstLvlLi').find(".secondLvl").parent().addClass('Level_next');
+});
 function isValidEmailAddress(emailAddress) {
     var pattern = new RegExp(/^(("[\w-\s]+")|([\w-]+(?:\.[\w-]+)*)|("[\w-\s]+")([\w-]+(?:\.[\w-]+)*))(@((?:[\w-]+\.)*\w[\w-]{0,66})\.([a-z]{2,6}(?:\.[a-z]{2})?)$)|(@\[?((25[0-5]\.|2[0-4][0-9]\.|1[0-9]{2}\.|[0-9]{1,2}\.))((25[0-5]|2[0-4][0-9]|1[0-9]{2}|[0-9]{1,2})\.){2}(25[0-5]|2[0-4][0-9]|1[0-9]{2}|[0-9]{1,2})\]?$)/i);
     return pattern.test(emailAddress);
