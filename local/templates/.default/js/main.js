@@ -1789,11 +1789,12 @@ function ajaxpostshow(urlres, datares, wherecontent){
            }
       });
 }
-
+$(function() {
    /* For subscribe */
-  $(".deliveryBlock form .mailing-submit").live("click",function(){
+  $(".deliveryBlock form").on("click", '.mailing-submit', function(){
         var formsubscrube = $(this).parents("form").serialize();
         formsubscrube = formsubscrube + '&action=ajax';
         ajaxpostshow("/ajax/mailing.php", formsubscrube, ".deliveryBlock" );
         return false;
    });
+});

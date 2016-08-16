@@ -48,7 +48,7 @@ if($_POST["email"]) {
 
 ?>
 
-<form action="/include/ajax/subscribe.php" name="subscribe" method="post">
+<form action="" name="subscribe" method="post">
     <input type="text" class="<?=$ajax_color?>" value="" title="Ваш e-mail" placeholder="<?=($popuptext)? $popuptext: 'Введите свою почту для получения рассылки'?>" class="mailing-text" name="email"/>
     <input type="submit" value="Подписаться" title="" class="mailing-submit" /><br />
 </form>
