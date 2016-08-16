@@ -8682,5 +8682,16 @@ display: none;
 .bx-authform-social ul li:before{
     content: '';
 }
+/*Подписка*/
+.green::-webkit-input-placeholder {color:green;}
+.green::-moz-placeholder          {color:green;}/* Firefox 19+ */
+.green:-moz-placeholder           {color:green;}/* Firefox 18- */
+.green:-ms-input-placeholder      {color:green;}
+
+.red::-webkit-input-placeholder {color:red;}
+.red::-moz-placeholder          {color:red;}/* Firefox 19+ */
+.red:-moz-placeholder           {color:red;}/* Firefox 18- */
+.red:-ms-input-placeholder      {color:red;}
+/*Подписка*/
 
 /*компонент main.register шаблон new_registration*/

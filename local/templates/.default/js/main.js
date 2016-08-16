@@ -1748,3 +1748,25 @@ function isValidEmailAddress(emailAddress) {
 
 
 //  компонент main.register шаблон new_registration
+
+/* Function for ours ajax inquiry  */
+/* Подписка  */
+function ajaxpostshow(urlres, datares, wherecontent){
+       $.ajax({
+           type: "POST",
+           url: urlres,
+           data: datares,
+           dataType: "html",
+           success: function(fillter){
+                $(wherecontent).html(fillter);
+           }
+      });
+}
+
+   /* For subscribe */
+  $(".deliveryBlock form .mailing-submit").live("click",function(){
+        var formsubscrube = $(this).parents("form").serialize();
+        formsubscrube = formsubscrube + '&action=ajax';
+        ajaxpostshow("/ajax/mailing.php", formsubscrube, ".deliveryBlock" );
+        return false;
+   });

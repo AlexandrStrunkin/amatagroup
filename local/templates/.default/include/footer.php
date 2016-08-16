@@ -45,19 +45,14 @@
                         </td>
                         <td class="deliveryBlock">
                         <?$APPLICATION->IncludeComponent(
-	                        "bitrix:subscribe.form",
-	                        "subscription_form",
-	                        array(
-		                        "USE_PERSONALIZATION" => "Y",
-		                        "PAGE" => "#SITE_DIR#personal/subscribe/subscr_edit.php",
-		                        "SHOW_HIDDEN" => "N",
-		                        "CACHE_TYPE" => "A",
-		                        "CACHE_TIME" => "3600",
-		                        "COMPONENT_TEMPLATE" => "subscription_form"
-	                        ),
-	                        false
+                            "bitrix:main.include",
+                            "",
+                            Array(
+                                "AREA_FILE_SHOW" => "file",
+                                "PATH" => "/ajax/mailing.php",
+                                "EDIT_TEMPLATE" => ""
+                            )
                         );?>
-
                         </td>
                         <td class="callBackBlock">
                             <p><a href="javascript:void(0);"><?=GetMessage('CALL_BACK')?></a></p>
