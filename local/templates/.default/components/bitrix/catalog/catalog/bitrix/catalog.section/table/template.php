@@ -156,7 +156,7 @@
                                 if (isset($arItem['MIN_PRICE']) || isset($arItem['RATIO_PRICE']))
                                     $minPrice = (isset($arItem['RATIO_PRICE']) ? $arItem['RATIO_PRICE'] : $arItem['MIN_PRICE']);
 
-                                    $arItem["MIN_PRICE_TMP"] = $minPrice;
+                                $arItem["MIN_PRICE_TMP"] = $minPrice;
 
                             ?>
 
@@ -181,11 +181,9 @@
                                         <?
                                             //шильдик последние поступления. Если товар  создан менее 2 дней назад
                                         } else /*if ($arItem["CAN_BUY"] == "Y")*/{?>
-                                        <p class="elementStatus statusInStock" style="<?= $arItem["CAN_BUY"] == "Y" ? "display:block" : "display:none" ?>" ><?= GetMessage("PRODUCT_AVAILABLE") ?></p>
+                                        <p class="elementStatus statusInStock" style="<?= $arItem["CAN_BUY"] == "Y" ? "" : "display:none" ?>" ><?= GetMessage("PRODUCT_AVAILABLE") ?></p>
                                         <?}?>
                                     <br>
-
-
                                     <p class="elementTitle">
                                         <span>
                                             <a href="<?=$arItem['DETAIL_PAGE_URL'];?>" title="<?=$arItem["NAME"]?>">
@@ -200,7 +198,10 @@
                                     <?if (isset($arItem['OFFERS']) && !empty($arItem['OFFERS'])) {?>
                                         <div class="selectric-wrapper selectric-basketSelect">
                                             <select name="color" data-item-id="<?=$arItem["ID"]?>" class="js-offer-select">
-                                            	<? $first_offer = array_shift($arItem["OFFERS"]); ?>
+                                                <?  
+                                                    //получаем первое активное предложение  
+                                                    $first_offer = $arItem["OFFERS"][0];
+                                                ?>
                                                 <?
                                                     $offerNameVisible = $first_offer["NAME"];
                                                     $offerName = array();
@@ -267,7 +268,7 @@
                                     </p>
 
                                     <? if (isset($arItem['OFFERS']) && !empty($arItem['OFFERS'])) { ?>
-                                      <p data-offer-id="<?=$first_offer["ID"]?>" class="js-item-price" data-item-id="<?=$arItem["ID"]?>">
+                                        <p data-offer-id="<?=$first_offer["ID"]?>" class="js-item-price" data-item-id="<?=$arItem["ID"]?>">
                                             <?
                                                 $minPrice = (isset($first_offer['RATIO_PRICE']) ? $first_offer['RATIO_PRICE'] : $first_offer['MIN_PRICE']);
 
@@ -281,22 +282,22 @@
                                                 unset($minPrice);
                                             ?> &nbsp;
                                         </p>
-                                      <? foreach ($arItem['OFFERS'] as $offer) {?>
-                                        <p data-offer-id="<?=$offer["ID"]?>" class="js-item-price" style="display: none;" data-item-id="<?=$arItem["ID"]?>">
-                                            <?
-                                                $minPrice = (isset($offer['RATIO_PRICE']) ? $offer['RATIO_PRICE'] : $offer['MIN_PRICE']);
-
-                                                echo $minPrice['PRINT_DISCOUNT_VALUE'];
-
-                                                if ('Y' == $arParams['SHOW_OLD_PRICE'] && $minPrice['DISCOUNT_VALUE'] < $minPrice['VALUE']) {?>
-                                                <br>&nbsp;<span class="old_price"><? echo $minPrice['PRINT_VALUE']; ?></span>
+                                        <? foreach ($arItem['OFFERS'] as $offer) {?>
+                                            <p data-offer-id="<?=$offer["ID"]?>" class="js-item-price" style="display: none;" data-item-id="<?=$arItem["ID"]?>">
                                                 <?
-                                                }
+                                                    $minPrice = (isset($offer['RATIO_PRICE']) ? $offer['RATIO_PRICE'] : $offer['MIN_PRICE']);
 
-                                                unset($minPrice);
-                                            ?> &nbsp;
-                                        </p>
-                                        <?}
+                                                    echo $minPrice['PRINT_DISCOUNT_VALUE'];
+
+                                                    if ('Y' == $arParams['SHOW_OLD_PRICE'] && $minPrice['DISCOUNT_VALUE'] < $minPrice['VALUE']) {?>
+                                                    <br>&nbsp;<span class="old_price"><? echo $minPrice['PRINT_VALUE']; ?></span>
+                                                    <?
+                                                    }
+
+                                                    unset($minPrice);
+                                                ?> &nbsp;
+                                            </p>
+                                            <?}
                                     }?>
 
 
@@ -606,18 +607,18 @@
 
                                 <td class="elementActions">
                                     <a href="javascript:void(0)"
-						               class="list_favorite likedButton <?= $arResult['USER_AUTHORIZED'] ?  ($arItem['USER_HAVE_ITEM_IN_FAVORITE'] ? " activeLikeBut already_in_favorite" : " js_add_to_favorite") : " js_favorite_need_auth" ?>"
-						               data-favorite-product-id="<?= $arItem["ID"] ?>"
-						               data-favorite-delete="<?= $arItem['USER_HAVE_ITEM_IN_FAVORITE'] ? "Y" : "" ?>"
-						               data-favorite-item-id="<?= $arItem['USER_HAVE_ITEM_IN_FAVORITE'] ?>">
-						               <p></p>
-						            </a>
+                                        class="list_favorite likedButton <?= $arResult['USER_AUTHORIZED'] ?  ($arItem['USER_HAVE_ITEM_IN_FAVORITE'] ? " activeLikeBut already_in_favorite" : " js_add_to_favorite") : " js_favorite_need_auth" ?>"
+                                        data-favorite-product-id="<?= $arItem["ID"] ?>"
+                                        data-favorite-delete="<?= $arItem['USER_HAVE_ITEM_IN_FAVORITE'] ? "Y" : "" ?>"
+                                        data-favorite-item-id="<?= $arItem['USER_HAVE_ITEM_IN_FAVORITE'] ?>">
+                                        <p></p>
+                                    </a>
 
                                     <? if (($arItem['CAN_BUY'] && empty($arItem["OFFERS"])) || !empty($arItem["OFFERS"])) { ?>
                                         <div id="<? echo $arItemIDs['BASKET_ACTIONS']; ?>"  <?if ($arItem['IN_BASKET'] == "Y") { ?> title="<?=GetMessage("PRODUCT_ALREADY_IN_BASKET")?>"<?}?>  class="bx_catalog_item_controls_blocktwo productBasketBlock changingBasket <?if ($arItem['IN_BASKET'] == "Y"){?> active<?}?>">
                                             <a id="<? echo $arItemIDs['BUY_LINK']; ?>" data-item-id="<?=$arItem["ID"]?>" class="blockLink bx_bt_button bx_medium <?if ($arItem['IN_BASKET'] != "Y") {?>js-add-to-basket <?}?>" href="<?if (empty($arItem["OFFERS"])) {echo $arItem['ADD_URL'];} elseif ((isset($arItem['OFFERS']) && !empty($arItem['OFFERS'])) || $first_offer) { echo $first_offer['ADD_URL']; }?>" rel="nofollow"></a>
                                         </div>
-                                    <? } ?>
+                                        <? } ?>
                                 </td>
 
                             </tr>
