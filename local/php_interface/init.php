@@ -38,49 +38,49 @@
     define("CATALOG_IBLOCK_ID", 5); //main catalog
     define("OFFERS_IBLOCK_ID", 6);  //offers
     define("FAVORITE_IBLOCK_ID", 12);
-	define("USER_SAVED_ADDRESSES_IBLOCK_ID", 13);
-	define("BRANDS_IBLOCK_ID", 14);
+    define("USER_SAVED_ADDRESSES_IBLOCK_ID", 13);
+    define("BRANDS_IBLOCK_ID", 14);
 
     define("USER_QUESTIONS_IBLOCK_ID", 22);
     define("USER_QUESTIONS_FAQ_IBLOCK_ID", 24);
 
-	define("RETAIL_IBLOCK_ID", 28);
+    define("RETAIL_IBLOCK_ID", 28);
 
-	define("USER_SAVED_ADDRESSES_STREET_PROPERTY", 433); // улица
-	define("USER_SAVED_ADDRESSES_HOUSING_PROPERTY", 434); // Строение/корпус
-	define("USER_SAVED_ADDRESSES_BUILDING_PROPERTY", 435); // Дом
-	define("USER_SAVED_ADDRESSES_APARTMENT_PROPERTY", 436); // Квартира/офис
-	define("USER_SAVED_ADDRESSES_BX_LOCATION_ID_PROPERTY", 437); // ID местоположения битрикс
+    define("USER_SAVED_ADDRESSES_STREET_PROPERTY", 433); // улица
+    define("USER_SAVED_ADDRESSES_HOUSING_PROPERTY", 434); // Строение/корпус
+    define("USER_SAVED_ADDRESSES_BUILDING_PROPERTY", 435); // Дом
+    define("USER_SAVED_ADDRESSES_APARTMENT_PROPERTY", 436); // Квартира/офис
+    define("USER_SAVED_ADDRESSES_BX_LOCATION_ID_PROPERTY", 437); // ID местоположения битрикс
 
-	define("USER_QUESTIONS_EMAIL_PROPERTY", 468);
-	define("USER_QUESTIONS_COMPANY_PROPERTY", 469);
-	define("USER_QUESTIONS_QUESTION_PROPERTY", 470);
+    define("USER_QUESTIONS_EMAIL_PROPERTY", 468);
+    define("USER_QUESTIONS_COMPANY_PROPERTY", 469);
+    define("USER_QUESTIONS_QUESTION_PROPERTY", 470);
 
-	define("USER_FAQ_QUESTIONS_EMAIL_PROPERTY", 473);
-	define("USER_FAQ_QUESTIONS_COMPANY_PROPERTY", 474);
+    define("USER_FAQ_QUESTIONS_EMAIL_PROPERTY", 473);
+    define("USER_FAQ_QUESTIONS_COMPANY_PROPERTY", 474);
 
-	define("ORDER_LOCATION_ID", 18); // местоположение
-	define("ORDER_LOCATION", "ORDER_PROP_18"); // местоположение
-	define("ORDER_STREET", "ORDER_PROP_20"); // улица
-	define("ORDER_HOUSING", "ORDER_PROP_21"); // Строение/корпус
-	define("ORDER_BUILDING", "ORDER_PROP_22"); // Дом
-	define("ORDER_APARTMENT", "ORDER_PROP_23"); // Квартира/офис
-	define("DEFAULT_LOCATION_ID", 129); // Дефолтное местоположение - Москва
+    define("ORDER_LOCATION_ID", 18); // местоположение
+    define("ORDER_LOCATION", "ORDER_PROP_18"); // местоположение
+    define("ORDER_STREET", "ORDER_PROP_20"); // улица
+    define("ORDER_HOUSING", "ORDER_PROP_21"); // Строение/корпус
+    define("ORDER_BUILDING", "ORDER_PROP_22"); // Дом
+    define("ORDER_APARTMENT", "ORDER_PROP_23"); // Квартира/офис
+    define("DEFAULT_LOCATION_ID", 129); // Дефолтное местоположение - Москва
 
-	define("ELEMENT_CARD_PREVIEW_HEIGHT", 83);
-	define("ELEMENT_CARD_PREVIEW_WIDTH", 76);
-	define("ELEMENT_CARD_MAIN_HEIGHT", 520);
-	define("ELEMENT_CARD_MAIN_WIDTH", 520);
+    define("ELEMENT_CARD_PREVIEW_HEIGHT", 83);
+    define("ELEMENT_CARD_PREVIEW_WIDTH", 76);
+    define("ELEMENT_CARD_MAIN_HEIGHT", 520);
+    define("ELEMENT_CARD_MAIN_WIDTH", 520);
 
-	define("CARD_QUESTION_FORM_TEMPLATE_ID", 77);
-	define("QUESTION_FORM_TEMPLATE_ID", 78);
-	define("FORM_FROM_EMAIL", "info@amatagroup.ru");
+    define("CARD_QUESTION_FORM_TEMPLATE_ID", 77);
+    define("QUESTION_FORM_TEMPLATE_ID", 78);
+    define("FORM_FROM_EMAIL", "info@amatagroup.ru");
 
-	define("MANUFACTURER_FOOTER_FORM", "MANUFACTURER_FOOTER_FORM");
-	define("CONTACTS_FEEDBACK_FORM", "CONTACTS_FEEDBACK_FORM");
-	define("QUESTION_PRODUCT_CARD", "QUESTION_PRODUCT_CARD");
-	define("FAQ_FORM", "FAQ_FORM");
-	define("ABOUT_FORM", "ABOUT_FORM");
+    define("MANUFACTURER_FOOTER_FORM", "MANUFACTURER_FOOTER_FORM");
+    define("CONTACTS_FEEDBACK_FORM", "CONTACTS_FEEDBACK_FORM");
+    define("QUESTION_PRODUCT_CARD", "QUESTION_PRODUCT_CARD");
+    define("FAQ_FORM", "FAQ_FORM");
+    define("ABOUT_FORM", "ABOUT_FORM");
 
     /*константы для отображения каталога*/
     define("DEFAULT_PAGE_ELEMENT_COUNT", $GLOBALS["availableParams"]["PAGE_ELEMENT_COUNT"][0]); //количество элементов на странице раздела каталога по умолчанию
@@ -91,8 +91,8 @@
     define("DEFAULT_CATALOG_SECTION_TEMPLATE", "blocks"); //шаблон для отображения элементов раздела по умолчанию
     /*///*/
 
-	/* службы доставки */
-	define("COURIER_DELIVERY", 2);
+    /* службы доставки */
+    define("COURIER_DELIVERY", 2);
 
     define("NEW_PRODUCT_STATUS_LENGTH", 14); //количество дней, котрое товар считается новинкой
     define("FRESH_PRODUCT_STATUS_LENGTH", 2); //количество дней, котрое товар считается последним поступлением
@@ -110,7 +110,7 @@
 
 
     // файл с кодом для избранного
-	file_exists($_SERVER['DOCUMENT_ROOT'] . '/local/php_interface/favorite/class.php') ? require_once($_SERVER['DOCUMENT_ROOT'] . '/local/php_interface/favorite/class.php') : "";
+    file_exists($_SERVER['DOCUMENT_ROOT'] . '/local/php_interface/favorite/class.php') ? require_once($_SERVER['DOCUMENT_ROOT'] . '/local/php_interface/favorite/class.php') : "";
 
     function arshow($array, $adminCheck = false){
         global $USER;
@@ -125,43 +125,43 @@
         echo "</pre>";
     }
 
-	function getFormTypes() {
-		return array(
-			MANUFACTURER_FOOTER_FORM => 'Вопрос производителю из футера',
-			CONTACTS_FEEDBACK_FORM   => 'Обратная связь из контактов',
-			QUESTION_PRODUCT_CARD    => 'Задать вопрос из карточки товара',
-			FAQ_FORM                 => 'Форма "Вопрос-ответ"',
-			ABOUT_FORM               => 'Форма вопроса из раздела "О компании"'
-		);
-	}
-
-    /**
-	 *
-	 * Возвращает автоматически определенный город при помощи модуля Altasib
-	 * Требует установленного модуля http://marketplace.1c-bitrix.ru/solutions/altasib.geobase/
-	 *
-	 * @return bool|string
-	 *
-	 * */
-    function getAltasibCity() {
-    	return $_SESSION["ALTASIB_GEOBASE_CODE"]["CITY"]["NAME"] ? $_SESSION["ALTASIB_GEOBASE_CODE"]["CITY"]["NAME"] : false;
+    function getFormTypes() {
+        return array(
+            MANUFACTURER_FOOTER_FORM => 'Вопрос производителю из футера',
+            CONTACTS_FEEDBACK_FORM   => 'Обратная связь из контактов',
+            QUESTION_PRODUCT_CARD    => 'Задать вопрос из карточки товара',
+            FAQ_FORM                 => 'Форма "Вопрос-ответ"',
+            ABOUT_FORM               => 'Форма вопроса из раздела "О компании"'
+        );
     }
 
-	/**
-	 *
-	 * @param int $photo_id
-	 * @param int $width
-	 * @param int $height
-	 * @param string $type
-	 * @return string $src
-	 *
-	 * */
+    /**
+    *
+    * Возвращает автоматически определенный город при помощи модуля Altasib
+    * Требует установленного модуля http://marketplace.1c-bitrix.ru/solutions/altasib.geobase/
+    *
+    * @return bool|string
+    *
+    * */
+    function getAltasibCity() {
+        return $_SESSION["ALTASIB_GEOBASE_CODE"]["CITY"]["NAME"] ? $_SESSION["ALTASIB_GEOBASE_CODE"]["CITY"]["NAME"] : false;
+    }
+
+    /**
+    *
+    * @param int $photo_id
+    * @param int $width
+    * @param int $height
+    * @param string $type
+    * @return string $src
+    *
+    * */
     function getResizedImage($photo_id, $width, $height, $type) {
-    	$file_path = CFile::GetPath($photo_id);
-    	if ($file_path && (int)$width && (int)$height && strval($width)) {
-    		$preview_img_file = CFile::ResizeImageGet($photo_id, array('width' => $width, 'height' => $height), $type, true);
-			return $preview_img_file['src'];
-    	}
+        $file_path = CFile::GetPath($photo_id);
+        if ($file_path && (int)$width && (int)$height && strval($width)) {
+            $preview_img_file = CFile::ResizeImageGet($photo_id, array('width' => $width, 'height' => $height), $type, true);
+            return $preview_img_file['src'];
+        }
     }
 
     //подмена логина на EMAIL при регистрации и изменении пользователя
@@ -176,23 +176,23 @@
     // отправляем пользователю письмо об успешной регистрации
     AddEventHandler("main", "OnAfterUserAdd", "OnAfterUserRegisterHandler");
     AddEventHandler("main", "OnAfterUserRegister", "OnAfterUserRegisterHandler");
-        function OnAfterUserRegisterHandler(&$arFields)
+    function OnAfterUserRegisterHandler(&$arFields)
+    {
+        if (intval($arFields["ID"])>0)
         {
-           if (intval($arFields["ID"])>0)
-           {
-              $toSend = Array();
-              $toSend["PASSWORD"] = $arFields["CONFIRM_PASSWORD"];
-              $toSend["EMAIL"] = $arFields["EMAIL"];
-              $toSend["USER_ID"] = $arFields["ID"];
-              $toSend["USER_IP"] = $arFields["USER_IP"];
-              $toSend["USER_HOST"] = $arFields["USER_HOST"];
-              $toSend["LOGIN"] = $arFields["LOGIN"];
-              $toSend["NAME"] = (trim ($arFields["NAME"]) == "")? $toSend["NAME"] = htmlspecialchars('Не указано'): $arFields["NAME"];
-              $toSend["LAST_NAME"] = (trim ($arFields["LAST_NAME"]) == "")? $toSend["LAST_NAME"] = htmlspecialchars('Не указано'): $arFields["LAST_NAME"];
-              CEvent::SendImmediate ("NEW_USER", SITE_ID, $toSend);
-           }
-           return $arFields;
+            $toSend = Array();
+            $toSend["PASSWORD"] = $arFields["CONFIRM_PASSWORD"];
+            $toSend["EMAIL"] = $arFields["EMAIL"];
+            $toSend["USER_ID"] = $arFields["ID"];
+            $toSend["USER_IP"] = $arFields["USER_IP"];
+            $toSend["USER_HOST"] = $arFields["USER_HOST"];
+            $toSend["LOGIN"] = $arFields["LOGIN"];
+            $toSend["NAME"] = (trim ($arFields["NAME"]) == "")? $toSend["NAME"] = htmlspecialchars('Не указано'): $arFields["NAME"];
+            $toSend["LAST_NAME"] = (trim ($arFields["LAST_NAME"]) == "")? $toSend["LAST_NAME"] = htmlspecialchars('Не указано'): $arFields["LAST_NAME"];
+            CEvent::SendImmediate ("NEW_USER", SITE_ID, $toSend);
         }
+        return $arFields;
+    }
 
     /***
     * функция возвращает массив параметров для отображения каталога:
@@ -231,17 +231,18 @@
     */
     function setCatalogViewParams($arParams = array(), $pageRefresh = false) {
 
+
+
         $availableParams = $GLOBALS["availableParams"];
 
         //если мя параметра присутствует в массиве допустимых параметров
         if (is_array($arParams) && count($arParams) > 0) {
             foreach ($arParams as $paramName => $paramValue) {
-                if (is_array($availableParams[$paramName]) && in_array($paramValue, $availableParams[$paramName])) {
+                if (is_array($availableParams[$paramName]) && in_array($paramValue, $availableParams[$paramName])) {      
                     $_SESSION["CATALOG_PARAMS"][$paramName] = $paramValue;
                 }
             }
-        }
-
+        }          
         //при необходимости делаем перезагрузку страницы и удаляем параметры из урла
         if ($pageRefresh) {
             header ("location: ".$_SERVER["HTTP_REFERER"]);
@@ -337,12 +338,12 @@
         $availableParams = $GLOBALS["availableParams"]; //параметры для отображения каталога
         //если в массиве $_GET есть параметры для отображения каталога, то переписываем их
         $result = array();
-        //проверяем корректность параметров
+        //проверяем корректность параметров        
         foreach ($availableParams as $paramKey => $paramValue) {
             if ($_GET[$paramKey] && in_array($_GET[$paramKey], $paramValue)) {
                 $result[$paramKey] = $_GET[$paramKey];
             }
-        }
+        }      
         //после окончания формирования массива перезагружаем страницу
         if (count($result) > 0) {
             setCatalogViewParams($result, true);
@@ -374,139 +375,139 @@
         return $arResult;
     }
 
-	AddEventHandler("sale", "OnBeforeOrderAdd", "addUserLocationToSaved");
+    AddEventHandler("sale", "OnBeforeOrderAdd", "addUserLocationToSaved");
 
-	/**
-	 *
-	 * Возвращаем сохраненные адреса для пользователя
-	 *
-	 * @param int $user_id
-	 * @return array $addresses
-	 *
-	 * */
-	function getUsersSavedLocations($user_id) {
+    /**
+    *
+    * Возвращаем сохраненные адреса для пользователя
+    *
+    * @param int $user_id
+    * @return array $addresses
+    *
+    * */
+    function getUsersSavedLocations($user_id) {
 
-		$addresses = array();
+        $addresses = array();
 
-		$select = Array(
-			"ID",
-			"IBLOCK_ID",
-			"NAME",
-			"PROPERTY_BX_LOCATION_ID",
-			"PROPERTY_CITY",
-			"PROPERTY_STREET",
-			"PROPERTY_HOUSING",
-			"PROPERTY_BUILDING",
-			"PROPERTY_APARTMENT",
-		);
-		$filter = Array(
-			"IBLOCK_ID"  => USER_SAVED_ADDRESSES_IBLOCK_ID,
-			"CREATED_BY" => $user_id,
-			"ACTIVE"     => "Y"
-		);
+        $select = Array(
+            "ID",
+            "IBLOCK_ID",
+            "NAME",
+            "PROPERTY_BX_LOCATION_ID",
+            "PROPERTY_CITY",
+            "PROPERTY_STREET",
+            "PROPERTY_HOUSING",
+            "PROPERTY_BUILDING",
+            "PROPERTY_APARTMENT",
+        );
+        $filter = Array(
+            "IBLOCK_ID"  => USER_SAVED_ADDRESSES_IBLOCK_ID,
+            "CREATED_BY" => $user_id,
+            "ACTIVE"     => "Y"
+        );
 
-		$saved_addresses = CIBlockElement::GetList(Array(), $filter, false, false, $select);
-		while ($address = $saved_addresses->Fetch()) {
-			array_push($addresses, $address);
-		}
+        $saved_addresses = CIBlockElement::GetList(Array(), $filter, false, false, $select);
+        while ($address = $saved_addresses->Fetch()) {
+            array_push($addresses, $address);
+        }
 
-		return $addresses;
-	}
+        return $addresses;
+    }
 
-	/**
-	 * Добавить метоположение в избранное
-	 *
-	 * @param array $arFields
-	 * @return int|string
-	 *
-	 * */
+    /**
+    * Добавить метоположение в избранное
+    *
+    * @param array $arFields
+    * @return int|string
+    *
+    * */
 
-	function addUserLocationToSaved(&$arFields) {
-		global $USER;
-		// очищаем ID выбранного адреса избранного
-		unset($_SESSION['SAVED_ADDRESS_ID']);
+    function addUserLocationToSaved(&$arFields) {
+        global $USER;
+        // очищаем ID выбранного адреса избранного
+        unset($_SESSION['SAVED_ADDRESS_ID']);
 
-		if ($arFields['DELIVERY_ID'] != COURIER_DELIVERY) {
-			$request_location  = (int)$_POST[ORDER_LOCATION];
-			$request_street    = trim((string)$_POST[ORDER_STREET]);
-			$request_housing   = (int)$_POST[ORDER_HOUSING];
-			$request_building  = (int)$_POST[ORDER_BUILDING];
-			$request_apartment = (int)$_POST[ORDER_APARTMENT];
+        if ($arFields['DELIVERY_ID'] != COURIER_DELIVERY) {
+            $request_location  = (int)$_POST[ORDER_LOCATION];
+            $request_street    = trim((string)$_POST[ORDER_STREET]);
+            $request_housing   = (int)$_POST[ORDER_HOUSING];
+            $request_building  = (int)$_POST[ORDER_BUILDING];
+            $request_apartment = (int)$_POST[ORDER_APARTMENT];
 
-			if (!isLocationAlreadySaved($request_location, $request_street, $request_housing, $request_building, $request_apartment)) {
-				$location_string = "";
-				$location = CSaleLocation::GetByID($request_location);
-				if (is_array($location)) {
-					$location_string .= ($location["CITY_NAME_ORIG"] ? $location["CITY_NAME_ORIG"] : $location["REGION_NAME_ORIG"]) . ", "; // город или область
-					$location_string .= $request_street ? "ул. " . $request_street . ", " : ""; // улица
-					$location_string .= $request_housing ? "корпус " . $request_housing . ", " : ""; // корпус
-					$location_string .= $request_building ? "д. " . $request_building . ", " : ""; // дом
-					$location_string .= $request_apartment ? "кв. " . $request_apartment . ", " : ""; // квартира
-				}
-				$new_saved_location = new CIBlockElement;
+            if (!isLocationAlreadySaved($request_location, $request_street, $request_housing, $request_building, $request_apartment)) {
+                $location_string = "";
+                $location = CSaleLocation::GetByID($request_location);
+                if (is_array($location)) {
+                    $location_string .= ($location["CITY_NAME_ORIG"] ? $location["CITY_NAME_ORIG"] : $location["REGION_NAME_ORIG"]) . ", "; // город или область
+                    $location_string .= $request_street ? "ул. " . $request_street . ", " : ""; // улица
+                    $location_string .= $request_housing ? "корпус " . $request_housing . ", " : ""; // корпус
+                    $location_string .= $request_building ? "д. " . $request_building . ", " : ""; // дом
+                    $location_string .= $request_apartment ? "кв. " . $request_apartment . ", " : ""; // квартира
+                }
+                $new_saved_location = new CIBlockElement;
 
-				$properties = array();
-				$properties[USER_SAVED_ADDRESSES_BX_LOCATION_ID_PROPERTY] = $request_location;
-				$properties[USER_SAVED_ADDRESSES_STREET_PROPERTY] = $request_street;
-				$properties[USER_SAVED_ADDRESSES_HOUSING_PROPERTY] = $request_housing;
-				$properties[USER_SAVED_ADDRESSES_BUILDING_PROPERTY] = $request_building;
-				$properties[USER_SAVED_ADDRESSES_APARTMENT_PROPERTY] = $request_apartment;
+                $properties = array();
+                $properties[USER_SAVED_ADDRESSES_BX_LOCATION_ID_PROPERTY] = $request_location;
+                $properties[USER_SAVED_ADDRESSES_STREET_PROPERTY] = $request_street;
+                $properties[USER_SAVED_ADDRESSES_HOUSING_PROPERTY] = $request_housing;
+                $properties[USER_SAVED_ADDRESSES_BUILDING_PROPERTY] = $request_building;
+                $properties[USER_SAVED_ADDRESSES_APARTMENT_PROPERTY] = $request_apartment;
 
-				$saved_location_data = Array(
-					"MODIFIED_BY"       => $USER->GetID(),
-					"IBLOCK_SECTION_ID" => false,
-					"IBLOCK_ID"         => USER_SAVED_ADDRESSES_IBLOCK_ID,
-					"PROPERTY_VALUES"   => $properties,
-					"NAME"              => $location_string,
-					"ACTIVE"            => "Y"
-				);
+                $saved_location_data = Array(
+                    "MODIFIED_BY"       => $USER->GetID(),
+                    "IBLOCK_SECTION_ID" => false,
+                    "IBLOCK_ID"         => USER_SAVED_ADDRESSES_IBLOCK_ID,
+                    "PROPERTY_VALUES"   => $properties,
+                    "NAME"              => $location_string,
+                    "ACTIVE"            => "Y"
+                );
 
-				$location_id = $new_saved_location->Add($saved_location_data);
+                $location_id = $new_saved_location->Add($saved_location_data);
 
-				return $location_id ? $location_id : $new_saved_location -> LAST_ERROR;
-			}
-		}
-	}
+                return $location_id ? $location_id : $new_saved_location -> LAST_ERROR;
+            }
+        }
+    }
 
-	/**
-	 *
-	 * Проверяем, добавлено ли уже такое местопложение.
-	 *
-	 * @param int $location_id
-	 * @param string $street
-	 * @param int $housing
-	 * @param int $building
-	 * @param int $apartment
-	 *
-	 * @return bool
-	 *
-	 * */
+    /**
+    *
+    * Проверяем, добавлено ли уже такое местопложение.
+    *
+    * @param int $location_id
+    * @param string $street
+    * @param int $housing
+    * @param int $building
+    * @param int $apartment
+    *
+    * @return bool
+    *
+    * */
 
-	function isLocationAlreadySaved($location_id, $street, $housing = false, $building, $apartment) {
-		global $USER;
-		$result = false;
+    function isLocationAlreadySaved($location_id, $street, $housing = false, $building, $apartment) {
+        global $USER;
+        $result = false;
 
-		$select = Array(
-			"ID"
-		);
-		$filter = Array(
-			"IBLOCK_ID"               => USER_SAVED_ADDRESSES_IBLOCK_ID,
-			"CREATED_BY"              => $USER->GetID(),
-			"ACTIVE"                  => "Y",
-			"PROPERTY_BX_LOCATION_ID" => (int)$location_id,
-			"PROPERTY_STREET"         => trim((string)$street),
-			"PROPERTY_HOUSING"        => (int)$housing,
-			"PROPERTY_BUILDING"       => (int)$building,
-			"PROPERTY_APARTMENT"      => (int)$apartment,
-		);
+        $select = Array(
+            "ID"
+        );
+        $filter = Array(
+            "IBLOCK_ID"               => USER_SAVED_ADDRESSES_IBLOCK_ID,
+            "CREATED_BY"              => $USER->GetID(),
+            "ACTIVE"                  => "Y",
+            "PROPERTY_BX_LOCATION_ID" => (int)$location_id,
+            "PROPERTY_STREET"         => trim((string)$street),
+            "PROPERTY_HOUSING"        => (int)$housing,
+            "PROPERTY_BUILDING"       => (int)$building,
+            "PROPERTY_APARTMENT"      => (int)$apartment,
+        );
 
-		$saved_addresses = CIBlockElement::GetList(Array(), $filter, false, false, $select);
-		if ($address = $saved_addresses->Fetch()) {
-			$result = true;
-		}
+        $saved_addresses = CIBlockElement::GetList(Array(), $filter, false, false, $select);
+        if ($address = $saved_addresses->Fetch()) {
+            $result = true;
+        }
 
-		return $result;
-	}
+        return $result;
+    }
 
     AddEventHandler("iblock", "OnAfterIBlockElementUpdate", "OnPriceUbdate");
     // Функция проверяет товары на наличие цен если их нет то выводит из торговых предложений и добавляет к товарам
@@ -550,4 +551,35 @@
             }
         }
     }
+
+
+
+    //обновление количества у основноо товара с учетом количества ТП
+    AddEventHandler("catalog", "OnProductAdd","UpdateProductQuantity");
+    AddEventHandler("catalog", "OnProductUpdate","UpdateProductQuantity");
+
+    function UpdateProductQuantity($id, $arFields) {   
+        $quantity = $arFields['QUANTITY'];
+
+        $arProductInfo = CCatalogSKU::GetProductInfo($id);
+        if (is_array($arProductInfo)) {
+            $arOffersInfo = CCatalogSKU::GetInfoByProductIBlock($arProductInfo['IBLOCK_ID']);
+            $arFilter = array(
+                'IBLOCK_ID' => OFFERS_IBLOCK_ID,
+                "PROPERTY_CML2_LINK" => $arProductInfo['ID'],
+                "!ID" => $id,
+            );
+
+            $obOffersList = CIBlockElement::GetList(array("SORT"=>"ASC"), $arFilter, false, false, array("CATALOG_QUANTITY"));
+            while ($arOffers = $obOffersList->Fetch()) {
+                $quantity += $arOffers["CATALOG_QUANTITY"];
+            }
+
+            $arFieldsProduct = array(
+                "QUANTITY" => $quantity,
+            ); 
+            CCatalogProduct::Update($arProductInfo['ID'], $arFieldsProduct);
+        }
+    }
+
 ?>
