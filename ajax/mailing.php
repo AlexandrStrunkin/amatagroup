@@ -27,7 +27,8 @@ if($_POST["email"]) {
         "EMAIL" => $EMAIL,
         "ACTIVE" => "Y",
         "RUB_ID" => $RUB_ID,
-        "SEND_CONFIRM" => "N"
+        "SEND_CONFIRM" => "N",
+        'CONFIRMED' => 'Y'
     );
     $idsubrscr = $subscr->Add($arFields);
 
