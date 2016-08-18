@@ -215,7 +215,6 @@
                                                         $offerNameVisible = trim(implode(", ", $offerName));
                                                     }
                                                 ?>
-                                                <option value="<?= $first_offer["ADD_URL"] ?>" data-offer-id="<?= $first_offer["ID"] ?>"><?=$offerNameVisible?></option>
                                                 <?foreach ($arItem["OFFERS"] as $offer) {?>
                                                     <?
                                                         $offerNameVisible = $offer["NAME"];
@@ -248,42 +247,13 @@
                                 </td>
 
                                 <td class="elementPrice">
-                                    <p id="<? echo $arItemIDs['PRICE']; ?>" class="js-item-price" data-item-id="<?=$arItem["ID"]?>">
-                                        <?
-                                            if (!empty($minPrice)) {
-                                                if (isset($arItem['OFFERS']) && !empty($arItem['OFFERS'])) {
-
-                                                } else {
-                                                    echo $minPrice['PRINT_DISCOUNT_VALUE'];
-                                                }
-
-                                                if ('Y' == $arParams['SHOW_OLD_PRICE'] && $minPrice['DISCOUNT_VALUE'] < $minPrice['VALUE']) {?>
-                                                <br>&nbsp;<span class="old_price"><? echo $minPrice['PRINT_VALUE']; ?></span>
-                                                <?
-                                                }
-                                            }
-                                            $arItem["MIN_PRICE_TMP"] = $minPrice;
-                                            unset($minPrice);
-                                        ?> &nbsp;
-                                    </p>
-
+                                    
                                     <? if (isset($arItem['OFFERS']) && !empty($arItem['OFFERS'])) { ?>
-                                        <p data-offer-id="<?=$first_offer["ID"]?>" class="js-item-price" data-item-id="<?=$arItem["ID"]?>">
-                                            <?
-                                                $minPrice = (isset($first_offer['RATIO_PRICE']) ? $first_offer['RATIO_PRICE'] : $first_offer['MIN_PRICE']);
-
-                                                echo $minPrice['PRINT_DISCOUNT_VALUE'];
-
-                                                if ('Y' == $arParams['SHOW_OLD_PRICE'] && $minPrice['DISCOUNT_VALUE'] < $minPrice['VALUE']) {?>
-                                                <br>&nbsp;<span class="old_price"><? echo $minPrice['PRINT_VALUE']; ?></span>
-                                                <?
-                                                }
-
-                                                unset($minPrice);
-                                            ?> &nbsp;
-                                        </p>
-                                        <? foreach ($arItem['OFFERS'] as $offer) {?>
-                                            <p data-offer-id="<?=$offer["ID"]?>" class="js-item-price" style="display: none;" data-item-id="<?=$arItem["ID"]?>">
+                                        
+                                        <? 
+                                        $k = 0;
+                                        foreach ($arItem['OFFERS'] as $offer) {?>
+                                            <p data-offer-id="<?=$offer["ID"]?>" class="js-item-price" <?if ($k != 0){?>style="display: none;"<?}?> data-item-id="<?=$arItem["ID"]?>">
                                                 <?
                                                     $minPrice = (isset($offer['RATIO_PRICE']) ? $offer['RATIO_PRICE'] : $offer['MIN_PRICE']);
 
@@ -297,7 +267,7 @@
                                                     unset($minPrice);
                                                 ?> &nbsp;
                                             </p>
-                                            <?}
+                                            <?$k++;}
                                     }?>
 
 
