@@ -472,36 +472,6 @@ body {
     padding-bottom: 24px;
 }
 
-.thirdLevel .mainLeftMenu {
-    border: 1px solid #e6e6e6;
-    border-radius: 4px;
-    float: left;
-    height: 496px;
-    margin-right: 22px;
-    padding-top: 22px;
-    width: 276px;
-    position: relative;
-    overflow: hidden;
-}
-
-.thirdLevel .mainLeftMenu > ul > div > div > li > a {
-    color: #737373;
-    font-family: "MuseoSansCyrl-500";
-    font-size: 15px;
-    padding-left: 0;
-    padding-right: 36px;
-    display: block;
-    position: relative;
-}
-
-.mainLeftMenu > ul > div, .mainLeftMenu > ul > div > div {
-    min-height: 496px;
-}
-
-.mainLeftMenu > ul {
-    height: 100%;
-    overflow: auto;
-}
 
 .thirdLevel {
     margin-top: 20px;
@@ -4467,10 +4437,6 @@ background: url(../img/arrow.png) no-repeat 50%;
 
 .hidingFormNewTreatment .causeSelect {
 
-}
-
-.thirdLevel .mainLeftMenu > ul > div > div > li > a {
-    margin-bottom: 20px;
 }
 
 .secondLvlCatalog {

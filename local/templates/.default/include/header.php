@@ -1,4 +1,5 @@
 <!--header-->
+<div id="page-preloader"><span class="spinner"></span></div>
 <header>
 	<? global $USER ?>
     <!--widthWrapper-->
@@ -46,8 +47,8 @@
         <div class="firstLvlBlocks linksBlock" id="linkBlock1">
 
             <?$APPLICATION->IncludeComponent(
-	"bitrix:search.title", 
-	"search_field", 
+	"bitrix:search.title",
+	"search_field",
 	array(
 		"COMPONENT_TEMPLATE" => "search_field",
 		"NUM_CATEGORIES" => "1",
@@ -198,34 +199,34 @@
 
 
             <?$APPLICATION->IncludeComponent(
-                    "bitrix:catalog.section.list",
-                    "catalog_menu",
-                    array(
-                        "COMPONENT_TEMPLATE" => "catalog_menu",
-                        "IBLOCK_TYPE" => "1c_catalog",
-                        "IBLOCK_ID" => "5",
-                        "SECTION_ID" => "",
-                        "SECTION_CODE" => "",
-                        "COUNT_ELEMENTS" => "N",
-                        "TOP_DEPTH" => "3",
-                        "SECTION_FIELDS" => array(
-                            0 => "",
-                            1 => "",
-                        ),
-                        "SECTION_USER_FIELDS" => array(
-                            0 => "",
-                            1 => "",
-                        ),
-                        "VIEW_MODE" => "LIST",
-                        "SHOW_PARENT_NAME" => "Y",
-                        "SECTION_URL" => "",
-                        "CACHE_TYPE" => "A",
-                        "CACHE_TIME" => "36000000",
-                        "CACHE_GROUPS" => "N",
-                        "ADD_SECTIONS_CHAIN" => "Y"
-                    ),
-                    false
-                );?>
+	"bitrix:catalog.section.list",
+	"catalog_menu",
+	array(
+		"COMPONENT_TEMPLATE" => "catalog_menu",
+		"IBLOCK_TYPE" => "1c_catalog",
+		"IBLOCK_ID" => "5",
+		"SECTION_ID" => "",
+		"SECTION_CODE" => "",
+		"COUNT_ELEMENTS" => "N",
+		"TOP_DEPTH" => "3",
+		"SECTION_FIELDS" => array(
+			0 => "",
+			1 => "",
+		),
+		"SECTION_USER_FIELDS" => array(
+			0 => "",
+			1 => "",
+		),
+		"VIEW_MODE" => "LIST",
+		"SHOW_PARENT_NAME" => "Y",
+		"SECTION_URL" => "",
+		"CACHE_TYPE" => "A",
+		"CACHE_TIME" => "86400",
+		"CACHE_GROUPS" => "N",
+		"ADD_SECTIONS_CHAIN" => "Y"
+	),
+	false
+);?>
 
         <div class="mainBigBanner">
 
