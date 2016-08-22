@@ -2,7 +2,7 @@
 require($_SERVER["DOCUMENT_ROOT"]."/bitrix/header.php");
 $filterView = (COption::GetOptionString("main", "wizard_template_id", "eshop_adapt_horizontal", SITE_ID) == "eshop_adapt_vertical" ? "HORIZONTAL" : "VERTICAL");
 ?>
-<?if($APPLICATION->GetCurPage() == '/catalog/'){
+<?if($APPLICATION->GetCurPage() == '/catalog/' && empty($_GET['q'])){
     LocalRedirect(SITE_DIR.'/');
 } else {?>
     <?$APPLICATION->IncludeComponent(
