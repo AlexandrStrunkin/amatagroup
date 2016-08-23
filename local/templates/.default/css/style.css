@@ -484,7 +484,7 @@ body {
     overflow: hidden;
 }
 
-.thirdLevel .mainLeftMenu > ul > div > div > li > a {
+.thirdLevel .mainLeftMenu li.topLvlLi > a {
     color: #737373;
     font-family: "MuseoSansCyrl-500";
     font-size: 15px;
@@ -1239,8 +1239,7 @@ margin: 0;
     font-size: 15px;
 }
 
-.mainLeftMenu > ul > div > div > li {
-    /*background: rgba(0, 0, 0, 0) url("../img/backLiMenu.png") no-repeat scroll 252px 46%;*/
+.mainLeftMenu li.topLvlLi {
     margin-bottom: 21px;
     padding-left: 48px;
 
@@ -1323,7 +1322,7 @@ ul.topMenu a:hover {
     border: 1px solid #DEE8B7;
 }
 
-.mainLeftMenu > ul > div > div > li a:hover {
+.mainLeftMenu li a:hover {
     color: #000 !important;
 }
 
@@ -3960,11 +3959,11 @@ li[data-pos="39"] .firstLvlLi:last-child {
     border: none !important;
 }
 
-.mainLeftMenu > ul > div > div > li {
+.mainLeftMenu li.topLvlLi {
     cursor: pointer;
 }
 
-.mainLeftMenu > ul > div > div > li:after {
+.mainLeftMenu li.topLvlLi:after {
     content: url("../img/backLiMenu.png");
     left: 252px;
     position: absolute;
@@ -3973,11 +3972,11 @@ li[data-pos="39"] .firstLvlLi:last-child {
     transition: all 0.3s ease 0s;
 }
 
-.mainLeftMenu > ul > div > div > li:hover:after {
+.mainLeftMenu li.topLvlLi:hover:after {
     content: url("../img/backLihover.png");
 }
 
-.mainLeftMenu > ul > div > div > li.hover:before {
+.mainLeftMenu li.topLvlLi.hover:before {
     content: "";
     display: block;
     width: 2px;
@@ -4469,7 +4468,7 @@ background: url(../img/arrow.png) no-repeat 50%;
 
 }
 
-.thirdLevel .mainLeftMenu > ul > div > div > li > a {
+.thirdLevel li.topLvlLi > a {
     margin-bottom: 20px;
 }
 
@@ -8483,7 +8482,7 @@ display: none;
     letter-spacing: 1px;
 }
 
-/*компонент main.register шаблон new_registration*/
+/*пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ main.register пїЅпїЅпїЅпїЅпїЅпїЅ new_registration*/
 .wrap_form_2{
     display:none;
 }
@@ -8588,7 +8587,7 @@ display: none;
     color: #5db3dc;
 }
 .fields.files input[type="file"]{
-    display: none; /* Обязательно скрываем настоящий Input File */
+    display: none; /* пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ Input File */
 }
 
 .additional_fields > label{
@@ -8612,7 +8611,7 @@ display: none;
     color: #807d7d;
 }
 .fields.files span {
-     line-height: 36px; /* Делаем вертикальное выравнивание текста, который написан на кнопке */
+     line-height: 36px; /* пїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅ, пїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅ */
 }
 .fields.files input[type="file"] {
      background: #fff;
@@ -8675,7 +8674,7 @@ display: none;
 .bx-authform-social ul li:before{
     content: '';
 }
-/*Подписка*/
+/*пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ*/
 .green::-webkit-input-placeholder {color:green;}
 .green::-moz-placeholder          {color:green;}/* Firefox 19+ */
 .green:-moz-placeholder           {color:green;}/* Firefox 18- */
@@ -8685,7 +8684,7 @@ display: none;
 .red::-moz-placeholder          {color:red;}/* Firefox 19+ */
 .red:-moz-placeholder           {color:red;}/* Firefox 18- */
 .red:-ms-input-placeholder      {color:red;}
-/*Подписка*/
+/*пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ*/
 
 .title-search-result th,
 .title-search-result a,
@@ -8710,4 +8709,4 @@ display: none;
     font-size: 14px;
     border-radius: 9px 0 0;
 }
-/*компонент main.register шаблон new_registration*/
+/*пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ main.register пїЅпїЅпїЅпїЅпїЅпїЅ new_registration*/
