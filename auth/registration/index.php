@@ -8,7 +8,7 @@ if (!$USER->IsAuthorized()) {
 	    "bitrix:main.register",
 	    "new_registration",
 	    array(
-		    "AUTH" => "Y",
+		    "AUTH" => "N",
 		    "REQUIRED_FIELDS" => array(
 			    0 => "NAME",
 		    ),
