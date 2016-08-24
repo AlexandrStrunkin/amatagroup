@@ -1470,7 +1470,10 @@ $(document).ready(function () {
             $(".addBtn").hide();
             $(".bx_notavailable").show();
         }
-
+        // если для предложения есть превьюха, то переключаемся на нее
+        if ($("a[data-preview-offer-id='" + current_offer_id + "']").length) {
+        	$("a[data-preview-offer-id='" + current_offer_id + "']").click();
+        }
         $(".productPrice").hide();
         $(".discountLogoWrapper").hide();
         $('.productPrice[data-price-offer-id="' + current_offer_id + '"]').show();
