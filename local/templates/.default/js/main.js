@@ -1801,3 +1801,12 @@ $(function() {
         return false;
    });
 });
+
+$(function() {
+   $('body').on('click', '.text_popap', function(){
+         $('.productText_popap').fadeIn();
+   })
+   $('body').on('click', '.close_popap', function(){
+         $('.productText_popap').fadeOut();
+   })
+});
