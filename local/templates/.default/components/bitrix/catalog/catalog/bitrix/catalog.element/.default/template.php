@@ -307,6 +307,7 @@ $arFirstPhoto = current($arResult['MORE_PHOTO']);
 	        <input type="hidden" value="" name="card_quantity" />
         <? } ?>
         <!--END productColor-->
+        <span class="border_top_line"></span>
         <?
         if (isset($arResult['OFFERS']) && !empty($arResult['OFFERS'])) {
             $canBuy = $arResult['OFFERS'][$arResult['OFFERS_SELECTED']]['CAN_BUY'];

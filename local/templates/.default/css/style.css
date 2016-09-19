@@ -6829,8 +6829,9 @@ border-color: #232323 !important;
     width: 207px;
     border-right: 1px solid #e6e6e6;
     border-bottom: 1px solid #dedede;
+    border-top: 1px solid #dedede;
     float: left;
-    padding: 19px 0 20px;
+    padding: 20px 0 20px;
 }
 
 .productFavorites .already_in_favorite {
@@ -6859,7 +6860,8 @@ border-color: #232323 !important;
 .productCardDesc .productComment {
     margin: 0 0 30px 207px;
     border-bottom: 1px solid #dedede;
-    padding: 19px 0 20px;
+    padding: 20px 0 20px;
+    border-top: 1px solid #dedede;
 }
 
 .productCardDesc .productFavorites a {
@@ -6893,11 +6895,16 @@ border-color: #232323 !important;
     border-radius: 5px;
     color: #fff;
     display: block;
-    margin: 0 auto;
+    margin: 0 auto 20px;
     padding: 0 0 0 123px;
     box-sizing: border-box;
     font: 15px/55px 'MuseoSansCyrl-700', sans-serif;
     background: #5db3dc url(../img/iconBasket.png) no-repeat 80px 50%;
+}
+.border_top_line{
+    border-top: 1px solid #dedede;
+    display: block;
+    margin-bottom: 20px;
 }
 
 .productCardDesc .addBtn:hover {
