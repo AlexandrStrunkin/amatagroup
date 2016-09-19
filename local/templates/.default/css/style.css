@@ -777,7 +777,7 @@ body {
 .brandPhotoWrapper a {
     border: 1px solid #dadada;
     border-radius: 4px;
-    display: inline-block;
+    display: inline-flex;
     vertical-align: top;
     height: 120px;
     margin-right: 14px;
@@ -785,6 +785,8 @@ body {
     overflow: hidden;
     margin-top: 6px;
     margin-bottom: 6px;
+    align-items: center;
+    justify-content: center;
 }
 
 .brandPhotoWrapper a:last-child {
