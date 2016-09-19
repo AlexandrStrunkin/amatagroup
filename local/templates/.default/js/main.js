@@ -1803,10 +1803,10 @@ $(function() {
 });
 
 $(function() {
-   $('body').on('click', '.text_popap', function(){
-         $('.productText_popap').fadeIn();
+   $('body').on('click', '.text_popup', function(){
+         $('.productText_popup').fadeIn();
    })
-   $('body').on('click', '.close_popap', function(){
-         $('.productText_popap').fadeOut();
+   $('body').on('click', '.close_popup', function(){
+         $('.productText_popup').fadeOut();
    })
 });

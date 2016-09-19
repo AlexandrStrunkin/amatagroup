@@ -1023,7 +1023,7 @@
 	color: #808080;
 }
 
-.productText_popap{
+.productText_popup{
     position: fixed;
     width: 650px;
     min-height: 200px;
@@ -1041,7 +1041,7 @@
     display:none;
     font: 15px/24px 'MuseoSansCyrl-500', sans-serif;
 }
-.close_popap{
+.close_popup{
     background-image: url('/vendor/fancybox/fancybox_sprite.png');
     position: absolute;
     top: -18px;
@@ -1050,4 +1050,7 @@
     height: 36px;
     cursor: pointer;
     z-index: 8040;
+}
+.text_popup{
+    color: #4baad7;
 }
