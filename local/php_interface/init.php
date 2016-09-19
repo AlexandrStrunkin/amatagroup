@@ -100,9 +100,6 @@
     define("IBLOCK_ID_QUASTION_PRODUCT", 19); // инфоблок задать вопрос по товару
     define("IBLOCK_ID_QUASTION", 18); // инфоблок оставить вопрос
 
-
-    define("IBLOCK_ID_TROUGH_DIRECTORY", 6); // инфоблок торгового каталога
-    define("IBLOCK_ID_PRODUCT_CATALOG", 5); // инфоблок каталога товаров
     define("CATALOG_GROUP_ID_PRICE", 3); // код типа цены оптовой
     define("CATALOG_GROUP_ID_PRICE_BASE", 1); // код типа цены базовой
 
@@ -509,21 +506,20 @@
         return $result;
     }
 
-    AddEventHandler("iblock", "OnAfterIBlockElementUpdate", "OnPriceUbdate");
+    /*AddEventHandler("iblock", "OnAfterIBlockElementUpdate", "OnPriceUpdate");
     // Функция проверяет товары на наличие цен если их нет то выводит из торговых предложений и добавляет к товарам
-    function OnPriceUbdate(&$arFields) {
-        if($arFields["IBLOCK_ID"] == IBLOCK_ID_TROUGH_DIRECTORY){
+    function OnPriceUpdate(&$arFields) {
+        if ($arFields["IBLOCK_ID"] == OFFERS_IBLOCK_ID) {
             //если есть ТП
             $ar_item_id = Array();
-            $mxResult = CCatalogSKU::GetInfoByProductIBlock(IBLOCK_ID_PRODUCT_CATALOG);
+            $mxResult = CCatalogSKU::GetInfoByProductIBlock(CATALOG_IBLOCK_ID);
             if (is_array($mxResult)) {
-                $rsOffers = CIBlockElement::GetList(array(),array('IBLOCK_ID' => $mxResult['IBLOCK_ID']), false, false, array("ID"));
+                $rsOffers = CIBlockElement::GetList(array(), array('IBLOCK_ID' => CATALOG_IBLOCK_ID), false, false, array("ID"));
                 if ($rsOffers->SelectedRowsCount() > 0) {
                     while ($arOffer = $rsOffers->GetNext()) {
-
                         $ar_price = GetCatalogProductPrice($arOffer["ID"], CATALOG_GROUP_ID_PRICE);
-                        //
-                        $db_res = CIBlockElement::GetList(array(),array('IBLOCK_ID' => IBLOCK_ID_TROUGH_DIRECTORY, "ID"=>$ar_price["PRODUCT_ID"]), false, false, Array('ID',"PROPERTY_CML2_LINK"))->Fetch();
+
+                        $db_res = CIBlockElement::GetList(array(),array('IBLOCK_ID' => OFFERS_IBLOCK_ID, "ID"=>$ar_price["PRODUCT_ID"]), false, false, Array('ID',"PROPERTY_CML2_LINK"))->Fetch();
                         $arFilter = array(
                             "PRODUCT_ID" => $db_res["PROPERTY_CML2_LINK_VALUE"],
                             "PRICE" => $ar_price["PRICE"],
@@ -550,7 +546,7 @@
                 }
             }
         }
-    }
+    }*/
 
 
 
