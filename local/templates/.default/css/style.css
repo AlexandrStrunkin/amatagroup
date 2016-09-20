@@ -1815,6 +1815,10 @@ margin-top: 20px;
 	text-align: center;
     display: block;
     font: 15px/55px 'MuseoSansCyrl-700', sans-serif;
+
+}
+.not_available{
+
 }
 .catalogElementsBlock .horizontalFilterWrap .firstFilter {
     padding-left: 9px;
@@ -6579,6 +6583,7 @@ input[type="radio"]:checked + label::before {
     border: 1px solid #dedede;
     border-left: none;
     border-radius: 0 5px 5px 0;
+    position: relative;
 }
 
 .productCardDesc .productTitle {
@@ -6596,7 +6601,7 @@ input[type="radio"]:checked + label::before {
 }
 
 .productCardDesc .productInfo {
-    height: 290px;
+    height: 220px;
     margin: 10px 5px 20px;
 
 }
@@ -6859,7 +6864,7 @@ border-color: #232323 !important;
 }
 
 .productCardDesc .productComment {
-    margin: 0 0 30px 207px;
+    margin: 0 0 6px 207px;
     border-bottom: 1px solid #dedede;
     padding: 20px 0 20px;
     border-top: 1px solid #dedede;

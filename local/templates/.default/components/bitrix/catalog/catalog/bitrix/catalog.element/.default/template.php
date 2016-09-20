@@ -192,7 +192,7 @@ $arFirstPhoto = current($arResult['MORE_PHOTO']);
             	 <?= $arResult['DISPLAY_PROPERTIES']['CML2_ARTICLE']['DISPLAY_VALUE'] ? $arResult['DISPLAY_PROPERTIES']['CML2_ARTICLE']['DISPLAY_VALUE'] : "Не задан" ?>
             </div>
             <div class="productText">
-            	<?= $arResult['DETAIL_TEXT'] ? mb_strimwidth($arResult['DETAIL_TEXT'], 0, 250, "...") : mb_strimwidth($arResult['PREVIEW_TEXT'], 0, 250, "...") ?><br>
+            	<?= $arResult['DETAIL_TEXT'] ? mb_strimwidth($arResult['DETAIL_TEXT'], 0, 100, "...") : mb_strimwidth($arResult['PREVIEW_TEXT'], 0, 100, "...") ?><br>
                 <a href="javascript:void(0)" class="text_popup"><?=GetMessage("READ_FULL")?></a>
             </div>
             <div class="productText_popup">
