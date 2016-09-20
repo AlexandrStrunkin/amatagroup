@@ -1527,8 +1527,8 @@ $(document).ready(function () {
         var item_id = parseInt($(this).data("item-id"));
         var href = $(this).val();
         var offerId = parseInt($(this).find("option:selected").data("offer-id"));
-		$("a.table_previews[data-preview-offer-id='" + offerId + "']").fadeIn(400);
-		$("a.table_previews[data-preview-offer-id='" + offerId + "']").siblings("a").fadeOut(200);
+		$("a.table_previews[data-preview-offer-id='" + offerId + "']").css("display", "block");
+		$("a.table_previews[data-preview-offer-id='" + offerId + "']").siblings("a").css("display", "none");
         if (item_id > 0 && href != "" && offerId > 0) {
             $("a[data-item-id = " + item_id + "]").parent().removeClass("basketButtonInvisible");
             $("a[data-item-id = " + item_id + "]").attr("href", href);
