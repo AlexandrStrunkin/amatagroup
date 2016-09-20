@@ -166,6 +166,19 @@
                                         <a href="<?=$arItem['DETAIL_PAGE_URL'];?>">
                                             <img src="<?=$arItem["PREVIEW_PICTURE"]["SRC"]?>" alt="<?=$arItem["NAME"]?>">
                                         </a>
+                                        <? if (isset($arItem['OFFERS']) || !empty($arItem['OFFERS'])) {
+												foreach ($arItem['OFFERS'] as $offer) { ?>
+													<?
+													// если фото в поле превью
+													if (isset($offer['DETAIL_PICTURE']) || !empty($offer['DETAIL_PICTURE'])) {
+													?>
+														<a class="table_previews" data-preview-offer-id="<?= $offer["ID"] ?>" href="<?= $arItem['DETAIL_PAGE_URL'] ?>">
+															<img src="<?= getResizedImage($offer['DETAIL_PICTURE']['ID'], ELEMENT_CARD_PREVIEW_WIDTH, ELEMENT_CARD_PREVIEW_HEIGHT, BX_RESIZE_IMAGE_PROPORTIONAL_ALT) ?>" alt=""/>
+														</a>
+													<? } ?>
+											<? 	}
+											}
+										?>
                                     </div>
 
                                     <?//шильдик скидки

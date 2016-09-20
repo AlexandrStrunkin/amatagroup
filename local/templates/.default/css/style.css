@@ -6016,6 +6016,7 @@ input[type="radio"]:checked + label::before {
     border-radius: 0;
     height:100%;
     min-height:115px;
+    position: relative;
 }
 
 .elementsTable .basketBody .elementName div a {
@@ -6023,7 +6024,7 @@ input[type="radio"]:checked + label::before {
     height: 100%;
     margin: auto;
     overflow: hidden;
-    position: relative;
+    position: absolute;
     width: 90%;
     min-height:115px;
 }
