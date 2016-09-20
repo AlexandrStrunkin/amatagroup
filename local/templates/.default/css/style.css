@@ -6020,13 +6020,20 @@ input[type="radio"]:checked + label::before {
 }
 
 .elementsTable .basketBody .elementName div a {
-    display: block;
     height: 100%;
     margin: auto;
     overflow: hidden;
     position: absolute;
     width: 90%;
     min-height:115px;
+}
+
+.elementsTable .basketBody .elementName div a:not(.table_previews) {
+	display: block;
+}
+
+.table_previews {
+	display: none;
 }
 
 .elementsTable .basketBody .elementName div a img {
