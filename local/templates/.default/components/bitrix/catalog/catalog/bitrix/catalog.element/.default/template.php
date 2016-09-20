@@ -196,7 +196,7 @@ $arFirstPhoto = current($arResult['MORE_PHOTO']);
                 <a href="javascript:void(0)" class="text_popup"><?=GetMessage("READ_FULL")?></a>
             </div>
             <div class="productText_popup">
-                <a title="Close" class="close_popup" href="javascript:void(0);"></a>
+                <a title="<?= GetMessage('CLOSE') ?>" class="close_popup" href="javascript:void(0);"></a>
                 <?= $arResult['DETAIL_TEXT'] ? $arResult['DETAIL_TEXT'] : $arResult['PREVIEW_TEXT'] ?><br>
             </div>
         </div>
