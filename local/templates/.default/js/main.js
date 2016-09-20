@@ -1471,7 +1471,7 @@ $(document).ready(function () {
             $(".bx_notavailable").show();
         }
         // если для предложения есть превьюха, то переключаемся на нее
-        if ($("a[data-preview-offer-id='" + current_offer_id + "']").length) {
+        if ($("a[data-preview-offer-id='" + current_offer_id + "']").length && !$("a[data-preview-offer-id='" + current_offer_id + "']").hasClass("active")) {
         	$("a[data-preview-offer-id='" + current_offer_id + "']").click();
         }
         $(".productPrice").hide();
@@ -1541,6 +1541,13 @@ $(document).ready(function () {
             $(".js-item-price[data-item-id = " + item_id + "]:first").show();
             $(this).closest("tr").find(".statusInStock").hide();
         }
+    })
+    
+    // обратная связь, кликаем по картинке, выбирается ТП
+    $("#previews_slider_wrapper a").on("click", function(){
+    	if ($(this).data("preview-offer-id")) {
+    		$(".horizontalFilterWrap p.js-offer-option[data-offer-id='" + $(this).data("preview-offer-id") + "']").click();
+    	}
     })
 
 
