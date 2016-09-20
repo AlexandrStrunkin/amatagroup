@@ -34,5 +34,5 @@
 }
 
 .table_previews {
-	display: none;
+	display: none !important;
 }
