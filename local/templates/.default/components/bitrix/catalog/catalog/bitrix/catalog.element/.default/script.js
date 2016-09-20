@@ -2826,3 +2826,4 @@ window.JCCatalogElement.prototype.allowViewedCount = function(update)
 		this.incViewedCounter();
 };
 })(window);
+

@@ -192,7 +192,12 @@ $arFirstPhoto = current($arResult['MORE_PHOTO']);
             	 <?= $arResult['DISPLAY_PROPERTIES']['CML2_ARTICLE']['DISPLAY_VALUE'] ? $arResult['DISPLAY_PROPERTIES']['CML2_ARTICLE']['DISPLAY_VALUE'] : "Не задан" ?>
             </div>
             <div class="productText">
-            	<?= $arResult['DETAIL_TEXT'] ? $arResult['DETAIL_TEXT'] : $arResult['PREVIEW_TEXT'] ?>
+            	<?= $arResult['DETAIL_TEXT'] ? mb_strimwidth($arResult['DETAIL_TEXT'], 0, 250, "...") : mb_strimwidth($arResult['PREVIEW_TEXT'], 0, 250, "...") ?><br>
+                <a href="javascript:void(0)" class="text_popup"><?=GetMessage("READ_FULL")?></a>
+            </div>
+            <div class="productText_popup">
+                <a title="<?= GetMessage('CLOSE') ?>" class="close_popup" href="javascript:void(0);"></a>
+                <?= $arResult['DETAIL_TEXT'] ? $arResult['DETAIL_TEXT'] : $arResult['PREVIEW_TEXT'] ?><br>
             </div>
         </div>
         <!--END productInfo-->
@@ -302,7 +307,21 @@ $arFirstPhoto = current($arResult['MORE_PHOTO']);
 	        <input type="hidden" value="" name="card_quantity" />
         <? } ?>
         <!--END productColor-->
-
+        <span class="border_top_line"></span>
+        <?
+        if (isset($arResult['OFFERS']) && !empty($arResult['OFFERS'])) {
+            $canBuy = $arResult['OFFERS'][$arResult['OFFERS_SELECTED']]['CAN_BUY'];
+        } else {
+            $canBuy = $arResult['CAN_BUY'];
+        }
+        ?>
+        <?
+        $item_have_offers = is_array($arResult['OFFERS']);
+        $addToBasketBtnMessage = GetMessage('CT_BCE_CATALOG_ADD');
+        $notAvailableMessage = ($arParams['MESS_NOT_AVAILABLE'] != '' ? $arParams['MESS_NOT_AVAILABLE'] : GetMessageJS('CT_BCE_CATALOG_NOT_AVAILABLE')); ?>
+        <? if ($canBuy) {?>
+            <a href="<?= $first_offer['ADD_URL'] ?>" data-offer-id="<?= $first_offer["ID"] ?>" data-item-have-offers="<?= $item_have_offers ?>" data-main-item-id="<?= $arResult['ID'] ?>" class="js-add-to-basket addBtn"><span></span><? echo $addToBasketBtnMessage; ?></a>
+        <? } ?>
         <div class="productFavorites">
             <a href="javascript:void(0)"
                class="<?= $arResult['USER_AUTHORIZED'] ? ($arResult['USER_HAVE_ITEM_IN_FAVORITE'] ? "already_in_favorite" : "js_add_to_favorite") : "js_favorite_need_auth" ?>"
@@ -315,18 +334,7 @@ $arFirstPhoto = current($arResult['MORE_PHOTO']);
         <div class="productComment">
             <a href="javascript:void(0);"><?= GetMessage("CT_ASK_QUESTION") ?></a>
         </div>
-        <?
-        if (isset($arResult['OFFERS']) && !empty($arResult['OFFERS'])) {
-			$canBuy = $arResult['OFFERS'][$arResult['OFFERS_SELECTED']]['CAN_BUY'];
-		} else {
-			$canBuy = $arResult['CAN_BUY'];
-		}
-		$item_have_offers = is_array($arResult['OFFERS']);
-		$addToBasketBtnMessage = GetMessage('CT_BCE_CATALOG_ADD');
-		$notAvailableMessage = ($arParams['MESS_NOT_AVAILABLE'] != '' ? $arParams['MESS_NOT_AVAILABLE'] : GetMessageJS('CT_BCE_CATALOG_NOT_AVAILABLE')); ?>
-		<? if ($canBuy) {?>
-			<a href="<?= $first_offer['ADD_URL'] ?>" data-offer-id="<?= $first_offer["ID"] ?>" data-item-have-offers="<?= $item_have_offers ?>" data-main-item-id="<?= $arResult['ID'] ?>" class="js-add-to-basket addBtn"><span></span><? echo $addToBasketBtnMessage; ?></a>
-		<? } ?>
+
 		<span id="<? echo $arItemIDs['NOT_AVAILABLE_MESS']; ?>" class="bx_notavailable" style="display: <? echo (!$canBuy ? '' : 'none'); ?>;"><? echo $notAvailableMessage; ?></span>
     </div>
     <!--END productCardDesc-->
