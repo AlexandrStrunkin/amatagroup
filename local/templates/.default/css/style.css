@@ -472,6 +472,7 @@ body {
     padding-bottom: 24px;
 }
 
+
 .thirdLevel .mainLeftMenu {
     border: 1px solid #e6e6e6;
     border-radius: 4px;
@@ -4472,10 +4473,6 @@ background: url(../img/arrow.png) no-repeat 50%;
 
 .hidingFormNewTreatment .causeSelect {
 
-}
-
-.thirdLevel li.topLvlLi > a {
-    margin-bottom: 20px;
 }
 
 .secondLvlCatalog {

@@ -497,6 +497,7 @@ if ($arResult['CATALOG'] && isset($arResult['OFFERS']) && !empty($arResult['OFFE
 			$arResult['OFFERS'][$keyOffer]['OFFER_GROUP'] = true;
 		}
 		reset($arOffer['MORE_PHOTO']);
+
 		$firstPhoto = current($arOffer['MORE_PHOTO']);
 		$arOneRow = array(
 			'ID' => $arOffer['ID'],
