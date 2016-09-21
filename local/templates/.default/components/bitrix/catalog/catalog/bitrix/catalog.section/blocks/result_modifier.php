@@ -1,6 +1,6 @@
-<?
+<?    
     use Bitrix\Main\Type\Collection;
-    use Bitrix\Currency\CurrencyTable;
+    use Bitrix\Currency\CurrencyTable;    
 
 	global $USER;
 
@@ -120,7 +120,7 @@
 
     //получаем текущую корзину пользователя
     $arResult["USER_BASKET"] = getCurrentBasket();
-	$arResult['USER_AUTHORIZED'] = $USER->IsAuthorized() ? true : false;
+	$arResult['USER_AUTHORIZED'] = $USER->IsAuthorized() ? true : false;    
 
     if (!empty($arResult['ITEMS']))
     {
@@ -503,6 +503,6 @@
                 unset($currencyFormat, $currency, $currencyIterator);
             }
         }
-    }
+    }  
 
 ?>

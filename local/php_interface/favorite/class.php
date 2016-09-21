@@ -12,6 +12,11 @@ class Favorite {
 	 * 
 	 * */
 	public static function checkIsExists($user_id, $product_id) {
+        
+        if (empty($user_id)) {
+            return false;
+        }
+        
 		$product_list = CIBlockElement::GetList(
 			array(),
 			array(
@@ -46,12 +51,13 @@ class Favorite {
         }
         
 		$users_favorite = array();
-		if ($USER->GetID()) {
+        $user_id = $USER->GetID();
+		if (!empty($user_id)) {
 			$product_list = CIBlockElement::GetList(
 				array(),
 				array(
 					'IBLOCK_ID'  => FAVORITE_IBLOCK_ID,
-					"CREATED_BY" => $USER->GetID()
+					"CREATED_BY" => $user_id
 				),
 				false,
 				false,
