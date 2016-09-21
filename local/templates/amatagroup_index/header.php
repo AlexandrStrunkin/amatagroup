@@ -146,7 +146,10 @@
                         ),
                         false
                         );?>
-                      <?$arFilter = array('!PROPERTY_BESTSELLERS' => false)?>
+                      <?
+                      global $arFilter;
+                      $arFilter = array('!PROPERTY_BESTSELLERS' => false);
+                      ?>
                     <?$APPLICATION->IncludeComponent("bitrix:catalog.section", "bestsellers", Array(
 	                        "ACTION_VARIABLE" => "action",	// Ќазвание переменной, в которой передаетс€ действие
 		                    "ADD_PICT_PROP" => "-",	// ƒополнительна€ картинка основного товара
