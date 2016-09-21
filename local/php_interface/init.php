@@ -226,9 +226,7 @@
     * $arParams - массив переменных, которые нужно установить вида "НАЗВАНИЕ ПАРАМЕТРА" => "ЗНАЧЕНИЕ"
     * $pageRefresh - необходимость перезагрузки страницы после установки параметров
     */
-    function setCatalogViewParams($arParams = array(), $pageRefresh = false) {
-
-
+    function setCatalogViewParams($arParams = array(), $pageRefresh = false) {   
 
         $availableParams = $GLOBALS["availableParams"];
 
@@ -239,10 +237,11 @@
                     $_SESSION["CATALOG_PARAMS"][$paramName] = $paramValue;
                 }
             }
-        }          
+        }        
+
         //при необходимости делаем перезагрузку страницы и удаляем параметры из урла
         if ($pageRefresh) {
-            header ("location: ".$_SERVER["HTTP_REFERER"]);
+            localredirect($_SERVER["REDIRECT_URL"]);
         }
 
     }
@@ -328,7 +327,7 @@
 
 
     /***
-    * хендлер проверяет, не пришли ли через GET параметры для отображения каталога. если пришли - проверяем и меняем
+    * хендлер проверяет, не пришли ли через $_GET параметры для отображения каталога. если пришли - проверяем и меняем
     */
     AddEventHandler("main", "OnProlog", "checkRequestData");
     function checkRequestData() {
@@ -336,11 +335,12 @@
         //если в массиве $_GET есть параметры для отображения каталога, то переписываем их
         $result = array();
         //проверяем корректность параметров        
-        foreach ($availableParams as $paramKey => $paramValue) {
+        foreach ($availableParams as $paramKey => $paramValue) { 
+            //если в реквесте есть значение для одного из параметров и оно имеет допустимое значение  
             if ($_GET[$paramKey] && in_array($_GET[$paramKey], $paramValue)) {
                 $result[$paramKey] = $_GET[$paramKey];
             }
-        }      
+        }  
         //после окончания формирования массива перезагружаем страницу
         if (count($result) > 0) {
             setCatalogViewParams($result, true);
@@ -506,50 +506,80 @@
         return $result;
     }
 
-    /*AddEventHandler("iblock", "OnAfterIBlockElementUpdate", "OnPriceUpdate");
-    // Функция проверяет товары на наличие цен если их нет то выводит из торговых предложений и добавляет к товарам
+    // при создании/изменении товара запускаем функцию пересборки цен
+    AddEventHandler("iblock", "OnAfterIBlockElementUpdate", "OnPriceUpdate");
+    AddEventHandler("iblock", "OnAfterIBlockElementAdd", "OnPriceUpdate");         
     function OnPriceUpdate(&$arFields) {
-        if ($arFields["IBLOCK_ID"] == OFFERS_IBLOCK_ID) {
-            //если есть ТП
-            $ar_item_id = Array();
-            $mxResult = CCatalogSKU::GetInfoByProductIBlock(CATALOG_IBLOCK_ID);
-            if (is_array($mxResult)) {
-                $rsOffers = CIBlockElement::GetList(array(), array('IBLOCK_ID' => CATALOG_IBLOCK_ID), false, false, array("ID"));
-                if ($rsOffers->SelectedRowsCount() > 0) {
-                    while ($arOffer = $rsOffers->GetNext()) {
-                        $ar_price = GetCatalogProductPrice($arOffer["ID"], CATALOG_GROUP_ID_PRICE);
+        if ($arFields["IBLOCK_ID"] == CATALOG_IBLOCK_ID && intval($arFields["ID"]) > 0) {
+            setMinPrice($arFields["ID"]);
+        }
+    }                                
 
-                        $db_res = CIBlockElement::GetList(array(),array('IBLOCK_ID' => OFFERS_IBLOCK_ID, "ID"=>$ar_price["PRODUCT_ID"]), false, false, Array('ID',"PROPERTY_CML2_LINK"))->Fetch();
-                        $arFilter = array(
-                            "PRODUCT_ID" => $db_res["PROPERTY_CML2_LINK_VALUE"],
-                            "PRICE" => $ar_price["PRICE"],
-                            "CURRENCY" => "RUB",
-                            "CATALOG_GROUP_ID" => CATALOG_GROUP_ID_PRICE,
-                        );
-                        $res = CPrice::GetList(
-                            array(),
-                            array(
-                                "PRODUCT_ID" => $db_res["PROPERTY_CML2_LINK_VALUE"],
-                                "CATALOG_GROUP_ID" => CATALOG_GROUP_ID_PRICE,
-                            )
-                        );
+    /**
+    * функция перебирает все предложения товара 
+    * и устанавливает для товара минимальные цены всех типов
+    * исходя из цен предложений
+    * 
+    * @param integer $product_id - идентификатор товара
+    * @param string $currency - валюта
+    */
+    function setMinPrice($product_id, $currency = "RUB") {
 
-                        if ($arr = $res->Fetch()) {
-                            CPrice::Update($arr["ID"], $arFilter);
-                        } else {
-                            if(!in_array($ar_price["PRODUCT_ID"],$ar_item_id)) {
-                                $obPrice = CPrice::Add($arFilter);
-                                $ar_item_id[] =  $ar_price["PRODUCT_ID"];
-                            }
-                        }
-                    }
-                }
+        $product_id = intval($product_id); 
+        if (empty($product_id)) {
+            return false;
+        }
+        //получаем предложения товара
+        $arOffers = CCatalogSKU::getOffersList(array($product_id), 0, array(), array(), array());  
+
+        //выбираем предложения текущего товара
+        $offers = $arOffers[$product_id];  
+        if (!is_array($offers) || count($offers) <= 0) {
+            return false;
+        }
+
+        $offers_list = array();
+        //перебираем предложения
+        foreach ($offers as $fID => $offer) {
+            $offers_list[] = $offer["ID"];
+        }
+        
+        if (count($offers_list) <= 0) {
+            return false;
+        }
+
+        //получаем минимальные цены предложений для всех возможных типов цен
+        $min_prices = array();
+        $rsPrice = CPrice::GetList(array("PRODUCT_ID" => "ASC"), array("PRODUCT_ID" => $offers_list), false, false, array());
+        while($arPrice = $rsPrice->Fetch()) {
+            if (empty($min_prices[$arPrice["CATALOG_GROUP_ID"]]) || $arPrice["PRICE"] < $min_prices[$arPrice["CATALOG_GROUP_ID"]]) {
+                $min_prices[$arPrice["CATALOG_GROUP_ID"]] = $arPrice["PRICE"]; 
             }
         }
-    }*/
 
+        //обновляем полученные типы цен у товара
+        if (count($min_prices) > 0) {
+            foreach ($min_prices as $price_id => $price) {     
+                $res = CPrice::GetList( array(), array("PRODUCT_ID" => $product_id, "CATALOG_GROUP_ID" => $price_id));
+                //проверяем существование данного типа цены у товара.   
+                $arFields = Array(
+                    "PRODUCT_ID" => $product_id,
+                    "CATALOG_GROUP_ID" => $price_id,   
+                    "CURRENCY" => $currency,                                             
+                );       
+                if ($arr = $res->Fetch()) {
+                    //если есть - обновляем
+                    $arFields["PRICE"] = $price;  
+                    CPrice::Update($arr["ID"], $arFields);
+                } else  
+                    //если нет - добавляем
+                    $arFields["PRICE"] = $price;
+                    CPrice::Add($arFields);
+            }
+        }
+    }
 
-
+    
     //обновление количества у основноо товара с учетом количества ТП
     AddEventHandler("catalog", "OnProductAdd","UpdateProductQuantity");
     AddEventHandler("catalog", "OnProductUpdate","UpdateProductQuantity");
@@ -577,5 +607,7 @@
             CCatalogProduct::Update($arProductInfo['ID'], $arFieldsProduct);
         }
     }
+
+
 
 ?>

@@ -78,7 +78,7 @@
     $arParams["ELEMENT_SORT_FIELD2"] = $catalogParams["ELEMENT_SORT_FIELD2"];
     $arParams["ELEMENT_SORT_ORDER2"] = $catalogParams["ELEMENT_SORT_ORDER2"];
 
-    //при первом заходе пользователя сортируем товар по доступности на складах и наличию картинок
+    //при первом входе пользователя сортируем товар по доступности на складах и наличию картинок
     if (empty($_SESSION["CATALOG_PARAMS"]["ELEMENT_SORT_FIELD"]) && empty($_SESSION["CATALOG_PARAMS"]["ELEMENT_SORT_FIELD2"])) {                                                                                                                                        
         $arParams["ELEMENT_SORT_FIELD"] = "CATALOG_AVAILABLE";
         $arParams["ELEMENT_SORT_ORDER"] = "DESC";
@@ -181,7 +181,7 @@
                 else
                     $basketAction = (isset($arParams['SECTION_ADD_TO_BASKET_ACTION']) ? $arParams['SECTION_ADD_TO_BASKET_ACTION'] : '');
 
-                $intSectionID = 0;
+                $intSectionID = 0; 
 
             ?>
             <?$intSectionID = $APPLICATION->IncludeComponent(
