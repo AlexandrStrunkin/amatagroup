@@ -13,7 +13,7 @@
     use Bitrix\Main\Localization\Loc;
     use Bitrix\Sale\Internals;
 
-    $arPageElementCount = array(12, 24, 60); //возможные варианты количестка элементов на странице
+    $arPageElementCount = array(12, 24, 36); //возможные варианты количестка элементов на странице
 
     //массив вариантов сортировки товаров в каталоге
     $catalogAvailableSort = array("NAME", "DATE_CREATE", "PRICE");
