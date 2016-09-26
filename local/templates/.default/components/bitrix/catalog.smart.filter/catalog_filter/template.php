@@ -46,9 +46,9 @@
                                 $precision = $res['DECIMALS'];
                             }
 
-                            if ($arItem["DISPLAY_EXPANDED"] == "Y") {
+                           // if ($arItem["DISPLAY_EXPANDED"] == "Y") { //фильтр по цене раскрыт всегда
                                 $activeFilterItem = true;
-                            }
+                           //}
                         ?>
 
                         <div class="typeBlockFilter bx-filter-parameters-box bx-active">
