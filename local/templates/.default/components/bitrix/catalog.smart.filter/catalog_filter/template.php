@@ -266,7 +266,7 @@
                                         <?$count_property++;?>
                                         <?endforeach;?>
                                     <?if($count_property > 10){?>
-                                        <a href="havascript:void(0)" class="show_property"><?= GetMessage('FILTER_PROPERTY') ?></a>
+                                        <a href="javascript:void(0)" class="show_property"><?= GetMessage('FILTER_PROPERTY') ?></a>
                                     <?}?>
                                 </div>
                                 <?
