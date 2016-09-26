@@ -84,7 +84,7 @@
         $arParams["ELEMENT_SORT_ORDER"] = "DESC";
         $arParams["ELEMENT_SORT_FIELD2"] = "HAS_PREVIEW_PICTURE";
         $arParams["ELEMENT_SORT_ORDER2"] = "DESC"; 
-    }
+    }                                                     
     
     //формируем правильный вид для поля сортировки
     if ($arParams["ELEMENT_SORT_FIELD"] == "PRICE") {
@@ -93,7 +93,7 @@
         if ($arPrice["ID"] > 0) {
             $arParams["ELEMENT_SORT_FIELD"] = "CATALOG_PRICE_".$arPrice["ID"];
         }
-    }
+    } 
 
 ?>
 

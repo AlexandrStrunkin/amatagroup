@@ -177,7 +177,7 @@
         }
 
         $arNewItemsList = array();
-        foreach ($arResult['ITEMS'] as $key => $arItem) {
+        foreach ($arResult['ITEMS'] as $key => $arItem) {     
 
 			if ($arResult['USER_AUTHORIZED']) {
 				$arItem['USER_HAVE_ITEM_IN_FAVORITE'] = Favorite::checkIsExists($USER->GetID(), $arItem['ID']);

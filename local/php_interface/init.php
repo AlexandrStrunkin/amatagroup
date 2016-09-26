@@ -16,7 +16,7 @@
     $arPageElementCount = array(12, 24, 36); //возможные варианты количестка элементов на странице
 
     //массив вариантов сортировки товаров в каталоге
-    $catalogAvailableSort = array("NAME", "DATE_CREATE", "PRICE");
+    $catalogAvailableSort = array("NAME", "ID", "PRICE");
 
     //возможные направления сортировки товаров
     $catalogAvailableSortDirections = array("ASC", "DESC");
@@ -84,9 +84,9 @@
 
     /*константы для отображения каталога*/
     define("DEFAULT_PAGE_ELEMENT_COUNT", $GLOBALS["availableParams"]["PAGE_ELEMENT_COUNT"][0]); //количество элементов на странице раздела каталога по умолчанию
-    define("DEFAULT_ELEMENT_SORT_FIELD", $GLOBALS["availableParams"]["ELEMENT_SORT_FIELD"][0]); //поле для первой сортировки элементов в каталоге по умолчанию
+    define("DEFAULT_ELEMENT_SORT_FIELD", $GLOBALS["availableParams"]["ELEMENT_SORT_FIELD"][1]); //поле для первой сортировки элементов в каталоге по умолчанию
     define("DEFAULT_ELEMENT_SORT_ORDER", $GLOBALS["availableParams"]["ELEMENT_SORT_ORDER"][0]); //направление для первой сортировки элементов в каталоге по умолчанию
-    define("DEFAULT_ELEMENT_SORT_FIELD2", $GLOBALS["availableParams"]["ELEMENT_SORT_FIELD"][1]); //поле для второй сортировки элементов в каталоге по умолчанию
+    define("DEFAULT_ELEMENT_SORT_FIELD2", $GLOBALS["availableParams"]["ELEMENT_SORT_FIELD"][0]); //поле для второй сортировки элементов в каталоге по умолчанию
     define("DEFAULT_ELEMENT_SORT_ORDER2", $GLOBALS["availableParams"]["ELEMENT_SORT_ORDER2"][0]); //направление для второй сортировки элементов в каталоге по умолчанию
     define("DEFAULT_CATALOG_SECTION_TEMPLATE", "blocks"); //шаблон для отображения элементов раздела по умолчанию
     /*///*/
