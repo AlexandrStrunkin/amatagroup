@@ -9,4 +9,5 @@ $MESS ['CT_BCSF_FILTER_SHOW'] = "Показать";
 $MESS ['CT_BCSF_FILTER_ALL'] = "Все";
 $MESS ['PRICE'] = "Цена";
 $MESS ['CLOSE_FILTER'] = "Свернуть фильтр";
+$MESS ['FILTER_PROPERTY'] = "Показать все";
 ?>
