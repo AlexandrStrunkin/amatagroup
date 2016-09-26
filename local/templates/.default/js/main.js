@@ -1544,7 +1544,7 @@ $(document).ready(function () {
             $(this).closest("tr").find(".statusInStock").hide();
         }
     })
-    
+
     // обратная связь, кликаем по картинке, выбирается ТП
     $("#previews_slider_wrapper a").on("click", function(){
     	if ($(this).data("preview-offer-id")) {
@@ -1817,5 +1817,20 @@ $(function() {
    })
    $('body').on('click', '.close_popup', function(){
          $('.productText_popup').fadeOut();
+   })
+});
+
+$(function() {
+   $('body').on('click', '.show_property', function(){
+         $('.optionContain .hide').css('display', 'block');
+         $(this).removeClass('show_property');
+         $(this).addClass('hide_property');
+         $(this).html('Свернуть');
+   })
+   $('body').on('click', '.hide_property', function(){
+         $('.optionContain .hide').css('display', 'none');
+         $(this).removeClass('hide_property');
+         $(this).addClass('show_property');
+         $(this).html('Показать все');
    })
 });

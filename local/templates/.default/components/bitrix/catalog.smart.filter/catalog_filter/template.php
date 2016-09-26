@@ -254,15 +254,20 @@
                                 default://CHECKBOXES
                                 ?>
                                 <div class="optionContain <?if ($activeFilterItem){?> active<?}?>" >
+                                <?$count_property = 1;?>
                                     <?foreach($arItem["VALUES"] as $val => $ar):?>
-                                        <p>
-                                            <input type="checkbox" value="<? echo $ar["HTML_VALUE"] ?>" name="<? echo $ar["CONTROL_NAME"] ?>" id="<? echo $ar["CONTROL_ID"] ?>"
+                                        <p class="<?= ($count_property <= 10)? 'show':'hide'?>">
+                                            <input  type="checkbox" value="<? echo $ar["HTML_VALUE"] ?>" name="<? echo $ar["CONTROL_NAME"] ?>" id="<? echo $ar["CONTROL_ID"] ?>"
                                                 <? echo $ar["CHECKED"]? 'checked="checked"': '' ?>
                                                 onclick="smartFilter.click(this)" hidden=""
                                                 />
                                             <label class="countryText" data-role="label_<?=$ar["CONTROL_ID"]?>" for="<? echo $ar["CONTROL_ID"] ?>"><?=$ar["VALUE"];?></label>
                                         </p>
+                                        <?$count_property++;?>
                                         <?endforeach;?>
+                                    <?if($count_property > 10){?>
+                                        <a href="havascript:void(0)" class="show_property"><?= GetMessage('FILTER_PROPERTY') ?></a>
+                                    <?}?>
                                 </div>
                                 <?
                             }

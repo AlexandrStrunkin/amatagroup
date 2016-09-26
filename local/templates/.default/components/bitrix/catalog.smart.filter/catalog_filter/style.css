@@ -422,7 +422,7 @@ COLOR
 	background: #f3f8fa;
 }
 /*
-*	Checkbox / Radio 
+*	Checkbox / Radio
 *
 */
 
@@ -434,7 +434,7 @@ COLOR
 	text-align: left;
 }
 /*
-* 	BTN 
+* 	BTN
 *
 */
 
@@ -639,7 +639,7 @@ COLOR
 	border-color: transparent;
 }
 /*
-*	BTN result and reset 
+*	BTN result and reset
 *
 */
 
@@ -749,5 +749,20 @@ COLOR
 }
 
 .allElementWrap .leftFiltersBlock {
-    overflow: visible !important; 
+    overflow: visible !important;
+}
+.hide{
+    display: none;
+}
+.show{
+    display: block;
+}
+.show_property,
+.hide_property{
+    color: #5db3dc;
+    font-family: "MuseoSansCyrl-500";
+    font-size: 13px;
+    margin-top: 15px;
+    display: block;
+    margin-left: 28px;
 }
