@@ -1,8 +1,8 @@
 <?
     use Bitrix\Main\Type\Collection;
     use Bitrix\Currency\CurrencyTable;
-	
-	global $USER;
+
+    global $USER;
 
     if (!defined('B_PROLOG_INCLUDED') || B_PROLOG_INCLUDED!==true) die();
     /** @var CBitrixComponentTemplate $this */
@@ -120,7 +120,7 @@
 
     //получаем текущую корзину пользователя
     $arResult["USER_BASKET"] = getCurrentBasket();
-	$arResult['USER_AUTHORIZED'] = $USER->IsAuthorized() ? true : false;
+    $arResult['USER_AUTHORIZED'] = $USER->IsAuthorized() ? true : false;
 
     if (!empty($arResult['ITEMS']))
     {
@@ -178,9 +178,9 @@
 
         $arNewItemsList = array();
         foreach ($arResult['ITEMS'] as $key => $arItem) {
-        	if ($arResult['USER_AUTHORIZED']) {
-				$arItem['USER_HAVE_ITEM_IN_FAVORITE'] = Favorite::checkIsExists($USER->GetID(), $arItem['ID']);
-			}
+            if ($arResult['USER_AUTHORIZED']) {
+                $arItem['USER_HAVE_ITEM_IN_FAVORITE'] = Favorite::checkIsExists($USER->GetID(), $arItem['ID']);
+            }
             $arItem['CHECK_QUANTITY'] = false;
             if (!isset($arItem['CATALOG_MEASURE_RATIO']))
                 $arItem['CATALOG_MEASURE_RATIO'] = 1;
@@ -417,7 +417,7 @@
                         $arItem['OFFERS'],
                         $boolConvert ? $arResult['CONVERT_CURRENCY']['CURRENCY_ID'] : $strBaseCurrency
                     );
-                }
+                }   
             }
 
             if (
@@ -451,7 +451,7 @@
             $arNewItemsList[$key] = $arItem;   
 
         }
-        
+
         $arNewItemsList[$key]['LAST_ELEMENT'] = 'Y';
         $arResult['ITEMS'] = $arNewItemsList;
         $arResult['SKU_PROPS'] = $arSKUPropList;
@@ -501,6 +501,23 @@
                 unset($currencyFormat, $currency, $currencyIterator);
             }
         }
+    }  
+
+
+    //убираем у предложений из свойств значения, заполненные как "Стандарт" 
+    if (!empty($arResult['ITEMS'])) {
+        foreach ($arResult["ITEMS"] as $itemKey => $arItem) {
+            if (!empty($arItem["OFFERS"])) {
+                foreach ($arItem["OFFERS"] as $offerKey => $offer) {
+                    foreach ($arParams["OFFER_TREE_PROPS"] as $offerPropName) {
+                        if ($offer["PROPERTIES"][$offerPropName]["VALUE"] == "Стандарт") {
+                           $arResult["ITEMS"][$itemKey]["OFFERS"][$offerKey]["PROPERTIES"][$offerPropName]["VALUE"] = ""; 
+                        }
+                    }
+                }
+            }
+        }
     }
-    
+
+
 ?>
