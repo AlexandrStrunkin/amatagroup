@@ -7,8 +7,19 @@
 $frame = $this->createFrame()->begin();
 
 if (!empty($arResult['ITEMS']))
-{
-	$templateData = array(
+{?>
+	<!--viewedElementBlock-->
+<div class="viewedElementBlock">
+    <div class="widthWrapper">
+        <!--viewedBlock-->
+        <div class="viewedBlock productCarousel elmentsList">
+            <h2><?= GetMessage("VIEWED_PRODUCTS") ?></h2>
+
+            <!--jcarousel-wrapper-->
+            <div class="jcarousel-wrapper">
+                <!--jcarousel-->
+                <div class="jcarousel ">
+	<?$templateData = array(
 		'TEMPLATE_THEME' => $this->GetFolder().'/themes/'.$arParams['TEMPLATE_THEME'].'/style.css',
 		'TEMPLATE_CLASS' => 'bx_'.$arParams['TEMPLATE_THEME']
 	);
@@ -549,6 +560,17 @@ if (!empty($arResult['ITEMS']))
 			CVP_BTN_MESSAGE_CLOSE: '<? echo GetMessageJS('CVP_CATALOG_BTN_MESSAGE_CLOSE') ?>'
 		});
 	</script>
+                </div>
+                <a href="" class="jcarousel-control-prev"></a>
+                <a href="" class="jcarousel-control-next"></a>
+
+            </div>
+            <!--END jcarousel-wrapper-->
+        </div>
+        <!--END viewedBlock-->
+    </div>
+</div>
+<!--END viewedElementBlock-->
 <?
 }
 ?>
