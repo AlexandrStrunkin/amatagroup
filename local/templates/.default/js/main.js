@@ -1175,6 +1175,13 @@ $(document).ready(function () {
 
 
         });
+        
+        // перемещаем плашку в то место, где была отмечена последн€€ галка
+        $(".typeBlockFilter .countryText").on("click", function() {
+        	var element_offset = $(this).parent().position();
+        	$("#modef").css("top", parseInt(element_offset.top) + parseInt(5) + "px");
+        })
+        
         $(".typeBlockFilter .close").on("click", function () {
             var el = $(this).parent();
             el.find("input").each(function () {
