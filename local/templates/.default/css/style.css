@@ -6459,29 +6459,37 @@ input[type="radio"]:checked + label::before {
     color: #816d16;
 }
 
-.productCard .productCardImg .logosContainer .bestLogoWrapper {
+.productCardImg .logosContainer .bestLogoWrapper {
     background: #ffd0b4;
     border-radius: 50%;
     color: #c7663e;
 }
 
-.productCard .productCardImg .logosContainer .newLogoWrapper {
+.productCardImg .logosContainer .newLogoWrapper {
     background: #dee8b7;
     color: #779061;
     font-size: 12px !important;
     border-radius: 50%;
 }
 
-.productCard .productCardImg .logosContainer .freshLogoWrapper {
+.productCardImg .logosContainer .freshLogoWrapper {
     background: #b8aecc;
     color: #8c849b;
     border-radius: 50%;
 }
 
-.productCard .productCardImg .logosContainer .saleLogoWrapper {
+.productCardImg .logosContainer .saleLogoWrapper {
     background: #bbe7fc;
     color: #748f9d;
     border-radius: 50%;
+}
+
+.productCardImg .logosContainer div {
+	width: 49px;
+    height: 51px;
+    font: 14px/53px 'MuseoSansCyrl-900', sans-serif;
+    padding: 0;
+    margin: 0 0 8px;
 }
 
 .smallPreviewImg {
