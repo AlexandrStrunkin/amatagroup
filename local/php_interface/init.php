@@ -170,13 +170,18 @@
             return $arFields;
         }
     }
-   /* // отправл€ем пользователю письмо об успешной регистрации
-    AddEventHandler("main", "OnAfterUserAdd", "OnAfterUserRegisterHandler");
-    AddEventHandler("main", "OnAfterUserRegister", "OnAfterUserRegisterHandler");
-    function OnAfterUserRegisterHandler(&$arFields)
+    // отправл€ем пользователю письмо об успешной регистрации
+   // AddEventHandler("main", "OnAfterUserAdd", "OnAfterUserRegisterHandler");
+  //  AddEventHandler("main", "OnAfterUserRegister", "OnAfterUserRegisterHandler");
+    AddEventHandler("main", "OnBeforeUserUpdate", "OnBeforeUserRegisterHandler");
+    function OnBeforeUserRegisterHandler(&$arFields)
     {
-        if (intval($arFields["ID"])>0)
-        {
+        $filter = Array("ID" => $arFields["ID"]);
+        $rsUsers = CUser::GetList(($by="personal_country"), ($order="desc"), $filter); // выбираем пользователей
+        while($arUser = $rsUsers->GetNext()) {
+            $user_active = $arUser["ACTIVE"];
+        };
+        if ($arFields["ACTIVE"] == 'Y' && $user_active == "N") {
             $toSend = Array();
             $toSend["PASSWORD"] = $arFields["CONFIRM_PASSWORD"];
             $toSend["EMAIL"] = $arFields["EMAIL"];
@@ -186,10 +191,25 @@
             $toSend["LOGIN"] = $arFields["LOGIN"];
             $toSend["NAME"] = (trim ($arFields["NAME"]) == "")? $toSend["NAME"] = htmlspecialchars('Ќе указано'): $arFields["NAME"];
             $toSend["LAST_NAME"] = (trim ($arFields["LAST_NAME"]) == "")? $toSend["LAST_NAME"] = htmlspecialchars('Ќе указано'): $arFields["LAST_NAME"];
-            CEvent::SendImmediate ("NEW_USER", SITE_ID, $toSend);
+            CEvent::Send ("NEW_USER", SITE_ID, $toSend, "N", 1);
         }
         return $arFields;
-    }   */
+    }
+
+    function SendMailOffThreeDay(){   // отправка письма менеджеру после 3 дней ожидани€ регистрации пользовател€
+        CModule::IncludeModule('main');
+        $filter = Array("ACTIVE" => "N");
+        $rsUsers = CUser::GetList(($by="personal_country"), ($order="desc"), $filter); // выбираем пользователей
+        while($arUser = $rsUsers->GetNext()) {
+            $nextWeek = strtotime(date('d.m.Y H:i:s')) - strtotime($arUser["DATE_REGISTER"]);
+            if($nextWeek > 259200){  // врем€ создани€ больше 3 дней
+                $filter_user["USER_ID"] = $arUser["ID"];
+                $filter_user["LOGIN"] = $arUser["LOGIN"];
+                CEvent::Send ("NEW_USER", SITE_ID, $filter_user, "N", 79);
+            }
+        };
+        return 'SendMailOffThreeDay();';
+    }
 
     /***
     * функци€ возвращает массив параметров дл€ отображени€ каталога:

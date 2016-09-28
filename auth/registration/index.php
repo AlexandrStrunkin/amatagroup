@@ -5,8 +5,8 @@ $APPLICATION->SetTitle("Регистрация");
 <?
 //if (!$USER->IsAuthorized()) {
     $APPLICATION->IncludeComponent(
-	"my_component:register_amata", 
-	"new_registration", 
+	"my_component:register_amata",
+	"new_registration",
 	array(
 		"REQUIRED_FIELDS" => array(
 			0 => "NAME",
@@ -30,6 +30,7 @@ $APPLICATION->SetTitle("Регистрация");
 			8 => "UF_DOCUMENT_8",
 			9 => "UF_DOCUMENT_10",
 			10 => "UF_DOCUMENT_11",
+            11 => "UF_FACE",
 		),
 		"USER_PROPERTY_NAME" => "",
 		"USE_BACKURL" => "N",

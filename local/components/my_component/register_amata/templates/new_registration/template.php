@@ -19,6 +19,16 @@ if(!defined("B_PROLOG_INCLUDED") || B_PROLOG_INCLUDED!==true)
 	die();
 ?>
 
+
+<form method="post" action="<?=POST_FORM_ACTION_URI?>" id="form_register" name="regform" enctype="multipart/form-data">
+
+    <?
+    if($arResult["BACKURL"] <> ''):
+    ?>
+	    <input type="hidden" name="backurl" value="<?=$arResult["BACKURL"]?>" />
+    <?
+    endif;
+    ?>
     <?if($USER->IsAuthorized()):?>
 
     <?else:?>
@@ -37,16 +47,6 @@ if(!defined("B_PROLOG_INCLUDED") || B_PROLOG_INCLUDED!==true)
     ?>
     <p><?echo GetMessage("REGISTER_EMAIL_WILL_BE_SENT")?></p>
     <?endif?>
-<form method="post" action="<?=POST_FORM_ACTION_URI?>" id="form_register" name="regform" enctype="multipart/form-data">
-
-    <?
-    if($arResult["BACKURL"] <> ''):
-    ?>
-	    <input type="hidden" name="backurl" value="<?=$arResult["BACKURL"]?>" />
-    <?
-    endif;
-    ?>
-
     <?foreach ($arResult["SHOW_FIELDS"] as $FIELD):?>
 	    <?if($FIELD == "AUTO_TIME_ZONE" && $arResult["TIME_ZONE_ENABLED"] == true):?>
 				    <select name="REGISTER[AUTO_TIME_ZONE]" onchange="this.form.elements['REGISTER[TIME_ZONE]'].disabled=(this.value != 'N')">
@@ -148,7 +148,17 @@ if(!defined("B_PROLOG_INCLUDED") || B_PROLOG_INCLUDED!==true)
 	        }?>
 	    <?endif?>
     <?endforeach?>
+    <?foreach ($arResult["USER_PROPERTIES"]["DATA"] as $FIELD_NAME => $arUserField){?>
+         <?if($arUserField['FIELD_NAME'] == 'UF_FACE'){?>
+            <span><?=$arUserField["EDIT_FORM_LABEL"]?>:<?if ($arUserField["MANDATORY"]=="Y"):?><span class="starrequired">*</span><?endif;?></span>
+            <?$APPLICATION->IncludeComponent(
+                "bitrix:system.field.edit",
+                $arUserField["USER_TYPE"]["USER_TYPE_ID"],
+                array("bVarsFromForm" => $arResult["bVarsFromForm"], "arUserField" => $arUserField, "form_name" => "regform"), null, array("HIDE_ICONS"=>"Y")
+            );?>
+         <?}?>
 
+    <?}?>
 <?
 /* CAPTCHA */
 if ($arResult["USE_CAPTCHA"] == "Y")
@@ -186,8 +196,12 @@ if ($arResult["USE_CAPTCHA"] == "Y")
 <b class="text_submit_2"> <?=GetMessage("USER_EDIT_TAB")?><br> </b>
 <div class="additional_fields">
     <?if($arResult["USER_PROPERTIES"]["SHOW"] == "Y"):?>
+        <?$count_face = 0;?>
         <?foreach ($arResult["USER_PROPERTIES"]["DATA"] as $FIELD_NAME => $arUserField):?>
-        <span><?=$arUserField["EDIT_FORM_LABEL"]?>:<?if ($arUserField["MANDATORY"]=="Y"):?><span class="starrequired">*</span><?endif;?></span>
+        <?if($arUserField['FIELD_NAME'] != 'UF_FACE'){?>
+        <?$count_face += 1;?>
+        <div class="<?= ($count_face < 7)? 'face_1': 'face_2' ?>">
+            <span><?=$arUserField["EDIT_FORM_LABEL"]?>:<?if ($arUserField["MANDATORY"]=="Y"):?><span class="starrequired">*</span><?endif;?></span>
             <label>
                 <?$APPLICATION->IncludeComponent(
                     "bitrix:system.field.edit",
@@ -196,6 +210,8 @@ if ($arResult["USE_CAPTCHA"] == "Y")
                 );?>
             </label>
             <input type="button" value="x" title="удалить" class="reset">
+        </div>
+        <?}?>
         <?endforeach;?>
     <?endif;?>
 </div>

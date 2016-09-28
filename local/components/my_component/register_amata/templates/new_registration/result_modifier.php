@@ -6,5 +6,4 @@ foreach($arResult["ERRORS"] as $key => $ar_error){
     $arResult["ERRORS"][$key] = $ar_error.' Вы можите авторизоваться под этим e-mail.';
   }
 }
-
 ?>

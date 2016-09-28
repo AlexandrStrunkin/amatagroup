@@ -46,7 +46,6 @@ if(!is_array($arParams["REQUIRED_FIELDS"]))
 $arDefaultFields = array(
     'NAME',
     'PERSONAL_PHONE',
-    'LOGIN',
     'EMAIL',
     'PASSWORD',
     'CONFIRM_PASSWORD',
@@ -194,8 +193,8 @@ if ($_SERVER["REQUEST_METHOD"] == "POST" && !empty($_REQUEST["register_submit_bu
 			unset($arEventFields["PASSWORD"]);
 			unset($arEventFields["CONFIRM_PASSWORD"]);
 
-			//$event = new CEvent;
-			//$event->SendImmediate("NEW_USER", SITE_ID, $arEventFields);
+			$event = new CEvent;
+			$event->SendImmediate("REGISTER_USER", SITE_ID, $arEventFields);
 			/*if($bConfirmReq)
 				$event->SendImmediate("NEW_USER_CONFIRM", SITE_ID, $arEventFields);  */
 		}
