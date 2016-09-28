@@ -8562,14 +8562,14 @@ display: none;
 }
 .additional_fields{
     margin: 0 auto;
-    width: 27%;
+    width: 52%;
     overflow: hidden;
     clear: both;
-    padding-bottom: 15px
+    padding-bottom: 15px;
+    padding-right: 10px;
 }
 .additional_fields > span{
     float: left;
-    margin-right: 10px;
     clear: both;
     margin-top: 13px;
 }
@@ -8619,7 +8619,7 @@ display: none;
 
 .additional_fields > label{
     position: relative;
-    float: left;
+    float: right;
     width: 200px;
     display: block;
     margin: 5px 0;
@@ -8658,7 +8658,8 @@ display: none;
     cursor: pointer;
     position: relative;
     background-color: #fff;
-    right: 35px;
+    left: 205px;
+    float: right;
     z-index: 0;
 }
 .error_file{
