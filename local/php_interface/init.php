@@ -30,7 +30,7 @@
         "ELEMENT_SORT_FIELD2" => $catalogAvailableSort, //поле для второй сортировки
         "ELEMENT_SORT_ORDER2" => $catalogAvailableSortDirections, //направление для второй сортировки
         "CATALOG_SECTION_TEMPLATE" => array("blocks", "table"), //шаблоны списка элементов
-        "CATALOG_AVAILABLE_PRODUCT" => array("Y", "N")
+        "CATALOG_AVAILABLE_PRODUCT" => array("Y", "N")  //значения наличия элементов
     );
 
 
@@ -173,9 +173,10 @@
             return $arFields;
         }
     }
-    // отправляем пользователю письмо об успешной регистрации
+
    // AddEventHandler("main", "OnAfterUserAdd", "OnAfterUserRegisterHandler");
   //  AddEventHandler("main", "OnAfterUserRegister", "OnAfterUserRegisterHandler");
+    // отправляем пользователю письмо после изменения активности пользователя
     AddEventHandler("main", "OnBeforeUserUpdate", "OnBeforeUserRegisterHandler");
     function OnBeforeUserRegisterHandler(&$arFields)
     {
@@ -184,7 +185,7 @@
         while($arUser = $rsUsers->GetNext()) {
             $user_active = $arUser["ACTIVE"];
         };
-        if ($arFields["ACTIVE"] == 'Y' && $user_active == "N") {
+        if ($arFields["ACTIVE"] == 'Y' && $user_active == "N") { // проверяем происходила ли активация пользователя
             $toSend = Array();
             $toSend["PASSWORD"] = $arFields["CONFIRM_PASSWORD"];
             $toSend["EMAIL"] = $arFields["EMAIL"];
