@@ -8737,3 +8737,23 @@ display: none;
     border-radius: 9px 0 0;
 }
 /*��������� main.register ������ new_registration*/
+.secondFilter input[type="checkbox"] + label::before {
+    background-image: url(/local/templates/.default/css/../img/emptyCheckFilt.png);
+}
+.secondFilter input[type="checkbox"]:checked + label::before {
+    background-image: url(/local/templates/.default/css/../img/checkedBrandFlag.png);
+}
+
+.secondFilter input[type="checkbox"] + label::before {
+    background-image: url(/local/templates/.default/css/../img/emptyCheckFilt.png);
+}
+.horizontalFilterWrap .avalibleFilter {
+    border: 1px solid #cccccc;
+    border-radius: 4px;
+    cursor: pointer;
+    float: left;
+    margin-right: 22px;
+    padding: 9px 18px 9px 15px;
+    position: relative;
+    width: 104px;
+}
