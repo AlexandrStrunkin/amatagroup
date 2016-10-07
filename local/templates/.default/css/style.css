@@ -8747,12 +8747,18 @@ display: none;
 .secondFilter input[type="checkbox"] + label::before {
     background-image: url(/local/templates/.default/css/../img/emptyCheckFilt.png);
 }
-.horizontalFilterWrap .avalibleFilter {
+.horizontalFilterWrap .avalibleFilter{
+    float: left;
+}
+.horizontalFilterWrap .avalibleFilter label{
     border: 1px solid #cccccc;
     border-radius: 4px;
     cursor: pointer;
     float: left;
     margin-right: 22px;
+    color: #000000;
+    font-family: "MuseoSansCyrl-500";
+    font-size: 14px;
     padding: 9px 18px 9px 15px;
     position: relative;
     width: 104px;
