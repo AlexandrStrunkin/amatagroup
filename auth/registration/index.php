@@ -5,8 +5,8 @@ $APPLICATION->SetTitle("Регистрация");
 <?
 //if (!$USER->IsAuthorized()) {
     $APPLICATION->IncludeComponent(
-	"my_component:register_amata",
-	"new_registration",
+	"webgk:register_amata",
+	".default",
 	array(
 		"REQUIRED_FIELDS" => array(
 			0 => "NAME",
