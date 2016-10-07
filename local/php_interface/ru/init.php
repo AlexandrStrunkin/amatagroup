@@ -6,5 +6,5 @@ $MESS["CATALOG_ORDER_BY_ID"] = "Новизне";
 $MESS["CATALOG_ORDER_DIRECTION_ASC"] = "Возрастанию";
 $MESS["CATALOG_ORDER_DIRECTION_DESC"] = "Убыванию";
 $MESS["CATALOG_AVALIBLE_PRODUCT"] = "В наличии";
-$MESS["PRODUCT_AVALIBLE"] = "Отображать товары по наличию";
+$MESS["PRODUCT_AVALIBLE"] = "Отображать только товары в наличии";
 ?>
