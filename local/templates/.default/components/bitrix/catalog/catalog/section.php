@@ -188,9 +188,10 @@
             <?
             if($catalogParams["CATALOG_AVAILABLE_PRODUCT"] == "Y"){
                $arParams["FILTER_NAME"] = 'arFilter';
+               global $arFilter;
+               $arFilter["!CATALOG_AVAILABLE"] = $catalogParams["CATALOG_AVAILABLE_PRODUCT"];
             }
-            global $arFilter;
-            $arFilter["!CATALOG_AVAILABLE"] = $catalogParams["CATALOG_AVAILABLE_PRODUCT"];?>
+            ?>
             <?$intSectionID = $APPLICATION->IncludeComponent(
                     "bitrix:catalog.section",
                     $sectionTemplate,
