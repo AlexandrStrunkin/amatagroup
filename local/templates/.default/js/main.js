@@ -1403,6 +1403,11 @@ $(document).ready(function () {
             document.location.href = $(this).data('href');
         }
     });
+    $(".avalibleFilter label").on("click", function(){
+        if ($(this).data('href')) {
+            document.location.href = $(this).data('href');
+        }
+    });
 
 	// Функционал избранного
 
