@@ -77,15 +77,16 @@
     $arParams["ELEMENT_SORT_ORDER"] = $catalogParams["ELEMENT_SORT_ORDER"];
     $arParams["ELEMENT_SORT_FIELD2"] = $catalogParams["ELEMENT_SORT_FIELD2"];
     $arParams["ELEMENT_SORT_ORDER2"] = $catalogParams["ELEMENT_SORT_ORDER2"];
+    $arParams["CATALOG_AVAILABLE_PRODUCT"] = $catalogParams["CATALOG_AVAILABLE_PRODUCT"];
 
     //при первом входе пользователя сортируем товар по доступности на складах и наличию картинок
-    if (empty($_SESSION["CATALOG_PARAMS"]["ELEMENT_SORT_FIELD"]) && empty($_SESSION["CATALOG_PARAMS"]["ELEMENT_SORT_FIELD2"])) {                                                                                                                                        
+    if (empty($_SESSION["CATALOG_PARAMS"]["ELEMENT_SORT_FIELD"]) && empty($_SESSION["CATALOG_PARAMS"]["ELEMENT_SORT_FIELD2"])) {
         $arParams["ELEMENT_SORT_FIELD"] = "CATALOG_AVAILABLE";
         $arParams["ELEMENT_SORT_ORDER"] = "DESC";
         $arParams["ELEMENT_SORT_FIELD2"] = "HAS_PREVIEW_PICTURE";
-        $arParams["ELEMENT_SORT_ORDER2"] = "DESC"; 
-    }                                                     
-    
+        $arParams["ELEMENT_SORT_ORDER2"] = "DESC";
+    }
+
     //формируем правильный вид для поля сортировки
     if ($arParams["ELEMENT_SORT_FIELD"] == "PRICE") {
         $priceCode = $arParams["PRICE_CODE"][0];
@@ -93,7 +94,7 @@
         if ($arPrice["ID"] > 0) {
             $arParams["ELEMENT_SORT_FIELD"] = "CATALOG_PRICE_".$arPrice["ID"];
         }
-    } 
+    }
 
 ?>
 
@@ -113,8 +114,8 @@
                     <?getCatalogOptionBlock("ELEMENT_SORT_FIELD"); //sets in init.php?>
                 </div>
 
-                <div class="secondFilter">
-                    <?getCatalogOptionBlock("ELEMENT_SORT_ORDER"); //sets in init.php?>
+                <div class="avalibleFilter">
+                    <?getCatalogOptionBlock("CATALOG_AVAILABLE_PRODUCT"); //sets in init.php?>
                 </div>
             </div>
             <div class="displayTypeWrap">
@@ -181,8 +182,15 @@
                 else
                     $basketAction = (isset($arParams['SECTION_ADD_TO_BASKET_ACTION']) ? $arParams['SECTION_ADD_TO_BASKET_ACTION'] : '');
 
-                $intSectionID = 0;   
-                
+                $intSectionID = 0;
+
+            ?>
+            <?
+            if($catalogParams["CATALOG_AVAILABLE_PRODUCT"] == "Y"){
+               $arParams["FILTER_NAME"] = 'arFilter';
+               global $arFilter;
+               $arFilter["CATALOG_AVAILABLE"] = $catalogParams["CATALOG_AVAILABLE_PRODUCT"];
+            }
             ?>
             <?$intSectionID = $APPLICATION->IncludeComponent(
                     "bitrix:catalog.section",

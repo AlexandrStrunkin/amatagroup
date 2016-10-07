@@ -205,19 +205,24 @@
 
 
                     </div>
-                    <?//шильдик новинки. Если товар  создан менее 2 недель назад
-                        if (date("U") - 86400 * NEW_PRODUCT_STATUS_LENGTH <= MakeTimeStamp($arItem["DATE_CREATE"], "DD.MM.YYYY HH:MI:SS")) {
-                        ?>
-                        <div class="newProductWrapper" title="<?=GetMessage("NEW_PRODUCT")?>"><?=GetMessage('NEW_PRODUCT')?></div>
-                        <?}?>
-                    <?/*
-                        <div class="bestLogoWrapper">BEST</div>
-                        <div class="saleLogoWrapper">SALE</div>
-                    */?>
+                    <div class="logosContainer">
+                        <?//шильдик скидки
+                            if ($arItem["MIN_PRICE_TMP"]['DISCOUNT_VALUE'] < $arItem["MIN_PRICE_TMP"]['VALUE'] && $arItem["MIN_PRICE_TMP"]["DISCOUNT_DIFF_PERCENT"] > 0) {?>
+                            <div class="discountLogoWrapper">-<?=$arItem["MIN_PRICE_TMP"]["DISCOUNT_DIFF_PERCENT"];?>%</div>
+                            <?}?>
 
+                        <?//шильдик новинки. Если товар  создан менее 2 недель назад
+                            if (date("U") - 86400 * NEW_PRODUCT_STATUS_LENGTH <= MakeTimeStamp($arItem["DATE_CREATE"], "DD.MM.YYYY HH:MI:SS")) {
+                            ?>
+                            <div class="newLogoWrapper" title="<?=GetMessage("NEW_PRODUCT")?>">NEW</div>
+                            <?}?>
 
-
-
+                        <?//шильдик последние поступления. Если товар  создан менее 2 дней назад
+                            if (date("U") - 86400 * FRESH_PRODUCT_STATUS_LENGTH <= MakeTimeStamp($arItem["DATE_CREATE"], "DD.MM.YYYY HH:MI:SS")) {
+                            ?>
+                            <div class="freshLogoWrapper" title="<?=GetMessage("FRESH_PRODUCT")?>">FRESH</div>
+                            <?}?>
+                    </div>
                     <?
                         $showSubscribeBtn = false;
                         $compareBtnMessage = ($arParams['MESS_BTN_COMPARE'] != '' ? $arParams['MESS_BTN_COMPARE'] : GetMessage('CT_BCS_TPL_MESS_BTN_COMPARE'));

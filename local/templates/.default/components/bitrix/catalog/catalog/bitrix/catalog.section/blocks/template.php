@@ -31,7 +31,6 @@
                 'CURRENCIES' => $currencyList
             );
             unset($currencyList, $templateLibrary);
-
             $arSkuTemplate = array();
             if (!empty($arResult['SKU_PROPS'])) {
                 foreach ($arResult['SKU_PROPS'] as &$arProp) {

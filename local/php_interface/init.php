@@ -30,6 +30,7 @@
         "ELEMENT_SORT_FIELD2" => $catalogAvailableSort, //поле для второй сортировки
         "ELEMENT_SORT_ORDER2" => $catalogAvailableSortDirections, //направление для второй сортировки
         "CATALOG_SECTION_TEMPLATE" => array("blocks", "table"), //шаблоны списка элементов
+        "CATALOG_AVAILABLE_PRODUCT" => array("Y", "N")  //значения наличия элементов
     );
 
 
@@ -88,6 +89,8 @@
     define("DEFAULT_ELEMENT_SORT_ORDER", $GLOBALS["availableParams"]["ELEMENT_SORT_ORDER"][0]); //направление для первой сортировки элементов в каталоге по умолчанию
     define("DEFAULT_ELEMENT_SORT_FIELD2", $GLOBALS["availableParams"]["ELEMENT_SORT_FIELD"][0]); //поле для второй сортировки элементов в каталоге по умолчанию
     define("DEFAULT_ELEMENT_SORT_ORDER2", $GLOBALS["availableParams"]["ELEMENT_SORT_ORDER2"][0]); //направление для второй сортировки элементов в каталоге по умолчанию
+    define("DEFAULT_CATALOG_AVAILABLE_PRODUCT", $GLOBALS["availableParams"]["CATALOG_AVAILABLE_PRODUCT"][1]); //фильтрация по наличию элементов в каталоге по умолчанию
+
     define("DEFAULT_CATALOG_SECTION_TEMPLATE", "blocks"); //шаблон для отображения элементов раздела по умолчанию
     /*///*/
 
@@ -170,9 +173,10 @@
             return $arFields;
         }
     }
-    // отправляем пользователю письмо об успешной регистрации
+
    // AddEventHandler("main", "OnAfterUserAdd", "OnAfterUserRegisterHandler");
   //  AddEventHandler("main", "OnAfterUserRegister", "OnAfterUserRegisterHandler");
+    // отправляем пользователю письмо после изменения активности пользователя
     AddEventHandler("main", "OnBeforeUserUpdate", "OnBeforeUserRegisterHandler");
     function OnBeforeUserRegisterHandler(&$arFields)
     {
@@ -181,7 +185,7 @@
         while($arUser = $rsUsers->GetNext()) {
             $user_active = $arUser["ACTIVE"];
         };
-        if ($arFields["ACTIVE"] == 'Y' && $user_active == "N") {
+        if ($arFields["ACTIVE"] == 'Y' && $user_active == "N") { // проверяем происходила ли активация пользователя
             $toSend = Array();
             $toSend["PASSWORD"] = $arFields["CONFIRM_PASSWORD"];
             $toSend["EMAIL"] = $arFields["EMAIL"];
@@ -227,6 +231,7 @@
         $element_sort_order = (!empty($_SESSION["CATALOG_PARAMS"]["ELEMENT_SORT_ORDER"]) ? $_SESSION["CATALOG_PARAMS"]["ELEMENT_SORT_ORDER"] : DEFAULT_ELEMENT_SORT_ORDER);
         $element_sort_field2 = (!empty($_SESSION["CATALOG_PARAMS"]["ELEMENT_SORT_FIELD2"]) ? $_SESSION["CATALOG_PARAMS"]["ELEMENT_SORT_FIELD2"] : DEFAULT_ELEMENT_SORT_FIELD2);
         $element_sort_order2 = (!empty($_SESSION["CATALOG_PARAMS"]["ELEMENT_SORT_ORDER2"]) ? $_SESSION["CATALOG_PARAMS"]["ELEMENT_SORT_ORDER2"] : DEFAULT_ELEMENT_SORT_ORDER2);
+        $element_avalible_product = (!empty($_SESSION["CATALOG_PARAMS"]["CATALOG_AVAILABLE_PRODUCT"]) ? $_SESSION["CATALOG_PARAMS"]["CATALOG_AVAILABLE_PRODUCT"] : DEFAULT_CATALOG_AVAILABLE_PRODUCT);
         $catalog_section_template = (!empty($_SESSION["CATALOG_PARAMS"]["CATALOG_SECTION_TEMPLATE"]) ? $_SESSION["CATALOG_PARAMS"]["CATALOG_SECTION_TEMPLATE"] : DEFAULT_CATALOG_SECTION_TEMPLATE);
 
         return array(
@@ -235,6 +240,7 @@
             "ELEMENT_SORT_ORDER" => $element_sort_order,
             "ELEMENT_SORT_FIELD2" => $element_sort_field2,
             "ELEMENT_SORT_ORDER2" => $element_sort_order2,
+            "CATALOG_AVAILABLE_PRODUCT" => $element_avalible_product,
             "CATALOG_SECTION_TEMPLATE" => $catalog_section_template
         );
     }
@@ -298,7 +304,6 @@
 
         $curParams = getCatalogViewParams();
         $availableParam = $GLOBALS["availableParams"][$blockName];
-
         $currentKey = getParamKey($blockName);  //индекс текущего активного элемента из всех возможных
 
         switch ($blockName) {
@@ -325,8 +330,9 @@
             <?
                 break;
 
-            case "ELEMENT_SORT_ORDER" :
-            ?>
+            /*case "ELEMENT_SORT_ORDER" :
+
+           ?>
             <p data-sort="<?=$currentKey?>" id="activeSecondFilt"><?=GetMessage("CATALOG_ORDER_DIRECTION_".$curParams[$blockName])?></p>
             <div class="hidingMenu">
                 <?foreach ($availableParam as $key => $fieldName){?>
@@ -334,8 +340,16 @@
                     <?}?>
             </div>
             <?
+                break; */
+            case "CATALOG_AVAILABLE_PRODUCT" :
+            ?>
+                <?if($_SESSION["CATALOG_PARAMS"]["CATALOG_AVAILABLE_PRODUCT"] == 'Y'){?>
+                    <input type="checkbox" id="<?=$blockName?>" data-sort="<?=$currentKey?>" checked hidden><label id="activeFirstFilt" data-href="?<?=$blockName?>=<?=$availableParam[1]?>" for="<?=$blockName?>"><?=GetMessage("CATALOG_AVALIBLE_PRODUCT")?> </label>
+                <?} else {?>
+                    <input type="checkbox" id="<?=$blockName?>" data-sort="<?=$currentKey?>" hidden><label id="activeFirstFilt" data-href="?<?=$blockName?>=<?=$availableParam[0]?>" for="<?=$blockName?>"><?=GetMessage("CATALOG_AVALIBLE_PRODUCT")?> </label>
+                <?}?>
+                <?
                 break;
-
             default:
                 return false;
 
