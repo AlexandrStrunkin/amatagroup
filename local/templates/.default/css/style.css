@@ -1715,7 +1715,7 @@ margin-top: 20px;
     border-right: 1px solid #e6e6e6;
     float: left;
     height: 54px;
-    padding-left: 22px;
+    padding-left: 15px;
     padding-top: 14px;
     position: relative;
 }
@@ -8772,6 +8772,13 @@ display: none;
 .secondFilter input[type="checkbox"] + label::before {
     background-image: url(/local/templates/.default/css/../img/emptyCheckFilt.png);
 }
+.horizontalFilterWrap .displayTypeWrapAvalible {
+    border-right: 1px solid #e6e6e6;
+    float: left;
+    height: 54px;
+    padding-left: 14px;
+    padding-top: 14px;
+}
 .horizontalFilterWrap .avalibleFilter{
     float: left;
 }
@@ -8780,7 +8787,7 @@ display: none;
     border-radius: 4px;
     cursor: pointer;
     float: left;
-    margin-right: 22px;
+    margin-right: 14px;
     color: #000000;
     font-family: "MuseoSansCyrl-500";
     font-size: 14px;
