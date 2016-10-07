@@ -107,16 +107,20 @@
             <div class="productFilterWrap">
                 <p class="activeTopLeftBut"><?=GetMessage("CATALOG_FILTER")?></p>
             </div>
+            <div class="displayTypeWrapAvalible">
+                <div class="avalibleFilter">
+                    <?getCatalogOptionBlock("CATALOG_AVAILABLE_PRODUCT"); //sets in init.php?>
+                </div>
+            </div>
             <div class="sortingWrap">
+
                 <p><?=GetMessage("ORDER_BY")?></p>
 
                 <div class="firstFilter">
                     <?getCatalogOptionBlock("ELEMENT_SORT_FIELD"); //sets in init.php?>
                 </div>
 
-                <div class="avalibleFilter">
-                    <?getCatalogOptionBlock("CATALOG_AVAILABLE_PRODUCT"); //sets in init.php?>
-                </div>
+
             </div>
             <div class="displayTypeWrap">
                 <?if ($sectionTemplate == "blocks") {?>
