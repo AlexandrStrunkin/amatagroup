@@ -1712,7 +1712,6 @@ $(function() {
                         if(!$(this).val()) {// если в поле пустое
                             $(this).addClass('input_error');// устанавливаем рамку красного цвета
                             error = 1;// определяем индекс ошибки
-
                         } else {
                             $(this).removeClass('input_error');// устанавливаем рамку обычного цвета
                         }
@@ -1741,9 +1740,29 @@ $(function() {
                     $("#reg_input_PASSWORD").removeClass('input_error');// устанавливаем рамку красного цвета
                     $("#reg_input_CONFIRM_PASSWORD").removeClass('input_error');// устанавливаем рамку красного цвета
                 }
+
+            //провека формы собственности
+            var face = $(".bx-user-field-enum").val();
+               if($.isNumeric(face) == false) {
+                    error = 4;
+                    $(".selectric").addClass('input_error');// устанавливаем рамку красного цвета
+                } else{
+                    $(".selectric").removeClass('input_error');// устанавливаем рамку красного цвета
+                }
             if (error == 0) { // если ошибок нет то отправляем данные
                 $('.wrap_form_1').hide('slow');
                 $('.wrap_form_2').show('slow');
+                if(face == 4){
+                    $('.face_1').show();
+                    $('.face_2').hide();
+                    $('.face_1 input').addClass('active_face');
+                    $('.face_2 input').removeClass('active_face');
+                } else {
+                    $('.face_2').show();
+                    $('.face_1').hide()
+                    $('.face_2 input').addClass('active_face');
+                    $('.face_1 input').removeClass('active_face');
+                }
             } else {
                 return false; //если в форме встретились ошибки , не  позволяем отослать данные на сервер.
             }
@@ -1774,7 +1793,7 @@ $(function() {
     $('#form_register .wrap_form_2 .authEnter').click(function(){
         var error = 0;
         $("#form_register").find("input[type='file']").each(function() {// проверяем каждое поле в форме
-            if(!$(this).val()) {
+            if(!$(this).val() && $(this).hasClass("active_face")) {
                 $(this).parent().addClass('error_file');
                 error = 1;
             } else {
