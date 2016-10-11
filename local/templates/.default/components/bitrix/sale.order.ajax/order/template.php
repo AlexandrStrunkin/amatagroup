@@ -165,7 +165,7 @@ if (!function_exists("cmpBySort"))
 
 				BX.closeWait();
 				BX.onCustomEvent(orderForm, 'onAjaxSuccess');
-				
+
 				// custom script on after ajax
 				if ($('select').length > 0) {
 			        $('select').selectric({
@@ -178,7 +178,7 @@ if (!function_exists("cmpBySort"))
 			                        el.addClass("no-empty");
 			                    }
 			                }
-			
+
 			                $(e).change();
 			            }
 			        });
@@ -186,13 +186,13 @@ if (!function_exists("cmpBySort"))
 			            var el = $(this);
 			            el.removeClass("error");
 			            el.find(".label").text(el.find(".label").attr("data-value"));
-			
-			
+
+
 			            $(".hidingMenu").parent().removeClass("active");
 			            $(".hidingMenu").hide();
 			        });
 			    }
-			    
+
 			    // скрываем выбор создание адресов для самовывоза
 			    if ($("#ID_DELIVERY_ID_<?= COURIER_DELIVERY ?>").is(":checked")) {
 			    	$(".row4").hide();
@@ -238,7 +238,7 @@ if (!function_exists("cmpBySort"))
 			include($_SERVER["DOCUMENT_ROOT"].$templateFolder."/person_type.php");
 			include($_SERVER["DOCUMENT_ROOT"].$templateFolder."/props.php");
 			if ($arParams["DELIVERY_TO_PAYSYSTEM"] == "p2d")
-			{	
+			{
 				include($_SERVER["DOCUMENT_ROOT"].$templateFolder."/paysystem.php");
 				include($_SERVER["DOCUMENT_ROOT"].$templateFolder."/delivery.php");
 			}
@@ -305,15 +305,15 @@ if (!function_exists("cmpBySort"))
 	<div style="display: none">
 		<?// we need to have all styles for sale.location.selector.steps, but RestartBuffer() cuts off document head with styles in it?>
 		<?$APPLICATION->IncludeComponent(
-			"bitrix:sale.location.selector.steps", 
-			".default", 
+			"bitrix:sale.location.selector.steps",
+			".default",
 			array(
 			),
 			false
 		);?>
 		<?$APPLICATION->IncludeComponent(
-			"bitrix:sale.location.selector.search", 
-			".default", 
+			"bitrix:sale.location.selector.search",
+			".default",
 			array(
 			),
 			false

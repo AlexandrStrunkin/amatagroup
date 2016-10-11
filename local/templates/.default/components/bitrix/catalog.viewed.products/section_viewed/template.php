@@ -204,7 +204,7 @@ if (!empty($arResult['ITEMS']))
                             echo $minPrice['PRINT_DISCOUNT_VALUE'];
                         }
 
-                        if ('Y' == $arParams['SHOW_OLD_PRICE'] && $minPrice['DISCOUNT_VALUE'] < $minPrice['VALUE']) {?> 
+                        if ('Y' == $arParams['SHOW_OLD_PRICE'] && $minPrice['DISCOUNT_VALUE'] < $minPrice['VALUE']) {?>
                         <span class="old_price"><? echo $minPrice['PRINT_VALUE']; ?></span>
                         <?
                         }
@@ -218,7 +218,7 @@ if (!empty($arResult['ITEMS']))
             </a>
 
             <div>
-                <a href="<? echo $arItem['DETAIL_PAGE_URL']; ?>" class="productName"><?=$arItem["NAME"]?></a> 
+                <a href="<? echo $arItem['DETAIL_PAGE_URL']; ?>" class="productName"><?=$arItem["NAME"]?></a>
 
                 <?if ((!isset($arItem['OFFERS']) || empty($arItem['OFFERS'])) && $arItem['CAN_BUY']) {?>
 
@@ -229,7 +229,7 @@ if (!empty($arResult['ITEMS']))
                     <?}?>
 
                 <div class="productLikeBlock changingLike">
-                	<a href="javascript:void(0)" 
+                	<a href="javascript:void(0)"
 		               class="list_favorite blockLink <?= $arResult['USER_AUTHORIZED'] ?  ($arItem['USER_HAVE_ITEM_IN_FAVORITE'] ? " active already_in_favorite" : " js_add_to_favorite") : " js_favorite_need_auth" ?>"
 		               data-favorite-product-id="<?= $arItem["ID"] ?>"
 		               data-favorite-delete="<?= $arItem['USER_HAVE_ITEM_IN_FAVORITE'] ? "Y" : "" ?>"
@@ -243,7 +243,7 @@ if (!empty($arResult['ITEMS']))
             <div class="logosContainer">
 
                 <?//шильдик скидки
-                    if ($arItem["MIN_PRICE_TMP"]['DISCOUNT_VALUE'] < $arItem["MIN_PRICE_TMP"]['VALUE'] && $arItem["MIN_PRICE_TMP"]["DISCOUNT_DIFF_PERCENT"] > 0) {?> 
+                    if ($arItem["MIN_PRICE_TMP"]['DISCOUNT_VALUE'] < $arItem["MIN_PRICE_TMP"]['VALUE'] && $arItem["MIN_PRICE_TMP"]["DISCOUNT_DIFF_PERCENT"] > 0) {?>
                     <div class="discountLogoWrapper">-<?=$arItem["MIN_PRICE_TMP"]["DISCOUNT_DIFF_PERCENT"];?>%</div>
                     <?}?>
 
@@ -262,7 +262,7 @@ if (!empty($arResult['ITEMS']))
 
 
                 <?/*
-                    <div class="bestLogoWrapper">BEST</div>                               
+                    <div class="bestLogoWrapper">BEST</div>
                     <div class="saleLogoWrapper">SALE</div>
                 */?>
             </div>
@@ -270,7 +270,7 @@ if (!empty($arResult['ITEMS']))
             <?
                 $showSubscribeBtn = false;
                 $compareBtnMessage = ($arParams['MESS_BTN_COMPARE'] != '' ? $arParams['MESS_BTN_COMPARE'] : GetMessage('CT_BCS_TPL_MESS_BTN_COMPARE'));
-                if (!isset($arItem['OFFERS']) || empty($arItem['OFFERS'])) {                          
+                if (!isset($arItem['OFFERS']) || empty($arItem['OFFERS'])) {
 
                     $emptyProductProperties = empty($arItem['PRODUCT_PROPERTIES']);
                     if ('Y' == $arParams['ADD_PROPERTIES_TO_BASKET'] && !$emptyProductProperties) {
