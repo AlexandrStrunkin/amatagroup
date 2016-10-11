@@ -16,7 +16,7 @@
     $arPageElementCount = array(12, 24, 36); //возможные варианты количестка элементов на странице
 
     //массив вариантов сортировки товаров в каталоге
-    $catalogAvailableSort = array("NAME", "ID", "PRICE");
+    $catalogAvailableSort = array("ID", "NAME", "PRICE");
 
     //возможные направления сортировки товаров
     $catalogAvailableSortDirections = array("ASC", "DESC");
@@ -85,10 +85,10 @@
 
     /*константы для отображения каталога*/
     define("DEFAULT_PAGE_ELEMENT_COUNT", $GLOBALS["availableParams"]["PAGE_ELEMENT_COUNT"][0]); //количество элементов на странице раздела каталога по умолчанию
-    define("DEFAULT_ELEMENT_SORT_FIELD", $GLOBALS["availableParams"]["ELEMENT_SORT_FIELD"][1]); //поле для первой сортировки элементов в каталоге по умолчанию
-    define("DEFAULT_ELEMENT_SORT_ORDER", $GLOBALS["availableParams"]["ELEMENT_SORT_ORDER"][0]); //направление для первой сортировки элементов в каталоге по умолчанию
+    define("DEFAULT_ELEMENT_SORT_FIELD", "HAS_PREVIEW_PICTURE"); //поле для первой сортировки элементов в каталоге по умолчанию - всегда по наличию картинок
+    define("DEFAULT_ELEMENT_SORT_ORDER", $GLOBALS["availableParams"]["ELEMENT_SORT_ORDER"][1]); //направление для первой сортировки элементов в каталоге по умолчанию
     define("DEFAULT_ELEMENT_SORT_FIELD2", $GLOBALS["availableParams"]["ELEMENT_SORT_FIELD"][0]); //поле для второй сортировки элементов в каталоге по умолчанию
-    define("DEFAULT_ELEMENT_SORT_ORDER2", $GLOBALS["availableParams"]["ELEMENT_SORT_ORDER2"][0]); //направление для второй сортировки элементов в каталоге по умолчанию
+    define("DEFAULT_ELEMENT_SORT_ORDER2", $GLOBALS["availableParams"]["ELEMENT_SORT_ORDER2"][1]); //направление для второй сортировки элементов в каталоге по умолчанию
     define("DEFAULT_CATALOG_AVAILABLE_PRODUCT", $GLOBALS["availableParams"]["CATALOG_AVAILABLE_PRODUCT"][1]); //фильтрация по наличию элементов в каталоге по умолчанию
 
     define("DEFAULT_CATALOG_SECTION_TEMPLATE", "blocks"); //шаблон для отображения элементов раздела по умолчанию
@@ -174,8 +174,8 @@
         }
     }
 
-   // AddEventHandler("main", "OnAfterUserAdd", "OnAfterUserRegisterHandler");
-  //  AddEventHandler("main", "OnAfterUserRegister", "OnAfterUserRegisterHandler");
+    // AddEventHandler("main", "OnAfterUserAdd", "OnAfterUserRegisterHandler");
+    //  AddEventHandler("main", "OnAfterUserRegister", "OnAfterUserRegisterHandler");
     // отправляем пользователю письмо после изменения активности пользователя
     AddEventHandler("main", "OnBeforeUserUpdate", "OnBeforeUserRegisterHandler");
     function OnBeforeUserRegisterHandler(&$arFields)
@@ -302,7 +302,7 @@
             return false;
         }
 
-        $curParams = getCatalogViewParams();
+        $curParams = getCatalogViewParams();       
         $availableParam = $GLOBALS["availableParams"][$blockName];
         $currentKey = getParamKey($blockName);  //индекс текущего активного элемента из всех возможных
 
@@ -319,36 +319,38 @@
             <?
                 break;
 
-            case "ELEMENT_SORT_FIELD" :
+            case "ELEMENT_SORT_FIELD2" :
             ?>
-            <p data-sort="<?=$currentKey?>" class="firstFiltElement1" id="activeFirstFilt"><?=GetMessage("CATALOG_ORDER_BY_".$curParams[$blockName])?></p>
+            <p data-sort="<?=$currentKey?>" class="firstFiltElement1" id="activeFirstFilt"><img src="<?=DEFAULT_TEMPLATE_PATH?>/img/SORT_<?=$curParams["ELEMENT_SORT_ORDER2"]?>.png"> <?=GetMessage("CATALOG_ORDER_BY_".$curParams[$blockName])?></p>
             <div class="hidingMenu">
                 <?foreach ($availableParam as $key => $fieldName){?>
-                    <p data-sort="<?=$key?>" data-href="?<?=$blockName?>=<?=$fieldName?>"><?=GetMessage("CATALOG_ORDER_BY_".$fieldName)?></p>
+                    <?foreach ($GLOBALS["availableParams"]["ELEMENT_SORT_ORDER2"] as $sort_dir) {?>
+                            <p data-sort="<?=$key?>" data-href="?<?=$blockName?>=<?=$fieldName?>&ELEMENT_SORT_ORDER2=<?=$sort_dir?>"><img src="<?=DEFAULT_TEMPLATE_PATH?>/img/SORT_<?=$sort_dir?>.png"> <?=GetMessage("CATALOG_ORDER_BY_".$fieldName)?></p>
+                        <?}?>
                     <?}?>
             </div>
             <?
                 break;
 
-            /*case "ELEMENT_SORT_ORDER" :
+                /*case "ELEMENT_SORT_ORDER" :
 
-           ?>
-            <p data-sort="<?=$currentKey?>" id="activeSecondFilt"><?=GetMessage("CATALOG_ORDER_DIRECTION_".$curParams[$blockName])?></p>
-            <div class="hidingMenu">
+                ?>
+                <p data-sort="<?=$currentKey?>" id="activeSecondFilt"><?=GetMessage("CATALOG_ORDER_DIRECTION_".$curParams[$blockName])?></p>
+                <div class="hidingMenu">
                 <?foreach ($availableParam as $key => $fieldName){?>
-                    <p data-sort="<?=$key?>" data-href="?<?=$blockName?>=<?=$fieldName?>"><?=GetMessage("CATALOG_ORDER_DIRECTION_".$fieldName)?></p>
-                    <?}?>
-            </div>
-            <?
+                <p data-sort="<?=$key?>" data-href="?<?=$blockName?>=<?=$fieldName?>"><?=GetMessage("CATALOG_ORDER_DIRECTION_".$fieldName)?></p>
+                <?}?>
+                </div>
+                <?
                 break; */
             case "CATALOG_AVAILABLE_PRODUCT" :
             ?>
-                <?if($_SESSION["CATALOG_PARAMS"]["CATALOG_AVAILABLE_PRODUCT"] == 'Y'){?>
-                    <input type="checkbox" id="<?=$blockName?>" data-sort="<?=$currentKey?>" checked hidden><label title="<?=GetMessage('PRODUCT_AVALIBLE')?>" id="activeFirstFilt" data-href="?<?=$blockName?>=<?=$availableParam[1]?>" for="<?=$blockName?>"><?=GetMessage("CATALOG_AVALIBLE_PRODUCT")?> </label>
+            <?if($_SESSION["CATALOG_PARAMS"]["CATALOG_AVAILABLE_PRODUCT"] == 'Y'){?>
+                <input type="checkbox" id="<?=$blockName?>" data-sort="<?=$currentKey?>" checked hidden><label title="<?=GetMessage('PRODUCT_AVALIBLE')?>" data-href="?<?=$blockName?>=<?=$availableParam[1]?>" for="<?=$blockName?>"><?=GetMessage("CATALOG_AVALIBLE_PRODUCT")?> </label>
                 <?} else {?>
-                    <input type="checkbox" id="<?=$blockName?>" data-sort="<?=$currentKey?>" hidden><label title="<?=GetMessage('PRODUCT_AVALIBLE')?>" id="activeFirstFilt" data-href="?<?=$blockName?>=<?=$availableParam[0]?>" for="<?=$blockName?>"><?=GetMessage("CATALOG_AVALIBLE_PRODUCT")?> </label>
+                <input type="checkbox" id="<?=$blockName?>" data-sort="<?=$currentKey?>" hidden><label title="<?=GetMessage('PRODUCT_AVALIBLE')?>"  data-href="?<?=$blockName?>=<?=$availableParam[0]?>" for="<?=$blockName?>"><?=GetMessage("CATALOG_AVALIBLE_PRODUCT")?> </label>
                 <?}?>
-                <?
+            <?
                 break;
             default:
                 return false;
@@ -608,7 +610,7 @@
                 } else
                     //если нет - добавляем
                     $arFields["PRICE"] = $price;
-                    CPrice::Add($arFields);
+                CPrice::Add($arFields);
             }
         }
     }
