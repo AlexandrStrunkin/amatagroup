@@ -62,7 +62,7 @@ if (!empty($arResult['ITEMS']))
 	$skuPropList = array(); // array("id_catalog" => array(...))
 	$skuPropIds = array(); // array("id_catalog" => array(...))
 	$skuPropKeys = array(); // array("id_catalog" => array(...))
-	
+
 	$arResult['USER_AUTHORIZED'] = $USER->IsAuthorized() ? true : false;
 
 	if (!$boolConvert)
@@ -105,7 +105,7 @@ if (!empty($arResult['ITEMS']))
 	{
 		if ($arResult['USER_AUTHORIZED']) {
 			$arItem['USER_HAVE_ITEM_IN_FAVORITE'] = Favorite::checkIsExists($USER->GetID(), $arItem['ID']);
-		}	
+		}
 		$arItem['CATALOG_QUANTITY'] = (
 		0 < $arItem['CATALOG_QUANTITY'] && is_float($arItem['CATALOG_MEASURE_RATIO'])
 			? floatval($arItem['CATALOG_QUANTITY'])
@@ -166,7 +166,7 @@ if (!empty($arResult['ITEMS']))
 			$productPictures['SECOND_PICT'] = $productPictures['PICT'];
 		$arItem['PREVIEW_PICTURE'] = $productPictures['PICT'];
 		if ($arItem['DETAIL_PICTURE']) {
-            $arItem['PREVIEW_PICTURE'] = $arItem['DETAIL_PICTURE']; 
+            $arItem['PREVIEW_PICTURE'] = $arItem['DETAIL_PICTURE'];
         }
 		$arItem['PREVIEW_PICTURE_SECOND'] = $productPictures['SECOND_PICT'];
 		$arItem['SECOND_PICT'] = true;
@@ -332,48 +332,50 @@ if (!empty($arResult['ITEMS']))
 			$arItem['MIN_PRICE'] = false;
 			foreach ($arItem['OFFERS'] as $keyOffer => $arOffer)
 			{
-				if (empty($arItem['MIN_PRICE']) && $arOffer['CAN_BUY'])
-				{
-					$intSelected = $keyOffer;
-					$arItem['MIN_PRICE'] = (isset($arOffer['RATIO_PRICE']) ? $arOffer['RATIO_PRICE'] : $arOffer['MIN_PRICE']);
-				}
-				$arSKUProps = false;
-				if (!empty($arOffer['DISPLAY_PROPERTIES']))
-				{
-					$boolSKUDisplayProperties = true;
-					$arSKUProps = array();
-					foreach ($arOffer['DISPLAY_PROPERTIES'] as &$arOneProp)
-					{
-						if ('F' == $arOneProp['PROPERTY_TYPE'])
-							continue;
-						$arSKUProps[] = array(
-							'NAME' => $arOneProp['NAME'],
-							'VALUE' => $arOneProp['DISPLAY_VALUE']
-						);
-					}
-					unset($arOneProp);
-				}
+                if($arOffer['CATALOG_AVAILABLE'] == 'Y'){
+				    if (empty($arItem['MIN_PRICE']) && $arOffer['CAN_BUY'])
+				    {
+					    $intSelected = $keyOffer;
+					    $arItem['MIN_PRICE'] = (isset($arOffer['RATIO_PRICE']) ? $arOffer['RATIO_PRICE'] : $arOffer['MIN_PRICE']);
+				    }
+				    $arSKUProps = false;
+				    if (!empty($arOffer['DISPLAY_PROPERTIES']))
+				    {
+					    $boolSKUDisplayProperties = true;
+					    $arSKUProps = array();
+					    foreach ($arOffer['DISPLAY_PROPERTIES'] as &$arOneProp)
+					    {
+						    if ('F' == $arOneProp['PROPERTY_TYPE'])
+							    continue;
+						    $arSKUProps[] = array(
+							    'NAME' => $arOneProp['NAME'],
+							    'VALUE' => $arOneProp['DISPLAY_VALUE']
+						    );
+					    }
+					    unset($arOneProp);
+				    }
 
-				$arOneRow = array(
-					'ID' => $arOffer['ID'],
-					'NAME' => $arOffer['~NAME'],
-					'TREE' => $arOffer['TREE'],
-					'DISPLAY_PROPERTIES' => $arSKUProps,
-					'PRICE' => (isset($arOffer['RATIO_PRICE']) ? $arOffer['RATIO_PRICE'] : $arOffer['MIN_PRICE']),
-					'SECOND_PICT' => $arOffer['SECOND_PICT'],
-					'OWNER_PICT' => $arOffer['OWNER_PICT'],
-					'PREVIEW_PICTURE' => $arOffer['PREVIEW_PICTURE'],
-					'PREVIEW_PICTURE_SECOND' => $arOffer['PREVIEW_PICTURE_SECOND'],
-					'CHECK_QUANTITY' => $arOffer['CHECK_QUANTITY'],
-					'MAX_QUANTITY' => $arOffer['CATALOG_QUANTITY'],
-					'STEP_QUANTITY' => $arOffer['CATALOG_MEASURE_RATIO'],
-					'QUANTITY_FLOAT' => is_double($arOffer['CATALOG_MEASURE_RATIO']),
-					'MEASURE' => $arOffer['~CATALOG_MEASURE_NAME'],
-					'CAN_BUY' => $arOffer['CAN_BUY'],
-					'BUY_URL' => $arOffer['~BUY_URL'],
-					'ADD_URL' => $arOffer['~ADD_URL'],
-				);
-				$arMatrix[$keyOffer] = $arOneRow;
+				    $arOneRow = array(
+					    'ID' => $arOffer['ID'],
+					    'NAME' => $arOffer['~NAME'],
+					    'TREE' => $arOffer['TREE'],
+					    'DISPLAY_PROPERTIES' => $arSKUProps,
+					    'PRICE' => (isset($arOffer['RATIO_PRICE']) ? $arOffer['RATIO_PRICE'] : $arOffer['MIN_PRICE']),
+					    'SECOND_PICT' => $arOffer['SECOND_PICT'],
+					    'OWNER_PICT' => $arOffer['OWNER_PICT'],
+					    'PREVIEW_PICTURE' => $arOffer['PREVIEW_PICTURE'],
+					    'PREVIEW_PICTURE_SECOND' => $arOffer['PREVIEW_PICTURE_SECOND'],
+					    'CHECK_QUANTITY' => $arOffer['CHECK_QUANTITY'],
+					    'MAX_QUANTITY' => $arOffer['CATALOG_QUANTITY'],
+					    'STEP_QUANTITY' => $arOffer['CATALOG_MEASURE_RATIO'],
+					    'QUANTITY_FLOAT' => is_double($arOffer['CATALOG_MEASURE_RATIO']),
+					    'MEASURE' => $arOffer['~CATALOG_MEASURE_NAME'],
+					    'CAN_BUY' => $arOffer['CAN_BUY'],
+					    'BUY_URL' => $arOffer['~BUY_URL'],
+					    'ADD_URL' => $arOffer['~ADD_URL'],
+				    );
+				    $arMatrix[$keyOffer] = $arOneRow;
+                }
 			}
 
 			if (-1 == $intSelected)
