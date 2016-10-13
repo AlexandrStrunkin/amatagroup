@@ -3,7 +3,7 @@ require($_SERVER["DOCUMENT_ROOT"]."/bitrix/header.php");
 $APPLICATION->SetTitle("Регистрация");
 ?>
 <?
-//if (!$USER->IsAuthorized()) {
+if (!$USER->IsAuthorized()) {
     $APPLICATION->IncludeComponent(
 	"webgk:register_amata",
 	".default",
@@ -38,10 +38,10 @@ $APPLICATION->SetTitle("Регистрация");
 	),
 	false
 );
-//} else{?>
+} else {?>
     <p>Вы зарегистрированы и успешно авторизовались.</p>
 
     <p><a href="<?=SITE_DIR?>">Вернуться на главную страницу</a></p>
-<?//}?>
+<?}?>
 
 <?require($_SERVER["DOCUMENT_ROOT"]."/bitrix/footer.php");?>

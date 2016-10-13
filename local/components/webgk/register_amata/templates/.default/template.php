@@ -117,7 +117,7 @@ if(!defined("B_PROLOG_INCLUDED") || B_PROLOG_INCLUDED!==true)
         <?
             break;
         case "CONFIRM_PASSWORD":
-            ?><input size="30" title="<?= GetMessage("MIN_PASSWORD_LENGHT")?>" pattern=".{6,}" <?= $arResult["REQUIRED_FIELDS_FLAGS"][$FIELD] == "Y" ? "required" : "" ?> placeholder="<?=GetMessage("REGISTER_FIELD_".$FIELD)?>" type="password" id="reg_input_<?=$FIELD?>" class="authInputPass rfield confirmation" name="REGISTER[<?=$FIELD?>]" value="<?=$arResult["VALUES"][$FIELD]?>" autocomplete="off" /><?
+            ?><input size="30" title="<?= GetMessage("MIN_PASSWORD_LENGHT")?>" pattern=".{6,}" <?= $arResult["REQUIRED_FIELDS_FLAGS"][$FIELD] == "Y" ? "required" : "" ?> placeholder="<?=GetMessage("REGISTER_FIELD_".$FIELD)?>" type="password" id="reg_input_<?=$FIELD?>" class="authInputConfirmPass rfield confirmation" name="REGISTER[<?=$FIELD?>]" value="<?=$arResult["VALUES"][$FIELD]?>" autocomplete="off" /><?
             break;
 
 		default:
@@ -147,10 +147,10 @@ if(!defined("B_PROLOG_INCLUDED") || B_PROLOG_INCLUDED!==true)
 				?><?
 	        }?>
 	    <?endif?>
-    <?endforeach?>
+    <?endforeach?> 
     <?foreach ($arResult["USER_PROPERTIES"]["DATA"] as $FIELD_NAME => $arUserField){?>
          <?if($arUserField['FIELD_NAME'] == 'UF_FACE'){?>
-            <span><?=$arUserField["EDIT_FORM_LABEL"]?>:<?if ($arUserField["MANDATORY"]=="Y"):?><span class="starrequired">*</span><?endif;?></span>
+            <span class="userFieldNameReg"><?=$arUserField["EDIT_FORM_LABEL"]?>:<?if ($arUserField["MANDATORY"]=="Y"):?><span class="starrequired">*</span><?endif;?></span>
             <?$APPLICATION->IncludeComponent(
                 "bitrix:system.field.edit",
                 $arUserField["USER_TYPE"]["USER_TYPE_ID"],
@@ -201,7 +201,7 @@ if ($arResult["USE_CAPTCHA"] == "Y")
         <?if($arUserField['FIELD_NAME'] != 'UF_FACE'){?>
         <?$count_face += 1;?>
         <div class="<?= ($count_face < 7)? 'face_1': 'face_2' ?>">
-            <span><?=$arUserField["EDIT_FORM_LABEL"]?>:<?if ($arUserField["MANDATORY"]=="Y"):?><span class="starrequired">*</span><?endif;?></span>
+            <span class="userFieldName"><?=$arUserField["EDIT_FORM_LABEL"]?>:<?if ($arUserField["MANDATORY"]=="Y"):?><span class="starrequired">*</span><?endif;?></span>
             <label>
                 <?$APPLICATION->IncludeComponent(
                     "bitrix:system.field.edit",
