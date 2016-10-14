@@ -12,9 +12,9 @@
     /** @var CBitrixComponent $component */
     $this->setFrameMode(true);
 ?>
-
+    <h1><?=$arParams["PAGER_TITLE"]?></h1>
 <!--elmentsList-->
-<ul class="productList" id="productList2">
+<ul class="productList" id="productList1">
 
     <?
         if (!empty($arResult['ITEMS'])) {
@@ -185,14 +185,13 @@
 
                     <div>
                         <a href="<? echo $arItem['DETAIL_PAGE_URL']; ?>" class="productName"><?=$arItem["NAME"]?></a>
-
                         <?if ($arItem['MIN_PRICE']["CAN_BUY"]) {?>
 
                             <div id="<? echo $arItemIDs['BASKET_ACTIONS']; ?>" <?if ($arItem['IN_BASKET'] == "Y"){?>title="<?=GetMessage("PRODUCT_ALREADY_IN_BASKET")?>"<?}?>  class="bx_catalog_item_controls_blocktwo productBasketBlock changingBasket <?if ($arItem['IN_BASKET'] == "Y"){?> active<?}?>">
                                 <a id="<? echo $arItemIDs['BUY_LINK']; ?>" class="blockLink bx_bt_button bx_medium <?if ($arItem['IN_BASKET'] != "Y") {?>js-add-to-basket <?}?>" href="<?=$arItem['ADD_URL']?>" rel="nofollow"></a>
                             </div>
 
-                        <?}?>
+                            <?}?>
 
                         <div class="productLikeBlock changingLike">
                         	<a href="javascript:void(0)"
@@ -205,9 +204,7 @@
 
 
                     </div>
-
                     <div class="logosContainer">
-
                         <?//шильдик скидки
                             if ($arItem["MIN_PRICE_TMP"]['DISCOUNT_VALUE'] < $arItem["MIN_PRICE_TMP"]['VALUE'] && $arItem["MIN_PRICE_TMP"]["DISCOUNT_DIFF_PERCENT"] > 0) {?>
                             <div class="discountLogoWrapper">-<?=$arItem["MIN_PRICE_TMP"]["DISCOUNT_DIFF_PERCENT"];?>%</div>
@@ -224,21 +221,7 @@
                             ?>
                             <div class="freshLogoWrapper" title="<?=GetMessage("FRESH_PRODUCT")?>">FRESH</div>
                             <?}?>
-                            <?if($arItem["PROPERTIES"]["BESTSELLERS"]["VALUE_XML_ID"] == 'Y'){?>
-                                <div class="bestLogoWrapper">BEST</div>
-                            <?}?>
-
-
-
-                        <?/*
-                            <div class="bestLogoWrapper">BEST</div>
-                            <div class="saleLogoWrapper">SALE</div>
-                        */?>
                     </div>
-
-
-
-
                     <?
                         $showSubscribeBtn = false;
                         $compareBtnMessage = ($arParams['MESS_BTN_COMPARE'] != '' ? $arParams['MESS_BTN_COMPARE'] : GetMessage('CT_BCS_TPL_MESS_BTN_COMPARE'));
@@ -510,9 +493,9 @@
             <?
             }
         ?>
-        <a class="transition_section" href="<?=$arParams["SECTION_URL"]?>"><?=GetMessage('BESTSELLERS_PRODUCT')?></a>
     </ul>
     <!--END elmentsList-->
+
     <div style="clear: both;"></div>
 
     <script type="text/javascript">
