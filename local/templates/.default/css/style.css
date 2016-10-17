@@ -652,7 +652,7 @@ body {
     margin-top: 50px;
     padding-top: 42px;
     position: relative;
-    height: 878px;
+    min-height: 410px;
 }
 
 .productBlockMenu .active {
@@ -1537,6 +1537,8 @@ margin-top: 20px;
 
 .productList {
     display: none;
+    padding-bottom: 30px;
+    overflow: hidden;
 }
 
 .grayBack {
@@ -5537,7 +5539,7 @@ border-color: transparent transparent #fff;
 
 .userFieldName {
     font-family: "MuseoSansCyrl-500";
-    font-size: 14px; 
+    font-size: 14px;
     color: #343434;
 }
 
@@ -8826,4 +8828,45 @@ display: none;
     padding: 9px 18px 9px 15px;
     position: relative;
     width: 104px;
+}
+body .news_wrap,
+body .news_wrap .productBlockWrapper{
+    background-color: transparent;
+}
+body .news_wrap .productBlockWrapper{
+    height: auto;
+    padding: 0;
+    margin: 0;
+}
+body .news_wrap .productBlockWrapper .productList li:before{
+    content: '';
+}
+body .news_wrap .productBlockWrapper .productList li{
+    float: left;
+    height: 370px;
+    margin-bottom: 20px;
+    margin-right: 20px;
+    width: 270px;
+    border: 1px solid #e6e6e6;
+    border-radius: 4px;
+}
+body .news_wrap .productBlockWrapper .productWrapper {
+    background-color: #ffffff;
+    border-radius: 4px;
+    height: 370px;
+    padding: 0 12px;
+    width: 240px;
+    float: left;
+}
+.transition_section{
+    border-radius: 4px;
+    color: #4baad7;
+    font-family: "MuseoSansCyrl-500";
+    font-size: 14px;
+    margin-right: 25px;
+    cursor: pointer;
+    float: right;
+    position: absolute;
+    bottom: 13px;
+    right: 0;
 }

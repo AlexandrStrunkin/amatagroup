@@ -510,9 +510,9 @@
             <?
             }
         ?>
+        <a class="transition_section" href="<?=$arParams["SECTION_URL"]?>"><?=GetMessage('BESTSELLERS_PRODUCT')?></a>
     </ul>
     <!--END elmentsList-->
-
     <div style="clear: both;"></div>
 
     <script type="text/javascript">
