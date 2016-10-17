@@ -5474,13 +5474,14 @@ border-color: transparent transparent #fff;
     left: 140px;
 }
 
-.innerPageWrapper p.authTitle {
+p.authTitle {
     border-bottom: 1px solid #e6e6e6;
     color: #323232;
     font-family: "VentiCF-Black";
     font-size: 28px;
     padding: 28px 0 22px;
     width: 100%;
+    margin-bottom: 27px;
 }
 
 .authClose {
@@ -5556,6 +5557,7 @@ border-color: transparent transparent #fff;
     display: block;
     font-family: "PT Serif", serif;
     font-size: 15px;
+    margin-top: 14px;
     margin-bottom: 20px;
     padding-bottom: 18px;
 }
@@ -5685,7 +5687,7 @@ top: 140px !important;
     padding: 28px 0 30px;
     width: 100%;
     letter-spacing: -0.5px;
-}
+}  
 
 .hiddenQuestionBlock .authClose, .close, .hiddenProductComment .authClose {
     background: #f3f3f3 url("../img/closeBackRecht.png") no-repeat scroll 9px 9px;

@@ -8,6 +8,7 @@
     /** @var CBitrixComponentTemplate $this */
     /** @var array $arParams */
     /** @var array $arResult */
+    
     $arDefaultParams = array(
         'TEMPLATE_THEME' => 'blue',
         'PRODUCT_DISPLAY_MODE' => 'N',
