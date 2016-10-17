@@ -196,7 +196,9 @@ $arFirstPhoto = current($arResult['MORE_PHOTO']);
             </div>
             <div class="productText">
             	<?= $arResult['DETAIL_TEXT'] ? mb_strimwidth($arResult['DETAIL_TEXT'], 0, 100, "...") : mb_strimwidth($arResult['PREVIEW_TEXT'], 0, 100, "...") ?><br>
-                <a href="javascript:void(0)" class="text_popup"><?=GetMessage("READ_FULL")?></a>
+                <?if(mb_strlen($arResult['DETAIL_TEXT']) > 100){?>
+                    <a href="javascript:void(0)" class="text_popup"><?=GetMessage("READ_FULL")?></a>
+                <?}?>
             </div>
             <div class="productText_popup">
                 <a title="<?= GetMessage('CLOSE') ?>" class="close_popup" href="javascript:void(0);"></a>
