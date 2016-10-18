@@ -5689,7 +5689,7 @@ top: 140px !important;
     padding: 28px 0 30px;
     width: 100%;
     letter-spacing: -0.5px;
-}  
+}
 
 .hiddenQuestionBlock .authClose, .close, .hiddenProductComment .authClose {
     background: #f3f3f3 url("../img/closeBackRecht.png") no-repeat scroll 9px 9px;
@@ -8861,16 +8861,23 @@ body .news_wrap .productBlockWrapper .productWrapper {
     float: left;
 }
 .transition_section{
-    border-radius: 4px;
-    color: #4baad7;
     font-family: "MuseoSansCyrl-500";
     font-size: 14px;
-    margin-right: 25px;
+    margin-right: 0;
     cursor: pointer;
     float: right;
     position: absolute;
-    bottom: 13px;
+    top: 105px;
     right: 0;
+    color: #9EAB6E;
+    border: 1px solid #D8DCCB;
+    border-radius: 4px;
+    padding: 8px 20px;
+}
+.transition_section:hover {
+    background-color: #DEE8B7;
+    border-color: #DEE8B7;
+    color: #333333;
 }
 
 .top-menu-fixed {
@@ -8881,7 +8888,7 @@ body .news_wrap .productBlockWrapper .productWrapper {
     height: 110px;
     background: #fff;
     box-shadow: 0px 3px 7px #e5e5e5;
-    z-index:99; 
+    z-index:99;
     display: none;
 }
 
@@ -8960,7 +8967,7 @@ body .news_wrap .productBlockWrapper .productWrapper {
 
 .top-menu-fixed-wrapper .top-menu-fixed-block.auth-block {
     padding: 21px 20px 0;
-    position: relative; 
+    position: relative;
 }
 
 
