@@ -12,7 +12,7 @@
         </div>
 
         <div class="top-menu-fixed-block auth-block">
-            
+
             <div class="regHiddenBlock">
                 <p class="authClose"></p>
                 <?$APPLICATION->IncludeComponent("bitrix:main.register", "popup_register", Array(
@@ -41,16 +41,16 @@
                 <?}?>
 
          </div>
-         
-         <div class="top-menu-fixed-block auth-block">       
-                
+
+         <div class="top-menu-fixed-block auth-block">
+
             <?if(!$USER->IsAuthorized()){?>
                 <p class="authorisationLink"><a href=""><?=GetMessage("AUTH")?></a></p>
                 <?} else {?>
                 <p class="logoutLink"><a href="?logout=yes"><?=GetMessage("LOGOUT")?></a></p>
                 <?}?>
-                
-                
+
+
 
             <div class="authHiddenBlock">
 
@@ -374,87 +374,123 @@
                 false
             );?>
 
-        <div class="mainBigBanner">
+        <?$APPLICATION->IncludeComponent(
+	"bitrix:catalog.section", 
+	"slider_main", 
+	array(
+		"TEMPLATE_THEME" => "blue",
+		"PRODUCT_DISPLAY_MODE" => "N",
+		"ADD_PICT_PROP" => "-",
+		"LABEL_PROP" => "-",
+		"OFFER_ADD_PICT_PROP" => "FILE",
+		"OFFER_TREE_PROPS" => array(
+			0 => "-",
+		),
+		"PRODUCT_SUBSCRIPTION" => "N",
+		"SHOW_DISCOUNT_PERCENT" => "N",
+		"SHOW_OLD_PRICE" => "N",
+		"SHOW_CLOSE_POPUP" => "Y",
+		"MESS_BTN_BUY" => "Купить",
+		"MESS_BTN_ADD_TO_BASKET" => "В корзину",
+		"MESS_BTN_SUBSCRIBE" => "Подписаться",
+		"MESS_BTN_DETAIL" => "Подробнее",
+		"MESS_NOT_AVAILABLE" => "Нет в наличии",
+		"AJAX_MODE" => "Y",
+		"SEF_MODE" => "N",
+		"IBLOCK_TYPE" => "services",
+		"IBLOCK_ID" => "29",
+		"SECTION_ID" => $_REQUEST["SECTION_ID"],
+		"SECTION_CODE" => "",
+		"SECTION_USER_FIELDS" => array(
+			0 => "",
+			1 => "",
+		),
+		"ELEMENT_SORT_FIELD" => "sort",
+		"ELEMENT_SORT_ORDER" => "asc",
+		"ELEMENT_SORT_FIELD2" => "name",
+		"ELEMENT_SORT_ORDER2" => "asc",
+		"FILTER_NAME" => "arrFilter",
+		"INCLUDE_SUBSECTIONS" => "Y",
+		"SHOW_ALL_WO_SECTION" => "Y",
+		"SECTION_URL" => "",
+		"DETAIL_URL" => "",
+		"BASKET_URL" => "/personal/basket.php",
+		"ACTION_VARIABLE" => "action",
+		"PRODUCT_ID_VARIABLE" => "id",
+		"PRODUCT_QUANTITY_VARIABLE" => "quantity",
+		"ADD_PROPERTIES_TO_BASKET" => "Y",
+		"PRODUCT_PROPS_VARIABLE" => "prop",
+		"PARTIAL_PRODUCT_PROPERTIES" => "N",
+		"SECTION_ID_VARIABLE" => "SECTION_ID",
+		"ADD_SECTIONS_CHAIN" => "Y",
+		"DISPLAY_COMPARE" => "N",
+		"SET_TITLE" => "Y",
+		"SET_BROWSER_TITLE" => "Y",
+		"BROWSER_TITLE" => "-",
+		"SET_META_KEYWORDS" => "Y",
+		"META_KEYWORDS" => "",
+		"SET_META_DESCRIPTION" => "Y",
+		"META_DESCRIPTION" => "",
+		"SET_LAST_MODIFIED" => "Y",
+		"USE_MAIN_ELEMENT_SECTION" => "Y",
+		"SET_STATUS_404" => "Y",
+		"PAGE_ELEMENT_COUNT" => "30",
+		"LINE_ELEMENT_COUNT" => "3",
+		"PROPERTY_CODE" => array(
+			0 => "SPECIAL_OFFER",
+			1 => "PRICE_BANNER",
+			2 => "",
+		),
+		"OFFERS_FIELD_CODE" => "",
+		"OFFERS_PROPERTY_CODE" => "",
+		"OFFERS_SORT_FIELD" => "sort",
+		"OFFERS_SORT_ORDER" => "asc",
+		"OFFERS_SORT_FIELD2" => "active_from",
+		"OFFERS_SORT_ORDER2" => "desc",
+		"OFFERS_LIMIT" => "5",
+		"BACKGROUND_IMAGE" => "-",
+		"PRICE_CODE" => array(
+		),
+		"USE_PRICE_COUNT" => "Y",
+		"SHOW_PRICE_COUNT" => "1",
+		"PRICE_VAT_INCLUDE" => "Y",
+		"PRODUCT_PROPERTIES" => array(
+		),
+		"USE_PRODUCT_QUANTITY" => "Y",
+		"CACHE_TYPE" => "A",
+		"CACHE_TIME" => "36000000",
+		"CACHE_FILTER" => "Y",
+		"CACHE_GROUPS" => "Y",
+		"DISPLAY_TOP_PAGER" => "N",
+		"DISPLAY_BOTTOM_PAGER" => "Y",
+		"PAGER_TITLE" => "Товары",
+		"PAGER_SHOW_ALWAYS" => "Y",
+		"PAGER_TEMPLATE" => "",
+		"PAGER_DESC_NUMBERING" => "Y",
+		"PAGER_DESC_NUMBERING_CACHE_TIME" => "36000",
+		"PAGER_SHOW_ALL" => "Y",
+		"HIDE_NOT_AVAILABLE" => "Y",
+		"OFFERS_CART_PROPERTIES" => "",
+		"AJAX_OPTION_JUMP" => "N",
+		"AJAX_OPTION_STYLE" => "Y",
+		"AJAX_OPTION_HISTORY" => "N",
+		"CONVERT_CURRENCY" => "Y",
+		"CURRENCY_ID" => "RUB",
+		"ADD_TO_BASKET_ACTION" => "ADD",
+		"PAGER_BASE_LINK_ENABLE" => "Y",
+		"SHOW_404" => "Y",
+		"MESSAGE_404" => "",
+		"DISABLE_INIT_JS_IN_COMPONENT" => "N",
+		"PAGER_BASE_LINK" => "",
+		"PAGER_PARAMS_NAME" => "arrPager",
+		"COMPONENT_TEMPLATE" => "slider_main",
+		"MESS_BTN_COMPARE" => "Сравнить",
+		"AJAX_OPTION_ADDITIONAL" => "",
+		"FILE_404" => ""
+	),
+	false
+);?>
 
-            <!--jcarousel-wrapper-->
-            <div class="jcarousel-wrapper">
-                <!--jcarousel-->
-                <div class="jcarousel">
-                    <ul>
-                        <li>
-                            <div class="bannerImgContainer">
-                                <p><img src="<?=DEFAULT_TEMPLATE_PATH?>files/bannerImg1.png" alt=""/></p>
-
-                                <p class="hitContainer">хит</p>
-                            </div>
-                            <div class="bannerTextContainer">
-                                <p class="bannerCost">35 800 Р</p>
-
-                                <p class="bannerText">Детская кроватка Giovanni Magico поперечный маятник1</p>
-
-                            </div>
-                        </li>
-                        <li>
-                            <div class="bannerImgContainer">
-                                <p><img src="<?=DEFAULT_TEMPLATE_PATH?>files/bannerImg1.png" alt=""/></p>
-
-                                <p class="hitContainer">хит</p>
-                            </div>
-                            <div class="bannerTextContainer">
-                                <p class="bannerCost">35 800 Р</p>
-
-                                <p class="bannerText">Детская кроватка Giovanni Magico поперечный маятник2</p>
-
-                            </div>
-                        </li>
-                        <li>
-                            <div class="bannerImgContainer">
-                                <p><img src="<?=DEFAULT_TEMPLATE_PATH?>files/bannerImg1.png" alt=""/></p>
-
-                                <p class="hitContainer">хит</p>
-                            </div>
-                            <div class="bannerTextContainer">
-                                <p class="bannerCost">35 800 Р</p>
-
-                                <p class="bannerText">Детская кроватка Giovanni Magico поперечный маятник3</p>
-
-                            </div>
-                        </li>
-                        <li>
-                            <div class="bannerImgContainer">
-                                <p><img src="<?=DEFAULT_TEMPLATE_PATH?>files/bannerImg1.png" alt=""/></p>
-
-                                <p class="hitContainer">хит</p>
-                            </div>
-                            <div class="bannerTextContainer">
-                                <p class="bannerCost">35 800 Р</p>
-
-                                <p class="bannerText">Детская кроватка Giovanni Magico поперечный маятник4</p>
-
-                            </div>
-                        </li>
-                        <li>
-                            <div class="bannerImgContainer">
-                                <p><img src="<?=DEFAULT_TEMPLATE_PATH?>files/bannerImg1.png" alt=""/></p>
-
-                                <p class="hitContainer">хит</p>
-                            </div>
-                            <div class="bannerTextContainer">
-                                <p class="bannerCost">35 800 Р</p>
-
-                                <p class="bannerText">Детская кроватка Giovanni Magico поперечный маятник5</p>
-
-                            </div>
-                        </li>
-                    </ul>
-                </div>
-                <div class="jcarousel-pagination"></div>
-
-
-            </div>
-            <!--END jcarousel-wrapper-->
-
-        </div>
         <div class="littleBannersWrap">
             <div id="advantagesBlock">
                 <p class="litleBannerTitle">Преимущества</p>

@@ -1465,7 +1465,39 @@ ul.topMenu a:hover {
     position: absolute;
     top: 48px;
 }
-
+.mainBigBanner .newContainer {
+    background-color: #dee8b7;
+    border-radius: 50px;
+    color: #000000;
+    font-family: "VentiCF-Bold";
+    font-size: 27px;
+    left: 270px;
+    padding: 22px 16px;
+    position: absolute;
+    top: 48px;
+}
+.mainBigBanner .bestContainer {
+    background-color: #ffd0b4;
+    border-radius: 50px;
+    color: #705721;
+    font-family: "VentiCF-Bold";
+    font-size: 26px;
+    left: 270px;
+    padding: 23px 16px;
+    position: absolute;
+    top: 32px;
+}
+.mainBigBanner .saleContainer {
+    background-color: #ffee8d;
+    border-radius: 50px;
+    color: #705721;
+    font-family: "VentiCF-Bold";
+    font-size: 26px;
+    left: 270px;
+    padding: 25px 17px;
+    position: absolute;
+    top: 32px;
+}
 .productBlockWrapper .showAllLink a:hover {
     background-color: #DEE8B7;
     border-color: #DEE8B7;
@@ -5689,7 +5721,7 @@ top: 140px !important;
     padding: 28px 0 30px;
     width: 100%;
     letter-spacing: -0.5px;
-}  
+}
 
 .hiddenQuestionBlock .authClose, .close, .hiddenProductComment .authClose {
     background: #f3f3f3 url("../img/closeBackRecht.png") no-repeat scroll 9px 9px;
@@ -8881,7 +8913,7 @@ body .news_wrap .productBlockWrapper .productWrapper {
     height: 110px;
     background: #fff;
     box-shadow: 0px 3px 7px #e5e5e5;
-    z-index:99; 
+    z-index:99;
     display: none;
 }
 
@@ -8960,7 +8992,7 @@ body .news_wrap .productBlockWrapper .productWrapper {
 
 .top-menu-fixed-wrapper .top-menu-fixed-block.auth-block {
     padding: 21px 20px 0;
-    position: relative; 
+    position: relative;
 }
 
 
