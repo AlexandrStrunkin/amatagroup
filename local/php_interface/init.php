@@ -195,7 +195,7 @@
             $toSend["LOGIN"] = $arFields["LOGIN"];
             $toSend["NAME"] = (trim ($arFields["NAME"]) == "")? $toSend["NAME"] = htmlspecialchars('Ќе указано'): $arFields["NAME"];
             $toSend["LAST_NAME"] = (trim ($arFields["LAST_NAME"]) == "")? $toSend["LAST_NAME"] = htmlspecialchars('Ќе указано'): $arFields["LAST_NAME"];
-            CEvent::Send ("NEW_USER", SITE_ID, $toSend, "N", 1);
+            CEvent::Send ("NEW_USER", "s1", $toSend, "N", 1);
         }
         return $arFields;
     }
@@ -206,10 +206,10 @@
         $rsUsers = CUser::GetList(($by="personal_country"), ($order="desc"), $filter); // выбираем пользователей
         while($arUser = $rsUsers->GetNext()) {
             $nextWeek = strtotime(date('d.m.Y H:i:s')) - strtotime($arUser["DATE_REGISTER"]);
-            if($nextWeek > 259200){  // врем€ создани€ больше 3 дней
+            if($nextWeek > 259200) {  // врем€ создани€ больше 3 дней
                 $filter_user["USER_ID"] = $arUser["ID"];
                 $filter_user["LOGIN"] = $arUser["LOGIN"];
-                CEvent::Send ("NEW_USER", SITE_ID, $filter_user, "N", 79);
+                CEvent::Send ("NEW_USER", "s1", $filter_user, "N", 85);
             }
         };
         return 'SendMailOffThreeDay();';
