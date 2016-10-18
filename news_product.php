@@ -5,8 +5,7 @@ require($_SERVER["DOCUMENT_ROOT"]."/bitrix/header.php");
 <?
   global $arrFilter;
   $curr_date = mktime(date('d.m.Y G:i:s'));
-  $date_create_date = $curr_date - 1.21e+6;
-
+  $date_create_date = $curr_date - (604800 * 2);
   $arrFilter[] = array(
         ">DATE_CREATE" => date('d.m.Y H:i:s', $date_create_date)
     );

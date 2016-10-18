@@ -8859,14 +8859,20 @@ body .news_wrap .productBlockWrapper .productWrapper {
     float: left;
 }
 .transition_section{
-    border-radius: 4px;
-    color: #4baad7;
     font-family: "MuseoSansCyrl-500";
     font-size: 14px;
-    margin-right: 25px;
+    margin-right: 0;
     cursor: pointer;
     float: right;
     position: absolute;
-    bottom: 13px;
+    top: 105px;
     right: 0;
+    color: #9EAB6E;
+    border: 1px solid #D8DCCB;
+    border-radius: 4px;
+    padding: 8px 20px;
 }
+.transition_section:hover {
+    background-color: #DEE8B7;
+    border-color: #DEE8B7;
+    color: #333333;
