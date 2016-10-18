@@ -78,7 +78,7 @@
 	"bitrix:main.feedback",
 	"back_call",
 	array(
-		"EMAIL_TO" => "st@webgk.ru",
+		"EMAIL_TO" => FORM_FROM_EMAIL,
 		"EVENT_MESSAGE_ID" => array(
 			0 => "74",
 		),
