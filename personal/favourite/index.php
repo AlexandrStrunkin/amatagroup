@@ -38,7 +38,7 @@
                 "COMPARE_PATH" => "",
                 "CONVERT_CURRENCY" => "N",
                 "CURRENCY_ID" => "RUB",
-                "DETAIL_URL" => "/catalog/#SECTION_CODE_PATH#/#ELEMENT_CODE#/",
+                "DETAIL_URL" => "/catalog/#ELEMENT_CODE#/",
                 "DISABLE_INIT_JS_IN_COMPONENT" => "N",
                 "DISPLAY_BOTTOM_PAGER" => "N",
                 "DISPLAY_COMPARE" => "N",
