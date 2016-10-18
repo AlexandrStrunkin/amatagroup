@@ -40,6 +40,6 @@ if(!defined("B_PROLOG_INCLUDED")||B_PROLOG_INCLUDED!==true)die();
 		<?endif;?>
 
 		<input type="hidden" name="PARAMS_HASH" value="<?=$arResult["PARAMS_HASH"]?>">
-		<input type="submit" class="btn" name="submit" value="<?=GetMessage("MFT_SUBMIT")?>" >
+		<input type="submit" class="btn_submit" name="submit" value="<?=GetMessage("MFT_SUBMIT")?>" >
 	</form>
 </div>
