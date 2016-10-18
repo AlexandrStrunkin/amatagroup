@@ -24,13 +24,13 @@ $this->setFrameMode(true);
                 <li>
                     <div class="bannerImgContainer">
                         <p><img src="<?=$arItem["DETAIL_PICTURE"]["SRC"]?>" height="<?=$arItem["DETAIL_PICTURE"]["HEIGHT"]?>" alt=""/></p>
-                        <?if($arItem["PROPERTIES"]["SPECIAL_OFFER"]["VALUE_ENUM_ID"] == 3651){?>
+                        <?if($arItem["PROPERTIES"]["SPECIAL_OFFER"]["VALUE_ENUM_ID"] == ELEMENT_SPECIAL_OFFER_HIT){?>
                             <p class="hitContainer"><?=$arItem["PROPERTIES"]["SPECIAL_OFFER"]["VALUE"]?></p>
-                        <?} else if($arItem["PROPERTIES"]["SPECIAL_OFFER"]["VALUE_ENUM_ID"] == 3652) {?>
+                        <?} else if($arItem["PROPERTIES"]["SPECIAL_OFFER"]["VALUE_ENUM_ID"] == ELEMENT_SPECIAL_OFFER_NEW) {?>
                             <p class="newContainer"><?=GetMessage('PODUCT_SPECIAL_NEW')?></p>
-                        <?} else if($arItem["PROPERTIES"]["SPECIAL_OFFER"]["VALUE_ENUM_ID"] == 3653) {?>
+                        <?} else if($arItem["PROPERTIES"]["SPECIAL_OFFER"]["VALUE_ENUM_ID"] == ELEMENT_SPECIAL_OFFER_BEST) {?>
                             <p class="bestContainer"><?=GetMessage('PODUCT_SPECIAL_BEST')?></p>
-                        <?} else if($arItem["PROPERTIES"]["SPECIAL_OFFER"]["VALUE_ENUM_ID"] == 3654 && $arItem["SALE_PRICE"]) {?>
+                        <?} else if($arItem["PROPERTIES"]["SPECIAL_OFFER"]["VALUE_ENUM_ID"] == ELEMENT_SPECIAL_OFFER_SALE && $arItem["SALE_PRICE"]) {?>
                             <p class="saleContainer"><?=$arItem["SALE_PRICE"]?></p>
                         <?}?>
                     </div>
