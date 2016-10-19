@@ -12,7 +12,7 @@
         </div>
 
         <div class="top-menu-fixed-block auth-block">
-            
+
             <div class="regHiddenBlock">
                 <p class="authClose"></p>
                 <?$APPLICATION->IncludeComponent("bitrix:main.register", "popup_register", Array(
@@ -40,46 +40,15 @@
                 <p class="personalLink"><a href="/personal/"><?=GetMessage("PERSONAL")?></a></p>
                 <?}?>
 
-         </div>
-         
-         <div class="top-menu-fixed-block auth-block">       
-                
+        </div>
+
+        <div class="top-menu-fixed-block auth-block">       
+
             <?if(!$USER->IsAuthorized()){?>
                 <p class="authorisationLink"><a href=""><?=GetMessage("AUTH")?></a></p>
                 <?} else {?>
                 <p class="logoutLink"><a href="?logout=yes"><?=GetMessage("LOGOUT")?></a></p>
-                <?}?>
-                
-                
-
-            <div class="authHiddenBlock">
-
-
-                <p class="authClose"></p>
-                <!--authForm-->
-                <?$APPLICATION->IncludeComponent("bitrix:system.auth.form", "popup_auth", Array(), false);?>
-                <!--END authForm-->
-
-
-                <!--forgotForm-->
-                <div class="forgotForm">
-                    <form method="post">
-                        <p class="authTitle"><?=GetMessage('PASSWORD')?></p>
-                        <input type="text" class="authInput" name="email" placeholder="<?=GetMessage('REESTABLISH')?>">
-
-                        <div class="btn-container">
-                            <a href="javascript:void(0)" class="authEnter"><?=GetMessage('MASSAGE')?></a>
-                        </div>
-
-                    </form>
-                    <div class="message">
-                        <?=GetMessage('ENTER_EMAIL')?>
-                    </div>
-                </div>
-                <!--END forgotForm-->
-
-            </div>
-
+                <?}?>     
 
         </div>
 
@@ -99,7 +68,7 @@
                             "SHOW_OTHERS" => "N",
                             "PAGE" => "/catalog/",
                             "SHOW_INPUT" => "Y",
-                            "INPUT_ID" => "title-search-input",
+                            "INPUT_ID" => "title-search-input-fixed",
                             "CONTAINER_ID" => "title-search",
                             "CATEGORY_0_TITLE" => "Товары",
                             "CATEGORY_0" => array(
@@ -115,26 +84,27 @@
             </div>
 
             <div class="firstLvlBlocks linksBlock" id="fixed-linkBlock2">
-                <a href="/personal/favourite/"><p>Избранное</p></a>
-                <p class="quantityOfLiked">
-                    <?= $USER->IsAuthorized() ? Favorite::countFavoriteProducts() : 0 ?>
-                </p>
+                <a href="/personal/favourite/">
+                    <p class="quantityOfLiked">
+                        <?= $USER->IsAuthorized() ? Favorite::countFavoriteProducts() : 0 ?>
+                    </p>
+                </a>
             </div>
 
             <div class="firstLvlBlocks linksBlock js-small-basket" id="fixed-linkBlock3">
-                <?$APPLICATION->IncludeComponent(
-                        "bitrix:sale.basket.basket.small",
-                        "small_basket",
-                        array(
-                            "COMPONENT_TEMPLATE" => "small_basket",
-                            "PATH_TO_BASKET" => "/personal/cart/",
-                            "PATH_TO_ORDER" => "/personal/order/make/",
-                            "SHOW_DELAY" => "Y",
-                            "SHOW_NOTAVAIL" => "Y",
-                            "SHOW_SUBSCRIBE" => "Y"
-                        ),
-                        false
-                    );?>
+                    <?$APPLICATION->IncludeComponent(
+                            "bitrix:sale.basket.basket.small",
+                            "small_basket",
+                            array(
+                                "COMPONENT_TEMPLATE" => "small_basket",
+                                "PATH_TO_BASKET" => "/personal/cart/",
+                                "PATH_TO_ORDER" => "/personal/order/make/",
+                                "SHOW_DELAY" => "Y",
+                                "SHOW_NOTAVAIL" => "Y",
+                                "SHOW_SUBSCRIBE" => "Y"
+                            ),
+                            false
+                        );?>
             </div>
         </div>
 
@@ -154,7 +124,7 @@
     <div class="indexPageHeader">
         <div class="locationWrapper">
             <? $detected_city = getAltasibCity() ?>
-            <p>Город :</p>
+            <p><?=GetMessage("CITY")?> :</p>
             <a href="javascript:void(0)" class="sityName"><?= $detected_city ? $detected_city : "Москва" ?></a>
         </div>
 
@@ -221,7 +191,7 @@
         </div>
 
         <div class="firstLvlBlocks linksBlock" id="linkBlock2">
-            <a href="/personal/favourite/"><p>Избранное</p></a>
+            <a href="/personal/favourite/"><p><?=GetMessage("FAVOURITE")?></p></a>
             <p class="quantityOfLiked">
                 <?= $USER->IsAuthorized() ? Favorite::countFavoriteProducts() : 0 ?>
             </p>

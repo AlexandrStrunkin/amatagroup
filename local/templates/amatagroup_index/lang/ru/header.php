@@ -14,4 +14,6 @@ $MESS["PHONE_IN_MOSCOW"] = "Телефон в Москве";
 $MESS["NEWS"] = "Новинки";
 $MESS["BESTSELLERS"] = "Хиты продаж";
 $MESS["LATEST"] = "Последние поступления";
+$MESS["FAVOURITE"] = "Избранное";
+$MESS["CITY"] = "Город";
 ?>
