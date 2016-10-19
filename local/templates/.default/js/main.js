@@ -500,17 +500,19 @@ $(document).ready(function () {
             popupMask.fadeOut(300);
         });
     }
+    
     //поиск
     $("#linkBlock1 a").on("click", function (e) {
         e.preventDefault();
-        $(".searchForm, .searchFormClose").fadeIn(300);
-        $(".searchForm input,.searchForm textarea").each(function () {
+        $(this).siblings(".searchForm, .searchFormClose").fadeIn(300);
+        $(".searchForm input, .searchForm textarea").each(function () {
             $(this).focus().blur();
         });
         $(".searchForm form")[0].reset();
     });
+    
     $(".searchFormClose").on("click", function () {
-        $(".searchForm, .searchFormClose").fadeOut(300);
+        $(this).siblings(".searchForm, .searchFormClose").fadeOut(300);
     });
 
 
@@ -520,6 +522,8 @@ $(document).ready(function () {
         $(this).closest(".searchForm").removeClass("focus");
 
     });
+    
+    
 
     //скрипты для всплывайки "оставить вопрос"
 

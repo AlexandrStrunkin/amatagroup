@@ -40,7 +40,7 @@ $arUrlRewrite = array(
 		"CONDITION" => "#^/catalog/#",
 		"RULE" => "",
 		"ID" => "bitrix:catalog",
-		"PATH" => "/catalog/filter/index.php",
+		"PATH" => "/catalog/index.php",
 	),
 	array(
 		"CONDITION" => "#^/content/#",
@@ -52,7 +52,7 @@ $arUrlRewrite = array(
 		"CONDITION" => "#^/catalog/#",
 		"RULE" => "",
 		"ID" => "bitrix:catalog",
-		"PATH" => "/catalog/index.php",
+		"PATH" => "/catalog/filter/index.php",
 	),
 	array(
 		"CONDITION" => "#^/brands/#",
