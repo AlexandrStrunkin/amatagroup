@@ -535,7 +535,6 @@ $(document).ready(function () {
 
 
 
-
     //скрипты для всплывайки "оставить вопрос"
 
     $(".cancelInp").on("click", function(){
@@ -1607,18 +1606,18 @@ $(document).ready(function () {
         var scroll_top = $(window).scrollTop();
         if ($(window).scrollTop() > 265) {
             if ($(".js-fixed-header").css("display") != "block") {
-                $(".js-fixed-header").fadeIn(); 
+                $(".js-fixed-header").fadeIn();
             }
         } else {
             if ($(".js-fixed-header").css("display") == "block") {
                 $(".js-fixed-header").fadeOut();
             }
         }
-    })  
+    })
 
     if ($(window).scrollTop() > 265) {
         if ($(".js-fixed-header").css("display") != "block") {
-            $(".js-fixed-header").fadeIn(); 
+            $(".js-fixed-header").fadeIn();
         }
     }
 
@@ -1900,4 +1899,16 @@ $(function() {
         $(this).addClass('show_property');
         $(this).html('Показать все');
     })
+});
+$(function() {
+    if ($('#productList1').length < 1) {
+        $('.productBlockMenu #wrap_new').addClass('hide').next().addClass('active');
+    }
+    if ($('#productList2').length < 1) {
+        $('.productBlockMenu #wrap_best').addClass('hide').prev().addClass('active');
+    }
+    if ($('#productList3').length < 1) {
+        $('.productBlockMenu #wrap_latest').addClass('hide');
+        $('#wrap_new').addClass('active')
+    }
 });

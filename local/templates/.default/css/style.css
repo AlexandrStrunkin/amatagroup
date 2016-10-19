@@ -1465,7 +1465,39 @@ ul.topMenu a:hover {
     position: absolute;
     top: 48px;
 }
-
+.mainBigBanner .newContainer {
+    background-color: #dee8b7;
+    border-radius: 50px;
+    color: #000000;
+    font-family: "VentiCF-Bold";
+    font-size: 27px;
+    left: 270px;
+    padding: 22px 16px;
+    position: absolute;
+    top: 48px;
+}
+.mainBigBanner .bestContainer {
+    background-color: #ffd0b4;
+    border-radius: 50px;
+    color: #705721;
+    font-family: "VentiCF-Bold";
+    font-size: 26px;
+    left: 270px;
+    padding: 23px 16px;
+    position: absolute;
+    top: 32px;
+}
+.mainBigBanner .saleContainer {
+    background-color: #ffee8d;
+    border-radius: 50px;
+    color: #705721;
+    font-family: "VentiCF-Bold";
+    font-size: 26px;
+    left: 270px;
+    padding: 25px 17px;
+    position: absolute;
+    top: 32px;
+}
 .productBlockWrapper .showAllLink a:hover {
     background-color: #DEE8B7;
     border-color: #DEE8B7;
@@ -9065,3 +9097,10 @@ body .news_wrap .productBlockWrapper .productWrapper {
 #fixed-linkBlock1 .searchForm .submit {
     height: 36px;
 }
+.productBlockWrapper .productBlockMenu .hide{
+    display: none;
+}
+.newsBlock > ul:first-child{
+    display: block;
+}
+
