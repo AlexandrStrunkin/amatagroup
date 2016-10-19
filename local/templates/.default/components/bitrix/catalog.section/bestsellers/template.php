@@ -14,6 +14,7 @@
 ?>
 
 <!--elmentsList-->
+<?if(count($arResult['ITEMS']) > 0){?>
 <ul class="productList" id="productList2">
 
     <?
@@ -509,6 +510,7 @@
             </li>
             <?
             }
+        }
         ?>
         <a class="transition_section" href="<?=$arParams["SECTION_URL"]?>"><?=GetMessage('BESTSELLERS_PRODUCT')?></a>
     </ul>
@@ -534,12 +536,11 @@
             SITE_ID: '<? echo SITE_ID; ?>'
         });
     </script>
-
+  <?}?>
     <?if ($arParams["DISPLAY_BOTTOM_PAGER"]) {?>
         <?$this->SetViewTarget('catalog_pager'); //show in section.php?>
         <?echo $arResult["NAV_STRING"];?>
         <?$this->EndViewTarget();?>
-        <?}?>
     <?}?>
 
     <?$this->SetViewTarget('catalog_section_description'); //show in header.php?>
