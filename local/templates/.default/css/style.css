@@ -9048,3 +9048,9 @@ body .news_wrap .productBlockWrapper .productWrapper {
 #fixed-linkBlock3 {
     background: rgba(0, 0, 0, 0) url("/local/templates/.default/css/../img/basketHeadLogo.png") no-repeat scroll 50% 50%;
 }
+.productBlockWrapper .productBlockMenu .hide{
+    display: none;
+}
+.newsBlock > ul:first-child{
+    display: block;
+}
