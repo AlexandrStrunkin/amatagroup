@@ -500,7 +500,7 @@ $(document).ready(function () {
             popupMask.fadeOut(300);
         });
     }
-    
+
     //поиск
     $("#linkBlock1 a").on("click", function (e) {
         e.preventDefault();
@@ -510,7 +510,7 @@ $(document).ready(function () {
         });
         $(".searchForm form")[0].reset();
     });
-    
+
     $(".searchFormClose").on("click", function () {
         $(this).siblings(".searchForm, .searchFormClose").fadeOut(300);
     });
@@ -522,8 +522,8 @@ $(document).ready(function () {
         $(this).closest(".searchForm").removeClass("focus");
 
     });
-    
-    
+
+
 
     //скрипты для всплывайки "оставить вопрос"
 
@@ -1892,11 +1892,13 @@ $(function() {
 });
 $(function() {
     if ($('#productList1').length < 1) {
-        $('.productBlockMenu > #wrap_new').addClass('hide').next().addClass('active');
-    } else if ($('#productList2').length < 1) {
-        $('.productBlockMenu > #wrap_best').addClass('hide').prev().addClass('active');
-    } else if ($('#productList3').length < 1) {
-        $('.productBlockMenu > #wrap_latest').addClass('hide');
+        $('.productBlockMenu #wrap_new').addClass('hide').next().addClass('active');
+    }
+    if ($('#productList2').length < 1) {
+        $('.productBlockMenu #wrap_best').addClass('hide').prev().addClass('active');
+    }
+    if ($('#productList3').length < 1) {
+        $('.productBlockMenu #wrap_latest').addClass('hide');
         $('#wrap_new').addClass('active')
     }
 });
