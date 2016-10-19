@@ -512,16 +512,26 @@ $(document).ready(function () {
     });
 
     $(".searchFormClose").on("click", function () {
-        $(this).siblings(".searchForm, .searchFormClose").fadeOut(300);
+        $(".searchForm, .searchFormClose").fadeOut(300);
     });
 
 
     $(".searchForm input").on("focus", function () {
-        $(this).closest(".searchForm").addClass("focus");
+        $(this).parents(".searchForm").addClass("focus");
     }).blur(function () {
-        $(this).closest(".searchForm").removeClass("focus");
+        $(this).parents(".searchForm").removeClass("focus");
 
     });
+
+    //плавающая шапка                                      
+    $("#fixed-linkBlock1").on("click", function (e) {       
+        if (!$(e.target).hasClass("searchFormClose") && !$(e.target).hasClass("submit")) {  
+            $(this).find(".searchForm, .searchFormClose").fadeIn(300);
+            $(this).find(".searchForm input, .searchForm textarea").each(function () {
+                $(this).focus();
+            });
+        }      
+    });      
 
 
 
