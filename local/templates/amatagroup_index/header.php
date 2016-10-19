@@ -34,7 +34,7 @@
                   $curr_date = mktime(date('d.m.Y G:i:s'));
                   $date_create_date = $curr_date - (604800 * 2);
                   $ShowWithImage[] = array(
-                     //   ">DATE_CREATE" => date('d.m.Y H:i:s', $date_create_date),
+                        ">DATE_CREATE" => date('d.m.Y H:i:s', $date_create_date),
                         '!PREVIEW_PICTURE' => false
                     );
                 ?>
