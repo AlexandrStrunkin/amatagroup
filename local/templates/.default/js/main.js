@@ -500,7 +500,7 @@ $(document).ready(function () {
             popupMask.fadeOut(300);
         });
     }
-    
+
     //поиск
     $("#linkBlock1 a").on("click", function (e) {
         e.preventDefault();
@@ -510,20 +510,31 @@ $(document).ready(function () {
         });
         $(".searchForm form")[0].reset();
     });
-    
+
     $(".searchFormClose").on("click", function () {
-        $(this).siblings(".searchForm, .searchFormClose").fadeOut(300);
+        $(".searchForm, .searchFormClose").fadeOut(300);
     });
 
 
     $(".searchForm input").on("focus", function () {
-        $(this).closest(".searchForm").addClass("focus");
+        $(this).parents(".searchForm").addClass("focus");
     }).blur(function () {
-        $(this).closest(".searchForm").removeClass("focus");
+        $(this).parents(".searchForm").removeClass("focus");
 
     });
-    
-    
+
+    //плавающая шапка                                      
+    $("#fixed-linkBlock1").on("click", function (e) {       
+        if (!$(e.target).hasClass("searchFormClose") && !$(e.target).hasClass("submit")) {  
+            $(this).find(".searchForm, .searchFormClose").fadeIn(300);
+            $(this).find(".searchForm input, .searchForm textarea").each(function () {
+                $(this).focus();
+            });
+        }      
+    });      
+
+
+
 
     //скрипты для всплывайки "оставить вопрос"
 
