@@ -213,7 +213,7 @@
                                             <select name="color" data-item-id="<?=$arItem["ID"]?>" class="js-offer-select">
                                                 <?  
                                                     //получаем первое активное предложение  
-                                                    $first_offer = $arItem["OFFERS"][0];
+                                                    $first_offer = $arItem["OFFERS"][0];  
                                                 ?>
                                                 <?
                                                     $offerNameVisible = $first_offer["NAME"];
