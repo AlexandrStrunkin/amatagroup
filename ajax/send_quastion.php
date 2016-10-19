@@ -35,7 +35,7 @@ $element_id = $el->Add($arLoadProductArray);
 
 if($element_id > 0){
     $arSend = array("NAME" => $name, "GENERATOR" => $generator, "EMAIL" => $email, "PHONE" => $phone, "COMPANY" => $company, "TEXT" => $text);
-    CEvent::Send("FEEDBACK_FORM", SITE_ID, $arSend, 'N', 76);
+    CEvent::Send("FORM_QUASTION", SITE_ID, $arSend, 'N', SEND_QUESTION_FORM_TEMPLATE_ID);
 }
 ?>
 
