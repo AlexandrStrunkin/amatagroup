@@ -57,7 +57,7 @@ $(document).ready(function () {
     });
 
     //кастом скролбар меню в шапке
-    var els = $('.secondLvlLeftMenu ul, .secondLvlCatalog, .mainLeftMenu>ul, .locationWrapper .list, .productInfo');
+    var els = $('.secondLvlLeftMenu ul, .secondLvlCatalog, .mainLeftMenu>ul, .locationWrapper .list');
     if (els.length > 0) {
         els.mCustomScrollbar({
             theme: "dark-thin"
@@ -66,6 +66,7 @@ $(document).ready(function () {
     $(".hidingMenu").show().mCustomScrollbar({
         theme: "dark-thin"
     });
+
     $(".hidingMenu").hide();
 
     $('.mainLeftMenu>ul>div>div>li').on("mouseenter", function () {
