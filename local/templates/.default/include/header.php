@@ -34,7 +34,9 @@
                     );?>
             </div>
 
-            <?if(!$USER->IsAuthorized()){?>
+            <?
+            global $USER;
+            if(!$USER->IsAuthorized()){?>
                 <p class="registrationLink"><a href="/auth/registration/"><?=GetMessage("REGISTRATION")?></a></p>
                 <?} else {?>
                 <p class="personalLink"><a href="/personal/"><?=GetMessage("PERSONAL")?></a></p>
