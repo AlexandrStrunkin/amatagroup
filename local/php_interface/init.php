@@ -73,6 +73,12 @@
     define("ELEMENT_CARD_MAIN_HEIGHT", 520);
     define("ELEMENT_CARD_MAIN_WIDTH", 520);
 
+    // для слайдера на главной
+    define("ELEMENT_SPECIAL_OFFER_HIT", 6257);
+    define("ELEMENT_SPECIAL_OFFER_NEW", 6258);
+    define("ELEMENT_SPECIAL_OFFER_BEST", 6259);
+    define("ELEMENT_SPECIAL_OFFER_SALE", 6260);
+
     define("CARD_QUESTION_FORM_TEMPLATE_ID", 77);
     define("QUESTION_FORM_TEMPLATE_ID", 78);
     define("SEND_QUESTION_FORM_TEMPLATE_ID", 76);

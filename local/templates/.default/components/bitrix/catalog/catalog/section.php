@@ -79,12 +79,12 @@
     $arParams["ELEMENT_SORT_ORDER2"] = $catalogParams["ELEMENT_SORT_ORDER2"];
 
     //при первом входе пользователя сортируем товар по доступности на складах и наличию картинок
-    if (empty($_SESSION["CATALOG_PARAMS"]["ELEMENT_SORT_FIELD"]) && empty($_SESSION["CATALOG_PARAMS"]["ELEMENT_SORT_FIELD2"])) {                                                                                                                                        
+    if (empty($_SESSION["CATALOG_PARAMS"]["ELEMENT_SORT_FIELD"]) && empty($_SESSION["CATALOG_PARAMS"]["ELEMENT_SORT_FIELD2"])) {
         // $arParams["ELEMENT_SORT_FIELD"] = "CATALOG_AVAILABLE";
         // $arParams["ELEMENT_SORT_ORDER"] = "DESC";
         // $arParams["ELEMENT_SORT_FIELD2"] = "HAS_PREVIEW_PICTURE";
-        // $arParams["ELEMENT_SORT_ORDER2"] = "DESC"; 
-    }                                                     
+        // $arParams["ELEMENT_SORT_ORDER2"] = "DESC";
+    }
 
     //формируем правильный вид для поля сортировки
     if ($arParams["ELEMENT_SORT_FIELD"] == "PRICE") {
@@ -93,7 +93,7 @@
         if ($arPrice["ID"] > 0) {
             $arParams["ELEMENT_SORT_FIELD"] = "CATALOG_PRICE_".$arPrice["ID"];
         }
-    } 
+    }
 
 ?>
 
@@ -185,7 +185,7 @@
                 else
                     $basketAction = (isset($arParams['SECTION_ADD_TO_BASKET_ACTION']) ? $arParams['SECTION_ADD_TO_BASKET_ACTION'] : '');
 
-                $intSectionID = 0;   
+                $intSectionID = 0;
 
             ?>
             <?$intSectionID = $APPLICATION->IncludeComponent(
@@ -312,16 +312,7 @@
     </div>
 </div>
 <!--viewedElementBlock-->
-<div class="viewedElementBlock">
-    <div class="widthWrapper">
-        <!--viewedBlock-->
-        <div class="viewedBlock productCarousel elmentsList">
-            <h2><?= GetMessage("VIEWED_PRODUCTS") ?></h2>
-
-            <!--jcarousel-wrapper-->
-            <div class="jcarousel-wrapper">
                 <!--jcarousel-->
-                <div class="jcarousel ">
                     <?$APPLICATION->IncludeComponent("bitrix:catalog.viewed.products", "section_viewed", Array(
                             "ACTION_VARIABLE" => "action",	// Название переменной, в которой передается действие
                             "ADDITIONAL_PICT_PROP_5" => "MORE_PHOTO",	// Дополнительная картинка
@@ -478,14 +469,7 @@
                             ),
                             false
                         );?>
-                </div>
                 <a href="" class="jcarousel-control-prev"></a>
                 <a href="" class="jcarousel-control-next"></a>
 
-            </div>
-            <!--END jcarousel-wrapper-->
-        </div>
-        <!--END viewedBlock-->
-    </div>
-</div>
 <!--END viewedElementBlock-->
