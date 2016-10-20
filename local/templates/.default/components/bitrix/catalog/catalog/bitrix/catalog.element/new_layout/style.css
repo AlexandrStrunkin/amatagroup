@@ -1165,6 +1165,11 @@
 
 .productColor .hidingMenu .col_offer {
 	border-right: 1px solid #cccccc;
+	width: 63px;
+    height: 100%;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
 }
 
 .productColor .hidingMenu p {
@@ -1219,4 +1224,24 @@ div.item_card_offers.active .col {
     color: #9a9a9a;
     font: 15px/24px 'MuseoSansCyrl-500', sans-serif;
     max-height: 515px;
+}
+
+.productCardDesc .hidingMenu p {
+	border: 1px solid #cdcdcd !important;
+	border-radius: 5px;
+	padding-right: 0 !important;
+	width: 380px !important;
+	margin-left: 18px !important;
+}
+
+.productCardDesc .hidingMenu p:first-child {
+	margin-top: 18px;
+}
+
+.productCardDesc .hidingMenu p:not(:first-child) {
+	margin-top: 10px;
+}
+
+.productCardDesc .hidingMenu p:last-child {
+	margin-bottom: 18px;
 }

@@ -1465,7 +1465,39 @@ ul.topMenu a:hover {
     position: absolute;
     top: 48px;
 }
-
+.mainBigBanner .newContainer {
+    background-color: #dee8b7;
+    border-radius: 50px;
+    color: #000000;
+    font-family: "VentiCF-Bold";
+    font-size: 27px;
+    left: 270px;
+    padding: 22px 16px;
+    position: absolute;
+    top: 48px;
+}
+.mainBigBanner .bestContainer {
+    background-color: #ffd0b4;
+    border-radius: 50px;
+    color: #705721;
+    font-family: "VentiCF-Bold";
+    font-size: 26px;
+    left: 270px;
+    padding: 23px 16px;
+    position: absolute;
+    top: 32px;
+}
+.mainBigBanner .saleContainer {
+    background-color: #ffee8d;
+    border-radius: 50px;
+    color: #705721;
+    font-family: "VentiCF-Bold";
+    font-size: 26px;
+    left: 270px;
+    padding: 25px 17px;
+    position: absolute;
+    top: 32px;
+}
 .productBlockWrapper .showAllLink a:hover {
     background-color: #DEE8B7;
     border-color: #DEE8B7;
@@ -2039,7 +2071,7 @@ transition: all 0.3s;
     /* margin-bottom: 3px;*/
     margin-bottom: 0;
     cursor: pointer;
-    padding-left: 9px;
+    padding-left: 25px;
 }
 
 .leftFiltersBlock .leftFilterName:before {
@@ -2047,6 +2079,8 @@ transition: all 0.3s;
     width: 28px;
     float: left;
     display: block;
+    position: absolute;
+    left: 15px;
 }
 
 .leftFiltersBlock .leftFilterName.activeFilter:before {
@@ -2943,25 +2977,14 @@ transition: all 0.3s;
 }
 
 .hidingMenu p {
-    border: 1px solid #cdcdcd;
-    border-radius: 5px;
+    border-bottom: 1px solid #e6e6e6;
+    padding: 10px 30px;
     width: 81px;
     color: #747474;
-    padding-right: 0 !important;
-    width: 380px !important;
-	margin-left: 18px !important;
-}
-
-.hidingMenu p:first-child {
-	margin-top: 18px;
-}
-
-.hidingMenu p:not(:first-child) {
-	margin-top: 10px;
 }
 
 .hidingMenu p:last-child {
-    margin-bottom: 18px;
+    border-bottom: none;
 }
 
 .hidingMenu p:before {
@@ -5463,22 +5486,19 @@ border-color: transparent transparent #fff;
 .regHiddenBlock, .authHiddenBlock {
     background-color: #fff;
     border-radius: 4px;
-    box-shadow: 0 0 120px rgba(0, 0, 0, 0.5);
+    box-shadow: 0 0 30px rgba(0, 0, 0, 0.5);
     display: none;
-
     padding: 0 18px 18px;
-    position: absolute;
-    top: 14px;
+    position: fixed;
+    top: 125px;
     width: 224px;
     z-index: 400;
+    left: 50%;
+    margin-left: -112px;
 }
 
 .regHiddenBlock {
     left: 0;
-}
-
-.authHiddenBlock {
-    left: 140px;
 }
 
 p.authTitle {
@@ -5554,7 +5574,7 @@ p.authTitle {
 }
 
 .selectric-scroll ul li:first-of-type {
-    display: none;
+    /*display: none;*/
 }
 
 .rememberMeText {
@@ -5902,7 +5922,7 @@ top: -440px;
 .searchForm .input {
     width: 310px;
     height: 45px;
-    padding: 17px 20px 15px;
+    padding: 0 20px;
     box-sizing: border-box;
     background: #fff;
     border: 1px solid #e6e6e6 !important;
@@ -6658,7 +6678,7 @@ input[type="radio"]:checked + label::before {
 }
 
 .productCardDesc .brandText {
-    padding: 10px 16px 12px;
+	padding: 10px 16px 12px;
     border-bottom: 1px solid #e6e6e6;
 }
 
@@ -6686,7 +6706,7 @@ input[type="radio"]:checked + label::before {
     font: 15px/1 'MuseoSansCyrl-700', sans-serif;
     color: #b8b8b8;
     padding: 17px 16px 18px;
-    border-bottom: 1px solid #e6e6e6;
+	border-bottom: 1px solid #e6e6e6;
 }
 
 .productCardDesc .productArticle strong {
@@ -6733,14 +6753,10 @@ input[type="radio"]:checked + label::before {
     margin: 0 17px;
 }
 
-.productCardDesc .productCount {
-
-}
-
 .productCardDesc .middleSelectBlock {
     width: 100%;
-	box-sizing: border-box;
-    padding-left: 18px;
+    box-sizing: border-box;
+	padding-left: 18px;
 }
 
 .productCardDesc .elementQuant {
@@ -6756,15 +6772,15 @@ input[type="radio"]:checked + label::before {
 }
 
 .productCardDesc .elementQuant input {
+	font: 'MuseoSansCyrl-700', sans-serif;
+	text-align: left;
     height: 39px;
-    font: 'MuseoSansCyrl-700', sans-serif;
-    text-align: left;
     box-sizing: border-box;
     border: none !important;
     background: none;
     color: #000 !important;
     text-transform: uppercase;
-    font-size: 30px;
+	font-size: 30px;
 }
 
 .productCardDesc .elementQuant .quantityPlus, .productCardDesc .elementQuant .quantityMinus,
@@ -6773,34 +6789,21 @@ input[type="radio"]:checked + label::before {
     height: 26px;
     margin: 0;
     border: 2px solid #cccccc;
-    border-radius: 5px;
-    display: inline-block;
+	border-radius: 5px;
+	display: inline-block;
 }
 
 .productCardDesc .horizontalFilterWrap .firstFilter {
-    background: url("../img/recht6363.png") no-repeat scroll 96% 50%;
+    background: url("/img/recht6363.png") no-repeat scroll 96% 50%;
 }
 
 .productCardDesc .horizontalFilterWrap {
     border-left: none;
 }
 
-.productCardDesc .elementQuant .quantityPlus:before {
-    border-bottom: 5px solid #131313;
-    top: 7px;
-}
-
-.productCardDesc .elementQuant .quantityMinus:before {
-    border-top: 5px solid #131313;
-    /*top: 4px;*/
-    top: 10px;
-}
-
 .productCardDesc .middleSelectBlock.active {
+    /*  border-color: #232323 !important;*/
     border-color: #5db3dc !important;
-}
-
-.productCardDesc .middleSelectBlock.active input {
 }
 
 .productCardDesc .middleSelectBlock.active input {
@@ -6822,11 +6825,6 @@ input[type="radio"]:checked + label::before {
     position: relative;
 }
 
-/*
-.productCardDesc .horizontalFilterWrap .firstFilter:hover {
-border-color: #232323 !important;
-}
-*/
 .productCardDesc .horizontalFilterWrap .firstFilter:before {
     content: "";
     border-bottom: 5px solid #131313;
@@ -6849,38 +6847,39 @@ border-color: #232323 !important;
 }
 
 .productCardDesc .hidingMenu {
-    width: 419px;
-    left: -22px;
-    top: 87px;
-    overflow: visible;
-    min-height: 315px;
-    max-height: 315px;
-}
-
-.productCardDesc .hidingMenu:after {
-  content: '';
-  position: absolute;
-  bottom: 100%;
-  left: 90%;
-  margin-left: -8px;
-  width: 0; height: 0;
-  z-index: 2;
-  border-bottom: 8px solid #d9d9d9;
-  border-right: 8px solid transparent;
-  border-left: 8px solid transparent;
-}
-
-.productCardDesc .hidingMenu:before {
-  content: '';
-  position: absolute;
-  bottom: 99.7%;
-  left: 90%;
-  margin-left: -8px;
-  width: 0; height: 0;
-  z-index: 3;
-  border-bottom: 8px solid white;
-  border-right: 8px solid transparent;
-  border-left: 8px solid transparent;
+     width: 100%;
+     width: 419px;
+     left: -22px;
+     top: 87px;
+     overflow: visible;
+     min-height: 315px;
+     max-height: 315px;
+ }
+ 
+ .productCardDesc .hidingMenu:after {
+   content: '';
+   position: absolute;
+   bottom: 100%;
+   left: 90%;
+   margin-left: -8px;
+   width: 0; height: 0;
+   z-index: 2;
+   border-bottom: 8px solid #d9d9d9;
+   border-right: 8px solid transparent;
+   border-left: 8px solid transparent;
+ }
+ 
+ .productCardDesc .hidingMenu:before {
+   content: '';
+   position: absolute;
+   bottom: 99.7%;
+   left: 90%;
+   margin-left: -8px;
+   width: 0; height: 0;
+   z-index: 3;
+   border-bottom: 8px solid white;
+   border-right: 8px solid transparent;
+   border-left: 8px solid transparent;
 }
 
 .middleSelectBlock {
@@ -6894,13 +6893,10 @@ border-color: #232323 !important;
     max-width: 100%;
     box-sizing: border-box;
     height: 56px;
-    padding-right: 30px;
-    display: flex;
-    align-items: center;
-    line-height: 20px;
-}
-
-.productCardDesc .hidingMenu p {
+	padding: 0 30px 0 0 !important;
+	display: flex;
+	align-items: center;
+	line-height: 20px;
 }
 
 .productCardDesc .productFavorites {
@@ -7007,15 +7003,14 @@ border-color: #232323 !important;
 }
 
 .col {
-    width: 83px;
-    height: 100%;
-    border-right: 2px solid #cbcbcb;
-    display: inline-flex;
-    vertical-align: top;
-    float: left;
-    margin-right: 18px;
-    align-items: center;
-    justify-content: center;
+	width: 83px;
+	height: 100%;
+	border-right: 2px solid #cbcbcb;
+	display: inline-flex;
+	float: left;
+	margin-right: 18px;
+	align-items: center;
+	justify-content: center;
 }
 
 .oform h1 {
@@ -7209,8 +7204,8 @@ border-color: #232323 !important;
 }
 
 .elementQuant .quantityMinus {
-    background-image: url("/img/product_card_minus.png") !important;
-    background-position: center;
+	background-image: url("/img/product_card_minus.png") !important;
+	background-position: center;
 }
 
 .elementQuant .quantityMinus.inactive, .elementQuant .quantityMinus.inactive:hover {
@@ -7221,7 +7216,6 @@ border-color: #232323 !important;
     background-image: url("/img/product_card_plus.png") !important;
 	background-position: center;
 }
-
 
 .elementQuant .quantityPlus.inactive, .elementQuant .quantityPlus.inactive:hover {
     background-image: url("../img/topOrderQuantInactive.png") !important;
@@ -7455,14 +7449,19 @@ border-color: #232323 !important;
     background-image: url('../img/delactivebutbasket.png');
 }
 
-.firstFilter:hover, .secondFilter:hover, .quantOnPageFilt:hover, .quantOnPageFiltBot:hover, .goToPageFilter:hover,
-.productCardDesc .horizontalFilterWrap .firstFilter:hover {
-    border-color: #000 !important;
+.firstFilter:hover, .secondFilter:hover, .quantOnPageFilt:hover, .quantOnPageFiltBot:hover, .goToPageFilter:hover {
+    border-color: #5db3dc !important;
+    background-image: url(../img/cArrowActive.png);
 }
 
-.firstFilter:hover p span.col {
+.productCardDesc .horizontalFilterWrap .firstFilter:hover {
 	border-color: #000 !important;
 }
+
+.productCardDesc .firstFilter:hover p span.col {
+	border-color: #000 !important;
+}
+
 .firstFilter.active, .secondFilter.active, .quantOnPageFilt.active, .quantOnPageFiltBot.active, .goToPageFilter.active {
     background-image: url(../img/cArrowActive1.png);
     border-color: #5db3dc !important;
@@ -8380,6 +8379,7 @@ display: none;
     box-sizing: border-box;
 }
 .hidingMenu {
+    max-height: 200px;
     overflow-x: hidden;
     overflow-y: auto;
 }
@@ -8413,7 +8413,6 @@ display: none;
 
 #auth_form .errorText {
     font-family: "PT Serif";
-    margin-top: 20px;
     color: red;
 }
 
@@ -9022,8 +9021,7 @@ body .news_wrap .productBlockWrapper .productWrapper {
     display: none
 }
 
-.top-menu-fixed-block .quantityInBasket {
-    background-color: #5db3dc;
+.top-menu-fixed-block .quantityInBasket, .top-menu-fixed-block .quantityOfLiked {
     border-radius: 50px;
     color: #fff;
     font-size: 11px;
@@ -9036,22 +9034,20 @@ body .news_wrap .productBlockWrapper .productWrapper {
     text-align: center;
     top: 18px;
     width: 18px;
+    display: block  !important;
+}
+
+.top-menu-fixed-block .quantityInBasket {
+    background-color: #5db3dc;
+
 }
 
 .top-menu-fixed-block .quantityOfLiked {
     background-color: #ea8b64;
-    border-radius: 50px;
+}
+
+.top-menu-fixed-block .quantityInBasket:hover, .top-menu-fixed-block .quantityOfLiked:hover {
     color: #fff;
-    font-size: 11px;
-    height: 18px;
-    left: 50px;
-    line-height: 18px;
-    margin: 0 !important;
-    padding: 0 !important;
-    position: absolute !important;
-    text-align: center;
-    top: 18px;
-    width: 18px;
 }
 
 .top-menu-fixed-block .linksBlock {
@@ -9065,13 +9061,35 @@ body .news_wrap .productBlockWrapper .productWrapper {
 
 #fixed-linkBlock1 {
     background: rgba(0, 0, 0, 0) url("/local/templates/.default/css/../img/findLogoHead.png") no-repeat scroll 50% 50%;
+    cursor:pointer;
 }
 
 #fixed-linkBlock2 {
     background: rgba(0, 0, 0, 0) url("/local/templates/.default/css/../img/favouritHeadLogo.png") no-repeat scroll 52% 50%;
 }
 
-
 #fixed-linkBlock3 {
     background: rgba(0, 0, 0, 0) url("/local/templates/.default/css/../img/basketHeadLogo.png") no-repeat scroll 50% 50%;
+}
+
+#fixed-linkBlock1 .searchForm {
+    height: 100%;
+    padding: 16px 0;
+    left: -423px;
+    width: 420px;
+}
+
+#fixed-linkBlock1 .searchForm .input {
+    width: 280px;
+    height: 36px;
+}
+
+#fixed-linkBlock1 .searchForm .submit {
+    height: 36px;
+}
+.productBlockWrapper .productBlockMenu .hide{
+    display: none;
+}
+.newsBlock > ul:first-child{
+    display: block;
 }
