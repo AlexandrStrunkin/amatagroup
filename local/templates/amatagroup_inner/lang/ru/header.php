@@ -11,4 +11,6 @@ $MESS["PERSONAL"] = "Личный кабинет";
 $MESS["AUTH"] = "Авторизация";
 $MESS["LOGOUT"] = "Выйти";
 $MESS["PHONE_IN_MOSCOW"] = "Телефон в Москве";
+$MESS["FAVOURITE"] = "Избранное";
+$MESS["CITY"] = "Город";
 ?>

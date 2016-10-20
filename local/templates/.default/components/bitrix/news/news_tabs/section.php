@@ -1,5 +1,7 @@
 <?if(!defined("B_PROLOG_INCLUDED") || B_PROLOG_INCLUDED!==true)die();?>
+<?
 
+?>
 <?if($arParams["USE_RSS"]=="Y"):?>
 	<?
 	$rss_url = str_replace("#SECTION_ID#", urlencode($arResult["VARIABLES"]["SECTION_ID"]), $arResult["FOLDER"].$arResult["URL_TEMPLATES"]["rss_section"]);

@@ -213,7 +213,7 @@
                                             <select name="color" data-item-id="<?=$arItem["ID"]?>" class="js-offer-select">
                                                 <?  
                                                     //получаем первое активное предложение  
-                                                    $first_offer = $arItem["OFFERS"][0];
+                                                    $first_offer = $arItem["OFFERS"][0];  
                                                 ?>
                                                 <?
                                                     $offerNameVisible = $first_offer["NAME"];
@@ -281,8 +281,23 @@
                                                 ?> &nbsp;
                                             </p>
                                             <?$k++;}
-                                    }?>
+                                    } else {?>
+                                           <p data-offer-id="<?=$offer["ID"]?>" class="js-item-price">
+                                                <?
+                                                    $minPrice = $arItem["MIN_PRICE_TMP"];
 
+                                                    echo $minPrice['PRINT_DISCOUNT_VALUE'];
+
+                                                    if ('Y' == $arParams['SHOW_OLD_PRICE'] && $minPrice['DISCOUNT_VALUE'] < $minPrice['VALUE']) {?>
+                                                    <br>&nbsp;<span class="old_price"><? echo $minPrice['PRINT_VALUE']; ?></span>
+                                                    <?
+                                                    }
+
+                                                    unset($minPrice);
+                                                ?> &nbsp;
+                                            </p>
+                                    <?}?>
+                                     
 
                                     <?
                                         $showSubscribeBtn = false;

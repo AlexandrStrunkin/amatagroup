@@ -500,26 +500,40 @@ $(document).ready(function () {
             popupMask.fadeOut(300);
         });
     }
+
     //поиск
     $("#linkBlock1 a").on("click", function (e) {
         e.preventDefault();
-        $(".searchForm, .searchFormClose").fadeIn(300);
-        $(".searchForm input,.searchForm textarea").each(function () {
+        $(this).siblings(".searchForm, .searchFormClose").fadeIn(300);
+        $(".searchForm input, .searchForm textarea").each(function () {
             $(this).focus().blur();
         });
         $(".searchForm form")[0].reset();
     });
+
     $(".searchFormClose").on("click", function () {
         $(".searchForm, .searchFormClose").fadeOut(300);
     });
 
 
     $(".searchForm input").on("focus", function () {
-        $(this).closest(".searchForm").addClass("focus");
+        $(this).parents(".searchForm").addClass("focus");
     }).blur(function () {
-        $(this).closest(".searchForm").removeClass("focus");
+        $(this).parents(".searchForm").removeClass("focus");
 
     });
+
+    //плавающая шапка                                      
+    $("#fixed-linkBlock1").on("click", function (e) {       
+        if (!$(e.target).hasClass("searchFormClose") && !$(e.target).hasClass("submit")) {  
+            $(this).find(".searchForm, .searchFormClose").fadeIn(300);
+            $(this).find(".searchForm input, .searchForm textarea").each(function () {
+                $(this).focus();
+            });
+        }      
+    });      
+
+
 
     //скрипты для всплывайки "оставить вопрос"
 
@@ -1592,18 +1606,18 @@ $(document).ready(function () {
         var scroll_top = $(window).scrollTop();
         if ($(window).scrollTop() > 265) {
             if ($(".js-fixed-header").css("display") != "block") {
-                $(".js-fixed-header").fadeIn(); 
+                $(".js-fixed-header").fadeIn();
             }
         } else {
             if ($(".js-fixed-header").css("display") == "block") {
                 $(".js-fixed-header").fadeOut();
             }
         }
-    })  
+    })
 
     if ($(window).scrollTop() > 265) {
         if ($(".js-fixed-header").css("display") != "block") {
-            $(".js-fixed-header").fadeIn(); 
+            $(".js-fixed-header").fadeIn();
         }
     }
 
@@ -1885,4 +1899,16 @@ $(function() {
         $(this).addClass('show_property');
         $(this).html('Показать все');
     })
+});
+$(function() {
+    if ($('#productList1').length < 1) {
+        $('.productBlockMenu #wrap_new').addClass('hide').next().addClass('active');
+    }
+    if ($('#productList2').length < 1) {
+        $('.productBlockMenu #wrap_best').addClass('hide').prev().addClass('active');
+    }
+    if ($('#productList3').length < 1) {
+        $('.productBlockMenu #wrap_latest').addClass('hide');
+        $('#wrap_new').addClass('active')
+    }
 });
