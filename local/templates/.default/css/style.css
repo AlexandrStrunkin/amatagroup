@@ -2071,7 +2071,7 @@ transition: all 0.3s;
     /* margin-bottom: 3px;*/
     margin-bottom: 0;
     cursor: pointer;
-    padding-left: 9px;
+    padding-left: 25px;
 }
 
 .leftFiltersBlock .leftFilterName:before {
@@ -2079,6 +2079,8 @@ transition: all 0.3s;
     width: 28px;
     float: left;
     display: block;
+    position: absolute;
+    left: 15px;
 }
 
 .leftFiltersBlock .leftFilterName.activeFilter:before {
@@ -5491,7 +5493,7 @@ border-color: transparent transparent #fff;
     background-color: #fff;
     border-radius: 4px;
     box-shadow: 0 0 30px rgba(0, 0, 0, 0.5);
-    display: none;    
+    display: none;
     padding: 0 18px 18px;
     position: fixed;
     top: 125px;
@@ -8993,8 +8995,8 @@ body .news_wrap .productBlockWrapper .productWrapper {
     width: 94px;
 }
 
-.top-menu-fixed-wrapper .top-menu-fixed-block.auth-block {     
-    padding: 23px 20px 0;
+.top-menu-fixed-wrapper .top-menu-fixed-block.auth-block {
+    padding: 21px 20px 0;
     position: relative;
 }
 
@@ -9049,16 +9051,16 @@ body .news_wrap .productBlockWrapper .productWrapper {
 
 .top-menu-fixed-block .quantityInBasket {
     background-color: #5db3dc;
-    
+
 }
 
-.top-menu-fixed-block .quantityOfLiked {  
-    background-color: #ea8b64;        
+.top-menu-fixed-block .quantityOfLiked {
+    background-color: #ea8b64;
 }
 
 .top-menu-fixed-block .quantityInBasket:hover, .top-menu-fixed-block .quantityOfLiked:hover {
     color: #fff;
-} 
+}
 
 .top-menu-fixed-block .linksBlock {
     position: relative;
@@ -9076,7 +9078,7 @@ body .news_wrap .productBlockWrapper .productWrapper {
 
 #fixed-linkBlock2 {
     background: rgba(0, 0, 0, 0) url("/local/templates/.default/css/../img/favouritHeadLogo.png") no-repeat scroll 52% 50%;
-}           
+}
 
 #fixed-linkBlock3 {
     background: rgba(0, 0, 0, 0) url("/local/templates/.default/css/../img/basketHeadLogo.png") no-repeat scroll 50% 50%;
@@ -9086,7 +9088,7 @@ body .news_wrap .productBlockWrapper .productWrapper {
     height: 100%;
     padding: 16px 0;
     left: -423px;
-    width: 420px;      
+    width: 420px;
 }
 
 #fixed-linkBlock1 .searchForm .input {
@@ -9103,4 +9105,3 @@ body .news_wrap .productBlockWrapper .productWrapper {
 .newsBlock > ul:first-child{
     display: block;
 }
-
