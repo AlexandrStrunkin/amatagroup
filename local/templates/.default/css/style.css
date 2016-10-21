@@ -1466,39 +1466,7 @@ ul.topMenu a:hover {
     position: absolute;
     top: 48px;
 }
-.mainBigBanner .newContainer {
-    background-color: #dee8b7;
-    border-radius: 50px;
-    color: #000000;
-    font-family: "VentiCF-Bold";
-    font-size: 27px;
-    left: 270px;
-    padding: 22px 16px;
-    position: absolute;
-    top: 48px;
-}
-.mainBigBanner .bestContainer {
-    background-color: #ffd0b4;
-    border-radius: 50px;
-    color: #705721;
-    font-family: "VentiCF-Bold";
-    font-size: 26px;
-    left: 270px;
-    padding: 23px 16px;
-    position: absolute;
-    top: 32px;
-}
-.mainBigBanner .saleContainer {
-    background-color: #ffee8d;
-    border-radius: 50px;
-    color: #705721;
-    font-family: "VentiCF-Bold";
-    font-size: 26px;
-    left: 270px;
-    padding: 25px 17px;
-    position: absolute;
-    top: 32px;
-}
+
 .productBlockWrapper .showAllLink a:hover {
     background-color: #DEE8B7;
     border-color: #DEE8B7;
@@ -2072,7 +2040,7 @@ transition: all 0.3s;
     /* margin-bottom: 3px;*/
     margin-bottom: 0;
     cursor: pointer;
-    padding-left: 9px;
+    padding-left: 25px;
 }
 
 .leftFiltersBlock .leftFilterName:before {
@@ -2080,6 +2048,8 @@ transition: all 0.3s;
     width: 28px;
     float: left;
     display: block;
+    position: absolute;
+    left: 15px;
 }
 
 .leftFiltersBlock .leftFilterName.activeFilter:before {
@@ -5494,16 +5464,18 @@ border-color: transparent transparent #fff;
     box-shadow: 0 0 30px rgba(0, 0, 0, 0.5);
     display: none;
     padding: 0 18px 18px;
-    position: fixed;
-    top: 125px;
+    position: absolute;
+    top: 14px;
     width: 224px;
     z-index: 400;
-    left: 50%;
-    margin-left: -112px;
 }
 
 .regHiddenBlock {
     left: 0;
+}
+
+.authHiddenBlock {
+    left: 140px;
 }
 
 p.authTitle {
@@ -5579,7 +5551,7 @@ p.authTitle {
 }
 
 .selectric-scroll ul li:first-of-type {
-    /*display: none;*/
+    display: none;
 }
 
 .rememberMeText {
@@ -5927,7 +5899,7 @@ top: -440px;
 .searchForm .input {
     width: 310px;
     height: 45px;
-    padding: 0 20px;
+    padding: 17px 20px 15px;
     box-sizing: border-box;
     background: #fff;
     border: 1px solid #e6e6e6 !important;
@@ -8424,6 +8396,7 @@ display: none;
 
 #auth_form .errorText {
     font-family: "PT Serif";
+    margin-top: 20px;
     color: red;
 }
 
@@ -8995,7 +8968,7 @@ body .news_wrap .productBlockWrapper .productWrapper {
 }
 
 .top-menu-fixed-wrapper .top-menu-fixed-block.auth-block {
-    padding: 23px 20px 0;
+    padding: 21px 20px 0;
     position: relative;
 }
 
@@ -9032,7 +9005,8 @@ body .news_wrap .productBlockWrapper .productWrapper {
     display: none
 }
 
-.top-menu-fixed-block .quantityInBasket, .top-menu-fixed-block .quantityOfLiked {
+.top-menu-fixed-block .quantityInBasket {
+    background-color: #5db3dc;
     border-radius: 50px;
     color: #fff;
     font-size: 11px;
@@ -9045,6 +9019,7 @@ body .news_wrap .productBlockWrapper .productWrapper {
     text-align: center;
     top: 18px;
     width: 18px;
+<<<<<<< HEAD
     display: block  !important;
 }
 
@@ -9055,10 +9030,19 @@ body .news_wrap .productBlockWrapper .productWrapper {
 
 .top-menu-fixed-block .quantityOfLiked {
     background-color: #ea8b64;
-}
-
-.top-menu-fixed-block .quantityInBasket:hover, .top-menu-fixed-block .quantityOfLiked:hover {
+    border-radius: 50px;
     color: #fff;
+    font-size: 11px;
+    height: 18px;
+    left: 50px;
+    line-height: 18px;
+    margin: 0 !important;
+    padding: 0 !important;
+    position: absolute !important;
+    text-align: center;
+    top: 18px;
+    width: 18px;
+>>>>>>> upstream/master
 }
 
 .top-menu-fixed-block .linksBlock {
@@ -9072,7 +9056,6 @@ body .news_wrap .productBlockWrapper .productWrapper {
 
 #fixed-linkBlock1 {
     background: rgba(0, 0, 0, 0) url("/local/templates/.default/css/../img/findLogoHead.png") no-repeat scroll 50% 50%;
-    cursor:pointer;
 }
 
 #fixed-linkBlock2 {
@@ -9090,18 +9073,11 @@ body .news_wrap .productBlockWrapper .productWrapper {
     width: 420px;
 }
 
-#fixed-linkBlock1 .searchForm .input {
-    width: 280px;
-    height: 36px;
+#fixed-linkBlock3 {
+    background: rgba(0, 0, 0, 0) url("/local/templates/.default/css/../img/basketHeadLogo.png") no-repeat scroll 50% 50%;
 }
-
-#fixed-linkBlock1 .searchForm .submit {
-    height: 36px;
-}
-.productBlockWrapper .productBlockMenu .hide{
-    display: none;
-}
-.newsBlock > ul:first-child{
-    display: block;
+h3, h4, h5, h6 {
+    color: #000;
+    font-family: "MuseoSansCyrl-700";
 }
 
