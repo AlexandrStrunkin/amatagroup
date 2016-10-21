@@ -9161,7 +9161,7 @@ body .news_wrap .productBlockWrapper .productWrapper {
     display:block;
 }
 
- .firstLvlLi.Level_next::after, .fixed-catalog-menu .Level_next.activeFirstLclLi::after {
+.fixed-catalog-menu .firstLvlLi.Level_next::after, .fixed-catalog-menu .Level_next.activeFirstLclLi::after {
     left: 213px !important;
 }     
 
