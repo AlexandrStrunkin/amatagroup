@@ -92,9 +92,9 @@
 
     /*константы для отображения каталога*/
     define("DEFAULT_PAGE_ELEMENT_COUNT", $GLOBALS["availableParams"]["PAGE_ELEMENT_COUNT"][0]); //количество элементов на странице раздела каталога по умолчанию
-    define("DEFAULT_ELEMENT_SORT_FIELD", "HAS_PREVIEW_PICTURE"); //поле для первой сортировки элементов в каталоге по умолчанию - всегда по наличию картинок
+    define("DEFAULT_ELEMENT_SORT_FIELD", $GLOBALS["availableParams"]["ELEMENT_SORT_FIELD"][0]); //поле для первой сортировки элементов в каталоге по умолчанию - всегда по наличию картинок
     define("DEFAULT_ELEMENT_SORT_ORDER", $GLOBALS["availableParams"]["ELEMENT_SORT_ORDER"][1]); //направление для первой сортировки элементов в каталоге по умолчанию
-    define("DEFAULT_ELEMENT_SORT_FIELD2", $GLOBALS["availableParams"]["ELEMENT_SORT_FIELD"][0]); //поле для второй сортировки элементов в каталоге по умолчанию
+    define("DEFAULT_ELEMENT_SORT_FIELD2", "HAS_PREVIEW_PICTURE"); //поле для второй сортировки элементов в каталоге по умолчанию
     define("DEFAULT_ELEMENT_SORT_ORDER2", $GLOBALS["availableParams"]["ELEMENT_SORT_ORDER2"][1]); //направление для второй сортировки элементов в каталоге по умолчанию
     define("DEFAULT_CATALOG_AVAILABLE_PRODUCT", $GLOBALS["availableParams"]["CATALOG_AVAILABLE_PRODUCT"][1]); //фильтрация по наличию элементов в каталоге по умолчанию
 
@@ -326,13 +326,13 @@
             <?
                 break;
 
-            case "ELEMENT_SORT_FIELD2" :
+            case "ELEMENT_SORT_FIELD" :
             ?>
-            <p data-sort="<?=$currentKey?>" class="firstFiltElement1" id="activeFirstFilt"><img src="<?=DEFAULT_TEMPLATE_PATH?>/img/SORT_<?=$curParams["ELEMENT_SORT_ORDER2"]?>.png"> <?=GetMessage("CATALOG_ORDER_BY_".$curParams[$blockName])?></p>
+            <p data-sort="<?=$currentKey?>" class="firstFiltElement1" id="activeFirstFilt"><img src="<?=DEFAULT_TEMPLATE_PATH?>/img/SORT_<?=$curParams["ELEMENT_SORT_ORDER"]?>.png"> <?=GetMessage("CATALOG_ORDER_BY_".$curParams[$blockName])?></p>
             <div class="hidingMenu">
                 <?foreach ($availableParam as $key => $fieldName){?>
-                    <?foreach ($GLOBALS["availableParams"]["ELEMENT_SORT_ORDER2"] as $sort_dir) {?>
-                        <p data-sort="<?=$key?>" data-href="?<?=$blockName?>=<?=$fieldName?>&ELEMENT_SORT_ORDER2=<?=$sort_dir?>"><img src="<?=DEFAULT_TEMPLATE_PATH?>/img/SORT_<?=$sort_dir?>.png"> <?=GetMessage("CATALOG_ORDER_BY_".$fieldName)?></p>
+                    <?foreach ($GLOBALS["availableParams"]["ELEMENT_SORT_ORDER"] as $sort_dir) {?>
+                        <p data-sort="<?=$key?>" data-href="?<?=$blockName?>=<?=$fieldName?>&ELEMENT_SORT_ORDER=<?=$sort_dir?>"><img src="<?=DEFAULT_TEMPLATE_PATH?>/img/SORT_<?=$sort_dir?>.png"> <?=GetMessage("CATALOG_ORDER_BY_".$fieldName)?></p>
                         <?}?>
                     <?}?>
             </div>

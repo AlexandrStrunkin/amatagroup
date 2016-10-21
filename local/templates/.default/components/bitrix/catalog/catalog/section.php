@@ -84,8 +84,8 @@
         // $arParams["ELEMENT_SORT_ORDER"] = "DESC";
         // $arParams["ELEMENT_SORT_FIELD2"] = "HAS_PREVIEW_PICTURE";
         // $arParams["ELEMENT_SORT_ORDER2"] = "DESC";
-    }
-
+    } 
+    
     //формируем правильный вид для поля сортировки
     if ($arParams["ELEMENT_SORT_FIELD"] == "PRICE") {
         $priceCode = $arParams["PRICE_CODE"][0];
@@ -116,7 +116,7 @@
                 <p><?=GetMessage("ORDER_BY")?></p>
 
                 <div class="firstFilter">
-                    <?getCatalogOptionBlock("ELEMENT_SORT_FIELD2"); //sets in init.php?>
+                    <?getCatalogOptionBlock("ELEMENT_SORT_FIELD"); //sets in init.php?>
                 </div>
 
 
