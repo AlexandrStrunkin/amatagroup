@@ -379,8 +379,8 @@
             );?>
 
         <?$APPLICATION->IncludeComponent(
-	"bitrix:catalog.section",
-	"slider_main",
+	"bitrix:catalog.section", 
+	"slider_main", 
 	array(
 		"TEMPLATE_THEME" => "blue",
 		"PRODUCT_DISPLAY_MODE" => "N",
@@ -399,7 +399,7 @@
 		"MESS_BTN_SUBSCRIBE" => "Подписаться",
 		"MESS_BTN_DETAIL" => "Подробнее",
 		"MESS_NOT_AVAILABLE" => "Нет в наличии",
-		"AJAX_MODE" => "Y",
+		"AJAX_MODE" => "N",
 		"SEF_MODE" => "N",
 		"IBLOCK_TYPE" => "services",
 		"IBLOCK_ID" => "29",
