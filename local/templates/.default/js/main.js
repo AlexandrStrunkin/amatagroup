@@ -42,12 +42,12 @@ $(document).ready(function () {
             }, 300);
 
 
-        $('.mainLeftMenu>ul>div>div>li').each(function () {
+        $('.mainLeftMenu > ul > div > div > li').each(function () {
             var el = $(this);
             el.find("ul .activeFirstLclLi").removeClass("activeFirstLclLi");
             $('.secondLvlCatalog').hide();
             el.removeClass('activeLiTopMenuFirstLvl');
-            $('.mainLeftMenu>ul>div>div>li').not(el[0]).show();
+            $('.mainLeftMenu > ul > div > div > li').not(el[0]).show();
             el.css("top", 0);
             $(".bottomBlockMailLeft").hide();
             el.find(".secondLvl").hide();
@@ -57,7 +57,7 @@ $(document).ready(function () {
     });
 
     //кастом скролбар меню в шапке
-    var els = $('.secondLvlLeftMenu ul, .secondLvlCatalog, .mainLeftMenu>ul, .locationWrapper .list, .productInfo');
+    var els = $('.secondLvlLeftMenu ul, .secondLvlCatalog, .mainLeftMenu > ul, .locationWrapper .list, .productInfo');
     if (els.length > 0) {
         els.mCustomScrollbar({
             theme: "dark-thin"
@@ -68,7 +68,7 @@ $(document).ready(function () {
     });
     $(".hidingMenu").hide();
 
-    $('.mainLeftMenu>ul>div>div>li').on("mouseenter", function () {
+    $('.mainLeftMenu > ul > div > div > li').on("mouseenter", function () {
         var el = $(this);
 
         if (!el.hasClass("activeLiTopMenuFirstLvl")) {
@@ -83,15 +83,13 @@ $(document).ready(function () {
         e.preventDefault();
         window.location.href = $(this).attr("href");
     });
-    $('.mainLeftMenu>ul>div>div>li').on("click", function () {
+    $('.mainLeftMenu > ul > div > div > li').on("click", function (e) {
         var el = $(this);
         el.removeClass("hover");
         if (el.find("ul").length > 0) {
             if (!el.hasClass('activeLiTopMenuFirstLvl')) {
-                var position = el.position();
-
-
-                $('.mainLeftMenu>ul>div>div>li').not(el[0]).hide();
+                var position = el.position();      
+                $('.mainLeftMenu > ul > div > div > li').not(el[0]).hide();
                 el.css({'top': position.top});
                 setTimeout(animateLiMoving, 0, el[0], position);
             }
@@ -100,7 +98,7 @@ $(document).ready(function () {
 
 
     });
-    $('.mainLeftMenu>ul>div>div>li>a').on("click", function (e) {
+    $('.mainLeftMenu > ul > div > div > li > a').on("click", function (e) {
         e.preventDefault();
         var el = $(this).parent();
         el.removeClass("hover");
@@ -115,7 +113,7 @@ $(document).ready(function () {
 
                     setTimeout(function () {
                         el.animate({'top': el.attr("data-pos")}, 300, function () {
-                            $('.mainLeftMenu>ul>div>div>li').not(el[0]).show();
+                            $('.mainLeftMenu > ul > div > div > li').not(el[0]).show();
                             el.css("top", 0);
 
                             $(".bottomBlockMailLeft").hide();
@@ -139,7 +137,7 @@ $(document).ready(function () {
     });
     $(".bottomBlockMailLeft .link1").on("click", function (e) {
         e.preventDefault();
-        var el = $(this).closest(".mainLeftMenu");
+        var el = $(this).parents(".mainLeftMenu");
         el.find(".firstLvlLi").addClass("activeFirstLclLi");
         el.find(".firstLvlLi").find(".secondLvl").slideDown(300);
         el.find(".link2").show();
@@ -147,7 +145,7 @@ $(document).ready(function () {
     });
     $(".bottomBlockMailLeft .link2").on("click", function (e) {
         e.preventDefault();
-        var el = $(this).closest(".mainLeftMenu");
+        var el = $(this).parents(".mainLeftMenu");
         el.find(".firstLvlLi").removeClass("activeFirstLclLi");
         el.find(".firstLvlLi").find(".secondLvl").slideUp(300);
         el.find(".link1").show();
@@ -155,9 +153,9 @@ $(document).ready(function () {
 
     });
 
-    $(".firstLvlLi>a").on("click", function (e) {
+    $(".firstLvlLi  > a").on("click", function (e) {
         e.preventDefault();
-        var el = $(this).closest(".mainLeftMenu").find(".activeFirstLclLi");
+        var el = $(this).parents(".mainLeftMenu").find(".activeFirstLclLi");
         if (el.length == 0) {
             $(".bottomBlockMailLeft .link1").show();
             $(".bottomBlockMailLeft .link2").hide();
@@ -1912,3 +1910,14 @@ $(function() {
         $('#wrap_new').addClass('active')
     }
 });
+
+//обработка каталога в плавающей плашке
+$(function(){
+    $(".top-menu-fixed-catalog-control").on("click", function(){
+        /*пока не удалять до решения задачи с плавающей плашкой
+        $(".fixed-catalog-menu").slideToggle();
+        $(this).parent().toggleClass("active"); */
+        $("#secondLvlBlocks4").click();
+        $("html, body").stop().animate({ scrollTop: 195}, 500 );
+    })
+})
