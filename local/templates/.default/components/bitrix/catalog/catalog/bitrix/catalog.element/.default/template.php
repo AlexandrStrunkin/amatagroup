@@ -124,10 +124,13 @@ $arFirstPhoto = current($arResult['MORE_PHOTO']);
         <!--END logosContainer-->
         <!--previewImg-->
         <div class="previewImg">
-
         	<a class="fancybox" href="<?= $arFirstPhoto['SRC'] ?>">
-            	<img id="<? echo $arItemIDs['PICT']; ?>" src="<?= getResizedImage($arFirstPhoto['ID'], ELEMENT_CARD_MAIN_WIDTH, ELEMENT_CARD_MAIN_HEIGHT, BX_RESIZE_IMAGE_PROPORTIONAL_ALT) ?>" alt="<? echo $strAlt; ?>" title="<? echo $strTitle; ?>">
-        	</a>
+                <?if($arFirstPhoto["ID"]){?>
+            	    <img id="<? echo $arItemIDs['PICT']; ?>" src="<?= getResizedImage($arFirstPhoto['ID'], ELEMENT_CARD_MAIN_WIDTH, ELEMENT_CARD_MAIN_HEIGHT, BX_RESIZE_IMAGE_PROPORTIONAL_ALT) ?>" alt="<? echo $strAlt; ?>" title="<? echo $strTitle; ?>">
+                <?} else {?>
+                    <img id="<? echo $arItemIDs['PICT']; ?>" src="<?= $arFirstPhoto['SRC'] ?>" alt="<? echo $strAlt; ?>" title="<? echo $strTitle; ?>">
+                <?}?>
+            </a>
         </div>
         <!--END previewImg-->
         <!--smallPreviewImg-->
