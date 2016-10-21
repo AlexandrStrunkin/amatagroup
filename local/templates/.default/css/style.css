@@ -1450,7 +1450,8 @@ ul.topMenu a:hover {
     padding: 0 66px;
 }
 
-.mainBigBanner .bannerImgContainer p {
+.mainBigBanner .bannerImgContainer p,
+.mainBigBanner .bannerImgContainer {
     text-align: center;
 }
 
@@ -2039,7 +2040,7 @@ transition: all 0.3s;
     /* margin-bottom: 3px;*/
     margin-bottom: 0;
     cursor: pointer;
-    padding-left: 9px;
+    padding-left: 25px;
 }
 
 .leftFiltersBlock .leftFilterName:before {
@@ -2047,6 +2048,8 @@ transition: all 0.3s;
     width: 28px;
     float: left;
     display: block;
+    position: absolute;
+    left: 15px;
 }
 
 .leftFiltersBlock .leftFilterName.activeFilter:before {
@@ -5458,9 +5461,8 @@ border-color: transparent transparent #fff;
 .regHiddenBlock, .authHiddenBlock {
     background-color: #fff;
     border-radius: 4px;
-    box-shadow: 0 0 120px rgba(0, 0, 0, 0.5);
+    box-shadow: 0 0 30px rgba(0, 0, 0, 0.5);
     display: none;
-
     padding: 0 18px 18px;
     position: absolute;
     top: 14px;
@@ -8910,6 +8912,7 @@ body .news_wrap .productBlockWrapper .productWrapper {
     border-right: 1px solid #e6e6e6;
     height: 100%;
     box-sizing: border-box;
+    position: relative;
 }
 
 .top-menu-fixed-wrapper .top-menu-fixed-block:last-child {
@@ -8930,20 +8933,27 @@ body .news_wrap .productBlockWrapper .productWrapper {
     margin-top: 10px;
 }
 
-.top-menu-fixed-catalog {
+.top-menu-fixed-catalog { 
+    padding-left: 32px;
+    padding-top: 28px;      
+    width: 260px;      
+}
+
+.top-menu-fixed-catalog.active p.catalog-fixed-title {
+    color: #5db3dc !important;
+}
+
+.top-menu-fixed-catalog p.catalog-fixed-title {
     color: #010101;
     font: 14px/1 "VentiCF-Black";
-    height: 39px;
-    letter-spacing: 0.5px;
-    padding-left: 32px;
-    padding-top: 28px;
     text-transform: uppercase;
-    width: 260px;
+    letter-spacing: 0.5px;
+    cursor: pointer;
 }
 
 
-.top-menu-fixed-catalog p::before {
-    background: rgba(0, 0, 0, 0) url("/local/templates/.default/img/burgerCatalog.png") no-repeat scroll 0 0;
+.top-menu-fixed-catalog p.catalog-fixed-title::before {
+    background: rgba(0, 0, 0, 0) url("/local/templates/.default/img/burgerCatalog.png") no-repeat scroll -16px 0;
     content: "";
     display: block;
     float: left;
@@ -8953,11 +8963,23 @@ body .news_wrap .productBlockWrapper .productWrapper {
     top: 0;
     width: 16px;
 }
-.top-menu-fixed-catalog p::after {
-    content: url("/local/templates/.default/img/cArrowActive.png");
+.top-menu-fixed-catalog p.catalog-fixed-title::after {                
+    /*
+    content: url("/local/templates/.default/img/backLihover.png");
     left: 45px;
     position: relative;
-    top: 0;
+    top: 0;   
+    */
+}
+
+.top-menu-fixed-catalog.active p.catalog-fixed-title::before {
+    background: rgba(0, 0, 0, 0) url("/local/templates/.default/img/burgerCatalog.png") no-repeat scroll 0 0;
+}
+
+.top-menu-fixed-catalog.active p.catalog-fixed-title::after {
+    /*
+    content: url("/local/templates/.default/img/cArrowActive.png");
+    */    
 }
 
 .top-menu-fixed-wrapper .top-menu-fixed-block .firstLvlBlocks {
@@ -9017,6 +9039,17 @@ body .news_wrap .productBlockWrapper .productWrapper {
     text-align: center;
     top: 18px;
     width: 18px;
+    display: block  !important;
+}
+
+.top-menu-fixed-block .quantityInBasket {
+    background-color: #5db3dc;
+<<<<<<< HEAD
+
+}
+=======
+>>>>>>> upstream/master
+
 }
 
 .top-menu-fixed-block .quantityOfLiked {
@@ -9052,12 +9085,71 @@ body .news_wrap .productBlockWrapper .productWrapper {
     background: rgba(0, 0, 0, 0) url("/local/templates/.default/css/../img/favouritHeadLogo.png") no-repeat scroll 52% 50%;
 }
 
+#fixed-linkBlock3 {
+    background: rgba(0, 0, 0, 0) url("/local/templates/.default/css/../img/basketHeadLogo.png") no-repeat scroll 50% 50%;
+}
+
+#fixed-linkBlock1 .searchForm {
+    height: 100%;
+    padding: 16px 0;
+    left: -423px;
+    width: 420px;
+}
 
 #fixed-linkBlock3 {
     background: rgba(0, 0, 0, 0) url("/local/templates/.default/css/../img/basketHeadLogo.png") no-repeat scroll 50% 50%;
 }
+
+.newsBlock > ul:first-child{
+    display: block;
+}        
+
+.fixed-catalog-menu {
+    position: absolute;
+    top: 89px;
+    left:0;
+    display: none;
+    background: #fff;
+    box-shadow: 0 7px 23px #adadad;
+    width: 100%;
+    z-index: 999;
+    font-family: "MuseoSansCyrl-500";
+    
+    padding: 20px 0 0;
+    font-size: 14px;
+}
+
+.fixed-catalog-menu .mainLeftMenu li.topLvlLi::after {
+    left: 235px;
+}
+
+.fixed-catalog-menu .mainLeftMenu > ul > div, .fixed-catalog-menu .mainLeftMenu > ul > div > div {
+    min-height: 460px;
+}
+
+.fixed-catalog-menu .mainLeftMenu li.topLvlLi {
+    padding-right: 35px;
+}
+
+.fixed-catalog-menu .mainLeftMenu li.topLvlLi > a {
+    color: #737373;
+    padding-right: 35px;
+}
+
+.fixed-catalog-menu .mainLeftMenu > ul > div > div > li > a {
+    margin-bottom: 20px;
+    display:block;
+}
+
+.fixed-catalog-menu .firstLvlLi.Level_next::after, .fixed-catalog-menu .Level_next.activeFirstLclLi::after {
+    left: 213px !important;
+}     
+
+.fixed-catalog-menu .activeLiTopMenuFirstLvl {
+    width: 259px;
+}
 h3, h4, h5, h6 {
     color: #000;
-    font-family: "MuseoSansCyrl-700";   
+    font-family: "MuseoSansCyrl-700";
 }
 

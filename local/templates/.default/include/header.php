@@ -6,9 +6,43 @@
         </div>
 
         <div class="top-menu-fixed-catalog top-menu-fixed-block">
-            <div class="secondLvlBlocks menuControle" >
-                <p><?=GetMessage("CATALOG")?></p>
+            <div class="secondLvlBlocks top-menu-fixed-catalog-control" >
+                <p class="catalog-fixed-title"><?=GetMessage("CATALOG")?></p>
             </div>
+
+            <?/*  пока не удалять до решения задачи с плавающей плашкой
+            <div class="fixed-catalog-menu">
+                <?$APPLICATION->IncludeComponent(
+                        "bitrix:catalog.section.list",
+                        "catalog_menu",
+                        array(
+                            "COMPONENT_TEMPLATE" => "catalog_menu",
+                            "IBLOCK_TYPE" => "1c_catalog",
+                            "IBLOCK_ID" => "5",
+                            "SECTION_ID" => "",
+                            "SECTION_CODE" => "",
+                            "COUNT_ELEMENTS" => "N",
+                            "TOP_DEPTH" => "3",
+                            "SECTION_FIELDS" => array(
+                                0 => "",
+                                1 => "",
+                            ),
+                            "SECTION_USER_FIELDS" => array(
+                                0 => "",
+                                1 => "",
+                            ),
+                            "VIEW_MODE" => "LIST",
+                            "SHOW_PARENT_NAME" => "Y",
+                            "SECTION_URL" => "",
+                            "CACHE_TYPE" => "A",
+                            "CACHE_TIME" => "86400",
+                            "CACHE_GROUPS" => "N",
+                            "ADD_SECTIONS_CHAIN" => "Y"
+                        ),
+                        false
+                    );?>
+            </div>
+            */?>
         </div>
 
         <div class="top-menu-fixed-block auth-block">
@@ -126,19 +160,19 @@
             </div>
 
             <div class="firstLvlBlocks linksBlock js-small-basket" id="fixed-linkBlock3">
-                    <?$APPLICATION->IncludeComponent(
-                            "bitrix:sale.basket.basket.small",
-                            "small_basket",
-                            array(
-                                "COMPONENT_TEMPLATE" => "small_basket",
-                                "PATH_TO_BASKET" => "/personal/cart/",
-                                "PATH_TO_ORDER" => "/personal/order/make/",
-                                "SHOW_DELAY" => "Y",
-                                "SHOW_NOTAVAIL" => "Y",
-                                "SHOW_SUBSCRIBE" => "Y"
-                            ),
-                            false
-                        );?>
+                <?$APPLICATION->IncludeComponent(
+                        "bitrix:sale.basket.basket.small",
+                        "small_basket",
+                        array(
+                            "COMPONENT_TEMPLATE" => "small_basket",
+                            "PATH_TO_BASKET" => "/personal/cart/",
+                            "PATH_TO_ORDER" => "/personal/order/make/",
+                            "SHOW_DELAY" => "Y",
+                            "SHOW_NOTAVAIL" => "Y",
+                            "SHOW_SUBSCRIBE" => "Y"
+                        ),
+                        false
+                    );?>
             </div>
         </div>
 

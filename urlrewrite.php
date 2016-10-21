@@ -22,13 +22,13 @@ $arUrlRewrite = array(
 		"CONDITION" => "#^/personal/order/#",
 		"RULE" => "",
 		"ID" => "bitrix:sale.personal.order",
-		"PATH" => "/personal/index.php",
+		"PATH" => "/personal/order/index.php",
 	),
 	array(
 		"CONDITION" => "#^/personal/order/#",
 		"RULE" => "",
 		"ID" => "bitrix:sale.personal.order",
-		"PATH" => "/personal/order/index.php",
+		"PATH" => "/personal/index.php",
 	),
 	array(
 		"CONDITION" => "#^/new-products/#",
