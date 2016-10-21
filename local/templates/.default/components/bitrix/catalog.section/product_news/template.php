@@ -13,8 +13,8 @@
     $this->setFrameMode(true);
 ?>
 
-    <p class="blockTitle"><?=GetMessage('TEXT_TOP')?></p>
 <!--elmentsList-->
+<?if(count($arResult['ITEMS']) > 0){?>
 <ul class="productList" id="productList1">
 
     <?
@@ -494,6 +494,7 @@
             <?
             }
         ?>
+         <?}?>
         <a class="transition_section" href="<?=$arParams["SECTION_URL"]?>"><?=GetMessage('NEW_PRODUCTS')?></a>
     </ul>
     <!--END elmentsList-->
@@ -518,12 +519,11 @@
             SITE_ID: '<? echo SITE_ID; ?>'
         });
     </script>
-
+ <?}?>
     <?if ($arParams["DISPLAY_BOTTOM_PAGER"]) {?>
         <?$this->SetViewTarget('catalog_pager'); //show in section.php?>
         <?echo $arResult["NAV_STRING"];?>
         <?$this->EndViewTarget();?>
-        <?}?>
     <?}?>
 
     <?$this->SetViewTarget('catalog_section_description'); //show in header.php?>

@@ -23,20 +23,25 @@
         <!--productBlockWrapper-->
         <div class="productBlockWrapper">
             <div class="productBlockMenu">
-                <div class="active" data-id='1'><?=GetMessage('NEWS')?></div>
-                <div data-id='2'><?=GetMessage('BESTSELLERS')?></div>
-                <div data-id='3'><?=GetMessage('LATEST')?></div>
+                <div id="wrap_new" class="active" data-id='1'><?=GetMessage('NEWS')?></div>
+                <div id="wrap_best"  data-id='2'><?=GetMessage('BESTSELLERS')?></div>
+                <div id="wrap_latest" data-id='3'><?=GetMessage('LATEST')?></div>
             </div>
-
+            <p class="blockTitle"><?=GetMessage('TEXT_TOP')?></p>
             <div class="newsBlock">
                 <?
-                    global $ShowWithImage;
-                    $ShowWithImage = array('!PREVIEW_PICTURE' => false);
+                  global $ShowWithImage;
+                  $curr_date = mktime(date('d.m.Y G:i:s'));
+                  $date_create_date = $curr_date - (604800 * 2);
+                  $ShowWithImage[] = array(
+                        ">DATE_CREATE" => date('d.m.Y H:i:s', $date_create_date),
+                        '!PREVIEW_PICTURE' => false
+                    );
                 ?>
 
                 <?$APPLICATION->IncludeComponent(
-	"bitrix:catalog.section", 
-	"product_news", 
+	"bitrix:catalog.section",
+	"product_news",
 	array(
 		"ACTION_VARIABLE" => "action",
 		"ADD_PICT_PROP" => "-",
@@ -154,8 +159,8 @@
                     $arFilter = array('!PROPERTY_BESTSELLERS' => false);
                 ?>
                 <?$APPLICATION->IncludeComponent(
-	"bitrix:catalog.section", 
-	"bestsellers", 
+	"bitrix:catalog.section",
+	"bestsellers",
 	array(
 		"ACTION_VARIABLE" => "action",
 		"ADD_PICT_PROP" => "-",

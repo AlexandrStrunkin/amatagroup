@@ -12,6 +12,7 @@
     /** @var CBitrixComponent $component */
     $this->setFrameMode(true);
 ?>
+<?if(count($arResult['ITEMS']) > 0){?>
 
 <!--elmentsList-->
 <ul class="productList" id="productList3">
@@ -492,6 +493,7 @@
             </li>
             <?
             }
+        }
         ?>
     </ul>
     <!--END elmentsList-->
@@ -517,12 +519,11 @@
             SITE_ID: '<? echo SITE_ID; ?>'
         });
     </script>
-
+<?}?>
     <?if ($arParams["DISPLAY_BOTTOM_PAGER"]) {?>
         <?$this->SetViewTarget('catalog_pager'); //show in section.php?>
         <?echo $arResult["NAV_STRING"];?>
         <?$this->EndViewTarget();?>
-        <?}?>
     <?}?>
 
     <?$this->SetViewTarget('catalog_section_description'); //show in header.php?>
