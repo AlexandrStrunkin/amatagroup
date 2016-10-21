@@ -1450,7 +1450,8 @@ ul.topMenu a:hover {
     padding: 0 66px;
 }
 
-.mainBigBanner .bannerImgContainer p {
+.mainBigBanner .bannerImgContainer p,
+.mainBigBanner .bannerImgContainer {
     text-align: center;
 }
 
@@ -5491,7 +5492,7 @@ border-color: transparent transparent #fff;
     background-color: #fff;
     border-radius: 4px;
     box-shadow: 0 0 30px rgba(0, 0, 0, 0.5);
-    display: none;    
+    display: none;
     padding: 0 18px 18px;
     position: fixed;
     top: 125px;
@@ -8993,7 +8994,7 @@ body .news_wrap .productBlockWrapper .productWrapper {
     width: 94px;
 }
 
-.top-menu-fixed-wrapper .top-menu-fixed-block.auth-block {     
+.top-menu-fixed-wrapper .top-menu-fixed-block.auth-block {
     padding: 21px 20px 0;
     position: relative;
 }
@@ -9049,16 +9050,16 @@ body .news_wrap .productBlockWrapper .productWrapper {
 
 .top-menu-fixed-block .quantityInBasket {
     background-color: #5db3dc;
-    
+
 }
 
-.top-menu-fixed-block .quantityOfLiked {  
-    background-color: #ea8b64;        
+.top-menu-fixed-block .quantityOfLiked {
+    background-color: #ea8b64;
 }
 
 .top-menu-fixed-block .quantityInBasket:hover, .top-menu-fixed-block .quantityOfLiked:hover {
     color: #fff;
-} 
+}
 
 .top-menu-fixed-block .linksBlock {
     position: relative;
@@ -9075,7 +9076,7 @@ body .news_wrap .productBlockWrapper .productWrapper {
 
 #fixed-linkBlock2 {
     background: rgba(0, 0, 0, 0) url("/local/templates/.default/css/../img/favouritHeadLogo.png") no-repeat scroll 52% 50%;
-}           
+}
 
 #fixed-linkBlock3 {
     background: rgba(0, 0, 0, 0) url("/local/templates/.default/css/../img/basketHeadLogo.png") no-repeat scroll 50% 50%;
