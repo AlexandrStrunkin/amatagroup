@@ -124,10 +124,13 @@ $arFirstPhoto = current($arResult['MORE_PHOTO']);
         <!--END logosContainer-->
         <!--previewImg-->
         <div class="previewImg">
-
         	<a class="fancybox" href="<?= $arFirstPhoto['SRC'] ?>">
-            	<img id="<? echo $arItemIDs['PICT']; ?>" src="<?= getResizedImage($arFirstPhoto['ID'], ELEMENT_CARD_MAIN_WIDTH, ELEMENT_CARD_MAIN_HEIGHT, BX_RESIZE_IMAGE_PROPORTIONAL_ALT) ?>" alt="<? echo $strAlt; ?>" title="<? echo $strTitle; ?>">
-        	</a>
+                <?if($arFirstPhoto["ID"]){?>
+            	    <img id="<? echo $arItemIDs['PICT']; ?>" src="<?= getResizedImage($arFirstPhoto['ID'], ELEMENT_CARD_MAIN_WIDTH, ELEMENT_CARD_MAIN_HEIGHT, BX_RESIZE_IMAGE_PROPORTIONAL_ALT) ?>" alt="<? echo $strAlt; ?>" title="<? echo $strTitle; ?>">
+                <?} else {?>
+                    <img id="<? echo $arItemIDs['PICT']; ?>" src="<?= $arFirstPhoto['SRC'] ?>" alt="<? echo $strAlt; ?>" title="<? echo $strTitle; ?>">
+                <?}?>
+            </a>
         </div>
         <!--END previewImg-->
         <!--smallPreviewImg-->
@@ -135,7 +138,7 @@ $arFirstPhoto = current($arResult['MORE_PHOTO']);
         	<div class="previews_slider_navigation_arrow" data-preview-slider-direction="prev"><span></span></div>
         	<div class="previews_slider_navigation_arrow" data-preview-slider-direction="next"><span></span></div>
         	<div id="previews_slider_wrapper">
-	        <? if (is_array($arResult['MORE_PHOTO'])) { ?>
+	        <? if (is_array($arResult['MORE_PHOTO']) && count($arResult['MORE_PHOTO']) > 1) { ?>
 	        	<? foreach ($arResult['MORE_PHOTO'] as &$arOnePhoto) { ?>
 					<a href="<?= $arOnePhoto['SRC'] ?>" data-preview-image="<?= getResizedImage($arOnePhoto['ID'], ELEMENT_CARD_MAIN_WIDTH, ELEMENT_CARD_MAIN_HEIGHT, BX_RESIZE_IMAGE_PROPORTIONAL_ALT) ?>">
 						<img src="<?= getResizedImage($arOnePhoto['ID'], ELEMENT_CARD_PREVIEW_WIDTH, ELEMENT_CARD_PREVIEW_HEIGHT, BX_RESIZE_IMAGE_PROPORTIONAL_ALT) ?>" alt=""/>

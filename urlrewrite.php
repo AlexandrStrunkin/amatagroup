@@ -22,25 +22,19 @@ $arUrlRewrite = array(
 		"CONDITION" => "#^/personal/order/#",
 		"RULE" => "",
 		"ID" => "bitrix:sale.personal.order",
-		"PATH" => "/personal/index.php",
+		"PATH" => "/personal/order/index.php",
 	),
 	array(
 		"CONDITION" => "#^/personal/order/#",
 		"RULE" => "",
 		"ID" => "bitrix:sale.personal.order",
-		"PATH" => "/personal/order/index.php",
+		"PATH" => "/personal/index.php",
 	),
 	array(
 		"CONDITION" => "#^/new-products/#",
 		"RULE" => "",
 		"ID" => "bitrix:news",
 		"PATH" => "/new-products/index.php",
-	),
-	array(
-		"CONDITION" => "#^/catalog/#",
-		"RULE" => "",
-		"ID" => "bitrix:catalog",
-		"PATH" => "/catalog/index.php",
 	),
 	array(
 		"CONDITION" => "#^/content/#",
@@ -55,28 +49,28 @@ $arUrlRewrite = array(
 		"PATH" => "/catalog/filter/index.php",
 	),
 	array(
+		"CONDITION" => "#^/catalog/#",
+		"RULE" => "",
+		"ID" => "bitrix:catalog",
+		"PATH" => "/catalog/index.php",
+	),
+	array(
 		"CONDITION" => "#^/brands/#",
 		"RULE" => "",
 		"ID" => "bitrix:news",
 		"PATH" => "/brands/index.php",
 	),
 	array(
-		"CONDITION" => "#^/store/#",
-		"RULE" => "",
-		"ID" => "bitrix:catalog.store",
-		"PATH" => "/store/index.php",
-	),
-	array(
-		"CONDITION" => "#^\\??(.*)#",
-		"RULE" => "&\$1",
-		"ID" => "bitrix:catalog.section",
-		"PATH" => "/local/templates/amatagroup_index/header.php",
-	),
-	array(
 		"CONDITION" => "#^/promo/#",
 		"RULE" => "",
 		"ID" => "bitrix:news",
 		"PATH" => "/promo/index.php",
+	),
+	array(
+		"CONDITION" => "#^/store/#",
+		"RULE" => "",
+		"ID" => "bitrix:catalog.store",
+		"PATH" => "/store/index.php",
 	),
 	array(
 		"CONDITION" => "#^/news/#",

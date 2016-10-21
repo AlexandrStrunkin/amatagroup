@@ -9,39 +9,39 @@
             <div class="secondLvlBlocks top-menu-fixed-catalog-control" >
                 <p class="catalog-fixed-title"><?=GetMessage("CATALOG")?></p>
             </div>
-            
+
             <?/*  пока не удалять до решения задачи с плавающей плашкой
-            <div class="fixed-catalog-menu">
+                <div class="fixed-catalog-menu">
                 <?$APPLICATION->IncludeComponent(
-                        "bitrix:catalog.section.list",
-                        "catalog_menu",
-                        array(
-                            "COMPONENT_TEMPLATE" => "catalog_menu",
-                            "IBLOCK_TYPE" => "1c_catalog",
-                            "IBLOCK_ID" => "5",
-                            "SECTION_ID" => "",
-                            "SECTION_CODE" => "",
-                            "COUNT_ELEMENTS" => "N",
-                            "TOP_DEPTH" => "3",
-                            "SECTION_FIELDS" => array(
-                                0 => "",
-                                1 => "",
-                            ),
-                            "SECTION_USER_FIELDS" => array(
-                                0 => "",
-                                1 => "",
-                            ),
-                            "VIEW_MODE" => "LIST",
-                            "SHOW_PARENT_NAME" => "Y",
-                            "SECTION_URL" => "",
-                            "CACHE_TYPE" => "A",
-                            "CACHE_TIME" => "86400",
-                            "CACHE_GROUPS" => "N",
-                            "ADD_SECTIONS_CHAIN" => "Y"
-                        ),
-                        false
-                    );?>
-            </div>
+                "bitrix:catalog.section.list",
+                "catalog_menu",
+                array(
+                "COMPONENT_TEMPLATE" => "catalog_menu",
+                "IBLOCK_TYPE" => "1c_catalog",
+                "IBLOCK_ID" => "5",
+                "SECTION_ID" => "",
+                "SECTION_CODE" => "",
+                "COUNT_ELEMENTS" => "N",
+                "TOP_DEPTH" => "3",
+                "SECTION_FIELDS" => array(
+                0 => "",
+                1 => "",
+                ),
+                "SECTION_USER_FIELDS" => array(
+                0 => "",
+                1 => "",
+                ),
+                "VIEW_MODE" => "LIST",
+                "SHOW_PARENT_NAME" => "Y",
+                "SECTION_URL" => "",
+                "CACHE_TYPE" => "A",
+                "CACHE_TIME" => "86400",
+                "CACHE_GROUPS" => "N",
+                "ADD_SECTIONS_CHAIN" => "Y"
+                ),
+                false
+                );?>
+                </div>
             */?>
         </div>
 
@@ -68,7 +68,9 @@
                     );?>
             </div>
 
-            <?if(!$USER->IsAuthorized()){?>
+            <?
+                global $USER;
+                if(!$USER->IsAuthorized()){?>
                 <p class="registrationLink"><a href="/auth/registration/"><?=GetMessage("REGISTRATION")?></a></p>
                 <?} else {?>
                 <p class="personalLink"><a href="/personal/"><?=GetMessage("PERSONAL")?></a></p>
@@ -410,9 +412,9 @@
                 false
             );?>
 
-        <?$APPLICATION->IncludeComponent(
-                "bitrix:catalog.section",
-                "slider_main",
+        <?$APPLICATION->IncludeComponent(  
+                "bitrix:catalog.section", 
+                "slider_main", 
                 array(
                     "TEMPLATE_THEME" => "blue",
                     "PRODUCT_DISPLAY_MODE" => "N",
@@ -431,12 +433,12 @@
                     "MESS_BTN_SUBSCRIBE" => "Подписаться",
                     "MESS_BTN_DETAIL" => "Подробнее",
                     "MESS_NOT_AVAILABLE" => "Нет в наличии",
-                    "AJAX_MODE" => "Y",
+                    "AJAX_MODE" => "N",
                     "SEF_MODE" => "N",
                     "IBLOCK_TYPE" => "services",
                     "IBLOCK_ID" => "29",
                     "SECTION_ID" => $_REQUEST["SECTION_ID"],
-                    "SECTION_CODE" => "",
+                    => "",
                     "SECTION_USER_FIELDS" => array(
                         0 => "",
                         1 => "",
