@@ -88,7 +88,7 @@ $(document).ready(function () {
         el.removeClass("hover");
         if (el.find("ul").length > 0) {
             if (!el.hasClass('activeLiTopMenuFirstLvl')) {
-                var position = el.position();      
+                var position = el.position();
                 $('.mainLeftMenu > ul > div > div > li').not(el[0]).hide();
                 el.css({'top': position.top});
                 setTimeout(animateLiMoving, 0, el[0], position);
@@ -521,15 +521,15 @@ $(document).ready(function () {
 
     });
 
-    //плавающая шапка                                      
-    $("#fixed-linkBlock1").on("click", function (e) {       
-        if (!$(e.target).hasClass("searchFormClose") && !$(e.target).hasClass("submit")) {  
+    //плавающая шапка
+    $("#fixed-linkBlock1").on("click", function (e) {
+        if (!$(e.target).hasClass("searchFormClose") && !$(e.target).hasClass("submit")) {
             $(this).find(".searchForm, .searchFormClose").fadeIn(300);
             $(this).find(".searchForm input, .searchForm textarea").each(function () {
                 $(this).focus();
             });
-        }      
-    });      
+        }
+    });
 
 
 
@@ -757,7 +757,7 @@ $(document).ready(function () {
     })
 
 
-    $("body").on('click', ".btn", function (e) {
+    $("body").on('click', ".whileWeWrapper .btn", function (e) {
         var el = $(this).parent('form'), input = el.find("input,textarea"), dataError = 0;
 
         input.each(function () {

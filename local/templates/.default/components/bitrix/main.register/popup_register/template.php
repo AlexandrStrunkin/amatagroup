@@ -21,23 +21,23 @@ if(!defined("B_PROLOG_INCLUDED") || B_PROLOG_INCLUDED!==true)
 
 <form method="post" action="<?=POST_FORM_ACTION_URI?>" name="regform" enctype="multipart/form-data">
 	<p class="authTitle"><?echo GetMessage("AUTH_REGISTER")?></p>
-	
+
 	<?if($USER->IsAuthorized()):?>
 
 	<?else:?>
 	<?
 	if (count($arResult["ERRORS"]) > 0):
 		foreach ($arResult["ERRORS"] as $key => $error)
-			if (intval($key) == 0 && $key !== 0) 
+			if (intval($key) == 0 && $key !== 0)
 				$arResult["ERRORS"][$key] = str_replace("#FIELD_NAME#", "&quot;".GetMessage("REGISTER_FIELD_".$key)."&quot;", $error);
-	
+
 		ShowError(implode("<br />", $arResult["ERRORS"]));
-	
+
 	elseif($arResult["USE_EMAIL_CONFIRMATION"] === "Y"):
 	?>
 	<p><?echo GetMessage("REGISTER_EMAIL_WILL_BE_SENT")?></p>
 	<?endif?>
-	
+
 <?
 if($arResult["BACKURL"] <> ''):
 ?>
@@ -113,9 +113,9 @@ document.getElementById('bx_auth_secure').style.display = 'inline-block';
 			break;
 		default:
 			if ($FIELD == "PERSONAL_BIRTHDAY"):?><small><?=$arResult["DATE_FORMAT"]?></small><br /><?endif;
-			?><input size="30" class="authInput" placeholder="<?=GetMessage("REGISTER_FIELD_".$FIELD)?>" 
-					 type="<?= $FIELD == "LOGIN" ? "email" : "text" ?>" 
-					 name="REGISTER[<?=$FIELD?>]" 
+			?><input size="30" class="authInput" placeholder="<?=GetMessage("REGISTER_FIELD_".$FIELD)?>"
+					 type="<?= $FIELD == "LOGIN" ? "email" : "text" ?>"
+					 name="REGISTER[<?=$FIELD?>]"
 					 value="<?=$arResult["VALUES"][$FIELD]?>"
 					 <?= $arResult["REQUIRED_FIELDS_FLAGS"][$FIELD] == "Y" ? "required" : "" ?> />
 			  <?
