@@ -2,9 +2,11 @@
 require($_SERVER["DOCUMENT_ROOT"]."/bitrix/header.php");
 $APPLICATION->SetTitle("Заказы");
 ?>
+<?global $USER?>
+<?if($USER->IsAuthorized()){?>
 <?$APPLICATION->IncludeComponent(
-	"bitrix:sale.order.ajax", 
-	"order", 
+	"bitrix:sale.order.ajax",
+	"order",
 	array(
 		"PAY_FROM_ACCOUNT" => "Y",
 		"COUNT_DELIVERY_TAX" => "N",
@@ -42,5 +44,8 @@ $APPLICATION->SetTitle("Заказы");
 	),
 	false
 );?>
+<?} else {
+     LocalRedirect("/auth/");
+}?>
 
 <?require($_SERVER["DOCUMENT_ROOT"]."/bitrix/footer.php");?>
