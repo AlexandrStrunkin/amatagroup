@@ -5,7 +5,7 @@
             <a href="/"><img src="<?=DEFAULT_TEMPLATE_PATH?>img/headMainLogo.png" alt=""/></a>
         </div>
 
-        <div class="top-menu-fixed-catalog top-menu-fixed-block">       
+        <div class="top-menu-fixed-catalog top-menu-fixed-block">
             <div class="secondLvlBlocks top-menu-fixed-catalog-control" >
                 <p class="catalog-fixed-title"><?=GetMessage("CATALOG")?></p>
             </div>
@@ -383,10 +383,10 @@
                 false
             );?>
 
-        <?$APPLICATION->IncludeComponent(  
+        <?$APPLICATION->IncludeComponent(
 
-                "bitrix:catalog.section", 
-                "slider_main", 
+                "bitrix:catalog.section",
+                "slider_main",
                 array(
                     "TEMPLATE_THEME" => "blue",
                     "PRODUCT_DISPLAY_MODE" => "N",

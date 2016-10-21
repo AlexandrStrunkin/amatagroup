@@ -50,8 +50,8 @@ div.news-list img.preview_picture
     display: none;
     padding: 10px 30px 0 10px;
     position: absolute;
-    top: -25px;
-    left: -15px;
+    top: 5px;
+    left: -7px;
     background: #fff;
     border-top: 0;
     white-space: nowrap;
@@ -69,4 +69,7 @@ div.news-list img.preview_picture
 .widthWrapper .wrap-sk-menu-abc .sk-menu-abc-sub > li > a {
     color: #4b4646;
     text-decoration: none;
+}
+.widthWrapper .wrap-sk-menu-abc .sk-menu-abc > li > a:hover{
+    color: #7ABEE1 !important;
 }
