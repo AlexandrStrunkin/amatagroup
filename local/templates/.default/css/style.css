@@ -1450,7 +1450,8 @@ ul.topMenu a:hover {
     padding: 0 66px;
 }
 
-.mainBigBanner .bannerImgContainer p {
+.mainBigBanner .bannerImgContainer p,
+.mainBigBanner .bannerImgContainer {
     text-align: center;
 }
 
@@ -2039,7 +2040,7 @@ transition: all 0.3s;
     /* margin-bottom: 3px;*/
     margin-bottom: 0;
     cursor: pointer;
-    padding-left: 9px;
+    padding-left: 25px;
 }
 
 .leftFiltersBlock .leftFilterName:before {
@@ -2047,6 +2048,8 @@ transition: all 0.3s;
     width: 28px;
     float: left;
     display: block;
+    position: absolute;
+    left: 15px;
 }
 
 .leftFiltersBlock .leftFilterName.activeFilter:before {
@@ -5458,9 +5461,8 @@ border-color: transparent transparent #fff;
 .regHiddenBlock, .authHiddenBlock {
     background-color: #fff;
     border-radius: 4px;
-    box-shadow: 0 0 120px rgba(0, 0, 0, 0.5);
+    box-shadow: 0 0 30px rgba(0, 0, 0, 0.5);
     display: none;
-
     padding: 0 18px 18px;
     position: absolute;
     top: 14px;
@@ -9017,6 +9019,12 @@ body .news_wrap .productBlockWrapper .productWrapper {
     text-align: center;
     top: 18px;
     width: 18px;
+    display: block  !important;
+}
+
+.top-menu-fixed-block .quantityInBasket {
+    background-color: #5db3dc;
+
 }
 
 .top-menu-fixed-block .quantityOfLiked {
@@ -9052,12 +9060,22 @@ body .news_wrap .productBlockWrapper .productWrapper {
     background: rgba(0, 0, 0, 0) url("/local/templates/.default/css/../img/favouritHeadLogo.png") no-repeat scroll 52% 50%;
 }
 
+#fixed-linkBlock3 {
+    background: rgba(0, 0, 0, 0) url("/local/templates/.default/css/../img/basketHeadLogo.png") no-repeat scroll 50% 50%;
+}
+
+#fixed-linkBlock1 .searchForm {
+    height: 100%;
+    padding: 16px 0;
+    left: -423px;
+    width: 420px;
+}
 
 #fixed-linkBlock3 {
     background: rgba(0, 0, 0, 0) url("/local/templates/.default/css/../img/basketHeadLogo.png") no-repeat scroll 50% 50%;
 }
 h3, h4, h5, h6 {
     color: #000;
-    font-family: "MuseoSansCyrl-700";   
+    font-family: "MuseoSansCyrl-700";
 }
 
