@@ -49,5 +49,9 @@ $MESS["FORM_FIELDS_REQUIRED"] = "Все поля обязательны для заполнения!";
 $MESS["FORM_QUESTION_ACCEPTED"] = "Ваш вопрос отправлен. Наши консультанты свяжуться с вами по указанным координатам";
 $MESS["FORM_SEND_QUESTION"] = "Отправить вопрос";
 $MESS["CLOSE"] = "Закрыть";
-
+$MESS["ABOUT_TAB"] = "О товаре";
+$MESS["DESC_TAB"] = "Описание";
+$MESS["NOT_SETTED"] = "Не задан";
+$MESS["QUANTITY_HEADER"] = "Количество";
+$MESS["COST_HEADER"] = "Стоимость";
 ?>

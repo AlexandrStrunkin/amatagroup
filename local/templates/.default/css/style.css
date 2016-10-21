@@ -1850,7 +1850,7 @@ margin-top: 20px;
     text-align: center;
     display: block;
     font: 15px/55px 'MuseoSansCyrl-700', sans-serif;
-
+	margin-top: 20px;
 }
 .not_available{
 
@@ -3442,10 +3442,13 @@ opacity: 0.7;
     border-right: 1px solid #dddddd;
     border-top: 1px solid #dddddd;
     border-top-right-radius: 4px;
-    display: inline-block;
+    display: block;
     height: 15px;
     margin-right: 3px;
     width: 19px;
+    position: absolute;
+    right: 0;
+    top: 0;
 }
 
 .elementQuant .quantityMinus {
@@ -3455,7 +3458,15 @@ opacity: 0.7;
     height: 16px;
     margin-right: 3px;
     width: 19px;
-    display: inline-block;
+    display: block;
+    position: absolute;
+    right: 0;
+    bottom: 0;
+}
+
+.productCardDesc .elementQuant .quantityPlus, .productCardDesc .elementQuant .quantityMinus {
+	position: static;
+	display: inline-block;
 }
 
 .basketBody .discountsBlock {
@@ -6501,7 +6512,7 @@ input[type="radio"]:checked + label::before {
     position: relative;
     left: 2px;
     display: flex;
-    margin: 107px auto 92px;
+    margin: 98px auto 101px;
     width: 520px;
     height: 320px;
     align-items: center;
@@ -6793,6 +6804,14 @@ input[type="radio"]:checked + label::before {
 	display: inline-block;
 }
 
+.productCardDesc .elementQuant .quantityMinus.inactive, .productCardDesc .elementQuant .quantityMinus.inactive:hover {
+	background-image: url("/img/product_card_minus_in.png") !important;
+}
+
+.productCardDesc .elementQuant .quantityPlus.inactive, .productCardDesc .elementQuant .quantityPlus.inactive:hover {
+	background-image: url("/img/product_card_plus_in.png") !important;
+}
+
 .productCardDesc .horizontalFilterWrap .firstFilter {
     background: url("/img/recht6363.png") no-repeat scroll 96% 50%;
 }
@@ -6893,7 +6912,7 @@ input[type="radio"]:checked + label::before {
     max-width: 100%;
     box-sizing: border-box;
     height: 56px;
-	padding: 0 30px 0 0 !important;
+	padding: 0 17px 0 0 !important;
 	display: flex;
 	align-items: center;
 	line-height: 20px;
@@ -7002,8 +7021,8 @@ input[type="radio"]:checked + label::before {
     top: -110px;
 }
 
-.col {
-	width: 83px;
+.col, .item_card_offers > p#activeFirstFilt .col_offer {
+	width: 57px;
 	height: 100%;
 	border-right: 2px solid #cbcbcb;
 	display: inline-flex;
@@ -7011,6 +7030,10 @@ input[type="radio"]:checked + label::before {
 	margin-right: 18px;
 	align-items: center;
 	justify-content: center;
+}
+
+.item_card_offers > p#activeFirstFilt .col_offer { 
+	width: 57px;	
 }
 
 .oform h1 {
@@ -7204,6 +7227,14 @@ input[type="radio"]:checked + label::before {
 }
 
 .elementQuant .quantityMinus {
+    background-image: url("../img/bottomOrderQuant.png");
+}
+
+.elementQuant .quantityMinus:hover {
+    background-image: url("../img/bottomOrderQuantHover.png") !important;
+}
+
+.productCardDesc .elementQuant .quantityMinus {
 	background-image: url("/img/product_card_minus.png") !important;
 	background-position: center;
 }
@@ -7213,6 +7244,19 @@ input[type="radio"]:checked + label::before {
 }
 
 .elementQuant .quantityPlus {
+    background-image: url("../img/topOrderQuant.png");
+}
+
+.elementQuant .quantityPlus:hover {
+    background-image: url("../img/topOrderQuantHover.png") !important;
+}
+
+.productCardDesc .elementQuant .quantityPlus {
+    background-image: url("/img/product_card_plus.png") !important;
+	background-position: center;
+}
+
+.productCardDesc .elementQuant .quantityPlus:hover {
     background-image: url("/img/product_card_plus.png") !important;
 	background-position: center;
 }
@@ -7458,7 +7502,7 @@ input[type="radio"]:checked + label::before {
 	border-color: #000 !important;
 }
 
-.productCardDesc .firstFilter:hover p span.col {
+.productCardDesc .firstFilter:hover p span.col, .productCardDesc .firstFilter:hover > p#activeFirstFilt .col_offer, .productCardDesc .firstFilter.active > p#activeFirstFilt .col_offer {
 	border-color: #000 !important;
 }
 

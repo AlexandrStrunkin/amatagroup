@@ -173,116 +173,179 @@ $arFirstPhoto = current($arResult['MORE_PHOTO']);
     <div class="productCardDesc">
         <div class="productTitle">
 			<ul>
-				<li class="active" data-product-tab="1">О товаре</li>
-				<li data-product-tab="2">Описание</li>
+				<li class="active" data-product-tab="1"><?= GetMessage("ABOUT_TAB") ?></li>
+				<li data-product-tab="2"><?= GetMessage("DESC_TAB") ?></li>
 			</ul>
         </div>
         <div class="product_card_tabs_wrapper">
         	<div class="product_info_tab_content" data-product-tab="1">
-        		<div class="productInfo">
+        		<div class="productInfo" <? if (empty($arResult['OFFERS'])) { ?> style="height: 79px" <? } ?> >
 		            <div class="brandText">
-		            	<strong>Бренд:</strong>
-		            	            	<a href="/brands/68368/">
-		            		SKV company            	</a>
-					</div>
+		            	<strong><?= GetMessage("CT_BRAND") ?>:</strong>
+		            	<? if ($arResult['BRAND_DETAIL_HREF']) {?>
+		            	<a href="<?= $arResult['BRAND_DETAIL_HREF'] ?>">
+		            		<?= $arResult['DISPLAY_PROPERTIES']['BREND']['DISPLAY_VALUE'] ? $arResult['DISPLAY_PROPERTIES']['BREND']['DISPLAY_VALUE'] : GetMessage("NOT_SETTED") ?>
+		            	</a>
+		            	<? } else { ?>
+		            	<span>
+		            		<?= $arResult['DISPLAY_PROPERTIES']['BREND']['DISPLAY_VALUE'] ? $arResult['DISPLAY_PROPERTIES']['BREND']['DISPLAY_VALUE'] : GetMessage("NOT_SETTED") ?>
+		            	</span>
+		            	<? } ?>
+		            </div>
 		            <div class="productArticle">
-		            	<strong>Артикул:</strong>
-		            	 SKV_5500            
-					</div>
-					<div class="productColor horizontalFilterWrap">
-			            <strong>Цвет:</strong>
-			            <div class="firstFilter item_card_offers">                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                      <p data-sort="" data-offer-id="66783" id="activeFirstFilt" data-item-can-buy="47" data-offer-buy-link="/catalog/krovatki_i_komody/krovatki/krovat_detskaya_skv_5_zhiraf_opusk_bokyu_mayatnik_polka_3_yashchika/?action=ADD2BASKET&amp;id=66783" class="firstFiltElement1"><span class="col"><img src="/img/offers_mini.png"></span>Кровать детская СКВ-5 Жираф, опуск.бокю.,маятник,полка</p>
-			                <div class="hidingMenu" style="display: none;">
-	                			<p data-offer-id="66786" data-item-can-buy="27" data-offer-buy-link="/catalog/krovatki_i_komody/krovatki/krovat_detskaya_skv_5_zhiraf_opusk_bokyu_mayatnik_polka_3_yashchika/?action=ADD2BASKET&amp;id=66786" class="js-offer-option"><span class="col_offer"><img src="/img/offers_mini.png"></span><span class="offer_option_text">Кровать детская СКВ-5 Жираф, опуск.бокю.,маятник,полка,3</span><span class="offer_option_status"></span></p>
-								<p data-offer-id="66786" data-item-can-buy="27" data-offer-buy-link="/catalog/krovatki_i_komody/krovatki/krovat_detskaya_skv_5_zhiraf_opusk_bokyu_mayatnik_polka_3_yashchika/?action=ADD2BASKET&amp;id=66786" class="js-offer-option"><span class="col_offer"><img src="/img/offers_mini.png"></span><span class="offer_option_text">Кровать детская СКВ-5 Жираф, опуск.бокю.,маятник,полка,3</span><span class="offer_option_status"></span></p>
-								<p data-offer-id="66786" data-item-can-buy="27" data-offer-buy-link="/catalog/krovatki_i_komody/krovatki/krovat_detskaya_skv_5_zhiraf_opusk_bokyu_mayatnik_polka_3_yashchika/?action=ADD2BASKET&amp;id=66786" class="js-offer-option"><span class="col_offer"><img src="/img/offers_mini.png"></span><span class="offer_option_text">Кровать детская СКВ-5 Жираф, опуск.бокю.,маятник,полка,3</span><span class="offer_option_status"></span></p>
-								<p data-offer-id="66786" data-item-can-buy="27" data-offer-buy-link="/catalog/krovatki_i_komody/krovatki/krovat_detskaya_skv_5_zhiraf_opusk_bokyu_mayatnik_polka_3_yashchika/?action=ADD2BASKET&amp;id=66786" class="js-offer-option active_offer_option"><span class="col_offer"><img src="/img/offers_mini.png"></span><span class="offer_option_text">Кровать детская СКВ-5 Жираф, опуск.бокю.,маятник,полка,3</span><span class="offer_option_status"></span></p>
-	                			<p data-offer-id="66786" data-item-can-buy="27" data-offer-buy-link="/catalog/krovatki_i_komody/krovatki/krovat_detskaya_skv_5_zhiraf_opusk_bokyu_mayatnik_polka_3_yashchika/?action=ADD2BASKET&amp;id=66786" class="js-offer-option"><span class="col_offer"><img src="/img/offers_mini.png"></span><span class="offer_option_text">Кровать детская СКВ-5 Жираф, опуск.бокю.,маятник,полка,3</span><span class="offer_option_status"></span></p>
-								<p data-offer-id="66786" data-item-can-buy="27" data-offer-buy-link="/catalog/krovatki_i_komody/krovatki/krovat_detskaya_skv_5_zhiraf_opusk_bokyu_mayatnik_polka_3_yashchika/?action=ADD2BASKET&amp;id=66786" class="js-offer-option"><span class="col_offer"><img src="/img/offers_mini.png"></span><span class="offer_option_text">Кровать детская СКВ-5 Жираф, опуск.бокю.,маятник,полка,3</span><span class="offer_option_status"></span></p>
-								<p data-offer-id="66786" data-item-can-buy="27" data-offer-buy-link="/catalog/krovatki_i_komody/krovatki/krovat_detskaya_skv_5_zhiraf_opusk_bokyu_mayatnik_polka_3_yashchika/?action=ADD2BASKET&amp;id=66786" class="js-offer-option"><span class="col_offer"><img src="/img/offers_mini.png"></span><span class="offer_option_text">Кровать детская СКВ-5 Жираф, опуск.бокю.,маятник,полка,3</span><span class="offer_option_status"></span></p>
-								<p data-offer-id="66786" data-item-can-buy="27" data-offer-buy-link="/catalog/krovatki_i_komody/krovatki/krovat_detskaya_skv_5_zhiraf_opusk_bokyu_mayatnik_polka_3_yashchika/?action=ADD2BASKET&amp;id=66786" class="js-offer-option"><span class="col_offer"><img src="/img/offers_mini.png"></span><span class="offer_option_text">Кровать детская СКВ-5 Жираф, опуск.бокю.,маятник,полка,3</span><span class="offer_option_status"></span></p>
-	                			<p data-offer-id="66786" data-item-can-buy="27" data-offer-buy-link="/catalog/krovatki_i_komody/krovatki/krovat_detskaya_skv_5_zhiraf_opusk_bokyu_mayatnik_polka_3_yashchika/?action=ADD2BASKET&amp;id=66786" class="js-offer-option"><span class="col_offer"><img src="/img/offers_mini.png"></span><span class="offer_option_text">Кровать детская СКВ-5 Жираф, опуск.бокю.,маятник,полка,3</span><span class="offer_option_status"></span></p>
-								<p data-offer-id="66786" data-item-can-buy="27" data-offer-buy-link="/catalog/krovatki_i_komody/krovatki/krovat_detskaya_skv_5_zhiraf_opusk_bokyu_mayatnik_polka_3_yashchika/?action=ADD2BASKET&amp;id=66786" class="js-offer-option"><span class="col_offer"><img src="/img/offers_mini.png"></span><span class="offer_option_text">Кровать детская СКВ-5 Жираф, опуск.бокю.,маятник,полка,3</span><span class="offer_option_status"></span></p>
-								<p data-offer-id="66786" data-item-can-buy="27" data-offer-buy-link="/catalog/krovatki_i_komody/krovatki/krovat_detskaya_skv_5_zhiraf_opusk_bokyu_mayatnik_polka_3_yashchika/?action=ADD2BASKET&amp;id=66786" class="js-offer-option"><span class="col_offer"><img src="/img/offers_mini.png"></span><span class="offer_option_text">Кровать детская СКВ-5 Жираф, опуск.бокю.,маятник,полка,3</span><span class="offer_option_status"></span></p>
-								<p data-offer-id="66786" data-item-can-buy="27" data-offer-buy-link="/catalog/krovatki_i_komody/krovatki/krovat_detskaya_skv_5_zhiraf_opusk_bokyu_mayatnik_polka_3_yashchika/?action=ADD2BASKET&amp;id=66786" class="js-offer-option"><span class="col_offer"><img src="/img/offers_mini.png"></span><span class="offer_option_text">Кровать детская СКВ-5 Жираф, опуск.бокю.,маятник,полка,3</span><span class="offer_option_status"></span></p>
-	                			<p data-offer-id="66786" data-item-can-buy="27" data-offer-buy-link="/catalog/krovatki_i_komody/krovatki/krovat_detskaya_skv_5_zhiraf_opusk_bokyu_mayatnik_polka_3_yashchika/?action=ADD2BASKET&amp;id=66786" class="js-offer-option"><span class="col_offer"><img src="/img/offers_mini.png"></span><span class="offer_option_text">Кровать детская СКВ-5 Жираф, опуск.бокю.,маятник,полка,3</span><span class="offer_option_status"></span></p>
-								<p data-offer-id="66786" data-item-can-buy="27" data-offer-buy-link="/catalog/krovatki_i_komody/krovatki/krovat_detskaya_skv_5_zhiraf_opusk_bokyu_mayatnik_polka_3_yashchika/?action=ADD2BASKET&amp;id=66786" class="js-offer-option"><span class="col_offer"><img src="/img/offers_mini.png"></span><span class="offer_option_text">Кровать детская СКВ-5 Жираф, опуск.бокю.,маятник,полка,3</span><span class="offer_option_status"></span></p>
-								<p data-offer-id="66786" data-item-can-buy="27" data-offer-buy-link="/catalog/krovatki_i_komody/krovatki/krovat_detskaya_skv_5_zhiraf_opusk_bokyu_mayatnik_polka_3_yashchika/?action=ADD2BASKET&amp;id=66786" class="js-offer-option"><span class="col_offer"><img src="/img/offers_mini.png"></span><span class="offer_option_text">Кровать детская СКВ-5 Жираф, опуск.бокю.,маятник,полка,3</span><span class="offer_option_status"></span></p>
-								<p data-offer-id="66786" data-item-can-buy="27" data-offer-buy-link="/catalog/krovatki_i_komody/krovatki/krovat_detskaya_skv_5_zhiraf_opusk_bokyu_mayatnik_polka_3_yashchika/?action=ADD2BASKET&amp;id=66786" class="js-offer-option"><span class="col_offer"><img src="/img/offers_mini.png"></span><span class="offer_option_text">Кровать детская СКВ-5 Жираф, опуск.бокю.,маятник,полка,3</span><span class="offer_option_status"></span></p>
-	                			<p data-offer-id="66786" data-item-can-buy="27" data-offer-buy-link="/catalog/krovatki_i_komody/krovatki/krovat_detskaya_skv_5_zhiraf_opusk_bokyu_mayatnik_polka_3_yashchika/?action=ADD2BASKET&amp;id=66786" class="js-offer-option"><span class="col_offer"><img src="/img/offers_mini.png"></span><span class="offer_option_text">Кровать детская СКВ-5 Жираф, опуск.бокю.,маятник,полка,3</span><span class="offer_option_status"></span></p>
-								<p data-offer-id="66786" data-item-can-buy="27" data-offer-buy-link="/catalog/krovatki_i_komody/krovatki/krovat_detskaya_skv_5_zhiraf_opusk_bokyu_mayatnik_polka_3_yashchika/?action=ADD2BASKET&amp;id=66786" class="js-offer-option"><span class="col_offer"><img src="/img/offers_mini.png"></span><span class="offer_option_text">Кровать детская СКВ-5 Жираф, опуск.бокю.,маятник,полка,3</span><span class="offer_option_status"></span></p>
-								<p data-offer-id="66786" data-item-can-buy="27" data-offer-buy-link="/catalog/krovatki_i_komody/krovatki/krovat_detskaya_skv_5_zhiraf_opusk_bokyu_mayatnik_polka_3_yashchika/?action=ADD2BASKET&amp;id=66786" class="js-offer-option"><span class="col_offer"><img src="/img/offers_mini.png"></span><span class="offer_option_text">Кровать детская СКВ-5 Жираф, опуск.бокю.,маятник,полка,3</span><span class="offer_option_status"></span></p>
-								<p data-offer-id="66786" data-item-can-buy="27" data-offer-buy-link="/catalog/krovatki_i_komody/krovatki/krovat_detskaya_skv_5_zhiraf_opusk_bokyu_mayatnik_polka_3_yashchika/?action=ADD2BASKET&amp;id=66786" class="js-offer-option"><span class="col_offer"><img src="/img/offers_mini.png"></span><span class="offer_option_text">Кровать детская СКВ-5 Жираф, опуск.бокю.,маятник,полка,3</span><span class="offer_option_status"></span></p>
-							</div>
-			            </div>
-			        </div>
-
+		            	<strong><?= GetMessage("CT_VENDOR_CODE") ?>:</strong>
+		            	 <?= $arResult['DISPLAY_PROPERTIES']['CML2_ARTICLE']['DISPLAY_VALUE'] ? $arResult['DISPLAY_PROPERTIES']['CML2_ARTICLE']['DISPLAY_VALUE'] : GetMessage("NOT_SETTED") ?>
+		            </div>
+					<? if (isset($arResult['OFFERS']) && !empty($arResult['OFFERS'])) {
+						$first_offer = $arResult["OFFERS"][0]; ?>
+				        <div class="productColor horizontalFilterWrap">
+				            <strong><?= GetMessage("CT_OFFERS") ?>:</strong>
+			
+				            <div class="firstFilter item_card_offers">
+				            	<?
+			                    $offerNameVisible = $first_offer["NAME"];
+			                    $offerName = array();
+			                    ?>
+			                    <? foreach ($arParams["~OFFER_TREE_PROPS"] as $offerPropName) { ?>
+			                        <?
+			                            if ($first_offer["PROPERTIES"][$offerPropName]["VALUE"]) {
+			                                $offerName[] = $first_offer["PROPERTIES"][$offerPropName]["VALUE"];
+			                        } ?>
+			                    <? } ?>
+			                    <?
+			                    if (count($offerName) > 0) {
+			                        $offerNameVisible = trim(implode(", ", $offerName));
+			                    }
+			                    ?>
+			                    <p data-sort=""  data-offer-id="<?= $first_offer["ID"] ?>" id="activeFirstFilt" data-item-can-buy="<?= $first_offer["CATALOG_QUANTITY"] ?>" data-offer-buy-link="<?= $first_offer["ADD_URL"] ?>" class="firstFiltElement1"><span class="col"><img src="<?= getResizedImage($first_offer['DETAIL_PICTURE']['ID'], ELEMENT_CARD_THUMBNAIL_WIDTH, ELEMENT_CARD_THUMBNAIL_HEIGHT, BX_RESIZE_IMAGE_PROPORTIONAL_ALT) ?>"></span><?= $offerNameVisible ?></p>
+				                <div class="hidingMenu">
+				                	<?foreach ($arResult["OFFERS"] as $offer) {?>
+					                    <?
+					                    $offerNameVisible = $offer["NAME"];
+					                    $offerName = array();
+					                    ?>
+					                    <? foreach ($arParams["~OFFER_TREE_PROPS"] as $offerPropName) { ?>
+					                        <?
+					                            if ($offer["PROPERTIES"][$offerPropName]["VALUE"]) {
+					                                $offerName[] = $offer["PROPERTIES"][$offerPropName]["VALUE"];
+					                        } ?>
+				                        <? } ?>
+				                        <?
+				                        if (count($offerName) > 0) {
+			                                $offerNameVisible = trim(implode(", ", $offerName));
+			                            }
+				                        ?>
+					                    <p data-offer-id="<?= $offer["ID"] ?>" data-item-can-buy="<?= $offer["CATALOG_QUANTITY"] ?>" data-offer-buy-link="<?= $offer["ADD_URL"] ?>" class="js-offer-option <? if ($offer["ID"] == $first_offer["ID"]) { echo "active_offer_option"; } ?> "><span class="col_offer"><img src="<?= getResizedImage($offer['DETAIL_PICTURE']['ID'], ELEMENT_CARD_THUMBNAIL_WIDTH, ELEMENT_CARD_THUMBNAIL_HEIGHT, BX_RESIZE_IMAGE_PROPORTIONAL_ALT) ?>"></span><span class="offer_option_text"><?= $offerNameVisible ?></span><span class="offer_option_status"></span></p>
+				                    <?}?>
+				                </div>
+				            </div>
+				        </div>
+				        <input type="hidden" value="" name="card_quantity" />
+			        <? } ?>
 				</div>
 				<table class="product_info_table">
 					<tr class="product_info_table_headers">
-						<td>Количество</td>
-						<td>Стоимость</td>
+						<td><?= GetMessage("QUANTITY_HEADER") ?></td>
+						<td><?= GetMessage("COST_HEADER") ?></td>
 					</tr>
 					<tr class="quantity_price_row">
 						<td>
-							<div class="productCount">
+			                <div class="productCount">
 					            <div class="middleSelectBlock">
 					                <div class="elementQuant">
 					                    <div>
-											<input id="bx_117848907_66482_quantity" type="text" class="quantityText" data-quantity-variable="quantity" value="1" disabled>
-					                        <span class="quantity_container">
-					                        	<a href="" class="quantityMinus"></a>
-					                        	<a href="" class="quantityPlus"></a>
-					                        </span>
+											<input disabled="" id="<? echo $arItemIDs['QUANTITY']; ?>" type="text" class="quantityText" data-quantity-variable="<?=$arParams["PRODUCT_QUANTITY_VARIABLE"]?>" value="<? echo (isset($arResult['OFFERS']) && !empty($arResult['OFFERS'])
+													? 1
+													: $arResult['CATALOG_MEASURE_RATIO']
+												); ?>">
+											<span class="quantity_container">
+												<a href="" class="quantityMinus"></a>
+						                        <a href="" class="quantityPlus"></a>
+						                    </span>
 					                    </div>
 					                </div>
 					            </div>
 					        </div>
 						</td>
 						<td>
-							<div class="productPrice">
-								<span class="actual_price">6 160 <span class="rub">c</span></span>
+						<? if (isset($arResult['OFFERS']) && !empty($arResult['OFFERS'])) { ?>
+				            <div class="productPrice">
+					        	<?
+								$minPrice = (isset($first_offer['RATIO_PRICE']) ? $first_offer['RATIO_PRICE'] : $first_offer['MIN_PRICE']);
+								$boolDiscountShow = (0 < $minPrice['DISCOUNT_DIFF']); ?>
+								<!--<strong>
+								<? if ($arParams['SHOW_OLD_PRICE'] == 'Y') { ?>
+									<span class="discount_price"><?= ($boolDiscountShow ? $minPrice['PRINT_VALUE'] : ''); ?></span>
+								<? } ?>
+								</strong>-->
+								<span class="actual_price"><?= $minPrice['PRINT_DISCOUNT_VALUE']; ?></span>
 					        </div>
-		                    <div class="productPrice" data-price-offer-id="66783" style="display: none">
-								<span class="actual_price">6 160 <span class="rub">c</span></span>
-					        </div>
-		        	        <div class="productPrice" data-price-offer-id="66784" style="display: none">
-								<span class="actual_price">6 160 <span class="rub">c</span></span>
-					        </div>
-		        	        <div class="productPrice" data-price-offer-id="66785" style="display: none">
-								<span class="actual_price">6 160 <span class="rub">c</span></span>
-					        </div>
-		        	        <div class="productPrice" data-price-offer-id="66786" style="display: none">
-								<span class="actual_price">6 160 <span class="rub">c</span></span>
-					        </div>
+				            <? foreach ($arResult["OFFERS"] as $offer) { ?>
+				               	<div class="productPrice" data-price-offer-id="<?= $offer['ID'] ?>" style="display: none">
+						        	<?
+									$minPrice = (isset($offer['RATIO_PRICE']) ? $offer['RATIO_PRICE'] : $offer['MIN_PRICE']);
+									$boolDiscountShow = (0 < $minPrice['DISCOUNT_DIFF']); ?>
+									<!--<strong>
+									<? if ($arParams['SHOW_OLD_PRICE'] == 'Y') { ?>
+										<span class="discount_price"><?= ($boolDiscountShow ? $minPrice['PRINT_VALUE'] : ''); ?></span>
+									<? } ?>
+									</strong>-->
+									<span class="actual_price"><?= $minPrice['PRINT_DISCOUNT_VALUE']; ?></span>
+						        </div>
+				        	<? }
+						   } else { // одиночный товар ?>
+						   	<div class="productPrice">
+					        	<?
+								$minPrice = (isset($arResult['RATIO_PRICE']) ? $arResult['RATIO_PRICE'] : $arResult['MIN_PRICE']);
+								$boolDiscountShow = (0 < $minPrice['DISCOUNT_DIFF']); ?>
+								<!--<strong>
+								<? if ($arParams['SHOW_OLD_PRICE'] == 'Y') { ?>
+									<span class="discount_price"><?= ($boolDiscountShow ? $minPrice['PRINT_VALUE'] : ''); ?></span>
+								<? } ?>
+								</strong>-->
+								<span class="actual_price"><?= $minPrice['PRINT_DISCOUNT_VALUE']; ?></span>
+				        	</div>
+						<? } ?>
 						</td>
 					</tr>
 					<tr class="buttons_row">
 						<td>
 							<div class="productComment">
-            					<a href="javascript:void(0);">Задать вопрос</a>
-        					</div>
+					            <a href="javascript:void(0);"><?= GetMessage("CT_ASK_QUESTION") ?></a>
+					        </div>
         				</td>
 						<td>
 							<div class="productFavorites">
-            					<a href="javascript:void(0)" class="js_add_to_favorite" data-favorite-product-id="66482" data-favorite-delete="" data-favorite-item-id="">
-            						В избранное
-            					</a>
-        					</div>
+					            <a href="javascript:void(0)"
+					               class="<?= $arResult['USER_AUTHORIZED'] ? ($arResult['USER_HAVE_ITEM_IN_FAVORITE'] ? "already_in_favorite" : "js_add_to_favorite") : "js_favorite_need_auth" ?>"
+					               data-favorite-product-id="<?= $arResult["ID"] ?>"
+					               data-favorite-delete="<?= $arResult['USER_HAVE_ITEM_IN_FAVORITE'] ? "Y" : "" ?>"
+					               data-favorite-item-id="<?= $arResult['USER_HAVE_ITEM_IN_FAVORITE'] ?>">
+					            	<?= $arResult['USER_HAVE_ITEM_IN_FAVORITE'] ? GetMessage("CT_ALREADY_IN_FAVORITE") : GetMessage("CT_ADD_TO_FAVORITE") ?>
+					            </a>
+					        </div>
 						</td>
 					</tr>
 				</table>
-				<a href="/catalog/krovatki_i_komody/krovatki/krovat_detskaya_skv_5_zhiraf_opusk_bokyu_mayatnik_polka_3_yashchika/?action=ADD2BASKET&amp;id=66783" data-offer-id="66783" data-item-have-offers="1" data-main-item-id="66482" class="js-add-to-basket addBtn"><span></span>Добавить в корзину</a>
-				<span id="bx_117848907_66482_not_avail" class="bx_notavailable" style="display: none;">Нет в наличии</span>
+				<?
+		        if (isset($arResult['OFFERS']) && !empty($arResult['OFFERS'])) {
+		            $canBuy = $arResult['OFFERS'][$arResult['OFFERS_SELECTED']]['CAN_BUY'];
+		        } else {
+		            $canBuy = $arResult['CAN_BUY'];
+		        }
+		        ?>
+		        <?
+		        $item_have_offers = is_array($arResult['OFFERS']);
+		        $addToBasketBtnMessage = GetMessage('CT_BCE_CATALOG_ADD');
+		        $notAvailableMessage = ($arParams['MESS_NOT_AVAILABLE'] != '' ? $arParams['MESS_NOT_AVAILABLE'] : GetMessageJS('CT_BCE_CATALOG_NOT_AVAILABLE')); ?>
+		        <? if ($canBuy) { ?>
+		            <a href="<?= $first_offer['ADD_URL'] ?>" data-offer-id="<?= $first_offer["ID"] ?>" data-item-have-offers="<?= $item_have_offers ?>" data-main-item-id="<?= $arResult['ID'] ?>" class="js-add-to-basket addBtn"><span></span><? echo $addToBasketBtnMessage; ?></a>
+		        <? } ?>
+				<span id="<? echo $arItemIDs['NOT_AVAILABLE_MESS']; ?>" class="bx_notavailable" style="display: <? echo (!$canBuy ? '' : 'none'); ?>;"><? echo $notAvailableMessage; ?></span>
         	</div>
         	<div class="product_info_tab_content" data-product-tab="2">
 				<div class="product_card_description">
-					Натуральный материал, привлекательный дизайн и демократичная цена - вот главные преимущества кроваток Кубаньлесстрой. Кроватка изготовлена из массива бука, древесина которого долговечна и не боится влаги. Для покрытия используются только нетоксичные краски и лаки. Благодаря отсутствию острых углов и расстоянию между рейками в 80 мм кроватка будет безопасна для малыша. Рейки в кровати овального сечения, чтобы ручки ребенка не прокручивались, когда он держится за них.
-        			
-        			В первые месяцы кроватку, можно использовать как качалку. Позже, когда необходимость в этом исчезнет, установите колесики, зафиксировав этим кроватку.
-        			Натуральный материал, привлекательный дизайн и демократичная цена - вот главные преимущества кроваток Кубаньлесстрой. Кроватка изготовлена из массива бука, древесина которого долговечна и не боится влаги. Для покрытия используются только нетоксичные краски и лаки. Благодаря отсутствию острых углов и расстоянию между рейками в 80 мм кроватка будет безопасна для малыша. Рейки в кровати овального сечения, чтобы ручки ребенка не прокручивались, когда он держится за них.
-        			
-        			В первые месяцы кроватку, можно использовать как качалку. Позже, когда необходимость в этом исчезнет, установите колесики, зафиксировав этим кроватку.
+					<?= $arResult['DETAIL_TEXT'] ? $arResult['DETAIL_TEXT'] : GetMessage("NOT_SETTED") ?>
         		</div>
         	</div>
         </div>

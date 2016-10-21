@@ -1245,3 +1245,11 @@ div.item_card_offers.active .col {
 .productCardDesc .hidingMenu p:last-child {
 	margin-bottom: 18px;
 }
+
+.item_card_offers > p#activeFirstFilt .offer_option_status {
+	display: none !important;
+}
+
+.item_card_offers > p#activeFirstFilt .offer_option_text {
+	margin-left: 0;
+}
