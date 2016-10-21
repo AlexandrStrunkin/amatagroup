@@ -5464,19 +5464,14 @@ border-color: transparent transparent #fff;
     box-shadow: 0 0 30px rgba(0, 0, 0, 0.5);
     display: none;
     padding: 0 18px 18px;
-    position: absolute;
-    top: 14px;
+    position: fixed;
+    left: 50%;
+    margin-left: -112px;
     width: 224px;
     z-index: 400;
+    
 }
 
-.regHiddenBlock {
-    left: 0;
-}
-
-.authHiddenBlock {
-    left: 140px;
-}
 
 p.authTitle {
     border-bottom: 1px solid #e6e6e6;
@@ -8396,7 +8391,6 @@ display: none;
 
 #auth_form .errorText {
     font-family: "PT Serif";
-    margin-top: 20px;
     color: red;
 }
 
