@@ -6497,6 +6497,7 @@ input[type="radio"]:checked + label::before {
     text-align: center;
     position: relative;
     float: left;
+    min-height: 631px;
 }
 
 .productCardImg .logosContainer {
@@ -7029,8 +7030,8 @@ input[type="radio"]:checked + label::before {
     justify-content: center;
 }
 
-.item_card_offers > p#activeFirstFilt .col_offer { 
-    width: 57px;	
+.item_card_offers > p#activeFirstFilt .col_offer {
+    width: 57px;
 }
 
 .oform h1 {
@@ -8990,10 +8991,10 @@ body .news_wrap .productBlockWrapper .productWrapper {
     margin-top: 10px;
 }
 
-.top-menu-fixed-catalog { 
+.top-menu-fixed-catalog {
     padding-left: 32px;
-    padding-top: 28px;      
-    width: 260px;      
+    padding-top: 28px;
+    width: 260px;
 }
 
 .top-menu-fixed-catalog.active p.catalog-fixed-title {
@@ -9104,7 +9105,7 @@ body .news_wrap .productBlockWrapper .productWrapper {
     text-align: center;
     top: 18px;
     width: 18px;
-    display:block !important;   
+    display:block !important;
 
 }
 
@@ -9119,7 +9120,7 @@ body .news_wrap .productBlockWrapper .productWrapper {
 
 #fixed-linkBlock1 {
     background: rgba(0, 0, 0, 0) url("/local/templates/.default/css/../img/findLogoHead.png") no-repeat scroll 50% 50%;
-    cursor: pointer;                                                 
+    cursor: pointer;
 
 }
 
@@ -9146,7 +9147,7 @@ body .news_wrap .productBlockWrapper .productWrapper {
 
 #fixed-linkBlock1 .searchForm .submit {
     height: 36px;
-} 
+}
 
 #fixed-linkBlock3 {
     background: rgba(0, 0, 0, 0) url("/local/templates/.default/css/../img/basketHeadLogo.png") no-repeat scroll 50% 50%;
@@ -9155,7 +9156,7 @@ body .news_wrap .productBlockWrapper .productWrapper {
 
 .newsBlock > ul:first-child{
     display: block;
-}     
+}
 
 .fixed-catalog-menu {
     position: absolute;
@@ -9166,7 +9167,7 @@ body .news_wrap .productBlockWrapper .productWrapper {
     box-shadow: 0 7px 23px #adadad;
     width: 100%;
     z-index: 999;
-    font-family: "MuseoSansCyrl-500";     
+    font-family: "MuseoSansCyrl-500";
 
     padding: 20px 0 0;
     font-size: 14px;
@@ -9196,7 +9197,7 @@ body .news_wrap .productBlockWrapper .productWrapper {
 
 .fixed-catalog-menu .firstLvlLi.Level_next::after, .fixed-catalog-menu .Level_next.activeFirstLclLi::after {
     left: 213px !important;
-}     
+}
 
 .fixed-catalog-menu .activeLiTopMenuFirstLvl {
     width: 259px;

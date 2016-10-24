@@ -139,11 +139,13 @@ $arFirstPhoto = current($arResult['MORE_PHOTO']);
         	<div class="previews_slider_navigation_arrow" data-preview-slider-direction="prev"><span></span></div>
         	<div class="previews_slider_navigation_arrow" data-preview-slider-direction="next"><span></span></div>
         	<div id="previews_slider_wrapper">
-	        <? if (is_array($arResult['MORE_PHOTO']) && count($arResult['MORE_PHOTO']) > 1) { ?>
+	        <? if (is_array($arResult['MORE_PHOTO']) ) { ?>
                 <? foreach ($arResult['MORE_PHOTO'] as &$arOnePhoto) { ?>
-                    <a href="<?= $arOnePhoto['SRC'] ?>" data-preview-image="<?= getResizedImage($arOnePhoto['ID'], ELEMENT_CARD_MAIN_WIDTH, ELEMENT_CARD_MAIN_HEIGHT, BX_RESIZE_IMAGE_PROPORTIONAL_ALT) ?>">
-                        <img src="<?= getResizedImage($arOnePhoto['ID'], ELEMENT_CARD_PREVIEW_WIDTH, ELEMENT_CARD_PREVIEW_HEIGHT, BX_RESIZE_IMAGE_PROPORTIONAL_ALT) ?>" alt=""/>
-                    </a>
+                    <?if($arOnePhoto["ID"]){?>
+                        <a href="<?= $arOnePhoto['SRC'] ?>" data-preview-image="<?= getResizedImage($arOnePhoto['ID'], ELEMENT_CARD_MAIN_WIDTH, ELEMENT_CARD_MAIN_HEIGHT, BX_RESIZE_IMAGE_PROPORTIONAL_ALT) ?>">
+                            <img src="<?= getResizedImage($arOnePhoto['ID'], ELEMENT_CARD_PREVIEW_WIDTH, ELEMENT_CARD_PREVIEW_HEIGHT, BX_RESIZE_IMAGE_PROPORTIONAL_ALT) ?>" alt=""/>
+                        </a>
+                    <?}?>
                 <? } ?>
             <? }
 				if (is_array($arResult['PROPERTIES']['MORE_PHOTO']['VALUE'])) {
