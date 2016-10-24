@@ -57,7 +57,7 @@ $(document).ready(function () {
     });
 
     //кастом скролбар меню в шапке
-    var els = $('.secondLvlLeftMenu ul, .secondLvlCatalog, .mainLeftMenu > ul, .locationWrapper .list, .productInfo');
+    var els = $('.secondLvlLeftMenu ul, .secondLvlCatalog, .mainLeftMenu > ul, .locationWrapper .list');
     if (els.length > 0) {
         els.mCustomScrollbar({
             theme: "dark-thin"
@@ -66,6 +66,7 @@ $(document).ready(function () {
     $(".hidingMenu").show().mCustomScrollbar({
         theme: "dark-thin"
     });
+
     $(".hidingMenu").hide();
 
     $('.mainLeftMenu > ul > div > div > li').on("mouseenter", function () {
@@ -243,7 +244,7 @@ $(document).ready(function () {
 
 
     function changeCount(el, plus) {
-        var el1 = el, el = el.parent().find(".quantityText"),
+        var el1 = el, el = el.parent().hasClass("quantity_container") ? el.parent().parent().find(".quantityText") : el.parent().find(".quantityText"),
         count = parseFloat(el.val()),
         price = parseFloat(el.closest("tr").find(".price").val()),
         genPrice = el.closest("tr").find(".elementFinalPrice p") || el.closest("tr").find(".elementPrice p"),
@@ -1486,6 +1487,9 @@ $(document).ready(function () {
         var current_offer_buy_link = $(this).data("offer-buy-link"),
         current_offer_id = $(this).data("offer-id"),
         current_offer_can_buy = $(this).data("item-can-buy");
+        
+        $(".js-offer-option").removeClass("active_offer_option");
+        $(this).addClass("active_offer_option");
 
         if (current_offer_can_buy) {
             $(".addBtn").show();

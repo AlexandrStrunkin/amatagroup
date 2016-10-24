@@ -30,7 +30,7 @@ $isSidebar = ($arParams["SIDEBAR_DETAIL_SHOW"] == "Y" && isset($arParams["SIDEBA
 <div class="row widthWrapper">
 <?$ElementID = $APPLICATION->IncludeComponent(
 	"bitrix:catalog.element",
-	"",
+	"new_layout",
 	array(
 		"IBLOCK_TYPE" => $arParams["IBLOCK_TYPE"],
 		"IBLOCK_ID" => $arParams["IBLOCK_ID"],
