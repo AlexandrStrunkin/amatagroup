@@ -126,8 +126,12 @@ $arFirstPhoto = current($arResult['MORE_PHOTO']);
         <div class="previewImg">
 
         	<a class="fancybox" href="<?= $arFirstPhoto['SRC'] ?>">
-            	<img id="<? echo $arItemIDs['PICT']; ?>" src="<?= getResizedImage($arFirstPhoto['ID'], ELEMENT_CARD_MAIN_WIDTH, ELEMENT_CARD_MAIN_HEIGHT, BX_RESIZE_IMAGE_PROPORTIONAL_ALT) ?>" alt="<? echo $strAlt; ?>" title="<? echo $strTitle; ?>">
-        	</a>
+                <?if($arFirstPhoto["ID"]){?>
+                    <img id="<? echo $arItemIDs['PICT']; ?>" src="<?= getResizedImage($arFirstPhoto['ID'], ELEMENT_CARD_MAIN_WIDTH, ELEMENT_CARD_MAIN_HEIGHT, BX_RESIZE_IMAGE_PROPORTIONAL_ALT) ?>" alt="<? echo $strAlt; ?>" title="<? echo $strTitle; ?>">
+                <?} else {?>
+                    <img id="<? echo $arItemIDs['PICT']; ?>" src="<?= $arFirstPhoto['SRC'] ?>" alt="<? echo $strAlt; ?>" title="<? echo $strTitle; ?>">
+                <?}?>
+           	</a>
         </div>
         <!--END previewImg-->
         <!--smallPreviewImg-->
@@ -135,13 +139,13 @@ $arFirstPhoto = current($arResult['MORE_PHOTO']);
         	<div class="previews_slider_navigation_arrow" data-preview-slider-direction="prev"><span></span></div>
         	<div class="previews_slider_navigation_arrow" data-preview-slider-direction="next"><span></span></div>
         	<div id="previews_slider_wrapper">
-	        <? if (is_array($arResult['MORE_PHOTO'])) { ?>
-	        	<? foreach ($arResult['MORE_PHOTO'] as &$arOnePhoto) { ?>
-					<a href="<?= $arOnePhoto['SRC'] ?>" data-preview-image="<?= getResizedImage($arOnePhoto['ID'], ELEMENT_CARD_MAIN_WIDTH, ELEMENT_CARD_MAIN_HEIGHT, BX_RESIZE_IMAGE_PROPORTIONAL_ALT) ?>">
-						<img src="<?= getResizedImage($arOnePhoto['ID'], ELEMENT_CARD_PREVIEW_WIDTH, ELEMENT_CARD_PREVIEW_HEIGHT, BX_RESIZE_IMAGE_PROPORTIONAL_ALT) ?>" alt=""/>
-					</a>
-				<? } ?>
-			<? }
+	        <? if (is_array($arResult['MORE_PHOTO']) && count($arResult['MORE_PHOTO']) > 1) { ?>
+                <? foreach ($arResult['MORE_PHOTO'] as &$arOnePhoto) { ?>
+                    <a href="<?= $arOnePhoto['SRC'] ?>" data-preview-image="<?= getResizedImage($arOnePhoto['ID'], ELEMENT_CARD_MAIN_WIDTH, ELEMENT_CARD_MAIN_HEIGHT, BX_RESIZE_IMAGE_PROPORTIONAL_ALT) ?>">
+                        <img src="<?= getResizedImage($arOnePhoto['ID'], ELEMENT_CARD_PREVIEW_WIDTH, ELEMENT_CARD_PREVIEW_HEIGHT, BX_RESIZE_IMAGE_PROPORTIONAL_ALT) ?>" alt=""/>
+                    </a>
+                <? } ?>
+            <? }
 				if (is_array($arResult['PROPERTIES']['MORE_PHOTO']['VALUE'])) {
 					foreach ($arResult['PROPERTIES']['MORE_PHOTO']['VALUE'] as $photo_id) { ?>
 						<a href="<?= CFile::GetPath($photo_id) ?>" data-preview-image="<?= getResizedImage($photo_id, ELEMENT_CARD_MAIN_WIDTH, ELEMENT_CARD_MAIN_HEIGHT, BX_RESIZE_IMAGE_PROPORTIONAL_ALT) ?>">
@@ -200,7 +204,7 @@ $arFirstPhoto = current($arResult['MORE_PHOTO']);
 						$first_offer = $arResult["OFFERS"][0]; ?>
 				        <div class="productColor horizontalFilterWrap">
 				            <strong><?= GetMessage("CT_OFFERS") ?>:</strong>
-			
+
 				            <div class="firstFilter item_card_offers">
 				            	<?
 			                    $offerNameVisible = $first_offer["NAME"];
@@ -219,7 +223,7 @@ $arFirstPhoto = current($arResult['MORE_PHOTO']);
 			                    ?>
 			                    <p data-sort=""  data-offer-id="<?= $first_offer["ID"] ?>" id="activeFirstFilt" data-item-can-buy="<?= $first_offer["CATALOG_QUANTITY"] ?>" data-offer-buy-link="<?= $first_offer["ADD_URL"] ?>" class="firstFiltElement1">
 			                    	<span class="col">
-			                    		<? 
+			                    		<?
 			                    			if ($first_offer['DETAIL_PICTURE']['ID']) {
 			                    				$thumbnail_path = getResizedImage($first_offer['DETAIL_PICTURE']['ID'], ELEMENT_CARD_THUMBNAIL_WIDTH, ELEMENT_CARD_THUMBNAIL_HEIGHT, BX_RESIZE_IMAGE_PROPORTIONAL_ALT);
 			                    			} else {
@@ -248,7 +252,7 @@ $arFirstPhoto = current($arResult['MORE_PHOTO']);
 			                            }
 				                        ?>
 					                    <p data-offer-id="<?= $offer["ID"] ?>" data-item-can-buy="<?= $offer["CATALOG_QUANTITY"] ?>" data-offer-buy-link="<?= $offer["ADD_URL"] ?>" class="js-offer-option <? if ($offer["ID"] == $first_offer["ID"]) { echo "active_offer_option"; } ?> ">
-					                    	<? 
+					                    	<?
 				                    			if ($offer['DETAIL_PICTURE']['ID']) {
 				                    				$thumbnail_path = getResizedImage($offer['DETAIL_PICTURE']['ID'], ELEMENT_CARD_THUMBNAIL_WIDTH, ELEMENT_CARD_THUMBNAIL_HEIGHT, BX_RESIZE_IMAGE_PROPORTIONAL_ALT);
 				                    			} else {
