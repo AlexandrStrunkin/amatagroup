@@ -9054,6 +9054,7 @@ body .news_wrap .productBlockWrapper .productWrapper {
     text-align: center;
     top: 18px;
     width: 18px;
+    display:block !important;
 }
 
 .top-menu-fixed-block .linksBlock {

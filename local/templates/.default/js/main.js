@@ -757,7 +757,7 @@ $(document).ready(function () {
     })
 
 
-    $("body").on('click', ".whileWeWrapper .btn", function (e) {
+    $("body").on('click', "form .btn", function (e) {
         var el = $(this).parent('form'), input = el.find("input,textarea"), dataError = 0;
 
         input.each(function () {
