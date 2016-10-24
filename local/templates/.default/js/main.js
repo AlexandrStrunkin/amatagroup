@@ -979,7 +979,6 @@ $(document).ready(function () {
 
 
             } else {
-                //console.log(elementWidth);
                 $('.discountsSliderWrap ul').animate({left: '-=' + elementWidth + 'px'});
                 nowBasketDiscountSlide++;
             }
@@ -993,7 +992,6 @@ $(document).ready(function () {
             if (nowBasketDiscountSlide == 1) {
 
             } else {
-                //console.log(elementWidth);
                 $('.discountsSliderWrap ul').animate({left: '+=' + elementWidth + 'px'});
                 nowBasketDiscountSlide--;
             }
