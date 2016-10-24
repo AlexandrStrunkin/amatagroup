@@ -747,12 +747,12 @@ $(document).ready(function () {
                     $(".form_result").addClass("form_validation_failed");
                 } else {
                     $(".hiddenProductComment").fadeIn();
+                    $(".form_result").removeClass("form_validation_failed");
                     document.getElementById("faq_question").reset();
                 }
-                $(".form_result").fadeIn(200);
+                //$(".form_result").fadeIn(200);
                 setTimeout(function(){
-                    $(".form_result").fadeOut(200);
-                    $(".form_result").removeClass("form_validation_failed");
+                    //$(".form_result").fadeOut(200);                     
                     }, 5500);
         });
     })
