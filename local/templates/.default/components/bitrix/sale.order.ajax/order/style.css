@@ -488,3 +488,60 @@ div#order_form_content .errortext {
 .-bx-popup-special-prompt{
 	padding: 5px 10px;
 }
+.bx-authform {
+    margin: 0 0 25px;
+    max-width: 500px;
+}
+.bx-authform-formgroup-container {
+    margin-bottom: 25px;
+}
+.bx-authform-content-container, .bx-authform-label-container {
+    font-size: 13px;
+    color: #5a6c77;
+    padding-bottom: 2px;
+}
+.bx-authform-input-container input[type="text"], .bx-authform-input-container input[type="password"] {
+    display: block;
+    width: 100%;
+    font-size: 18px;
+    height: 38px;
+    margin: 0;
+    padding: 0 4px;
+    border: 1px solid #ccd5db;
+    border-radius: 2px;
+    background: #f8fafc;
+    outline: 0;
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;
+}
+.bx-authform-link-container > p{
+    margin-top: 0px;
+    color: #878787;
+    font: 16px/1.7 "PT Serif", serif;
+}
+.bx-authform-link-container_auth a {
+    display: inline-block;
+    color: #48A6D3;
+    font-size: 15px;
+    font-family: "MuseoSansCyrl-500";
+    border-radius: 40px;
+    background-color: #F5F5F5;
+    border: 1px solid #83D0F5;
+    padding: 10px 18px;
+}
+.bx-authform-link-container_auth input[type="submit"]{
+    margin-top: 20px;
+}
+.bx-authform-link-container a{
+    background-color: #5db3dc;
+    border-radius: 40px;
+    color: #fff!important;
+    display: block;
+    float: left;
+    font-family: "MuseoSansCyrl-500";
+    font-size: 15px;
+    padding: 10px 18px;
+    border: none;
+    cursor: pointer;
+}
