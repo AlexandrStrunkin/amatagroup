@@ -7019,7 +7019,7 @@ input[type="radio"]:checked + label::before {
 }
 
 .col, .item_card_offers > p#activeFirstFilt .col_offer {
-	width: 57px;
+	min-width: 57px;
 	height: 100%;
 	border-right: 2px solid #cbcbcb;
 	display: inline-flex;

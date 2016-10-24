@@ -57,7 +57,7 @@ $(document).ready(function () {
     });
 
     //кастом скролбар меню в шапке
-    var els = $('.secondLvlLeftMenu ul, .secondLvlCatalog, .mainLeftMenu > ul, .locationWrapper .list, .productInfo');
+    var els = $('.secondLvlLeftMenu ul, .secondLvlCatalog, .mainLeftMenu > ul, .locationWrapper .list');
     if (els.length > 0) {
         els.mCustomScrollbar({
             theme: "dark-thin"

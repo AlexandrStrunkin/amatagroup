@@ -217,7 +217,19 @@ $arFirstPhoto = current($arResult['MORE_PHOTO']);
 			                        $offerNameVisible = trim(implode(", ", $offerName));
 			                    }
 			                    ?>
-			                    <p data-sort=""  data-offer-id="<?= $first_offer["ID"] ?>" id="activeFirstFilt" data-item-can-buy="<?= $first_offer["CATALOG_QUANTITY"] ?>" data-offer-buy-link="<?= $first_offer["ADD_URL"] ?>" class="firstFiltElement1"><span class="col"><img src="<?= getResizedImage($first_offer['DETAIL_PICTURE']['ID'], ELEMENT_CARD_THUMBNAIL_WIDTH, ELEMENT_CARD_THUMBNAIL_HEIGHT, BX_RESIZE_IMAGE_PROPORTIONAL_ALT) ?>"></span><?= $offerNameVisible ?></p>
+			                    <p data-sort=""  data-offer-id="<?= $first_offer["ID"] ?>" id="activeFirstFilt" data-item-can-buy="<?= $first_offer["CATALOG_QUANTITY"] ?>" data-offer-buy-link="<?= $first_offer["ADD_URL"] ?>" class="firstFiltElement1">
+			                    	<span class="col">
+			                    		<? 
+			                    			if ($first_offer['DETAIL_PICTURE']['ID']) {
+			                    				$thumbnail_path = getResizedImage($first_offer['DETAIL_PICTURE']['ID'], ELEMENT_CARD_THUMBNAIL_WIDTH, ELEMENT_CARD_THUMBNAIL_HEIGHT, BX_RESIZE_IMAGE_PROPORTIONAL_ALT);
+			                    			} else {
+			                    				$thumbnail_path = $this->GetFolder() . '/images/no_photo_thumb.png';
+			                    			}
+			                    		?>
+			                    		<img src="<?= $thumbnail_path ?>">
+			                    	</span>
+			                    	<?= mb_strimwidth($offerNameVisible, 0, 50, "...") ?>
+			                    </p>
 				                <div class="hidingMenu">
 				                	<?foreach ($arResult["OFFERS"] as $offer) {?>
 					                    <?
@@ -235,7 +247,22 @@ $arFirstPhoto = current($arResult['MORE_PHOTO']);
 			                                $offerNameVisible = trim(implode(", ", $offerName));
 			                            }
 				                        ?>
-					                    <p data-offer-id="<?= $offer["ID"] ?>" data-item-can-buy="<?= $offer["CATALOG_QUANTITY"] ?>" data-offer-buy-link="<?= $offer["ADD_URL"] ?>" class="js-offer-option <? if ($offer["ID"] == $first_offer["ID"]) { echo "active_offer_option"; } ?> "><span class="col_offer"><img src="<?= getResizedImage($offer['DETAIL_PICTURE']['ID'], ELEMENT_CARD_THUMBNAIL_WIDTH, ELEMENT_CARD_THUMBNAIL_HEIGHT, BX_RESIZE_IMAGE_PROPORTIONAL_ALT) ?>"></span><span class="offer_option_text"><?= $offerNameVisible ?></span><span class="offer_option_status"></span></p>
+					                    <p data-offer-id="<?= $offer["ID"] ?>" data-item-can-buy="<?= $offer["CATALOG_QUANTITY"] ?>" data-offer-buy-link="<?= $offer["ADD_URL"] ?>" class="js-offer-option <? if ($offer["ID"] == $first_offer["ID"]) { echo "active_offer_option"; } ?> ">
+					                    	<? 
+				                    			if ($offer['DETAIL_PICTURE']['ID']) {
+				                    				$thumbnail_path = getResizedImage($offer['DETAIL_PICTURE']['ID'], ELEMENT_CARD_THUMBNAIL_WIDTH, ELEMENT_CARD_THUMBNAIL_HEIGHT, BX_RESIZE_IMAGE_PROPORTIONAL_ALT);
+				                    			} else {
+				                    				$thumbnail_path = $this->GetFolder() . '/images/no_photo_thumb.png';
+				                    			}
+				                    		?>
+					                    	<span class="col_offer">
+					                    		<img src="<?= $thumbnail_path ?>">
+					                    	</span>
+					                    	<span class="offer_option_text">
+					                    		<?= mb_strimwidth($offerNameVisible, 0, 50, "...") ?>
+					                    	</span>
+					                    	<span class="offer_option_status"></span>
+					                    </p>
 				                    <?}?>
 				                </div>
 				            </div>
