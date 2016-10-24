@@ -83,4 +83,7 @@ $MESS['SOA_TEMPL_ALL_RIGHT_CONFIRM'] = "Все верно, подтвердить заказ";
 $MESS['SOA_TEMPL_PRICE_WITHOUT_DISCOUNT'] = "Цена без скидки";
 $MESS['SOA_TEMPL_TAKE_BY_YOURSELF'] = "Вы можете самостоятельно забрать заказ по адресу м. Рязанский проспект строго с 9:30 до 19:00 по будням";
 $MESS['SOA_TEMPL_ADD_NEW_ADDRESS'] = "Добавить новый адрес";
+$MESS['AUTH_TITLE'] = "Пожалуйста, авторизируйтесь";
+$MESS['AUTH_REGISTER'] = "Зарегистрироваться";
+$MESS['AUTH_AUTHORIZE'] = "Если вы впервые на сайте, заполните, пожалуйста, регистрационную форму.";
 ?>

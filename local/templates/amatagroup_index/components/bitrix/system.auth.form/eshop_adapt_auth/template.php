@@ -34,11 +34,14 @@ $frame = $this->createFrame()->begin();
 		<input type="hidden" name="<?=$key?>" value="<?=$value?>" />
 		<?endforeach?>
 
-		<strong><?=GetMessage("AUTH_LOGIN")?></strong><br>
-		<input class="input_text_style" type="text" name="USER_LOGIN" maxlength="255" value="<?=$arResult["LAST_LOGIN"]?>" /><br><br>
-		<strong><?=GetMessage("AUTH_PASSWORD")?></strong><br>
+		<div class="bx-authform-formgroup-container">
+            <div class="bx-authform-label-container"><?=GetMessage("AUTH_LOGIN")?></div>
+		    <input class="input_text_style" type="text" name="USER_LOGIN" maxlength="255" value="<?=$arResult["LAST_LOGIN"]?>" /><br><br>
+        </div>
+        <div class="bx-authform-formgroup-container">
+            <div class="bx-authform-label-container"><?=GetMessage("AUTH_PASSWORD")?></div>
 		<input class="input_text_style" type="password" name="USER_PASSWORD" maxlength="255" /><br>
-
+        </div>
 		<?if($arResult["CAPTCHA_CODE"]):?>
 			<input type="hidden" name="captcha_sid" value="<?echo $arResult["CAPTCHA_CODE"]?>" />
 			<img src="/bitrix/tools/captcha.php?captcha_sid=<?echo $arResult["CAPTCHA_CODE"]?>" width="180" height="40" alt="CAPTCHA" />
