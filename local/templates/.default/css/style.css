@@ -9068,6 +9068,7 @@ body .news_wrap .productBlockWrapper .productWrapper {
 
 #fixed-linkBlock1 {
     background: rgba(0, 0, 0, 0) url("/local/templates/.default/css/../img/findLogoHead.png") no-repeat scroll 50% 50%;
+     cursor: pointer;
 }
 
 #fixed-linkBlock2 {
@@ -9080,10 +9081,20 @@ body .news_wrap .productBlockWrapper .productWrapper {
 
 #fixed-linkBlock1 .searchForm {
     height: 100%;
-    padding: 16px 0;
+    padding: 15px 0;
     left: -423px;
     width: 420px;
 }
+
+#fixed-linkBlock1 .searchForm .input {
+    width: 280px;
+    height: 36px;
+    padding: 0 20px !important;
+}
+
+#fixed-linkBlock1 .searchForm .submit {
+    height: 36px;
+} 
 
 #fixed-linkBlock3 {
     background: rgba(0, 0, 0, 0) url("/local/templates/.default/css/../img/basketHeadLogo.png") no-repeat scroll 50% 50%;

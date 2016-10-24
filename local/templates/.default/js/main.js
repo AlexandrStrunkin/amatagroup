@@ -801,18 +801,21 @@ $(document).ready(function () {
 
         if (!dataError) {
             //сабмит
-            var form_id = $(this).attr('id');
-            if(form_id == 'leave_question_catalog'){
+            var form_id = el.attr('id');
+            console.log(form_id);
+            if(form_id == 'leave_question_catalog'){                   
                 var form = $('#leave_question_catalog').serialize();
+                console.log(form);
                 $.ajax({
-                    url: '/ajax/leave_question_catalog.php', //the URL to your node.js server that has data
+                    url: '/ajax/leave_question_catalog.php', 
                     type: 'POST',
                     data:  form,
                     success:function(data){
                     }
                 }).done(function(data){});
             };
-            //это пока, чтобы  не попадать на 405 ошибку
+            
+            //отображение сообщения о результате отправки формы
             var mes = el.parent().find(".message");
 
             if (mes.length > 0) {
