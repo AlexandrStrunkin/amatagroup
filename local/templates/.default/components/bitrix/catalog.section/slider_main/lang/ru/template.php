@@ -24,5 +24,6 @@ $MESS["CT_BCS_CATALOG_BTN_MESSAGE_COMPARE_REDIRECT"] = "Перейти в список сравнен
 $MESS["PODUCT_SPECIAL_BEST"] = "best";
 $MESS["PODUCT_SPECIAL_NEW"] = "new";
 $MESS["PODUCT_SPECIAL_SALE"] = "sale";
+$MESS["MORE"] = "Подробнее";
 
 ?>
