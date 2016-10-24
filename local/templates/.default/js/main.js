@@ -803,10 +803,8 @@ $(document).ready(function () {
         if (!dataError) {
             //סאבלטע
             var form_id = el.attr('id');
-            console.log(form_id);
             if(form_id == 'leave_question_catalog'){                   
                 var form = $('#leave_question_catalog').serialize();
-                console.log(form);
                 $.ajax({
                     url: '/ajax/leave_question_catalog.php', 
                     type: 'POST',
