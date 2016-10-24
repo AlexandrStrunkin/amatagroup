@@ -1450,7 +1450,8 @@ ul.topMenu a:hover {
     padding: 0 66px;
 }
 
-.mainBigBanner .bannerImgContainer p {
+.mainBigBanner .bannerImgContainer p,
+.mainBigBanner .bannerImgContainer {
     text-align: center;
 }
 
@@ -5501,15 +5502,11 @@ border-color: transparent transparent #fff;
     display: none;
     padding: 0 18px 18px;
     position: fixed;
-    top: 125px;
-    width: 224px;
-    z-index: 400;
     left: 50%;
     margin-left: -112px;
-}
-
-.regHiddenBlock {
-    left: 0;
+    width: 224px;
+    z-index: 400;
+    
 }
 
 p.authTitle {
@@ -8972,6 +8969,7 @@ body .news_wrap .productBlockWrapper .productWrapper {
     border-right: 1px solid #e6e6e6;
     height: 100%;
     box-sizing: border-box;
+    position: relative;
 }
 
 .top-menu-fixed-wrapper .top-menu-fixed-block:last-child {
@@ -8992,20 +8990,27 @@ body .news_wrap .productBlockWrapper .productWrapper {
     margin-top: 10px;
 }
 
-.top-menu-fixed-catalog {
+.top-menu-fixed-catalog { 
+    padding-left: 32px;
+    padding-top: 28px;      
+    width: 260px;      
+}
+
+.top-menu-fixed-catalog.active p.catalog-fixed-title {
+    color: #5db3dc !important;
+}
+
+.top-menu-fixed-catalog p.catalog-fixed-title {
     color: #010101;
     font: 14px/1 "VentiCF-Black";
-    height: 39px;
-    letter-spacing: 0.5px;
-    padding-left: 32px;
-    padding-top: 28px;
     text-transform: uppercase;
-    width: 260px;
+    letter-spacing: 0.5px;
+    cursor: pointer;
 }
 
 
-.top-menu-fixed-catalog p::before {
-    background: rgba(0, 0, 0, 0) url("/local/templates/.default/img/burgerCatalog.png") no-repeat scroll 0 0;
+.top-menu-fixed-catalog p.catalog-fixed-title::before {
+    background: rgba(0, 0, 0, 0) url("/local/templates/.default/img/burgerCatalog.png") no-repeat scroll -16px 0;
     content: "";
     display: block;
     float: left;
@@ -9015,11 +9020,9 @@ body .news_wrap .productBlockWrapper .productWrapper {
     top: 0;
     width: 16px;
 }
-.top-menu-fixed-catalog p::after {
-    content: url("/local/templates/.default/img/cArrowActive.png");
-    left: 45px;
-    position: relative;
-    top: 0;
+
+.top-menu-fixed-catalog.active p.catalog-fixed-title::before {
+    background: rgba(0, 0, 0, 0) url("/local/templates/.default/img/burgerCatalog.png") no-repeat scroll 0 0;
 }
 
 .top-menu-fixed-wrapper .top-menu-fixed-block .firstLvlBlocks {
@@ -9083,7 +9086,6 @@ body .news_wrap .productBlockWrapper .productWrapper {
 
 .top-menu-fixed-block .quantityInBasket {
     background-color: #5db3dc;
-
 }
 
 .top-menu-fixed-block .quantityOfLiked {
@@ -9123,17 +9125,56 @@ body .news_wrap .productBlockWrapper .productWrapper {
     width: 420px;
 }
 
-#fixed-linkBlock1 .searchForm .input {
-    width: 280px;
-    height: 36px;
-}
-
-#fixed-linkBlock1 .searchForm .submit {
-    height: 36px;
-}
-.productBlockWrapper .productBlockMenu .hide{
-    display: none;
-}
 .newsBlock > ul:first-child{
     display: block;
+}     
+
+.fixed-catalog-menu {
+    position: absolute;
+    top: 89px;
+    left:0;
+    display: none;
+    background: #fff;
+    box-shadow: 0 7px 23px #adadad;
+    width: 100%;
+    z-index: 999;
+    font-family: "MuseoSansCyrl-500";
+    
+    padding: 20px 0 0;
+    font-size: 14px;
+}
+
+.fixed-catalog-menu .mainLeftMenu li.topLvlLi::after {
+    left: 235px;
+}
+
+.fixed-catalog-menu .mainLeftMenu > ul > div, .fixed-catalog-menu .mainLeftMenu > ul > div > div {
+    min-height: 460px;
+}
+
+.fixed-catalog-menu .mainLeftMenu li.topLvlLi {
+    padding-right: 35px;
+}
+
+.fixed-catalog-menu .mainLeftMenu li.topLvlLi > a {
+    color: #737373;
+    padding-right: 35px;
+}
+
+.fixed-catalog-menu .mainLeftMenu > ul > div > div > li > a {
+    margin-bottom: 20px;
+    display:block;
+}
+
+.fixed-catalog-menu .firstLvlLi.Level_next::after, .fixed-catalog-menu .Level_next.activeFirstLclLi::after {
+    left: 213px !important;
+}     
+
+.fixed-catalog-menu .activeLiTopMenuFirstLvl {
+    width: 259px;
+}
+
+h3, h4, h5, h6 {
+    color: #000;
+    font-family: "MuseoSansCyrl-700";
 }

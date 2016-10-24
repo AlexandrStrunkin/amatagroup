@@ -42,12 +42,12 @@ $(document).ready(function () {
             }, 300);
 
 
-        $('.mainLeftMenu>ul>div>div>li').each(function () {
+        $('.mainLeftMenu > ul > div > div > li').each(function () {
             var el = $(this);
             el.find("ul .activeFirstLclLi").removeClass("activeFirstLclLi");
             $('.secondLvlCatalog').hide();
             el.removeClass('activeLiTopMenuFirstLvl');
-            $('.mainLeftMenu>ul>div>div>li').not(el[0]).show();
+            $('.mainLeftMenu > ul > div > div > li').not(el[0]).show();
             el.css("top", 0);
             $(".bottomBlockMailLeft").hide();
             el.find(".secondLvl").hide();
@@ -57,7 +57,7 @@ $(document).ready(function () {
     });
 
     //кастом скролбар меню в шапке
-    var els = $('.secondLvlLeftMenu ul, .secondLvlCatalog, .mainLeftMenu>ul, .locationWrapper .list');
+    var els = $('.secondLvlLeftMenu ul, .secondLvlCatalog, .mainLeftMenu > ul, .locationWrapper .list, .productInfo');
     if (els.length > 0) {
         els.mCustomScrollbar({
             theme: "dark-thin"
@@ -69,7 +69,7 @@ $(document).ready(function () {
 
     $(".hidingMenu").hide();
 
-    $('.mainLeftMenu>ul>div>div>li').on("mouseenter", function () {
+    $('.mainLeftMenu > ul > div > div > li').on("mouseenter", function () {
         var el = $(this);
 
         if (!el.hasClass("activeLiTopMenuFirstLvl")) {
@@ -84,15 +84,13 @@ $(document).ready(function () {
         e.preventDefault();
         window.location.href = $(this).attr("href");
     });
-    $('.mainLeftMenu>ul>div>div>li').on("click", function () {
+    $('.mainLeftMenu > ul > div > div > li').on("click", function (e) {
         var el = $(this);
         el.removeClass("hover");
         if (el.find("ul").length > 0) {
             if (!el.hasClass('activeLiTopMenuFirstLvl')) {
                 var position = el.position();
-
-
-                $('.mainLeftMenu>ul>div>div>li').not(el[0]).hide();
+                $('.mainLeftMenu > ul > div > div > li').not(el[0]).hide();
                 el.css({'top': position.top});
                 setTimeout(animateLiMoving, 0, el[0], position);
             }
@@ -101,7 +99,7 @@ $(document).ready(function () {
 
 
     });
-    $('.mainLeftMenu>ul>div>div>li>a').on("click", function (e) {
+    $('.mainLeftMenu > ul > div > div > li > a').on("click", function (e) {
         e.preventDefault();
         var el = $(this).parent();
         el.removeClass("hover");
@@ -116,7 +114,7 @@ $(document).ready(function () {
 
                     setTimeout(function () {
                         el.animate({'top': el.attr("data-pos")}, 300, function () {
-                            $('.mainLeftMenu>ul>div>div>li').not(el[0]).show();
+                            $('.mainLeftMenu > ul > div > div > li').not(el[0]).show();
                             el.css("top", 0);
 
                             $(".bottomBlockMailLeft").hide();
@@ -140,7 +138,7 @@ $(document).ready(function () {
     });
     $(".bottomBlockMailLeft .link1").on("click", function (e) {
         e.preventDefault();
-        var el = $(this).closest(".mainLeftMenu");
+        var el = $(this).parents(".mainLeftMenu");
         el.find(".firstLvlLi").addClass("activeFirstLclLi");
         el.find(".firstLvlLi").find(".secondLvl").slideDown(300);
         el.find(".link2").show();
@@ -148,7 +146,7 @@ $(document).ready(function () {
     });
     $(".bottomBlockMailLeft .link2").on("click", function (e) {
         e.preventDefault();
-        var el = $(this).closest(".mainLeftMenu");
+        var el = $(this).parents(".mainLeftMenu");
         el.find(".firstLvlLi").removeClass("activeFirstLclLi");
         el.find(".firstLvlLi").find(".secondLvl").slideUp(300);
         el.find(".link1").show();
@@ -156,9 +154,9 @@ $(document).ready(function () {
 
     });
 
-    $(".firstLvlLi>a").on("click", function (e) {
+    $(".firstLvlLi  > a").on("click", function (e) {
         e.preventDefault();
-        var el = $(this).closest(".mainLeftMenu").find(".activeFirstLclLi");
+        var el = $(this).parents(".mainLeftMenu").find(".activeFirstLclLi");
         if (el.length == 0) {
             $(".bottomBlockMailLeft .link1").show();
             $(".bottomBlockMailLeft .link2").hide();
@@ -501,26 +499,40 @@ $(document).ready(function () {
             popupMask.fadeOut(300);
         });
     }
+
     //поиск
     $("#linkBlock1 a").on("click", function (e) {
         e.preventDefault();
-        $(".searchForm, .searchFormClose").fadeIn(300);
-        $(".searchForm input,.searchForm textarea").each(function () {
+        $(this).siblings(".searchForm, .searchFormClose").fadeIn(300);
+        $(".searchForm input, .searchForm textarea").each(function () {
             $(this).focus().blur();
         });
         $(".searchForm form")[0].reset();
     });
+
     $(".searchFormClose").on("click", function () {
         $(".searchForm, .searchFormClose").fadeOut(300);
     });
 
 
     $(".searchForm input").on("focus", function () {
-        $(this).closest(".searchForm").addClass("focus");
+        $(this).parents(".searchForm").addClass("focus");
     }).blur(function () {
-        $(this).closest(".searchForm").removeClass("focus");
+        $(this).parents(".searchForm").removeClass("focus");
 
     });
+
+    //плавающая шапка
+    $("#fixed-linkBlock1").on("click", function (e) {
+        if (!$(e.target).hasClass("searchFormClose") && !$(e.target).hasClass("submit")) {
+            $(this).find(".searchForm, .searchFormClose").fadeIn(300);
+            $(this).find(".searchForm input, .searchForm textarea").each(function () {
+                $(this).focus();
+            });
+        }
+    });
+
+
 
     //скрипты для всплывайки "оставить вопрос"
 
@@ -746,7 +758,7 @@ $(document).ready(function () {
     })
 
 
-    $("body").on('click', ".btn", function (e) {
+    $("body").on('click', ".whileWeWrapper .btn", function (e) {
         var el = $(this).parent('form'), input = el.find("input,textarea"), dataError = 0;
 
         input.each(function () {
@@ -1596,18 +1608,18 @@ $(document).ready(function () {
         var scroll_top = $(window).scrollTop();
         if ($(window).scrollTop() > 265) {
             if ($(".js-fixed-header").css("display") != "block") {
-                $(".js-fixed-header").fadeIn(); 
+                $(".js-fixed-header").fadeIn();
             }
         } else {
             if ($(".js-fixed-header").css("display") == "block") {
                 $(".js-fixed-header").fadeOut();
             }
         }
-    })  
+    })
 
     if ($(window).scrollTop() > 265) {
         if ($(".js-fixed-header").css("display") != "block") {
-            $(".js-fixed-header").fadeIn(); 
+            $(".js-fixed-header").fadeIn();
         }
     }
 
@@ -1890,3 +1902,26 @@ $(function() {
         $(this).html('Показать все');
     })
 });
+$(function() {
+    if ($('#productList1').length < 1) {
+        $('.productBlockMenu #wrap_new').addClass('hide').next().addClass('active');
+    }
+    if ($('#productList2').length < 1) {
+        $('.productBlockMenu #wrap_best').addClass('hide').prev().addClass('active');
+    }
+    if ($('#productList3').length < 1) {
+        $('.productBlockMenu #wrap_latest').addClass('hide');
+        $('#wrap_new').addClass('active')
+    }
+});
+
+//обработка каталога в плавающей плашке
+$(function(){
+    $(".top-menu-fixed-catalog-control").on("click", function(){
+        /*пока не удалять до решения задачи с плавающей плашкой
+        $(".fixed-catalog-menu").slideToggle();
+        $(this).parent().toggleClass("active"); */
+        $("#secondLvlBlocks4").click();
+        $("html, body").stop().animate({ scrollTop: 195}, 500 );
+    })
+})
