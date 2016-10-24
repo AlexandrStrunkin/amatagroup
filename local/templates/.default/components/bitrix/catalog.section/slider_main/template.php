@@ -39,6 +39,7 @@ $this->setFrameMode(true);
 
                         <p class="bannerText"><?=$arItem["DETAIL_TEXT"]?></p>
 
+                        <a href="<?=$arItem["PROPERTIES"]["LINK_PRODUCT"]["VALUE"]?>"><?= GetMessage('MORE') ?></a>
                     </div>
                 </li>
             <?}?>
