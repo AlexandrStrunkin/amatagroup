@@ -1,0 +1,18 @@
+a.search-page-params {
+    border-bottom: 1px dashed blue;
+    text-decoration: none;
+}
+div.search-page-params {
+    margin-top: 6px;
+}
+.search-item-rate {font-size: 11px;}      
+
+.productFilterWrap span {
+    display: block;
+    font-size: 14px;
+    margin: 29px 0 0 20px; 
+    color: #5db3dc !important;
+    font: 13px/1 "VentiCF-Bold" !important;
+    letter-spacing: 0.2px;
+    text-transform: uppercase;
+}
