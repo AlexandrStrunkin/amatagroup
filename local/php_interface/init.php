@@ -67,13 +67,13 @@
     define("ORDER_BUILDING", "ORDER_PROP_22"); // Дом
     define("ORDER_APARTMENT", "ORDER_PROP_23"); // Квартира/офис
     define("DEFAULT_LOCATION_ID", 129); // Дефолтное местоположение - Москва
-	
+
 	define("ELEMENT_CARD_THUMBNAIL_HEIGHT", 47);
     define("ELEMENT_CARD_THUMBNAIL_WIDTH", 45);
     define("ELEMENT_CARD_PREVIEW_HEIGHT", 83);
     define("ELEMENT_CARD_PREVIEW_WIDTH", 76);
-    define("ELEMENT_CARD_MAIN_HEIGHT", 500);
-    define("ELEMENT_CARD_MAIN_WIDTH", 520);
+    define("ELEMENT_CARD_MAIN_HEIGHT", 490);
+    define("ELEMENT_CARD_MAIN_WIDTH", 510);
 
     // для слайдера на главной
     define("ELEMENT_SPECIAL_OFFER_HIT", 6257);
@@ -619,7 +619,7 @@
                 } else {
                     //если нет - добавляем
                     $arFields["PRICE"] = $price;
-                    CPrice::Add($arFields); 
+                    CPrice::Add($arFields);
                 }
             }
         }
