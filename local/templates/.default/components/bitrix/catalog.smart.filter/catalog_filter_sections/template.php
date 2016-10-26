@@ -287,7 +287,7 @@
             </div>
 
             <div class="typeBlockFilter">
-                <input class="accept" type="submit" id="set_filter" name="set_filter" value="<?=GetMessage("CT_BCSF_SET_FILTER")?>" />
+                <input class="accept" type="submit" name="set_filter" value="<?=GetMessage("CT_BCSF_SET_FILTER")?>" />
                 <input class="clear" type="submit" id="del_filter" name="del_filter" value="<?=GetMessage("CT_BCSF_DEL_FILTER")?>" />
             </div>
 

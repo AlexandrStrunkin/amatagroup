@@ -79,6 +79,12 @@ $arUrlRewrite = array(
 		"PATH" => "/store/index.php",
 	),
 	array(
+		"CONDITION" => "#^\\??(.*)#",
+		"RULE" => "&\$1",
+		"ID" => "bitrix:catalog.section",
+		"PATH" => "/local/templates/amatagroup_index/header.php",
+	),
+	array(
 		"CONDITION" => "#^/news/#",
 		"RULE" => "",
 		"ID" => "bitrix:news",

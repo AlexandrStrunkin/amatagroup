@@ -1,6 +1,19 @@
 .smallElementList .elmentsList li{
-    height: 370px;
+    width: 266px;
 }
 body .news_wrap .productBlockWrapper .elmentsList li .productWrapper{
-    width: 254px;
+    height: 340px;
+}
+.elementBlocksWrap.smallElementList .elementName div.freshLogoWrapper{
+    background: rgba(0, 0, 0, 0) url(/local/templates/.default/css/../img/freshLogo.png) no-repeat scroll 0 0;
+    height: 24px;
+    padding-top: 12px;
+    text-align: center;
+    width: 36px;
+    margin-left: 3px;
+    margin-bottom: 8px;
+    font-size: 10px;
+    line-height: 1;
+    min-height: 10px;
+    font-family: "MuseoSansCyrl-700";
 }

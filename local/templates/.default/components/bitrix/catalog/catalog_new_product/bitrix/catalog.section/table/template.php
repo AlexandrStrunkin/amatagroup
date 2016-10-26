@@ -196,6 +196,7 @@
                                         } else /*if ($arItem["CAN_BUY"] == "Y")*/{?>
                                         <p class="elementStatus statusInStock" style="<?= $arItem["CAN_BUY"] == "Y" ? "" : "display:none" ?>" ><?= GetMessage("PRODUCT_AVAILABLE") ?></p>
                                         <?}?>
+
                                     <br>
                                     <p class="elementTitle">
                                         <span>
@@ -211,9 +212,9 @@
                                     <?if (isset($arItem['OFFERS']) && !empty($arItem['OFFERS'])) {?>
                                         <div class="selectric-wrapper selectric-basketSelect">
                                             <select name="color" data-item-id="<?=$arItem["ID"]?>" class="js-offer-select">
-                                                <?  
-                                                    //получаем первое активное предложение  
-                                                    $first_offer = $arItem["OFFERS"][0];  
+                                                <?
+                                                    //получаем первое активное предложение
+                                                    $first_offer = $arItem["OFFERS"][0];
                                                 ?>
                                                 <?
                                                     $offerNameVisible = $first_offer["NAME"];
@@ -260,10 +261,10 @@
                                 </td>
 
                                 <td class="elementPrice">
-                                    
+
                                     <? if (isset($arItem['OFFERS']) && !empty($arItem['OFFERS'])) { ?>
-                                        
-                                        <? 
+
+                                        <?
                                         $k = 0;
                                         foreach ($arItem['OFFERS'] as $offer) {?>
                                             <p data-offer-id="<?=$offer["ID"]?>" class="js-item-price" <?if ($k != 0){?>style="display: none;"<?}?> data-item-id="<?=$arItem["ID"]?>">
@@ -297,7 +298,7 @@
                                                 ?> &nbsp;
                                             </p>
                                     <?}?>
-                                     
+
 
                                     <?
                                         $showSubscribeBtn = false;
