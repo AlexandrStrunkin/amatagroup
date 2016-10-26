@@ -752,7 +752,7 @@ $(document).ready(function () {
                 }
                 //$(".form_result").fadeIn(200);
                 setTimeout(function(){
-                    //$(".form_result").fadeOut(200);                     
+                    //$(".form_result").fadeOut(200);
                     }, 5500);
         });
     })
@@ -803,17 +803,17 @@ $(document).ready(function () {
         if (!dataError) {
             //сабмит
             var form_id = el.attr('id');
-            if(form_id == 'leave_question_catalog'){                   
+            if(form_id == 'leave_question_catalog'){
                 var form = $('#leave_question_catalog').serialize();
                 $.ajax({
-                    url: '/ajax/leave_question_catalog.php', 
+                    url: '/ajax/leave_question_catalog.php',
                     type: 'POST',
                     data:  form,
                     success:function(data){
                     }
                 }).done(function(data){});
             };
-            
+
             //отображение сообщения о результате отправки формы
             var mes = el.parent().find(".message");
 
@@ -1486,7 +1486,7 @@ $(document).ready(function () {
         var current_offer_buy_link = $(this).data("offer-buy-link"),
         current_offer_id = $(this).data("offer-id"),
         current_offer_can_buy = $(this).data("item-can-buy");
-        
+
         $(".js-offer-option").removeClass("active_offer_option");
         $(this).addClass("active_offer_option");
 
@@ -1902,6 +1902,7 @@ $(function() {
     })
 });
 $(function() {
+    console.log($('#productList1').length);
     if ($('#productList1').length < 1) {
         $('.productBlockMenu #wrap_new').addClass('hide').next().addClass('active');
     }
