@@ -112,12 +112,15 @@ $arFirstPhoto = current($arResult['MORE_PHOTO']);
 					<? } ?>
 			<?	}
 			} ?>
-            <!--<div class="bestLogoWrapper">BEST</div>-->
+            <?if($arItem["PROPERTIES"]["BESTSELLERS"]["VALUE_XML_ID"] == 'Y'){?>
+                <div class="bestLogoWrapper">BEST</div>
+            <?}?>            <!--<div class="bestLogoWrapper">BEST</div>-->
             <?//шильдик новинки. Если товар  создан менее 2 недель назад
                if (date("U") - 86400 * NEW_PRODUCT_STATUS_LENGTH <= MakeTimeStamp($arResult["DATE_CREATE"], "DD.MM.YYYY HH:MI:SS")) {
             ?>
                 <div class="newLogoWrapper" title="<?=GetMessage("NEW_PRODUCT")?>">NEW</div>
-            <?}?>
+            <?}
+            ?>
             <!-- <div class="freshLogoWrapper">FRESH</div>
             <div class="saleLogoWrapper">SALE</div>-->
         </div>

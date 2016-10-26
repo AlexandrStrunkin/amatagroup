@@ -38,7 +38,6 @@
                         '!PREVIEW_PICTURE' => false
                     );
                 ?>
-                <?arshow($ShowWithImage)?>
                 <?$APPLICATION->IncludeComponent(
 	"bitrix:catalog.section",
 	"product_news",
