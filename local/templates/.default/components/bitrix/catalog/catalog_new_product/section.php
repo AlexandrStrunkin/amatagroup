@@ -84,8 +84,8 @@
         // $arParams["ELEMENT_SORT_ORDER"] = "DESC";
         // $arParams["ELEMENT_SORT_FIELD2"] = "HAS_PREVIEW_PICTURE";
         // $arParams["ELEMENT_SORT_ORDER2"] = "DESC";
-    } 
-    
+    }
+
     //формируем правильный вид для поля сортировки
     if ($arParams["ELEMENT_SORT_FIELD"] == "PRICE") {
         $priceCode = $arParams["PRICE_CODE"][0];
@@ -254,8 +254,8 @@
                         "OFFERS_SORT_ORDER2" => $arParams["OFFERS_SORT_ORDER2"],
                         "OFFERS_LIMIT" => $arParams["LIST_OFFERS_LIMIT"],
 
-                        "SECTION_ID" => $arResult["VARIABLES"]["SECTION_ID"],
-                        "SECTION_CODE" => $arResult["VARIABLES"]["SECTION_CODE"],
+                        "SECTION_ID" => "",
+                        "SECTION_CODE" => "",
                         "SECTION_URL" => $arResult["FOLDER"].$arResult["URL_TEMPLATES"]["section"],
                         "DETAIL_URL" => $arResult["FOLDER"].$arResult["URL_TEMPLATES"]["element"],
                         "USE_MAIN_ELEMENT_SECTION" => $arParams["USE_MAIN_ELEMENT_SECTION"],

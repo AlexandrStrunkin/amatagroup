@@ -31,14 +31,14 @@
             <div class="newsBlock">
                 <?
                   global $ShowWithImage;
-                  $curr_date = mktime(date('d.m.Y G:i:s'));
+                  $curr_date = date('U');
                   $date_create_date = $curr_date - (604800 * 2);
-                  $ShowWithImage[] = array(
-                        ">DATE_CREATE" => date('d.m.Y H:i:s', $date_create_date),
+                  $ShowWithImage = array(
+                        ">=DATE_CREATE" => ConvertTimeStamp($date_create_date,"FULL"),
                         '!PREVIEW_PICTURE' => false
                     );
                 ?>
-
+                <?arshow($ShowWithImage)?>
                 <?$APPLICATION->IncludeComponent(
 	"bitrix:catalog.section",
 	"product_news",
@@ -69,7 +69,7 @@
 		"ELEMENT_SORT_FIELD2" => "id",
 		"ELEMENT_SORT_ORDER" => "desc",
 		"ELEMENT_SORT_ORDER2" => "desc",
-		"FILTER_NAME" => "arrFilter",
+		"FILTER_NAME" => "ShowWithImage",
 		"HIDE_NOT_AVAILABLE" => "Y",
 		"IBLOCK_ID" => "5",
 		"IBLOCK_TYPE" => "1c_catalog",
