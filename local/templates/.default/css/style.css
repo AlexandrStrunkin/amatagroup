@@ -5596,7 +5596,7 @@ p.authTitle {
     margin-bottom: 20px;
     padding-bottom: 18px;
 }
-
+.authEnter,
 .btn_prew,
 .authNext,
 .authSubmit {
@@ -8534,9 +8534,12 @@ display: none;
 }
 
 .achievements_wrapper {
-    display: flex;
+    display: block;
     align-items: center;
     justify-content: space-around;
+}
+.achievements_wrapper > a{
+    margin: 26px;
 }
 
 .about_question_form .rightBlock {
