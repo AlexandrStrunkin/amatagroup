@@ -32,7 +32,7 @@
                 <?
                   global $ShowWithImage;
                   $curr_date = date('U');
-                  $date_create_date = $curr_date - (604800 * 2);
+                  $date_create_date = $curr_date - (86400 * 30);
                   $ShowWithImage = array(
                         ">=DATE_CREATE" => ConvertTimeStamp($date_create_date,"FULL"),
                         '!PREVIEW_PICTURE' => false

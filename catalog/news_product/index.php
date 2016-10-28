@@ -5,7 +5,7 @@ require($_SERVER["DOCUMENT_ROOT"]."/bitrix/header.php");
 <?
   global $arrFilter;
   $curr_date = date('U');
-  $date_create_date = $curr_date - (604800 * 2);
+  $date_create_date = $curr_date - (86400 * 30);
   $arrFilter = array(
         ">=DATE_CREATE" => ConvertTimeStamp($date_create_date,"FULL")
     );
@@ -18,8 +18,8 @@ require($_SERVER["DOCUMENT_ROOT"]."/bitrix/header.php");
 
             <div class="newsBlock">
     <?$APPLICATION->IncludeComponent(
-	"bitrix:catalog", 
-	"catalog_new_product", 
+	"bitrix:catalog",
+	"catalog_new_product",
 	array(
 		"IBLOCK_TYPE" => "1c_catalog",
 		"IBLOCK_ID" => "5",
