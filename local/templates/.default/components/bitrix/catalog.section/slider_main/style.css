@@ -889,7 +889,7 @@
 .bx-touch 	 .bx_catalog_list_home .bx_item_detail_scu .bx_slide_left {left:   0;background:url(images/fade_left.png)  repeat-y   left  center;background-size: 100% auto}
 .bx-touch 	 .bx_catalog_list_home .bx_item_detail_scu .bx_slide_right{right:  0;background:url(images/fade_right.png) repeat-y   right center;background-size: 100% auto}
 
-.bannerTextContainer a {
+.bannerTextContainer a.link_product {
     border-radius: 4px;
     border: 1px solid #9fdcff;
     text-align: center;
@@ -900,4 +900,7 @@
     vertical-align: top;
     font: 12px/18px 'MuseoSansCyrl-500';
     color: #3B402A;
+}
+.bannerTextContainer a.link_product:hover{
+    background-color: #9fdcff;
 }
