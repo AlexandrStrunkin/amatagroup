@@ -147,7 +147,7 @@ if(!defined("B_PROLOG_INCLUDED") || B_PROLOG_INCLUDED!==true)
 				?><?
 	        }?>
 	    <?endif?>
-    <?endforeach?> 
+    <?endforeach?>
     <?foreach ($arResult["USER_PROPERTIES"]["DATA"] as $FIELD_NAME => $arUserField){?>
          <?if($arUserField['FIELD_NAME'] == 'UF_FACE'){?>
             <span class="userFieldNameReg"><?=$arUserField["EDIT_FORM_LABEL"]?>:<?if ($arUserField["MANDATORY"]=="Y"):?><span class="starrequired">*</span><?endif;?></span>
@@ -184,7 +184,7 @@ if ($arResult["USE_CAPTCHA"] == "Y")
 ?>
 
 <div class="btn-container">
-    <a href="javascript:void(0)" class="authEnter btn_submit" ><?=GetMessage("NEXT")?></a>
+    <a href="javascript:void(0)" class="authNext" ><?=GetMessage("NEXT")?></a>
 </div>
 
 </div>
@@ -219,8 +219,8 @@ if ($arResult["USE_CAPTCHA"] == "Y")
 
 
 <div class="btn-container">
-    <a href="javascript:void(0)" class="authEnter btn_prew" ><?=GetMessage("PREW")?></a>
-    <a href="javascript:void(0)" class="authEnter" ><?=GetMessage("AUTH_REGISTER_SUBMIT")?></a>
+    <a href="javascript:void(0)" class="btn_prew" ><?=GetMessage("PREW")?></a>
+    <a href="javascript:void(0)" class="authSubmit" ><?=GetMessage("AUTH_REGISTER_SUBMIT")?></a>
 	<input type="submit" style="display: none;"  name="register_submit_button" />
 </div>
 

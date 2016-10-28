@@ -5597,7 +5597,9 @@ p.authTitle {
     padding-bottom: 18px;
 }
 
-.authEnter {
+.btn_prew,
+.authNext,
+.authSubmit {
     background-color: #5db3dc;
     border-radius: 34px;
     color: #ffffff;
@@ -8674,7 +8676,9 @@ display: none;
     margin-right: 20px;
     margin-left: 60px;
 }
-.btn-container .authEnter{
+.btn-container .btn_prew,
+.btn-container .authNext,
+.btn-container .authSubmit{
     width: 40%;
     float: left;
 }
