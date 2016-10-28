@@ -1735,7 +1735,7 @@ $(function() {
         $('.wrap_form_2').hide('slow');
         $('.wrap_form_1').show('slow');
     });
-    $('.btn_submit').click(function(){
+    $('.authNext').click(function(){
 
         var field = new Array('reg_input_NAME');//поля обязательные
 
@@ -1826,7 +1826,7 @@ $(function() {
         $(this).prev().removeClass('reset_input');
         $(this).css('z-index', 0);
     });
-    $('#form_register .wrap_form_2 .authEnter').click(function(){
+    $('#form_register .wrap_form_2 .authSubmit').click(function(){
         var error = 0;
         $("#form_register").find("input[type='file']").each(function() {// проверяем каждое поле в форме
             if(!$(this).val() && $(this).hasClass("active_face")) {
