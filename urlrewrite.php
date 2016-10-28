@@ -7,6 +7,12 @@ $arUrlRewrite = array(
 		"PATH" => "/desktop_app/router.php",
 	),
 	array(
+		"CONDITION" => "#^/news/.*.*.*.*.*.*.*.*.*.*.*.*.*.*#",
+		"RULE" => "",
+		"ID" => "bitrix:news",
+		"PATH" => "/news/index.php",
+	),
+	array(
 		"CONDITION" => "#^/bitrix/services/ymarket/#",
 		"RULE" => "",
 		"ID" => "",
@@ -43,6 +49,12 @@ $arUrlRewrite = array(
 		"PATH" => "/new-products/index.php",
 	),
 	array(
+		"CONDITION" => "#^/content/#",
+		"RULE" => "",
+		"ID" => "bitrix:news",
+		"PATH" => "/content/index.php",
+	),
+	array(
 		"CONDITION" => "#^/catalog/#",
 		"RULE" => "",
 		"ID" => "bitrix:catalog",
@@ -55,28 +67,10 @@ $arUrlRewrite = array(
 		"PATH" => "/catalog/filter/index.php",
 	),
 	array(
-		"CONDITION" => "#^/content/#",
-		"RULE" => "",
-		"ID" => "bitrix:news",
-		"PATH" => "/content/index.php",
-	),
-	array(
 		"CONDITION" => "#^/brands/#",
 		"RULE" => "",
 		"ID" => "bitrix:news",
 		"PATH" => "/brands/index.php",
-	),
-	array(
-		"CONDITION" => "#^/promo/#",
-		"RULE" => "",
-		"ID" => "bitrix:news",
-		"PATH" => "/promo/index.php",
-	),
-	array(
-		"CONDITION" => "#^/store/#",
-		"RULE" => "",
-		"ID" => "bitrix:catalog.store",
-		"PATH" => "/store/index.php",
 	),
 	array(
 		"CONDITION" => "#^\\??(.*)#",
@@ -85,10 +79,16 @@ $arUrlRewrite = array(
 		"PATH" => "/local/templates/amatagroup_index/header.php",
 	),
 	array(
-		"CONDITION" => "#^/news/#",
+		"CONDITION" => "#^/store/#",
+		"RULE" => "",
+		"ID" => "bitrix:catalog.store",
+		"PATH" => "/store/index.php",
+	),
+	array(
+		"CONDITION" => "#^/promo/#",
 		"RULE" => "",
 		"ID" => "bitrix:news",
-		"PATH" => "/news/index.php",
+		"PATH" => "/promo/index.php",
 	),
 );
 

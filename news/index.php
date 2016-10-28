@@ -93,8 +93,8 @@ $APPLICATION->SetTitle("Новости");
 		"SHOW_404" => "N",
 		"MESSAGE_404" => "",
 		"SEF_URL_TEMPLATES" => array(
-			"news" => "",
-			"section" => "",
+			"news" => "/news/",
+			"section" => "#SECTION_CODE_PATH#/",
 			"detail" => "#ELEMENT_CODE#/",
 		)
 	),
