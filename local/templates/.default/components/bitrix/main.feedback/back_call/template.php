@@ -27,9 +27,9 @@ if(!defined("B_PROLOG_INCLUDED")||B_PROLOG_INCLUDED!==true)die();
 		<?=bitrix_sessid_post()?>
         <p class="title"><?=GetMessage("MFT_CALL")?></p>
 
-		<input type="text" required  placeholder="<?=GetMessage('MFT_NAME')?>" class="input" name="user_name" value="<?=$arResult["AUTHOR_NAME"]?>"/>
+		<input type="text"  placeholder="<?=GetMessage('MFT_NAME')?>" class="input" name="user_name" value="<?=$arResult["AUTHOR_NAME"]?>"/ required>
 
-        <input type="number" required placeholder="<?=GetMessage('MFT_PHONE')?>" class="input" name="user_tell" value="<?=$arResult["AUTHOR_TELL"]?>"/>
+        <input type="phone" placeholder="<?=GetMessage('MFT_PHONE')?>" class="input" name="user_tell" value="<?=$arResult["AUTHOR_TELL"]?>"/ required>
 
 		<?if($arParams["USE_CAPTCHA"] == "Y"):?>
 			<strong><?=GetMessage("MFT_CAPTCHA")?></strong><br/>
