@@ -1,8 +1,6 @@
 <?require($_SERVER["DOCUMENT_ROOT"]."/bitrix/header.php");
 $APPLICATION->SetTitle("Задайте вопрос");
-?><div class="row">
- <br>
-</div>
+?>
  <?$APPLICATION->IncludeComponent("bitrix:news.list", "contacts", Array(
 	"ACTIVE_DATE_FORMAT" => "d.m.Y",	// Формат показа даты
 		"ADD_SECTIONS_CHAIN" => "Y",	// Включать раздел в цепочку навигации
@@ -63,10 +61,10 @@ $APPLICATION->SetTitle("Задайте вопрос");
 		"SET_STATUS_404" => "N",	// Устанавливать статус 404
 		"SET_TITLE" => "N",	// Устанавливать заголовок страницы
 		"SHOW_404" => "N",	// Показ специальной страницы
-		"SORT_BY1" => "ACTIVE_FROM",	// Поле для первой сортировки новостей
-		"SORT_BY2" => "SORT",	// Поле для второй сортировки новостей
-		"SORT_ORDER1" => "DESC",	// Направление для первой сортировки новостей
+		"SORT_BY1" => "SORT",	// Поле для первой сортировки новостей
+		"SORT_BY2" => "ID",	// Поле для второй сортировки новостей
+		"SORT_ORDER1" => "ASC",	// Направление для первой сортировки новостей
 		"SORT_ORDER2" => "ASC",	// Направление для второй сортировки новостей
 	),
 	false
-);?><br><?require($_SERVER["DOCUMENT_ROOT"]."/bitrix/footer.php")?>
+);?><?require($_SERVER["DOCUMENT_ROOT"]."/bitrix/footer.php")?>
