@@ -72,6 +72,16 @@ $this->setFrameMode(true);
 	                    <?= $arItem["PROPERTIES"]["PHONE"]["VALUE"] ?>
 	                </div>
 	                <!--END line-->
+                     <!--line-->
+                    <? if (strlen($arItem["PROPERTIES"]["URL"]["VALUE"]) > 0) {?>
+                        <div class="line">
+                            <strong><?= GetMessage("URL") ?></strong>
+                            <a href="<?= $arItem["PROPERTIES"]["URL"]["VALUE"] ?>" target="_blank">
+                                <?= $arItem["PROPERTIES"]["URL"]["VALUE"] ?>
+                            </a>
+                        </div>
+                    <? } ?>
+                    <!--END line-->
 	            </div>
 	            <!--END info-->
 	            <!--manager-->
