@@ -26,7 +26,8 @@ $this->setFrameMode(true);
     $isEnglish = true;
 
     foreach ($arResult["ITEMS"] as $arProd) {
-        $strLetter = ToUpper(substr($arProd["NAME"], 0, 1));
+        $strLetter_edit = $arProd["NAME"];
+        $strLetter = $strLetter_edit{0};
         if (isNumeric($strLetter)) {
             $strLetter = '123';
         }
