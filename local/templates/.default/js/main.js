@@ -32,6 +32,31 @@ $(document).ready(function () {
                 banner.find("li").css('width', '580px');
             } else {
                 menu.fadeIn(300);
+                //проверка текущего активного раздела
+                var current_section = parseInt(section_id);
+                if (current_section > 0) {
+                    
+                    var menu_item = $("li[data-id=" + current_section + "]");
+                    var depth_lvl = menu_item.data("depth-lvl");
+
+                    //раскрытие текущего активного раздела меню
+                    setTimeout(function(){ 
+                        //timeout стоит из-за того, чтобы пропустить анимацию, которая вызывается при раскрытии меню
+                        menu_item.parents(".js-catalog-menu").find(".topLvlLi").hide(); //скрываем все остальные пункты левого меню  
+                        menu_item.parents(".js-catalog-menu").siblings(".bottomBlockMailLeft").show(); //показываем кнопку "раскрыть все"
+                        menu_item.parents(".topLvlLi").show().addClass("activeLiTopMenuFirstLvl"); //добавляем класс активности к нужному пункту 
+                        menu_item.parents(".topLvlLi").children("ul.secondLvlCatalog").show(); //показываем подменю первого уровня
+                        menu_item.parents(".firstLvlLi").addClass("activeFirstLclLi"); //добавляем активность к нужному подразделу
+                        menu_item.parents(".firstLvlLi").children("ul.secondLvl").show(); //показываем подменю текущего уровня
+                        
+                        //добавляем подсветку у выбранных пунктов меню, если они не на 1 уровне
+                        if (depth_lvl > 1) {
+                           menu_item.children("a").attr("style", "color: #000 !important");
+                        }
+                        
+                        }, 10); 
+
+                }
             }
         }
         var index = banner.find(".jcarousel-pagination .active").attr("item");
@@ -1902,7 +1927,6 @@ $(function() {
     })
 });
 $(function() {
-    console.log($('#productList1').length);
     if ($('#productList1').length < 1) {
         $('.productBlockMenu #wrap_new').addClass('hide').next().addClass('active');
     }

@@ -77,14 +77,6 @@
     $arParams["ELEMENT_SORT_ORDER"] = $catalogParams["ELEMENT_SORT_ORDER"];
     $arParams["ELEMENT_SORT_FIELD2"] = $catalogParams["ELEMENT_SORT_FIELD2"];
     $arParams["ELEMENT_SORT_ORDER2"] = $catalogParams["ELEMENT_SORT_ORDER2"];
-
-    //при первом входе пользователя сортируем товар по доступности на складах и наличию картинок
-    if (empty($_SESSION["CATALOG_PARAMS"]["ELEMENT_SORT_FIELD"]) && empty($_SESSION["CATALOG_PARAMS"]["ELEMENT_SORT_FIELD2"])) {
-        // $arParams["ELEMENT_SORT_FIELD"] = "CATALOG_AVAILABLE";
-        // $arParams["ELEMENT_SORT_ORDER"] = "DESC";
-        // $arParams["ELEMENT_SORT_FIELD2"] = "HAS_PREVIEW_PICTURE";
-        // $arParams["ELEMENT_SORT_ORDER2"] = "DESC";
-    } 
     
     //формируем правильный вид для поля сортировки
     if ($arParams["ELEMENT_SORT_FIELD"] == "PRICE") {
@@ -473,3 +465,10 @@
                 <a href="" class="jcarousel-control-next"></a>
 
 <!--END viewedElementBlock-->
+
+<script>
+//section id for catalog menu
+<?if ($arCurSection['ID'] > 0) {?>
+section_id = <?=$arCurSection['ID']?>;
+<?}?>
+</script>
