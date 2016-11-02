@@ -53,7 +53,7 @@
 
                 echo (!$boolFirst ? "\n" : ''),str_repeat("\t", $arSection['RELATIVE_DEPTH_LEVEL']);
             ?>
-            <li <? if ($arSection["DEPTH_LEVEL"] == 2) { ?> class="firstLvlLi" <? } elseif($arSection["DEPTH_LEVEL"] == 1) { ?> class="topLvlLi" <? } ?> id="<?=$this->GetEditAreaId($arSection['ID']);?>">
+            <li <? if ($arSection["DEPTH_LEVEL"] == 2) { ?> class="firstLvlLi" <? } elseif($arSection["DEPTH_LEVEL"] == 1) { ?> class="topLvlLi" <? } ?> id="<?=$this->GetEditAreaId($arSection['ID']);?>" data-id="<?=$arSection['ID']?>" data-parent-id="<?=$arSection['IBLOCK_SECTION_ID']?>" data-depth-lvl="<?=$arSection["DEPTH_LEVEL"]?>">
             <?if ($arSection["DEPTH_LEVEL"] == 1) {?>
                 <img src="<?=$arSection["PICTURE"]["SRC"]?>" alt=""/>
                 <?}?>

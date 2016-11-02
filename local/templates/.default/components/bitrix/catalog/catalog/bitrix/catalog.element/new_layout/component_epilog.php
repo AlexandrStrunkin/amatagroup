@@ -65,3 +65,7 @@ BX.ready(BX.defer(function(){
 </script><?
 }
 ?>
+<script>
+//section id for catalog menu
+section_id = <?=$arResult["IBLOCK_SECTION_ID"]?>;
+</script>
