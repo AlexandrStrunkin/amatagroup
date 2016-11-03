@@ -289,8 +289,12 @@
 }
 .sectionBlocksWrap:after {
     content: "";
-    display: block;
+    /*display: block;*/
     clear: both;    
+}
+.sectionsList {
+    float: left;
+    margin-bottom: 100px;
 }
 .sectionsList li {
     float: left;

@@ -186,7 +186,7 @@
 			0 => "DETAIL_PICTURE",
 			1 => "",
 		),
-		"SECTION_ID" => $_REQUEST["SECTION_ID"],
+		"SECTION_ID" => $arCurSection['ID'],
 		"SECTION_URL" => "",
 		"SECTION_USER_FIELDS" => array(
 			0 => "",
