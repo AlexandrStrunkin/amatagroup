@@ -344,3 +344,6 @@
     right: 0;
     top: 0;
 }
+.bx_catalog_line .bx_catalog_line_category_title {
+    border-bottom: 0 !important;
+}

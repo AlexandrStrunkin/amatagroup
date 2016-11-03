@@ -71,28 +71,28 @@ if (0 < $arResult["SECTIONS_COUNT"]) {
 				    $this->AddEditAction($arSection['ID'], $arSection['EDIT_LINK'], $strSectionEdit);
 				    $this->AddDeleteAction($arSection['ID'], $arSection['DELETE_LINK'], $strSectionDelete, $arSectionDeleteParams);
 
-				    if (false === $arSection['PICTURE']) {
-					    $arSection['PICTURE'] = array(
-						    'SRC' => $arCurView['EMPTY_IMG'],
-						    'ALT' => (
-							    '' != $arSection["IPROPERTY_VALUES"]["SECTION_PICTURE_FILE_ALT"]
-							    ? $arSection["IPROPERTY_VALUES"]["SECTION_PICTURE_FILE_ALT"]
-							    : $arSection["NAME"]
-						    ),
-						    'TITLE' => (
-							    '' != $arSection["IPROPERTY_VALUES"]["SECTION_PICTURE_FILE_TITLE"]
-							    ? $arSection["IPROPERTY_VALUES"]["SECTION_PICTURE_FILE_TITLE"]
-							    : $arSection["NAME"]
-						    )
-					    );
-                    }
+                    if (strlen($arSection['DETAIL_PICTURE']) <= 0) {
+                        $arSection['PICTURE'] = array(
+                            'SRC' => $arCurView['EMPTY_IMG'],
+                            'ALT' => (
+                                '' != $arSection["IPROPERTY_VALUES"]["SECTION_PICTURE_FILE_ALT"]
+                                ? $arSection["IPROPERTY_VALUES"]["SECTION_PICTURE_FILE_ALT"]
+                                : $arSection["NAME"]
+                            ),
+                            'TITLE' => (
+                                '' != $arSection["IPROPERTY_VALUES"]["SECTION_PICTURE_FILE_TITLE"]
+                                ? $arSection["IPROPERTY_VALUES"]["SECTION_PICTURE_FILE_TITLE"]
+                                : $arSection["NAME"]
+                            )
+                        );
+                    };
 				    $section_picture = CFile::GetFileArray($arSection["DETAIL_PICTURE"]);?>
                     <li id="<? echo $this->GetEditAreaId($arSection['ID']); ?>">
                         <div class="sectionWrapper">
 				            <a href="<?= $arSection['SECTION_PAGE_URL']; ?>" 
                                 class="sectionimg"
 					            title="<?= $arSection['PICTURE']['TITLE']; ?>">
-                                    <img src="<?= $section_picture["SRC"] ?>" 
+                                    <img src="<?= $section_picture["SRC"] ? $section_picture["SRC"] :  $arSection['PICTURE']["SRC"]?>" 
                                         alt="<?= $arSection['PICTURE']['TITLE'] ?>"/>
                             </a>
                             <div>

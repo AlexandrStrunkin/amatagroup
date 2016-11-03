@@ -169,16 +169,16 @@
 
         <?$APPLICATION->IncludeComponent("bitrix:menu", "top_menu", Array(
                 "COMPONENT_TEMPLATE" => ".default",
-                "ROOT_MENU_TYPE" => "top",	// Тип меню для первого уровня
-                "MENU_CACHE_TYPE" => "A",	// Тип кеширования
-                "MENU_CACHE_TIME" => "3600",	// Время кеширования (сек.)
-                "MENU_CACHE_USE_GROUPS" => "N",	// Учитывать права доступа
-                "MENU_CACHE_GET_VARS" => "",	// Значимые переменные запроса
-                "MAX_LEVEL" => "1",	// Уровень вложенности меню
-                "CHILD_MENU_TYPE" => "left",	// Тип меню для остальных уровней
-                "USE_EXT" => "N",	// Подключать файлы с именами вида .тип_меню.menu_ext.php
-                "DELAY" => "N",	// Откладывать выполнение шаблона меню
-                "ALLOW_MULTI_SELECT" => "N",	// Разрешить несколько активных пунктов одновременно
+                "ROOT_MENU_TYPE" => "top",    // Тип меню для первого уровня
+                "MENU_CACHE_TYPE" => "A",    // Тип кеширования
+                "MENU_CACHE_TIME" => "3600",    // Время кеширования (сек.)
+                "MENU_CACHE_USE_GROUPS" => "N",    // Учитывать права доступа
+                "MENU_CACHE_GET_VARS" => "",    // Значимые переменные запроса
+                "MAX_LEVEL" => "1",    // Уровень вложенности меню
+                "CHILD_MENU_TYPE" => "left",    // Тип меню для остальных уровней
+                "USE_EXT" => "N",    // Подключать файлы с именами вида .тип_меню.menu_ext.php
+                "DELAY" => "N",    // Откладывать выполнение шаблона меню
+                "ALLOW_MULTI_SELECT" => "N",    // Разрешить несколько активных пунктов одновременно
                 ),
                 false
             );?>
@@ -202,30 +202,30 @@
         <div class="firstLvlBlocks linksBlock" id="linkBlock1">
 
             <?$APPLICATION->IncludeComponent(
-	"bitrix:search.title",
-	"search_field",
-	array(
-		"COMPONENT_TEMPLATE" => "search_field",
-		"NUM_CATEGORIES" => "1",
-		"TOP_COUNT" => "15",
-		"ORDER" => "rank",
-		"USE_LANGUAGE_GUESS" => "Y",
-		"CHECK_DATES" => "N",
-		"SHOW_OTHERS" => "N",
-		"PAGE" => "/catalog/",
-		"SHOW_INPUT" => "Y",
-		"INPUT_ID" => "title-search-input",
-		"CONTAINER_ID" => "title-search",
-		"CATEGORY_0_TITLE" => "Товары",
-		"CATEGORY_0" => array(
-			0 => "iblock_1c_catalog",
-		),
-		"CATEGORY_0_iblock_1c_catalog" => array(
-			0 => "5",
-			1 => "6",
-		)
-	),
-	false
+    "bitrix:search.title",
+    "search_field",
+    array(
+        "COMPONENT_TEMPLATE" => "search_field",
+        "NUM_CATEGORIES" => "1",
+        "TOP_COUNT" => "15",
+        "ORDER" => "rank",
+        "USE_LANGUAGE_GUESS" => "N",
+        "CHECK_DATES" => "N",
+        "SHOW_OTHERS" => "N",
+        "PAGE" => "/catalog/",
+        "SHOW_INPUT" => "Y",
+        "INPUT_ID" => "title-search-input",
+        "CONTAINER_ID" => "title-search",
+        "CATEGORY_0_TITLE" => "Товары",
+        "CATEGORY_0" => array(
+            0 => "iblock_1c_catalog",
+        ),
+        "CATEGORY_0_iblock_1c_catalog" => array(
+            0 => "5",
+            1 => "6",
+        )
+    ),
+    false
 );?>
 
         </div>
@@ -288,19 +288,19 @@
             <div class="regHiddenBlock">
                 <p class="authClose"></p>
                 <?$APPLICATION->IncludeComponent("bitrix:main.register", "popup_register", Array(
-                        "AUTH" => "Y",	// Автоматически авторизовать пользователей
-                        "REQUIRED_FIELDS" => array(	// Поля, обязательные для заполнения
+                        "AUTH" => "Y",    // Автоматически авторизовать пользователей
+                        "REQUIRED_FIELDS" => array(    // Поля, обязательные для заполнения
                             0 => "NAME",
                         ),
-                        "SET_TITLE" => "N",	// Устанавливать заголовок страницы
-                        "SHOW_FIELDS" => array(	// Поля, которые показывать в форме
+                        "SET_TITLE" => "N",    // Устанавливать заголовок страницы
+                        "SHOW_FIELDS" => array(    // Поля, которые показывать в форме
                             0 => "NAME",
                             1 => "PERSONAL_PHONE",
                         ),
-                        "SUCCESS_PAGE" => "",	// Страница окончания регистрации
-                        "USER_PROPERTY" => "",	// Показывать доп. свойства
-                        "USER_PROPERTY_NAME" => "",	// Название блока пользовательских свойств
-                        "USE_BACKURL" => "Y",	// Отправлять пользователя по обратной ссылке, если она есть
+                        "SUCCESS_PAGE" => "",    // Страница окончания регистрации
+                        "USER_PROPERTY" => "",    // Показывать доп. свойства
+                        "USER_PROPERTY_NAME" => "",    // Название блока пользовательских свойств
+                        "USE_BACKURL" => "Y",    // Отправлять пользователя по обратной ссылке, если она есть
                         ),
                         false
                     );?>
