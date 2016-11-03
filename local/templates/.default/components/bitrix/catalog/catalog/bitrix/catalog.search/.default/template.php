@@ -11,7 +11,7 @@
     /** @var string $componentPath */
     /** @var CBitrixComponent $component */
     $this->setFrameMode(true);
-?>                             
+?>
             <div style="display: none;">
                 <?
                     $arElements = $APPLICATION->IncludeComponent(
@@ -20,7 +20,7 @@
                         Array(
                             "RESTART" => $arParams["RESTART"],
                             "NO_WORD_LOGIC" => $arParams["NO_WORD_LOGIC"],
-                            "USE_LANGUAGE_GUESS" => $arParams["USE_LANGUAGE_GUESS"],
+                            "USE_LANGUAGE_GUESS" => 'N',
                             "CHECK_DATES" => $arParams["CHECK_DATES"],
                             "arrFILTER" => array("iblock_".$arParams["IBLOCK_TYPE"]),
                             "arrFILTER_iblock_".$arParams["IBLOCK_TYPE"] => array($arParams["IBLOCK_ID"]),
@@ -41,8 +41,8 @@
                         array('HIDE_ICONS' => 'Y')
                     );
             ?></div>
-            
-            <? 
+
+            <?
 
                 if (!empty($arElements) && is_array($arElements))
                 {
@@ -156,4 +156,3 @@
             ?>
 
 
-        
