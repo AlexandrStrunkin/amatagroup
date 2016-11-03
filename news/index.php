@@ -94,9 +94,10 @@ $APPLICATION->SetTitle("Новости");
 		"MESSAGE_404" => "",
 		"SEF_URL_TEMPLATES" => array(
 			"news" => "/news/",
-			"section" => "#SECTION_CODE_PATH#/",
+			"section" => "/#SECTION_CODE_PATH#/",
 			"detail" => "#ELEMENT_CODE#/",
 		)
 	),
 	false
-);?><?require($_SERVER["DOCUMENT_ROOT"]."/bitrix/footer.php");?>
+);
+require($_SERVER["DOCUMENT_ROOT"]."/bitrix/footer.php");?>

@@ -17,6 +17,20 @@
 
     $catalogParams = getCatalogViewParams();  //sets in init.php
     $sectionTemplate = $catalogParams["CATALOG_SECTION_TEMPLATE"];
+    $arParams["PAGE_ELEMENT_COUNT"] = $catalogParams["PAGE_ELEMENT_COUNT"];
+    $arParams["ELEMENT_SORT_FIELD"] = $catalogParams["ELEMENT_SORT_FIELD"];
+    $arParams["ELEMENT_SORT_ORDER"] = $catalogParams["ELEMENT_SORT_ORDER"];
+    $arParams["ELEMENT_SORT_FIELD2"] = $catalogParams["ELEMENT_SORT_FIELD2"];
+    $arParams["ELEMENT_SORT_ORDER2"] = $catalogParams["ELEMENT_SORT_ORDER2"];
+    
+    //формируем правильный вид для поля сортировки
+    if ($arParams["ELEMENT_SORT_FIELD"] == "PRICE") {
+        $priceCode = $arParams["PRICE_CODE"][0];
+        $arPrice = CCatalogGroup::GetList(array(), array("NAME"=>$priceCode), false, false, array())->Fetch();
+        if ($arPrice["ID"] > 0) {
+            $arParams["ELEMENT_SORT_FIELD"] = "CATALOG_PRICE_".$arPrice["ID"];
+        }
+    }
 
     // $this->addExternalCss("/bitrix/css/main/bootstrap.css");
 
@@ -28,21 +42,25 @@
         <!--horizontalFilterWrap-->
         <div class="horizontalFilterWrap">
             <div class="productFilterWrap">
-                <span><?=GetMessage("SEARCH_RESULTS")?></span>
+                <p class="activeTopLeftBut"><?=GetMessage("CATALOG_FILTER")?></p>
             </div>
-            <div class="sortingWrap">  
-                <p><?=GetMessage("ORDER_BY")?></p>  
+            <div class="displayTypeWrapAvalible">
+                <div class="avalibleFilter">
+                    <?getCatalogOptionBlock("CATALOG_AVAILABLE_PRODUCT"); //sets in init.php?>
+                </div>
+            </div>
+            <div class="sortingWrap">
 
-                <div class="firstFilter">                      
-                    <?getCatalogOptionBlock("ELEMENT_SORT_FIELD"); //sets in init.php?>                    
+                <p><?=GetMessage("ORDER_BY")?></p>
+
+                <div class="firstFilter">
+                    <?getCatalogOptionBlock("ELEMENT_SORT_FIELD"); //sets in init.php?>
                 </div>
 
-                <div class="secondFilter">            
-                    <?getCatalogOptionBlock("ELEMENT_SORT_ORDER"); //sets in init.php?>     
-                </div>                 
+
             </div>
             <div class="displayTypeWrap">
-                <?if ($sectionTemplate == "blocks") {?> 
+                <?if ($sectionTemplate == "blocks") {?>
                     <div class="blockType checked"></div>
                     <div class="listType" data-href="?CATALOG_SECTION_TEMPLATE=table"></div>
                     <?} else {?>
@@ -53,9 +71,9 @@
 
             <div class="quantityWrap">
                 <p class="quantityFiltTitle"><?=GetMessage("PAGE_ELEMENT_COUNT")?></p>
-                <div class="quantOnPageFilt">                  
-                    <?getCatalogOptionBlock("PAGE_ELEMENT_COUNT"); //sets in init.php?>                           
-                </div>                      
+                <div class="quantOnPageFilt">
+                    <?getCatalogOptionBlock("PAGE_ELEMENT_COUNT"); //sets in init.php?>
+                </div>
             </div>
 
         </div>

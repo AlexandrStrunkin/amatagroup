@@ -92,11 +92,10 @@ $APPLICATION->SetTitle("О магазине");
 							"COMPONENT_TEMPLATE" => ".default"
 						),
 						false
-					);?>
-                </div>
+					);?>                </div>
             </div>
             <div class="infoBlocksContent about_tabs" id="exclusiveBrands">
-	            <h3>Мы являемся Эксклюзивными дистрибьюторами следующих торговых марок</h3>
+	            <h3>СЕРТИФИКАТЫ ОФИЦИАЛЬНОГО ДИСТРИБЬЮТОРА</h3>
 	            <?
         		$filter[">PREVIEW_PICTURE"] = 0;
 				$filter["PROPERTY_EXCLUSIVE_VALUE"] = "Да";

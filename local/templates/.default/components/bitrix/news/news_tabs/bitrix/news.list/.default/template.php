@@ -17,7 +17,7 @@
         <li id="<?=$this->GetEditAreaId($item['ID']);?>">
             <div class="imageWrapper"><img src="<?= $item['PREVIEW_PICTURE']['SRC'] ?>" alt="<?= $item['NAME'] ?>"/></div>
             <p class="dateText"><?= date_format(date_create_from_format('d.m.Y H:i:s', $item['DATE_CREATE']), 'd.m.Y') ?></p>
-            <a href="" class="newsName"><?= $item['NAME'] ?></a>
+            <a href="<?= $item['DETAIL_PAGE_URL'] ?>" class="newsName"><?= $item['NAME'] ?></a>
             <p class="newsText">
             	<?= $item['PREVIEW_TEXT'] ?>
             </p>
