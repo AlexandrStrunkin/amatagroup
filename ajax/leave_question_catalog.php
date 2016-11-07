@@ -54,7 +54,8 @@ if ($element_id > 0) {
 	foreach ($mails as $mail) {
 		$template_fields['FORM_TYPE'] = $mail == FORM_FROM_EMAIL ? "(" . $form_types[$form_type] . ")" : "";
 		$template_fields['EMAIL'] = $mail;
-		CEvent::Send("FORM_QUASTION", SITE_ID, $template_fields, 'N', CARD_QUESTION_FORM_TEMPLATE_ID);
+        CEvent::Send("FORM_QUASTION", SITE_ID, $template_fields, 'N', CARD_QUESTION_FORM_TEMPLATE_ID);
+		CEvent::Send("FORM_QUASTION", SITE_ID, $template_fields, 'N', CARD_QUESTION_FORM_TEMPLATE_ID_EMAIL);
 	}
 }
 ?>
