@@ -5779,7 +5779,9 @@ top: 140px !important;
     width: 499px;
 }
 
-.hiddenQuestionBlock a, .btn, .hiddenProductComment a {
+.hiddenQuestionBlock a, .btn,
+.hiddenProductComment a,
+.btn_company {
     background-color: #5db3dc;
     border-radius: 40px;
     color: #fff!important;
