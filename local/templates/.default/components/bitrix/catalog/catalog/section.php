@@ -174,7 +174,7 @@
 	"bitrix:catalog.section.list", 
 	"catalog_section_list", 
 	array(
-		"ADD_SECTIONS_CHAIN" => "Y",
+		"ADD_SECTIONS_CHAIN" => "N",
 		"CACHE_GROUPS" => "Y",
 		"CACHE_TIME" => "36000000",
 		"CACHE_TYPE" => "A",
@@ -186,7 +186,7 @@
 			0 => "DETAIL_PICTURE",
 			1 => "",
 		),
-		"SECTION_ID" => $arCurSection['ID'],
+		"SECTION_ID" => $arCurSection["ID"],
 		"SECTION_URL" => "",
 		"SECTION_USER_FIELDS" => array(
 			0 => "",
