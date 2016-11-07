@@ -1,16 +1,16 @@
 <?if(!defined("B_PROLOG_INCLUDED") || B_PROLOG_INCLUDED!==true)die();
-/** @var array $arParams */
-/** @var array $arResult */
-/** @global CMain $APPLICATION */
-/** @global CUser $USER */
-/** @global CDatabase $DB */
-/** @var CBitrixComponentTemplate $this */
-/** @var string $templateName */
-/** @var string $templateFile */
-/** @var string $templateFolder */
-/** @var string $componentPath */
-/** @var CBitrixComponent $component */
-$this->setFrameMode(true);
+    /** @var array $arParams */
+    /** @var array $arResult */
+    /** @global CMain $APPLICATION */
+    /** @global CUser $USER */
+    /** @global CDatabase $DB */
+    /** @var CBitrixComponentTemplate $this */
+    /** @var string $templateName */
+    /** @var string $templateFile */
+    /** @var string $templateFolder */
+    /** @var string $componentPath */
+    /** @var CBitrixComponent $component */
+    $this->setFrameMode(true);
 ?>
 <div id="contacts">
     <div id="map-zoom-plus" class="map-zoom-plus"></div>
@@ -19,73 +19,74 @@ $this->setFrameMode(true);
     <div id="map-normal-mode" class="map-normal-mode"></div>
     <div id="map" class="map"></div>
     <?
-		$containers_counter = 0;
-		$lat_center = 0;
-		$lng_center = 0;
-		$google_coordinates = array();
-	?>
-    <? foreach($arResult["ITEMS"] as $arItem) { ?>
-	    <div class="contactsWindow" id="contactsWindow<?= $containers_counter ?>">
-	        <div class="close"></div>
-	        <div class="status"><?= GetMessage("OPENED") ?></div>
-	        <h2><?= $arItem["NAME"] ?></h2>
-	        <div class="date"><?= $arItem["PROPERTIES"]["WORKING_DAYS"]["VALUE"] ?>, <span><?= $arItem["PROPERTIES"]["WORKING_HOURS"]["VALUE"] ?></span></div>
-	        <div class="basketBody tabs">
-	            <!--tabsLinks-->
-	            <div class="basketBodyMenu tabsLinks">
-	                <a href="#info" class="active js_google_tabs"><?= GetMessage("INFO") ?></a>
-	                <a href="#manager" class="js_google_tabs"><?= GetMessage("MANAGERS") ?></a>
-	            </div>
-	            <!--END tabsLinks-->
-	            <!--info-->
-	            <div id="info" class="basketBlock" style="display: block">
-	                <!--line-->
-	                <div class="line">
-	                    <strong><?= GetMessage("ADDRESS") ?></strong>
-	                    <?= $arItem["PROPERTIES"]["ADDRESS"]["VALUE"] ?>
-	                </div>
-	                <!--END line-->
-	                <!--line-->
-	                <div class="line">
-	                    <strong><?= GetMessage("MAIL") ?></strong>
-	                    <a href="mailto:<?= $arItem["PROPERTIES"]["MAIL"]["VALUE"] ?>"><?= $arItem["PROPERTIES"]["MAIL"]["VALUE"] ?></a>
-	                </div>
-	                <!--END line-->
-	                <!--line-->
-	                <div class="line">
-	                    <strong><?= GetMessage("PHONE") ?></strong>
-	                    <?= $arItem["PROPERTIES"]["PHONE"]["VALUE"] ?>
-	                </div>
-	                <!--END line-->
-	            </div>
-	            <!--END info-->
-	            <!--manager-->
-	            <div id="manager" class="basketBlock">
-	            	<? foreach ($arItem["PROPERTIES"]["MANAGER"]["VALUE"] as $manager) { ?>
-		                <div class="line">
-		                    <?= $manager ?>
-		                </div>
-	                <? } ?>
-	            </div>
-	            <!--END manager-->
-	            <?	
-					$exploded_coordinates = explode(",", $arItem["PROPERTIES"]["COORDINATES"]["VALUE"]);
-					$lat_center += $exploded_coordinates[0];
-					$lng_center += $exploded_coordinates[1];
-	            	array_push(
-						$google_coordinates,
-						"{lat: " . $exploded_coordinates[0] . ", lng: " . $exploded_coordinates[1] . ", disabled: 0}"
-					);
-	            ?>
-	        </div>
-	        <!--btnContainer-->
-	        <div class="btnContainer">
-	            <a href="https://www.google.com.ru/maps/dir/+/г Москва <?= $arItem["PROPERTIES"]["ADDRESS"]["VALUE"] ?>" target="_blank"><img src="/img/map.png" alt=""/><?= GetMessage("HOW_TO_GET") ?></a>
-	        </div>
-	        <!--END btnContainer-->
-	    </div>
-	    <? $containers_counter++; ?>
-    <? } ?>
+        $containers_counter = 0;
+        $lat_center = 0;
+        $lng_center = 0;
+        $google_coordinates = array();
+    ?>
+    <? foreach($arResult["ITEMS"] as $i=>$arItem) { ?>
+        <div class="contactsWindow" id="contactsWindow<?= $containers_counter ?>">
+            <div class="close"></div>
+            <div class="status"><?= GetMessage("OPENED") ?></div>
+            <h2><?= $arItem["NAME"] ?></h2>
+            <div class="date"><?= $arItem["PROPERTIES"]["WORKING_DAYS"]["VALUE"] ?>, <span><?= $arItem["PROPERTIES"]["WORKING_HOURS"]["VALUE"] ?></span></div>
+            <div class="basketBody tabs">
+                <!--tabsLinks-->
+                <div class="basketBodyMenu tabsLinks">
+                    <a href="#info" class="active js_google_tabs"><?= GetMessage("INFO") ?></a>
+                    <a href="#manager" class="js_google_tabs"><?= GetMessage("MANAGERS") ?></a>
+                </div>
+                <!--END tabsLinks-->
+                <!--info-->
+                <div id="info" class="basketBlock" style="display: block">
+                    <!--line-->
+                    <div class="line">
+                        <strong><?= GetMessage("ADDRESS") ?></strong>
+                        <?= $arItem["PROPERTIES"]["ADDRESS"]["VALUE"] ?>
+                    </div>
+                    <!--END line-->
+                    <!--line-->
+                    <div class="line">
+                        <strong><?= GetMessage("MAIL") ?></strong>
+                        <a href="mailto:<?= $arItem["PROPERTIES"]["MAIL"]["VALUE"] ?>"><?= $arItem["PROPERTIES"]["MAIL"]["VALUE"] ?></a>
+                    </div>
+                    <!--END line-->
+                    <!--line-->
+                    <div class="line">
+                        <strong><?= GetMessage("PHONE") ?></strong>
+                        <?= $arItem["PROPERTIES"]["PHONE"]["VALUE"] ?>
+                    </div>
+                    <!--END line-->
+                </div>
+                <!--END info-->
+                <!--manager-->
+                <div id="manager" class="basketBlock">
+                    <? foreach ($arItem["PROPERTIES"]["MANAGER"]["VALUE"] as $manager) { ?>
+                        <div class="line">
+                            <?= $manager ?>
+                        </div>
+                        <? } ?>
+                </div>
+                <!--END manager-->
+                <?	
+                    $exploded_coordinates = explode(",", $arItem["PROPERTIES"]["COORDINATES"]["VALUE"]);
+                    $lat_center += $exploded_coordinates[0];
+                    $lng_center += $exploded_coordinates[1];
+
+                    array_push(
+                        $google_coordinates,
+                        "{lat: " . $exploded_coordinates[0] . ", lng: " . $exploded_coordinates[1] . ", disabled: 0}"
+                    );
+                ?>
+            </div>
+            <!--btnContainer-->
+            <div class="btnContainer">
+                <a href="https://www.google.com.ru/maps/dir/+/г Москва <?= $arItem["PROPERTIES"]["ADDRESS"]["VALUE"] ?>" target="_blank"><img src="/img/map.png" alt=""/><?= GetMessage("HOW_TO_GET") ?></a>
+            </div>
+            <!--END btnContainer-->
+        </div>
+        <? $containers_counter++; ?>
+        <? } ?>
 </div>
 <script>
 
@@ -97,17 +98,17 @@ $this->setFrameMode(true);
     function initialize() {
         //адреса
         var coords = [<?= implode(",", $google_coordinates) ?>];
-        
+
         <?	
-			$total_baloons = count($google_coordinates);
-			$lat_center = floatval($lat_center / $total_baloons);
-			$lng_center = floatval($lng_center / $total_baloons);
+            $total_baloons = count($google_coordinates);
+            $lat_center = round($lat_center / $total_baloons, 10);
+            $lng_center = round($lng_center / $total_baloons, 10);
         ?>
 
         var center = {lat: <?= $lat_center ?>, lng: <?= $lng_center ?>};
 
         //карта с настройками
-        var zoom = 13;
+        var zoom = 5;
         var map = new google.maps.Map(document.getElementById('map'), {
             scrollwheel: false,
             zoom: zoom,
@@ -179,7 +180,7 @@ $this->setFrameMode(true);
 
         google.maps.event.addListener(marker, 'click', function () {
             var el = $(".contactsWindow"), el1 = $("#contactsWindow" + marker.ind);
-			console.log(marker);
+            console.log(marker);
             if (openedMarker) {
                 openedMarker.setIcon("/img/pinDisabled.png");
 

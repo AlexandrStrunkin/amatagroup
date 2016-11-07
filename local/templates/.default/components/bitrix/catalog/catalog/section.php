@@ -77,14 +77,6 @@
     $arParams["ELEMENT_SORT_ORDER"] = $catalogParams["ELEMENT_SORT_ORDER"];
     $arParams["ELEMENT_SORT_FIELD2"] = $catalogParams["ELEMENT_SORT_FIELD2"];
     $arParams["ELEMENT_SORT_ORDER2"] = $catalogParams["ELEMENT_SORT_ORDER2"];
-
-    //при первом входе пользователя сортируем товар по доступности на складах и наличию картинок
-    if (empty($_SESSION["CATALOG_PARAMS"]["ELEMENT_SORT_FIELD"]) && empty($_SESSION["CATALOG_PARAMS"]["ELEMENT_SORT_FIELD2"])) {
-        // $arParams["ELEMENT_SORT_FIELD"] = "CATALOG_AVAILABLE";
-        // $arParams["ELEMENT_SORT_ORDER"] = "DESC";
-        // $arParams["ELEMENT_SORT_FIELD2"] = "HAS_PREVIEW_PICTURE";
-        // $arParams["ELEMENT_SORT_ORDER2"] = "DESC";
-    } 
     
     //формируем правильный вид для поля сортировки
     if ($arParams["ELEMENT_SORT_FIELD"] == "PRICE") {
@@ -178,9 +170,36 @@
 
 
             <!--elementBlocksWrap-->
-
-            <?
-                if (isset($arParams['USE_COMMON_SETTINGS_BASKET_POPUP']) && $arParams['USE_COMMON_SETTINGS_BASKET_POPUP'] == 'Y')
+            <?$APPLICATION->IncludeComponent(
+	"bitrix:catalog.section.list", 
+	"catalog_section_list", 
+	array(
+		"ADD_SECTIONS_CHAIN" => "N",
+		"CACHE_GROUPS" => "Y",
+		"CACHE_TIME" => "36000000",
+		"CACHE_TYPE" => "A",
+		"COUNT_ELEMENTS" => "Y",
+		"IBLOCK_ID" => "5",
+		"IBLOCK_TYPE" => "1c_catalog",
+		"SECTION_CODE" => "",
+		"SECTION_FIELDS" => array(
+			0 => "DETAIL_PICTURE",
+			1 => "",
+		),
+		"SECTION_ID" => $arCurSection["ID"],
+		"SECTION_URL" => "",
+		"SECTION_USER_FIELDS" => array(
+			0 => "",
+			1 => "",
+		),
+		"SHOW_PARENT_NAME" => "Y",
+		"TOP_DEPTH" => "2",
+		"VIEW_MODE" => "LINE",
+		"COMPONENT_TEMPLATE" => "catalog_section_list",
+		"HIDE_SECTION_NAME" => "N"
+	),
+	false
+);        if (isset($arParams['USE_COMMON_SETTINGS_BASKET_POPUP']) && $arParams['USE_COMMON_SETTINGS_BASKET_POPUP'] == 'Y')
                     $basketAction = (isset($arParams['COMMON_ADD_TO_BASKET_ACTION']) ? $arParams['COMMON_ADD_TO_BASKET_ACTION'] : '');
                 else
                     $basketAction = (isset($arParams['SECTION_ADD_TO_BASKET_ACTION']) ? $arParams['SECTION_ADD_TO_BASKET_ACTION'] : '');
@@ -473,3 +492,10 @@
                 <a href="" class="jcarousel-control-next"></a>
 
 <!--END viewedElementBlock-->
+
+<script>
+//section id for catalog menu
+<?if ($arCurSection['ID'] > 0) {?>
+section_id = <?=$arCurSection['ID']?>;
+<?}?>
+</script>

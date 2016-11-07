@@ -35,7 +35,7 @@ div.news-list img.preview_picture
 }
 .widthWrapper .wrap-sk-menu-abc .sk-menu-abc-devider {
     margin: 0 0 -10px 0!important;
-    top: -20px;
+    top: 0px;
     font-size: 16px;
     height: 21px;
 }
