@@ -174,8 +174,8 @@
 	"bitrix:catalog.section.list", 
 	"catalog_section_list", 
 	array(
-		"ADD_SECTIONS_CHAIN" => "Y",
-		"CACHE_GROUPS" => "N",
+		"ADD_SECTIONS_CHAIN" => "N",
+		"CACHE_GROUPS" => "Y",
 		"CACHE_TIME" => "36000000",
 		"CACHE_TYPE" => "A",
 		"COUNT_ELEMENTS" => "Y",
