@@ -175,7 +175,7 @@
 	"catalog_section_list", 
 	array(
 		"ADD_SECTIONS_CHAIN" => "Y",
-		"CACHE_GROUPS" => "Y",
+		"CACHE_GROUPS" => "N",
 		"CACHE_TIME" => "36000000",
 		"CACHE_TYPE" => "A",
 		"COUNT_ELEMENTS" => "Y",
@@ -186,7 +186,7 @@
 			0 => "DETAIL_PICTURE",
 			1 => "",
 		),
-		"SECTION_ID" => $arCurSection['ID'],
+		"SECTION_ID" => $arCurSection["ID"],
 		"SECTION_URL" => "",
 		"SECTION_USER_FIELDS" => array(
 			0 => "",
@@ -199,9 +199,7 @@
 		"HIDE_SECTION_NAME" => "N"
 	),
 	false
-);?>
-            <?
-                if (isset($arParams['USE_COMMON_SETTINGS_BASKET_POPUP']) && $arParams['USE_COMMON_SETTINGS_BASKET_POPUP'] == 'Y')
+);        if (isset($arParams['USE_COMMON_SETTINGS_BASKET_POPUP']) && $arParams['USE_COMMON_SETTINGS_BASKET_POPUP'] == 'Y')
                     $basketAction = (isset($arParams['COMMON_ADD_TO_BASKET_ACTION']) ? $arParams['COMMON_ADD_TO_BASKET_ACTION'] : '');
                 else
                     $basketAction = (isset($arParams['SECTION_ADD_TO_BASKET_ACTION']) ? $arParams['SECTION_ADD_TO_BASKET_ACTION'] : '');

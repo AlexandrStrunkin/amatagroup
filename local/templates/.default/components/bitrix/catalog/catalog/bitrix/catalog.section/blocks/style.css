@@ -15,3 +15,9 @@
     color: #ccc;
     text-decoration: line-through;
 }
+.elmentsList {
+    float: left;
+    padding-top: 55px;
+    border-top: 1px solid #e5e5e5;
+
+}

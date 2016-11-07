@@ -22,7 +22,7 @@
     $arParams["ELEMENT_SORT_ORDER"] = $catalogParams["ELEMENT_SORT_ORDER"];
     $arParams["ELEMENT_SORT_FIELD2"] = $catalogParams["ELEMENT_SORT_FIELD2"];
     $arParams["ELEMENT_SORT_ORDER2"] = $catalogParams["ELEMENT_SORT_ORDER2"];
-    
+
     //формируем правильный вид для поля сортировки
     if ($arParams["ELEMENT_SORT_FIELD"] == "PRICE") {
         $priceCode = $arParams["PRICE_CODE"][0];
@@ -79,7 +79,7 @@
         </div>
         <!--END horizontalFilterWrap-->
         <!--allElementWrap-->
-        <div class="allElementWrap">     
+        <div class="allElementWrap">
 
             <?$APPLICATION->IncludeComponent(
                     "bitrix:catalog.search",
@@ -190,9 +190,9 @@
             <div class="elemOnPageWrapp">
                 <p class="quantityFiltTitle"><?=GetMessage("PAGE_ELEMENT_COUNT")?></p>
 
-                <div class="quantOnPageFiltBot">                     
+                <div class="quantOnPageFiltBot">
 
-                    <?getCatalogOptionBlock("PAGE_ELEMENT_COUNT"); //sets in init.php?>   
+                    <?getCatalogOptionBlock("PAGE_ELEMENT_COUNT"); //sets in init.php?>
 
                 </div>
 
@@ -200,7 +200,7 @@
         </div>
         <!--END bottomHorNavig-->
     </div>
-</div> 
+</div>
 
 <script type="">
     $(function(){
