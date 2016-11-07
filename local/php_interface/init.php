@@ -82,6 +82,7 @@
     define("ELEMENT_SPECIAL_OFFER_SALE", 6260);
 
     define("CARD_QUESTION_FORM_TEMPLATE_ID", 77);
+    define("CARD_QUESTION_FORM_TEMPLATE_ID_EMAIL", 89);
     define("QUESTION_FORM_TEMPLATE_ID", 78);
     define("SEND_QUESTION_FORM_TEMPLATE_ID", 76);
     define("FORM_FROM_EMAIL", "info@amatagroup.ru");
