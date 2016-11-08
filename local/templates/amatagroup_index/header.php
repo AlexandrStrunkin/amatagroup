@@ -64,9 +64,9 @@
 		"DISABLE_INIT_JS_IN_COMPONENT" => "Y",
 		"DISPLAY_BOTTOM_PAGER" => "N",
 		"DISPLAY_TOP_PAGER" => "N",
-		"ELEMENT_SORT_FIELD" => "date_create",
+		"ELEMENT_SORT_FIELD" => "rand",
 		"ELEMENT_SORT_FIELD2" => "id",
-		"ELEMENT_SORT_ORDER" => "desc",
+		"ELEMENT_SORT_ORDER" => "date_create",
 		"ELEMENT_SORT_ORDER2" => "desc",
 		"FILTER_NAME" => "ShowWithImage",
 		"HIDE_NOT_AVAILABLE" => "Y",
@@ -276,8 +276,8 @@
                 $arFilter_arrivals = array('!PROPERTY_NOVOE_POSTUPLENIE_VALUE' => false);
                 ?>
                 <?$APPLICATION->IncludeComponent(
-	"bitrix:catalog.section", 
-	"arrivals", 
+	"bitrix:catalog.section",
+	"arrivals",
 	array(
 		"ACTION_VARIABLE" => "action",
 		"ADD_PICT_PROP" => "-",
