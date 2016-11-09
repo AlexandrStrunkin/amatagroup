@@ -12,10 +12,10 @@
     /** @var CBitrixComponent $component */
     $this->setFrameMode(true);
 ?>
-<div class="elementBlocksWrap smallElementList">
 
 <!--elmentsList-->
-<ul class="elmentsList">
+<?if(count($arResult['ITEMS']) > 0){?>
+<ul class="productList" id="productList2">
 
     <?
         if (!empty($arResult['ITEMS'])) {
@@ -31,6 +31,7 @@
                 'CURRENCIES' => $currencyList
             );
             unset($currencyList, $templateLibrary);
+
             $arSkuTemplate = array();
             if (!empty($arResult['SKU_PROPS'])) {
                 foreach ($arResult['SKU_PROPS'] as &$arProp) {
@@ -96,6 +97,8 @@
             foreach ($arResult['ITEMS'] as $key => $arItem) {
                 $this->AddEditAction($arItem['ID'], $arItem['EDIT_LINK'], $strElementEdit);
                 $this->AddDeleteAction($arItem['ID'], $arItem['DELETE_LINK'], $strElementDelete, $arElementDeleteParams);
+
+                //arshow($arItem);
 
                 $strMainID = $this->GetEditAreaId($arItem['ID']);
 
@@ -184,21 +187,23 @@
                     <div>
                         <a href="<? echo $arItem['DETAIL_PAGE_URL']; ?>" class="productName"><?=$arItem["NAME"]?></a>
 
-                        <?if ((!is_array($arItem["OFFERS"]) || count($arItem["OFFERS"]) <= 0) && $arItem["MIN_PRICE_TMP"]) {?>
+                        <?if ($arItem['MIN_PRICE']["CAN_BUY"]) {?>
+
                             <div id="<? echo $arItemIDs['BASKET_ACTIONS']; ?>" <?if ($arItem['IN_BASKET'] == "Y"){?>title="<?=GetMessage("PRODUCT_ALREADY_IN_BASKET")?>"<?}?>  class="bx_catalog_item_controls_blocktwo productBasketBlock changingBasket <?if ($arItem['IN_BASKET'] == "Y"){?> active<?}?>">
                                 <a id="<? echo $arItemIDs['BUY_LINK']; ?>" class="blockLink bx_bt_button bx_medium <?if ($arItem['IN_BASKET'] != "Y") {?>js-add-to-basket <?}?>" href="<?=$arItem['ADD_URL']?>" rel="nofollow"></a>
                             </div>
 
-                            <?}?>
+                        <?}?>
 
                         <div class="productLikeBlock changingLike">
-                        	<a href="javascript:void(0)"
-				               class="list_favorite blockLink <?= $arResult['USER_AUTHORIZED'] ?  ($arItem['USER_HAVE_ITEM_IN_FAVORITE'] ? " active already_in_favorite" : " js_add_to_favorite") : " js_favorite_need_auth" ?>"
-				               data-favorite-product-id="<?= $arItem["ID"] ?>"
-				               data-favorite-delete="<?= $arItem['USER_HAVE_ITEM_IN_FAVORITE'] ? "Y" : "" ?>"
-				               data-favorite-item-id="<?= $arItem['USER_HAVE_ITEM_IN_FAVORITE'] ?>">
-				            </a>
+                            <a href="javascript:void(0)"
+                               class="list_favorite blockLink <?= $arResult['USER_AUTHORIZED'] ?  ($arItem['USER_HAVE_ITEM_IN_FAVORITE'] ? " active already_in_favorite" : " js_add_to_favorite") : " js_favorite_need_auth" ?>"
+                               data-favorite-product-id="<?= $arItem["ID"] ?>"
+                               data-favorite-delete="<?= $arItem['USER_HAVE_ITEM_IN_FAVORITE'] ? "Y" : "" ?>"
+                               data-favorite-item-id="<?= $arItem['USER_HAVE_ITEM_IN_FAVORITE'] ?>">
+                            </a>
                         </div>
+
 
                     </div>
 
@@ -220,12 +225,9 @@
                             ?>
                             <div class="freshLogoWrapper" title="<?=GetMessage("FRESH_PRODUCT")?>">FRESH</div>
                             <?}?>
-                            <?// при заролненном свойстве "хиты продаж"?>
                             <div class="bestLogoWrapper">BEST</div>
-                             <?// при заролненном свойстве "новые поступления"?>
-                            <?if($arItem["PROPERTIES"]["NOVOE_POSTUPLENIE"]["VALUE"]){?>
-                                <div class="freshLogoWrapper">FRESH</div>
-                            <?}?>
+
+
 
                         <?/*
                             <div class="bestLogoWrapper">BEST</div>
@@ -506,10 +508,11 @@
             </li>
             <?
             }
+        }
         ?>
+        <a class="transition_section" href="<?=$arParams["SECTION_URL"]?>"><?=GetMessage('BESTSELLERS_PRODUCT')?></a>
     </ul>
     <!--END elmentsList-->
-
     <div style="clear: both;"></div>
 
     <script type="text/javascript">
@@ -531,14 +534,11 @@
             SITE_ID: '<? echo SITE_ID; ?>'
         });
     </script>
-
+  <?}?>
     <?if ($arParams["DISPLAY_BOTTOM_PAGER"]) {?>
         <?$this->SetViewTarget('catalog_pager'); //show in section.php?>
         <?echo $arResult["NAV_STRING"];?>
         <?$this->EndViewTarget();?>
-        <?}?>
-    <?} else {?>
-        <p class="no_element"><?=GetMessage('NO_ELEMENT')?></p>
     <?}?>
 
     <?$this->SetViewTarget('catalog_section_description'); //show in header.php?>
