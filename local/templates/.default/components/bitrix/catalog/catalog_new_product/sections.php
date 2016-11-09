@@ -74,10 +74,21 @@
     $catalogParams = getCatalogViewParams();  //sets in init.php
     $sectionTemplate = $catalogParams["CATALOG_SECTION_TEMPLATE"];
     $arParams["PAGE_ELEMENT_COUNT"] = $catalogParams["PAGE_ELEMENT_COUNT"];
-    $arParams["ELEMENT_SORT_FIELD"] = $catalogParams["ELEMENT_SORT_FIELD"];
-    $arParams["ELEMENT_SORT_ORDER"] = $catalogParams["ELEMENT_SORT_ORDER"];
-    $arParams["ELEMENT_SORT_FIELD2"] = $catalogParams["ELEMENT_SORT_FIELD2"];
-    $arParams["ELEMENT_SORT_ORDER2"] = $catalogParams["ELEMENT_SORT_ORDER2"];
+    if($arParams["OFFERS_SORT_FIELD"] == 'PROPERTY_BESTSELLERS'){
+        $arParams["ELEMENT_SORT_FIELD"] = 'PROPERTY_BESTSELLERS';
+        $arParams["ELEMENT_SORT_FIELD2"] = 'shows';
+        $arParams["ELEMENT_SORT_ORDER"] = 'desc';
+        $arParams["ELEMENT_SORT_ORDER2"] = 'desc';
+    } else {
+        $arParams["ELEMENT_SORT_FIELD"] = $catalogParams["ELEMENT_SORT_FIELD"];
+        $arParams["ELEMENT_SORT_ORDER"] = $catalogParams["ELEMENT_SORT_ORDER"];
+        $arParams["ELEMENT_SORT_FIELD2"] = $catalogParams["ELEMENT_SORT_FIELD2"];
+        $arParams["ELEMENT_SORT_ORDER2"] = $catalogParams["ELEMENT_SORT_ORDER2"];
+
+    }
+
+
+
 
     //при первом входе пользователя сортируем товар по доступности на складах и наличию картинок
     if (empty($_SESSION["CATALOG_PARAMS"]["ELEMENT_SORT_FIELD"]) && empty($_SESSION["CATALOG_PARAMS"]["ELEMENT_SORT_FIELD2"])) {
