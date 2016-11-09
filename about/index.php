@@ -5,7 +5,8 @@ $APPLICATION->SetTitle("О магазине");
         <div class="widthWrapper">
 
             <div class="infoBlocksMenu">
-                <a href="#history" class="activeInfoBlock">История</a>
+                <a href="#history" class="activeInfoBlock">О нас</a>
+                <a href="#miss" class="activeInfoBlock">Наша миссия</a>
                 <a href="#achievements">Наши награды и достижения</a>
                 <a href="#exclusiveBrands">Эксклюзивная дистрибуция брендов</a>
                 <a href="#distribution">Дистрибьюция</a>
@@ -21,6 +22,20 @@ $APPLICATION->SetTitle("О магазине");
 					"EDIT_TEMPLATE" => "standard.php",
 					"COMPONENT_TEMPLATE" => ".default",
 					"PATH" => "/include/history.php"
+				),
+				false
+			);?>
+            </div>
+            <div class="infoBlocksContent about_tabs" id="miss" style="display: block">
+			<?$APPLICATION->IncludeComponent(
+				"bitrix:main.include",
+				".default",
+				array(
+					"AREA_FILE_SHOW" => "file",
+					"AREA_FILE_SUFFIX" => "inc",
+					"EDIT_TEMPLATE" => "standard.php",
+					"COMPONENT_TEMPLATE" => ".default",
+					"PATH" => "/include/missi.php"
 				),
 				false
 			);?>
