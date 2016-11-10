@@ -6,10 +6,10 @@ $APPLICATION->SetTitle("О магазине");
 
             <div class="infoBlocksMenu">
                 <a href="#history" class="activeInfoBlock">О нас</a>
-                <a href="#miss" class="activeInfoBlock">Наша миссия</a>
-                <a href="#achievements">Наши награды и достижения</a>
-                <a href="#exclusiveBrands">Эксклюзивная дистрибуция брендов</a>
-                <a href="#distribution">Дистрибьюция</a>
+                <a href="#miss">Наша миссия</a>
+                <a href="#achievements">Наши награды</a>
+                <a href="#exclusiveBrands">Эксклюзивная дистрибьюция</a>
+                <a href="#distribution">Официальная дистрибьюция</a>
             </div>
 
             <div class="infoBlocksContent about_tabs" id="history" style="display: block">
@@ -26,7 +26,7 @@ $APPLICATION->SetTitle("О магазине");
 				false
 			);?>
             </div>
-            <div class="infoBlocksContent about_tabs" id="miss" style="display: block">
+            <div class="infoBlocksContent about_tabs" id="miss">
 			<?$APPLICATION->IncludeComponent(
 				"bitrix:main.include",
 				".default",
