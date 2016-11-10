@@ -6,6 +6,12 @@ $arUrlRewrite = array(
 		"ID" => "bitrix:im.router",
 		"PATH" => "/desktop_app/router.php",
 	),
+    array(
+        "CONDITION" => "#^/news/.*.*.*.*.*.*.*.*.*.*.*.*.*.*#",
+        "RULE" => "",
+        "ID" => "bitrix:news",
+        "PATH" => "/news/index.php",
+    ),
 	array(
 		"CONDITION" => "#^/bitrix/services/ymarket/#",
 		"RULE" => "",
