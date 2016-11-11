@@ -173,8 +173,7 @@ $APPLICATION->SetTitle("О магазине");
                     )
                 );?>
                 <? unset($filter) ?>
-            </div>
-            <div class="about_tabs" id="achievements">
+
                 <h3>СЕРТИФИКАТЫ ОФИЦИАЛЬНОГО ДИСТРИБЬЮТОРА</h3>
                 <?$APPLICATION->IncludeComponent(
                         "bitrix:news.list",
@@ -242,8 +241,8 @@ $APPLICATION->SetTitle("О магазине");
                         ),
                         false
                     );?>
-
             </div>
+
             <div class="infoBlocksContent about_tabs" id="distribution">
 	        <h3>Мы являемся Эксклюзивными дистрибьюторами следующих торговых марок</h3>
 	        <h3> </h3>
