@@ -9218,3 +9218,14 @@ h3, h4, h5, h6 {
     color: #000;
     font-family: "MuseoSansCyrl-700";
 }
+.forgot_password_form .bx-authform-label-container, .forgot_password_form .bx-authform-link-container {
+	font-family: "PT Serif";
+}
+
+.forgot_password_form .bx-authform-label-container {
+	margin-bottom: 5px;
+}
+
+.forgot_password_form .bx-authform-link-container b {
+	color: #5DB3DC !important;
+}
