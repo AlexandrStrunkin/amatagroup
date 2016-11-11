@@ -98,7 +98,7 @@
 
         $strElementEdit = CIBlock::GetArrayByID($arParams["IBLOCK_ID"], "ELEMENT_EDIT");
         $strElementDelete = CIBlock::GetArrayByID($arParams["IBLOCK_ID"], "ELEMENT_DELETE");
-        $arElementDeleteParams = array("CONFIRM" => GetMessage('CT_BCS_TPL_ELEMENT_DELETE_CONFIRM'));       
+        $arElementDeleteParams = array("CONFIRM" => GetMessage('CT_BCS_TPL_ELEMENT_DELETE_CONFIRM'));
 
     ?>
                     <div class="elementsTable">
@@ -114,7 +114,7 @@
                                     </tr>
                                 </thead>
 
-                                <tbody>     
+                                <tbody>
                                     <?
                                         foreach ($arResult['ITEMS'] as $key => $arItem) {
                                             $this->AddEditAction($arItem['ID'], $arItem['EDIT_LINK'], $strElementEdit);
@@ -162,7 +162,7 @@
                                             $minPrice = false;
                                             if (isset($arItem['MIN_PRICE']) || isset($arItem['RATIO_PRICE']))
                                                 $minPrice = (isset($arItem['RATIO_PRICE']) ? $arItem['RATIO_PRICE'] : $arItem['MIN_PRICE']);
-                                                
+
                                                 $arItem["MIN_PRICE_TMP"] = $minPrice;
 
                                         ?>
@@ -173,24 +173,24 @@
                                                     <a href="<?=$arItem['DETAIL_PAGE_URL'];?>">
                                                         <img src="<?=$arItem["PREVIEW_PICTURE"]["SRC"]?>" alt="<?=$arItem["NAME"]?>">
                                                     </a>
-                                                </div>        
+                                                </div>
 
                                                 <?//шильдик скидки
-                                                    if ($arItem["MIN_PRICE_TMP"]['DISCOUNT_VALUE'] < $arItem["MIN_PRICE_TMP"]['VALUE'] && $arItem["MIN_PRICE_TMP"]["DISCOUNT_DIFF_PERCENT"] > 0) {?> 
+                                                    if ($arItem["MIN_PRICE_TMP"]['DISCOUNT_VALUE'] < $arItem["MIN_PRICE_TMP"]['VALUE'] && $arItem["MIN_PRICE_TMP"]["DISCOUNT_DIFF_PERCENT"] > 0) {?>
                                                     <p class="elementStatus statusExpected">-<?=$arItem["MIN_PRICE_TMP"]["DISCOUNT_DIFF_PERCENT"];?>%</p>
                                                     <? //шильдик новинки. Если товар  создан менее 2 недель назад
                                                     } else if (date("U") - 86400 * NEW_PRODUCT_STATUS_LENGTH <= MakeTimeStamp($arItem["DATE_CREATE"], "DD.MM.YYYY HH:MI:SS")) {
                                                     ?>
                                                     <p class="elementStatus statusByOrder" title="<?=GetMessage("NEW_PRODUCT")?>">NEW</p>
-                                                    <? 
+                                                    <?
                                                         //шильдик последние поступления. Если товар  создан менее 2 дней назад
-                                                    } else if (date("U") - 86400 * FRESH_PRODUCT_STATUS_LENGTH <= MakeTimeStamp($arItem["DATE_CREATE"], "DD.MM.YYYY HH:MI:SS")) {
+                                                    } else if (date("U") - 86400 * FRESH_PRODUCT_STATUS_LENGTH <= MakeTimeStamp($arItem["DATE_CREATE"], "DD.MM.YYYY HH:MI:SS") || $arItem["PROPERTIES"]["NOVOE_POSTUPLENIE"]["VALUE"]) { {
                                                     ?>
                                                     <p class="elementStatus statusByOrderEmpty" title="<?=GetMessage("FRESH_PRODUCT")?>">FRESH</p>
                                                     <?} else {?>
                                                     <p class="elementStatus statusInStock"><?=GetMessage("PRODUCT_AVAILABLE")?></p>
-                                                    <?}?> 
-                                                <br>     
+                                                    <?}?>
+                                                <br>
 
                                                 <p class="elementTitle">
                                                     <span>
@@ -217,10 +217,10 @@
                                                                         if (!empty($offer["PROPERTIES"][$offerPropName]["VALUE"])) {
                                                                             $offerName[] = $offer["PROPERTIES"][$offerPropName]["VALUE"];
                                                                         }
-                                                                    } 
+                                                                    }
                                                                     if (count($offerName) > 0) {
                                                                         $offerNameVisible = trim(implode(", ", $offerName));
-                                                                    }     
+                                                                    }
                                                                 ?>
                                                                 <option value="<?=$offer["ADD_URL"]?>" data-offer-id="<?=$offer["ID"]?>"><?=$offerNameVisible?></option>
                                                                 <?}?>
@@ -236,7 +236,7 @@
                                                         <a href="" class="quantityPlus"></a>
                                                         <a href="" class="quantityMinus"></a>
                                                     </div>
-                                                    <?}?>       
+                                                    <?}?>
                                             </td>
 
                                             <td class="elementPrice">
@@ -261,7 +261,7 @@
                                                                 echo $minPrice['PRINT_DISCOUNT_VALUE'];
                                                             }
 
-                                                            if ('Y' == $arParams['SHOW_OLD_PRICE'] && $minPrice['DISCOUNT_VALUE'] < $minPrice['VALUE']) {?> 
+                                                            if ('Y' == $arParams['SHOW_OLD_PRICE'] && $minPrice['DISCOUNT_VALUE'] < $minPrice['VALUE']) {?>
                                                             <br>&nbsp;<span class="old_price"><? echo $minPrice['PRINT_VALUE']; ?></span>
                                                             <?
                                                             }
@@ -277,16 +277,16 @@
                                                         <?
                                                             $minPrice = (isset($offer['RATIO_PRICE']) ? $offer['RATIO_PRICE'] : $offer['MIN_PRICE']);
 
-                                                            echo $minPrice['PRINT_DISCOUNT_VALUE'];  
+                                                            echo $minPrice['PRINT_DISCOUNT_VALUE'];
 
-                                                            if ('Y' == $arParams['SHOW_OLD_PRICE'] && $minPrice['DISCOUNT_VALUE'] < $minPrice['VALUE']) {?> 
+                                                            if ('Y' == $arParams['SHOW_OLD_PRICE'] && $minPrice['DISCOUNT_VALUE'] < $minPrice['VALUE']) {?>
                                                             <br>&nbsp;<span class="old_price"><? echo $minPrice['PRINT_VALUE']; ?></span>
                                                             <?
                                                             }
 
                                                             unset($minPrice);
                                                         ?> &nbsp;
-                                                    </p>  
+                                                    </p>
                                                     <?}
                                                 }?>
 
@@ -403,7 +403,7 @@
                                                     ?><script type="text/javascript">
                                                         var <? echo $strObName; ?> = new JCCatalogSection(<? echo CUtil::PhpToJSObject($arJSParams, false, true); ?>);
                                                     </script><?
-                                                    } else {  
+                                                    } else {
 
                                                         if ('Y' == $arParams['PRODUCT_DISPLAY_MODE']) {
                                                             if (!empty($arItem['OFFERS_PROP'])) {
@@ -598,22 +598,22 @@
                                             <td class="elementActions">
 
 
-                                                <?if (($arItem['CAN_BUY'] && empty($arItem["OFFERS"])) || !empty($arItem["OFFERS"])) {?> 
+                                                <?if (($arItem['CAN_BUY'] && empty($arItem["OFFERS"])) || !empty($arItem["OFFERS"])) {?>
                                                     <div id="<? echo $arItemIDs['BASKET_ACTIONS']; ?>"  <?if ($arItem['IN_BASKET'] == "Y"){?> title="<?=GetMessage("PRODUCT_ALREADY_IN_BASKET")?>"<?}?>  class="bx_catalog_item_controls_blocktwo productBasketBlock changingBasket <?if ($arItem['IN_BASKET'] == "Y"){?> active<?}?> <?if (!empty($arItem["OFFERS"])) {?> basketButtonInvisible<?}?>">
                                                         <a id="<? echo $arItemIDs['BUY_LINK']; ?>" data-item-id="<?=$arItem["ID"]?>" class="blockLink bx_bt_button bx_medium <?if ($arItem['IN_BASKET'] != "Y") {?>js-add-to-basket <?}?>" href="<?if (empty($arItem["OFFERS"])) {echo $arItem['ADD_URL'];}?>" rel="nofollow"></a>
-                                                    </div>      
+                                                    </div>
                                                     <?}?>
 
-                                                <a href="javascript:void(0)" 
+                                                <a href="javascript:void(0)"
 									               class="deleteButton js_delete_from_favorite_list"
 									               title="<?=GetMessage("REMOVE_FROM_FAVOURITE")?>"
 									               data-favorite-delete="<?= $arItem['USER_HAVE_ITEM_IN_FAVORITE'] ? "Y" : "" ?>"
 									               data-favorite-item-id="<?= $arItem['USER_HAVE_ITEM_IN_FAVORITE'] ?>">
 									            <p></p>
 									            </a>
-                                            </td>   
+                                            </td>
 
-                                        </tr>                                 
+                                        </tr>
                                         <?}?>
                                 </tbody>
                             </table>
@@ -641,23 +641,23 @@
         });
     </script>
 
-    <?if ($arParams["DISPLAY_BOTTOM_PAGER"]) {?>            
-        <?$this->SetViewTarget('catalog_pager'); //show in section.php?>         
-        <?echo $arResult["NAV_STRING"];?>                
+    <?if ($arParams["DISPLAY_BOTTOM_PAGER"]) {?>
+        <?$this->SetViewTarget('catalog_pager'); //show in section.php?>
+        <?echo $arResult["NAV_STRING"];?>
         <?$this->EndViewTarget();?>
-        <?}?>   
+        <?}?>
     <?}?>
-    
+
     <p class="no_items_in_favorite" <? if (!empty($arResult['ITEMS'])) { ?> style="display: none" <? } ?>>
         <?= GetMessage("HAVE_NOT_FAVORITE_YET") ?>
     </p>
-    
+
             </div>
         </div>
     </div>
 </div>
 
-<?$this->SetViewTarget('catalog_section_description'); //show in header.php?> 
+<?$this->SetViewTarget('catalog_section_description'); //show in header.php?>
 <?=$arResult["DESCRIPTION"]?>
 <?$this->EndViewTarget();?>
 

@@ -221,15 +221,13 @@
                             <?}?>
 
                         <?//шильдик последние поступления. Если товар  создан менее 2 дней назад
-                            if (date("U") - 86400 * FRESH_PRODUCT_STATUS_LENGTH <= MakeTimeStamp($arItem["DATE_CREATE"], "DD.MM.YYYY HH:MI:SS" || $arItem["PROPERTIES"]["NOVOE_POSTUPLENIE"]["VALUE"])) {
+                            if (date("U") - 86400 * FRESH_PRODUCT_STATUS_LENGTH <= MakeTimeStamp($arItem["DATE_CREATE"], "DD.MM.YYYY HH:MI:SS") || $arItem["PROPERTIES"]["NOVOE_POSTUPLENIE"]["VALUE"]) {
                             ?>
                             <div class="freshLogoWrapper" title="<?=GetMessage("FRESH_PRODUCT")?>">FRESH</div>
                             <?}?>
                             <?if($arItem["PROPERTIES"]["BESTSELLERS"]["VALUE_XML_ID"] == 'Y'){?>
                                 <div class="bestLogoWrapper">BEST</div>
                             <?}?>
-
-
 
                         <?/*
                             <div class="bestLogoWrapper">BEST</div>
