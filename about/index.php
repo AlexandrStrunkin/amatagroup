@@ -173,7 +173,7 @@ $APPLICATION->SetTitle("Œ Ï‡„‡ÁËÌÂ");
                     )
                 );?>
                 <? unset($filter) ?>
-
+                <br>
                 <h3>—≈–“»‘» ¿“€ Œ‘»÷»¿À‹ÕŒ√Œ ƒ»—“–»¡‹ﬁ“Œ–¿</h3>
                 <?$APPLICATION->IncludeComponent(
                         "bitrix:news.list",
