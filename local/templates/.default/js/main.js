@@ -1353,6 +1353,13 @@ $(document).ready(function () {
         $(".previewImg a").attr("href", id);
         $(".smallPreviewImg a").removeClass("active");
         el.addClass("active");
+        $("#previews_slider_wrapper a").each(function(){
+            if ($(this).attr("href") == id) {
+                $(this).attr("rel", "");
+            } else {
+                $(this).attr("rel", "element_gallery");
+            }
+        })
     });
 
     $(".productCardDesc .elementQuant").on("click", function (e) {

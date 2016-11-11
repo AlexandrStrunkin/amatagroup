@@ -36,6 +36,13 @@ if (isset($templateData['JS_OBJ']))
 ?><script type="text/javascript">
 BX.ready(BX.defer(function(){
 	$(".fancybox").fancybox();
+    $("a[rel=element_gallery]").fancybox({
+        'transitionIn'  :   'elastic',
+        'transitionOut' :   'elastic',
+        'speedIn'       :   600, 
+        'speedOut'      :   200, 
+        'overlayShow'   :   false
+    });
 	// простенький слайдер для превьюх в карточке товара
 	var preview_slider = new PreviewSlider({
 		slide_distance: 104,

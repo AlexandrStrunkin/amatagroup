@@ -125,7 +125,7 @@ $arFirstPhoto = current($arResult['MORE_PHOTO']);
         <!--previewImg-->
         <div class="previewImg">
 
-        	<a class="fancybox" href="<?= $arFirstPhoto['SRC'] ?>">
+        	<a rel="element_gallery" class="fancybox" href="<?= $arFirstPhoto['SRC'] ?>">
                 <?if($arFirstPhoto["ID"]){?>
                     <img id="<? echo $arItemIDs['PICT']; ?>" src="<?= getResizedImage($arFirstPhoto['ID'], ELEMENT_CARD_MAIN_WIDTH, ELEMENT_CARD_MAIN_HEIGHT, BX_RESIZE_IMAGE_PROPORTIONAL_ALT) ?>" alt="<? echo $strAlt; ?>" title="<? echo $strTitle; ?>">
                 <?} else {?>
@@ -150,7 +150,7 @@ $arFirstPhoto = current($arResult['MORE_PHOTO']);
             <? }
 				if (is_array($arResult['PROPERTIES']['MORE_PHOTO']['VALUE'])) {
 					foreach ($arResult['PROPERTIES']['MORE_PHOTO']['VALUE'] as $photo_id) { ?>
-						<a href="<?= CFile::GetPath($photo_id) ?>" data-preview-image="<?= getResizedImage($photo_id, ELEMENT_CARD_MAIN_WIDTH, ELEMENT_CARD_MAIN_HEIGHT, BX_RESIZE_IMAGE_PROPORTIONAL_ALT) ?>">
+						<a rel="element_gallery" href="<?= CFile::GetPath($photo_id) ?>" data-preview-image="<?= getResizedImage($photo_id, ELEMENT_CARD_MAIN_WIDTH, ELEMENT_CARD_MAIN_HEIGHT, BX_RESIZE_IMAGE_PROPORTIONAL_ALT) ?>">
 							<img src="<?= getResizedImage($photo_id, ELEMENT_CARD_PREVIEW_WIDTH, ELEMENT_CARD_PREVIEW_HEIGHT, BX_RESIZE_IMAGE_PROPORTIONAL_ALT) ?>" alt=""/>
 						</a>
 				<? 	}
