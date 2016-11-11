@@ -117,6 +117,8 @@
     define("CATALOG_GROUP_ID_PRICE_BASE", 1); // код типа цены базовой
 
     define("CATALOG_SECTION_LATEST", '/catalog/latest_product/');
+    define("IMAGE_SERTIFICATE_WIDTH", 600); // код типа цены базовой
+    define("IMAGE_SERTIFICATE_HEIGHT", 800); // код типа цены базовой
 
 
 

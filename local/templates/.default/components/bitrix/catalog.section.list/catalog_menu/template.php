@@ -57,9 +57,13 @@
             <?if ($arSection["DEPTH_LEVEL"] == 1) {?>
                 <img src="<?=$arSection["PICTURE"]["SRC"]?>" alt=""/>
                 <?}?>
+
             <a href="<? echo $arSection["SECTION_PAGE_URL"]; ?>">
                 <? echo $arSection["NAME"];?>
             </a>
+            <? if ($arSection["DEPTH_LEVEL"] == 2){?>
+                <span class="open_select"></span>
+            <?}?>
             <?
 
                 $intCurrentDepth = $arSection['RELATIVE_DEPTH_LEVEL'];
