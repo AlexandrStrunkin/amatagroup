@@ -214,7 +214,6 @@
                             ?>
                             <div class="newLogoWrapper" title="<?=GetMessage("NEW_PRODUCT")?>">NEW</div>
                             <?}?>
-
                         <?//шильдик последние поступления. Если товар  создан менее 2 дней назад
                             if (date("U") - 86400 * FRESH_PRODUCT_STATUS_LENGTH <= MakeTimeStamp($arItem["DATE_CREATE"], "DD.MM.YYYY HH:MI:SS") || $arItem["PROPERTIES"]["NOVOE_POSTUPLENIE"]["VALUE"]) {
                             ?>
