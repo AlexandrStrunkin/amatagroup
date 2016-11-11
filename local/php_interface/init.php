@@ -116,6 +116,8 @@
     define("CATALOG_GROUP_ID_PRICE", 3); // код типа цены оптовой
     define("CATALOG_GROUP_ID_PRICE_BASE", 1); // код типа цены базовой
 
+    define("CATALOG_SECTION_LATEST", '/catalog/latest_product/');
+
 
 
 

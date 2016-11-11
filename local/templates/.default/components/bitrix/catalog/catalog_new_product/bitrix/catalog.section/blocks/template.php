@@ -220,7 +220,7 @@
                             <div class="freshLogoWrapper" title="<?=GetMessage("FRESH_PRODUCT")?>">FRESH</div>
                             <?}?>
                             <?// при заролненном свойстве "хиты продаж"?>
-                            <?if($APPLICATION->GetCurPage() == '/catalog/latest_product/' && $arItem["PROPERTIES"]["BESTSELLERS"]["VALUE"]){?>
+                            <?if($APPLICATION->GetCurPage() == CATALOG_SECTION_LATEST && $arItem["PROPERTIES"]["BESTSELLERS"]["VALUE"]){?>
                             <div class="bestLogoWrapper">BEST</div>
                             <?}?>
 
