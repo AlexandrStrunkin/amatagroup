@@ -247,8 +247,8 @@ $APPLICATION->SetTitle("О магазине");
 	        <h3>Мы являемся Эксклюзивными дистрибьюторами следующих торговых марок</h3>
 	        <h3> </h3>
             <?
-                $Filter_brands[">PREVIEW_PICTURE"] = 0;
-                $Filter_brands["PROPERTY_DISPLAY_IN_ABOUT_VALUE"] = "Да";
+                $filter_brands[">PREVIEW_PICTURE"] = 0;
+                $filter_brands["PROPERTY_DISPLAY_IN_ABOUT_VALUE"] = "Да";
             ?>
             <?$APPLICATION->IncludeComponent(
                 "bitrix:news.list",
@@ -275,7 +275,7 @@ $APPLICATION->SetTitle("О магазине");
                     "DISPLAY_PREVIEW_TEXT" => "Y",
                     "DISPLAY_TOP_PAGER" => "N",
                     "FIELD_CODE" => array(0=>"PREVIEW_PICTURE",1=>"",),
-                    "FILTER_NAME" => "Filter_brands",
+                    "FILTER_NAME" => "filter_brands",
                     "HIDE_LINK_WHEN_NO_DETAIL" => "N",
                     "IBLOCK_ID" => "14",
                     "IBLOCK_TYPE" => "services",

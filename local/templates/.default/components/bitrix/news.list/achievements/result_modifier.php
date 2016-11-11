@@ -1,13 +1,12 @@
 <?
 foreach ($arResult["ITEMS"] as $key => $arItem) {
-    $arFileTmp = CFile::ResizeImageGet(
+    $ar_File = CFile::ResizeImageGet(
         $arItem["DETAIL_PICTURE"]["ID"],
-        array("width" => 600, "height" => 800),
+        array("width" => IMAGE_SERTIFICATE_WIDTH, "height" => IMAGE_SERTIFICATE_HEIGHT),
         BX_RESIZE_IMAGE_EXACT,
-        true,
-        $arWaterMark
+        true
     );
-    $arItem["PICTURE"] = $arFileTmp;
+    $arItem["PICTURE"] = $ar_File;
     $arResult["ITEMS"][$key] = $arItem;
 }
 ?>
