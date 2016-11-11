@@ -209,25 +209,27 @@
                                 </td>
                                 <td class="elementColor">
                                     <?if (isset($arItem['OFFERS']) && !empty($arItem['OFFERS'])) {?>
+                                    <?
+                                        //получаем первое активное предложение
+                                        $first_offer = $arItem["OFFERS"][0];
+                                    ?>
+                                    <?
+                                        $offerNameVisible = $first_offer["NAME"];
+                                        $offerName = array();
+                                    ?>
+                                    <?foreach ($arParams["OFFER_TREE_PROPS"] as $offerPropName) {
+                                            if (!empty($first_offer["PROPERTIES"][$offerPropName]["VALUE"])) {
+                                                $offerName[] = $first_offer["PROPERTIES"][$offerPropName]["VALUE"];
+                                            }
+                                        }
+                                        if (count($offerName) > 0) {
+                                            $offerNameVisible = trim(implode(", ", $offerName));
+                                        }
+                                    ?>
+
+                                    <?if(count($arItem['OFFERS']) > 1){?>
                                         <div class="selectric-wrapper selectric-basketSelect">
                                             <select name="color" data-item-id="<?=$arItem["ID"]?>" class="js-offer-select">
-                                                <?  
-                                                    //получаем первое активное предложение  
-                                                    $first_offer = $arItem["OFFERS"][0];  
-                                                ?>
-                                                <?
-                                                    $offerNameVisible = $first_offer["NAME"];
-                                                    $offerName = array();
-                                                ?>
-                                                <?foreach ($arParams["OFFER_TREE_PROPS"] as $offerPropName) {
-                                                        if (!empty($first_offer["PROPERTIES"][$offerPropName]["VALUE"])) {
-                                                            $offerName[] = $first_offer["PROPERTIES"][$offerPropName]["VALUE"];
-                                                        }
-                                                    }
-                                                    if (count($offerName) > 0) {
-                                                        $offerNameVisible = trim(implode(", ", $offerName));
-                                                    }
-                                                ?>
                                                 <?foreach ($arItem["OFFERS"] as $offer) {?>
                                                     <?
                                                         $offerNameVisible = $offer["NAME"];
@@ -246,6 +248,26 @@
                                                     <?}?>
                                             </select>
                                         </div>
+                                        <?} else {?>
+                                            <?foreach ($arItem["OFFERS"] as $offer) {?>
+                                                <?
+                                                    $offerNameVisible = $offer["NAME"];
+                                                    $offerName = array();
+                                                ?>
+                                                <?foreach ($arParams["OFFER_TREE_PROPS"] as $offerPropName) {
+                                                        if (!empty($offer["PROPERTIES"][$offerPropName]["VALUE"])) {
+                                                            $offerName[] = $offer["PROPERTIES"][$offerPropName]["VALUE"];
+                                                        }
+                                                    }
+                                                    if (count($offerName) > 0) {
+                                                        $offerNameVisible = trim(implode(", ", $offerName));
+                                                    }
+                                                ?>
+                                                <p value="<?=$offer["ADD_URL"]?>" data-offer-id="<?=$offer["ID"]?>"><?=$offerNameVisible?></p>
+                                                <?}?>
+                                        <?}
+                                        } else if($arItem["PROPERTIES"]["MATERIAL_1"]["VALUE"]) {?>
+                                            <p><?=$arItem["PROPERTIES"]["MATERIAL_1"]["NAME"] . ': '. $arItem["PROPERTIES"]["MATERIAL_1"]["VALUE"]?></p>
                                         <?}?>
                                 </td>
 
@@ -260,10 +282,10 @@
                                 </td>
 
                                 <td class="elementPrice">
-                                    
+
                                     <? if (isset($arItem['OFFERS']) && !empty($arItem['OFFERS'])) { ?>
-                                        
-                                        <? 
+
+                                        <?
                                         $k = 0;
                                         foreach ($arItem['OFFERS'] as $offer) {?>
                                             <p data-offer-id="<?=$offer["ID"]?>" class="js-item-price" <?if ($k != 0){?>style="display: none;"<?}?> data-item-id="<?=$arItem["ID"]?>">
@@ -297,7 +319,7 @@
                                                 ?> &nbsp;
                                             </p>
                                     <?}?>
-                                     
+
 
                                     <?
                                         $showSubscribeBtn = false;
