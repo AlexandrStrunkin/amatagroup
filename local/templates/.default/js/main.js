@@ -179,7 +179,7 @@ $(document).ready(function () {
 
     });
 
-    $(".firstLvlLi  > a").on("click", function (e) {
+    $(".firstLvlLi  .open_select").on("click", function (e) {
         e.preventDefault();
         var el = $(this).parents(".mainLeftMenu").find(".activeFirstLclLi");
         if (el.length == 0) {
@@ -951,7 +951,7 @@ $(document).ready(function () {
 
 
     //меню в шапке (раскрытие/скрытие списка)
-    $('.firstLvlLi>a').click(function () {
+    $('.firstLvlLi .open_select').click(function () {
         var el = $(this).parent('li'), second = el.children('.secondLvl');
         if (el.hasClass('activeFirstLclLi')) {
             el.removeClass('activeFirstLclLi');
