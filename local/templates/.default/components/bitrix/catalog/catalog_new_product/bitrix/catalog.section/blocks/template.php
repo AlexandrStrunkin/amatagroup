@@ -214,17 +214,14 @@
                             ?>
                             <div class="newLogoWrapper" title="<?=GetMessage("NEW_PRODUCT")?>">NEW</div>
                             <?}?>
-
                         <?//шильдик последние поступления. Если товар  создан менее 2 дней назад
-                            if (date("U") - 86400 * FRESH_PRODUCT_STATUS_LENGTH <= MakeTimeStamp($arItem["DATE_CREATE"], "DD.MM.YYYY HH:MI:SS")) {
+                            if (date("U") - 86400 * FRESH_PRODUCT_STATUS_LENGTH <= MakeTimeStamp($arItem["DATE_CREATE"], "DD.MM.YYYY HH:MI:SS") || $arItem["PROPERTIES"]["NOVOE_POSTUPLENIE"]["VALUE"]) {
                             ?>
                             <div class="freshLogoWrapper" title="<?=GetMessage("FRESH_PRODUCT")?>">FRESH</div>
                             <?}?>
                             <?// при заролненном свойстве "хиты продаж"?>
+                            <?if($APPLICATION->GetCurPage() == CATALOG_SECTION_LATEST && $arItem["PROPERTIES"]["BESTSELLERS"]["VALUE"]){?>
                             <div class="bestLogoWrapper">BEST</div>
-                             <?// при заролненном свойстве "новые поступления"?>
-                            <?if($arItem["PROPERTIES"]["NOVOE_POSTUPLENIE"]["VALUE"]){?>
-                                <div class="freshLogoWrapper">FRESH</div>
                             <?}?>
 
                         <?/*
