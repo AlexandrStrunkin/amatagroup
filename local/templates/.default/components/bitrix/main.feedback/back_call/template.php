@@ -11,7 +11,7 @@ if(!defined("B_PROLOG_INCLUDED")||B_PROLOG_INCLUDED!==true)die();
  */
 ?>
 
-<div class="popup bx_mfeedback bx_<?=$arResult["THEME"]?>" id="callBackPopup"> 
+<div class="popup bx_mfeedback bx_<?= $arResult["THEME"]?>" id="callBackPopup"> 
 	<?if(!empty($arResult["ERROR_MESSAGE"]))
 	{
 		foreach($arResult["ERROR_MESSAGE"] as $v)
