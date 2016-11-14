@@ -2,6 +2,8 @@
 require($_SERVER["DOCUMENT_ROOT"]."/bitrix/modules/main/include/prolog_before.php");
 ?>
 <?
+$_POST["user_tell"] = iconv("UTF-8", "CP1251", $_POST["user_tell"]);
+$_POST["user_name"] = iconv("UTF-8", "CP1251", $_POST["user_name"]);
 $APPLICATION->IncludeComponent(
     "bitrix:main.feedback",
     "back_call",
