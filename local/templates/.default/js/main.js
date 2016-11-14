@@ -715,7 +715,7 @@ $(document).ready(function () {
 
     });
 
-    $(".popup .close").on("click", function (e) {
+    $(document).on("click", ".popup .close", function (e) {
         e.preventDefault();
         $(this).parent().fadeOut(300);
         //показать маску
