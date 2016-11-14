@@ -68,7 +68,7 @@
     define("ORDER_APARTMENT", "ORDER_PROP_23"); // Квартира/офис
     define("DEFAULT_LOCATION_ID", 129); // Дефолтное местоположение - Москва
 
-	define("ELEMENT_CARD_THUMBNAIL_HEIGHT", 47);
+    define("ELEMENT_CARD_THUMBNAIL_HEIGHT", 47);
     define("ELEMENT_CARD_THUMBNAIL_WIDTH", 45);
     define("ELEMENT_CARD_PREVIEW_HEIGHT", 83);
     define("ELEMENT_CARD_PREVIEW_WIDTH", 76);
@@ -107,7 +107,7 @@
     /* службы доставки */
     define("COURIER_DELIVERY", 2);
 
-    define("NEW_PRODUCT_STATUS_LENGTH", 14); //количество дней, котрое товар считается новинкой
+    define("NEW_PRODUCT_STATUS_LENGTH", 30); //количество дней, котрое товар считается новинкой
     define("FRESH_PRODUCT_STATUS_LENGTH", 2); //количество дней, котрое товар считается последним поступлением
 
     define("IBLOCK_ID_QUASTION_PRODUCT", 19); // инфоблок задать вопрос по товару
@@ -115,6 +115,10 @@
 
     define("CATALOG_GROUP_ID_PRICE", 3); // код типа цены оптовой
     define("CATALOG_GROUP_ID_PRICE_BASE", 1); // код типа цены базовой
+
+    define("CATALOG_SECTION_LATEST", '/catalog/latest_product/');
+    define("IMAGE_SERTIFICATE_WIDTH", 600); // код типа цены базовой
+    define("IMAGE_SERTIFICATE_HEIGHT", 800); // код типа цены базовой
 
 
 
