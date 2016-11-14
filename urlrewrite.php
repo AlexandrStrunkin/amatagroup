@@ -92,10 +92,10 @@ $arUrlRewrite = array(
 		"SORT" => "100",
 	),
 	array(
-		"CONDITION" => "#^/promo/#",
+		"CONDITION" => "#^/store/#",
 		"RULE" => "",
-		"ID" => "bitrix:news",
-		"PATH" => "/promo/index.php",
+		"ID" => "bitrix:catalog.store",
+		"PATH" => "/store/index.php",
 		"SORT" => "100",
 	),
 	array(
@@ -113,10 +113,10 @@ $arUrlRewrite = array(
 		"SORT" => "100",
 	),
 	array(
-		"CONDITION" => "#^/store/#",
+		"CONDITION" => "#^/promo/#",
 		"RULE" => "",
-		"ID" => "bitrix:catalog.store",
-		"PATH" => "/store/index.php",
+		"ID" => "bitrix:news",
+		"PATH" => "/promo/index.php",
 		"SORT" => "100",
 	),
 	array(
