@@ -175,7 +175,11 @@
 														<a class="table_previews" data-preview-offer-id="<?= $offer["ID"] ?>" href="<?= $arItem['DETAIL_PAGE_URL'] ?>">
 															<img src="<?= getResizedImage($offer['DETAIL_PICTURE']['ID'], ELEMENT_CARD_PREVIEW_WIDTH, ELEMENT_CARD_PREVIEW_HEIGHT, BX_RESIZE_IMAGE_PROPORTIONAL_ALT) ?>" alt=""/>
 														</a>
-													<? } ?>
+													<? } else {?>
+                                                        <a class="table_previews" data-preview-offer-id="<?= $offer["ID"] ?>" href="<?= SITE_TEMPLATE_PATH ?>/images/nophoto.png">
+                                                            <img src="<?= SITE_TEMPLATE_PATH ?>/images/nophoto.png" alt=""/>
+                                                        </a>
+                                                    <?} ?>
 											<? 	}
 											}
 										?>
@@ -211,9 +215,9 @@
                                     <?if (isset($arItem['OFFERS']) && !empty($arItem['OFFERS'])) {?>
                                         <div class="selectric-wrapper selectric-basketSelect">
                                             <select name="color" data-item-id="<?=$arItem["ID"]?>" class="js-offer-select">
-                                                <?  
-                                                    //получаем первое активное предложение  
-                                                    $first_offer = $arItem["OFFERS"][0];  
+                                                <?
+                                                    //получаем первое активное предложение
+                                                    $first_offer = $arItem["OFFERS"][0];
                                                 ?>
                                                 <?
                                                     $offerNameVisible = $first_offer["NAME"];
@@ -260,10 +264,10 @@
                                 </td>
 
                                 <td class="elementPrice">
-                                    
+
                                     <? if (isset($arItem['OFFERS']) && !empty($arItem['OFFERS'])) { ?>
-                                        
-                                        <? 
+
+                                        <?
                                         $k = 0;
                                         foreach ($arItem['OFFERS'] as $offer) {?>
                                             <p data-offer-id="<?=$offer["ID"]?>" class="js-item-price" <?if ($k != 0){?>style="display: none;"<?}?> data-item-id="<?=$arItem["ID"]?>">
@@ -297,7 +301,7 @@
                                                 ?> &nbsp;
                                             </p>
                                     <?}?>
-                                     
+
 
                                     <?
                                         $showSubscribeBtn = false;
