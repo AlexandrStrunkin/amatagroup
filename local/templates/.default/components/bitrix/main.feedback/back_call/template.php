@@ -10,7 +10,8 @@ if(!defined("B_PROLOG_INCLUDED")||B_PROLOG_INCLUDED!==true)die();
  * @global CUser $USER
  */
 ?>
-<div class="popup bx_mfeedback bx_<?=$arResult["THEME"]?>" id="callBackPopup">
+
+<div class="popup bx_mfeedback bx_<?=$arResult["THEME"]?>" id="callBackPopup"> 
 	<?if(!empty($arResult["ERROR_MESSAGE"]))
 	{
 		foreach($arResult["ERROR_MESSAGE"] as $v)
@@ -21,9 +22,8 @@ if(!defined("B_PROLOG_INCLUDED")||B_PROLOG_INCLUDED!==true)die();
 		?><div class="message"><?=$arResult["OK_MESSAGE"]?></div><?
 	}
 	?>
-
     <p class="close"></p>
-	<form action="<?=POST_FORM_ACTION_URI?>" method="POST" id="form_index">
+	<form action="<?=POST_FORM_ACTION_URI?>" method="POST" id="call_back_form">
 		<?=bitrix_sessid_post()?>
         <p class="title"><?=GetMessage("MFT_CALL")?></p>
 
@@ -38,8 +38,7 @@ if(!defined("B_PROLOG_INCLUDED")||B_PROLOG_INCLUDED!==true)die();
 			<strong><?=GetMessage("MFT_CAPTCHA_CODE")?><span class="mf-req">*</span></strong><br/>
 			<input type="text" name="captcha_word" size="30" maxlength="50" value=""/>
 		<?endif;?>
-
 		<input type="hidden" name="PARAMS_HASH" value="<?=$arResult["PARAMS_HASH"]?>">
-		<input type="submit" class="btn_submit" name="submit" value="<?=GetMessage("MFT_SUBMIT")?>" >
+		<input type="submit" class="btn_submit btn_submit_call" name="submit" value="<?=GetMessage("MFT_SUBMIT")?>" >
 	</form>
 </div>

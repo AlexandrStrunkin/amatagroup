@@ -497,6 +497,25 @@ $(document).ready(function () {
         });
     }
 
+    //Форма заказа обратного звонка
+    $(document).ready(function(){
+        $(document).on("submit", "#call_back_form", function(e){
+            e.preventDefault();
+            var temp_style = $(this).parent().attr("style");
+            $.ajax({
+                url: '/ajax/call_back.php',
+                type: 'POST',
+                data:  $(this).serialize() + "&submit=Y",
+                success:function(data){
+                }
+            }).done(function(data){
+                $(".back_call_ajax").html(data);  
+                $('#call_back_form').parent().attr("style", temp_style);
+                $('#call_back_form').parent().addClass("call_back_reload");
+            });
+        })
+    })
+    
     //попап регистрация
     if ($('.registrationLink_fly').length > 0) {
         $('.registrationLink_fly a').on("click", function (e) {
@@ -715,7 +734,7 @@ $(document).ready(function () {
 
     });
 
-    $(".popup .close").on("click", function (e) {
+    $(document).on("click", ".popup .close", function (e) {
         e.preventDefault();
         $(this).parent().fadeOut(300);
         //показать маску

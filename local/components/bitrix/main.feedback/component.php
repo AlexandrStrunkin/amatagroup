@@ -1,4 +1,4 @@
-<?
+<? 
 if(!defined("B_PROLOG_INCLUDED")||B_PROLOG_INCLUDED!==true)die();
 $arParams["USE_CAPTCHA"] = (($arParams["USE_CAPTCHA"] != "N" && !$USER->IsAuthorized()) ? "Y" : "N");
 $arParams["EVENT_NAME"] = trim($arParams["EVENT_NAME"]);
@@ -10,7 +10,6 @@ if(strlen($arParams["EMAIL_TO"]) <= 0)
 $arParams["OK_TEXT"] = trim($arParams["OK_TEXT"]);
 if(strlen($arParams["OK_TEXT"]) <= 0)
     $arParams["OK_TEXT"] = GetMessage("MF_OK_MESSAGE");
-
 if($_SERVER["REQUEST_METHOD"] == "POST" && strlen($_POST["submit"]) > 0)
 {
     if(check_bitrix_sessid())
