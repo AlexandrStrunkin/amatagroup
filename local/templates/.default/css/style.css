@@ -752,6 +752,10 @@ body {
     padding: 4px 13px 5px;
 }
 
+.innerPageWrapper {
+	font-family: "PT Serif";
+}
+
 .brandsWrapper {
     background-color: #f5f5f5;
 }
