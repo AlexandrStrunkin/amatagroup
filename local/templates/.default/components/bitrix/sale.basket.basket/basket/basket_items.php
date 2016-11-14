@@ -169,7 +169,7 @@
                     <p class="titleText"><?=GetMessage("SALE_YOU_HAVE_NO_DOSCOUNTS")?></p>
 
                     <p class="bodyText"><?=GetMessage("SALE_DISCOUNTS_LEARN_MORE")?></p>
-                    <a href="" class="salesDetail"><p><?=GetMessage("SALE_DISCOUNTS_MORE_LINK")?></p></a>
+                    <a href="/loyalty_program/" class="salesDetail"><p><?=GetMessage("SALE_DISCOUNTS_MORE_LINK")?></p></a>
 
                     <div class="orangeRound">15%</div>
                     <div class="yellowRound">10%</div>
