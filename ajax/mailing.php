@@ -34,32 +34,32 @@
 
         if ($idsubrscr) {
             $popuptitle = 'green';
-            $popuptext = $EMAIL .' успешно подписан на рассылку';
+            $popuptext = $EMAIL . ' успешно подписан на рассылку';
             
             //отправляем письмо с уведомлением о том что пользователь добавлен в подписки
             if (empty($arFields["USER_ID"])) {
                 $arEventFields = array(
                     "MESSAGE" => 'Добавлен анонимный подписчик на рассылку',
-                    "EMAIL" => $arFields["EMAIL"],                   
+                    "EMAIL"   => $arFields["EMAIL"],                   
                 );        
             } else {
                 $rsUser = CUser::GetByID($arFields["USER_ID"]);
                 $arUser = $rsUser->Fetch();
                 if (!empty($arUser["NAME"])) {
-                    $mailName = 'Имя пользователя: '.$arUser["NAME"];     
+                    $mail_name = 'Имя пользователя: ' . $arUser["NAME"];     
                 }
                 if (!empty($arUser["LAST_NAME"])) {
-                    $mailLastName = 'Фамилия пользователя: '.$arUser["LAST_NAME"];     
+                    $mail_last_name = 'Фамилия пользователя: ' . $arUser["LAST_NAME"];     
                 }
-                $arEventFields = array(
-                    "MESSAGE" => 'Добавлен подписчик на рассылку',
-                    "EMAIL" => $arFields["EMAIL"],
-                    "USER_ID" => 'ID пользователя:'.$arFields["USER_ID"],
-                    "NAME" => $mailName,
-                    "LAST_NAME" => $mailLastName,                 
+                $ar_event_fields = array(
+                    "MESSAGE"   => 'Добавлен подписчик на рассылку',
+                    "EMAIL"     => $arFields["EMAIL"],
+                    "USER_ID"   => 'ID пользователя:' . $arFields["USER_ID"],
+                    "NAME"      => $mail_name,
+                    "LAST_NAME" => $mail_last_name,                 
                 );
             }            
-            CEvent::Send ("NEW_SUBSCRIBE", "s1", $arEventFields, "N", 90);
+            CEvent::Send ("NEW_SUBSCRIBE", "s1", $ar_event_fields, "N", 90);
             
         }
         else {
