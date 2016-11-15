@@ -184,7 +184,7 @@
                                                     <p class="elementStatus statusByOrder" title="<?=GetMessage("NEW_PRODUCT")?>">NEW</p>
                                                     <?
                                                         //шильдик последние поступления. Если товар  создан менее 2 дней назад
-                                                    } else if (date("U") - 86400 * FRESH_PRODUCT_STATUS_LENGTH <= MakeTimeStamp($arItem["DATE_CREATE"], "DD.MM.YYYY HH:MI:SS") || $arItem["PROPERTIES"]["NOVOE_POSTUPLENIE"]["VALUE"]) { {
+                                                    } else if (date("U") - 86400 * FRESH_PRODUCT_STATUS_LENGTH <= MakeTimeStamp($arItem["DATE_CREATE"], "DD.MM.YYYY HH:MI:SS") || $arItem["PROPERTIES"]["NOVOE_POSTUPLENIE"]["VALUE"]) {
                                                     ?>
                                                     <p class="elementStatus statusByOrderEmpty" title="<?=GetMessage("FRESH_PRODUCT")?>">FRESH</p>
                                                     <?} else {?>

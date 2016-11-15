@@ -2,7 +2,7 @@
     require($_SERVER["DOCUMENT_ROOT"]."/bitrix/header.php");
     $APPLICATION->SetTitle("Избранное");
 ?><?
-    $favouriteList = Favorite::getListForUser(); 
+    $favouriteList = Favorite::getListForUser();
     global $favouriteFilter;
     $favouriteFilter = array(
         "=ID" => $favouriteList,
@@ -121,15 +121,7 @@
                 'HIDE_ICONS' => 'Y'
             )
         );?>  <!--viewedElementBlock-->
-<div class="viewedElementBlock">
-    <div class="widthWrapper">
-        <!--viewedBlock-->
-        <div class="viewedBlock productCarousel elmentsList">
-            <h2>Просмотренные товары</h2>
-            <!--jcarousel-wrapper-->
-            <div class="jcarousel-wrapper">
-                <!--jcarousel-->
-                <div class="jcarousel ">
+
                     <?$APPLICATION->IncludeComponent(
                             "bitrix:catalog.viewed.products",
                             "section_viewed",
@@ -181,13 +173,6 @@
                                 "USE_PRODUCT_QUANTITY" => "N"
                             )
                         );?>
-                </div>
-                <a href="" class="jcarousel-control-prev"></a> <a href="" class="jcarousel-control-next"></a>
-            </div>
-            <!--END jcarousel-wrapper-->
-        </div>
-        <!--END viewedBlock-->
-    </div>
-</div>
+
     <!--END viewedElementBlock-->
     <?require($_SERVER["DOCUMENT_ROOT"]."/bitrix/footer.php");?>
