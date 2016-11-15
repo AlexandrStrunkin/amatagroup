@@ -21,7 +21,10 @@ $this->setFrameMode(true);
             <ul>
             <?
             foreach ($arResult['ITEMS'] as $key => $arItem) {?>
-                <li>
+                <li style="background-color: <?=$arItem["PROPERTIES"]["FON_COLOR"]["VALUE_XML_ID"]?>">
+                <?if($arItem["PREVIEW_PICTURE"]["SRC"]){?>
+                    <img class="big_image" src="<?=$arItem["PREVIEW_PICTURE"]["SRC"]?>" title="<?=$arItem["DETAIL_TEXT"]?>" height="580">
+                <?}?>
                     <div class="bannerImgContainer">
                         <a href="<?=$arItem["PROPERTIES"]["LINK_PRODUCT"]["VALUE"]?>"><img src="<?=$arItem["DETAIL_PICTURE"]["SRC"]?>" height="<?=$arItem["DETAIL_PICTURE"]["HEIGHT"]?>" alt=""/></a>
                         <?if($arItem["PROPERTIES"]["SPECIAL_OFFER"]["VALUE_ENUM_ID"] == ELEMENT_SPECIAL_OFFER_HIT){?>

@@ -904,3 +904,25 @@
 .bannerTextContainer a.link_product:hover{
     background-color: #9fdcff;
 }
+.jcarousel li{
+    overflow: hidden;
+    position: relative;
+}
+.jcarousel .big_image{
+    z-index: 10;
+    position: absolute;
+}
+.jcarousel .bannerTextContainer{
+   z-index: 20;
+   position: relative;
+}
+.jcarousel .bannerImgContainer{
+   z-index: 20;
+   position: relative;
+}
+.jcarousel-pagination{
+   z-index: 20;
+}
+.mainBigBanner .jcarousel li{
+   background-color: #dff2fd;;
+}
