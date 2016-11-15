@@ -213,43 +213,36 @@
                                 </td>
                                 <td class="elementColor">
                                     <?if (isset($arItem['OFFERS']) && !empty($arItem['OFFERS'])) {?>
+
+                                    <?if (count($arItem['OFFERS']) > 1) {?>
                                         <div class="selectric-wrapper selectric-basketSelect">
                                             <select name="color" data-item-id="<?=$arItem["ID"]?>" class="js-offer-select">
-                                                <?
-                                                    //получаем первое активное предложение
-                                                    $first_offer = $arItem["OFFERS"][0];
-                                                ?>
-                                                <?
-                                                    $offerNameVisible = $first_offer["NAME"];
-                                                    $offerName = array();
-                                                ?>
-                                                <?foreach ($arParams["OFFER_TREE_PROPS"] as $offerPropName) {
-                                                        if (!empty($first_offer["PROPERTIES"][$offerPropName]["VALUE"])) {
-                                                            $offerName[] = $first_offer["PROPERTIES"][$offerPropName]["VALUE"];
-                                                        }
-                                                    }
-                                                    if (count($offerName) > 0) {
-                                                        $offerNameVisible = trim(implode(", ", $offerName));
-                                                    }
-                                                ?>
-                                                <?foreach ($arItem["OFFERS"] as $offer) {?>
-                                                    <?
-                                                        $offerNameVisible = $offer["NAME"];
+
+                                                <?foreach ($arItem["OFFERS"] as $offer) {
+
+                                                        $offer_name_visible = $offer["NAME"];
                                                         $offerName = array();
-                                                    ?>
-                                                    <?foreach ($arParams["OFFER_TREE_PROPS"] as $offerPropName) {
-                                                            if (!empty($offer["PROPERTIES"][$offerPropName]["VALUE"])) {
-                                                                $offerName[] = $offer["PROPERTIES"][$offerPropName]["VALUE"];
+
+                                                    foreach ($arParams["OFFER_TREE_PROPS"] as $offer_prop_name) {
+                                                            if (!empty($offer["PROPERTIES"][$offer_prop_name]["VALUE"])) {
+                                                                $offerName[] = $offer["PROPERTIES"][$offer_prop_name]["VALUE"];
                                                             }
                                                         }
                                                         if (count($offerName) > 0) {
-                                                            $offerNameVisible = trim(implode(", ", $offerName));
+                                                            $offer_name_visible = trim(implode(", ", $offerName));
                                                         }
                                                     ?>
-                                                    <option value="<?=$offer["ADD_URL"]?>" data-offer-id="<?=$offer["ID"]?>"><?=$offerNameVisible?></option>
-                                                    <?}?>
+                                                    <option value="<?=$offer["ADD_URL"]?>" data-offer-id="<?=$offer["ID"]?>"><?=$offer_name_visible?></option>
+                                                <?}?>
                                             </select>
                                         </div>
+                                        <?} else {?>
+                                            <?foreach ($arItem["OFFERS"] as $offer) {?>
+                                                <p value="<?=$offer["ADD_URL"]?>" data-offer-id="<?=$offer["ID"]?>"><?=$offer["NAME"]?></p>
+                                                <?}?>
+                                        <?}
+                                        } else if ($arItem["PROPERTIES"]["MATERIAL_1"]["VALUE"]) {?>
+                                            <p><?=$arItem["PROPERTIES"]["MATERIAL_1"]["NAME"] . ': '. $arItem["PROPERTIES"]["MATERIAL_1"]["VALUE"]?></p>
                                         <?}?>
                                 </td>
 
