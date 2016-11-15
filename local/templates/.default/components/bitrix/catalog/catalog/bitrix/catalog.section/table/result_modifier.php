@@ -206,13 +206,13 @@
             $arItem['PREVIEW_PICTURE'] = $productPictures['PICT'];
 
             if ($arItem['DETAIL_PICTURE']) {
-                $arItem['PREVIEW_PICTURE'] = $arItem['DETAIL_PICTURE']; 
+                $arItem['PREVIEW_PICTURE'] = $arItem['DETAIL_PICTURE'];
             }
 
             if ($arItem["PREVIEW_PICTURE"]["ID"] > 0) {
                 $img = CFIle::ResizeImageGet($arItem["PREVIEW_PICTURE"]["ID"], array("width" => 176, "height" => 190), BX_RESIZE_IMAGE_PROPORTIONAL);
                 $arItem["PREVIEW_PICTURE"]["SRC"] = $img["src"];
-            } 
+            }
 
             $arItem['PREVIEW_PICTURE_SECOND'] = $productPictures['SECOND_PICT'];
             $arItem['SECOND_PICT'] = true;
@@ -417,7 +417,7 @@
                         $arItem['OFFERS'],
                         $boolConvert ? $arResult['CONVERT_CURRENCY']['CURRENCY_ID'] : $strBaseCurrency
                     );
-                }   
+                }
             }
 
             if (
@@ -448,7 +448,7 @@
             }
 
             $arItem['LAST_ELEMENT'] = 'N';
-            $arNewItemsList[$key] = $arItem;   
+            $arNewItemsList[$key] = $arItem;
 
         }
 
@@ -501,23 +501,22 @@
                 unset($currencyFormat, $currency, $currencyIterator);
             }
         }
-    }  
+    }
 
 
-    //убираем у предложений из свойств значени€, заполненные как "—тандарт" 
+    //убираем у предложений из свойств значени€, заполненные как "—тандарт"
     if (!empty($arResult['ITEMS'])) {
         foreach ($arResult["ITEMS"] as $itemKey => $arItem) {
             if (!empty($arItem["OFFERS"])) {
                 foreach ($arItem["OFFERS"] as $offerKey => $offer) {
                     foreach ($arParams["OFFER_TREE_PROPS"] as $offerPropName) {
                         if ($offer["PROPERTIES"][$offerPropName]["VALUE"] == "—тандарт") {
-                           $arResult["ITEMS"][$itemKey]["OFFERS"][$offerKey]["PROPERTIES"][$offerPropName]["VALUE"] = ""; 
+                           $arResult["ITEMS"][$itemKey]["OFFERS"][$offerKey]["PROPERTIES"][$offerPropName]["VALUE"] = "";
                         }
                     }
                 }
             }
         }
     }
-
 
 ?>
