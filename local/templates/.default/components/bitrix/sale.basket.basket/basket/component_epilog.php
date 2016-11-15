@@ -1,14 +1,5 @@
 <?if (!defined("B_PROLOG_INCLUDED") || B_PROLOG_INCLUDED!==true)die();?>
 <!--viewedElementBlock-->
-<div class="viewedElementBlock">
-    <div class="widthWrapper">
-        <!--viewedBlock-->
-        <div class="viewedBlock productCarousel elmentsList">
-            <h2><?=GetMessage("VIEWED_PRODUCTS")?></h2>
-            <!--jcarousel-wrapper-->
-            <div class="jcarousel-wrapper">
-                <!--jcarousel-->
-                <div class="jcarousel ">
                     <?$APPLICATION->IncludeComponent("bitrix:catalog.viewed.products", "section_viewed", Array(
                             "ACTION_VARIABLE" => "action",    // Ќазвание переменной, в которой передаетс€ действие
                             "ADDITIONAL_PICT_PROP_5" => "MORE_PHOTO",    // ƒополнительна€ картинка
@@ -168,11 +159,4 @@
                 </div>
                 <a href="" class="jcarousel-control-prev"></a>
                 <a href="" class="jcarousel-control-next"></a>
-
-            </div>
-            <!--END jcarousel-wrapper-->
-        </div>
-        <!--END viewedBlock-->
-    </div>
-</div>
 <!--END viewedElementBlock-->
