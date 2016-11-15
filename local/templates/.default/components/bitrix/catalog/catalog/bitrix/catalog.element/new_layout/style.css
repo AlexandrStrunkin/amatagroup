@@ -1127,7 +1127,7 @@
 }
 
 .product_info_table .quantityPlus {
-	margin-left: 10px !important; 
+	margin-left: 10px !important;
 }
 
 .product_info_table .elementQuant > div {
@@ -1146,7 +1146,7 @@
 	height: 87px;
 }
 
-.buttons_row td { 
+.buttons_row td {
 	border-bottom: 1px solid #d4d4d4;
 }
 
@@ -1210,9 +1210,9 @@
 	background: url("/img/offer_option.png") no-repeat 0 0;
 }
 
-div.item_card_offers.active {
-	border-color: #000 !important;
-	background-image: url("/img/cArrowActive.png") !important;
+div.firstFilter.item_card_offers.active {
+	border-color: #000 ;
+	background-image: url("/img/cArrowActive.png");
 }
 
 div.item_card_offers.active .col {

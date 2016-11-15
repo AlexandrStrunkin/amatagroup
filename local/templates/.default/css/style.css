@@ -7519,7 +7519,7 @@ input[type="radio"]:checked + label::before {
 
 .firstFilter.active, .secondFilter.active, .quantOnPageFilt.active, .quantOnPageFiltBot.active, .goToPageFilter.active {
     background-image: url(../img/cArrowActive1.png);
-    border-color: #5db3dc !important;
+    border-color: #5db3dc ;
     /*   -webkit-transform:rotate(180deg);
     -moz-transform:rotate(180deg);
     -o-transform:rotate(180deg);
