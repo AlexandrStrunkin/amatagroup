@@ -658,7 +658,4 @@
             CCatalogProduct::Update($arProductInfo['ID'], $arFieldsProduct);
         }
     }
-
-
-
 ?>
