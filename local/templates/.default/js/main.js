@@ -1531,7 +1531,6 @@ $(document).ready(function () {
         }
         // если для предложения есть превьюха, то переключаемся на нее
         if ($("a[data-preview-offer-id='" + current_offer_id + "']").length && !$("a[data-preview-offer-id='" + current_offer_id + "']").hasClass("active")) {
-            console.log(current_offer_id);
             $("a[data-preview-offer-id='" + current_offer_id + "']").click();
         } else if ($("a[data-preview-offer-id='" + current_offer_id + "']").length < 1) {
             $(".previewImg > a img").attr('src', '/images/no_photo.png');
