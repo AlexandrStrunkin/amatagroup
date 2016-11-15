@@ -26,15 +26,16 @@ $this->setFrameMode(true);
                     <img class="big_image" src="<?=$arItem["PREVIEW_PICTURE"]["SRC"]?>" title="<?=$arItem["DETAIL_TEXT"]?>" height="580">
                 <?}?>
                     <div class="bannerImgContainer">
-                        <a href="<?=$arItem["PROPERTIES"]["LINK_PRODUCT"]["VALUE"]?>"><img src="<?=$arItem["DETAIL_PICTURE"]["SRC"]?>" height="<?=$arItem["DETAIL_PICTURE"]["HEIGHT"]?>" alt=""/></a>
+                        <a href="<?=$arItem["PROPERTIES"]["LINK_PRODUCT"]["VALUE"]?>">
+                            <img src="<?=$arItem["DETAIL_PICTURE"]["SRC"]?>" style="width: <?=$arItem["PROPERTIES"]["WIDTH_PICTURE_SMALL"]["VALUE"]?>%" height="<?=$arItem["DETAIL_PICTURE"]["HEIGHT"]?>" alt=""/></a>
                         <?if($arItem["PROPERTIES"]["SPECIAL_OFFER"]["VALUE_ENUM_ID"] == ELEMENT_SPECIAL_OFFER_HIT){?>
-                            <p class="hitContainer"><?=$arItem["PROPERTIES"]["SPECIAL_OFFER"]["VALUE"]?></p>
+                            <p style="top: <?=$arItem["PROPERTIES"]["VERTICAL_POSITION"]["VALUE"]?>%; left: <?=$arItem["PROPERTIES"]["HORIZONTAL_POSITION"]["VALUE"]?>%" class="hitContainer"><?=$arItem["PROPERTIES"]["SPECIAL_OFFER"]["VALUE"]?></p>
                         <?} else if($arItem["PROPERTIES"]["SPECIAL_OFFER"]["VALUE_ENUM_ID"] == ELEMENT_SPECIAL_OFFER_NEW) {?>
-                            <p class="newContainer"><?=GetMessage('PODUCT_SPECIAL_NEW')?></p>
+                            <p style="top: <?=$arItem["PROPERTIES"]["VERTICAL_POSITION"]["VALUE"]?>%; left: <?=$arItem["PROPERTIES"]["HORIZONTAL_POSITION"]["VALUE"]?>%" class="newContainer"><?=GetMessage('PODUCT_SPECIAL_NEW')?></p>
                         <?} else if($arItem["PROPERTIES"]["SPECIAL_OFFER"]["VALUE_ENUM_ID"] == ELEMENT_SPECIAL_OFFER_BEST) {?>
-                            <p class="bestContainer"><?=GetMessage('PODUCT_SPECIAL_BEST')?></p>
+                            <p style="top: <?=$arItem["PROPERTIES"]["VERTICAL_POSITION"]["VALUE"]?>%; left: <?=$arItem["PROPERTIES"]["HORIZONTAL_POSITION"]["VALUE"]?>%" class="bestContainer"><?=GetMessage('PODUCT_SPECIAL_BEST')?></p>
                         <?} else if($arItem["PROPERTIES"]["SPECIAL_OFFER"]["VALUE_ENUM_ID"] == ELEMENT_SPECIAL_OFFER_SALE && $arItem["SALE_PRICE"]) {?>
-                            <p class="saleContainer"><?=$arItem["SALE_PRICE"]?></p>
+                            <p style="top: <?=$arItem["PROPERTIES"]["VERTICAL_POSITION"]["VALUE"]?>%; left: <?=$arItem["PROPERTIES"]["HORIZONTAL_POSITION"]["VALUE"]?>%" class="saleContainer"><?=$arItem["SALE_PRICE"]?></p>
                         <?}?>
                     </div>
                     <div class="bannerTextContainer">
