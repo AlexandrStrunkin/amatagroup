@@ -142,7 +142,7 @@ $arFirstPhoto = current($arResult['MORE_PHOTO']);
 	        <? if (is_array($arResult['MORE_PHOTO']) ) { ?>
                 <? foreach ($arResult['MORE_PHOTO'] as &$arOnePhoto) { ?>
                     <?if($arOnePhoto["ID"]){?>
-                        <a href="<?= $arOnePhoto['SRC'] ?>" data-preview-image="<?= getResizedImage($arOnePhoto['ID'], ELEMENT_CARD_MAIN_WIDTH, ELEMENT_CARD_MAIN_HEIGHT, BX_RESIZE_IMAGE_PROPORTIONAL_ALT) ?>">
+                        <a rel="element_gallery" href="<?= getResizedImage($arOnePhoto['ID'], ELEMENT_CARD_MAIN_WIDTH, ELEMENT_CARD_MAIN_HEIGHT, BX_RESIZE_IMAGE_PROPORTIONAL_ALT) ?>" data-preview-image="<?= getResizedImage($arOnePhoto['ID'], ELEMENT_CARD_MAIN_WIDTH, ELEMENT_CARD_MAIN_HEIGHT, BX_RESIZE_IMAGE_PROPORTIONAL_ALT) ?>">
                             <img src="<?= getResizedImage($arOnePhoto['ID'], ELEMENT_CARD_PREVIEW_WIDTH, ELEMENT_CARD_PREVIEW_HEIGHT, BX_RESIZE_IMAGE_PROPORTIONAL_ALT) ?>" alt=""/>
                         </a>
                     <?}?>
@@ -150,7 +150,7 @@ $arFirstPhoto = current($arResult['MORE_PHOTO']);
             <? }
 				if (is_array($arResult['PROPERTIES']['MORE_PHOTO']['VALUE'])) {
 					foreach ($arResult['PROPERTIES']['MORE_PHOTO']['VALUE'] as $photo_id) { ?>
-						<a rel="element_gallery" href="<?= CFile::GetPath($photo_id) ?>" data-preview-image="<?= getResizedImage($photo_id, ELEMENT_CARD_MAIN_WIDTH, ELEMENT_CARD_MAIN_HEIGHT, BX_RESIZE_IMAGE_PROPORTIONAL_ALT) ?>">
+						<a rel="element_gallery" href="<?= getResizedImage($photo_id, ELEMENT_CARD_MAIN_WIDTH, ELEMENT_CARD_MAIN_HEIGHT, BX_RESIZE_IMAGE_PROPORTIONAL_ALT) ?>" data-preview-image="<?= getResizedImage($photo_id, ELEMENT_CARD_MAIN_WIDTH, ELEMENT_CARD_MAIN_HEIGHT, BX_RESIZE_IMAGE_PROPORTIONAL_ALT) ?>">
 							<img src="<?= getResizedImage($photo_id, ELEMENT_CARD_PREVIEW_WIDTH, ELEMENT_CARD_PREVIEW_HEIGHT, BX_RESIZE_IMAGE_PROPORTIONAL_ALT) ?>" alt=""/>
 						</a>
 				<? 	}
