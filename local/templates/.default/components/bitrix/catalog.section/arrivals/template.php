@@ -225,7 +225,7 @@
                             ?>
                             <div class="freshLogoWrapper" title="<?=GetMessage("FRESH_PRODUCT")?>">FRESH</div>
                             <?}?>
-                            <?if($arItem["PROPERTIES"]["BESTSELLERS"]["VALUE_XML_ID"] == 'Y'){?>
+                            <?if($arItem["PROPERTIES"]["TOPPRODAZH"]["VALUE_XML_ID"] == 'Y'){?>
                                 <div class="bestLogoWrapper">BEST</div>
                             <?}?>
 
