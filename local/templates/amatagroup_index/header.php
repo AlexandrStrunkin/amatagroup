@@ -156,9 +156,7 @@
                 <?
                     global $arFilter;
                     $arFilter = array(
-                        "LOGIC" => "OR",
-                        '!PREVIEW_PICTURE' => false,
-                        '!DETAIL_PICTURE' => false,
+                        '!PROPERTY_TOPPRODAZH' => false
                     );
                 ?>
                 <?$APPLICATION->IncludeComponent(
@@ -225,7 +223,7 @@
 			1 => "",
 		),
 		"SECTION_ID_VARIABLE" => "SECTION_ID",
-		"SECTION_URL" => "/catalog/latest_product/",
+		"SECTION_URL" => "/catalog/bestsellers/",
 		"SEF_MODE" => "Y",
 		"SHOW_CLOSE_POPUP" => "N",
 		"SHOW_DISCOUNT_PERCENT" => "N",
