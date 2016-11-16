@@ -206,8 +206,7 @@ $arFirstPhoto = current($arResult['MORE_PHOTO']);
 						$first_offer = $arResult["OFFERS"][0]; ?>
 				        <div class="productColor horizontalFilterWrap">
 				            <strong><?= GetMessage("CT_OFFERS") ?>:</strong>
-
-				            <div class="firstFilter item_card_offers">
+				            <div class="firstFilter item_card_offers" style="<?if(count($arResult["OFFERS"]) <= 1){?>background: none; <?}?>">
 				            	<?
 			                    $offerNameVisible = $first_offer["NAME"];
 			                    $offerName = array();
@@ -236,41 +235,44 @@ $arFirstPhoto = current($arResult['MORE_PHOTO']);
 			                    	</span>
 			                    	<?= mb_strimwidth($offerNameVisible, 0, 50, "...") ?>
 			                    </p>
+                                <?if(count($arResult["OFFERS"]) > 1){?>
 				                <div class="hidingMenu">
-				                	<?foreach ($arResult["OFFERS"] as $offer) {?>
-					                    <?
-					                    $offerNameVisible = $offer["NAME"];
-					                    $offerName = array();
-					                    ?>
-					                    <? foreach ($arParams["~OFFER_TREE_PROPS"] as $offerPropName) { ?>
+
+				                	    <?foreach ($arResult["OFFERS"] as $offer) {?>
 					                        <?
-					                            if ($offer["PROPERTIES"][$offerPropName]["VALUE"]) {
-					                                $offerName[] = $offer["PROPERTIES"][$offerPropName]["VALUE"];
-					                        } ?>
-				                        <? } ?>
-				                        <?
-				                        if (count($offerName) > 0) {
-			                                $offerNameVisible = trim(implode(", ", $offerName));
-			                            }
-				                        ?>
-					                    <p data-offer-id="<?= $offer["ID"] ?>" data-item-can-buy="<?= $offer["CATALOG_QUANTITY"] ?>" data-offer-buy-link="<?= $offer["ADD_URL"] ?>" class="js-offer-option <? if ($offer["ID"] == $first_offer["ID"]) { echo "active_offer_option"; } ?> ">
-					                    	<?
-				                    			if ($offer['DETAIL_PICTURE']['ID']) {
-				                    				$thumbnail_path = getResizedImage($offer['DETAIL_PICTURE']['ID'], ELEMENT_CARD_THUMBNAIL_WIDTH, ELEMENT_CARD_THUMBNAIL_HEIGHT, BX_RESIZE_IMAGE_PROPORTIONAL_ALT);
-				                    			} else {
-				                    				$thumbnail_path = $this->GetFolder() . '/images/no_photo_thumb.png';
-				                    			}
-				                    		?>
-					                    	<span class="col_offer">
-					                    		<img src="<?= $thumbnail_path ?>">
-					                    	</span>
-					                    	<span class="offer_option_text">
-					                    		<?= mb_strimwidth($offerNameVisible, 0, 50, "...") ?>
-					                    	</span>
-					                    	<span class="offer_option_status"></span>
-					                    </p>
-				                    <?}?>
+					                        $offerNameVisible = $offer["NAME"];
+					                        $offerName = array();
+					                        ?>
+					                        <? foreach ($arParams["~OFFER_TREE_PROPS"] as $offerPropName) { ?>
+					                            <?
+					                                if ($offer["PROPERTIES"][$offerPropName]["VALUE"]) {
+					                                    $offerName[] = $offer["PROPERTIES"][$offerPropName]["VALUE"];
+					                            } ?>
+				                            <? } ?>
+				                            <?
+				                            if (count($offerName) > 0) {
+			                                    $offerNameVisible = trim(implode(", ", $offerName));
+			                                }
+				                            ?>
+					                        <p data-offer-id="<?= $offer["ID"] ?>" data-item-can-buy="<?= $offer["CATALOG_QUANTITY"] ?>" data-offer-buy-link="<?= $offer["ADD_URL"] ?>" class="js-offer-option <? if ($offer["ID"] == $first_offer["ID"]) { echo "active_offer_option"; } ?> ">
+					                    	    <?
+				                    			    if ($offer['DETAIL_PICTURE']['ID']) {
+				                    				    $thumbnail_path = getResizedImage($offer['DETAIL_PICTURE']['ID'], ELEMENT_CARD_THUMBNAIL_WIDTH, ELEMENT_CARD_THUMBNAIL_HEIGHT, BX_RESIZE_IMAGE_PROPORTIONAL_ALT);
+				                    			    } else {
+				                    				    $thumbnail_path = $this->GetFolder() . '/images/no_photo_thumb.png';
+				                    			    }
+				                    		    ?>
+					                    	    <span class="col_offer">
+					                    		    <img src="<?= $thumbnail_path ?>">
+					                    	    </span>
+					                    	    <span class="offer_option_text">
+					                    		    <?= mb_strimwidth($offerNameVisible, 0, 50, "...") ?>
+					                    	    </span>
+					                    	    <span class="offer_option_status"></span>
+					                        </p>
+				                        <?}?>
 				                </div>
+                                <?}?>
 				            </div>
 				        </div>
 				        <input type="hidden" value="" name="card_quantity" />
