@@ -658,4 +658,15 @@
             CCatalogProduct::Update($arProductInfo['ID'], $arFieldsProduct);
         }
     }
+
+    AddEventHandler('main', 'OnBeforeEventSend', "my_OnBeforeEventSend");
+
+   function my_OnBeforeEventSend($arFields, $arTemplate)
+   {
+       $arFields["PRICE"] = preg_replace('~<span class="rub">c</span>~', 'Ð', $arFields["PRICE"]);
+       $arFields["ORDER_LIST"] = preg_replace('~<span class="rub">c</span>~', 'Ð', $arFields["ORDER_LIST"]);
+
+       return $arFields;
+   }
+
 ?>
