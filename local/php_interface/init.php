@@ -661,4 +661,16 @@
             CCatalogProduct::Update($arProductInfo['ID'], $arFieldsProduct);
         }
     }
+
+    // Заменяет символ валюты в письме заказа
+   AddEventHandler('main', 'OnBeforeEventSend', "currencyTypeReplacement");
+
+   function currencyTypeReplacement($arFields, $arTemplate) {
+
+       $arFields["PRICE"] = preg_replace('~<span class="rub">c</span>~', 'Р', $arFields["PRICE"]);
+       $arFields["ORDER_LIST"] = preg_replace('~<span class="rub">c</span>~', 'Р', $arFields["ORDER_LIST"]);
+
+       return $arFields;
+   }
+
 ?>
