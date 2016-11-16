@@ -659,10 +659,11 @@
         }
     }
 
-    AddEventHandler('main', 'OnBeforeEventSend', "my_OnBeforeEventSend");
+    // Заменяет символ валюты в письме заказа
+   AddEventHandler('main', 'OnBeforeEventSend', "CurrencyTypeReplacement");
 
-   function my_OnBeforeEventSend($arFields, $arTemplate)
-   {
+   function CurrencyTypeReplacement($arFields, $arTemplate) {
+
        $arFields["PRICE"] = preg_replace('~<span class="rub">c</span>~', 'Р', $arFields["PRICE"]);
        $arFields["ORDER_LIST"] = preg_replace('~<span class="rub">c</span>~', 'Р', $arFields["ORDER_LIST"]);
 
