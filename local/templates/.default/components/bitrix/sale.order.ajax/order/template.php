@@ -112,6 +112,19 @@ if (!function_exists("cmpBySort"))
 			var BXFormPosting = false;
 			function submitForm(val)
 			{
+				// проверяем валидацию для полей ИНН и КПП
+				var INN_field = document.querySelector("#ORDER_PROP_10"),
+					KPP_field = document.querySelector("#ORDER_PROP_11");
+					
+				if (INN_field && !INN_field.checkValidity()) {
+					INN_field.reportValidity();
+					return false;
+				}
+				if (KPP_field && !KPP_field.checkValidity()) {
+					KPP_field.reportValidity();
+					return false;
+				}
+				
 				if (BXFormPosting === true)
 					return true;
 

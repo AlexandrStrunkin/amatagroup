@@ -1,5 +1,7 @@
 <?if(!defined("B_PROLOG_INCLUDED") || B_PROLOG_INCLUDED!==true)die();?>
 <?
+global $user_organization_type;
+$user_organization_type = $arResult['USER_ORGANIZATION_TYPE'];
 if (!function_exists("showFilePropertyField"))
 {
 	function showFilePropertyField($name, $property_fields, $values, $max_file_size_show=50000)
@@ -113,9 +115,36 @@ if (!function_exists("PrintPropsForm"))
 						elseif ($arProperties["TYPE"] == "TEXT")
 						{
 							?>
+							<? 
+							global $user_organization_type; // тип организации пользователя
+							$break = false; // у ИП поля ИНН быть не должно, этой переменной мы будем это контролировать
+							$pattern_legth = 0;
+							?>
 							<label class="<?= $iteration_counter == 8 || $iteration_counter == 9 ? "small" : "" ?>">
-								<span><?= $arProperties["NAME"] ?></span>
-								<input type="text" maxlength="250" size="<?=$arProperties["SIZE1"]?>" value="<?=$arProperties["VALUE"]?>" name="<?=$arProperties["FIELD_NAME"]?>" id="<?=$arProperties["FIELD_NAME"]?>" />
+								<? if ($user_organization_type == ORGANIZATION_TYPE_OOO || !$user_organization_type) {
+									$break = false;
+									if ($arProperties['CODE'] == "INN") {
+										$pattern_legth = 10;
+									} else if ($arProperties['CODE'] == "KPP") {
+										$pattern_legth = 9;
+									}
+								} else if ($user_organization_type == ORGANIZATION_TYPE_IP) {
+									$break = false;
+									if ($arProperties['CODE'] == "INN") {
+										$pattern_legth = 12;
+									} else if ($arProperties['CODE'] == "KPP") {
+										$break = true;
+									}
+								}?>
+								<? if ($arProperties['CODE'] == "INN" || $arProperties['CODE'] == "KPP") { ?>
+									<? if (!$break) { ?>
+									<span><?= $arProperties["NAME"] ?></span>
+									<input type="text" title="<?= sprintf(GetMessage("MIN_LENGHT_MESSAGE"), $arProperties['NAME'], $pattern_legth) ?>" maxlength="250" pattern="[0-9]{<?= $pattern_legth ?>}" required size="<?=$arProperties["SIZE1"]?>" value="<?=$arProperties["VALUE"]?>" name="<?=$arProperties["FIELD_NAME"]?>" id="<?=$arProperties["FIELD_NAME"]?>" />
+									<? } ?>
+								<? } else { ?>
+									<span><?= $arProperties["NAME"] ?></span>
+									<input type="text" maxlength="250" size="<?=$arProperties["SIZE1"]?>" value="<?=$arProperties["VALUE"]?>" name="<?=$arProperties["FIELD_NAME"]?>" id="<?=$arProperties["FIELD_NAME"]?>" />
+								<? } ?>
 							</label>
 							<?
 						}
