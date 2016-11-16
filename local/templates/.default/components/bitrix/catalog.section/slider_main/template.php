@@ -39,7 +39,7 @@ $this->setFrameMode(true);
                         <?}?>
                     </div>
                     <div class="bannerTextContainer">
-                        <p class="bannerCost"><?=$arItem["PROPERTIES"]["PRICE_BANNER"]["VALUE"]?></p>
+                        <p class="bannerCost"><?=$arItem["PROPERTIES"]["PRICE_BANNER"]["VALUE"]?> <span class="rub">c</span></p>
 
                         <a href="<?=$arItem["PROPERTIES"]["LINK_PRODUCT"]["VALUE"]?>"><p class="bannerText"><?=$arItem["DETAIL_TEXT"]?></p></a>
 
