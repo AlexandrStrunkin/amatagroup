@@ -139,7 +139,7 @@ if (!function_exists("PrintPropsForm"))
 								<? if ($arProperties['CODE'] == "INN" || $arProperties['CODE'] == "KPP") { ?>
 									<? if (!$break) { ?>
 									<span><?= $arProperties["NAME"] ?></span>
-									<input type="text" title="<?= sprintf(GetMessage("MIN_LENGHT_MESSAGE"), $arProperties['NAME'], $pattern_legth) ?>" maxlength="250" pattern="[0-9]{<?= $pattern_legth ?>}" required size="<?=$arProperties["SIZE1"]?>" value="<?=$arProperties["VALUE"]?>" name="<?=$arProperties["FIELD_NAME"]?>" id="<?=$arProperties["FIELD_NAME"]?>" />
+									<input type="text" title="<?= sprintf(GetMessage("MIN_LENGHT_MESSAGE"), $arProperties['NAME'], $pattern_legth) ?>" maxlength="<?= $pattern_legth ?>" pattern="[0-9]{<?= $pattern_legth ?>}" required size="<?=$arProperties["SIZE1"]?>" value="<?=$arProperties["VALUE"]?>" name="<?=$arProperties["FIELD_NAME"]?>" id="<?=$arProperties["FIELD_NAME"]?>" />
 									<? } ?>
 								<? } else { ?>
 									<span><?= $arProperties["NAME"] ?></span>
