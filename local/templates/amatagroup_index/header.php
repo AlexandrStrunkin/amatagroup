@@ -158,7 +158,7 @@
                     $arFilter = array(
                         "LOGIC" => "OR",
                         '!PREVIEW_PICTURE' => false,
-                        '!DETAIL_PICTURE' => false
+                        '!DETAIL_PICTURE' => false,
                     );
                 ?>
                 <?$APPLICATION->IncludeComponent(
@@ -178,7 +178,7 @@
 		"DETAIL_URL" => "",
 		"DISPLAY_COMPARE" => "N",
 		"ELEMENT_COUNT" => "8",
-		"ELEMENT_SORT_FIELD" => 'PROPERTY_BESTSELLERS',
+		"ELEMENT_SORT_FIELD" => 'PROPERTY_TOPPRODAZH',
 		"ELEMENT_SORT_FIELD2" => "shows",
 		"ELEMENT_SORT_ORDER" => "desc",
 		"ELEMENT_SORT_ORDER2" => "desc",
@@ -202,7 +202,7 @@
 		"OFFERS_LIMIT" => "5",
 		"OFFERS_PROPERTY_CODE" => array(
 			0 => "",
-			1 => "BESTSELLERS",
+			1 => "TOPPRODAZH",
 			2 => "",
 		),
 		"OFFERS_SORT_FIELD" => "sort",
@@ -221,7 +221,7 @@
 		"PRODUCT_PROPS_VARIABLE" => "prop",
 		"PRODUCT_QUANTITY_VARIABLE" => "",
 		"PROPERTY_CODE" => array(
-			0 => "BESTSELLERS",
+			0 => "TOPPRODAZH",
 			1 => "",
 		),
 		"SECTION_ID_VARIABLE" => "SECTION_ID",

@@ -4,7 +4,7 @@ require($_SERVER["DOCUMENT_ROOT"]."/bitrix/header.php");
 ?>
 <?
 /*  $arrFilter[] = array(
-        '!PROPERTY_BESTSELLERS' => false
+        '!PROPERTY_TOPPRODAZH' => false
     );*/
 ?>
 <div class="backgroundColor news_wrap">
@@ -15,8 +15,8 @@ require($_SERVER["DOCUMENT_ROOT"]."/bitrix/header.php");
 
             <div class="newsBlock">
             <?$APPLICATION->IncludeComponent(
-	"bitrix:catalog", 
-	"catalog_new_product", 
+	"bitrix:catalog",
+	"catalog_new_product",
 	array(
 		"IBLOCK_TYPE" => "1c_catalog",
 		"IBLOCK_ID" => "5",
@@ -53,7 +53,7 @@ require($_SERVER["DOCUMENT_ROOT"]."/bitrix/header.php");
 		),
 		"FILTER_PROPERTY_CODE" => array(
 			0 => "BREND",
-			1 => "BESTSELLERS",
+			1 => "TOPPRODAZH",
 			2 => "TIP_TOVARA",
 			3 => "",
 		),
@@ -66,7 +66,7 @@ require($_SERVER["DOCUMENT_ROOT"]."/bitrix/header.php");
 		),
 		"FILTER_OFFERS_PROPERTY_CODE" => array(
 			0 => "",
-			1 => "BESTSELLERS",
+			1 => "TOPPRODAZH",
 			2 => "",
 		),
 		"USE_REVIEW" => "N",
@@ -100,12 +100,12 @@ require($_SERVER["DOCUMENT_ROOT"]."/bitrix/header.php");
 		"SECTIONS_SHOW_PARENT_NAME" => "N",
 		"PAGE_ELEMENT_COUNT" => "50",
 		"LINE_ELEMENT_COUNT" => "3",
-		"ELEMENT_SORT_FIELD" => "PROPERTY_BESTSELLERS",
+		"ELEMENT_SORT_FIELD" => "PROPERTY_TOPPRODAZH",
 		"ELEMENT_SORT_FIELD2" => "shows",
 		"ELEMENT_SORT_ORDER" => "desc",
 		"ELEMENT_SORT_ORDER2" => "desc",
 		"LIST_PROPERTY_CODE" => array(
-			0 => "BESTSELLERS",
+			0 => "TOPPRODAZH",
 			1 => "NEWPRODUCT",
 			2 => "SALELEADER",
 			3 => "SPECIALOFFER",
@@ -125,12 +125,12 @@ require($_SERVER["DOCUMENT_ROOT"]."/bitrix/header.php");
 			2 => "COLOR_REF",
 			3 => "SIZES_SHOES",
 			4 => "SIZES_CLOTHES",
-			5 => "BESTSELLERS",
+			5 => "TOPPRODAZH",
 			6 => "",
 		),
 		"LIST_OFFERS_LIMIT" => "0",
 		"DETAIL_PROPERTY_CODE" => array(
-			0 => "BESTSELLERS",
+			0 => "TOPPRODAZH",
 			1 => "NEWPRODUCT",
 			2 => "MANUFACTURER",
 			3 => "",
@@ -157,7 +157,7 @@ require($_SERVER["DOCUMENT_ROOT"]."/bitrix/header.php");
 		"USE_ALSO_BUY" => "N",
 		"ALSO_BUY_ELEMENT_COUNT" => "4",
 		"ALSO_BUY_MIN_BUYES" => "1",
-		"OFFERS_SORT_FIELD" => "PROPERTY_BESTSELLERS",
+		"OFFERS_SORT_FIELD" => "PROPERTY_TOPPRODAZH",
 		"OFFERS_SORT_ORDER" => "desc",
 		"OFFERS_SORT_FIELD2" => "shows",
 		"OFFERS_SORT_ORDER2" => "asc",
