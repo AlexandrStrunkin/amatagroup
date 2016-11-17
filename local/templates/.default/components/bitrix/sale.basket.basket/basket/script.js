@@ -500,9 +500,8 @@ function updateBasketTable(basketItemId, res)
 	if (res.hasOwnProperty('WARNING_MESSAGE'))
 	{
 		var warningText = '';
-
 		for (i = res['WARNING_MESSAGE'].length - 1; i >= 0; i--)
-			warningText += res['WARNING_MESSAGE'][i] + '<br/>';
+			warningText += 'Вы хотите заказать больше, чем есть на складе. Если Вам необходимо большее количество данного товара, свяжитесь с нашими менеджерами для предзаказа.' + '<br/>';
 
 		BX('warning_message').innerHTML = warningText;
 	}
