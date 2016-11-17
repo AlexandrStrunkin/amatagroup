@@ -921,11 +921,17 @@
    position: relative;
 }
 .jcarousel-pagination{
-   z-index: 20;
+   z-index: 200;
 }
 .mainBigBanner .jcarousel li{
    background-color: #dff2fd;;
 }
 .bannerImgContainer img{
    height: auto;
+}
+.slide_link{
+    width: 100%;
+    height: 100%;
+    display: block;
+    position: absolute;
 }
