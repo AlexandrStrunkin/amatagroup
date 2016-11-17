@@ -53,8 +53,10 @@
                     <?
                         if (!empty($arResult["WARNING_MESSAGE"]) && is_array($arResult["WARNING_MESSAGE"]))
                         {
-                            foreach ($arResult["WARNING_MESSAGE"] as $v)
+                            foreach ($arResult["WARNING_MESSAGE"] as $v){
+
                                 ShowError($v);
+                            }
                         }
                     ?>
                 </div>
