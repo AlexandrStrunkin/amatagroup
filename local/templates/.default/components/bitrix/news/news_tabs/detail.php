@@ -39,7 +39,7 @@
 	),
 	$component
 );?>
-<p style="font-size: 13px;color: #3F3F3F;"><a href="<?=$arResult["FOLDER"].$arResult["URL_TEMPLATES"]["news"]?>"><?=GetMessage("T_NEWS_DETAIL_BACK_NEW")?></a></p>
+<p style="font-size: 13px;color: #3F3F3F;"><a href="<?=$arResult["FOLDER"]?>"><?=GetMessage("T_NEWS_DETAIL_BACK_NEW")?></a></p>
 <?if($arParams["USE_RATING"]=="Y" && $ElementID):?>
 <?$APPLICATION->IncludeComponent(
 	"bitrix:iblock.vote",
