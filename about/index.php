@@ -110,7 +110,7 @@ $APPLICATION->SetTitle("О магазине");
 					);?>                </div>
             </div>
             <div class="infoBlocksContent about_tabs" id="exclusiveBrands">
-	            <h3>БРНДЫ</h3>
+	            <h3>БРЕНДЫ</h3>
 	            <?
         		$filter[">PREVIEW_PICTURE"] = 0;
 				$filter["PROPERTY_EXCLUSIVE_VALUE"] = "Да";

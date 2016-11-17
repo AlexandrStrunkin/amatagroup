@@ -156,9 +156,7 @@
                 <?
                     global $arFilter;
                     $arFilter = array(
-                        "LOGIC" => "OR",
-                        '!PREVIEW_PICTURE' => false,
-                        '!DETAIL_PICTURE' => false
+                        '!PROPERTY_TOPPRODAZH' => false
                     );
                 ?>
                 <?$APPLICATION->IncludeComponent(
@@ -178,7 +176,7 @@
 		"DETAIL_URL" => "",
 		"DISPLAY_COMPARE" => "N",
 		"ELEMENT_COUNT" => "8",
-		"ELEMENT_SORT_FIELD" => 'PROPERTY_BESTSELLERS',
+		"ELEMENT_SORT_FIELD" => 'PROPERTY_TOPPRODAZH',
 		"ELEMENT_SORT_FIELD2" => "shows",
 		"ELEMENT_SORT_ORDER" => "desc",
 		"ELEMENT_SORT_ORDER2" => "desc",
@@ -202,7 +200,7 @@
 		"OFFERS_LIMIT" => "5",
 		"OFFERS_PROPERTY_CODE" => array(
 			0 => "",
-			1 => "BESTSELLERS",
+			1 => "TOPPRODAZH",
 			2 => "",
 		),
 		"OFFERS_SORT_FIELD" => "sort",
@@ -221,11 +219,11 @@
 		"PRODUCT_PROPS_VARIABLE" => "prop",
 		"PRODUCT_QUANTITY_VARIABLE" => "",
 		"PROPERTY_CODE" => array(
-			0 => "BESTSELLERS",
+			0 => "TOPPRODAZH",
 			1 => "",
 		),
 		"SECTION_ID_VARIABLE" => "SECTION_ID",
-		"SECTION_URL" => "/catalog/latest_product/",
+		"SECTION_URL" => "/catalog/bestsellers/",
 		"SEF_MODE" => "Y",
 		"SHOW_CLOSE_POPUP" => "N",
 		"SHOW_DISCOUNT_PERCENT" => "N",
@@ -389,7 +387,10 @@
                         )
                     );?>
             </p><br>
-            <?$Filter_brands[">PREVIEW_PICTURE"] = 0;?>
+            <?$Filter_brands = array(
+                ">PREVIEW_PICTURE" => 0,
+                '!PROPERTY_MAIN_DUSPLAY' => false
+            )?>
             <?$APPLICATION->IncludeComponent(
 	"bitrix:news.list",
 	"brands_index",

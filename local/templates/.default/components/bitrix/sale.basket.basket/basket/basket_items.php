@@ -194,9 +194,9 @@
 
                 <p class="orderDiscount" ><?=GetMessage("SALE_CONTENT_DISCOUNT")?><span id="TOTAL_DISCOUNT"><?=$arResult["DISCOUNT_PRICE_ALL_FORMATED"]?></span></p>
 
-                <p class="orderBonus"><?=GetMessage("SALE_YOUR_BONUSES")?><span>0 Ð</span></p>
+                <p class="orderBonus"><?=GetMessage("SALE_YOUR_BONUSES")?><span>0 <span class="rub">c</span></span></p>
 
-                <p class="orderSertificate"><?=GetMessage("SALE_YOUR_SERTIFICATES")?><span>0 Ð</span></p>
+                <p class="orderSertificate"><?=GetMessage("SALE_YOUR_SERTIFICATES")?><span>0 <span class="rub">c</span></span></p>
 
                 <p class="totalPrice" ><?=GetMessage("SALE_TOTAL")?><span id="allSum_FORMATED"><?=$arResult["allSum_FORMATED"]?></span></p>
             </div>
