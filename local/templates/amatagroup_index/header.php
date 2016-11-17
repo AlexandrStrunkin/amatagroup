@@ -387,7 +387,10 @@
                         )
                     );?>
             </p><br>
-            <?$Filter_brands[">PREVIEW_PICTURE"] = 0;?>
+            <?$Filter_brands = array(
+                ">PREVIEW_PICTURE" => 0,
+                '!PROPERTY_MAIN_DUSPLAY' => false
+            )?>
             <?$APPLICATION->IncludeComponent(
 	"bitrix:news.list",
 	"brands_index",
