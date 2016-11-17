@@ -44,15 +44,15 @@
 
                         </td>
                         <td class="deliveryBlock">
-                        <?$APPLICATION->IncludeComponent(
-                            "bitrix:main.include",
-                            "",
-                            Array(
-                                "AREA_FILE_SHOW" => "file",
-                                "PATH" => "/ajax/mailing.php",
-                                "EDIT_TEMPLATE" => ""
-                            )
-                        );?>
+                            <?$APPLICATION->IncludeComponent(
+                                    "bitrix:main.include",
+                                    "",
+                                    Array(
+                                        "AREA_FILE_SHOW" => "file",
+                                        "PATH" => "/ajax/mailing.php",
+                                        "EDIT_TEMPLATE" => ""
+                                    )
+                                );?>
                         </td>
                         <td class="callBackBlock">
                             <p><a href="javascript:void(0);"><?=GetMessage('CALL_BACK')?></a></p>
@@ -74,23 +74,25 @@
     <!--END backgroundColor-->
 
     <!--popup (обратный звонок)-->
+    <div class="back_call_ajax"> 
         <?$APPLICATION->IncludeComponent(
-	"bitrix:main.feedback",
-	"back_call",
-	array(
-		"EMAIL_TO" => FORM_FROM_EMAIL,
-		"EVENT_MESSAGE_ID" => array(
-			0 => "74",
-		),
-		"OK_TEXT" => "Ваш запрос отправлен. Наши консультанты свяжуться с вами по указанным координатам",
-		"REQUIRED_FIELDS" => array(
-			0 => "NAME",
-		),
-		"USE_CAPTCHA" => "N",
-		"COMPONENT_TEMPLATE" => "back_call"
-	),
-	false
-);?>
+            "bitrix:main.feedback",
+            "back_call",
+            array(
+                "EMAIL_TO" => FORM_FROM_EMAIL,
+                "EVENT_MESSAGE_ID" => array(
+                    0 => "74",
+                ),
+                "OK_TEXT" => "Ваш запрос отправлен. Наши консультанты свяжутся с вами по указанным координатам",
+                "REQUIRED_FIELDS" => array(
+                    0 => "NAME",
+                ),
+                "USE_CAPTCHA" => "N",
+                "COMPONENT_TEMPLATE" => "back_call"
+            ),
+            false
+        );?>
+    </div>
     <!--END popup-->
 
 

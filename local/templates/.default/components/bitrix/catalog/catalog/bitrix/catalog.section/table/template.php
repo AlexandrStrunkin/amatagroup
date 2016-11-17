@@ -175,7 +175,11 @@
 														<a class="table_previews" data-preview-offer-id="<?= $offer["ID"] ?>" href="<?= $arItem['DETAIL_PAGE_URL'] ?>">
 															<img src="<?= getResizedImage($offer['DETAIL_PICTURE']['ID'], ELEMENT_CARD_PREVIEW_WIDTH, ELEMENT_CARD_PREVIEW_HEIGHT, BX_RESIZE_IMAGE_PROPORTIONAL_ALT) ?>" alt=""/>
 														</a>
-													<? } ?>
+													<? } else {?>
+                                                        <a class="table_previews" data-preview-offer-id="<?= $offer["ID"] ?>" href="<?= SITE_TEMPLATE_PATH ?>/images/nophoto.png">
+                                                            <img src="<?= SITE_TEMPLATE_PATH ?>/images/nophoto.png" alt=""/>
+                                                        </a>
+                                                    <?} ?>
 											<? 	}
 											}
 										?>
@@ -210,10 +214,11 @@
                                 <td class="elementColor">
                                     <?if (isset($arItem['OFFERS']) && !empty($arItem['OFFERS'])) {?>
 
-                                        <?if (count($arItem['OFFERS']) > 1) {?>
-                                            <div class="selectric-wrapper selectric-basketSelect">
-                                                <select name="color" data-item-id="<?=$arItem["ID"]?>" class="js-offer-select">
-                                                    <?foreach ($arItem["OFFERS"] as $offer) {
+                                    <?if (count($arItem['OFFERS']) > 1) {?>
+                                        <div class="selectric-wrapper selectric-basketSelect">
+                                            <select name="color" data-item-id="<?=$arItem["ID"]?>" class="js-offer-select">
+
+                                                <?foreach ($arItem["OFFERS"] as $offer) {
 
                                                             $offer_name_visible = $offer["NAME"];
                                                             $offerName = array();

@@ -495,7 +495,9 @@ body {
     display: block;
     position: relative;
 }
-
+.thirdLevel .mainLeftMenu li.activeLiTopMenuFirstLvl > a {
+    font-size: 14px;
+}
 .mainLeftMenu > ul > div, .mainLeftMenu > ul > div > div {
     min-height: 496px;
 }
@@ -750,6 +752,10 @@ body {
 
 .innerPageWrapper .productWrapper .newProductWrapper {
     padding: 4px 13px 5px;
+}
+
+.innerPageWrapper {
+	font-family: "PT Serif";
 }
 
 .brandsWrapper {
@@ -3943,13 +3949,16 @@ overflow: hidden;
     width: 90%;
 }
 .open_select{
-    content: url("../img/plusMainLeftMenu.png");
+    background-image: url("../img/plusMainLeftMenu.png");
+    background-repeat: no-repeat;
+    height: 15px;
     left: 228px;
     position: absolute;
     top: 15px;
+    width: 15px;
 }
 .activeFirstLclLi .open_select{
-    content: url("../img/minusListMainMenuHover.png") !important;
+    background-image: url("../img/minusListMainMenuHover.png") !important;
     left: 228px !important;
     top: 19px !important;
 }
@@ -8469,7 +8478,6 @@ display: none;
 }
 
 .detail_news img {
-    float: left;
     margin: 0 25px 25px 0;
 }
 

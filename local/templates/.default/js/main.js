@@ -715,7 +715,7 @@ $(document).ready(function () {
 
     });
 
-    $(".popup .close").on("click", function (e) {
+    $(document).on("click", ".popup .close", function (e) {
         e.preventDefault();
         $(this).parent().fadeOut(300);
         //показать маску
@@ -1532,6 +1532,10 @@ $(document).ready(function () {
         // если для предложения есть превьюха, то переключаемся на нее
         if ($("a[data-preview-offer-id='" + current_offer_id + "']").length && !$("a[data-preview-offer-id='" + current_offer_id + "']").hasClass("active")) {
             $("a[data-preview-offer-id='" + current_offer_id + "']").click();
+        } else if ($("a[data-preview-offer-id='" + current_offer_id + "']").length < 1) {
+            $(".previewImg > a img").attr('src', '/images/no_photo.png');
+            $(".previewImg > a ").attr('href', '/images/no_photo.png');
+            $("#previews_slider_wrapper a").removeClass("active")
         }
         $(".productPrice").hide();
         $(".discountLogoWrapper").hide();
@@ -1900,8 +1904,8 @@ function ajaxpostshow(urlres, datares, wherecontent){
     });
 }
 $(function() {
-    /* For subscribe */
-    $(".deliveryBlock form").on("click", '.mailing-submit', function(){
+    /* For subscribe */  
+    $("body").on("click", '.mailing-submit', function(){ 
         var formsubscrube = $(this).parents("form").serialize();
         formsubscrube = formsubscrube + '&action=ajax';
         ajaxpostshow("/ajax/mailing.php", formsubscrube, ".deliveryBlock" );

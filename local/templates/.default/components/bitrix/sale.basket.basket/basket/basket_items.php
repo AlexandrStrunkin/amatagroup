@@ -11,7 +11,7 @@
     $bPriceType    = false;
 
     if ($normalCount > 0):
-    ?>      
+    ?>
 
     <div id="basket_items_list">
         <div class="bx_ordercart_order_table_container">
@@ -22,7 +22,7 @@
                             $arHeader["name"] = (isset($arHeader["name"]) ? (string)$arHeader["name"] : '');
                             if ($arHeader["name"] == '')
                                 $arHeader["name"] = GetMessage("SALE_".$arHeader["id"]);
-                            $arHeaders[] = $arHeader["id"];     
+                            $arHeaders[] = $arHeader["id"];
                         }?>
                         <th class="elementName item" id="col_NAME"><?=GetMessage("SALE_PRODUCT_NAME")?></th>
                         <th class="elementColor custom"><?=GetMessage("SALE_PRODUCT_OFFER")?></th>
@@ -31,12 +31,12 @@
                         <th class="elementFinalPrice custom" id="col_SUM"><?=GetMessage("SALE_SUM")?></th>
                         <th class="elementActions"><?=GetMessage("SALE_ACTIONS")?></th>
                     </tr>
-                </thead>     
+                </thead>
                 <tbody>
-                    <?      
+                    <?
                         foreach ($arResult["GRID"]["ROWS"] as $k => $arItem):
-                            if ($arItem["DELAY"] == "N" && $arItem["CAN_BUY"] == "Y"): 
-                            ?>            
+                            if ($arItem["DELAY"] == "N" && $arItem["CAN_BUY"] == "Y"):
+                            ?>
 
                             <tr id="<?=$arItem["ID"]?>">
 
@@ -57,8 +57,8 @@
                                     </div>
 
                                     <a class="elementTitle" href="<?=$arItem["DETAIL_PAGE_URL"] ?>">
-                                        <span>                                                 
-                                            <?=$arItem["NAME"]?>                                             
+                                        <span>
+                                            <?=$arItem["NAME"]?>
                                         </span>
                                     </a>
                                     <?if ($arResult["ITEMS_PROPS"][$arItem["PRODUCT_ID"]]["CML2_ARTICLE"]) {?>
@@ -74,8 +74,8 @@
 
                                 <td class="elementPrice price">
 
-                                    <p class="current_price" id="current_price_<?=$arItem["ID"]?>">     
-                                        <?=$arItem["PRICE_FORMATED"]?>                                  
+                                    <p class="current_price" id="current_price_<?=$arItem["ID"]?>">
+                                        <?=$arItem["PRICE_FORMATED"]?>
                                     </p>
                                     <p class="old_price" id="old_price_<?=$arItem["ID"]?>">
                                         <?if (floatval($arItem["DISCOUNT_PRICE_PERCENT"]) > 0):?>
@@ -85,7 +85,7 @@
 
                                 </td>
 
-                                <td class="elementQuant custom">    
+                                <td class="elementQuant custom">
 
                                     <?
                                         $ratio = isset($arItem["MEASURE_RATIO"]) ? $arItem["MEASURE_RATIO"] : 0;
@@ -108,13 +108,13 @@
                                             value="<?=$arItem["QUANTITY"]?>"
                                             onchange="updateQuantity('QUANTITY_INPUT_<?=$arItem["ID"]?>', '<?=$arItem["ID"]?>', <?=$ratio?>, <?=$useFloatQuantityJS?>)"
                                             >
-                                        <? 
+                                        <?
                                             if (!isset($arItem["MEASURE_RATIO"])) {
                                                 $arItem["MEASURE_RATIO"] = 1;
                                             }
 
                                             if (floatval($arItem["MEASURE_RATIO"]) != 0) {
-                                            ?>    
+                                            ?>
                                             <a href="javascript:void(0);" class="plus" onclick="setQuantity(<?=$arItem["ID"]?>, <?=$arItem["MEASURE_RATIO"]?>, 'up', <?=$useFloatQuantityJS?>);"></a>
                                             <a href="javascript:void(0);" class="minus" onclick="setQuantity(<?=$arItem["ID"]?>, <?=$arItem["MEASURE_RATIO"]?>, 'down', <?=$useFloatQuantityJS?>);"></a>
                                             <?}?>
@@ -124,7 +124,7 @@
                                     <input type="hidden" id="QUANTITY_<?=$arItem['ID']?>" name="QUANTITY_<?=$arItem['ID']?>" value="<?=$arItem["QUANTITY"]?>" />
                                 </td>
 
-                                <td class="elementFinalPrice">         
+                                <td class="elementFinalPrice">
                                     <p id="sum_<?=$arItem["ID"]?>">
                                         <?=$arItem["SUM"];?>
                                     </p>
@@ -132,7 +132,7 @@
 
                                 <td class="elementActions">
 
-                                    <a href="javascript:void(0)" 
+                                    <a href="javascript:void(0)"
                                         class="list_favorite likedButton <?= $arResult['USER_AUTHORIZED'] ?  ($arItem['USER_HAVE_ITEM_IN_FAVORITE'] ? " activeLikeBut already_in_favorite" : " js_add_to_favorite") : " js_favorite_need_auth" ?>"
                                         data-favorite-product-id="<?= $arResult["ITEMS_PROPS"][$arItem["PRODUCT_ID"]]["CML2_LINK"] ? $arResult["ITEMS_PROPS"][$arItem["PRODUCT_ID"]]["CML2_LINK"] : $arItem["PRODUCT_ID"] ?>"
                                         data-favorite-delete="<?= $arItem['USER_HAVE_ITEM_IN_FAVORITE'] ? "Y" : "" ?>"
@@ -140,7 +140,7 @@
                                         <p></p>
                                     </a>
                                     <a href="<?=str_replace("#ID#", $arItem["ID"], $arUrls["delete"])?>" class="deleteButton" title="<?=GetMessage("SALE_DELETE_PRODUCT")?>"><p></p></a>
-                                </td>        
+                                </td>
 
                             </tr>
                             <?
@@ -159,7 +159,7 @@
         <input type="hidden" id="hide_coupon" value="<?=($arParams["HIDE_COUPON"] == "Y") ? "Y" : "N"?>" />
         <input type="hidden" id="use_prepayment" value="<?=($arParams["USE_PREPAYMENT"] == "Y") ? "Y" : "N"?>" />
 
-        <div class="bx_ordercart_order_pay">          
+        <div class="bx_ordercart_order_pay">
 
             <div class="discountsBlock">
 
@@ -169,7 +169,7 @@
                     <p class="titleText"><?=GetMessage("SALE_YOU_HAVE_NO_DOSCOUNTS")?></p>
 
                     <p class="bodyText"><?=GetMessage("SALE_DISCOUNTS_LEARN_MORE")?></p>
-                    <a href="" class="salesDetail"><p><?=GetMessage("SALE_DISCOUNTS_MORE_LINK")?></p></a>
+                    <a href="/loyalty_program/" class="salesDetail"><p><?=GetMessage("SALE_DISCOUNTS_MORE_LINK")?></p></a>
 
                     <div class="orangeRound">15%</div>
                     <div class="yellowRound">10%</div>
@@ -181,15 +181,15 @@
                 <p class="titleText"><?=GetMessage("SALE_PROCESSING")?></p>
 
 
-                <p class="orderPrice">       
+                <p class="orderPrice">
                     <?=GetMessage("SALE_ORDER_SUMM")?>
-                    <span id="PRICE_WITHOUT_DISCOUNT">  
-                        <?if (floatval($arResult["DISCOUNT_PRICE_ALL"]) > 0) {?>      
-                            <?=$arResult["PRICE_WITHOUT_DISCOUNT"]?>   
+                    <span id="PRICE_WITHOUT_DISCOUNT">
+                        <?if (floatval($arResult["DISCOUNT_PRICE_ALL"]) > 0) {?>
+                            <?=$arResult["PRICE_WITHOUT_DISCOUNT"]?>
                             <?} else {?>
                             &nbsp;
-                            <?}?>             
-                    </span>      
+                            <?}?>
+                    </span>
                 </p>
 
                 <p class="orderDiscount" ><?=GetMessage("SALE_CONTENT_DISCOUNT")?><span id="TOTAL_DISCOUNT"><?=$arResult["DISCOUNT_PRICE_ALL_FORMATED"]?></span></p>
@@ -210,7 +210,7 @@
                             <input type="text" id="coupon" name="COUPON" value="" onchange="enterCoupon();" placeholder="<?=GetMessage("SALE_ENTER_COUPON")?>">
                             <button disabled onclick="enterCoupon();"><?=GetMessage("SALE_SEND_COUPON")?></button>
                         </div><?
-                        } 
+                        }
                     ?>
                 </div>
 
@@ -224,8 +224,8 @@
     </div>
 
     <script>
-        BX.ready(function() {     
-            recalcBasketAjax({}); 
+        BX.ready(function() {
+            recalcBasketAjax({});
         });
     </script>
 

@@ -58,9 +58,9 @@
                         }
                     ?>
                 </div>
-                <?             
+                <?
                     $normalCount = count($arResult["ITEMS"]["AnDelCanBuy"]);
-                    $normalHidden = ($normalCount == 0) ? 'style="display:none;"' : ''; 
+                    $normalHidden = ($normalCount == 0) ? 'style="display:none;"' : '';
                 ?>
 
                 <div id="basket" class="basketBlock" style="display: block">
@@ -71,16 +71,16 @@
 
                                 <?
                                     include($_SERVER["DOCUMENT_ROOT"].$templateFolder."/basket_items.php");
-                                ?>     
+                                ?>
 
                             </div>
                         </div>
                         <input type="hidden" name="BasketOrder" value="BasketOrder" />
                         <!-- <input type="hidden" name="ajax_post" id="ajax_post" value="Y"> -->
-                    </form>       
+                    </form>
 
 
-                </div>  
+                </div>
 
                 <?
                 }

@@ -175,7 +175,11 @@
                                                         <a class="table_previews" data-preview-offer-id="<?= $offer["ID"] ?>" href="<?= $arItem['DETAIL_PAGE_URL'] ?>">
                                                             <img src="<?= getResizedImage($offer['DETAIL_PICTURE']['ID'], ELEMENT_CARD_PREVIEW_WIDTH, ELEMENT_CARD_PREVIEW_HEIGHT, BX_RESIZE_IMAGE_PROPORTIONAL_ALT) ?>" alt=""/>
                                                         </a>
-                                                    <? } ?>
+                                                    <? } else {?>
+                                                        <a class="table_previews" data-preview-offer-id="<?= $offer["ID"] ?>" href="<?= SITE_TEMPLATE_PATH ?>/images/nophoto.png">
+                                                            <img src="<?= SITE_TEMPLATE_PATH ?>/images/nophoto.png" alt=""/>
+                                                        </a>
+                                                    <?} ?>
                                             <?     }
                                             }
                                         ?>
@@ -208,64 +212,38 @@
                                     <p class="elemendCode"><?=$arItem["PROPERTIES"]["CML2_ARTICLE"]["VALUE"]?></p>
                                 </td>
                                 <td class="elementColor">
-                                    <?if (isset($arItem['OFFERS']) && !empty($arItem['OFFERS'])) {
-
-                                        //получаем первое активное предложение
-                                        $first_offer = $arItem["OFFERS"][0];
-
-                                        $offer_name_visible = $first_offer["NAME"];
-                                        $offerName = array();
-
-                                    foreach ($arParams["OFFER_TREE_PROPS"] as $offer_prop_name) {
-                                            if (!empty($first_offer["PROPERTIES"][$offer_prop_name]["VALUE"])) {
-                                                $offerName[] = $first_offer["PROPERTIES"][$offer_prop_name]["VALUE"];
-                                            }
-                                        }
-                                        if (count($offerName) > 0) {
-                                            $offer_name_visible = trim(implode(", ", $offerName));
-                                        }
-                                    ?>
+                                    <?if (isset($arItem['OFFERS']) && !empty($arItem['OFFERS'])) {?>
 
                                     <?if (count($arItem['OFFERS']) > 1) {?>
                                         <div class="selectric-wrapper selectric-basketSelect">
                                             <select name="color" data-item-id="<?=$arItem["ID"]?>" class="js-offer-select">
+
                                                 <?foreach ($arItem["OFFERS"] as $offer) {
 
-                                                        $offer_name_visible = $offer["NAME"];
-                                                        $offerName = array();
+                                                            $offer_name_visible = $offer["NAME"];
+                                                            $offerName = array();
 
-                                                    foreach ($arParams["OFFER_TREE_PROPS"] as $offer_prop_name) {
-                                                            if (!empty($offer["PROPERTIES"][$offer_prop_name]["VALUE"])) {
-                                                                $offerName[] = $offer["PROPERTIES"][$offer_prop_name]["VALUE"];
+                                                        foreach ($arParams["OFFER_TREE_PROPS"] as $offer_prop_name) {
+                                                                if (!empty($offer["PROPERTIES"][$offer_prop_name]["VALUE"])) {
+                                                                    $offerName[] = $offer["PROPERTIES"][$offer_prop_name]["VALUE"];
+                                                                }
                                                             }
-                                                        }
-                                                        if (count($offerName) > 0) {
-                                                            $offer_name_visible = trim(implode(", ", $offerName));
-                                                        }
-                                                    ?>
-                                                    <option value="<?=$offer["ADD_URL"]?>" data-offer-id="<?=$offer["ID"]?>"><?=$offer_name_visible?></option>
+                                                            if (count($offerName) > 0) {
+                                                                $offer_name_visible = trim(implode(", ", $offerName));
+                                                            }
+                                                        ?>
+                                                        <option value="<?=$offer["ADD_URL"]?>" data-offer-id="<?=$offer["ID"]?>"><?=$offer_name_visible?></option>
+                                                    <?}?>
+                                                </select>
+                                            </div>
+                                            <?} else if (!stristr($offer["NAME"], '(стандарт)')){?>
+                                                <?foreach ($arItem["OFFERS"] as $offer) {?>
+                                                    <p value="<?=$offer["ADD_URL"]?>" data-offer-id="<?=$offer["ID"]?>"><?=$offer["NAME"]?></p>
                                                 <?}?>
-                                            </select>
-                                        </div>
-                                        <?} else {?>
-                                            <?foreach ($arItem["OFFERS"] as $offer) {
-
-                                                    $offer_name_visible = $offer["NAME"];
-                                                    $offerName = array();
-
-                                                foreach ($arParams["OFFER_TREE_PROPS"] as $offer_prop_name) {
-                                                        if (!empty($offer["PROPERTIES"][$offer_prop_name]["VALUE"])) {
-                                                            $offerName[] = $offer["PROPERTIES"][$offer_prop_name]["VALUE"];
-                                                        }
-                                                    }
-                                                    if (count($offerName) > 0) {
-                                                        $offer_name_visible = trim(implode(", ", $offerName));
-                                                    }
-                                                ?>
-                                                <p value="<?=$offer["ADD_URL"]?>" data-offer-id="<?=$offer["ID"]?>"><?=$offer_name_visible?></p>
-                                                <?}?>
-                                        <?}
-                                        } else if ($arItem["PROPERTIES"]["MATERIAL_1"]["VALUE"]) {?>
+                                            <?} else if ($arItem["PROPERTIES"]["MATERIAL_1"]["VALUE"]){?>
+                                                <p><?=$arItem["PROPERTIES"]["MATERIAL_1"]["NAME"] . ': '. $arItem["PROPERTIES"]["MATERIAL_1"]["VALUE"]?></p>
+                                            <?}?>
+                                        <?} else if ($arItem["PROPERTIES"]["MATERIAL_1"]["VALUE"]) {?>
                                             <p><?=$arItem["PROPERTIES"]["MATERIAL_1"]["NAME"] . ': '. $arItem["PROPERTIES"]["MATERIAL_1"]["VALUE"]?></p>
                                         <?}?>
                                 </td>

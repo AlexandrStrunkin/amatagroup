@@ -35,7 +35,17 @@ input::-webkit-inner-spin-button {
     cursor: pointer;
     width: 100%;
 }
+
 .callBackPopup{
     position:relative;
     z-index: 100;
+}
+
+.call_back_reload #call_back_form {
+    display: none;    
+}
+
+.call_back_reload .message {
+    display: block; 
+    padding: 90px 0 82px;   
 }
