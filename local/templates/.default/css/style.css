@@ -794,6 +794,7 @@ body {
     margin-bottom: 6px;
     align-items: center;
     justify-content: center;
+    color: #000;
 }
 
 .brandPhotoWrapper a:last-child {
