@@ -52,10 +52,10 @@
     define("USER_SAVED_ADDRESSES_BUILDING_PROPERTY", 435); // Дом
     define("USER_SAVED_ADDRESSES_APARTMENT_PROPERTY", 436); // Квартира/офис
     define("USER_SAVED_ADDRESSES_BX_LOCATION_ID_PROPERTY", 437); // ID местоположения битрикс
-    
+
 	define("ORGANIZATION_TYPE_OOO", 4); // Тип фирмы ООО
 	define("ORGANIZATION_TYPE_IP", 5); // Тип фирмы ИП
-	
+
     define("USER_QUESTIONS_EMAIL_PROPERTY", 468);
     define("USER_QUESTIONS_COMPANY_PROPERTY", 469);
     define("USER_QUESTIONS_QUESTION_PROPERTY", 470);
@@ -663,14 +663,13 @@
     }
 
     // Заменяет символ валюты в письме заказа
-   AddEventHandler('main', 'OnBeforeEventSend', "currencyTypeReplacement");
+   AddEventHandler('sale', 'OnOrderNewSendEmail', "currencyTypeReplacement");
 
-   function currencyTypeReplacement($arFields, $arTemplate) {
+   function currencyTypeReplacement($ID, &$eventName, &$arFields) {
 
        $arFields["PRICE"] = preg_replace('~<span class="rub">c</span>~', 'Р', $arFields["PRICE"]);
        $arFields["ORDER_LIST"] = preg_replace('~<span class="rub">c</span>~', 'Р', $arFields["ORDER_LIST"]);
 
        return $arFields;
    }
-
 ?>
