@@ -663,9 +663,9 @@
     }
 
     // Заменяет символ валюты в письме заказа
-   AddEventHandler('sale', 'OnOrderNewSendEmail', "currencyTypeReplacement_new");
+   AddEventHandler('sale', 'OnOrderNewSendEmail', "currencyTypeReplacement");
 
-   function currencyTypeReplacement_new($arFields, &$eventName, &$arFields) {
+   function currencyTypeReplacement($ID, &$eventName, &$arFields) {
 
        $arFields["PRICE"] = preg_replace('~<span class="rub">c</span>~', 'Р', $arFields["PRICE"]);
        $arFields["ORDER_LIST"] = preg_replace('~<span class="rub">c</span>~', 'Р', $arFields["ORDER_LIST"]);
