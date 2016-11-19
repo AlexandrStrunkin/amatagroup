@@ -51,4 +51,6 @@ $MESS["SALE_FAVOURITE"] = "Избранное";
 $MESS["SALE_SEND_COUPON"] = "Отправить код";
 $MESS["VIEWED_PRODUCTS"] = "Просмотренные товары";
 $MESS["SALE_DELETE_PRODUCT"] = "Удалить товар из корзины";
+$MESS["ASK_MANAGERS_FOR_DETAIL"] = "Подробности у наших менеджеров";
+$MESS["DISCOUNTS_CALLBACK"] = "Заказать обратный звонок";
 ?>
