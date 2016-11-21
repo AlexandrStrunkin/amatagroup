@@ -2,10 +2,10 @@
 require($_SERVER["DOCUMENT_ROOT"]."/bitrix/header.php");
 $APPLICATION->SetTitle("Бренды");
 ?>
- <?$Filter_brands[">PREVIEW_PICTURE"] = 0;?>
+ <?//$Filter_brands[">PREVIEW_PICTURE"] = 0;?>
 <?$APPLICATION->IncludeComponent(
-	"bitrix:news", 
-	"brands", 
+	"bitrix:news",
+	"brands",
 	array(
 		"ADD_ELEMENT_CHAIN" => "Y",
 		"ADD_SECTIONS_CHAIN" => "N",
