@@ -112,7 +112,6 @@ $APPLICATION->SetTitle("О магазине");
             <div class="infoBlocksContent about_tabs" id="exclusiveBrands">
 	            <h3>БРЕНДЫ</h3>
 	            <?
-        		$filter[">PREVIEW_PICTURE"] = 0;
 				$filter["PROPERTY_EXCLUSIVE_VALUE"] = "Да";
         	    ?>
                 <?$APPLICATION->IncludeComponent(
@@ -247,7 +246,6 @@ $APPLICATION->SetTitle("О магазине");
 	        <h3>Мы являемся Эксклюзивными дистрибьюторами следующих торговых марок</h3>
 	        <h3> </h3>
             <?
-                $filter_brands[">PREVIEW_PICTURE"] = 0;
                 $filter_brands["PROPERTY_DISPLAY_IN_ABOUT_VALUE"] = "Да";
             ?>
             <?$APPLICATION->IncludeComponent(

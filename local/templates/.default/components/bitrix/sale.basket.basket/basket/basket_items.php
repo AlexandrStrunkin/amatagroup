@@ -169,7 +169,14 @@
                     <p class="titleText"><?=GetMessage("SALE_YOU_HAVE_NO_DOSCOUNTS")?></p>
 
                     <p class="bodyText"><?=GetMessage("SALE_DISCOUNTS_LEARN_MORE")?></p>
-                    <a href="/loyalty_program/" class="salesDetail"><p><?=GetMessage("SALE_DISCOUNTS_MORE_LINK")?></p></a>
+                    <a href="javascript:void(0)" class="salesDetail">
+                    	<span>
+                    		<?= GetMessage("ASK_MANAGERS_FOR_DETAIL") ?>
+                    	</span>
+                    	<p class="js_sales_callback">
+                    		<?= GetMessage("DISCOUNTS_CALLBACK") ?>
+                    	</p>
+                    </a>
 
                     <div class="orangeRound">15%</div>
                     <div class="yellowRound">10%</div>

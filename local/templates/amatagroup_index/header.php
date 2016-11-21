@@ -388,7 +388,6 @@
                     );?>
             </p><br>
             <?$Filter_brands = array(
-                ">PREVIEW_PICTURE" => 0,
                 '!PROPERTY_MAIN_DUSPLAY' => false
             )?>
             <?$APPLICATION->IncludeComponent(
