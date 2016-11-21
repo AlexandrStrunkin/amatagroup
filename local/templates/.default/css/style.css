@@ -9253,3 +9253,11 @@ h3, h4, h5, h6 {
 .forgot_password_form .bx-authform-link-container b {
 	color: #5DB3DC !important;
 }
+/*
+IE10 and IE11
+*/
+@media screen and (-ms-high-contrast: active), (-ms-high-contrast: none) {
+	.horizontalFilterWrap .quantityWrap {
+		padding: 14px 17px;
+	}
+}
