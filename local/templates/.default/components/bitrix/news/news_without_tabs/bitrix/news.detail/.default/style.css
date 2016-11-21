@@ -35,3 +35,32 @@
 	display: table-cell;
 	vertical-align: inherit;
 }
+.detail_news .green{
+    background-color: green;
+    width: 15px;
+    height: 15px;
+    display: block;
+    border-radius: 10px;
+    position: absolute;
+    right: 0;
+    top: 0;
+}
+.detail_news .red{
+    background-color: red;
+    width: 15px;
+    height: 15px;
+    display: block;
+    border-radius: 10px;
+    position: absolute;
+    right: 0;
+    top: 0;
+}
+.innerPageWrapper .detail_news > span{
+    color: #5a5a5a;
+    font-family: "MuseoSansCyrl-500";
+    font-size: 13px;
+    padding-bottom: 8px;
+}
+.date_validity{
+    float: right;
+}
