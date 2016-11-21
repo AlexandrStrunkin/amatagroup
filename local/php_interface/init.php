@@ -110,7 +110,7 @@
     /* службы доставки */
     define("COURIER_DELIVERY", 2);
 
-    define("NEW_PRODUCT_STATUS_LENGTH", 30); //количество дней, котрое товар считается новинкой
+    define("NEW_PRODUCT_STATUS_LENGTH", 60); //количество дней, котрое товар считается новинкой
     define("FRESH_PRODUCT_STATUS_LENGTH", 2); //количество дней, котрое товар считается последним поступлением
 
     define("IBLOCK_ID_QUASTION_PRODUCT", 19); // инфоблок задать вопрос по товару
