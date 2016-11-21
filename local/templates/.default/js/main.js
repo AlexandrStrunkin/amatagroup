@@ -1577,12 +1577,12 @@ $(document).ready(function () {
 
         if (ulr) {
             //делаем запрос на нужный урл и преезагружаем область с маленькой корзиной
-            $(".js-small-basket").load(ulr + " .js-small-basket > * ");
+            $(".js-small-basket").load(ulr + " #linkBlock3 > *");
             $(".add_basket").html('Товар добавлен в корзину');
             $(".add_basket").fadeIn('medium');
             setTimeout(function(){
-                $(".add_basket").fadeOut('medium');
-                },2000);
+				$(".add_basket").fadeOut('medium');
+			},2000);
         }
     })
 
