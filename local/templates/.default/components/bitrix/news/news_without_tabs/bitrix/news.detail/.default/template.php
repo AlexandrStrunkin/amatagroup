@@ -8,7 +8,7 @@
         $datetime2 = new DateTime(date_format(date_create_from_format('d.m.Y H:i:s', $arResult['DATE_ACTIVE_TO']), 'd.m.Y'));
         $interval_validity = $datetime_from->diff($datetime2);
         $format_day_validity = $interval_validity->format('%d');
-        echo GetMessage('VALIDITY') . getNumEnding($format_day_validity, array("день", "дня", "дней"));?>
+        echo GetMessage('VALIDITY') . getNumEnding($format_day_validity, GetMessage('DAY'));?>
     </span>
     <span class="date_validity">
     <?
@@ -16,7 +16,7 @@
         $interval_deadline = $datetime2->diff($datetime_to);
         $format_day = $interval_deadline->format('%d');
         if( date_format(date_create_from_format('d.m.Y H:i:s', $arResult['DATE_ACTIVE_TO']), 'd.m.Y') > date('d.m.Y')){
-            echo GetMessage('DEADLINE') . getNumEnding($format_day, array("день", "дня", "дней"));
+            echo GetMessage('DEADLINE') . getNumEnding($format_day, GetMessage('DAY'));
         }
     ?>
     </span><br><br>
