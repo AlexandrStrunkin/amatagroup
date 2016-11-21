@@ -22,8 +22,8 @@ if (count($arResult["ITEMS"]) < 1)
         <?$datetime_from = new DateTime(date_format(date_create_from_format('d.m.Y H:i:s', $arItem['DATE_ACTIVE_FROM']), 'd.m.Y'));
             $datetime2 = new DateTime(date_format(date_create_from_format('d.m.Y H:i:s', $arItem['DATE_ACTIVE_TO']), 'd.m.Y'));
             $interval_validity = $datetime_from->diff($datetime2);
-            $format_day_validity = $interval_validity->format('%d дней');
-            echo 'Срок действия акции ' . getNumEnding($format_day_validity, array("день", "дня", "дней"));?>
+            $format_day_validity = $interval_validity->format('%d');
+            echo GetMessage('VALIDITY') . getNumEnding($format_day_validity, array("день", "дня", "дней"));?>
         </span>
         <span class="date_validity">
         <?
@@ -31,7 +31,7 @@ if (count($arResult["ITEMS"]) < 1)
             $interval_deadline = $datetime2->diff($datetime_to);
             $format_day = $interval_deadline->format('%d');
             if( date_format(date_create_from_format('d.m.Y H:i:s', $arItem['DATE_ACTIVE_TO']), 'd.m.Y') > date('d.m.Y')){
-                echo 'до конца акции осталось ' . getNumEnding($format_day, array("день", "дня", "дней"));
+                echo GetMessage('DEADLINE') . getNumEnding($format_day, array("день", "дня", "дней"));
             }
         ?>
         </span><br><br>

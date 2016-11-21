@@ -680,16 +680,13 @@
      *         например array('€блоко', '€блока', '€блок')
      * return String
      */
-    function getNumEnding($number, $endingArray)
-    {
+    function getNumEnding($number, $endingArray) {
         $number = $number % 100;
         if ($number>=11 && $number<=19) {
             $ending = $number . ' ' . $endingArray[2];
-        }
-        else {
+        } else {
             $i = $number % 10;
-            switch ($i)
-            {
+            switch ($i) {
                 case (1): $ending = $number . ' ' . $endingArray[0]; break;
                 case (2):
                 case (3):
