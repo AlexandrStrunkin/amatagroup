@@ -180,7 +180,7 @@ body {
 
 .secondLvlBlocks li {
     display: inline-block;
-    margin-right: 22px;
+    margin-right: 16px;
 }
 
 .indexPageHeader ul li {
@@ -405,7 +405,7 @@ body {
     font: 13px/1 "VentiCF-Black", sans-serif;
     height: 41px;
     padding-left: 21px;
-    padding-right: 6px;
+    padding-right: 3px;
     padding-top: 26px;
     text-transform: uppercase;
 }

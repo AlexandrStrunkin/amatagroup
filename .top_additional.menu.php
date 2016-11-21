@@ -29,7 +29,7 @@ $aMenuLinks = Array(
 		"" 
 	),
 	Array(
-		"Акции", 
+		"Маркетинг", 
 		"/promo/", 
 		Array(), 
 		Array(), 
