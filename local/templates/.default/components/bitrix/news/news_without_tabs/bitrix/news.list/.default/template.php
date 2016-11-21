@@ -23,7 +23,7 @@ if (count($arResult["ITEMS"]) < 1)
             $datetime2 = new DateTime(date_format(date_create_from_format('d.m.Y H:i:s', $arItem['DATE_ACTIVE_TO']), 'd.m.Y'));
             $interval_validity = $datetime_from->diff($datetime2);
             $format_day_validity = $interval_validity->format('%d');
-            echo GetMessage('VALIDITY') . getNumEnding($format_day_validity, GetMessage('DAY'));?>
+            echo GetMessage('VALIDITY') . getNumEnding($format_day_validity, array(GetMessage('DAY_1'), GetMessage('DAY_2'), GetMessage('DAY_3')));?>
         </span>
         <span class="date_validity">
         <?
@@ -31,7 +31,7 @@ if (count($arResult["ITEMS"]) < 1)
             $interval_deadline = $datetime2->diff($datetime_to);
             $format_day = $interval_deadline->format('%d');
             if( date_format(date_create_from_format('d.m.Y H:i:s', $arItem['DATE_ACTIVE_TO']), 'd.m.Y') > date('d.m.Y')){
-                echo GetMessage('DEADLINE') . getNumEnding($format_day, GetMessage('DAY'));
+                echo GetMessage('DEADLINE') . getNumEnding($format_day, array(GetMessage('DAY_1'), GetMessage('DAY_2'), GetMessage('DAY_3')));
             }
         ?>
         </span><br><br>
