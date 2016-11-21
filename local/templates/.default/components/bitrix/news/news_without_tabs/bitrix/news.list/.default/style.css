@@ -34,3 +34,32 @@
 	line-height:1.1;
 	color:inherit;
 }
+.infoNewsList .green{
+    background-color: green;
+    width: 15px;
+    height: 15px;
+    display: block;
+    border-radius: 10px;
+    position: absolute;
+    right: 0;
+    top: 0;
+}
+.infoNewsList .red{
+    background-color: red;
+    width: 15px;
+    height: 15px;
+    display: block;
+    border-radius: 10px;
+    position: absolute;
+    right: 0;
+    top: 0;
+}
+.innerPageWrapper .infoNewsList li > span{
+    color: #5a5a5a;
+    font-family: "MuseoSansCyrl-500";
+    font-size: 13px;
+    padding-bottom: 8px;
+}
+.date_validity{
+    float: right;
+}
