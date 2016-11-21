@@ -8971,7 +8971,7 @@ body .news_wrap .productBlockWrapper .productWrapper {
     height: 110px;
     background: #fff;
     box-shadow: 0px 3px 7px #e5e5e5;
-    z-index:99;
+    z-index: 300;
     display: none;
 }
 
