@@ -9260,4 +9260,7 @@ IE10 and IE11
 	.horizontalFilterWrap .quantityWrap {
 		padding: 14px 17px;
 	}
+	.catalogElementsBlock {
+		margin-bottom: 0;	
+	}
 }
