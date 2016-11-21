@@ -3,42 +3,53 @@
 /** @var @global CMain $APPLICATION */
 use Bitrix\Main\Loader;
 global $APPLICATION;
-$APPLICATION->AddHeadScript(DEFAULT_TEMPLATE_PATH . "/js/clamp.js");?>
+$APPLICATION->AddHeadScript(DEFAULT_TEMPLATE_PATH . "/js/shave.js");
+?>
 <script>
 	$(document).ready(function(){
-		var products_name = document.querySelectorAll(".productName");
-		Array.prototype.forEach.call(products_name, function(product, i){
-			$clamp(product, {clamp: 2});
-		});
+		// образаем длинные названия
+		$(".productName").shave(60);
 		// показываем скрытую часть названия в отображении блоками
 		$(".productWrapper").hover(
 			function(){
 				var outer_block = $(this).parent(), // внешний блок, его высота эталонная
 					name_block = $(this).find(".productName"), // блок названия
-					additional_height = name_block[0].scrollHeight - name_block.height(); // добавляемая скрытая разница в высоте
+					additional_height = name_block[0].scrollHeight - name_block.height() + 20, // добавляемая скрытая разница в высоте
+					full_name = name_block.data("element-full-name");
+					
+				outer_block.css("border-color", "transparent");
 			
 				$(this).css({
 					"height" : outer_block.height() + additional_height + "px",
 					"z-index": 2,
-					"border-bottom" : "1px solid #e6e6e6"
+					"border" : "1px solid #c7c7c7",
+					"margin-top": "-1px",
+					"margin-left": "-1px"
 				});
+				
+				name_block.html(full_name);
+				
 				name_block.css({
-					"display" : "block",
 					"overflow" : "visible"
 				});
 			},
 			function(){
 				var outer_block = $(this).parent(),
-					name_block = $(this).find(".productName"),
-					additional_height = name_block[0].scrollHeight - name_block.height();
-			
+					name_block = $(this).find(".productName");
+				
+				outer_block.css("border-color", "#e6e6e6");
+				
 				$(this).css({
 					"height" : outer_block.height() + "px",
 					"z-index": 0,
-					"border-bottom" : "none"
+					"border" : "none",
+					"margin-top": "0px",
+					"margin-left": "0px"
 				});
+				
+				name_block.shave(60);
+				
 				name_block.css({
-					"display" : "-webkit-box",
 					"overflow" : "hidden"
 				});
 			}
