@@ -21,12 +21,12 @@ $PROP['TEXT'] = $text;
 
 
 $arLoadProductArray = Array(
-    "MODIFIED_BY"    => $USER->GetID(), // элемент изменен текущим пользователем
-    "IBLOCK_SECTION_ID" => false,          // элемент лежит в корне раздела
+    "MODIFIED_BY"    => $USER->GetID(),
+    "IBLOCK_SECTION_ID" => false,
     "IBLOCK_ID"      => IBLOCK_ID_QUASTION,
     "PROPERTY_VALUES"=> $PROP,
     "NAME"           => $company.' '.$name,
-    "ACTIVE"         => "Y",            // активен
+    "ACTIVE"         => "Y",
     "PREVIEW_TEXT"   => "",
     "DETAIL_TEXT"    => "",
 );
@@ -38,6 +38,3 @@ if($element_id > 0){
     CEvent::Send("FORM_QUASTION", SITE_ID, $arSend, 'N', SEND_QUESTION_FORM_TEMPLATE_ID);
 }
 ?>
-
-<?
-require($_SERVER["DOCUMENT_ROOT"]."/bitrix/footer.php");?>
