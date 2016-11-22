@@ -37,7 +37,6 @@
                         foreach ($arResult["GRID"]["ROWS"] as $k => $arItem):
                             if ($arItem["DELAY"] == "N" && $arItem["CAN_BUY"] == "Y"):
                             ?>
-
                             <tr id="<?=$arItem["ID"]?>">
 
                                 <td class="elementName">
@@ -67,9 +66,21 @@
                                 </td>
 
                                 <td class="elementColor">
+                                	<div class="basket_offer">
+                                	<? $offer_name_visible = "";
+									   $offer_name = array();
 
-
-
+                                        foreach ($arItem["PROPS"] as $offer_prop_name) {
+                                            if (!empty($offer_prop_name["VALUE"])) {
+                                                $offer_name[] = $offer_prop_name["VALUE"];
+                                            }
+                                        }
+                                        if (count($offer_name) > 0) {
+                                            $offer_name_visible = trim(implode(", ", $offer_name));
+                                        }
+										echo $offer_name_visible;
+									?>
+									</div>
                                 </td>
 
                                 <td class="elementPrice price">
