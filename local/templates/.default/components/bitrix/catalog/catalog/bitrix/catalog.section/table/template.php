@@ -612,6 +612,7 @@
                                     </a>
 
                                     <? if (($arItem['CAN_BUY'] && empty($arItem["OFFERS"])) || !empty($arItem["OFFERS"])) { ?>
+                                    	<?$first_offer = $arItem["OFFERS"][0];?>
                                         <div id="<? echo $arItemIDs['BASKET_ACTIONS']; ?>"  <?if ($arItem['IN_BASKET'] == "Y") { ?> title="<?=GetMessage("PRODUCT_ALREADY_IN_BASKET")?>"<?}?>  class="bx_catalog_item_controls_blocktwo productBasketBlock changingBasket <?if ($arItem['IN_BASKET'] == "Y"){?> active<?}?>">
                                             <a id="<? echo $arItemIDs['BUY_LINK']; ?>" data-item-id="<?=$arItem["ID"]?>" class="blockLink bx_bt_button bx_medium <?if ($arItem['IN_BASKET'] != "Y") {?>js-add-to-basket <?}?>" href="<?if (empty($arItem["OFFERS"])) {echo $arItem['ADD_URL'];} elseif ((isset($arItem['OFFERS']) && !empty($arItem['OFFERS'])) || $first_offer) { echo $first_offer['ADD_URL']; }?>" rel="nofollow"></a>
                                         </div>
