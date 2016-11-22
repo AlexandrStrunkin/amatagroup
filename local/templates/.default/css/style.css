@@ -1992,6 +1992,11 @@ h1 {
 .catalogTitleBlock .widthWrapper {
     /*padding-bottom: 35px; */
 }
+
+.viewedElementBlock .widthWrapper {
+	overflow: hidden;
+}
+
 .bx-filter-param-text{
     color: #878787;
     font: 16px/1 "PT Serif", serif;
@@ -8971,7 +8976,7 @@ body .news_wrap .productBlockWrapper .productWrapper {
     height: 110px;
     background: #fff;
     box-shadow: 0px 3px 7px #e5e5e5;
-    z-index:99;
+    z-index: 300;
     display: none;
 }
 
@@ -9252,4 +9257,15 @@ h3, h4, h5, h6 {
 
 .forgot_password_form .bx-authform-link-container b {
 	color: #5DB3DC !important;
+}
+/*
+IE10 and IE11
+*/
+@media screen and (-ms-high-contrast: active), (-ms-high-contrast: none) {
+	.horizontalFilterWrap .quantityWrap {
+		padding: 14px 17px;
+	}
+	.catalogElementsBlock {
+		margin-bottom: 0;	
+	}
 }
