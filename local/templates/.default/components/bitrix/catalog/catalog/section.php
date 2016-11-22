@@ -488,8 +488,6 @@
                             ),
                             false
                         );?>
-                <a href="" class="jcarousel-control-prev"></a>
-                <a href="" class="jcarousel-control-next"></a>
 
 <!--END viewedElementBlock-->
 
