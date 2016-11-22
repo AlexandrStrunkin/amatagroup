@@ -5178,7 +5178,7 @@ textarea {
 .innerPageWrapper .infoNewsList .imageWrapper {
     background: #fff none repeat scroll 0 0;
     border-radius: 4px;
-    float: left;
+    display: inline-block;
     height: 240px;
     line-height: 240px;
     margin-right: 38px;
@@ -5221,11 +5221,16 @@ textarea {
     color: #5a5a5a;
     display: block;
     font: 15px/1 "MuseoSansCyrl-500";
-    margin-left: 300px;
     margin-top: 31px;
     padding: 11px 16px;
     text-align: center;
     width: 100px;
+}
+
+.tabs_news_list_text {
+	display: inline-block;
+    max-width: 878px;
+    vertical-align: top;
 }
 
 .innerPageWrapper .infoNewsList .detailNews:hover {
