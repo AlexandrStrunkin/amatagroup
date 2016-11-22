@@ -9263,6 +9263,13 @@ h3, h4, h5, h6 {
 .forgot_password_form .bx-authform-link-container b {
 	color: #5DB3DC !important;
 }
+
+.basket_offer {
+	font-family: "MuseoSansCyrl-500";
+	color: black;
+	text-align: center;
+}
+
 /*
 IE10 and IE11
 */
