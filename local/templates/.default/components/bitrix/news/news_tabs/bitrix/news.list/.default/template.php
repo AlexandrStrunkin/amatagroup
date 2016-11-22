@@ -16,12 +16,14 @@
     ?>
         <li id="<?=$this->GetEditAreaId($item['ID']);?>">
             <div class="imageWrapper"><img src="<?= $item['PREVIEW_PICTURE']['SRC'] ?>" alt="<?= $item['NAME'] ?>"/></div>
-            <p class="dateText"><?= date_format(date_create_from_format('d.m.Y H:i:s', $item['DATE_CREATE']), 'd.m.Y') ?></p>
-            <a href="<?= $item['DETAIL_PAGE_URL'] ?>" class="newsName"><?= $item['NAME'] ?></a>
-            <p class="newsText">
-            	<?= $item['PREVIEW_TEXT'] ?>
-            </p>
-            <a href="<?= $item['DETAIL_PAGE_URL'] ?>" class="detailNews"><?= GetMessage('DETAIL_NEWS') ?></a>
+            <div class="tabs_news_list_text">
+            	<p class="dateText"><?= date_format(date_create_from_format('d.m.Y H:i:s', $item['DATE_CREATE']), 'd.m.Y') ?></p>
+            	<a href="<?= $item['DETAIL_PAGE_URL'] ?>" class="newsName"><?= $item['NAME'] ?></a>
+            	<p class="newsText">
+            		<?= $item['PREVIEW_TEXT'] ?>
+            	</p>
+            	<a href="<?= $item['DETAIL_PAGE_URL'] ?>" class="detailNews"><?= GetMessage('DETAIL_NEWS') ?></a>
+            </div>
         </li>
 	<? } ?>
     </ul>
