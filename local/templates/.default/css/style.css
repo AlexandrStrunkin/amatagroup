@@ -1992,6 +1992,11 @@ h1 {
 .catalogTitleBlock .widthWrapper {
     /*padding-bottom: 35px; */
 }
+
+.viewedElementBlock .widthWrapper {
+	overflow: hidden;
+}
+
 .bx-filter-param-text{
     color: #878787;
     font: 16px/1 "PT Serif", serif;

@@ -175,5 +175,5 @@ if ($arResult["USE_CAPTCHA"] == "Y")
 	<input type="submit" class="authEnter" name="register_submit_button" value="<?=GetMessage("AUTH_REGISTER_SUBMIT")?>" />
 </div>
 
-</form>
 <?endif?>
+</form>
