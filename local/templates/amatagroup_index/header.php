@@ -27,7 +27,6 @@
                 <div id="wrap_best"  data-id='2'><?=GetMessage('BESTSELLERS')?></div>
                 <div id="wrap_latest" data-id='3'><?=GetMessage('LATEST')?></div>
             </div>
-            <p class="blockTitle"><?=GetMessage('TEXT_TOP')?></p>
             <div class="newsBlock">
                 <?
                   global $ShowWithImage;
