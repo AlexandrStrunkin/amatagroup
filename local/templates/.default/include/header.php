@@ -9,64 +9,9 @@
             <div class="secondLvlBlocks top-menu-fixed-catalog-control" >
                 <p class="catalog-fixed-title"><?=GetMessage("CATALOG")?></p>
             </div>
-
-            <?/*  пока не удалять до решения задачи с плавающей плашкой
-                <div class="fixed-catalog-menu">
-                <?$APPLICATION->IncludeComponent(
-                "bitrix:catalog.section.list",
-                "catalog_menu",
-                array(
-                "COMPONENT_TEMPLATE" => "catalog_menu",
-                "IBLOCK_TYPE" => "1c_catalog",
-                "IBLOCK_ID" => "5",
-                "SECTION_ID" => "",
-                "SECTION_CODE" => "",
-                "COUNT_ELEMENTS" => "N",
-                "TOP_DEPTH" => "3",
-                "SECTION_FIELDS" => array(
-                0 => "",
-                1 => "",
-                ),
-                "SECTION_USER_FIELDS" => array(
-                0 => "",
-                1 => "",
-                ),
-                "VIEW_MODE" => "LIST",
-                "SHOW_PARENT_NAME" => "Y",
-                "SECTION_URL" => "",
-                "CACHE_TYPE" => "A",
-                "CACHE_TIME" => "86400",
-                "CACHE_GROUPS" => "N",
-                "ADD_SECTIONS_CHAIN" => "Y"
-                ),
-                false
-                );?>
-                </div>
-            */?>
         </div>
 
         <div class="top-menu-fixed-block auth-block">
-
-            <div class="regHiddenBlock">
-                <p class="authClose"></p>
-                <?$APPLICATION->IncludeComponent("bitrix:main.register", "popup_register", Array(
-                        "AUTH" => "Y",    // Автоматически авторизовать пользователей
-                        "REQUIRED_FIELDS" => array(    // Поля, обязательные для заполнения
-                            0 => "NAME",
-                        ),
-                        "SET_TITLE" => "N",    // Устанавливать заголовок страницы
-                        "SHOW_FIELDS" => array(    // Поля, которые показывать в форме
-                            0 => "NAME",
-                            1 => "PERSONAL_PHONE",
-                        ),
-                        "SUCCESS_PAGE" => "",    // Страница окончания регистрации
-                        "USER_PROPERTY" => "",    // Показывать доп. свойства
-                        "USER_PROPERTY_NAME" => "",    // Название блока пользовательских свойств
-                        "USE_BACKURL" => "Y",    // Отправлять пользователя по обратной ссылке, если она есть
-                        ),
-                        false
-                    );?>
-            </div>
 
             <?
                 global $USER;
@@ -86,40 +31,66 @@
                 <p class="logoutLink"><a href="?logout=yes"><?=GetMessage("LOGOUT")?></a></p>
                 <?}?>
 
-
-
-
         </div>
 
         <div class="top-menu-fixed-block">
             <div class="firstLvlBlocks linksBlock" id="fixed-linkBlock1">
 
+            <form action="/catalog">
                 <?$APPLICATION->IncludeComponent(
-                        "bitrix:search.title",
-                        "search_field",
-                        array(
-                            "COMPONENT_TEMPLATE" => "search_field",
-                            "NUM_CATEGORIES" => "1",
-                            "TOP_COUNT" => "5",
-                            "ORDER" => "rank",
-                            "USE_LANGUAGE_GUESS" => "Y",
-                            "CHECK_DATES" => "N",
-                            "SHOW_OTHERS" => "N",
-                            "PAGE" => "/catalog/",
-                            "SHOW_INPUT" => "Y",
-                            "INPUT_ID" => "title-search-input-fixed",
-                            "CONTAINER_ID" => "title-search",
-                            "CATEGORY_0_TITLE" => "Товары",
-                            "CATEGORY_0" => array(
-                                0 => "iblock_1c_catalog",
-                            ),
-                            "CATEGORY_0_iblock_1c_catalog" => array(
-                                0 => "5",
-                            )
-                        ),
-                        false
-                    );?>
-
+	                "bitrix:search.title",
+	                "search_field_top",
+	                array(
+		                "SHOW_INPUT" => "Y",
+		                "INPUT_ID" => "title-search-input-fixed",
+		                "CONTAINER_ID" => "title-search-top",
+		                "PRICE_CODE" => array(
+			                0 => "BASE",
+			                1 => "RETAIL",
+		                ),
+		                "PRICE_VAT_INCLUDE" => "Y",
+		                "PREVIEW_TRUNCATE_LEN" => "150",
+		                "SHOW_PREVIEW" => "Y",
+		                "PREVIEW_WIDTH" => "75",
+		                "PREVIEW_HEIGHT" => "75",
+		                "CONVERT_CURRENCY" => "Y",
+		                "CURRENCY_ID" => "RUB",
+		                "PAGE" => "/catalog/",
+		                "NUM_CATEGORIES" => "1",
+		                "TOP_COUNT" => "10",
+		                "ORDER" => "date",
+		                "USE_LANGUAGE_GUESS" => "N",
+		                "CHECK_DATES" => "Y",
+		                "SHOW_OTHERS" => "N",
+		                "CATEGORY_0_TITLE" => "Каталог",
+		                "CATEGORY_0" => array(
+			                0 => "iblock_1c_catalog",
+		                ),
+		                "CATEGORY_0_iblock_news" => array(
+			                0 => "all",
+		                ),
+		                "CATEGORY_1_TITLE" => "Форумы",
+		                "CATEGORY_1" => array(
+			                0 => "forum",
+		                ),
+		                "CATEGORY_1_forum" => array(
+			                0 => "all",
+		                ),
+		                "CATEGORY_2_TITLE" => "Каталоги",
+		                "CATEGORY_2" => array(
+			                0 => "iblock_books",
+		                ),
+		                "CATEGORY_2_iblock_books" => "all",
+		                "CATEGORY_OTHERS_TITLE" => "Прочее",
+		                "COMPONENT_TEMPLATE" => "search_field_top",
+		                "CATEGORY_0_iblock_1c_catalog" => array(
+			                0 => "5",
+			                1 => "6",
+		                )
+	                ),
+	                false
+                );?>
+            </form>
             </div>
 
             <div class="firstLvlBlocks linksBlock" id="fixed-linkBlock2">
@@ -201,34 +172,35 @@
 
         <div class="firstLvlBlocks linksBlock" id="linkBlock1">
 
-            <?$APPLICATION->IncludeComponent(
-    "bitrix:search.title",
-    "search_field",
-    array(
-        "COMPONENT_TEMPLATE" => "search_field",
-        "NUM_CATEGORIES" => "1",
-        "TOP_COUNT" => "15",
-        "ORDER" => "rank",
-        "USE_LANGUAGE_GUESS" => "N",
-        "CHECK_DATES" => "N",
-        "SHOW_OTHERS" => "N",
-        "PAGE" => "/catalog/",
-        "SHOW_INPUT" => "Y",
-        "INPUT_ID" => "title-search-input",
-        "CONTAINER_ID" => "title-search",
-        "CATEGORY_0_TITLE" => "Товары",
-        "CATEGORY_0" => array(
-            0 => "iblock_1c_catalog",
-        ),
-        "CATEGORY_0_iblock_1c_catalog" => array(
-            0 => "5",
-            1 => "6",
-        )
-    ),
-    false
-);?>
 
-        </div>
+            <?$APPLICATION->IncludeComponent(
+                "bitrix:search.title",
+                "search_field",
+                array(
+                    "COMPONENT_TEMPLATE" => "search_field",
+                    "NUM_CATEGORIES" => "1",
+                    "TOP_COUNT" => "15",
+                    "ORDER" => "rank",
+                    "USE_LANGUAGE_GUESS" => "N",
+                    "CHECK_DATES" => "N",
+                    "SHOW_OTHERS" => "Y",
+                    "PAGE" => "/catalog/",
+                    "SHOW_INPUT" => "Y",
+                    "INPUT_ID" => "title-search-input",
+                    "CONTAINER_ID" => "title-search",
+                    "CATEGORY_0_TITLE" => "Товары",
+                    "CATEGORY_0" => array(
+                        0 => "iblock_1c_catalog",
+                    ),
+                    "CATEGORY_0_iblock_1c_catalog" => array(
+                        0 => "5",
+                        1 => "6",
+                    ),
+                    "CATEGORY_OTHERS_TITLE" => ""
+                ),
+                false
+            );?>
+            </div>
 
         <div class="firstLvlBlocks linksBlock" id="linkBlock2">
             <a href="/personal/favourite/"><p><?=GetMessage("FAVOURITE")?></p></a>
