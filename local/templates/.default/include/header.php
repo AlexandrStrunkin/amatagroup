@@ -36,7 +36,7 @@
         <div class="top-menu-fixed-block">
             <div class="firstLvlBlocks linksBlock" id="fixed-linkBlock1">
 
-            <form action="/catalog">
+            <form action="/catalog/">
                 <?$APPLICATION->IncludeComponent(
 	                "bitrix:search.title",
 	                "search_field_top",
