@@ -175,10 +175,9 @@ if ($_SERVER["REQUEST_METHOD"] == "POST" && !empty($_REQUEST["register_submit_bu
                 $bOk = true;
             }
 		}
-          $UserField = CUserFieldEnum::GetList(array(), array("ID" => $_REQUEST["UF_FACE"]));
-          if($UserFieldAr = $UserField->GetNext())
-          {
-             $arResult['VALUES']["UF_FACE_VALUE"] = $UserFieldAr["VALUE"];
+          $user_field = CUserFieldEnum::GetList(array(), array("ID" => $_REQUEST["UF_FACE"]));
+          if($ar_user_fieldAr = $user_field->GetNext()) {
+             $arResult['VALUES']["UF_FACE_VALUE"] = $ar_user_fieldAr["VALUE"];
           }
 
 
