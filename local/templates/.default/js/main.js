@@ -854,7 +854,7 @@ $(document).ready(function () {
             return false;
         }
 
-        e.preventDefault();
+
     });
     $(".couponInputBlock input").on("keydown keypress keyup", function () {
         var el = $(this), v = el.val(), button = el.parent().find("button");
@@ -1904,8 +1904,8 @@ function ajaxpostshow(urlres, datares, wherecontent){
     });
 }
 $(function() {
-    /* For subscribe */  
-    $("body").on("click", '.mailing-submit', function(){ 
+    /* For subscribe */
+    $("body").on("click", '.mailing-submit', function(){
         var formsubscrube = $(this).parents("form").serialize();
         formsubscrube = formsubscrube + '&action=ajax';
         ajaxpostshow("/ajax/mailing.php", formsubscrube, ".deliveryBlock" );
