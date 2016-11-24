@@ -1992,6 +1992,11 @@ h1 {
 .catalogTitleBlock .widthWrapper {
     /*padding-bottom: 35px; */
 }
+
+.viewedElementBlock .widthWrapper {
+	overflow: hidden;
+}
+
 .bx-filter-param-text{
     color: #878787;
     font: 16px/1 "PT Serif", serif;
@@ -5173,7 +5178,7 @@ textarea {
 .innerPageWrapper .infoNewsList .imageWrapper {
     background: #fff none repeat scroll 0 0;
     border-radius: 4px;
-    float: left;
+    display: inline-block;
     height: 240px;
     line-height: 240px;
     margin-right: 38px;
@@ -5216,11 +5221,16 @@ textarea {
     color: #5a5a5a;
     display: block;
     font: 15px/1 "MuseoSansCyrl-500";
-    margin-left: 300px;
     margin-top: 31px;
     padding: 11px 16px;
     text-align: center;
     width: 100px;
+}
+
+.tabs_news_list_text {
+	display: inline-block;
+    max-width: 878px;
+    vertical-align: top;
 }
 
 .innerPageWrapper .infoNewsList .detailNews:hover {
@@ -8971,7 +8981,7 @@ body .news_wrap .productBlockWrapper .productWrapper {
     height: 110px;
     background: #fff;
     box-shadow: 0px 3px 7px #e5e5e5;
-    z-index:99;
+    z-index: 300;
     display: none;
 }
 
@@ -9253,6 +9263,7 @@ h3, h4, h5, h6 {
 .forgot_password_form .bx-authform-link-container b {
 	color: #5DB3DC !important;
 }
+<<<<<<< HEAD
 .forgot_password_form .btn-primary{
     background-color: #5db3dc;
     border-radius: 40px;
@@ -9264,4 +9275,23 @@ h3, h4, h5, h6 {
     padding: 10px 18px;
     border: none;
     cursor: pointer;
+=======
+
+.basket_offer {
+	font-family: "MuseoSansCyrl-500";
+	color: black;
+	text-align: center;
+}
+
+/*
+IE10 and IE11
+*/
+@media screen and (-ms-high-contrast: active), (-ms-high-contrast: none) {
+	.horizontalFilterWrap .quantityWrap {
+		padding: 14px 17px;
+	}
+	.catalogElementsBlock {
+		margin-bottom: 0;	
+	}
+>>>>>>> upstream/master
 }
