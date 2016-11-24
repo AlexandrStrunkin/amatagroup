@@ -4,8 +4,8 @@ $APPLICATION->SetTitle("Поиск");
 ?>
 
 <?$APPLICATION->IncludeComponent(
-	"bitrix:search.page", 
-	"clear", 
+	"bitrix:search.page",
+	"clear",
 	array(
 		"RESTART" => "Y",
 		"CHECK_DATES" => "N",
