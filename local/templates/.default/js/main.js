@@ -1904,8 +1904,8 @@ function ajaxpostshow(urlres, datares, wherecontent){
     });
 }
 $(function() {
-    /* For subscribe */  
-    $("body").on("click", '.mailing-submit', function(){ 
+    /* For subscribe */
+    $("body").on("click", '.mailing-submit', function(){
         var formsubscrube = $(this).parents("form").serialize();
         formsubscrube = formsubscrube + '&action=ajax';
         ajaxpostshow("/ajax/mailing.php", formsubscrube, ".deliveryBlock" );
