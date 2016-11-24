@@ -194,13 +194,23 @@ if ($_SERVER["REQUEST_METHOD"] == "POST" && !empty($_REQUEST["register_submit_bu
 
 			$arResult['VALUES']["USER_ID"] = $ID;
 
-
+            $arFilter = array("ID" => $arResult["VALUES"]["USER_ID"]);
+            $select = array("SELECT"=>array("UF_*"));
+            $ardocument = CUser::GetList($by,$desc,$arFilter,$select);
+                $dociment_count = 0;
+                while ($document_file = $ardocument->Fetch()) {
+                    while ($dociment_count <= 12) {
+                        if($document_file["UF_DOCUMENT_".$dociment_count]){
+                            $ar_document[] = $document_file["UF_DOCUMENT_".$dociment_count];
+                        }
+                        $dociment_count++;
+                    }
+                }
 			$arEventFields = $arResult['VALUES'];
-			unset($arEventFields["PASSWORD"]);
 			unset($arEventFields["CONFIRM_PASSWORD"]);
 
-            $event = new CEvent;
-			$event->SendImmediate("REGISTER_USER", "s1", $arEventFields);
+            CEvent::Send ("REGISTER_USER", "s1", $arEventFields, "N", "", $ar_document);
+
 			/*if($bConfirmReq)
 				$event->SendImmediate("NEW_USER_CONFIRM", SITE_ID, $arEventFields);  */
 		}
