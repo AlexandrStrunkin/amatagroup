@@ -197,14 +197,15 @@ if ($arResult["USE_CAPTCHA"] == "Y")
 <div class="additional_fields">
     <?if($arResult["USER_PROPERTIES"]["SHOW"] == "Y"):?>
         <?$count_face = 0;?>
+        <?$i = 0?>
         <?foreach ($arResult["USER_PROPERTIES"]["DATA"] as $FIELD_NAME => $arUserField):?>
         <?if($arUserField['FIELD_NAME'] != 'UF_FACE'){?>
         <?$count_face += 1;?>
         <div class="<?= ($count_face < 7)? 'face_1': 'face_2' ?>">
             <span class="userFieldName"><?=$arUserField["EDIT_FORM_LABEL"]?>:<?if ($arUserField["MANDATORY"]=="Y"):?><span class="starrequired">*</span><?endif;?></span>
-            <label>
+            <label for="name_<?=$arUserField["ID"]?>">
                 <?$APPLICATION->IncludeComponent(
-                    "bitrix:system.field.edit",
+                    "webgk:system.field_amata",
                     $arUserField["USER_TYPE"]["USER_TYPE_ID"],
                     array("bVarsFromForm" => $arResult["bVarsFromForm"], "arUserField" => $arUserField, "form_name" => "regform"), null, array("HIDE_ICONS"=>"Y")
                 );?>

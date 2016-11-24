@@ -175,8 +175,14 @@ if ($_SERVER["REQUEST_METHOD"] == "POST" && !empty($_REQUEST["register_submit_bu
                 $bOk = true;
             }
 		}
+          $UserField = CUserFieldEnum::GetList(array(), array("ID" => $_REQUEST["UF_FACE"]));
+          if($UserFieldAr = $UserField->GetNext())
+          {
+             $arResult['VALUES']["UF_FACE_VALUE"] = $UserFieldAr["VALUE"];
+          }
 
-		$ID = 0;
+
+        $ID = 0;
 		$user = new CUser();
 		if ($bOk)
 		{
@@ -189,11 +195,12 @@ if ($_SERVER["REQUEST_METHOD"] == "POST" && !empty($_REQUEST["register_submit_bu
 
 			$arResult['VALUES']["USER_ID"] = $ID;
 
+
 			$arEventFields = $arResult['VALUES'];
 			unset($arEventFields["PASSWORD"]);
 			unset($arEventFields["CONFIRM_PASSWORD"]);
 
-			$event = new CEvent;
+            $event = new CEvent;
 			$event->SendImmediate("REGISTER_USER", "s1", $arEventFields);
 			/*if($bConfirmReq)
 				$event->SendImmediate("NEW_USER_CONFIRM", SITE_ID, $arEventFields);  */
