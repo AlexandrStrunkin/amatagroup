@@ -6,7 +6,7 @@
 <!DOCTYPE html>
 <html xmlns="http://www.w3.org/1999/xhtml" xml:lang="<?=LANGUAGE_ID?>" lang="<?=LANGUAGE_ID?>">
 <head>
-
+    <meta name="mailru-verification" content="3f378cce47e62dcb" />
     <?include($_SERVER["DOCUMENT_ROOT"].DEFAULT_TEMPLATE_PATH."/include/meta.php")?>
 </head>
 <body class="<?if ($curPage == SITE_DIR."index.php"){?>mainPage<?}?>">
