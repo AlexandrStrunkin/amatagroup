@@ -140,9 +140,15 @@ $arFirstPhoto = current($arResult['MORE_PHOTO']);
         	<div class="previews_slider_navigation_arrow" data-preview-slider-direction="next"><span></span></div>
         	<div id="previews_slider_wrapper">
 	        <? if (is_array($arResult['MORE_PHOTO']) ) { ?>
+                <? $rel_fancybox = ""; ?>
                 <? foreach ($arResult['MORE_PHOTO'] as &$arOnePhoto) { ?>
                     <?if($arOnePhoto["ID"]){?>
-                        <a rel="element_gallery" href="<?= getResizedImage($arOnePhoto['ID'], ELEMENT_CARD_MAIN_WIDTH, ELEMENT_CARD_MAIN_HEIGHT, BX_RESIZE_IMAGE_PROPORTIONAL_ALT) ?>" data-preview-image="<?= getResizedImage($arOnePhoto['ID'], ELEMENT_CARD_MAIN_WIDTH, ELEMENT_CARD_MAIN_HEIGHT, BX_RESIZE_IMAGE_PROPORTIONAL_ALT) ?>">
+                        <?
+                        if(empty($rel_fancybox)) {
+                            $rel_fancybox = 'rel="element_gallery "';
+                        }
+                        ?>
+                        <a <?= $rel_fancybox?> href="<?= getResizedImage($arOnePhoto['ID'], ELEMENT_CARD_MAIN_WIDTH, ELEMENT_CARD_MAIN_HEIGHT, BX_RESIZE_IMAGE_PROPORTIONAL_ALT) ?>" data-preview-image="<?= getResizedImage($arOnePhoto['ID'], ELEMENT_CARD_MAIN_WIDTH, ELEMENT_CARD_MAIN_HEIGHT, BX_RESIZE_IMAGE_PROPORTIONAL_ALT) ?>">
                             <img src="<?= getResizedImage($arOnePhoto['ID'], ELEMENT_CARD_PREVIEW_WIDTH, ELEMENT_CARD_PREVIEW_HEIGHT, BX_RESIZE_IMAGE_PROPORTIONAL_ALT) ?>" alt=""/>
                         </a>
                     <?}?>
@@ -163,7 +169,7 @@ $arFirstPhoto = current($arResult['MORE_PHOTO']);
 						// если фото в поле превью
 						if (isset($offer['DETAIL_PICTURE']) || !empty($offer['DETAIL_PICTURE'])) {
 						?>
-							<a rel="element_gallery" data-preview-offer-id="<?= $offer["ID"] ?>" href="<?= getResizedImage($offer['DETAIL_PICTURE']['ID'], ELEMENT_CARD_PREVIEW_WIDTH, ELEMENT_CARD_PREVIEW_HEIGHT, BX_RESIZE_IMAGE_PROPORTIONAL_ALT) ?>" data-preview-image="<?= getResizedImage($offer['DETAIL_PICTURE']['ID'], ELEMENT_CARD_MAIN_WIDTH, ELEMENT_CARD_MAIN_HEIGHT, BX_RESIZE_IMAGE_PROPORTIONAL_ALT) ?>">
+							<a rel="element_gallery" data-preview-offer-id="<?= $offer["ID"] ?>" href="<?= getResizedImage($offer['DETAIL_PICTURE']['ID'], ELEMENT_CARD_MAIN_WIDTH, ELEMENT_CARD_MAIN_HEIGHT, BX_RESIZE_IMAGE_PROPORTIONAL_ALT) ?>" data-preview-image="<?= getResizedImage($offer['DETAIL_PICTURE']['ID'], ELEMENT_CARD_MAIN_WIDTH, ELEMENT_CARD_MAIN_HEIGHT, BX_RESIZE_IMAGE_PROPORTIONAL_ALT) ?>">
 								<img src="<?= getResizedImage($offer['DETAIL_PICTURE']['ID'], ELEMENT_CARD_PREVIEW_WIDTH, ELEMENT_CARD_PREVIEW_HEIGHT, BX_RESIZE_IMAGE_PROPORTIONAL_ALT) ?>" alt=""/>
 							</a>
 						<? } ?>
