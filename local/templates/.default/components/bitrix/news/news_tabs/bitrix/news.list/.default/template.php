@@ -13,7 +13,7 @@
     <?
 	$this->AddEditAction($item['ID'], $item['EDIT_LINK'], CIBlock::GetArrayByID($arParams["IBLOCK_ID"], "ELEMENT_EDIT"));
 	$this->AddDeleteAction($item['ID'], $item['DELETE_LINK'], CIBlock::GetArrayByID($arParams["IBLOCK_ID"], "ELEMENT_DELETE"), array("CONFIRM" => GetMessage('NEWS_ELEMENT_DELETE_CONFIRM')));
-    /*arshow($item);*/?>
+    ?>
         <li id="<?=$this->GetEditAreaId($item['ID']);?>">
             <div class="imageWrapper"><img src="<?= $item['PREVIEW_PICTURE']['SRC'] ?>" alt="<?= $item['NAME'] ?>"/></div>
             <div class="tabs_news_list_text">
