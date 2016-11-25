@@ -74,7 +74,7 @@ document.getElementById('bx_auth_secure_conf').style.display = '';
 		</div>
 
 		<div class="bx-authform-formgroup-container">
-			<input type="submit" class="btn btn-primary js_no_bind" name="change_pwd" value="<?=GetMessage("AUTH_CHANGE")?>" />
+			<input type="submit" class="btn-primary js_no_bind" name="change_pwd" value="<?=GetMessage("AUTH_CHANGE")?>" />
 		</div>
 
 		<div class="bx-authform-description-container">
