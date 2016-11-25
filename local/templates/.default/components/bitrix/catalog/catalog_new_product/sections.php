@@ -155,6 +155,8 @@
         <!--allElementWrap-->
         <div class="allElementWrap">
             <!--leftFiltersBlock-->
+            <?arshow($arResult["VARIABLES"]["SMART_FILTER_PATH"])?>
+            <?arshow($arParams["FILTER_NAME"])?>
             <?$APPLICATION->IncludeComponent(
                     "bitrix:catalog.smart.filter",
                     "catalog_filter_sections", //catalog_filter
@@ -178,7 +180,7 @@
                         'CURRENCY_ID' => $arParams['CURRENCY_ID'],
                         "SEF_MODE" => $arParams["SEF_MODE"],
                         "SEF_RULE" => $arResult["FOLDER"].$arResult["URL_TEMPLATES"]["smart_filter"],
-                        "SMART_FILTER_PATH" => $arResult["VARIABLES"]["SMART_FILTER_PATH"],
+                        "SMART_FILTER_PATH" => $arParams["FILTER_NAME"],
                         "PAGER_PARAMS_NAME" => $arParams["PAGER_PARAMS_NAME"],
                         "DISPLAY_ELEMENT_COUNT" => "Y",
                         "POPUP_POSITION" => "right"
@@ -203,6 +205,7 @@
             <?
 
             ?>
+
             <?$intSectionID = $APPLICATION->IncludeComponent(
                     "bitrix:catalog.section",
                     $sectionTemplate,
@@ -273,7 +276,7 @@
                         "SECTION_CODE" => "",
                         "SHOW_ALL_WO_SECTION" => "Y",
                         "SECTION_URL" => $arResult["FOLDER"].$arResult["URL_TEMPLATES"]["section"],
-                        "DETAIL_URL" => $arResult["FOLDER"].$arResult["URL_TEMPLATES"]["element"],
+                        "DETAIL_URL" => '/catalog/'.$arResult["URL_TEMPLATES"]["element"],
                         "USE_MAIN_ELEMENT_SECTION" => $arParams["USE_MAIN_ELEMENT_SECTION"],
                         'CONVERT_CURRENCY' => $arParams['CONVERT_CURRENCY'],
                         'CURRENCY_ID' => $arParams['CURRENCY_ID'],

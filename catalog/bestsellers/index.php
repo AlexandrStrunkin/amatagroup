@@ -15,8 +15,8 @@ require($_SERVER["DOCUMENT_ROOT"]."/bitrix/header.php");
 
             <div class="newsBlock">
             <?$APPLICATION->IncludeComponent(
-	"bitrix:catalog",
-	"catalog_new_product",
+	"bitrix:catalog", 
+	"catalog_new_product", 
 	array(
 		"IBLOCK_TYPE" => "1c_catalog",
 		"IBLOCK_ID" => "5",
