@@ -122,6 +122,8 @@
     define("CATALOG_SECTION_LATEST", '/catalog/bestsellers/');
     define("IMAGE_SERTIFICATE_WIDTH", 600); // код типа цены базовой
     define("IMAGE_SERTIFICATE_HEIGHT", 800); // код типа цены базовой
+    
+    define("IMAGE_AVATAR_SIZE", 40); // размер аватарок в отзывах
 
 
 

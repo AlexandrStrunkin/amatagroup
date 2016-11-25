@@ -969,18 +969,18 @@ $(document).ready(function () {
     
     //Всплывающее окно у отзывов 
     $('.productCarousel .jcarousel li .reviesElement').on("click", function() { 
-        var screen_height = $(window).height(), block_height = $(this).next('.reviewsPopup').height(), block_position = screen_height/2 - block_height/2; 
-        $(this).next('.reviewsPopup').css('top', block_position + 'px');
-        $(this).next('.reviewsPopup').show();
-        $('.overflowMask').addClass('reviewsOverflow');
-        $('.overflowMask').show();    
+        var screen_height = $(window).height(),
+            reviews_popup_block = $(this).next('.reviewsPopup'),
+            block_height = reviews_popup_block.height(),
+            block_position = screen_height/2 - block_height/2; 
+        reviews_popup_block.css('top', block_position + 'px').show();
+        $('.overflowMask').addClass('reviewsOverflow').show();
     })    
        
     $('.overflowMask, .closeReviewsPopup').on("click", function() {
-        if($('body').find('.overflowMask').hasClass('reviewsOverflow')) { 
-            $('.reviewsPopup').hide();   
-            $('.overflowMask').hide(); 
-            $('body').find('.overflowMask').removeClass('reviewsOverflow');
+        if($('.overflowMask').hasClass('reviewsOverflow')) { 
+            $('.reviewsPopup').hide(); 
+            $('.overflowMask').removeClass('reviewsOverflow').hide();
         }   
     })
 

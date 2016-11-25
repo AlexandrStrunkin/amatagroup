@@ -32,7 +32,7 @@ $this->setFrameMode(true);
 		                <div class="avatarBlock">
                             <? 
                             if ($arItem["PREVIEW_PICTURE"]["HTML"]) { 
-                                echo '<div class="avatarBackground">'.$arItem["PREVIEW_PICTURE"]["HTML"].'</div>';        
+                                echo '<div class="avatarBackground">' . $arItem["PREVIEW_PICTURE"]["HTML"] . '</div>';        
                             } 
                             ?>
                         </div>
@@ -57,7 +57,7 @@ $this->setFrameMode(true);
                             <div class="avatarBlock">
                                 <? 
                                 if ($arItem["PREVIEW_PICTURE"]["HTML"]) { 
-                                    echo '<div class="avatarBackground">'.$arItem["PREVIEW_PICTURE"]["HTML"].'</div>';        
+                                    echo '<div class="avatarBackground">' . $arItem["PREVIEW_PICTURE"]["HTML"] . '</div>';        
                                 } 
                                 ?>
                             </div>
