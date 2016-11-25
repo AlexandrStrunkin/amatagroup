@@ -166,7 +166,7 @@
                         'CURRENCY_ID' => $arParams['CURRENCY_ID'],
                         "SEF_MODE" => $arParams["SEF_MODE"],
                         "SEF_RULE" => $arResult["FOLDER"].$arResult["URL_TEMPLATES"]["smart_filter"],
-                        "SMART_FILTER_PATH" => $arResult["VARIABLES"]["SMART_FILTER_PATH"],
+                        "SMART_FILTER_PATH" => $arParams["FILTER_NAME"],
                         "PAGER_PARAMS_NAME" => $arParams["PAGER_PARAMS_NAME"],
                         "DISPLAY_ELEMENT_COUNT" => "Y",
                         "POPUP_POSITION" => "right"
