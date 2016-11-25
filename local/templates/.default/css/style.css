@@ -5566,7 +5566,17 @@ p.authTitle {
     width: 100%;
     box-sizing: border-box;
 }
-
+.companyInput{
+    border: 1px solid #83d0f5;
+    border-radius: 4px;
+    font-family: "MuseoSansCyrl-500";
+    font-size: 15px;
+    margin-top: 10px;
+    padding: 12px 20px 12px 14px;
+    color: #48AAD8;
+    width: 100%;
+    box-sizing: border-box;
+}
 .authInput:first-of-type {
     margin-top: 0px;
 }
