@@ -1772,7 +1772,7 @@ $(function() {
     });
     $('.authNext').click(function(){
 
-        var field = new Array('reg_input_NAME');//поля обязательные
+        var field = new Array('reg_input_NAME', 'reg_input_UF_COMPANY');//поля обязательные
 
         $('#form_register').each(function() {// обрабатываем отправку формы
             var error = 0; // индекс ошибки
