@@ -194,21 +194,23 @@ if ($_SERVER["REQUEST_METHOD"] == "POST" && !empty($_REQUEST["register_submit_bu
 
 			$arResult['VALUES']["USER_ID"] = $ID;
 
-            $arFilter = array("ID" => $arResult["VALUES"]["USER_ID"]);
-            $select = array("SELECT"=>array("UF_*"));
-            $ardocument = CUser::GetList($by,$desc,$arFilter,$select);
-                $dociment_count = 0;
+            // перебираем пользоваательские свойства зарегестрированного пользователя
+            $ar_filter = array("ID" => $arResult["VALUES"]["USER_ID"]);
+            $select = array("SELECT" => array("UF_*"));
+            $ardocument = CUser::GetList($by, $desc, $ar_filter, $select);
+                $document_count = 0;
                 while ($document_file = $ardocument->Fetch()) {
-                    while ($dociment_count <= 12) {
-                        if($document_file["UF_DOCUMENT_".$dociment_count]){
-                            $ar_document[] = $document_file["UF_DOCUMENT_".$dociment_count];
+                    // выбираем все заполненные свойства документов документы созданы до 12 штук
+                    while ($document_count <= 12) {
+                        if($document_file["UF_DOCUMENT_" . $document_count]){
+                            $ar_document[] = $document_file["UF_DOCUMENT_" . $document_count];
                         }
-                        $dociment_count++;
+                        $document_count++;
                     }
                 }
 			$arEventFields = $arResult['VALUES'];
 			unset($arEventFields["CONFIRM_PASSWORD"]);
-
+            // отправляем добавленнные документы в письме пользователя
             CEvent::Send ("REGISTER_USER", "s1", $arEventFields, "N", "", $ar_document);
 
 			/*if($bConfirmReq)
