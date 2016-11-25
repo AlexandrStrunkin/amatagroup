@@ -22,9 +22,6 @@ if (count($arResult["ITEMS"]) < 1)
             $interval_deadline = $date_to->diff($date_today);
             $format_day = $interval_deadline->format('%d');
         ?>
-		<p class="dateText">
-            <?= GetMessage('VALIDITY') . $datetime_create . GetMessage('VALIDITY_2') . $datetime_to; ?>
-        </p>
             <div class="<?= ($datetime_to > date('d.m.Y') || !$arItem['DATE_ACTIVE_TO']) ? 'green' : 'red'; ?>">
             <? if ($datetime_to > date('d.m.Y') || !$arItem['DATE_ACTIVE_TO']) { ?>
                 <span class="date_validity">
@@ -35,7 +32,11 @@ if (count($arResult["ITEMS"]) < 1)
                     <?= GetMessage('DEADLINE_CLOSE');?>
                 </span>
                 <?}?>
-            </div>
+            </div><br><br><br>
+		<p class="dateText">
+            <?= GetMessage('VALIDITY') . $datetime_create . GetMessage('VALIDITY_2') . $datetime_to; ?>
+        </p>
+
 
 
 		<a href="<?= $arItem['DETAIL_PAGE_URL'] ?>" class="newsName"><?= $arItem['NAME'] ?></a>

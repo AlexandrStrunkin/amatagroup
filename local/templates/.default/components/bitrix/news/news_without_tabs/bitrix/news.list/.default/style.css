@@ -38,17 +38,13 @@
     border: 1px solid green;
     color: green;
     display: block;
-    position: absolute;
-    right: 0;
-    top: 0;
+
 }
 .infoNewsList .red .date_validity{
     border: 1px solid red;
     color: red;
     display: block;
-    position: absolute;
-    right: 0;
-    top: 0;
+
 }
 .innerPageWrapper .infoNewsList li > span{
     color: #5a5a5a;
@@ -56,15 +52,12 @@
     font-size: 13px;
     padding-bottom: 8px;
 }
-.date_validity{
-    float: right;
-}
 .date_validity {
-
     border-radius: 4px;
     color: #5a5a5a;
     display: block;
     font: 13px/1 "MuseoSansCyrl-500";
     padding: 11px 16px;
     text-align: center;
+    float: left;
 }
