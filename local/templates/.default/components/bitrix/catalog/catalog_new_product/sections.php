@@ -155,8 +155,7 @@
         <!--allElementWrap-->
         <div class="allElementWrap">
             <!--leftFiltersBlock-->
-            <?arshow($arResult["VARIABLES"]["SMART_FILTER_PATH"])?>
-            <?arshow($arParams["FILTER_NAME"])?>
+
             <?$APPLICATION->IncludeComponent(
                     "bitrix:catalog.smart.filter",
                     "catalog_filter_sections", //catalog_filter
@@ -180,7 +179,7 @@
                         'CURRENCY_ID' => $arParams['CURRENCY_ID'],
                         "SEF_MODE" => $arParams["SEF_MODE"],
                         "SEF_RULE" => $arResult["FOLDER"].$arResult["URL_TEMPLATES"]["smart_filter"],
-                        "SMART_FILTER_PATH" => $arParams["FILTER_NAME"],
+                        "SMART_FILTER_PATH" => $arResult["VARIABLES"]["SMART_FILTER_PATH"],
                         "PAGER_PARAMS_NAME" => $arParams["PAGER_PARAMS_NAME"],
                         "DISPLAY_ELEMENT_COUNT" => "Y",
                         "POPUP_POSITION" => "right"
