@@ -966,6 +966,23 @@ $(document).ready(function () {
         second.show();
         second.parent('li').addClass('activeFirstLclLi');
     });
+    
+    //Всплывающее окно у отзывов 
+    $('.productCarousel .jcarousel li .reviesElement').on("click", function() { 
+        var screen_height = $(window).height(), block_height = $(this).next('.reviewsPopup').height(), block_position = screen_height/2 - block_height/2; 
+        $(this).next('.reviewsPopup').css('top', block_position + 'px');
+        $(this).next('.reviewsPopup').show();
+        $('.overflowMask').addClass('reviewsOverflow');
+        $('.overflowMask').show();    
+    })    
+       
+    $('.overflowMask, .closeReviewsPopup').on("click", function() {
+        if($('body').find('.overflowMask').hasClass('reviewsOverflow')) { 
+            $('.reviewsPopup').hide();   
+            $('.overflowMask').hide(); 
+            $('body').find('.overflowMask').removeClass('reviewsOverflow');
+        }   
+    })
 
     /********************************/
     //КАТАЛОГ
