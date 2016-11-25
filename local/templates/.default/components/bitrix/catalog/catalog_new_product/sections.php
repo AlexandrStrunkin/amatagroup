@@ -155,6 +155,7 @@
         <!--allElementWrap-->
         <div class="allElementWrap">
             <!--leftFiltersBlock-->
+
             <?$APPLICATION->IncludeComponent(
                     "bitrix:catalog.smart.filter",
                     "catalog_filter_sections", //catalog_filter
@@ -203,6 +204,7 @@
             <?
 
             ?>
+
             <?$intSectionID = $APPLICATION->IncludeComponent(
                     "bitrix:catalog.section",
                     $sectionTemplate,
@@ -273,7 +275,7 @@
                         "SECTION_CODE" => "",
                         "SHOW_ALL_WO_SECTION" => "Y",
                         "SECTION_URL" => $arResult["FOLDER"].$arResult["URL_TEMPLATES"]["section"],
-                        "DETAIL_URL" => $arResult["FOLDER"].$arResult["URL_TEMPLATES"]["element"],
+                        "DETAIL_URL" => '/catalog/'.$arResult["URL_TEMPLATES"]["element"],
                         "USE_MAIN_ELEMENT_SECTION" => $arParams["USE_MAIN_ELEMENT_SECTION"],
                         'CONVERT_CURRENCY' => $arParams['CONVERT_CURRENCY'],
                         'CURRENCY_ID' => $arParams['CURRENCY_ID'],
