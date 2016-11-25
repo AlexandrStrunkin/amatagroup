@@ -2,13 +2,14 @@
 require($_SERVER["DOCUMENT_ROOT"]."/bitrix/header.php");
 $APPLICATION->SetTitle("Персональный раздел");
 ?>
+
 <div class="widthWrapper">
     <div class="mainSectionWrap">
         <div class="settingsWrap">
 	        <p class="blockTitle active">Мои настройки</p>
                 <?include('profile/index.php')?>
          </div>
-         <div class="settingsWrap">
+         <div class="settingsWrap <?= ($_GET["order_id"]) ? 'order_open' : '';?>">
           <p class="blockTitle">Мои заказы</p>
             <div class="settingsBlock" id="order_list">
                 <?$APPLICATION->IncludeComponent(
@@ -50,4 +51,10 @@ $APPLICATION->SetTitle("Персональный раздел");
 
     </div>
 </div>
+<script type="text/javascript">
+    $(function () {
+        $('.order_open .blockTitle').click();
+        $('.order_open #order_<?=$_GET['order_id']?> .activeOrderTitle').click();
+    })
+</script>
 <?require($_SERVER["DOCUMENT_ROOT"]."/bitrix/footer.php");?>

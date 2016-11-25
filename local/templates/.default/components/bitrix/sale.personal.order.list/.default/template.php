@@ -28,7 +28,7 @@
                 <div id="ordersActive" class="ordersContainer ordersContainer1">
                 <?foreach($group as $k => $order):?>
 
-                    <div class="orderContainer disableOrder">
+                    <div class="orderContainer disableOrder" id="order_<?= $order["ORDER"]["ACCOUNT_NUMBER"] ?>">
                         <p class="activeOrderTitle">
                             <?=GetMessage('SPOL_ORDER')?> <?=GetMessage('SPOL_NUM_SIGN')?><?=$order["ORDER"]["ACCOUNT_NUMBER"]?>
                         </p>
