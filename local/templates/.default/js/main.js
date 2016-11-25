@@ -854,7 +854,7 @@ $(document).ready(function () {
             return false;
         }
 
-        e.preventDefault();
+
     });
     $(".couponInputBlock input").on("keydown keypress keyup", function () {
         var el = $(this), v = el.val(), button = el.parent().find("button");
