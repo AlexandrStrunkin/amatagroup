@@ -14,27 +14,33 @@ if (count($arResult["ITEMS"]) < 1)
 ?>
 	<li id="<?=$this->GetEditAreaId($arItem['ID']);?>">
 		<div class="imageWrapper"><img src="<?= $arItem['PREVIEW_PICTURE']['SRC'] ?>" alt=""/></div>
-		<p class="dateText">
-            <?= date_format(date_create_from_format('d.m.Y H:i:s', $arItem['DATE_CREATE']), 'd.m.Y') ?>
-        </p>
-            <div class="<?= (date_format(date_create_from_format('d.m.Y H:i:s', $arItem['DATE_ACTIVE_TO']), 'd.m.Y') > date('d.m.Y') || !$arItem['DATE_ACTIVE_TO']) ? 'green' : 'red'; ?>"></div>
-        <span>
-        <?$datetime_from = new DateTime(date_format(date_create_from_format('d.m.Y H:i:s', $arItem['DATE_ACTIVE_FROM']), 'd.m.Y'));
-            $datetime2 = new DateTime(date_format(date_create_from_format('d.m.Y H:i:s', $arItem['DATE_ACTIVE_TO']), 'd.m.Y'));
-            $interval_validity = $datetime_from->diff($datetime2);
-            $format_day_validity = $interval_validity->format('%d');
-            echo GetMessage('VALIDITY') . getNumEnding($format_day_validity, array(GetMessage('DAY_1'), GetMessage('DAY_2'), GetMessage('DAY_3')));?>
-        </span>
-        <span class="date_validity">
-        <?
-            $datetime_to = new DateTime(date('d.m.Y'));
-            $interval_deadline = $datetime2->diff($datetime_to);
+        <?  // записываем даты создания, начала активности и окончания в переменные в формате d.m.Y
+            $datetime_from = date_format(date_create_from_format('d.m.Y H:i:s', $arItem['DATE_ACTIVE_FROM']), 'd.m.Y');
+            $datetime_to = date_format(date_create_from_format('d.m.Y H:i:s', $arItem['DATE_ACTIVE_TO']), 'd.m.Y');
+            $datetime_create = date_format(date_create_from_format('d.m.Y H:i:s', $arItem['DATE_CREATE']), 'd.m.Y');
+            $date_today = new DateTime(date('d.m.Y'));
+            $date_to = new DateTime(date_format(date_create_from_format('d.m.Y H:i:s', $arItem['DATE_ACTIVE_TO']), 'd.m.Y'));
+            //подсчитываем разницу между датами и выводим количество дней
+            $interval_deadline = $date_to->diff($date_today);
             $format_day = $interval_deadline->format('%d');
-            if( date_format(date_create_from_format('d.m.Y H:i:s', $arItem['DATE_ACTIVE_TO']), 'd.m.Y') > date('d.m.Y')){
-                echo GetMessage('DEADLINE') . getNumEnding($format_day, array(GetMessage('DAY_1'), GetMessage('DAY_2'), GetMessage('DAY_3')));
-            }
         ?>
-        </span><br><br>
+            <div class="<?= ($datetime_to > date('d.m.Y') || !$arItem['DATE_ACTIVE_TO']) ? 'green' : 'red'; ?>">
+            <? if ($datetime_to > date('d.m.Y') || !$arItem['DATE_ACTIVE_TO']) { ?>
+                <span class="date_validity">
+                    <?= GetMessage('DEADLINE') . getNumEnding($format_day, array(GetMessage('DAY_1'), GetMessage('DAY_2'), GetMessage('DAY_3')));?>
+                </span>
+            <?} else { ?>
+                <span class="date_validity">
+                    <?= GetMessage('DEADLINE_CLOSE');?>
+                </span>
+                <?}?>
+            </div><br><br><br>
+		<p class="dateText">
+            <?= GetMessage('VALIDITY') . $datetime_create . GetMessage('VALIDITY_2') . $datetime_to; ?>
+        </p>
+
+
+
 		<a href="<?= $arItem['DETAIL_PAGE_URL'] ?>" class="newsName"><?= $arItem['NAME'] ?></a>
 		<p class="newsText">
 			<?= $arItem['PREVIEW_TEXT'] ?>

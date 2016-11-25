@@ -1,25 +1,34 @@
 <?if(!defined("B_PROLOG_INCLUDED") || B_PROLOG_INCLUDED!==true)die();?>
 
 <div class="detail_news">
-    <div class="date"><?= date_format(date_create_from_format('d.m.Y H:i:s', $arResult['DATE_CREATE']), 'd.m.Y') ?></div><br>
-    <div class="<?= (date_format(date_create_from_format('d.m.Y H:i:s', $arResult['DATE_ACTIVE_TO']), 'd.m.Y') > date('d.m.Y') || !$arItem['DATE_ACTIVE_TO']) ? 'green' : 'red'; ?>"></div>
+
     <span>
-    <?$datetime_from = new DateTime(date_format(date_create_from_format('d.m.Y H:i:s', $arResult['DATE_ACTIVE_FROM']), 'd.m.Y'));
-        $datetime2 = new DateTime(date_format(date_create_from_format('d.m.Y H:i:s', $arResult['DATE_ACTIVE_TO']), 'd.m.Y'));
-        $interval_validity = $datetime_from->diff($datetime2);
-        $format_day_validity = $interval_validity->format('%d');
-        echo GetMessage('VALIDITY') . getNumEnding($format_day_validity, array(GetMessage('DAY_1'), GetMessage('DAY_2'), GetMessage('DAY_3')));?>
-    </span>
-    <span class="date_validity">
-    <?
-        $datetime_to = new DateTime(date('d.m.Y'));
-        $interval_deadline = $datetime2->diff($datetime_to);
+    <?  // записываем даты создания, начала активности и окончания в переменные в формате d.m.Y
+        $datetime_from = date_format(date_create_from_format('d.m.Y H:i:s', $arResult['DATE_ACTIVE_FROM']), 'd.m.Y');
+        $datetime_to = date_format(date_create_from_format('d.m.Y H:i:s', $arResult['DATE_ACTIVE_TO']), 'd.m.Y');
+        $datetime_create = date_format(date_create_from_format('d.m.Y H:i:s', $arResult['DATE_CREATE']), 'd.m.Y');
+        $date_today = new DateTime(date('d.m.Y'));
+        $date_to = new DateTime(date_format(date_create_from_format('d.m.Y H:i:s', $arResult['DATE_ACTIVE_TO']), 'd.m.Y'));
+        //подсчитываем разницу между датами и выводим количество дней
+        $interval_deadline = $date_to->diff($date_today);
         $format_day = $interval_deadline->format('%d');
-        if( date_format(date_create_from_format('d.m.Y H:i:s', $arResult['DATE_ACTIVE_TO']), 'd.m.Y') > date('d.m.Y')){
-            echo GetMessage('DEADLINE') . getNumEnding($format_day, array(GetMessage('DAY_1'), GetMessage('DAY_2'), GetMessage('DAY_3')));
-        }
     ?>
-    </span><br><br>
+    </span>
+     <div class="<?= ($datetime_to > date('d.m.Y') || !$arResult['DATE_ACTIVE_TO']) ? 'green' : 'red'; ?>">
+            <? if ($datetime_to > date('d.m.Y') || !$arResult['DATE_ACTIVE_TO']) { ?>
+                <span class="date_validity">
+                    <?= GetMessage('DEADLINE') . getNumEnding($format_day, array(GetMessage('DAY_1'), GetMessage('DAY_2'), GetMessage('DAY_3')));?>
+                </span>
+            <?} else { ?>
+                <span class="date_validity">
+                    <?= GetMessage('DEADLINE_CLOSE');?>
+                </span>
+                <?}?>
+            </div><br><br>
+        <p class="dateText">
+            <?= GetMessage('VALIDITY') . $datetime_create . GetMessage('VALIDITY_2') . $datetime_to; ?>
+        </p>
+    </span>
 	<?if($arParams["DISPLAY_PICTURE"]!="N" && is_array($arResult["DETAIL_PICTURE"])):?>
 		<img class="detail_picture" border="0" src="<?=$arResult["DETAIL_PICTURE"]["SRC"]?>" width="<?=$arResult["DETAIL_PICTURE"]["WIDTH"]?>" height="<?=$arResult["DETAIL_PICTURE"]["HEIGHT"]?>" alt="<?=$arResult["NAME"]?>"  title="<?=$arResult["NAME"]?>" />
 	<?endif?>
