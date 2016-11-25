@@ -157,6 +157,9 @@ if(!defined("B_PROLOG_INCLUDED") || B_PROLOG_INCLUDED!==true)
                 array("bVarsFromForm" => $arResult["bVarsFromForm"], "arUserField" => $arUserField, "form_name" => "regform"), null, array("HIDE_ICONS"=>"Y")
             );?>
          <?}?>
+         <?if($arUserField['FIELD_NAME'] == 'UF_COMPANY'){?>
+            <input size="30" title="<?= $arUserField["EDIT_FORM_LABEL"] ?>" placeholder="<?= $arUserField["EDIT_FORM_LABEL"] ?>" type="text" id="reg_input_<?=$arUserField["ID"]?>" class="companyInput" name="<?= $arUserField["FIELD_NAME"] ?>" value="<?=$arUserField["VALUES"]?>" autocomplete="off" />
+         <?}?>
 
     <?}?>
 <?
