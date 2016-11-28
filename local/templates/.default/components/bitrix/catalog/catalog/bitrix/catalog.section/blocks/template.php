@@ -504,6 +504,7 @@
             }
         ?>
     </ul>
+    </div>
     <!--END elmentsList-->
 
     <div style="clear: both;"></div>

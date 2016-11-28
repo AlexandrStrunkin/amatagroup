@@ -13,10 +13,23 @@
     $this->setFrameMode(true);
 ?>
 
+
+
 <!--elmentsList-->
 <?if(count($arResult['ITEMS']) > 0){?>
 <ul class="productList" id="productList3">
-
+<p class="blockTitle">
+    <?$APPLICATION->IncludeComponent(
+    "bitrix:main.include",
+    "",
+    Array(
+        "AREA_FILE_SHOW" => "file",
+        "AREA_FILE_SUFFIX" => "inc",
+        "EDIT_TEMPLATE" => "",
+        "PATH" => "/include/arrivals_page.php"
+    )
+);?>
+</p>
     <?
         if (!empty($arResult['ITEMS'])) {
             $templateLibrary = array('popup');

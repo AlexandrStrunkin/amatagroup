@@ -41,7 +41,8 @@ BX.ready(BX.defer(function(){
         'transitionOut' :   'elastic',
         'speedIn'       :   600, 
         'speedOut'      :   200, 
-        'overlayShow'   :   false
+        'overlayShow'   :   false,
+        'changeSpeed'   :   500
     });
 	// простенький слайдер для превьюх в карточке товара
 	var preview_slider = new PreviewSlider({
@@ -67,7 +68,7 @@ BX.ready(BX.defer(function(){
 	if (!!window.<? echo $templateData['JS_OBJ']; ?>)
 	{
 		window.<? echo $templateData['JS_OBJ']; ?>.allowViewedCount(true);
-	}
+	} 
 }));
 </script><?
 }

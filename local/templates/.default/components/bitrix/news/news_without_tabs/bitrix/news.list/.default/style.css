@@ -34,3 +34,30 @@
 	line-height:1.1;
 	color:inherit;
 }
+.infoNewsList .green .date_validity{
+    border: 1px solid green;
+    color: green;
+    display: block;
+
+}
+.infoNewsList .red .date_validity{
+    border: 1px solid red;
+    color: red;
+    display: block;
+
+}
+.innerPageWrapper .infoNewsList li > span{
+    color: #5a5a5a;
+    font-family: "MuseoSansCyrl-500";
+    font-size: 13px;
+    padding-bottom: 8px;
+}
+.date_validity {
+    border-radius: 4px;
+    color: #5a5a5a;
+    display: block;
+    font: 13px/1 "MuseoSansCyrl-500";
+    padding: 11px 16px;
+    text-align: center;
+    float: left;
+}

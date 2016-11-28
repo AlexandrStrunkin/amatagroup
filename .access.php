@@ -1,4 +1,5 @@
 <?
+$PERM["prices"]["*"]="D";
 $PERM["online"]["*"]="R";
 $PERM["desktop_app"]["*"]="R";
 $PERM["upload"]["11"]="T_8";

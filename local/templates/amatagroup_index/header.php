@@ -6,7 +6,7 @@
 <!DOCTYPE html>
 <html xmlns="http://www.w3.org/1999/xhtml" xml:lang="<?=LANGUAGE_ID?>" lang="<?=LANGUAGE_ID?>">
 <head>
-
+    <meta name="mailru-verification" content="3f378cce47e62dcb" />
     <?include($_SERVER["DOCUMENT_ROOT"].DEFAULT_TEMPLATE_PATH."/include/meta.php")?>
 </head>
 <body class="<?if ($curPage == SITE_DIR."index.php"){?>mainPage<?}?>">
@@ -27,12 +27,11 @@
                 <div id="wrap_best"  data-id='2'><?=GetMessage('BESTSELLERS')?></div>
                 <div id="wrap_latest" data-id='3'><?=GetMessage('LATEST')?></div>
             </div>
-            <p class="blockTitle"><?=GetMessage('TEXT_TOP')?></p>
             <div class="newsBlock">
                 <?
                   global $ShowWithImage;
                   $curr_date = date('U');
-                  $date_create_date = $curr_date - (86400 * 30);
+                  $date_create_date = $curr_date - (86400 * NEW_PRODUCT_STATUS_LENGTH);
                   $ShowWithImage = array(
                         ">=DATE_CREATE" => ConvertTimeStamp($date_create_date,"FULL"),
                         '!PREVIEW_PICTURE' => false
@@ -462,7 +461,18 @@
                 <div class="leftArrow"></div>-->
                 <p class="partnerTitle">Отзывы партнеров</p>
 
-                <p class="partnerText">За 10 лет работы на рынке мы зарекомендовали себя</p>
+                <p class="partnerText">
+                        <?$APPLICATION->IncludeComponent(
+                        "bitrix:main.include",
+                        "",
+                        Array(
+                            "AREA_FILE_SHOW" => "file",
+                            "AREA_FILE_SUFFIX" => "inc",
+                            "EDIT_TEMPLATE" => "",
+                            "PATH" => "/include/reviews_partners.php"
+                        )
+                    );?>
+                </p>
 
 
                 <?$APPLICATION->IncludeComponent(
@@ -537,8 +547,18 @@
                 <!--confidenceWrapper-->
                 <div class="confidenceWrapper">
                     <p class="confidensTitle">Нам доверяют</p>
-                    <p class="confidensText">За 10 лет работы на рынке мы зарекомендовали себя, как надежного
-                        партнера.</p>
+                <p class="partnerText">
+                        <?$APPLICATION->IncludeComponent(
+                        "bitrix:main.include",
+                        "",
+                        Array(
+                            "AREA_FILE_SHOW" => "file",
+                            "AREA_FILE_SUFFIX" => "inc",
+                            "EDIT_TEMPLATE" => "",
+                            "PATH" => "/include/we_are_trusted.php"
+                        )
+                    );?>
+                </p>
                     <div class="confidens_container">
                         <div class="previews_slider_navigation_arrow confidens_slider_arrow" data-preview-slider-direction="prev"><span></span></div>
                         <div class="previews_slider_navigation_arrow confidens_slider_arrow" data-preview-slider-direction="next"><span></span></div>

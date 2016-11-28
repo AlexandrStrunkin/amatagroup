@@ -110,7 +110,7 @@
     /* службы доставки */
     define("COURIER_DELIVERY", 2);
 
-    define("NEW_PRODUCT_STATUS_LENGTH", 30); //количество дней, котрое товар считается новинкой
+    define("NEW_PRODUCT_STATUS_LENGTH", 60); //количество дней, котрое товар считается новинкой
     define("FRESH_PRODUCT_STATUS_LENGTH", 2); //количество дней, котрое товар считается последним поступлением
 
     define("IBLOCK_ID_QUASTION_PRODUCT", 19); // инфоблок задать вопрос по товару
@@ -122,6 +122,9 @@
     define("CATALOG_SECTION_LATEST", '/catalog/bestsellers/');
     define("IMAGE_SERTIFICATE_WIDTH", 600); // код типа цены базовой
     define("IMAGE_SERTIFICATE_HEIGHT", 800); // код типа цены базовой
+    
+    define("IMAGE_AVATAR_WIDTH", 40); // размер аватарок в отзывах
+    define("IMAGE_AVATAR_HEIGHT", 40); // размер аватарок в отзывах
 
 
 
@@ -151,6 +154,39 @@
             ABOUT_FORM               => 'Форма вопроса из раздела "О компании"'
         );
     }
+	
+	/**
+	 * Пересобираем название элемента из свойств, если они заполнены
+	 * @param array $item
+	 * @return bool|string $result
+	 * */
+	function getNamesFromProperties(&$item) {
+		$result = "";
+		$setted_model = "";
+		$models = array(
+			$item['PROPERTIES']['MODEL']['VALUE'],
+			$item['PROPERTIES']['MODEL_1']['VALUE'],
+			$item['PROPERTIES']['MODEL_2']['VALUE'],
+			$item['PROPERTIES']['MODEL_3']['VALUE'],
+			$item['PROPERTIES']['MODEL_4']['VALUE'],
+			$item['PROPERTIES']['MODEL_5']['VALUE'],
+			$item['PROPERTIES']['MODEL_6']['VALUE'],
+			$item['PROPERTIES']['MODEL_7']['VALUE'],
+			$item['PROPERTIES']['MODEL_8']['VALUE']
+		);
+		// проверяем заполненность необходимых свойств
+		if (
+			$item['PROPERTIES']['BREND']['VALUE'] // бренд
+			&& $item['PROPERTIES']['VIDTOVARA']['VALUE'] // объединенное свойство тип товара
+			&& ( // дальше ад, если заполнена хотя бы одна модель
+				$setted_model = current(array_filter($models))
+			)
+		) {
+			$result = sprintf("%s %s %s", $item['PROPERTIES']['VIDTOVARA']['VALUE'], $item['PROPERTIES']['BREND']['VALUE'], $setted_model);
+		}
+		
+		return $result;
+	}
 
     /**
     *
@@ -672,4 +708,28 @@
 
        return $arFields;
    }
+
+    /**
+     * Функция возвращает окончание для множественного числа слова на основании числа и массива окончаний
+     * param  $number Integer Число на основе которого нужно сформировать окончание
+     * param  $endingsArray  Array Массив слов или окончаний для чисел (1, 4, 5),
+     *         например array('яблоко', 'яблока', 'яблок')
+     * return String
+     */
+    function getNumEnding($number, $endingArray) {
+        $number = $number % 100;
+        if ($number>=11 && $number<=19) {
+            $ending = $number . ' ' . $endingArray[2];
+        } else {
+            $i = $number % 10;
+            switch ($i) {
+                case (1): $ending = $number . ' ' . $endingArray[0]; break;
+                case (2):
+                case (3):
+                case (4): $ending = $number . ' ' . $endingArray[1]; break;
+                default: $ending = $number . ' ' . $endingArray[2];
+            }
+        }
+        return $ending;
+    }
 ?>

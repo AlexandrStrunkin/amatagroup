@@ -175,8 +175,13 @@ if ($_SERVER["REQUEST_METHOD"] == "POST" && !empty($_REQUEST["register_submit_bu
                 $bOk = true;
             }
 		}
+          $user_field = CUserFieldEnum::GetList(array(), array("ID" => $_REQUEST["UF_FACE"]));
+          if($ar_user_fieldAr = $user_field->GetNext()) {
+             $arResult['VALUES']["UF_FACE_VALUE"] = $ar_user_fieldAr["VALUE"];
+          }
 
-		$ID = 0;
+
+        $ID = 0;
 		$user = new CUser();
 		if ($bOk)
 		{
@@ -189,12 +194,25 @@ if ($_SERVER["REQUEST_METHOD"] == "POST" && !empty($_REQUEST["register_submit_bu
 
 			$arResult['VALUES']["USER_ID"] = $ID;
 
+            // перебираем пользоваательские свойства зарегестрированного пользователя
+            $ar_filter = array("ID" => $arResult["VALUES"]["USER_ID"]);
+            $select = array("SELECT" => array("UF_*"));
+            $ardocument = CUser::GetList($by, $desc, $ar_filter, $select);
+                $document_count = 0;
+                while ($document_file = $ardocument->Fetch()) {
+                    // выбираем все заполненные свойства документов документы созданы до 12 штук
+                    while ($document_count <= 12) {
+                        if($document_file["UF_DOCUMENT_" . $document_count]){
+                            $ar_document[] = $document_file["UF_DOCUMENT_" . $document_count];
+                        }
+                        $document_count++;
+                    }
+                }
 			$arEventFields = $arResult['VALUES'];
-			unset($arEventFields["PASSWORD"]);
 			unset($arEventFields["CONFIRM_PASSWORD"]);
+            // отправляем добавленнные документы в письме пользователя
+            CEvent::Send ("REGISTER_USER", "s1", $arEventFields, "N", "", $ar_document);
 
-			$event = new CEvent;
-			$event->SendImmediate("REGISTER_USER", "s1", $arEventFields);
 			/*if($bConfirmReq)
 				$event->SendImmediate("NEW_USER_CONFIRM", SITE_ID, $arEventFields);  */
 		}

@@ -43,7 +43,7 @@ if(!empty($arParams["~AUTH_RESULT"])):
 		</div>
 
 		<div class="bx-authform-formgroup-container">
-			<input type="submit" class="btn btn-primary js_no_bind" name="send_account_info" value="<?=GetMessage("AUTH_SEND")?>" />
+			<input type="submit" class="btn-primary js_no_bind" name="send_account_info" value="<?=GetMessage("AUTH_SEND")?>" />
 		</div>
 
 		<div class="bx-authform-link-container">

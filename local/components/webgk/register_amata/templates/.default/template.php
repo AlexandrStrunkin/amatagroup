@@ -157,6 +157,9 @@ if(!defined("B_PROLOG_INCLUDED") || B_PROLOG_INCLUDED!==true)
                 array("bVarsFromForm" => $arResult["bVarsFromForm"], "arUserField" => $arUserField, "form_name" => "regform"), null, array("HIDE_ICONS"=>"Y")
             );?>
          <?}?>
+         <?if($arUserField['FIELD_NAME'] == 'UF_COMPANY'){?>
+            <input size="30" title="<?= $arUserField["EDIT_FORM_LABEL"] ?>" placeholder="<?= $arUserField["EDIT_FORM_LABEL"] ?>" type="text" id="reg_input_<?= $arUserField["FIELD_NAME"] ?>" class="companyInput" name="<?= $arUserField["FIELD_NAME"] ?>" value="<?=$arUserField["VALUES"]?>" autocomplete="off" />
+         <?}?>
 
     <?}?>
 <?
@@ -198,13 +201,13 @@ if ($arResult["USE_CAPTCHA"] == "Y")
     <?if($arResult["USER_PROPERTIES"]["SHOW"] == "Y"):?>
         <?$count_face = 0;?>
         <?foreach ($arResult["USER_PROPERTIES"]["DATA"] as $FIELD_NAME => $arUserField):?>
-        <?if($arUserField['FIELD_NAME'] != 'UF_FACE'){?>
+        <?if($arUserField['FIELD_NAME'] != 'UF_FACE' && $arUserField['FIELD_NAME'] != 'UF_COMPANY'){?>
         <?$count_face += 1;?>
         <div class="<?= ($count_face < 7)? 'face_1': 'face_2' ?>">
             <span class="userFieldName"><?=$arUserField["EDIT_FORM_LABEL"]?>:<?if ($arUserField["MANDATORY"]=="Y"):?><span class="starrequired">*</span><?endif;?></span>
-            <label>
+            <label for="name_<?= $arUserField["ID"] ?>">
                 <?$APPLICATION->IncludeComponent(
-                    "bitrix:system.field.edit",
+                    "webgk:system.field_amata",
                     $arUserField["USER_TYPE"]["USER_TYPE_ID"],
                     array("bVarsFromForm" => $arResult["bVarsFromForm"], "arUserField" => $arUserField, "form_name" => "regform"), null, array("HIDE_ICONS"=>"Y")
                 );?>

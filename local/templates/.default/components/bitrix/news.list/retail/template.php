@@ -14,7 +14,18 @@ $this->setFrameMode(true);
 ?>
 <table class="retail_city_table">
 	<tr>
-		<td><?= GetMessage("RETAIL_MESSAGE") ?></td>
+		<td>
+        <?$APPLICATION->IncludeComponent(
+            "bitrix:main.include",
+            "",
+            Array(
+                "AREA_FILE_SHOW" => "file",
+                "AREA_FILE_SUFFIX" => "inc",
+                "EDIT_TEMPLATE" => "",
+                "PATH" => "/include/where_to_buy.php"
+            )
+        );?>
+        </td>
 		<td>
 		 	<div class="selectric-wrapper retail_select">
                 <select name="retail_city_select">
