@@ -19,7 +19,7 @@ $this->setFrameMode(true);
 			<?
 			$this->AddEditAction($arItem['ID'], $arItem['EDIT_LINK'], CIBlock::GetArrayByID($arItem["IBLOCK_ID"], "ELEMENT_EDIT"));
 			$this->AddDeleteAction($arItem['ID'], $arItem['DELETE_LINK'], CIBlock::GetArrayByID($arItem["IBLOCK_ID"], "ELEMENT_DELETE"), array("CONFIRM" => GetMessage('CT_BNL_ELEMENT_DELETE_CONFIRM')));
-			?>
+            ?>
 			<li id="<?=$this->GetEditAreaId($arItem['ID']);?>">
 				<div class="reviesElement">
 					<p class="reviesCity"><?= $arItem["PROPERTIES"]["CITY"]["VALUE"] ?></p>
@@ -27,14 +27,49 @@ $this->setFrameMode(true);
 		            <p class="reviewsTitle"><?= $arItem["NAME"] ?></p>
 		
 		            <p class="reviewsText"><?= $arItem["PREVIEW_TEXT"] ?></p>
-		
-		            <div class="authorsBlock">
-		                <p class="reviewsAuthor"><?= $arItem["PROPERTIES"]["AUTHOR"]["VALUE"] ?></p>
-		
-		                <p><?= $arItem["PROPERTIES"]["POSITION"]["VALUE"] ?>, <?= $arItem["PROPERTIES"]["COMPANY"]["VALUE"] ?></p>
-		            </div>
-				</div>
-			</li>
+                    
+                    <div class="reviewsBottom">
+		                <div class="avatarBlock">
+                            <? 
+                            if ($arItem["PREVIEW_PICTURE"]["HTML"]) { 
+                                echo '<div class="avatarBackground">' . $arItem["PREVIEW_PICTURE"]["HTML"] . '</div>';        
+                            } 
+                            ?>
+                        </div>
+		                <div class="authorsBlock">
+		                    <p class="reviewsAuthor"><?= $arItem["PROPERTIES"]["AUTHOR"]["VALUE"] ?></p>
+		    
+		                    <p><?= $arItem["PROPERTIES"]["POSITION"]["VALUE"] ?>, <?= $arItem["PROPERTIES"]["COMPANY"]["VALUE"] ?></p>
+		                </div>
+                    </div>
+				</div>            
+                <div class="reviewsPopup">
+                    <div class="reviewsElement">
+                        <div class="closeReviewsPopup">
+                        </div>                         
+                        <p class="reviewsCity"><?= $arItem["PROPERTIES"]["CITY"]["VALUE"] ?></p>
+            
+                        <p class="reviewsTitle"><?= $arItem["NAME"] ?></p>
+            
+                        <p class="reviewsText"><?= $arItem["PREVIEW_TEXT"] ?></p>
+            
+                        <div class="reviewsBottom">
+                            <div class="avatarBlock">
+                                <? 
+                                if ($arItem["PREVIEW_PICTURE"]["HTML"]) { 
+                                    echo '<div class="avatarBackground">' . $arItem["PREVIEW_PICTURE"]["HTML"] . '</div>';        
+                                } 
+                                ?>
+                            </div>
+                            <div class="authorsBlock">
+                                <p class="reviewsAuthor"><?= $arItem["PROPERTIES"]["AUTHOR"]["VALUE"] ?></p>
+                
+                                <p><?= $arItem["PROPERTIES"]["POSITION"]["VALUE"] ?>, <?= $arItem["PROPERTIES"]["COMPANY"]["VALUE"] ?></p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+			</li>            
 		<? } ?>
 		</ul>
 	</div>
