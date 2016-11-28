@@ -461,7 +461,18 @@
                 <div class="leftArrow"></div>-->
                 <p class="partnerTitle">Отзывы партнеров</p>
 
-                <p class="partnerText">За 10 лет работы на рынке мы зарекомендовали себя</p>
+                <p class="partnerText">
+                        <?$APPLICATION->IncludeComponent(
+                        "bitrix:main.include",
+                        "",
+                        Array(
+                            "AREA_FILE_SHOW" => "file",
+                            "AREA_FILE_SUFFIX" => "inc",
+                            "EDIT_TEMPLATE" => "",
+                            "PATH" => "/include/reviews_partners.php"
+                        )
+                    );?>
+                </p>
 
 
                 <?$APPLICATION->IncludeComponent(
@@ -536,8 +547,18 @@
                 <!--confidenceWrapper-->
                 <div class="confidenceWrapper">
                     <p class="confidensTitle">Нам доверяют</p>
-                    <p class="confidensText">За 10 лет работы на рынке мы зарекомендовали себя, как надежного
-                        партнера.</p>
+                <p class="partnerText">
+                        <?$APPLICATION->IncludeComponent(
+                        "bitrix:main.include",
+                        "",
+                        Array(
+                            "AREA_FILE_SHOW" => "file",
+                            "AREA_FILE_SUFFIX" => "inc",
+                            "EDIT_TEMPLATE" => "",
+                            "PATH" => "/include/we_are_trusted.php"
+                        )
+                    );?>
+                </p>
                     <div class="confidens_container">
                         <div class="previews_slider_navigation_arrow confidens_slider_arrow" data-preview-slider-direction="prev"><span></span></div>
                         <div class="previews_slider_navigation_arrow confidens_slider_arrow" data-preview-slider-direction="next"><span></span></div>
