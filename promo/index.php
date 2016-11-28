@@ -3,8 +3,8 @@ require($_SERVER["DOCUMENT_ROOT"]."/bitrix/header.php");
 $APPLICATION->SetTitle("Акции");
 ?>
 <?$APPLICATION->IncludeComponent(
-	"bitrix:news", 
-	"news_without_tabs", 
+	"bitrix:news",
+	"news_without_tabs",
 	array(
 		"ADD_ELEMENT_CHAIN" => "Y",
 		"ADD_SECTIONS_CHAIN" => "N",
@@ -101,4 +101,6 @@ $APPLICATION->SetTitle("Акции");
 	),
 	false
 );?>
+
+
 <?require($_SERVER["DOCUMENT_ROOT"]."/bitrix/footer.php");?>
