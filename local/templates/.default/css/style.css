@@ -5317,6 +5317,7 @@ textarea {
     text-align: center;
     width: 260px;
     overflow: hidden;
+    float: left;
 }
 
 .innerPageWrapper .infoNewsList .dateText {
