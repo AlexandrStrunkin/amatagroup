@@ -295,12 +295,14 @@ $arFirstPhoto = current($arResult['MORE_PHOTO']);
 					            <div class="middleSelectBlock">
 					                <div class="elementQuant">
 					                    <div>
-											<input disabled="" id="<? echo $arItemIDs['QUANTITY']; ?>" type="text" class="quantityText" data-quantity-variable="<?=$arParams["PRODUCT_QUANTITY_VARIABLE"]?>" value="<? echo (isset($arResult['OFFERS']) && !empty($arResult['OFFERS'])
-													? 1
-													: $arResult['CATALOG_MEASURE_RATIO']
-												); ?>">
+                                            <span class="quantity_container">
+                                                <a href="" class="quantityMinus"></a>
+                                            </span>
+                                            <input disabled="" id="<? echo $arItemIDs['QUANTITY']; ?>" type="text" class="quantityText" data-quantity-variable="<?=$arParams["PRODUCT_QUANTITY_VARIABLE"]?>" value="<? echo (isset($arResult['OFFERS']) && !empty($arResult['OFFERS'])
+                                                    ? 1
+                                                    : $arResult['CATALOG_MEASURE_RATIO']
+                                                ); ?>">
 											<span class="quantity_container">
-												<a href="" class="quantityMinus"></a>
 						                        <a href="" class="quantityPlus"></a>
 						                    </span>
 					                    </div>

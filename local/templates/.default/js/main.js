@@ -276,11 +276,16 @@ $(document).ready(function () {
         plus = el.parent().find(".quantityPlus"), minus = el.parent().find(".quantityMinus");
         plus.removeClass("inactive");
         minus.removeClass("inactive");
+        quantity_text = $('.elementQuant .quantityText').val();
+        console.log(el1);
+        if (el1.hasClass("quantityPlus")){
+           count++;
+        } else if(quantity_text != 1) {
+           count--;
+        }
 
-        if (el1.hasClass("quantityPlus")) count++; else count--;
-
-        if (count <= 0) {
-            count = 0;
+        if (count <= 1) {
+            count = 1;
             minus.addClass("inactive");
         }
         if (count >= 999) {
