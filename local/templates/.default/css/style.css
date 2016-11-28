@@ -701,7 +701,8 @@ body {
     cursor: pointer;
 }
 
-.productBlockWrapper .productList li:nth-child(4n) {
+.productBlockWrapper .productList li:nth-child(5),
+.productBlockWrapper .productList li:nth-child(9) {
     margin-right: 0px;
 }
 
