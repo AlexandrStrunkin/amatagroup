@@ -277,7 +277,6 @@ $(document).ready(function () {
         plus.removeClass("inactive");
         minus.removeClass("inactive");
         quantity_text = $('.elementQuant .quantityText').val();
-        console.log(el1);
         if (el1.hasClass("quantityPlus")){
            count++;
         } else if(quantity_text != 1) {
