@@ -61,3 +61,8 @@
     text-align: center;
     float: left;
 }
+.wrap_date{
+    float: left;
+    width: 73%;
+    margin-bottom: 10px;
+}
