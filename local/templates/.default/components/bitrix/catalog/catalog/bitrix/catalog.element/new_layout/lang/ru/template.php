@@ -53,5 +53,5 @@ $MESS["ABOUT_TAB"] = "О товаре";
 $MESS["DESC_TAB"] = "Описание";
 $MESS["NOT_SETTED"] = "Не задан";
 $MESS["QUANTITY_HEADER"] = "Количество";
-$MESS["COST_HEADER"] = "Стоимость";
+$MESS["COST_HEADER"] = "Цена";
 ?>

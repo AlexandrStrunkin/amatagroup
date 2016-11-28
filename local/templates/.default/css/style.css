@@ -668,6 +668,7 @@ body {
     font-size: 16px;
     color: #878787;
     margin-bottom: 36px;
+    width: 88%;
 }
 
 .productBlockWrapper .showAllLink {
@@ -701,7 +702,8 @@ body {
     cursor: pointer;
 }
 
-.productBlockWrapper .productList li:nth-child(4n) {
+.productBlockWrapper .productList li:nth-child(5),
+.productBlockWrapper .productList li:nth-child(9) {
     margin-right: 0px;
 }
 
@@ -971,11 +973,129 @@ margin: 0;
     border-color: #c0c0c0;
 }
 
-.reviesElement {
+.jcarousel li .reviewsPopup {
+    display: none;   
+    position: fixed;  
+    width: 900px;
+    height: auto;
+    left: -450px;
+    top: 130px;
+    margin-left: 50%;
+    z-index: 2000; 
+    background: #fff;
+    -webkit-box-shadow: 0px 0px 100px 0px rgba(22, 23, 24, 0.05);
+    -moz-box-shadow:    0px 0px 100px 0px rgba(22, 23, 24, 0.05);
+    box-shadow:         0px 0px 100px 0px rgba(22, 23, 24, 0.05);
+    -webkit-border-radius: 6px;
+    -moz-border-radius: 6px;
+    border-radius: 6px;
+}
+
+.overflowMask.reviewsOverflow {
+    background: rgba(139, 139, 139, 0.3);    
+}
+
+.jcarousel li .reviewsPopup .reviewsElement { 
+    width: 900px;
+    padding: 0px;
+}
+
+.reviewsPopup .reviewsElement .reviewsCity {
+    text-transform: uppercase;
+    font: 12px/1 "MuseoSansCyrl-700";
+    color: #9eab6e; 
+    letter-spacing: 0.8px;
+    padding-top: 46px;
+    padding: 47px 50px 0;    
+}
+
+.reviewsElement .reviewsCity:before {
+    content: url('../img/cityPlaceBef.png');
+    margin-right: 8px;
+}
+
+.reviewsPopup .reviewsElement .reviewsTitle {
+    color: #000000;
+    font-family: "MuseoSansCyrl-700";
+    font-size: 28px;
+    margin-bottom: 21px;
+    margin-top: 24px;    
+    padding: 0 50px;   
+}
+
+.reviewsPopup .closeReviewsPopup {
+    width: 15px;
+    height: 15px;
+    position: absolute;
+    background: url('../img/closeReviewPopup.png');
+    right: 50px;
+    top: 45px; 
+    cursor: pointer;    
+}
+
+
+.reviewsPopup .reviewsElement .reviewsText {
+    color: #a2a2a2;
+    font-size: 17px;
+    line-height: 30px; 
+    font-family: 'PT Serif', serif;
+    width: auto;
+    overflow: hidden;
+    padding: 0px 50px;    
+}
+
+.reviewsPopup .reviewsElement .reviewsAuthor {
+    font-family: "MuseoSansCyrl-500";
+    font-size: 17px;
+    color: #000000;
+    font-style: normal;
+    padding-bottom: 4px;
+}
+
+.reviewsPopup .reviewsElement .authorsBlock {
+    float: left;
+    color: #999;
+    font: italic 15px/1 'PT Serif', serif;
+    padding: 4px 0 0 21px;
+    box-sizing: border-box;
+    max-width: 750px;
+}
+
+.reviewsPopup .reviewsElement .avatarBlock {
+    content: "";
+    float: left;
+    width: 40px;
+    height: 40px;
+    background: url(../img/auwerqqwe_sprite.png) no-repeat 0 0;    
+    overflow: hidden;    
+    text-align: center;
+    -webkit-border-radius: 20px;
+    -moz-border-radius: 20px;
+    border-radius: 20px;
+    margin-left: 50px;
+}
+
+.reviewsPopup .reviewsElement .reviewsBottom {
+    border-top: 1px solid #e9e9e9;
+    padding-top: 18px;
+    padding-bottom: 28px;
+    margin-top: 48px;    
+}
+
+.reviewsPopup .reviewsElement .avatarBackground {
+    background: #fff;
+}
+   
+.reviewsPopup .reviewsElement:hover .avatarBlock {
+    background-position: 0 0;
+}
+
+.reviewsPopup .reviewsElement {
     margin-bottom: 46px;
 }
 
 .partnerReviews .reviesElement {
+    cursor: pointer;
     background-color: #fff;
     border-radius: 4px;
     height: 318px;
@@ -986,6 +1106,10 @@ margin: 0;
     position: relative;
     float: left;
     margin-right: 22px;
+}
+
+.reviesElement {
+    margin-bottom: 46px;
 }
 
 .partnerReviews .reviesElement:last-child {
@@ -1006,10 +1130,12 @@ margin: 0;
 }
 
 .reviesElement .reviewsTitle {
+    content: '';
     color: #000000;
     font-family: "MuseoSansCyrl-700";
     font-size: 18px;
     margin-bottom: 15px;
+    height: 22px;
 }
 
 .reviesElement .reviewsText {
@@ -1020,6 +1146,7 @@ margin: 0;
     font-family: 'PT Serif', serif;
     max-height: 130px;
     overflow: hidden;
+    margin-bottom: 25px;
 }
 
 .reviesElement .reviewsAuthor {
@@ -1031,33 +1158,38 @@ margin: 0;
 }
 
 .reviesElement .authorsBlock {
-    border-top: 1px solid #e9e9e9;
+    float:right;
     color: #999;
-    bottom: 14px;
-    position: absolute;
-    width: 238px;
     font: italic 14px/1 'PT Serif', serif;
-    padding: 22px 0 12px 55px;
+    padding: 3px 0 0 0;
     box-sizing: border-box;
+    max-width: 184px;
 }
 
-.reviesElement .authorsBlock:before {
+.reviesElement .avatarBlock {
     content: "";
-    display: block;
-    position: absolute;
-    top: 18px;
-    left: 0;
+    float: left;
     width: 40px;
     height: 40px;
-    background: url(../img/auwerqqwe_sprite.png) no-repeat 0 0;
+    background: url(../img/auwerqqwe_sprite.png) no-repeat 0 0;    
+    overflow: hidden;    
+    text-align: center;
+    -webkit-border-radius: 20px;
+    -moz-border-radius: 20px;
+    border-radius: 20px;
 }
 
-.reviesElement:hover .authorsBlock:before {
+.reviesElement .reviewsBottom {
+    border-top: 1px solid #e9e9e9;
+    padding-top: 19px;    
+}
+
+.reviesElement .avatarBackground {
+    background: #fff;
+}
+
+.reviesElement:hover .avatarBlock {
     background-position: -40px 0;
-}
-
-.reviesElement .authorsBlock p {
-    margin-right: -15px;
 }
 
 .confidenceWrapper a img {
@@ -5185,6 +5317,7 @@ textarea {
     text-align: center;
     width: 260px;
     overflow: hidden;
+    float: left;
 }
 
 .innerPageWrapper .infoNewsList .dateText {
@@ -5566,7 +5699,17 @@ p.authTitle {
     width: 100%;
     box-sizing: border-box;
 }
-
+.companyInput{
+    border: 1px solid #83d0f5;
+    border-radius: 4px;
+    font-family: "MuseoSansCyrl-500";
+    font-size: 15px;
+    margin-top: 10px;
+    padding: 12px 20px 12px 14px;
+    color: #48AAD8;
+    width: 100%;
+    box-sizing: border-box;
+}
 .authInput:first-of-type {
     margin-top: 0px;
 }
@@ -6811,7 +6954,7 @@ input[type="radio"]:checked + label::before {
 
 .productCardDesc .elementQuant input {
     font: 'MuseoSansCyrl-700', sans-serif;
-    text-align: left;
+    text-align: center;
     height: 39px;
     box-sizing: border-box;
     border: none !important;
