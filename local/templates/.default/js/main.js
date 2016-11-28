@@ -967,7 +967,8 @@ $(document).ready(function () {
         second.parent('li').addClass('activeFirstLclLi');
     });
     
-    //Всплывающее окно у отзывов 
+    //Всплывающее окно у отзывов
+    
     $('.productCarousel .jcarousel li .reviesElement').on("click", function() { 
         var screen_height = $(window).height(),
             reviews_popup_block = $(this).next('.reviewsPopup'),
@@ -983,6 +984,11 @@ $(document).ready(function () {
             $('.overflowMask').removeClass('reviewsOverflow').hide();
         }   
     })
+    
+    //Дописываем символы в конец строки 
+    $('.productCarousel').ready(function() {
+        $(".reviesElement .reviewsText").shave(132, {character: ' >>>'});
+    }) 
 
     /********************************/
     //КАТАЛОГ
