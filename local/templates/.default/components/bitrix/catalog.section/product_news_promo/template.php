@@ -13,21 +13,11 @@
     $this->setFrameMode(true);
 ?>
 
+<h2><?= $arParams["PAGER_TITLE"] ?></h2>
 <!--elmentsList-->
 <?if(count($arResult['ITEMS']) > 0){?>
 <ul class="productList" id="productList1">
-<p class="blockTitle">
-    <?$APPLICATION->IncludeComponent(
-    "bitrix:main.include",
-    "",
-    Array(
-        "AREA_FILE_SHOW" => "file",
-        "AREA_FILE_SUFFIX" => "inc",
-        "EDIT_TEMPLATE" => "",
-        "PATH" => "/include/news_page.php"
-    )
-);?>
-</p>
+
     <?
         if (!empty($arResult['ITEMS'])) {
             $templateLibrary = array('popup');
@@ -506,7 +496,6 @@
             }
         ?>
          <?}?>
-        <a class="transition_section" href="<?=$arParams["SECTION_URL"]?>"><?=GetMessage('NEW_PRODUCTS')?></a>
     </ul>
     <!--END elmentsList-->
     <div style="clear: both;"></div>

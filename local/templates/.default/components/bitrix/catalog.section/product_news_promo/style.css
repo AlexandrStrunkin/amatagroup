@@ -15,3 +15,30 @@
     color: #ccc;
     text-decoration: line-through;
 }
+.widthWrapper.innerPageWrapper .backgroundColor,
+.widthWrapper.innerPageWrapper .backgroundColor .productBlockWrapper{
+    background-color: transparent;
+    margin-top: 0;
+    padding-top: 0;
+}
+.widthWrapper.innerPageWrapper ul li:before{
+    content: '';
+}
+.widthWrapper.innerPageWrapper .productBlockWrapper .productList li{
+    margin-right: 12px;
+    height: 380px;
+}
+.innerPageWrapper .productBlockWrapper .productWrapper{
+    height: 380px;
+}
+.widthWrapper .productBlockWrapper .productList li:nth-child(5),
+.widthWrapper .productBlockWrapper .productList li:nth-child(9) {
+    margin-right: 20px;
+}
+.productBlockWrapper .productList li:nth-child(4n) {
+    margin-right: 0px;
+}
+.newsBlock > ul:first-child{
+    padding-top: 10px;
+    padding-left: 5px;
+}
