@@ -935,3 +935,6 @@
     display: block;
     position: absolute;
 }
+.jcarousel .slide_link{
+    margin: 0;
+}
