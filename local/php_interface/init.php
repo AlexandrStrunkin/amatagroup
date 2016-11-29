@@ -7,11 +7,15 @@
     CModule::IncludeModule("sale");
     CModule::IncludeModule("catalog");
     CModule::IncludeModule("main");
+    CModule::IncludeModule("highloadblock");      
 
     use Bitrix\Main;
     use Bitrix\Main\Loader;
     use Bitrix\Main\Localization\Loc;
     use Bitrix\Sale\Internals;
+
+    use Bitrix\Highloadblock as HL;
+    use Bitrix\Main\Entity;
 
     $arPageElementCount = array(12, 24, 36); //возможные варианты количестка элементов на странице
 
@@ -53,8 +57,8 @@
     define("USER_SAVED_ADDRESSES_APARTMENT_PROPERTY", 436); // Квартира/офис
     define("USER_SAVED_ADDRESSES_BX_LOCATION_ID_PROPERTY", 437); // ID местоположения битрикс
 
-	define("ORGANIZATION_TYPE_OOO", 4); // Тип фирмы ООО
-	define("ORGANIZATION_TYPE_IP", 5); // Тип фирмы ИП
+    define("ORGANIZATION_TYPE_OOO", 4); // Тип фирмы ООО
+    define("ORGANIZATION_TYPE_IP", 5); // Тип фирмы ИП
 
     define("USER_QUESTIONS_EMAIL_PROPERTY", 468);
     define("USER_QUESTIONS_COMPANY_PROPERTY", 469);
@@ -122,11 +126,12 @@
     define("CATALOG_SECTION_LATEST", '/catalog/bestsellers/');
     define("IMAGE_SERTIFICATE_WIDTH", 600); // код типа цены базовой
     define("IMAGE_SERTIFICATE_HEIGHT", 800); // код типа цены базовой
-    
+
     define("IMAGE_AVATAR_WIDTH", 40); // размер аватарок в отзывах
-    define("IMAGE_AVATAR_HEIGHT", 40); // размер аватарок в отзывах
+    define("IMAGE_AVATAR_HEIGHT", 40); // размер аватарок в отзывах        
 
-
+    define("PARTNERS_HL_BLOCK_ID", 8); //ID highload-блока "партнеры"    
+    define("PARTNERS_GROUPS_HL_BLOCK_ID", 6); //ID highload-блока "соглашения с клиентами"    
 
 
     // файл с кодом для избранного
@@ -666,23 +671,23 @@
     }
 
     // Заменяет символ валюты в письме заказа
-   AddEventHandler('sale', 'OnOrderNewSendEmail', "currencyTypeReplacement");
+    AddEventHandler('sale', 'OnOrderNewSendEmail', "currencyTypeReplacement");
 
-   function currencyTypeReplacement($ID, &$eventName, &$arFields) {
+    function currencyTypeReplacement($ID, &$eventName, &$arFields) {
 
-       $arFields["PRICE"] = preg_replace('~<span class="rub">c</span>~', 'Р', $arFields["PRICE"]);
-       $arFields["ORDER_LIST"] = preg_replace('~<span class="rub">c</span>~', 'Р', $arFields["ORDER_LIST"]);
+        $arFields["PRICE"] = preg_replace('~<span class="rub">c</span>~', 'Р', $arFields["PRICE"]);
+        $arFields["ORDER_LIST"] = preg_replace('~<span class="rub">c</span>~', 'Р', $arFields["ORDER_LIST"]);
 
-       return $arFields;
-   }
+        return $arFields;
+    }
 
     /**
-     * Функция возвращает окончание для множественного числа слова на основании числа и массива окончаний
-     * param  $number Integer Число на основе которого нужно сформировать окончание
-     * param  $endingsArray  Array Массив слов или окончаний для чисел (1, 4, 5),
-     *         например array('яблоко', 'яблока', 'яблок')
-     * return String
-     */
+    * Функция возвращает окончание для множественного числа слова на основании числа и массива окончаний
+    * param  $number Integer Число на основе которого нужно сформировать окончание
+    * param  $endingsArray  Array Массив слов или окончаний для чисел (1, 4, 5),
+    *         например array('яблоко', 'яблока', 'яблок')
+    * return String
+    */
     function getNumEnding($number, $endingArray) {
         $number = $number % 100;
         if ($number>=11 && $number<=19) {
@@ -699,4 +704,58 @@
         }
         return $ending;
     }
-?>
+
+
+    /**
+    * обновление групп клиентов в соответствии с данными из хайлоад-блока
+    * 
+    */
+    function setClientsGroups() {             
+
+        $partners_hl_block = PARTNERS_HL_BLOCK_ID;
+        $partners_groups_hl_block = PARTNERS_GROUPS_HL_BLOCK_ID;
+
+        //делаем запрос в HL блок партнеров
+        $partners = HL\HighloadBlockTable::getById($partners_hl_block)->fetch();
+        $partners_entity = HL\HighloadBlockTable::compileEntity($partners);          
+        $partners_query = new Entity\Query($partners_entity);
+
+        $select = array("UF_NAME");
+        $partners_query->setSelect($select);
+        //выбираем пользователей, у которых есть email
+        $filter= array("!UF_NAME" => false, /*"!UF_ELEKTRONNAYAPOCHT" => false*/);
+        $partners_query->setFilter($filter);
+
+        $partners_result = $partners_query->exec();
+        $partners_result = new CDBResult($partners_result);
+        //парсим результат выборки клиентов      
+        $client_names = array();
+        while($arPartnersResult = $partners_result->Fetch()) {    
+        //собираем имена клиентов 
+            $client_names[] = $arPartnersResult["UF_NAME"];           
+        }   
+        
+        $client_names = array_unique($client_names);
+        
+        //делаем запрос в соответствующий HL блок
+            $groups = HL\HighloadBlockTable::getById($partners_groups_hl_block)->fetch();
+            $groups_entity = HL\HighloadBlockTable::compileEntity($groups);          
+            $groups_query = new Entity\Query($groups_entity);
+
+            $select = array("*");
+            $groups_query->setSelect($select);
+            //выбираем пользователей, у которых есть email
+            $filter= array("UF_PARTNER" => $client_names);
+            $groups_query->setFilter($filter);
+
+            $groups_result = $groups_query->exec();
+            $groups_result = new CDBResult($groups_result);
+            //парсим результат выборки клиентов
+            while($arGroupsResult = $groups_result->Fetch()) {
+                echo "<b>UF_NAME:</b> ".$arGroupsResult["UF_PARTNER"]." - <b>Соглашение:</b> ".$arGroupsResult["UF_NAME"]."<br>";
+
+            }
+ 
+
+    }
+
