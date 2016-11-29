@@ -218,7 +218,7 @@ if (!empty($arResult['ITEMS']))
             </a>
 
             <div>
-                <a href="<? echo $arItem['DETAIL_PAGE_URL']; ?>" class="productName"><?=$arItem["NAME"]?></a>
+                <a href="<? echo $arItem['DETAIL_PAGE_URL']; ?>" data-element-full-name="<?= $arItem["NAME"] ?>" class="productName"><?=$arItem["NAME"]?></a>
 
                 <?if ((!isset($arItem['OFFERS']) || empty($arItem['OFFERS'])) && $arItem['CAN_BUY']) {?>
 

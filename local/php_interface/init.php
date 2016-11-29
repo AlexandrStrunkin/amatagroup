@@ -154,6 +154,39 @@
             ABOUT_FORM               => 'Форма вопроса из раздела "О компании"'
         );
     }
+	
+	/**
+	 * Пересобираем название элемента из свойств, если они заполнены
+	 * @param array $item
+	 * @return bool|string $result
+	 * */
+	function getNamesFromProperties(&$item) {
+		$result = "";
+		$setted_model = "";
+		$models = array(
+			$item['PROPERTIES']['MODEL']['VALUE'],
+			$item['PROPERTIES']['MODEL_1']['VALUE'],
+			$item['PROPERTIES']['MODEL_2']['VALUE'],
+			$item['PROPERTIES']['MODEL_3']['VALUE'],
+			$item['PROPERTIES']['MODEL_4']['VALUE'],
+			$item['PROPERTIES']['MODEL_5']['VALUE'],
+			$item['PROPERTIES']['MODEL_6']['VALUE'],
+			$item['PROPERTIES']['MODEL_7']['VALUE'],
+			$item['PROPERTIES']['MODEL_8']['VALUE']
+		);
+		// проверяем заполненность необходимых свойств
+		if (
+			$item['PROPERTIES']['BREND']['VALUE'] // бренд
+			&& $item['PROPERTIES']['VIDTOVARA']['VALUE'] // объединенное свойство тип товара
+			&& ( // дальше ад, если заполнена хотя бы одна модель
+				$setted_model = current(array_filter($models))
+			)
+		) {
+			$result = sprintf("%s %s %s", $item['PROPERTIES']['VIDTOVARA']['VALUE'], $item['PROPERTIES']['BREND']['VALUE'], $setted_model);
+		}
+		
+		return $result;
+	}
 
     /**
     *
