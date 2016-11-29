@@ -276,11 +276,15 @@ $(document).ready(function () {
         plus = el.parent().find(".quantityPlus"), minus = el.parent().find(".quantityMinus");
         plus.removeClass("inactive");
         minus.removeClass("inactive");
+        quantity_text = $('.elementQuant .quantityText').val();
+        if (el1.hasClass("quantityPlus")){
+           count++;
+        } else if(quantity_text != 1) {
+           count--;
+        }
 
-        if (el1.hasClass("quantityPlus")) count++; else count--;
-
-        if (count <= 0) {
-            count = 0;
+        if (count <= 1) {
+            count = 1;
             minus.addClass("inactive");
         }
         if (count >= 999) {
@@ -966,6 +970,29 @@ $(document).ready(function () {
         second.show();
         second.parent('li').addClass('activeFirstLclLi');
     });
+    
+    //Всплывающее окно у отзывов
+    
+    $('.productCarousel .jcarousel li .reviesElement').on("click", function() { 
+        var screen_height = $(window).height(),
+            reviews_popup_block = $(this).next('.reviewsPopup'),
+            block_height = reviews_popup_block.height(),
+            block_position = screen_height/2 - block_height/2; 
+        reviews_popup_block.css('top', block_position + 'px').show();
+        $('.overflowMask').addClass('reviewsOverflow').show();
+    })    
+       
+    $('.overflowMask, .closeReviewsPopup').on("click", function() {
+        if($('.overflowMask').hasClass('reviewsOverflow')) { 
+            $('.reviewsPopup').hide(); 
+            $('.overflowMask').removeClass('reviewsOverflow').hide();
+        }   
+    })
+    
+    //Дописываем символы в конец строки 
+    $('.productCarousel').ready(function() {
+        $(".reviesElement .reviewsText").shave(132, {character: ' >>>'});
+    }) 
 
     /********************************/
     //КАТАЛОГ

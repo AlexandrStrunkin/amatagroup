@@ -22,9 +22,10 @@ $MESS["CT_BCS_CATALOG_MESS_COMPARE_TITLE"] = "Сравнение товаров";
 $MESS["CT_BCS_CATALOG_MESS_COMPARE_UNKNOWN_ERROR"] = "При добавлении товара в список сравнения произошла ошибка";
 $MESS["CT_BCS_CATALOG_BTN_MESSAGE_COMPARE_REDIRECT"] = "Перейти в список сравнения";
 $MESS["PRODUCT_ALREADY_IN_BASKET"]  = "Товар в корзине";
-$MESS["NEW_PRODUCT"] = "Новинка";
-$MESS["NEW_PRODUCTS"] = "Все новинки";
-$MESS["FRESH_PRODUCT"] = "Последние поступления";
+$MESS["NEW_PRODUCT"] = "Новинка";      
+$MESS["NEW_PRODUCTS"] = "Все новинки";    
 $MESS["TEXT_TOP"] = "Ознакомьтесь со всеми новинками нашей компании. Кроватки, коляски, матрасы и
         прочие товары, которые вы ждете.";
+$MESS["BESTSELLERS_PRODUCT"] = "Все хиты";
+$MESS["FRESH_PRODUCT"] = "Последние поступления";      
 ?>

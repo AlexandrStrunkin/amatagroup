@@ -34,9 +34,18 @@
             <div class="widthWrapper">
                 <h2>ѕочему јмата?</h2>
 
-                <p class="blockText">ћы - лидер на рынке детских товаров, наличие из более 500 000 товаров порадует вас
-                    ценой и
-                    качеством, начните покупки пр€мо сейчас!</p>
+                <p class="blockText">
+                <?$APPLICATION->IncludeComponent(
+                        "bitrix:main.include",
+                        "",
+                        Array(
+                            "AREA_FILE_SHOW" => "file",
+                            "AREA_FILE_SUFFIX" => "inc",
+                            "EDIT_TEMPLATE" => "",
+                            "PATH" => "/include/why_Amata.php"
+                        )
+                    );?>
+                </p>
                 <table>
                     <tr>
                         <td class="writeCreatorBlock">
@@ -74,7 +83,7 @@
     <!--END backgroundColor-->
 
     <!--popup (обратный звонок)-->
-    <div class="back_call_ajax"> 
+    <div class="back_call_ajax">
         <?$APPLICATION->IncludeComponent(
             "bitrix:main.feedback",
             "back_call",

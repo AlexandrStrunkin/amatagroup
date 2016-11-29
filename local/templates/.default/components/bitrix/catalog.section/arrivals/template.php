@@ -17,7 +17,6 @@
 
 <!--elmentsList-->
 <?if(count($arResult['ITEMS']) > 0){?>
-<ul class="productList" id="productList3">
 <p class="blockTitle">
     <?$APPLICATION->IncludeComponent(
     "bitrix:main.include",
@@ -30,6 +29,7 @@
     )
 );?>
 </p>
+<ul class="productList" id="productList3">    
     <?
         if (!empty($arResult['ITEMS'])) {
             $templateLibrary = array('popup');
@@ -198,7 +198,7 @@
                     </a>
 
                     <div>
-                        <a href="<? echo $arItem['DETAIL_PAGE_URL']; ?>" class="productName"><?=$arItem["NAME"]?></a>
+                        <a href="<? echo $arItem['DETAIL_PAGE_URL']; ?>" data-element-full-name="<?= $arItem["NAME"] ?>" class="productName"><?=$arItem["NAME"]?></a>
 
                         <?if ($arItem['MIN_PRICE']["CAN_BUY"]) {?>
 

@@ -905,7 +905,6 @@
     background-color: #9fdcff;
 }
 .jcarousel li{
-    overflow: hidden;
     position: relative;
 }
 .jcarousel .big_image{
