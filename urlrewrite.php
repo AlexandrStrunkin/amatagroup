@@ -115,14 +115,14 @@ $arUrlRewrite = array(
 	array(
 		"CONDITION" => "#^\\??(.*)#",
 		"RULE" => "&\$1",
-		"ID" => "bitrix:catalog.section",
+		"ID" => "bitrix:catalog.top",
 		"PATH" => "/local/templates/amatagroup_index/header.php",
 		"SORT" => "100",
 	),
 	array(
 		"CONDITION" => "#^\\??(.*)#",
 		"RULE" => "&\$1",
-		"ID" => "bitrix:catalog.top",
+		"ID" => "bitrix:catalog.section",
 		"PATH" => "/local/templates/amatagroup_index/header.php",
 		"SORT" => "100",
 	),

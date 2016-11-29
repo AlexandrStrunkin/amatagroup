@@ -1,13 +1,21 @@
 <?
     require($_SERVER["DOCUMENT_ROOT"]."/bitrix/header.php");
-    $APPLICATION->SetTitle("Все новинки");?>
+    $APPLICATION->SetTitle("Все ожидаемые товары");
+?>
 <?
+    //ожидаемые поступления
     global $arrFilter;
-    $curr_date = date('U');
-    $date_create_date = $curr_date - (86400 * NEW_PRODUCT_STATUS_LENGTH);
-    $arrFilter = array(
-        ">=DATE_CREATE" => ConvertTimeStamp($date_create_date,"FULL")
-    );
+    $arrFilter = array();
+    $expected_products = array();
+    //собираем предложения, у которых есть реквизит "ожидаемая дата поступления"
+    $expected_items = CIBLockElement::GetList(array(), array("IBLOCK_ID" => OFFERS_IBLOCK_ID, "ACTIVE" => "Y", array("LOGIR" => "AND", array(">PROPERTY_CML2_TRAITS" => date("Y-m-d H:i:s")), array("!PROPERTY_CML2_TRAITS" => false))), false, false, array("ID", "PROPERTY_CML2_TRAITS", "PROPERTY_CML2_LINK"));
+    while($arItem = $expected_items->Fetch()) {
+        //собираем основные товары для филтрации
+        if (!empty($arItem["PROPERTY_CML2_LINK_VALUE"])) {
+            $expected_products[$arItem["PROPERTY_CML2_LINK_VALUE"]] = $arItem["PROPERTY_CML2_LINK_VALUE"];
+        }
+    }                    
+    $arrFilter["ID"] = $expected_products;
 ?>
 <div class="backgroundColor news_wrap">
     <!--widthWrapper-->
