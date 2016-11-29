@@ -13,10 +13,13 @@ $sections = CIBlockSection::GetList (
 );
 
 while ($section = $sections->Fetch()) {
-    $existing_news_sections[$section['ID']] = array(
-    	"TITLE" => $section['NAME'],
-    	"ELEMENTS" => array()
-	);
+    if($section["ACTIVE"] == 'Y'){
+        $existing_news_sections[$section['ID']] = array(
+    	    "TITLE" => $section['NAME'],
+    	    "ELEMENTS" => array()
+	    );
+    }
+
 }
 
 // группируем элементы по этим разделам
@@ -25,6 +28,7 @@ foreach($arResult["ITEMS"] as $news_item) {
 		$existing_news_sections[$news_item['IBLOCK_SECTION_ID']]['ELEMENTS'],
 		$news_item
 	);
+
 }
 
 $arResult['REGROUPED_ITEMS'] = $existing_news_sections;
