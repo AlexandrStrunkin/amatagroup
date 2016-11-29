@@ -110,7 +110,8 @@
     /*///*/
 
     /* службы доставки */
-    define("COURIER_DELIVERY", 2);
+    define("COURIER_DELIVERY_1", 27);
+    define("COURIER_DELIVERY_2", 28);
 
     define("NEW_PRODUCT_STATUS_LENGTH", 60); //количество дней, котрое товар считаетс€ новинкой
     define("FRESH_PRODUCT_STATUS_LENGTH", 2); //количество дней, котрое товар считаетс€ последним поступлением
@@ -156,7 +157,7 @@
             ABOUT_FORM               => '‘орма вопроса из раздела "ќ компании"'
         );
     }
-	
+
 	/**
 	 * ѕересобираем название элемента из свойств, если они заполнены
 	 * @param array $item
@@ -186,7 +187,7 @@
 		) {
 			$result = sprintf("%s %s %s", $item['PROPERTIES']['VIDTOVARA']['VALUE'], $item['PROPERTIES']['BREND']['VALUE'], $setted_model);
 		}
-		
+
 		return $result;
 	}
 
