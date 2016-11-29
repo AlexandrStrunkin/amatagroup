@@ -357,8 +357,8 @@
             );?>
 
         <?$APPLICATION->IncludeComponent(
-	"bitrix:catalog.section", 
-	"slider_main", 
+	"bitrix:catalog.section",
+	"slider_main",
 	array(
 		"TEMPLATE_THEME" => "blue",
 		"PRODUCT_DISPLAY_MODE" => "N",

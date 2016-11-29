@@ -15,6 +15,7 @@
 
 <!--elmentsList-->
 <?if(count($arResult['ITEMS']) > 0){?>
+
 <ul class="productList" id="productList1">
 <p class="blockTitle">
     <?$APPLICATION->IncludeComponent(
@@ -507,7 +508,7 @@
         ?>
          <?}?>
         <a class="transition_section" href="<?=$arParams["SECTION_URL"]?>"><?=GetMessage('NEW_PRODUCTS')?></a>
-    </ul>
+    </ul>       
     <!--END elmentsList-->
     <div style="clear: both;"></div>
 

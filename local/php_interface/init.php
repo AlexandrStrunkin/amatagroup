@@ -36,6 +36,8 @@
 
     define("DEFAULT_TEMPLATE_PATH", SITE_DIR."local/templates/.default/"); //path of ".default" site template
     define("NEWS_IBLOCK_ID", 1);
+    define("PROMO_IBLOCK_ID", 27);
+    define("PROMO_IBLOCK_SECTION_ID", 2089);
     define("CATALOG_IBLOCK_ID", 5); //main catalog
     define("OFFERS_IBLOCK_ID", 6);  //offers
     define("FAVORITE_IBLOCK_ID", 12);
@@ -122,7 +124,7 @@
     define("CATALOG_SECTION_LATEST", '/catalog/bestsellers/');
     define("IMAGE_SERTIFICATE_WIDTH", 600); // код типа цены базовой
     define("IMAGE_SERTIFICATE_HEIGHT", 800); // код типа цены базовой
-    
+
     define("IMAGE_AVATAR_WIDTH", 40); // размер аватарок в отзывах
     define("IMAGE_AVATAR_HEIGHT", 40); // размер аватарок в отзывах
 
@@ -154,6 +156,39 @@
             ABOUT_FORM               => 'Форма вопроса из раздела "О компании"'
         );
     }
+	
+	/**
+	 * Пересобираем название элемента из свойств, если они заполнены
+	 * @param array $item
+	 * @return bool|string $result
+	 * */
+	function getNamesFromProperties(&$item) {
+		$result = "";
+		$setted_model = "";
+		$models = array(
+			$item['PROPERTIES']['MODEL']['VALUE'],
+			$item['PROPERTIES']['MODEL_1']['VALUE'],
+			$item['PROPERTIES']['MODEL_2']['VALUE'],
+			$item['PROPERTIES']['MODEL_3']['VALUE'],
+			$item['PROPERTIES']['MODEL_4']['VALUE'],
+			$item['PROPERTIES']['MODEL_5']['VALUE'],
+			$item['PROPERTIES']['MODEL_6']['VALUE'],
+			$item['PROPERTIES']['MODEL_7']['VALUE'],
+			$item['PROPERTIES']['MODEL_8']['VALUE']
+		);
+		// проверяем заполненность необходимых свойств
+		if (
+			$item['PROPERTIES']['BREND']['VALUE'] // бренд
+			&& $item['PROPERTIES']['VIDTOVARA']['VALUE'] // объединенное свойство тип товара
+			&& ( // дальше ад, если заполнена хотя бы одна модель
+				$setted_model = current(array_filter($models))
+			)
+		) {
+			$result = sprintf("%s %s %s", $item['PROPERTIES']['VIDTOVARA']['VALUE'], $item['PROPERTIES']['BREND']['VALUE'], $setted_model);
+		}
+		
+		return $result;
+	}
 
     /**
     *
@@ -684,7 +719,7 @@
      * return String
      */
     function getNumEnding($number, $endingArray) {
-        $number = $number % 100;
+        $number = $number % 1000;
         if ($number>=11 && $number<=19) {
             $ending = $number . ' ' . $endingArray[2];
         } else {

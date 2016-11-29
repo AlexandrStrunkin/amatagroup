@@ -10,7 +10,7 @@ function shave(target, maxHeight, opts) {
   if (!('length' in els)) els = [els];
 
   var defaults = {
-    character: 'â€¦',
+    character: '…',
     classname: 'js-shave',
     spaces: true
   };

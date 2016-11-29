@@ -313,7 +313,7 @@ $APPLICATION->SetTitle("О магазине");
 		"SET_STATUS_404" => "N",
 		"SET_TITLE" => "Y",
 		"SHOW_404" => "N",
-		"SORT_BY1" => "NAME",
+		"SORT_BY1" => "SORT",
 		"SORT_BY2" => "ID",
 		"SORT_ORDER1" => "DESC",
 		"SORT_ORDER2" => "ASC"
