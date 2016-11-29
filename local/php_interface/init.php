@@ -36,6 +36,8 @@
 
     define("DEFAULT_TEMPLATE_PATH", SITE_DIR."local/templates/.default/"); //path of ".default" site template
     define("NEWS_IBLOCK_ID", 1);
+    define("PROMO_IBLOCK_ID", 27);
+    define("PROMO_IBLOCK_SECTION_ID", 2089);
     define("CATALOG_IBLOCK_ID", 5); //main catalog
     define("OFFERS_IBLOCK_ID", 6);  //offers
     define("FAVORITE_IBLOCK_ID", 12);
@@ -122,7 +124,7 @@
     define("CATALOG_SECTION_LATEST", '/catalog/bestsellers/');
     define("IMAGE_SERTIFICATE_WIDTH", 600); // код типа цены базовой
     define("IMAGE_SERTIFICATE_HEIGHT", 800); // код типа цены базовой
-    
+
     define("IMAGE_AVATAR_WIDTH", 40); // размер аватарок в отзывах
     define("IMAGE_AVATAR_HEIGHT", 40); // размер аватарок в отзывах
 
@@ -717,7 +719,7 @@
      * return String
      */
     function getNumEnding($number, $endingArray) {
-        $number = $number % 100;
+        $number = $number % 1000;
         if ($number>=11 && $number<=19) {
             $ending = $number . ' ' . $endingArray[2];
         } else {
