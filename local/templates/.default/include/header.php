@@ -357,8 +357,8 @@
             );?>
 
         <?$APPLICATION->IncludeComponent(
-	"bitrix:catalog.section", 
-	"slider_main", 
+	"bitrix:catalog.section",
+	"slider_main",
 	array(
 		"TEMPLATE_THEME" => "blue",
 		"PRODUCT_DISPLAY_MODE" => "N",
@@ -420,7 +420,8 @@
 		"LINE_ELEMENT_COUNT" => "3",
 		"PROPERTY_CODE" => array(
 			0 => "SPECIAL_OFFER",
-			1 => "",
+			1 => "PRICE_BANNER",
+			2 => "PICTURE_WIDTH",
 		),
 		"OFFERS_FIELD_CODE" => "",
 		"OFFERS_PROPERTY_CODE" => "",
