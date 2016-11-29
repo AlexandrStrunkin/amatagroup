@@ -1,8 +1,8 @@
 <?
 require($_SERVER["DOCUMENT_ROOT"]."/bitrix/header.php");
 $APPLICATION->SetTitle("Бренды");
-?>
- <?//$Filter_brands[">PREVIEW_PICTURE"] = 0;?>
+?> <?//$Filter_brands[">PREVIEW_PICTURE"] = 0;?>
+<p class="detail_text">Наш полный портфель брендов</p>
 <?$APPLICATION->IncludeComponent(
 	"bitrix:news",
 	"brands",
@@ -110,5 +110,4 @@ $APPLICATION->SetTitle("Бренды");
 	),
 	false
 );?><br>
-
 <?require($_SERVER["DOCUMENT_ROOT"]."/bitrix/footer.php");?>

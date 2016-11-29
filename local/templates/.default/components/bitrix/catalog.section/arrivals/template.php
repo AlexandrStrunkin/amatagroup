@@ -17,7 +17,6 @@
 
 <!--elmentsList-->
 <?if(count($arResult['ITEMS']) > 0){?>
-<ul class="productList" id="productList3">
 <p class="blockTitle">
     <?$APPLICATION->IncludeComponent(
     "bitrix:main.include",
@@ -30,6 +29,7 @@
     )
 );?>
 </p>
+<ul class="productList" id="productList3">    
     <?
         if (!empty($arResult['ITEMS'])) {
             $templateLibrary = array('popup');

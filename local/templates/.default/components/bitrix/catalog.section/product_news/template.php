@@ -15,6 +15,7 @@
 
 <!--elmentsList-->
 <?if(count($arResult['ITEMS']) > 0){?>
+
 <ul class="productList" id="productList1">
 <p class="blockTitle">
     <?$APPLICATION->IncludeComponent(
