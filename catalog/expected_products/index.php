@@ -67,7 +67,7 @@
                                 2 => "",
                             ),
                             "FILTER_PRICE_CODE" => array(
-                                0 => "Оптовая 1 Для сайта",
+                                0 => "Рекомендованная Для сайта",
                             ),
                             "FILTER_OFFERS_FIELD_CODE" => array(
                                 0 => "",
@@ -87,7 +87,7 @@
                             "SHOW_LINK_TO_FORUM" => "Y",
                             "USE_COMPARE" => "N",
                             "PRICE_CODE" => array(
-                                0 => "Оптовая 1 Для сайта",
+                                0 => "Рекомендованная Для сайта",
                             ),
                             "USE_PRICE_COUNT" => "N",
                             "SHOW_PRICE_COUNT" => "1",

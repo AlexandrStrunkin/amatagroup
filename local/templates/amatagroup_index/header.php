@@ -104,7 +104,7 @@
                         "PAGE_ELEMENT_COUNT" => "8",	// Количество элементов на странице
                         "PARTIAL_PRODUCT_PROPERTIES" => "N",	// Разрешить добавлять в корзину товары, у которых заполнены не все характеристики
                         "PRICE_CODE" => array(	// Тип цены
-                            0 => "Оптовая 1 Для сайта",
+                            0 => "Рекомендованная Для сайта",
                         ),
                         "PRICE_VAT_INCLUDE" => "Y",	// Включать НДС в цену
                         "PRODUCT_DISPLAY_MODE" => "N",	// Схема отображения
@@ -204,7 +204,7 @@
                             "OFFERS_SORT_ORDER2" => "desc",
                             "PARTIAL_PRODUCT_PROPERTIES" => "N",
                             "PRICE_CODE" => array(
-                                0 => "Оптовая 1 Для сайта",
+                                0 => "Рекомендованная Для сайта",
                             ),
                             "PRICE_VAT_INCLUDE" => "Y",
                             "PRODUCT_DISPLAY_MODE" => "N",
@@ -306,7 +306,7 @@
                             "PAGE_ELEMENT_COUNT" => "8",
                             "PARTIAL_PRODUCT_PROPERTIES" => "N",
                             "PRICE_CODE" => array(
-                                0 => "Оптовая 1 Для сайта",
+                                0 => "Рекомендованная Для сайта",
                             ),
                             "PRICE_VAT_INCLUDE" => "Y",
                             "PRODUCT_DISPLAY_MODE" => "N",
@@ -439,7 +439,7 @@
                             "PAGE_ELEMENT_COUNT" => "8",
                             "PARTIAL_PRODUCT_PROPERTIES" => "N",
                             "PRICE_CODE" => array(
-                                0 => "Оптовая 1 Для сайта",
+                                0 => "Рекомендованная Для сайта",
                             ),
                             "PRICE_VAT_INCLUDE" => "Y",
                             "PRODUCT_DISPLAY_MODE" => "N",
