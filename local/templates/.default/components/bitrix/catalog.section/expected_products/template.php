@@ -16,7 +16,7 @@
 <!--elmentsList-->
 <?if(count($arResult['ITEMS']) > 0){?>
 
-    <ul class="productList" id="productList1">
+    <ul class="productList" id="productList4">
         <p class="blockTitle">
             <?$APPLICATION->IncludeComponent(
                     "bitrix:main.include",
@@ -25,7 +25,7 @@
                         "AREA_FILE_SHOW" => "file",
                         "AREA_FILE_SUFFIX" => "inc",
                         "EDIT_TEMPLATE" => "",
-                        "PATH" => "/include/news_page.php"
+                        "PATH" => "/include/expected_products.php"
                     )
                 );?>
         </p>
@@ -109,8 +109,6 @@
                 foreach ($arResult['ITEMS'] as $key => $arItem) {
                     $this->AddEditAction($arItem['ID'], $arItem['EDIT_LINK'], $strElementEdit);
                     $this->AddDeleteAction($arItem['ID'], $arItem['DELETE_LINK'], $strElementDelete, $arElementDeleteParams);
-
-                    //arshow($arItem);
 
                     $strMainID = $this->GetEditAreaId($arItem['ID']);
 
@@ -227,13 +225,8 @@
                                 if (date("U") - 86400 * NEW_PRODUCT_STATUS_LENGTH <= MakeTimeStamp($arItem["DATE_CREATE"], "DD.MM.YYYY HH:MI:SS")) {
                                 ?>
                                 <div class="newLogoWrapper" title="<?=GetMessage("NEW_PRODUCT")?>">NEW</div>
-                                <?}?>
-
-                            <?//шильдик последние поступления. Если товар  создан менее 2 дней назад
-                                if (date("U") - 86400 * FRESH_PRODUCT_STATUS_LENGTH <= MakeTimeStamp($arItem["DATE_CREATE"], "DD.MM.YYYY HH:MI:SS") || $arItem["PROPERTIES"]["NOVOE_POSTUPLENIE"]["VALUE"]) {
-                                ?>
-                                <div class="freshLogoWrapper" title="<?=GetMessage("FRESH_PRODUCT")?>">FRESH</div>
-                                <?}?>
+                                <?}?>   
+                            
                         </div>
                         <?
                             $showSubscribeBtn = false;
@@ -507,8 +500,8 @@
                 }
             ?>
             <?}?>
-        <a class="transition_section" href="<?=$arParams["SECTION_URL"]?>"><?=GetMessage('NEW_PRODUCTS')?></a>
-    </ul>
+        <a class="transition_section" href="<?=$arParams["SECTION_URL"]?>"><?=GetMessage('ALL_EXPECTED_PRODUCTS')?></a>
+    </ul>     
     <!--END elmentsList-->
     <div style="clear: both;"></div>
 

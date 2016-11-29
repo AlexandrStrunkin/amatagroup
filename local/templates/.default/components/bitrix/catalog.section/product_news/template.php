@@ -508,7 +508,7 @@
         ?>
          <?}?>
         <a class="transition_section" href="<?=$arParams["SECTION_URL"]?>"><?=GetMessage('NEW_PRODUCTS')?></a>
-    </ul>
+    </ul>       
     <!--END elmentsList-->
     <div style="clear: both;"></div>
 

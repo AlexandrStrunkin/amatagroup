@@ -354,17 +354,19 @@
 
 
                 <?
-                //ожидаемые поступления
-                global $arFilter_expected;
-                $arFilter_expected = array();
-                $expected_products = array();
-                $expected_items = CIBLockElement::GetList(array(), array("IBLOCK_ID" => CATALOG_IBLOCK_ID, array("LOGIR" => "AND", array(">PROPERTY_CML2_TRAITS" => date("Y-m-d H:i:s")), array("!PROPERTY_CML2_TRAITS" => false))));
-                while($arItem = $expected_items->Fetch()) {
-                   $expected_products[$arItem["ID"]] = $arItem["ID"];
-                }
-                //arshow($expected_products);
-                echo count($expected_products);
-                $arFilter_expected["ID"] = $expected_products;
+                    //ожидаемые поступления
+                    global $arFilter_expected;
+                    $arFilter_expected = array();
+                    $expected_products = array();
+                    //собираем предложения, у которых есть реквизит "ожидаемая дата поступления"
+                    $expected_items = CIBLockElement::GetList(array(), array("IBLOCK_ID" => OFFERS_IBLOCK_ID, "ACTIVE" => "Y", array("LOGIR" => "AND", array(">PROPERTY_CML2_TRAITS" => date("Y-m-d H:i:s")), array("!PROPERTY_CML2_TRAITS" => false))), false, false, array("ID", "PROPERTY_CML2_TRAITS", "PROPERTY_CML2_LINK"));
+                    while($arItem = $expected_items->Fetch()) {
+                        //собираем основные товары для филтрации
+                        if (!empty($arItem["PROPERTY_CML2_LINK_VALUE"])) {
+                            $expected_products[$arItem["PROPERTY_CML2_LINK_VALUE"]] = $arItem["PROPERTY_CML2_LINK_VALUE"];
+                        }
+                    }                    
+                    $arFilter_expected["ID"] = $expected_products;
                 ?>
 
                 <?$APPLICATION->IncludeComponent(
@@ -448,7 +450,7 @@
                             "PRODUCT_QUANTITY_VARIABLE" => "",
                             "PRODUCT_SUBSCRIPTION" => "N",
                             "PROPERTY_CODE" => array(
-                               
+
                             ),
                             "SECTION_CODE" => "",
                             "SECTION_CODE_PATH" => "",
@@ -580,102 +582,102 @@
                 <p class="partnerTitle">Отзывы партнеров</p>
 
                 <p class="partnerText">
-                        <?$APPLICATION->IncludeComponent(
-                        "bitrix:main.include",
-                        "",
-                        Array(
-                            "AREA_FILE_SHOW" => "file",
-                            "AREA_FILE_SUFFIX" => "inc",
-                            "EDIT_TEMPLATE" => "",
-                            "PATH" => "/include/reviews_partners.php"
-                        )
-                    );?>
+                    <?$APPLICATION->IncludeComponent(
+                            "bitrix:main.include",
+                            "",
+                            Array(
+                                "AREA_FILE_SHOW" => "file",
+                                "AREA_FILE_SUFFIX" => "inc",
+                                "EDIT_TEMPLATE" => "",
+                                "PATH" => "/include/reviews_partners.php"
+                            )
+                        );?>
                 </p>
 
 
                 <?$APPLICATION->IncludeComponent(
-	"bitrix:news.list", 
-	"partners_reviews", 
-	array(
-		"ACTIVE_DATE_FORMAT" => "d.m.Y",
-		"ADD_SECTIONS_CHAIN" => "N",
-		"AJAX_MODE" => "N",
-		"AJAX_OPTION_ADDITIONAL" => "",
-		"AJAX_OPTION_HISTORY" => "N",
-		"AJAX_OPTION_JUMP" => "N",
-		"AJAX_OPTION_STYLE" => "Y",
-		"CACHE_FILTER" => "N",
-		"CACHE_GROUPS" => "Y",
-		"CACHE_TIME" => "36000000",
-		"CACHE_TYPE" => "A",
-		"CHECK_DATES" => "Y",
-		"DETAIL_URL" => "",
-		"DISPLAY_BOTTOM_PAGER" => "N",
-		"DISPLAY_DATE" => "N",
-		"DISPLAY_NAME" => "Y",
-		"DISPLAY_PICTURE" => "N",
-		"DISPLAY_PREVIEW_TEXT" => "Y",
-		"DISPLAY_TOP_PAGER" => "N",
-		"FIELD_CODE" => array(
-			0 => "NAME",
-			1 => "PREVIEW_TEXT",
-			2 => "",
-		),
-		"FILTER_NAME" => "",
-		"HIDE_LINK_WHEN_NO_DETAIL" => "N",
-		"IBLOCK_ID" => "16",
-		"IBLOCK_TYPE" => "services",
-		"INCLUDE_IBLOCK_INTO_CHAIN" => "N",
-		"INCLUDE_SUBSECTIONS" => "Y",
-		"MESSAGE_404" => "",
-		"NEWS_COUNT" => "20",
-		"PAGER_BASE_LINK_ENABLE" => "N",
-		"PAGER_DESC_NUMBERING" => "N",
-		"PAGER_DESC_NUMBERING_CACHE_TIME" => "36000",
-		"PAGER_SHOW_ALL" => "N",
-		"PAGER_SHOW_ALWAYS" => "N",
-		"PAGER_TEMPLATE" => ".default",
-		"PAGER_TITLE" => "Новости",
-		"PARENT_SECTION" => "",
-		"PARENT_SECTION_CODE" => "",
-		"PREVIEW_TRUNCATE_LEN" => "",
-		"PROPERTY_CODE" => array(
-			0 => "CITY",
-			1 => "POSITION",
-			2 => "AUTHOR",
-			3 => "",
-		),
-		"SET_BROWSER_TITLE" => "N",
-		"SET_LAST_MODIFIED" => "N",
-		"SET_META_DESCRIPTION" => "N",
-		"SET_META_KEYWORDS" => "N",
-		"SET_STATUS_404" => "N",
-		"SET_TITLE" => "N",
-		"SHOW_404" => "N",
-		"SORT_BY1" => "ACTIVE_FROM",
-		"SORT_BY2" => "SORT",
-		"SORT_ORDER1" => "DESC",
-		"SORT_ORDER2" => "ASC",
-		"COMPONENT_TEMPLATE" => "partners_reviews"
-	),
-	false
-);?>
+                        "bitrix:news.list", 
+                        "partners_reviews", 
+                        array(
+                            "ACTIVE_DATE_FORMAT" => "d.m.Y",
+                            "ADD_SECTIONS_CHAIN" => "N",
+                            "AJAX_MODE" => "N",
+                            "AJAX_OPTION_ADDITIONAL" => "",
+                            "AJAX_OPTION_HISTORY" => "N",
+                            "AJAX_OPTION_JUMP" => "N",
+                            "AJAX_OPTION_STYLE" => "Y",
+                            "CACHE_FILTER" => "N",
+                            "CACHE_GROUPS" => "Y",
+                            "CACHE_TIME" => "36000000",
+                            "CACHE_TYPE" => "A",
+                            "CHECK_DATES" => "Y",
+                            "DETAIL_URL" => "",
+                            "DISPLAY_BOTTOM_PAGER" => "N",
+                            "DISPLAY_DATE" => "N",
+                            "DISPLAY_NAME" => "Y",
+                            "DISPLAY_PICTURE" => "N",
+                            "DISPLAY_PREVIEW_TEXT" => "Y",
+                            "DISPLAY_TOP_PAGER" => "N",
+                            "FIELD_CODE" => array(
+                                0 => "NAME",
+                                1 => "PREVIEW_TEXT",
+                                2 => "",
+                            ),
+                            "FILTER_NAME" => "",
+                            "HIDE_LINK_WHEN_NO_DETAIL" => "N",
+                            "IBLOCK_ID" => "16",
+                            "IBLOCK_TYPE" => "services",
+                            "INCLUDE_IBLOCK_INTO_CHAIN" => "N",
+                            "INCLUDE_SUBSECTIONS" => "Y",
+                            "MESSAGE_404" => "",
+                            "NEWS_COUNT" => "20",
+                            "PAGER_BASE_LINK_ENABLE" => "N",
+                            "PAGER_DESC_NUMBERING" => "N",
+                            "PAGER_DESC_NUMBERING_CACHE_TIME" => "36000",
+                            "PAGER_SHOW_ALL" => "N",
+                            "PAGER_SHOW_ALWAYS" => "N",
+                            "PAGER_TEMPLATE" => ".default",
+                            "PAGER_TITLE" => "Новости",
+                            "PARENT_SECTION" => "",
+                            "PARENT_SECTION_CODE" => "",
+                            "PREVIEW_TRUNCATE_LEN" => "",
+                            "PROPERTY_CODE" => array(
+                                0 => "CITY",
+                                1 => "POSITION",
+                                2 => "AUTHOR",
+                                3 => "",
+                            ),
+                            "SET_BROWSER_TITLE" => "N",
+                            "SET_LAST_MODIFIED" => "N",
+                            "SET_META_DESCRIPTION" => "N",
+                            "SET_META_KEYWORDS" => "N",
+                            "SET_STATUS_404" => "N",
+                            "SET_TITLE" => "N",
+                            "SHOW_404" => "N",
+                            "SORT_BY1" => "ACTIVE_FROM",
+                            "SORT_BY2" => "SORT",
+                            "SORT_ORDER1" => "DESC",
+                            "SORT_ORDER2" => "ASC",
+                            "COMPONENT_TEMPLATE" => "partners_reviews"
+                        ),
+                        false
+                    );?>
 
                 <!--confidenceWrapper-->
                 <div class="confidenceWrapper">
                     <p class="confidensTitle">Нам доверяют</p>
-                <p class="partnerText">
+                    <p class="partnerText">
                         <?$APPLICATION->IncludeComponent(
-                        "bitrix:main.include",
-                        "",
-                        Array(
-                            "AREA_FILE_SHOW" => "file",
-                            "AREA_FILE_SUFFIX" => "inc",
-                            "EDIT_TEMPLATE" => "",
-                            "PATH" => "/include/we_are_trusted.php"
-                        )
-                    );?>
-                </p>
+                                "bitrix:main.include",
+                                "",
+                                Array(
+                                    "AREA_FILE_SHOW" => "file",
+                                    "AREA_FILE_SUFFIX" => "inc",
+                                    "EDIT_TEMPLATE" => "",
+                                    "PATH" => "/include/we_are_trusted.php"
+                                )
+                            );?>
+                    </p>
                     <div class="confidens_container">
                         <div class="previews_slider_navigation_arrow confidens_slider_arrow" data-preview-slider-direction="prev"><span></span></div>
                         <div class="previews_slider_navigation_arrow confidens_slider_arrow" data-preview-slider-direction="next"><span></span></div>
