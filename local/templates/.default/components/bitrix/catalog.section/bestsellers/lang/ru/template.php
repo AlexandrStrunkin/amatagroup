@@ -23,6 +23,6 @@ $MESS["CT_BCS_CATALOG_MESS_COMPARE_UNKNOWN_ERROR"] = "При добавлении товара в сп
 $MESS["CT_BCS_CATALOG_BTN_MESSAGE_COMPARE_REDIRECT"] = "Перейти в список сравнения";
 $MESS["PRODUCT_ALREADY_IN_BASKET"]  = "Товар в корзине";
 $MESS["NEW_PRODUCT"] = "Новинка";
-$MESS["BESTSELLERS_PRODUCT"] = "Все хиты";
+$MESS["BESTSELLERS_PRODUCT"] = "Все хиты продаж";
 $MESS["FRESH_PRODUCT"] = "Последние поступления";
 ?>
