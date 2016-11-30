@@ -7,11 +7,15 @@
     CModule::IncludeModule("sale");
     CModule::IncludeModule("catalog");
     CModule::IncludeModule("main");
+    CModule::IncludeModule("highloadblock");      
 
     use Bitrix\Main;
     use Bitrix\Main\Loader;
     use Bitrix\Main\Localization\Loc;
     use Bitrix\Sale\Internals;
+
+    use Bitrix\Highloadblock as HL;
+    use Bitrix\Main\Entity;
 
     $arPageElementCount = array(12, 24, 36); //возможные варианты количестка элементов на странице
 
@@ -127,9 +131,15 @@
     define("IMAGE_SERTIFICATE_WIDTH", 600); // код типа цены базовой
     define("IMAGE_SERTIFICATE_HEIGHT", 800); // код типа цены базовой
 
+
     define("IMAGE_AVATAR_WIDTH", 40); // размер аватарок в отзывах
     define("IMAGE_AVATAR_HEIGHT", 40); // размер аватарок в отзывах
 
+    define("IMAGE_AVATAR_WIDTH", 40); // размер аватарок в отзывах
+    define("IMAGE_AVATAR_HEIGHT", 40); // размер аватарок в отзывах        
+
+    define("PARTNERS_HL_BLOCK_ID", 8); //ID highload-блока "партнеры"    
+    define("PARTNERS_GROUPS_HL_BLOCK_ID", 6); //ID highload-блока "соглашения с клиентами"    
 
     //функцинальные разделы каталога
     global $functional_sections;
@@ -710,6 +720,7 @@
         }
     }
 
+
     //Заменяет символ валюты в письме заказа
     AddEventHandler('sale', 'OnOrderNewSendEmail', "currencyTypeReplacement");
 
@@ -908,6 +919,108 @@
         }
 
     }
+
+
+    /**
+    * обновление групп клиентов в соответствии с данными из highload-блокаов VidyTSen, Partnery, SoglasheniyaSKlientami  
+    */
+    AddEventHandler("catalog", "OnSuccessCatalogImport1C", "setClientsGroups");
+    function setClientsGroups() {           
+
+        $available_groups_id = array(12, 13, 14); //ID групп для разных типов цен 
+
+        $partners_hl_block = PARTNERS_HL_BLOCK_ID;
+        $partners_groups_hl_block = PARTNERS_GROUPS_HL_BLOCK_ID;
+
+        //делаем запрос в HL блок партнеров
+        $partners = HL\HighloadBlockTable::getById($partners_hl_block)->Fetch();
+        $partners_entity = HL\HighloadBlockTable::compileEntity($partners);          
+        $partners_query = new Entity\Query($partners_entity);
+
+        $select = array("*");
+        $partners_query->setSelect($select);
+        //выбираем пользователей, у которых есть email
+        $filter= array("!UF_NAME" => false, /*"!UF_ELEKTRONNAYAPOCHT" => false*/);
+        $partners_query->setFilter($filter);
+
+        $partners_result = $partners_query->exec();
+        $partners_result = new CDBResult($partners_result);
+        //парсим результат выборки клиентов      
+        $client_names = array();
+
+        //все данные партнера
+        $partners_data = array();
+
+        while($arPartnersResult = $partners_result->Fetch()) {    
+            //собираем имена клиентов 
+            $client_names[] = $arPartnersResult["UF_NAME"];   
+            $partners_data[$arPartnersResult["UF_NAME"]] = $arPartnersResult;        
+        }   
+
+        $client_names = array_unique($client_names);
+
+        //делаем запрос в соответствующий HL блок
+        $groups = HL\HighloadBlockTable::getById($partners_groups_hl_block)->Fetch();
+        $groups_entity = HL\HighloadBlockTable::compileEntity($groups);          
+        $groups_query = new Entity\Query($groups_entity);
+
+        $select = array("*");
+        $groups_query->setSelect($select);
+        //выбираем пользователей, у которых есть email
+        $filter= array("UF_PARTNER" => $client_names);
+        $groups_query->setFilter($filter);
+
+        $groups_result = $groups_query->exec();
+        $groups_result = new CDBResult($groups_result);
+        //парсим результат выборки клиентов
+        $partners_prices = array();    
+        while($arGroupsResult = $groups_result->Fetch()) {
+            $partners_prices[$arGroupsResult["UF_PARTNER"]] = $arGroupsResult["UF_VIDTSEN"];
+        }       
+
+        //перебираем массив соответствия пользователь -> код цены
+        //код цены прописан в поле "CODE" в соответствующих группах пользователей 
+        foreach ($partners_prices as $partner => $price_code) {
+            //если у пользователя есть email и код цены
+            $user_email = $partners_data[$partner]["UF_ELEKTRONNAYAPOCHT"];
+            if (!empty($user_email) && !empty($price_code)) {
+                
+                //находим пользователя по email
+                $ar_user = CUser::GetList($by = "ID", $sort = "ASC", array("EMAIL" => trim($user_email)))->Fetch();  
+                if (!empty($ar_user["ID"]) && intval($ar_user["ID"]) > 0) {   
+                    
+                    //получаем группы пользователя
+                    $user_groups = CUser::GetUserGroup(intval($ar_user["ID"]));
+
+                    $new_group = CGroup::GetList( $by = "ID", $sort = "asc", array("STRING_ID" => trim($price_code)))->Fetch();
+                    
+                    //если пользователь еще не принадлежит к группе, в которую его нужно добавить
+                    if (!in_array($new_group["ID"], $user_groups) && intval($new_group["ID"]) > 0) {            
+                        
+                        //перебираем текущие группы пользователей, убираем текущую ценовую группу и добавляем новую, которая пришла из выгрузки
+                        foreach ($user_groups as $i => $group_id) {
+                            if (in_array($group_id, $available_groups_id)) {
+                                unset($user_groups[$i]);
+                            }
+                        }
+
+                        //добавляем ID новой группы в массив и обновляем пользователя
+                        $new_groups_array = array_merge($user_groups, array(intval($new_group["ID"])));                            
+                        $user = new CUser;
+                        $fields = Array(                                
+                            "GROUP_ID" => $new_groups_array,                         
+                        );
+                        $user->Update($ar_user["ID"], $fields);
+                    }
+
+                }
+            }
+
+        }
+
+    }
+    
+    
    /***
    * 
    * обновление значения свойства "Вид товара" для конкретного товара (с символьным кодом VIDTOVARA)
