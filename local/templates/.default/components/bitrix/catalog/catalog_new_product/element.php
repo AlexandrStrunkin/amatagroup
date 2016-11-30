@@ -361,8 +361,8 @@ if ($ElementID > 0)
                 <!--jcarousel-->
                 <div class="jcarousel ">
 					<?$APPLICATION->IncludeComponent(
-	"bitrix:catalog.section", 
-	"blocks", 
+	"bitrix:catalog.section",
+	"blocks",
 	array(
 		"ACTION_VARIABLE" => "action",
 		"ADD_PICT_PROP" => "-",
@@ -485,8 +485,8 @@ if ($ElementID > 0)
 </div>
 <!--END viewedElementBlock-->
 <?$APPLICATION->IncludeComponent(
-	"bitrix:catalog.viewed.products", 
-	"section_viewed", 
+	"bitrix:catalog.viewed.products",
+	"section_viewed",
 	array(
 		"ACTION_VARIABLE" => "action",
 		"ADDITIONAL_PICT_PROP_5" => "MORE_PHOTO",

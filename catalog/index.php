@@ -49,7 +49,7 @@ $filterView = (COption::GetOptionString("main", "wizard_template_id", "eshop_ada
 			3 => "",
 		),
 		"FILTER_PRICE_CODE" => array(
-			0 => "Оптовая 1 Для сайта",
+			0 => "Рекомендованная Для сайта",
 		),
 		"FILTER_OFFERS_FIELD_CODE" => array(
 			0 => "XML_ID",
@@ -71,7 +71,7 @@ $filterView = (COption::GetOptionString("main", "wizard_template_id", "eshop_ada
 		"SHOW_LINK_TO_FORUM" => "Y",
 		"USE_COMPARE" => "N",
 		"PRICE_CODE" => array(
-			0 => "Оптовая 1 Для сайта",
+			0 => "Рекомендованная Для сайта",
 		),
 		"USE_PRICE_COUNT" => "N",
 		"SHOW_PRICE_COUNT" => "1",
@@ -211,7 +211,7 @@ $filterView = (COption::GetOptionString("main", "wizard_template_id", "eshop_ada
 			106 => "NEWPRODUCT",
 			107 => "SALELEADER",
 			108 => "SPECIALOFFER",
-			109 => "MATERIAL_1",
+			109 => "",
 		),
 		"INCLUDE_SUBSECTIONS" => "Y",
 		"LIST_META_KEYWORDS" => "-",
@@ -533,8 +533,8 @@ $filterView = (COption::GetOptionString("main", "wizard_template_id", "eshop_ada
 			180 => "DOPUSKAETSYA_MYTE_V_POSUDOMOECHNOY_MASHINE",
 			181 => "MAKSIMALNYY_VES_REBENKA_KG_5",
 			182 => "NAPOLNITEL",
-			183 => "PITANIE_3",
-			184 => "PITANIE_5",
+			183 => "PITANIE_5",
+			184 => "PITANIE_3",
 			185 => "RAZMER_LYULKI_SHXD_SM",
 			186 => "SILIKONOVYE_NAKLADKI",
 			187 => "SEMNAYA_STOLESHNITSA",

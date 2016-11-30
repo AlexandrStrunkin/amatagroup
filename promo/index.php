@@ -4,7 +4,7 @@ $APPLICATION->SetTitle("Акции");
 ?>
 <?$APPLICATION->IncludeComponent(
 	"bitrix:news", 
-	"news_without_tabs", 
+	"news_without_tabs_promo", 
 	array(
 		"ADD_ELEMENT_CHAIN" => "Y",
 		"ADD_SECTIONS_CHAIN" => "N",
@@ -91,7 +91,7 @@ $APPLICATION->SetTitle("Акции");
 		"USE_REVIEW" => "N",
 		"USE_RSS" => "N",
 		"USE_SEARCH" => "N",
-		"COMPONENT_TEMPLATE" => "news_without_tabs",
+		"COMPONENT_TEMPLATE" => "news_without_tabs_promo",
 		"SEF_FOLDER" => "/promo/",
 		"SEF_URL_TEMPLATES" => array(
 			"news" => "",
@@ -101,4 +101,6 @@ $APPLICATION->SetTitle("Акции");
 	),
 	false
 );?>
+
+
 <?require($_SERVER["DOCUMENT_ROOT"]."/bitrix/footer.php");?>

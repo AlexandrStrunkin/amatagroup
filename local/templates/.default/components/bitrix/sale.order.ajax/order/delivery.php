@@ -6,13 +6,12 @@
 		// переключение избранных адресов
 		$("body").on("click", ".saved_address_container", function() {
 			var location_id = $(this).data("location-id") ? $(this).data("location-id") : <?= DEFAULT_LOCATION_ID ?>;
-			
 			if (!$(this).hasClass("add_new_address")) { // выбираем уже сохраненный адрес
 				$(".row4").hide();
 			} else { // создаем новый
 				$(".row4").show();
 			}
-			
+
 			$("#<?= ORDER_HOUSING ?>").val($(this).data("housing-value"));
 			$("#<?= ORDER_STREET ?>").val($(this).data("street-value"));
 			$("#<?= ORDER_BUILDING ?>").val($(this).data("building-value"));
@@ -248,7 +247,7 @@
 				} // endforeach
 			}
 			else // stores and courier
-			{	
+			{
 				if (count($arDelivery["STORE"]) > 0)
 					$clickHandler = "onClick = \"fShowStore('".$arDelivery["ID"]."','".$arParams["SHOW_STORES_IMAGES"]."','".$width."','".SITE_ID."')\";";
 				else
@@ -261,8 +260,8 @@
 							value="<?= $arDelivery["ID"] ?>"<?if ($arDelivery["CHECKED"]=="Y") echo " checked";?>
 							onclick="submitForm();"
 							/>
-						
-						<a href="#<?= $arDelivery["ID"] == COURIER_DELIVERY ? "courier" : "company" ?>" data-delivery-button-id="ID_DELIVERY_ID_<?= $arDelivery["ID"] ?>" class="js_tabs <?if ($arDelivery["CHECKED"]=="Y") echo " active";?>">
+
+						<a href="#<?= $arDelivery["ID"] == COURIER_DELIVERY_1 || $arDelivery["ID"] == COURIER_DELIVERY_2 ? "courier" : "company" ?>" data-delivery-button-id="ID_DELIVERY_ID_<?= $arDelivery["ID"] ?>" class="js_tabs <?if ($arDelivery["CHECKED"]=="Y") echo " active";?>">
 							<?= htmlspecialcharsbx($arDelivery["NAME"])?>
 						</a>
 				<?
@@ -270,7 +269,7 @@
 		}?>
 			</div>
 			<? if ($arResult['USERS_SAVED_ADDRESSES']) { ?>
-			<div id="company" class="basketBlock" <? if ($arResult['USER_VALS']['DELIVERY_ID'] == COURIER_DELIVERY) { ?>style="display: none"<? } ?>>
+			<div id="company" class="basketBlock" <? if ($arResult['USER_VALS']['DELIVERY_ID'] == COURIER_DELIVERY_1 || $arResult['USER_VALS']['DELIVERY_ID'] == COURIER_DELIVERY_2) { ?>style="display: none"<? } ?>>
                 <h3><?= GetMessage("SOA_ORDER_DELIVERY_MY_ADDRESSES") ?></h3>
                 <!--col1-->
                 <div class="col1">
@@ -294,8 +293,9 @@
                 </div>
                 <!--END col1-->
             </div>
-            <div id="courier" class="basketBlock" <? if ($arResult['USER_VALS']['DELIVERY_ID'] != COURIER_DELIVERY) { ?>style="display: none"<? } ?>>
-                <h3><?= GetMessage("SOA_TEMPL_TAKE_BY_YOURSELF") ?></h3>
+
+            <div id="courier" class="basketBlock" <? if ($arResult['USER_VALS']['DELIVERY_ID'] != COURIER_DELIVERY_1 && $arResult['USER_VALS']['DELIVERY_ID'] != COURIER_DELIVERY_2) { ?>style="display: none"<? } ?>>
+                <h3><?= $arResult["DELIVERY"][$arResult['USER_VALS']['DELIVERY_ID']]["DESCRIPTION"] ?></h3>
             </div>
             <? } ?>
 		</div>

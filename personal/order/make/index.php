@@ -5,8 +5,8 @@ $APPLICATION->SetTitle("Заказы");
 <?global $USER?>
 <?//if($USER->IsAuthorized()){?>
 <?$APPLICATION->IncludeComponent(
-	"bitrix:sale.order.ajax",
-	"order",
+	"bitrix:sale.order.ajax", 
+	"order", 
 	array(
 		"PAY_FROM_ACCOUNT" => "Y",
 		"COUNT_DELIVERY_TAX" => "N",
@@ -18,7 +18,7 @@ $APPLICATION->SetTitle("Заказы");
 		"TEMPLATE_LOCATION" => "popup",
 		"PROP_1" => "",
 		"PATH_TO_BASKET" => "/personal/cart/",
-		"PATH_TO_PERSONAL" => "/personal/order/",
+		"PATH_TO_PERSONAL" => "/personal/",
 		"PATH_TO_PAYMENT" => "/personal/order/payment/",
 		"PATH_TO_ORDER" => "/personal/order/make/",
 		"SET_TITLE" => "Y",
@@ -40,7 +40,9 @@ $APPLICATION->SetTitle("Заказы");
 		),
 		"ADDITIONAL_PICT_PROP_5" => "-",
 		"ADDITIONAL_PICT_PROP_6" => "-",
-		"BASKET_IMAGES_SCALING" => "standard"
+		"BASKET_IMAGES_SCALING" => "standard",
+		"USE_PRELOAD" => "Y",
+		"ADDITIONAL_PICT_PROP_31" => "-"
 	),
 	false
 );?>

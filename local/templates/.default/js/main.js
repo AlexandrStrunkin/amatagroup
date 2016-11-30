@@ -276,11 +276,15 @@ $(document).ready(function () {
         plus = el.parent().find(".quantityPlus"), minus = el.parent().find(".quantityMinus");
         plus.removeClass("inactive");
         minus.removeClass("inactive");
+        quantity_text = $('.elementQuant .quantityText').val();
+        if (el1.hasClass("quantityPlus")){
+           count++;
+        } else if(quantity_text != 1) {
+           count--;
+        }
 
-        if (el1.hasClass("quantityPlus")) count++; else count--;
-
-        if (count <= 0) {
-            count = 0;
+        if (count <= 1) {
+            count = 1;
             minus.addClass("inactive");
         }
         if (count >= 999) {
@@ -854,7 +858,7 @@ $(document).ready(function () {
             return false;
         }
 
-        e.preventDefault();
+
     });
     $(".couponInputBlock input").on("keydown keypress keyup", function () {
         var el = $(this), v = el.val(), button = el.parent().find("button");
@@ -1795,7 +1799,7 @@ $(function() {
     });
     $('.authNext').click(function(){
 
-        var field = new Array('reg_input_NAME');//поля обязательные
+        var field = new Array('reg_input_NAME', 'reg_input_UF_COMPANY');//поля обязательные
 
         $('#form_register').each(function() {// обрабатываем отправку формы
             var error = 0; // индекс ошибки

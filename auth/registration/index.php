@@ -31,6 +31,7 @@ if (!$USER->IsAuthorized()) {
 			9 => "UF_DOCUMENT_10",
 			10 => "UF_DOCUMENT_11",
             11 => "UF_FACE",
+            12 => "UF_COMPANY"
 		),
 		"USER_PROPERTY_NAME" => "",
 		"USE_BACKURL" => "N",
