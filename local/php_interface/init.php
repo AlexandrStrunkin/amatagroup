@@ -40,6 +40,8 @@
 
     define("DEFAULT_TEMPLATE_PATH", SITE_DIR."local/templates/.default/"); //path of ".default" site template
     define("NEWS_IBLOCK_ID", 1);
+    define("PROMO_IBLOCK_ID", 27);
+    define("PROMO_IBLOCK_SECTION_ID", 2089);
     define("CATALOG_IBLOCK_ID", 5); //main catalog
     define("OFFERS_IBLOCK_ID", 6);  //offers
     define("FAVORITE_IBLOCK_ID", 12);
@@ -112,7 +114,8 @@
     /*///*/
 
     /* службы доставки */
-    define("COURIER_DELIVERY", 2);
+    define("COURIER_DELIVERY_1", 27);
+    define("COURIER_DELIVERY_2", 28);
 
     define("NEW_PRODUCT_STATUS_LENGTH", 60); //количество дней, котрое товар считается новинкой
     define("FRESH_PRODUCT_STATUS_LENGTH", 2); //количество дней, котрое товар считается последним поступлением
@@ -127,12 +130,24 @@
     define("IMAGE_SERTIFICATE_WIDTH", 600); // код типа цены базовой
     define("IMAGE_SERTIFICATE_HEIGHT", 800); // код типа цены базовой
 
+
+    define("IMAGE_AVATAR_WIDTH", 40); // размер аватарок в отзывах
+    define("IMAGE_AVATAR_HEIGHT", 40); // размер аватарок в отзывах
+
     define("IMAGE_AVATAR_WIDTH", 40); // размер аватарок в отзывах
     define("IMAGE_AVATAR_HEIGHT", 40); // размер аватарок в отзывах        
 
     define("PARTNERS_HL_BLOCK_ID", 8); //ID highload-блока "партнеры"    
     define("PARTNERS_GROUPS_HL_BLOCK_ID", 6); //ID highload-блока "соглашения с клиентами"    
 
+    //функцинальные разделы каталога
+    global $functional_sections;
+    $functional_sections = array(
+        "bestsellers" => array("NAME" => GetMessage("CATALOG_BESTSELLERS")), //бествеллеры
+        "expected_products" => array("NAME" => GetMessage("CATALOG_EXPECTED_PRODUCTS")), //ожидаемые поступления
+        "new_products" => array("NAME" => GetMessage("CATALOG_NEW_PRODUCTS")), //новинки
+        "last_products" => array("NAME" => GetMessage("CATALOG_FRESH_PRODUCTS")) //последние поступления
+    );    
 
     // файл с кодом для избранного
     file_exists($_SERVER['DOCUMENT_ROOT'] . '/local/php_interface/favorite/class.php') ? require_once($_SERVER['DOCUMENT_ROOT'] . '/local/php_interface/favorite/class.php') : "";
@@ -159,6 +174,40 @@
             ABOUT_FORM               => 'Форма вопроса из раздела "О компании"'
         );
     }
+
+    /**
+    * Пересобираем название элемента из свойств, если они заполнены
+    * @param array $item
+    * @return bool|string $result
+    * */
+    function getNamesFromProperties(&$item) {
+        $result = "";
+        $setted_model = "";
+        $models = array(
+            $item['PROPERTIES']['MODEL']['VALUE'],
+            $item['PROPERTIES']['MODEL_1']['VALUE'],
+            $item['PROPERTIES']['MODEL_2']['VALUE'],
+            $item['PROPERTIES']['MODEL_3']['VALUE'],
+            $item['PROPERTIES']['MODEL_4']['VALUE'],
+            $item['PROPERTIES']['MODEL_5']['VALUE'],
+            $item['PROPERTIES']['MODEL_6']['VALUE'],
+            $item['PROPERTIES']['MODEL_7']['VALUE'],
+            $item['PROPERTIES']['MODEL_8']['VALUE']
+        );
+        // проверяем заполненность необходимых свойств
+        if (
+            $item['PROPERTIES']['BREND']['VALUE'] // бренд
+            && $item['PROPERTIES']['VIDTOVARA']['VALUE'] // объединенное свойство тип товара
+            && ( // дальше ад, если заполнена хотя бы одна модель
+                $setted_model = current(array_filter($models))
+            )
+        ) {
+            $result = sprintf("%s %s %s", $item['PROPERTIES']['VIDTOVARA']['VALUE'], $item['PROPERTIES']['BREND']['VALUE'], $setted_model);
+        }
+
+        return $result;
+    }
+
 
     /**
     *
@@ -670,7 +719,8 @@
         }
     }
 
-    // Заменяет символ валюты в письме заказа
+
+    //Заменяет символ валюты в письме заказа
     AddEventHandler('sale', 'OnOrderNewSendEmail', "currencyTypeReplacement");
 
     function currencyTypeReplacement($ID, &$eventName, &$arFields) {
@@ -689,7 +739,7 @@
     * return String
     */
     function getNumEnding($number, $endingArray) {
-        $number = $number % 100;
+        $number = $number % 1000;
         if ($number>=11 && $number<=19) {
             $ending = $number . ' ' . $endingArray[2];
         } else {
@@ -703,24 +753,190 @@
             }
         }
         return $ending;
+    }          
+
+
+    /**
+    * класс для создания дополнительных функциональных разделов:
+    * -новинки, 
+    * -лидеры продаж, 
+    * -ожидаемые поступления, 
+    * -последние поступления.
+    * 
+    * Разделы создаются динамически после каждой выгрузки товаров (если они не существуют),
+    * после этого к ним привязываются товары на основании ранее оговоренных правил
+    */
+    //запускаем обработчик после обмена с 1С
+    AddEventHandler("catalog", "OnSuccessCatalogImport1C", array("FunctionalSections", "UpdateItemSections"));
+    class FunctionalSections {            
+
+        /**
+        * функция для привязки элемента к дополнительному разделу
+        * 
+        * @param array $items - ID элемента инфоблока или массив ID
+        * @param integer $section_id - ID раздела для привязки
+        */
+        function UpdateItemSections($items, $section_id) {     
+
+
+
+            if (empty($items) || empty($section_id)) {
+                return false;
+            }
+
+            $section_id = intval($section_id);
+
+            if (!is_array($items) && intval($items) > 0) {
+                $items = intval($items);
+            }
+
+            $items_sections = array();
+            //собираем разделы для всех элементов
+            $items_groups = CIBlockElement::GetElementGroups($items, false, array("ID", "IBLOCK_ELEMENT_ID"));
+            while($ar_items_groups = $items_groups->Fetch()) {      
+                //сохраняем ID разделов, к которым привязан элемент                                 
+                $items_sections[$ar_items_groups["IBLOCK_ELEMENT_ID"]][$ar_items_groups["ID"]] = $ar_items_groups["ID"];  
+            }
+
+            //проверяем элементы на принадлежность к указанной группе      
+
+            if (!empty($items_sections)) {
+                //переираем элементы и их разделы, добавляем в список ID созданного выше раздела и пересохраняем элемент
+                foreach ($items_sections as $item_id => $sections) {                 
+                    //если элемент еще не привязан к указанному разделу, то привязываем его
+                    if (!in_array($section_id, $sections)) {    
+                        $item_sections_new = array_merge($sections, array($section_id));
+                        if (!empty($item_sections_new)) {                                          
+                            CIBlockElement::SetElementSection($item_id, $item_sections_new, false);
+                        }   
+                    }
+                }  
+            }  
+        }
+
+
+        //создание сервисных разделов в каталоге (новинки, свежие поступления, ожидаемые поступления, хиты продаж)
+        function SetServiceSections() {
+            $sections = $GLOBALS["functional_sections"];
+            if (!empty($sections)) {
+                foreach ($sections as $section_code => $section) {
+                    $check_section = CIBLockSection::GetList(array(), array("CODE" => $section_code, false, array("ID")))->Fetch();  
+                    //если раздел не существует - создаем
+                    if (empty($check_section["ID"])) {
+                        $s = new CIBlockSection;
+                        $arFields = Array(
+                            "ACTIVE" => "Y",
+                            "IBLOCK_SECTION_ID" => 0, //помещаем разделы в корень каталога
+                            "IBLOCK_ID" => CATALOG_IBLOCK_ID,
+                            "NAME" => $section["NAME"],
+                            "CODE" => $section_code,
+                            "XML_ID" => md5($section_code),
+                            "SORT" => 10
+                        );
+                        //добавляем раздел                          
+                        $ID = $s->Add($arFields); 
+                        if ($ID > 0) {
+                            $check_section["ID"] = $ID; 
+                        } 
+                    } 
+
+                    $section_id = $check_section["ID"]; 
+
+                    if (!empty($section_id)) {
+
+                        $items_filter = array("IBLOCK_ID" => CATALOG_IBLOCK_ID, "ACTIVE" => "Y");
+
+                        //добавляем в раздел товары
+                        switch ($section_code) {
+
+                            //бестселлеры
+                            case "bestsellers": 
+                                $items = array();
+                                $items_filter["!PROPERTY_TOPPRODAZH"] = false ;
+                                $rs_items = CIBLockElement::GetList(array(), $items_filter, false, false, array("ID"));
+                                while ($ar_item = $rs_items->Fetch()) {
+                                    $items[$ar_item["ID"]] = $ar_item["ID"];    
+                                }
+                                //привязываем элементы к разделу бестселлеры
+                                if (!empty($items)) { 
+                                    FunctionalSections::UpdateItemSections($items, $section_id);
+                                }        
+                                break;
+
+                                //ожидаемые поступления
+                            case "expected_products": 
+                                $items = array();
+                                //собираем предложения, у которых есть реквизит "ожидаемая дата поступления"
+                                $expected_items = CIBLockElement::GetList(array(), array("IBLOCK_ID" => OFFERS_IBLOCK_ID, "ACTIVE" => "Y", array("LOGIR" => "AND", array(">PROPERTY_CML2_TRAITS" => date("Y-m-d H:i:s")), array("!PROPERTY_CML2_TRAITS" => false))), false, false, array("ID", "PROPERTY_CML2_TRAITS", "PROPERTY_CML2_LINK"));
+                                while($arItem = $expected_items->Fetch()) {
+                                    //собираем основные товары для филтрации
+                                    if (!empty($arItem["PROPERTY_CML2_LINK_VALUE"])) {
+                                        $items[$arItem["PROPERTY_CML2_LINK_VALUE"]] = $arItem["PROPERTY_CML2_LINK_VALUE"];
+                                    }
+                                }
+                                //привязываем элементы к разделу ожидаемые поступления
+                                if (!empty($items)) { 
+                                    FunctionalSections::UpdateItemSections($items, $section_id);
+                                }
+                                break;
+
+                                //новинки  
+                            case "new_products":
+                                $items = array();
+                                $curr_date = date('U');
+                                $date_create_date = $curr_date - (86400 * NEW_PRODUCT_STATUS_LENGTH);
+                                $items_filter[">=DATE_CREATE"] = ConvertTimeStamp($date_create_date,"FULL");
+                                $rs_items = CIBLockElement::GetList(array(), $items_filter, false, false, array("ID"));
+                                while ($ar_item = $rs_items->Fetch()) {
+                                    $items[$ar_item["ID"]] = $ar_item["ID"];    
+                                }
+                                //привязываем элементы к разделу новинки
+                                if (!empty($items)) {  
+                                    FunctionalSections::UpdateItemSections($items, $section_id);
+                                }
+                                break;
+
+                                //последние поступления
+                            case "last_products":
+                                $items = array();
+                                $items_filter ['!PROPERTY_NOVOE_POSTUPLENIE_VALUE'] = false;
+                                $rs_items = CIBLockElement::GetList(array(), $items_filter, false, false, array("ID"));
+                                while ($ar_item = $rs_items->Fetch()) {
+                                    $items[$ar_item["ID"]] = $ar_item["ID"];    
+                                }
+                                //привязываем элементы к разделу последние поступления
+                                if (!empty($items)) {  
+                                    FunctionalSections::UpdateItemSections($items, $section_id);
+                                }
+                                break;        
+                        }     
+                    }
+                }    
+            } else {
+                return false;
+            }      
+        }
+
     }
 
 
     /**
-    * обновление групп клиентов в соответствии с данными из хайлоад-блока
-    * 
+    * обновление групп клиентов в соответствии с данными из highload-блокаов VidyTSen, Partnery, SoglasheniyaSKlientami  
     */
-    function setClientsGroups() {             
+    AddEventHandler("catalog", "OnSuccessCatalogImport1C", "setClientsGroups");
+    function setClientsGroups() {           
+
+        $available_groups_id = array(12, 13, 14); //ID групп для разных типов цен 
 
         $partners_hl_block = PARTNERS_HL_BLOCK_ID;
         $partners_groups_hl_block = PARTNERS_GROUPS_HL_BLOCK_ID;
 
         //делаем запрос в HL блок партнеров
-        $partners = HL\HighloadBlockTable::getById($partners_hl_block)->fetch();
+        $partners = HL\HighloadBlockTable::getById($partners_hl_block)->Fetch();
         $partners_entity = HL\HighloadBlockTable::compileEntity($partners);          
         $partners_query = new Entity\Query($partners_entity);
 
-        $select = array("UF_NAME");
+        $select = array("*");
         $partners_query->setSelect($select);
         //выбираем пользователей, у которых есть email
         $filter= array("!UF_NAME" => false, /*"!UF_ELEKTRONNAYAPOCHT" => false*/);
@@ -730,32 +946,75 @@
         $partners_result = new CDBResult($partners_result);
         //парсим результат выборки клиентов      
         $client_names = array();
+
+        //все данные партнера
+        $partners_data = array();
+
         while($arPartnersResult = $partners_result->Fetch()) {    
-        //собираем имена клиентов 
-            $client_names[] = $arPartnersResult["UF_NAME"];           
+            //собираем имена клиентов 
+            $client_names[] = $arPartnersResult["UF_NAME"];   
+            $partners_data[$arPartnersResult["UF_NAME"]] = $arPartnersResult;        
         }   
-        
+
         $client_names = array_unique($client_names);
-        
+
         //делаем запрос в соответствующий HL блок
-            $groups = HL\HighloadBlockTable::getById($partners_groups_hl_block)->fetch();
-            $groups_entity = HL\HighloadBlockTable::compileEntity($groups);          
-            $groups_query = new Entity\Query($groups_entity);
+        $groups = HL\HighloadBlockTable::getById($partners_groups_hl_block)->Fetch();
+        $groups_entity = HL\HighloadBlockTable::compileEntity($groups);          
+        $groups_query = new Entity\Query($groups_entity);
 
-            $select = array("*");
-            $groups_query->setSelect($select);
-            //выбираем пользователей, у которых есть email
-            $filter= array("UF_PARTNER" => $client_names);
-            $groups_query->setFilter($filter);
+        $select = array("*");
+        $groups_query->setSelect($select);
+        //выбираем пользователей, у которых есть email
+        $filter= array("UF_PARTNER" => $client_names);
+        $groups_query->setFilter($filter);
 
-            $groups_result = $groups_query->exec();
-            $groups_result = new CDBResult($groups_result);
-            //парсим результат выборки клиентов
-            while($arGroupsResult = $groups_result->Fetch()) {
-                echo "<b>UF_NAME:</b> ".$arGroupsResult["UF_PARTNER"]." - <b>Соглашение:</b> ".$arGroupsResult["UF_NAME"]."<br>";
+        $groups_result = $groups_query->exec();
+        $groups_result = new CDBResult($groups_result);
+        //парсим результат выборки клиентов
+        $partners_prices = array();    
+        while($arGroupsResult = $groups_result->Fetch()) {
+            $partners_prices[$arGroupsResult["UF_PARTNER"]] = $arGroupsResult["UF_VIDTSEN"];
+        }       
 
+        //перебираем массив соответствия пользователь -> код цены
+        //код цены прописан в поле "CODE" в соответствующих группах пользователей 
+        foreach ($partners_prices as $partner => $price_code) {
+            //если у пользователя есть email и код цены
+            $user_email = $partners_data[$partner]["UF_ELEKTRONNAYAPOCHT"];
+            if (!empty($user_email) && !empty($price_code)) {
+                
+                //находим пользователя по email
+                $ar_user = CUser::GetList($by = "ID", $sort = "ASC", array("EMAIL" => trim($user_email)))->Fetch();  
+                if (!empty($ar_user["ID"]) && intval($ar_user["ID"]) > 0) {   
+                    
+                    //получаем группы пользователя
+                    $user_groups = CUser::GetUserGroup(intval($ar_user["ID"]));
+
+                    $new_group = CGroup::GetList( $by = "ID", $sort = "asc", array("STRING_ID" => trim($price_code)))->Fetch();
+                    
+                    //если пользователь еще не принадлежит к группе, в которую его нужно добавить
+                    if (!in_array($new_group["ID"], $user_groups) && intval($new_group["ID"]) > 0) {            
+                        
+                        //перебираем текущие группы пользователей, убираем текущую ценовую группу и добавляем новую, которая пришла из выгрузки
+                        foreach ($user_groups as $i => $group_id) {
+                            if (in_array($group_id, $available_groups_id)) {
+                                unset($user_groups[$i]);
+                            }
+                        }
+
+                        //добавляем ID новой группы в массив и обновляем пользователя
+                        $new_groups_array = array_merge($user_groups, array(intval($new_group["ID"])));                            
+                        $user = new CUser;
+                        $fields = Array(                                
+                            "GROUP_ID" => $new_groups_array,                         
+                        );
+                        $user->Update($ar_user["ID"], $fields);
+                    }
+
+                }
             }
- 
+
+        }
 
     }
-

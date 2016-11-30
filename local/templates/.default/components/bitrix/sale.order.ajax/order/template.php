@@ -115,7 +115,7 @@ if (!function_exists("cmpBySort"))
 				// проверяем валидацию для полей ИНН и КПП
 				var INN_field = document.querySelector("#ORDER_PROP_10"),
 					KPP_field = document.querySelector("#ORDER_PROP_11");
-					
+
 				if (INN_field && !INN_field.checkValidity()) {
 					INN_field.reportValidity();
 					return false;
@@ -124,7 +124,7 @@ if (!function_exists("cmpBySort"))
 					KPP_field.reportValidity();
 					return false;
 				}
-				
+
 				if (BXFormPosting === true)
 					return true;
 
@@ -207,7 +207,7 @@ if (!function_exists("cmpBySort"))
 			    }
 
 			    // скрываем выбор создание адресов для самовывоза
-			    if ($("#ID_DELIVERY_ID_<?= COURIER_DELIVERY ?>").is(":checked")) {
+			    if ($("#ID_DELIVERY_ID_<?= COURIER_DELIVERY_1 ?>, #ID_DELIVERY_ID_<?= COURIER_DELIVERY_2 ?>").is(":checked")) {
 			    	$(".row4").hide();
 			    }
 			}

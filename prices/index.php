@@ -1,8 +1,7 @@
 <?
 require($_SERVER["DOCUMENT_ROOT"]."/bitrix/header.php");
 $APPLICATION->SetTitle("Налицие и цены");
-?>
-        <div class="widthWrapper">
+?>        <div class="widthWrapper">
 
             <div class="infoBlocksMenu">
                 <a href="#balances" class="activeInfoBlock">Остатки</a>
@@ -10,6 +9,7 @@ $APPLICATION->SetTitle("Налицие и цены");
             </div>
 
             <div class="infoBlocksContent about_tabs productSlider" id="balances" style="display: block">
+<br><p class="detail_text">Уважаемый партнер! Актуальные остатки товара на сегодняшний день можно скачать по ссылке.</p>
                 <?$APPLICATION->IncludeComponent(
                         "bitrix:main.include", 
                         ".default", 
@@ -89,7 +89,9 @@ $APPLICATION->SetTitle("Налицие и цены");
 				    false
 			    );?>
 			    <? unset($filter) ?>
-            </div>
+<br><p class="detail_text">В связи с волатильностью курса рубля и пересмотром ценовой политики производителями, цены на импортные товары могут меняться. Во избежание недопонимания и конфликтных ситуаций убедительно просим внимательно следить за изменением цен. Цены, указанные на выставленных и оплаченных счетах, исправлению не подлежат.</p>
+           </div>
+
             <div class="infoBlocksContent about_tabs productSlider" id="prices">
 				<?$APPLICATION->IncludeComponent(
 					"bitrix:main.include", 
@@ -170,6 +172,8 @@ $APPLICATION->SetTitle("Налицие и цены");
 					false
 				);?>
 				<? unset($filter) ?>
+<br><p class="detail_text">В связи с волатильностью курса рубля и пересмотром ценовой политики производителями, цены на импортные товары могут меняться.
+ Во избежание недопонимания и конфликтных ситуаций убедительно просим внимательно следить за изменением цен.</p>
             </div>
         </div>
 <?require($_SERVER["DOCUMENT_ROOT"]."/bitrix/footer.php");?>

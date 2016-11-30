@@ -2,15 +2,8 @@
 require($_SERVER["DOCUMENT_ROOT"]."/bitrix/header.php");
 $APPLICATION->SetTitle("Персональный раздел");
 ?>
-<div class="widthWrapper">
-    <div class="mainSectionWrap">
-        <div class="settingsWrap">
-	        <p class="blockTitle active">Мои настройки</p>
-                <?include('profile/index.php')?>
-         </div>
-         <div class="settingsWrap">
-          <p class="blockTitle">Мои заказы</p>
-            <div class="settingsBlock" id="order_list">
+
+
                 <?$APPLICATION->IncludeComponent(
 	                "bitrix:sale.personal.order",
 	                ".default",
@@ -44,10 +37,5 @@ $APPLICATION->SetTitle("Персональный раздел");
 	                ),
 	                false
                 );?>
-            </div>
-         </div>
 
-
-    </div>
-</div>
 <?require($_SERVER["DOCUMENT_ROOT"]."/bitrix/footer.php");?>

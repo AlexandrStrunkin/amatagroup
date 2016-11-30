@@ -177,8 +177,11 @@
         }
 
         $arNewItemsList = array();
-        foreach ($arResult['ITEMS'] as $key => $arItem) {     
-
+        foreach ($arResult['ITEMS'] as $key => $arItem) {
+        	
+			// переприсваиваем имя товара, если необходимые свойства заполнены
+			$new_product_name = getNamesFromProperties($arItem);
+			$arItem['NAME'] = $new_product_name ? $new_product_name : $arItem['NAME'];
 			if ($arResult['USER_AUTHORIZED']) {
 				$arItem['USER_HAVE_ITEM_IN_FAVORITE'] = Favorite::checkIsExists($USER->GetID(), $arItem['ID']);
 			}

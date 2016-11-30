@@ -25,5 +25,5 @@ $MESS["PRODUCT_ALREADY_IN_BASKET"]  = "Товар в корзине";
 $MESS["NEW_PRODUCT"] = "Новинка";
 $MESS["BESTSELLERS_PRODUCT"] = "Все хиты";
 $MESS["FRESH_PRODUCT"] = "Последние поступления";
-$MESS["FRESH_ALL"] = "Все поступления";
+$MESS["FRESH_ALL"] = "Все последние поступления";
 ?>
