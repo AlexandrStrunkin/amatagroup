@@ -2,6 +2,7 @@
 
 <div class="infoBlocksMenu">
     <? foreach ($arResult['REGROUPED_ITEMS'] as $section_id => $section_items) { ?>
+
         <a href="#news_<?= $section_id ?>" <? if ($section_items === reset($arResult['REGROUPED_ITEMS'])) { ?>class="activeInfoBlock"<? } ?>><?= $section_items['TITLE'] ?></a>
     <? } ?>
 </div>
