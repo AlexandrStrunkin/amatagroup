@@ -1,5 +1,5 @@
 <p>
-	На продукцию некоторых брендов производителем или эксклюзивным дистрибьютором установлены рекомендованные розничные цены (РРЦ). Просим вас придерживаться их и сообщать о несоблюдении по эл. адресу: <a href="mailto:price@amatagroup.ru">price@amatagroup.ru</a>
+	 На продукцию некоторых брендов производителем или эксклюзивным дистрибьютором установлены рекомендованные розничные цены (РРЦ). Просим вас придерживаться их и сообщать о несоблюдении по эл. адресу: <a href="mailto:price@amatagroup.ru">price@amatagroup.ru</a>
 	Актуальные РРЦ по брендам можно скачать по ссылкам.<br>
 	 Актуальные РРЦ по брендам можно скачать по ссылкам.
 </p>
@@ -19,7 +19,7 @@
 		 Altabebe
 	</td>
 	<td>
- <a target="_blank" href="https://cloud.mail.ru/public/LvXc/MVHiSXzyK">https://cloud.mail.ru/public/LvXc/MVHiSXzyK</a>
+ <a target="_blank" href="https://cloud.mail.ru/public/51s2/bVmvp1Nr4">https://cloud.mail.ru/public/51s2/bVmvp1Nr4</a>
 	</td>
 </tr>
 <tr>
@@ -27,7 +27,7 @@
 		 BabyPiu
 	</td>
 	<td>
- <a target="_blank" href="https://cloud.mail.ru/public/6Eme/28WmWbwe4">https://cloud.mail.ru/public/6Eme/28WmWbwe4</a>
+ <a target="_blank" href="https://cloud.mail.ru/public/7ZQc/QMsREPXe4">https://cloud.mail.ru/public/7ZQc/QMsREPXe4</a>
 	</td>
 </tr>
 <tr>
@@ -35,7 +35,7 @@
 		 Bebe Luvicci
 	</td>
 	<td>
- <a target="_blank" href="https://cloud.mail.ru/public/BRa2/t5oFKdgsX">https://cloud.mail.ru/public/BRa2/t5oFKdgsX</a>
+ <a target="_blank" href="https://cloud.mail.ru/public/5c27/fNuYxQErP">https://cloud.mail.ru/public/5c27/fNuYxQErP</a>
 	</td>
 </tr>
 <tr>
@@ -43,7 +43,7 @@
 		 Baby Sleep
 	</td>
 	<td>
- <a target="_blank" href="https://cloud.mail.ru/public/66ru/HC3KMbYwe">https://cloud.mail.ru/public/66ru/HC3KMbYwe</a>
+ <a href="https://cloud.mail.ru/public/6W6z/qL3PPLkx3">https://cloud.mail.ru/public/6W6z/qL3PPLkx3</a>
 	</td>
 </tr>
 <tr>
@@ -51,7 +51,7 @@
 		 Beleduc
 	</td>
 	<td>
- <a target="_blank" href="https://cloud.mail.ru/public/Kn8K/Vg8ESb6Qp">https://cloud.mail.ru/public/Kn8K/Vg8ESb6Qp</a>
+ <a target="_blank" href="https://cloud.mail.ru/public/2WSE/1tLJHpG7q">https://cloud.mail.ru/public/2WSE/1tLJHpG7q</a>
 	</td>
 </tr>
 <tr>
@@ -59,7 +59,7 @@
 		 Bombus
 	</td>
 	<td>
- <a target="_blank" href="https://cloud.mail.ru/public/A4TM/gZ2RCxDWA">https://cloud.mail.ru/public/A4TM/gZ2RCxDWA</a>
+ <a target="_blank" href="https://cloud.mail.ru/public/7VfS/gRMaR4Xuf">https://cloud.mail.ru/public/7VfS/gRMaR4Xuf</a>
 	</td>
 </tr>
 <tr>
@@ -67,7 +67,6 @@
 		 Feretti
 	</td>
 	<td>
- <a target="_blank" href="https://cloud.mail.ru/public/AYuG/DyvNhuck1">https://cloud.mail.ru/public/AYuG/DyvNhuck1</a>
 	</td>
 </tr>
 <tr>
@@ -75,7 +74,7 @@
 		 FIMBABY
 	</td>
 	<td>
- <a href="https://cloud.mail.ru/public/95pZ/Si5dG3f3d">https://cloud.mail.ru/public/95pZ/Si5dG3f3d</a>
+ <a href="https://cloud.mail.ru/public/762m/vjf3mfPP7">https://cloud.mail.ru/public/762m/vjf3mfPP7</a><br>
 	</td>
 </tr>
 <tr>
@@ -83,7 +82,7 @@
 		 Gona Toys
 	</td>
 	<td>
- <a target="_blank" href="https://cloud.mail.ru/public/ZyfU/Sncvnmie6">https://cloud.mail.ru/public/ZyfU/Sncvnmie6</a>
+ <a target="_blank" href="https://cloud.mail.ru/public/39Z5/csw6Bz8vk">https://cloud.mail.ru/public/39Z5/csw6Bz8vk</a>
 	</td>
 </tr>
 <tr>
@@ -91,7 +90,7 @@
 		 Haenim Toys
 	</td>
 	<td>
- <a target="_blank" href="https://cloud.mail.ru/public/LjrQ/jY5twPX9z">https://cloud.mail.ru/public/LjrQ/jY5twPX9z</a>
+ <a target="_blank" href="https://cloud.mail.ru/public/FLDS/KyGKB2Hum">https://cloud.mail.ru/public/FLDS/KyGKB2Hum</a>
 	</td>
 </tr>
 <tr>
@@ -99,8 +98,7 @@
 		 Happy Box
 	</td>
 	<td>
- <a target="_blank" href="https://cloud.mail.ru/public/EpVG/HaZvUEje2">
-		https://cloud.mail.ru/public/EpVG/HaZvUEje2</a>
+ <a target="_blank" href="https://cloud.mail.ru/public/DW75/kDGP5nz7T">https://cloud.mail.ru/public/DW75/kDGP5nz7T</a>
 	</td>
 </tr>
 <tr>
@@ -108,7 +106,7 @@
 		 Kidboo
 	</td>
 	<td>
- <a target="_blank" href="https://cloud.mail.ru/public/BP3V/d176zQDi3">https://cloud.mail.ru/public/BP3V/d176zQDi3</a>
+ <a target="_blank" href="https://cloud.mail.ru/public/2D1L/za4DsqD8q">https://cloud.mail.ru/public/2D1L/za4DsqD8q</a>
 	</td>
 </tr>
 <tr>
@@ -116,7 +114,7 @@
 		 Labeille
 	</td>
 	<td>
- <a target="_blank" href="https://cloud.mail.ru/public/BjYQ/m95Y72skd">https://cloud.mail.ru/public/BjYQ/m95Y72skd</a>
+ <a href="https://cloud.mail.ru/public/LFRo/Qpi9M2gCf">https://cloud.mail.ru/public/LFRo/Qpi9M2gCf</a>
 	</td>
 </tr>
 <tr>
@@ -124,7 +122,7 @@
 		 Navington
 	</td>
 	<td>
- <a target="_blank" href="https://cloud.mail.ru/public/As2K/kfcNkG55e">https://cloud.mail.ru/public/As2K/kfcNkG55e</a>
+ <a target="_blank" href="https://cloud.mail.ru/public/FKRo/fT4HzmQLP">https://cloud.mail.ru/public/FKRo/fT4HzmQLP</a>
 	</td>
 </tr>
 <tr>
@@ -140,7 +138,7 @@
 		 Noordi
 	</td>
 	<td>
- <a target="_blank" href="https://cloud.mail.ru/public/3LgP/R4HsFFnov">https://cloud.mail.ru/public/3LgP/R4HsFFnov</a>
+ <a href="https://cloud.mail.ru/public/N6MB/ZmVVCNjzb">https://cloud.mail.ru/public/N6MB/ZmVVCNjzb</a>
 	</td>
 </tr>
 <tr>
@@ -148,7 +146,7 @@
 		 Nuovita
 	</td>
 	<td>
- <a target="_blank" href="https://cloud.mail.ru/public/D2b6/1AoWGjx3d">https://cloud.mail.ru/public/D2b6/1AoWGjx3d</a>
+ <a href="https://cloud.mail.ru/public/3z8C/FZgLPgd8k">https://cloud.mail.ru/public/3z8C/FZgLPgd8k</a>
 	</td>
 </tr>
 <tr>
@@ -156,7 +154,7 @@
 		 Simplicity
 	</td>
 	<td>
- <a target="_blank" href="https://cloud.mail.ru/public/Dfbr/QWoiB5SwR">https://cloud.mail.ru/public/Dfbr/QWoiB5SwR</a>
+ <a target="_blank" href="https://cloud.mail.ru/public/5LRT/9j2WQMCAx">https://cloud.mail.ru/public/5LRT/9j2WQMCAx</a>
 	</td>
 </tr>
 <tr>
@@ -164,7 +162,7 @@
 		 Tutek
 	</td>
 	<td>
- <a target="_blank" href="https://cloud.mail.ru/public/MNhd/N9FKNhjYx">https://cloud.mail.ru/public/MNhd/N9FKNhjYx</a>
+ <a target="_blank" href="https://cloud.mail.ru/public/9d5f/eJ3R2JJ3S">https://cloud.mail.ru/public/9d5f/eJ3R2JJ3S</a>
 	</td>
 </tr>
 <tr>
@@ -172,7 +170,7 @@
 		 Афалина
 	</td>
 	<td>
- <a href="https://cloud.mail.ru/public/D9gS/2Fp3LCHyH">https://cloud.mail.ru/public/D9gS/2Fp3LCHyH</a><br>
+ <a href="https://cloud.mail.ru/public/L5Ug/iYjSbAHNK">https://cloud.mail.ru/public/L5Ug/iYjSbAHNK</a><br>
 	</td>
 </tr>
 <tr>
@@ -180,7 +178,7 @@
 		 Ведрусс
 	</td>
 	<td>
- <a target="_blank" href="https://cloud.mail.ru/public/An3b/8GtzUh9x3">https://cloud.mail.ru/public/An3b/8GtzUh9x3</a>
+ <a target="_blank" href="https://cloud.mail.ru/public/LtFV/kZxX2MPu1">https://cloud.mail.ru/public/LtFV/kZxX2MPu1</a>
 	</td>
 </tr>
 <tr>
@@ -188,7 +186,7 @@
 		 Велар
 	</td>
 	<td>
- <a target="_blank" href="https://cloud.mail.ru/public/KiZE/GzUM3JzgA">https://cloud.mail.ru/public/KiZE/GzUM3JzgA</a>
+ <a target="_blank" href="https://cloud.mail.ru/public/Kfe6/gq92vok3P">https://cloud.mail.ru/public/Kfe6/gq92vok3P</a>
 	</td>
 </tr>
 <tr>
@@ -196,7 +194,7 @@
 		 Жу-Жу Мама
 	</td>
 	<td>
- <a target="_blank" href="https://cloud.mail.ru/public/9wZC/BiMBbV39h">https://cloud.mail.ru/public/9wZC/BiMBbV39h</a>
+ <a target="_blank" href="https://cloud.mail.ru/public/NKTJ/MKo7dkjmb">https://cloud.mail.ru/public/NKTJ/MKo7dkjmb</a>
 	</td>
 </tr>
 <tr>
@@ -212,7 +210,7 @@
 		 Мой Ангелок
 	</td>
 	<td>
- <a target="_blank" href="https://cloud.mail.ru/public/31wH/yByQ8FRGR">https://cloud.mail.ru/public/31wH/yByQ8FRGR</a>
+ <a target="_blank" href="https://cloud.mail.ru/public/5w5w/iwwWiVheE">https://cloud.mail.ru/public/5w5w/iwwWiVheE</a>
 	</td>
 </tr>
 <tr>
@@ -220,7 +218,7 @@
 		 Островок Уюта
 	</td>
 	<td>
- <a target="_blank" href="https://cloud.mail.ru/public/LsJz/oztn8y4Ni">https://cloud.mail.ru/public/LsJz/oztn8y4Ni</a>
+ <a target="_blank" href="https://cloud.mail.ru/public/LGKp/2C9FukuUh">https://cloud.mail.ru/public/LGKp/2C9FukuUh</a>
 	</td>
 </tr>
 <tr>
