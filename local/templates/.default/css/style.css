@@ -869,10 +869,7 @@ body {
 }
 
 .productCarousel .jcarousel {
-}
-
-.viewedBlock .jcarousel {
-	overflow: visible;
+    overflow: hidden;
 }
 
 .productCarousel .jcarousel ul {
@@ -1101,7 +1098,7 @@ margin: 0;
     cursor: pointer;
     background-color: #fff;
     border-radius: 4px;
-    height: 330px;
+    height: 318px;
     padding-left: 18px;
     padding-top: 22px;
     padding-right: 22px;
@@ -1138,7 +1135,7 @@ margin: 0;
     font-family: "MuseoSansCyrl-700";
     font-size: 18px;
     margin-bottom: 15px;
-    height: 40px;
+    height: 22px;
 }
 
 .reviesElement .reviewsText {
@@ -1723,7 +1720,7 @@ margin-top: 20px;
 .viewedBlock {
     border-top: 1px solid #e1dfdf;
     margin-top: 38px;
-    padding: 35px 0 35px;
+    padding: 35px 0 27px;
     display: block !important;
 }
 
@@ -2274,6 +2271,8 @@ transition: all 0.3s;
 .optionContain input[type="checkbox"] + label {
     color: #7F7F7F;
     cursor: pointer;
+    position: relative;
+    padding-left: 25px;
 }
 
 .optionContain input[type="checkbox"]:checked + label {
@@ -5854,8 +5853,7 @@ input[type=checkbox] + label::before {
     display: inline-block;
     height: 15px;
     left: 0px;
-    position: relative;
-    top: 3px;
+    position: absolute;
     width: 29px;
 }
 
