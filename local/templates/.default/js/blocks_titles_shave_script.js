@@ -6,13 +6,12 @@ $(document).ready(function(){
 		function(){
 			var outer_block = $(this).parent(), // внешний блок, его высота эталонная
 				name_block = $(this).find(".productName"), // блок названия
-				additional_height = name_block[0].scrollHeight - name_block.height(), // добавляемая скрытая разница в высоте
+				additional_height = 0, // добавляемая скрытая разница в высоте
 				full_name = name_block.data("element-full-name");
 				
 			outer_block.css("border-color", "transparent");
 		
 			$(this).css({
-				"height" : outer_block.height() + additional_height + "px",
 				"z-index": 2,
 				"border" : "1px solid #c7c7c7",
 				"margin-top": "-1px",
@@ -24,6 +23,13 @@ $(document).ready(function(){
 			name_block.css({
 				"overflow" : "visible",
 				"word-wrap": "break-word"
+			});
+			
+			// добавляем высоту только после показа скрытой части
+			additional_height = parseInt(name_block[0].scrollHeight - name_block.height() - 20);
+			
+			$(this).css({
+				"height" : outer_block.height() + additional_height + "px",
 			});
 		},
 		function(){

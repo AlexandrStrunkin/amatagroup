@@ -110,7 +110,8 @@
     /*///*/
 
     /* службы доставки */
-    define("COURIER_DELIVERY", 2);
+    define("COURIER_DELIVERY_1", 27);
+    define("COURIER_DELIVERY_2", 28);
 
     define("NEW_PRODUCT_STATUS_LENGTH", 60); //количество дней, котрое товар считается новинкой
     define("FRESH_PRODUCT_STATUS_LENGTH", 2); //количество дней, котрое товар считается последним поступлением
@@ -196,6 +197,7 @@
 
         return $result;
     }
+
 
     /**
     *
@@ -764,8 +766,8 @@
         * @param integer $section_id - ID раздела для привязки
         */
         function UpdateItemSections($items, $section_id) {     
-        
-                  
+
+
 
             if (empty($items) || empty($section_id)) {
                 return false;
@@ -776,7 +778,7 @@
             if (!is_array($items) && intval($items) > 0) {
                 $items = intval($items);
             }
-            
+
             $items_sections = array();
             //собираем разделы для всех элементов
             $items_groups = CIBlockElement::GetElementGroups($items, false, array("ID", "IBLOCK_ELEMENT_ID"));
@@ -904,4 +906,4 @@
             }      
         }
 
-}
+    }
