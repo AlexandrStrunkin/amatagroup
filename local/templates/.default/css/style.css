@@ -5237,7 +5237,7 @@ textarea {
     font-family: "MuseoSansCyrl-700";
     font-size: 20px;
     margin-bottom: 22px;
-    margin-top: 48px;
+    margin-top: 0px;
     padding-bottom: 24px;
     letter-spacing: 0.6px;
 }
@@ -7523,9 +7523,9 @@ input[type="radio"]:checked + label::before {
 }
 
 .contactsWindow h2 {
-    font: 30px/1 'MuseoSansCyrl-900';
+    font: 28px/1 'MuseoSansCyrl-900';
     color: #323232;
-    padding: 18px 0;
+    padding: 15px 0;
     letter-spacing: 0.7px;
 }
 
