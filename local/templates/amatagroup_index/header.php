@@ -121,7 +121,7 @@
                         "SECTION_CODE_PATH" => "",	// ѕуть из символьных кодов раздела
                         "SECTION_ID" => $_REQUEST["SECTION_ID"],	// ID раздела
                         "SECTION_ID_VARIABLE" => "SECTION_ID",	// Ќазвание переменной, в которой передаетс€ код группы
-                        "SECTION_URL" => "/catalog/news_product/",	// URL, ведущий на страницу с содержимым раздела
+                        "SECTION_URL" => "/catalog/new_products/",	// URL, ведущий на страницу с содержимым раздела
                         "SECTION_USER_FIELDS" => array(	// —войства раздела
                             0 => "",
                             1 => "",
@@ -324,7 +324,7 @@
                             "SECTION_CODE_PATH" => "",
                             "SECTION_ID" => $_REQUEST["SECTION_ID"],
                             "SECTION_ID_VARIABLE" => "SECTION_ID",
-                            "SECTION_URL" => "/catalog/new_arrivals/",
+                            "SECTION_URL" => "/catalog/last_products/",
                             "SECTION_USER_FIELDS" => array(
                                 0 => "",
                                 1 => "",
