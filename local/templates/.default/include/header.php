@@ -174,32 +174,32 @@
 
 
             <?$APPLICATION->IncludeComponent(
-                "bitrix:search.title",
-                "search_field",
-                array(
-                    "COMPONENT_TEMPLATE" => "search_field",
-                    "NUM_CATEGORIES" => "1",
-                    "TOP_COUNT" => "15",
-                    "ORDER" => "rank",
-                    "USE_LANGUAGE_GUESS" => "N",
-                    "CHECK_DATES" => "N",
-                    "SHOW_OTHERS" => "Y",
-                    "PAGE" => "/catalog/",
-                    "SHOW_INPUT" => "Y",
-                    "INPUT_ID" => "title-search-input",
-                    "CONTAINER_ID" => "title-search",
-                    "CATEGORY_0_TITLE" => "Товары",
-                    "CATEGORY_0" => array(
-                        0 => "iblock_1c_catalog",
-                    ),
-                    "CATEGORY_0_iblock_1c_catalog" => array(
-                        0 => "5",
-                        1 => "6",
-                    ),
-                    "CATEGORY_OTHERS_TITLE" => ""
-                ),
-                false
-            );?>
+	"bitrix:search.title", 
+	"search_field", 
+	array(
+		"COMPONENT_TEMPLATE" => "search_field",
+		"NUM_CATEGORIES" => "1",
+		"TOP_COUNT" => "15",
+		"ORDER" => "rank",
+		"USE_LANGUAGE_GUESS" => "N",
+		"CHECK_DATES" => "N",
+		"SHOW_OTHERS" => "N",
+		"PAGE" => "/catalog/",
+		"SHOW_INPUT" => "Y",
+		"INPUT_ID" => "title-search-input",
+		"CONTAINER_ID" => "title-search",
+		"CATEGORY_0_TITLE" => "Товары",
+		"CATEGORY_0" => array(
+			0 => "iblock_1c_catalog",
+		),
+		"CATEGORY_0_iblock_1c_catalog" => array(
+			0 => "5",
+			1 => "6",
+		),
+		"CATEGORY_OTHERS_TITLE" => ""
+	),
+	false
+);?>
             </div>
 
         <div class="firstLvlBlocks linksBlock" id="linkBlock2">
