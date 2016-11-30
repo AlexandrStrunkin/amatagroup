@@ -13,22 +13,22 @@
     $this->setFrameMode(true);
 ?>
 
-
-
+<!--elmentsList-->
 <?if(count($arResult['ITEMS']) > 0){?>
-    <p class="blockTitle">
-        <?$APPLICATION->IncludeComponent(
-                "bitrix:main.include",
-                "",
-                Array(
-                    "AREA_FILE_SHOW" => "file",
-                    "AREA_FILE_SUFFIX" => "inc",
-                    "EDIT_TEMPLATE" => "",
-                    "PATH" => "/include/expected_products.php"
-                )
-            );?>
-    </p>
-    <ul class="productList" id="productList4">     
+
+    <ul class="productList" id="productList4">
+        <p class="blockTitle">
+            <?$APPLICATION->IncludeComponent(
+                    "bitrix:main.include",
+                    "",
+                    Array(
+                        "AREA_FILE_SHOW" => "file",
+                        "AREA_FILE_SUFFIX" => "inc",
+                        "EDIT_TEMPLATE" => "",
+                        "PATH" => "/include/expected_products.php"
+                    )
+                );?>
+        </p>
         <?
             if (!empty($arResult['ITEMS'])) {
                 $templateLibrary = array('popup');
@@ -109,8 +109,6 @@
                 foreach ($arResult['ITEMS'] as $key => $arItem) {
                     $this->AddEditAction($arItem['ID'], $arItem['EDIT_LINK'], $strElementEdit);
                     $this->AddDeleteAction($arItem['ID'], $arItem['DELETE_LINK'], $strElementDelete, $arElementDeleteParams);
-
-                    //arshow($arItem);
 
                     $strMainID = $this->GetEditAreaId($arItem['ID']);
 
@@ -197,8 +195,7 @@
                         </a>
 
                         <div>
-                            <a href="<? echo $arItem['DETAIL_PAGE_URL']; ?>" class="productName"><?=$arItem["NAME"]?></a>
-
+                            <a href="<? echo $arItem['DETAIL_PAGE_URL']; ?>" data-element-full-name="<?= $arItem["NAME"] ?>" class="productName"><?=$arItem["NAME"]?></a>
                             <?if ($arItem['MIN_PRICE']["CAN_BUY"]) {?>
 
                                 <div id="<? echo $arItemIDs['BASKET_ACTIONS']; ?>" <?if ($arItem['IN_BASKET'] == "Y"){?>title="<?=GetMessage("PRODUCT_ALREADY_IN_BASKET")?>"<?}?>  class="bx_catalog_item_controls_blocktwo productBasketBlock changingBasket <?if ($arItem['IN_BASKET'] == "Y"){?> active<?}?>">
@@ -218,9 +215,7 @@
 
 
                         </div>
-
                         <div class="logosContainer">
-
                             <?//шильдик скидки
                                 if ($arItem["MIN_PRICE_TMP"]['DISCOUNT_VALUE'] < $arItem["MIN_PRICE_TMP"]['VALUE'] && $arItem["MIN_PRICE_TMP"]["DISCOUNT_DIFF_PERCENT"] > 0) {?>
                                 <div class="discountLogoWrapper">-<?=$arItem["MIN_PRICE_TMP"]["DISCOUNT_DIFF_PERCENT"];?>%</div>
@@ -230,28 +225,9 @@
                                 if (date("U") - 86400 * NEW_PRODUCT_STATUS_LENGTH <= MakeTimeStamp($arItem["DATE_CREATE"], "DD.MM.YYYY HH:MI:SS")) {
                                 ?>
                                 <div class="newLogoWrapper" title="<?=GetMessage("NEW_PRODUCT")?>">NEW</div>
-                                <?}?>
-
-                            <?//шильдик последние поступления. Если товар  создан менее 2 дней назад
-                                if (date("U") - 86400 * FRESH_PRODUCT_STATUS_LENGTH <= MakeTimeStamp($arItem["DATE_CREATE"], "DD.MM.YYYY HH:MI:SS") || $arItem["PROPERTIES"]["NOVOE_POSTUPLENIE"]["VALUE"]) {
-                                ?>
-                                <div class="freshLogoWrapper" title="<?=GetMessage("FRESH_PRODUCT")?>">FRESH</div>
-                                <?}?>
-                            <?if($arItem["PROPERTIES"]["TOPPRODAZH"]["VALUE"]){?>
-                                <div class="bestLogoWrapper">BEST</div>
-                                <?}?>
-
-
-
-                            <?/*
-                                <div class="bestLogoWrapper">BEST</div>
-                                <div class="saleLogoWrapper">SALE</div>
-                            */?>
+                                <?}?>   
+                            
                         </div>
-
-
-
-
                         <?
                             $showSubscribeBtn = false;
                             $compareBtnMessage = ($arParams['MESS_BTN_COMPARE'] != '' ? $arParams['MESS_BTN_COMPARE'] : GetMessage('CT_BCS_TPL_MESS_BTN_COMPARE'));
@@ -522,10 +498,10 @@
                 </li>
                 <?
                 }
-            }
-        ?>
-        <a class="transition_section" href="<?=$arParams["SECTION_URL"]?>"><?=GetMessage('BESTSELLERS_PRODUCT')?></a>
-    </ul>
+            ?>
+            <?}?>
+        <a class="transition_section" href="<?=$arParams["SECTION_URL"]?>"><?=GetMessage('ALL_EXPECTED_PRODUCTS')?></a>
+    </ul>     
     <!--END elmentsList-->
     <div style="clear: both;"></div>
 

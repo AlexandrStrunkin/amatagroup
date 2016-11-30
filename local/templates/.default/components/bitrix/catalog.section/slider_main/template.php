@@ -21,13 +21,17 @@ $this->setFrameMode(true);
             <ul>
             <?
             foreach ($arResult['ITEMS'] as $key => $arItem) {?>
+                <?$image_file = CFile::GetPath($arItem["PROPERTIES"]["PICTURE_WIDTH"]["VALUE"]);?>
                 <li style="background-color: <?=$arItem["PROPERTIES"]["FON_COLOR"]["VALUE_XML_ID"]?>">
                     <a class="slide_link" href="<?=$arItem["PROPERTIES"]["LINK_PRODUCT"]["VALUE"]?>">
+                    <?if($arItem["PROPERTIES"]["PICTURE_WIDTH"]["VALUE"]){?>
+                        <img class="image_width" src="<?=$image_file?>" title="<?=$arItem["DETAIL_TEXT"]?>" width="580">
+                    <?}?>
                     <?if($arItem["PREVIEW_PICTURE"]["SRC"]){?>
                         <img class="big_image" src="<?=$arItem["PREVIEW_PICTURE"]["SRC"]?>" title="<?=$arItem["DETAIL_TEXT"]?>" height="580">
                     <?}?>
                         <div class="bannerImgContainer">
-                            <a href="<?=$arItem["PROPERTIES"]["LINK_PRODUCT"]["VALUE"]?>">
+                            <a href="<?=$arItem["PROPERTIES"]["LINK_PRODUCT"]["VALUE"]?>" >
                                 <img src="<?=$arItem["DETAIL_PICTURE"]["SRC"]?>" style="width: <?=$arItem["PROPERTIES"]["WIDTH_PICTURE_SMALL"]["VALUE"]?>%" height="<?=$arItem["DETAIL_PICTURE"]["HEIGHT"]?>" alt=""/>
                             </a>
                             <?if($arItem["PROPERTIES"]["SPECIAL_OFFER"]["VALUE_ENUM_ID"] == ELEMENT_SPECIAL_OFFER_HIT){?>
@@ -41,11 +45,12 @@ $this->setFrameMode(true);
                             <?}?>
                         </div>
                         <div class="bannerTextContainer">
-                            <p class="bannerCost"><?=$arItem["PROPERTIES"]["PRICE_BANNER"]["VALUE"]?> <span class="rub">c</span></p>
-
+                            <?if($arItem["PROPERTIES"]["PRICE_BANNER"]["VALUE"]){?>
+                                <p class="bannerCost"><?=$arItem["PROPERTIES"]["PRICE_BANNER"]["VALUE"]?> <span class="rub">c</span></p>
+                            <?}?>
                             <a href="<?=$arItem["PROPERTIES"]["LINK_PRODUCT"]["VALUE"]?>"><p class="bannerText"><?=$arItem["DETAIL_TEXT"]?></p></a>
 
-                            <a class="link_product" href="<?=$arItem["PROPERTIES"]["LINK_PRODUCT"]["VALUE"]?>"><?= GetMessage('MORE') ?></a>
+                            
                         </div>
                     </a>
                 </li>

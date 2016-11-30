@@ -24,6 +24,12 @@
             $intCurrentDepth = 1;
             $boolFirst = true;
             foreach ($arResult['SECTIONS'] as &$arSection) {
+                
+                //если раздел функциональный (новинки, лидеры продаж, ожидаемые поступления, последние поступления) - не выводим его в меню
+                if ($GLOBALS["functional_sections"][$arSection["CODE"]]) {
+                    continue;
+                }
+                
                 $this->AddEditAction($arSection['ID'], $arSection['EDIT_LINK'], $strSectionEdit);
                 $this->AddDeleteAction($arSection['ID'], $arSection['DELETE_LINK'], $strSectionDelete, $arSectionDeleteParams);
 

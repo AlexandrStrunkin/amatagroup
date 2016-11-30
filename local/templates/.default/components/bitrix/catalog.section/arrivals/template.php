@@ -16,7 +16,8 @@
 
 
 <!--elmentsList-->
-<?if(count($arResult['ITEMS']) > 0){?>
+<?if(count($arResult['ITEMS']) > 0){?>   
+<ul class="productList" id="productList3">
 <p class="blockTitle">
     <?$APPLICATION->IncludeComponent(
     "bitrix:main.include",
@@ -28,8 +29,7 @@
         "PATH" => "/include/arrivals_page.php"
     )
 );?>
-</p>
-<ul class="productList" id="productList3">    
+</p>    
     <?
         if (!empty($arResult['ITEMS'])) {
             $templateLibrary = array('popup');
@@ -522,7 +522,7 @@
             <?
             }
         }
-        ?>
+        ?>   
         <a class="transition_section" href="<?=$arParams["SECTION_URL"]?>"><?=GetMessage('FRESH_ALL')?></a>
     </ul>
     <!--END elmentsList-->
