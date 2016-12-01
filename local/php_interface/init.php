@@ -139,7 +139,7 @@
     define("IMAGE_AVATAR_HEIGHT", 40); // размер аватарок в отзывах        
 
     define("PARTNERS_HL_BLOCK_ID", 8); //ID highload-блока "партнеры"    
-    define("PARTNERS_GROUPS_HL_BLOCK_ID", 6); //ID highload-блока "соглашения с клиентами"    
+    define("PARTNERS_GROUPS_HL_BLOCK_ID", 6); //ID highload-блока "соглашения с клиентами"
 
     //функцинальные разделы каталога
     global $functional_sections;
@@ -150,8 +150,9 @@
         "last_products" => array("NAME" => GetMessage("CATALOG_FRESH_PRODUCTS")) //последние поступления
     );    
 
+    file_exists($_SERVER['DOCUMENT_ROOT'] . '/local/php_interface/include/.config.php') ? require_once($_SERVER['DOCUMENT_ROOT'] . '/local/php_interface/include/.config.php') : "";
     // файл с кодом для избранного
-    file_exists($_SERVER['DOCUMENT_ROOT'] . '/local/php_interface/favorite/class.php') ? require_once($_SERVER['DOCUMENT_ROOT'] . '/local/php_interface/favorite/class.php') : "";
+    file_exists($_SERVER['DOCUMENT_ROOT'] . '/local/php_interface/favorite/class.php') ? require_once($_SERVER['DOCUMENT_ROOT'] . '/local/php_interface/favorite/class.php') : ""; 
 
     function arshow($array, $adminCheck = false){
         global $USER;
