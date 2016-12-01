@@ -18,8 +18,8 @@ $MESS["STORE_NAME"] = "Название магазина";
 $MESS["STORE_ADDS"] = "Адрес";
 $MESS["STORE_PHONE"] = "Телефон";
 $MESS["STORE_SITE"] = "Сайт";
-$MESS["STORES"] = "Телефон";
-$MESS["INTERNET_SHOPS"] = "Сайт";
+$MESS["STORES"] = "Магазины";
+$MESS["INTERNET_SHOPS"] = "Интернет-магазины";
 $MESS["SHOW_STORES"] = "Показать магазины в этом городе";
 $MESS["HIDE_STORES"] = "Свернуть все";
 ?>
