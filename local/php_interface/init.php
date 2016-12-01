@@ -7,11 +7,15 @@
     CModule::IncludeModule("sale");
     CModule::IncludeModule("catalog");
     CModule::IncludeModule("main");
+    CModule::IncludeModule("highloadblock");      
 
     use Bitrix\Main;
     use Bitrix\Main\Loader;
     use Bitrix\Main\Localization\Loc;
     use Bitrix\Sale\Internals;
+
+    use Bitrix\Highloadblock as HL;
+    use Bitrix\Main\Entity;
 
     $arPageElementCount = array(12, 24, 36); //возможные варианты количестка элементов на странице
 
@@ -54,6 +58,7 @@
     define("USER_SAVED_ADDRESSES_BUILDING_PROPERTY", 435); // Дом
     define("USER_SAVED_ADDRESSES_APARTMENT_PROPERTY", 436); // Квартира/офис
     define("USER_SAVED_ADDRESSES_BX_LOCATION_ID_PROPERTY", 437); // ID местоположения битрикс
+    define("ITEM_TYPE_PROPERTY_ID", 1380);
 
     define("ORGANIZATION_TYPE_OOO", 4); // Тип фирмы ООО
     define("ORGANIZATION_TYPE_IP", 5); // Тип фирмы ИП
@@ -126,9 +131,15 @@
     define("IMAGE_SERTIFICATE_WIDTH", 600); // код типа цены базовой
     define("IMAGE_SERTIFICATE_HEIGHT", 800); // код типа цены базовой
 
+
     define("IMAGE_AVATAR_WIDTH", 40); // размер аватарок в отзывах
     define("IMAGE_AVATAR_HEIGHT", 40); // размер аватарок в отзывах
 
+    define("IMAGE_AVATAR_WIDTH", 40); // размер аватарок в отзывах
+    define("IMAGE_AVATAR_HEIGHT", 40); // размер аватарок в отзывах        
+
+    define("PARTNERS_HL_BLOCK_ID", 8); //ID highload-блока "партнеры"    
+    define("PARTNERS_GROUPS_HL_BLOCK_ID", 6); //ID highload-блока "соглашения с клиентами"    
 
     //функцинальные разделы каталога
     global $functional_sections;
@@ -709,6 +720,7 @@
         }
     }
 
+
     //Заменяет символ валюты в письме заказа
     AddEventHandler('sale', 'OnOrderNewSendEmail', "currencyTypeReplacement");
 
@@ -907,3 +919,200 @@
         }
 
     }
+
+
+    /**
+    * обновление групп клиентов в соответствии с данными из highload-блокаов VidyTSen, Partnery, SoglasheniyaSKlientami  
+    */
+    AddEventHandler("catalog", "OnSuccessCatalogImport1C", "setClientsGroups");
+    function setClientsGroups() {           
+
+        $available_groups_id = array(12, 13, 14); //ID групп для разных типов цен 
+
+        $partners_hl_block = PARTNERS_HL_BLOCK_ID;
+        $partners_groups_hl_block = PARTNERS_GROUPS_HL_BLOCK_ID;
+
+        //делаем запрос в HL блок партнеров
+        $partners = HL\HighloadBlockTable::getById($partners_hl_block)->Fetch();
+        $partners_entity = HL\HighloadBlockTable::compileEntity($partners);          
+        $partners_query = new Entity\Query($partners_entity);
+
+        $select = array("*");
+        $partners_query->setSelect($select);
+        //выбираем пользователей, у которых есть email
+        $filter= array("!UF_NAME" => false, /*"!UF_ELEKTRONNAYAPOCHT" => false*/);
+        $partners_query->setFilter($filter);
+
+        $partners_result = $partners_query->exec();
+        $partners_result = new CDBResult($partners_result);
+        //парсим результат выборки клиентов      
+        $client_names = array();
+
+        //все данные партнера
+        $partners_data = array();
+
+        while($arPartnersResult = $partners_result->Fetch()) {    
+            //собираем имена клиентов 
+            $client_names[] = $arPartnersResult["UF_NAME"];   
+            $partners_data[$arPartnersResult["UF_NAME"]] = $arPartnersResult;        
+        }   
+
+        $client_names = array_unique($client_names);
+
+        //делаем запрос в соответствующий HL блок
+        $groups = HL\HighloadBlockTable::getById($partners_groups_hl_block)->Fetch();
+        $groups_entity = HL\HighloadBlockTable::compileEntity($groups);          
+        $groups_query = new Entity\Query($groups_entity);
+
+        $select = array("*");
+        $groups_query->setSelect($select);
+        //выбираем пользователей, у которых есть email
+        $filter= array("UF_PARTNER" => $client_names);
+        $groups_query->setFilter($filter);
+
+        $groups_result = $groups_query->exec();
+        $groups_result = new CDBResult($groups_result);
+        //парсим результат выборки клиентов
+        $partners_prices = array();    
+        while($arGroupsResult = $groups_result->Fetch()) {
+            $partners_prices[$arGroupsResult["UF_PARTNER"]] = $arGroupsResult["UF_VIDTSEN"];
+        }       
+
+        //перебираем массив соответствия пользователь -> код цены
+        //код цены прописан в поле "CODE" в соответствующих группах пользователей 
+        foreach ($partners_prices as $partner => $price_code) {
+            //если у пользователя есть email и код цены
+            $user_email = $partners_data[$partner]["UF_ELEKTRONNAYAPOCHT"];
+            if (!empty($user_email) && !empty($price_code)) {
+                
+                //находим пользователя по email
+                $ar_user = CUser::GetList($by = "ID", $sort = "ASC", array("EMAIL" => trim($user_email)))->Fetch();  
+                if (!empty($ar_user["ID"]) && intval($ar_user["ID"]) > 0) {   
+                    
+                    //получаем группы пользователя
+                    $user_groups = CUser::GetUserGroup(intval($ar_user["ID"]));
+
+                    $new_group = CGroup::GetList( $by = "ID", $sort = "asc", array("STRING_ID" => trim($price_code)))->Fetch();
+                    
+                    //если пользователь еще не принадлежит к группе, в которую его нужно добавить
+                    if (!in_array($new_group["ID"], $user_groups) && intval($new_group["ID"]) > 0) {            
+                        
+                        //перебираем текущие группы пользователей, убираем текущую ценовую группу и добавляем новую, которая пришла из выгрузки
+                        foreach ($user_groups as $i => $group_id) {
+                            if (in_array($group_id, $available_groups_id)) {
+                                unset($user_groups[$i]);
+                            }
+                        }
+
+                        //добавляем ID новой группы в массив и обновляем пользователя
+                        $new_groups_array = array_merge($user_groups, array(intval($new_group["ID"])));                            
+                        $user = new CUser;
+                        $fields = Array(                                
+                            "GROUP_ID" => $new_groups_array,                         
+                        );
+                        $user->Update($ar_user["ID"], $fields);
+                    }
+
+                }
+            }
+
+        }
+
+    }
+    
+    
+   /***
+   * 
+   * обновление значения свойства "Вид товара" для конкретного товара (с символьным кодом VIDTOVARA)
+   * после изменения данного товара
+   *
+   * var @int $prop_enum_xml_id - XML_ID варианта свойства, содержащего в символьном коде "TIP_TOVARA"
+   * var @int $main_prop_variant_id - ID варианта свойства "VIDTOVARA", которое надо присвоить данному товару, исходя из значения $prop_enum_xml_id  
+   * 
+   */
+   AddEventHandler("iblock", "OnAfterIBlockElementUpdate", "updatingItemType");
+   
+   function updatingItemType(&$arFields) {
+       if ($arFields["IBLOCK_ID"] == CATALOG_IBLOCK_ID) {
+           // добавляем в массив фильтрации все свойства, отвечающие за тип товара (TIP_TOVARA и от TIP_TOVARA_1 до TIP_TOVARA_41)
+            for ($i = 0; $i <= 41; $i++) {
+                $arSelect = array("ID", "NAME");
+                $prop_id = "PROPERTY_TIP_TOVARA";
+                if ($i > 0) {
+                    $prop_id .= "_".$i;
+                }
+                $arSelect[] = $prop_id;
+                $el_info = CIBlockElement::GetList (array(), array("ID" => $arFields["ID"]), false, false, $arSelect);
+                while ($el = $el_info -> Fetch()) {
+                    // если значение свойства типа товара задано
+                    if ($el[$prop_id . "_ENUM_ID"] > 0) {
+                        $prop_name = "TIP_TOVARA";
+                        if ($i > 0) {
+                            $prop_name .= "_" . $i;
+                        }
+                        // получение XML_ID значения свойства исходя из значения свойства "Тип товара"
+                        $prop_enum_info = CIBlockProperty::GetPropertyEnum($prop_name, array(), array("IBLOCK_ID" => CATALOG_IBLOCK_ID, "VALUE" => $el[$prop_id . "_VALUE"]));
+                        while ($prop_enum = $prop_enum_info -> Fetch()) {
+                            $prop_enum_xml_id = $prop_enum["XML_ID"];  
+                        }
+                        // получение ID значения свойства исходя из XML_ID значения свойства "Вид товара"
+                        $main_prop_enum_info = CIBlockProperty::GetPropertyEnum("VIDTOVARA", array(), array("IBLOCK_ID" => CATALOG_IBLOCK_ID, "EXTERNAL_ID" => $prop_enum_xml_id));
+                        while ($main_prop_enum = $main_prop_enum_info -> Fetch()) {
+                            $main_prop_variant_id = $main_prop_enum["ID"];
+                        }
+                        // обновление значения свойства "Вид товара"
+                        CIBlockElement::SetPropertyValuesEx($el["ID"], false, array("VIDTOVARA" => $main_prop_variant_id));    
+                    }
+                }
+            }    
+       }
+   }
+   
+   /***
+   * 
+   * обновление набора значений свойства "Вид товара" (с символьным кодом VIDTOVARA)
+   * после изменения одного из свойств, содержащих в символьном коде TIP_TOVARA
+   *
+   * var @int $props - массив с информацией о наборе значений изменяемого свойства
+   * var @int $variants_list - массив с информацией о наборе значений свойства VIDTOVARA
+   *  
+   */
+   
+   AddEventHandler("iblock", "OnAfterIBlockPropertyUpdate", "updatingItemsTypesAfterUpdatingProps");
+   
+   function updatingItemsTypesAfterUpdatingProps (&$arFields) {
+       if ($arFields["IBLOCK_ID"] == CATALOG_IBLOCK_ID && strstr($arFields["CODE"], "TIP_TOVARA")) {
+           $props = array();
+           $prop = CIBlockProperty::GetPropertyEnum($arFields["CODE"], array("ID" => "ASC"), Array("IBLOCK_ID" => CATALOG_IBLOCK_ID));
+           while ($arProp = $prop->Fetch()) {
+               $props[$arProp["XML_ID"]]["ID"] = $arProp["ID"];
+               $props[$arProp["XML_ID"]]["VALUE"] = $arProp["VALUE"];
+               $props[$arProp["XML_ID"]]["DEF"] = $arProp["DEF"];
+               $props[$arProp["XML_ID"]]["SORT"] = $arProp["SORT"];
+               $props[$arProp["XML_ID"]]["XML_ID"] = $arProp["XML_ID"];
+               $props[$arProp["XML_ID"]]["EXTERNAL_ID"] = $arProp["EXTERNAL_ID"];
+           }
+           $variants_list = CIBlockProperty::GetPropertyEnum("VIDTOVARA", array(), array("IBLOCK_ID" => CATALOG_IBLOCK_ID));
+           while ($variants = $variants_list -> Fetch()) {
+               $xml_IDs[] = $variants["XML_ID"];
+           }
+           // если XML_ID варианта изменяемого свойства не содержится в массиве из XML_ID вариантов свойства "Вид товара" -
+           // добавляем новый вариант значения свойства "Вид товара"
+           foreach ($props as $xml_id_key => $props_val) {
+               if (!in_array($xml_id_key, $xml_IDs)) {
+                   CIBlockPropertyEnum::Add(
+                       array(
+                           "PROPERTY_ID" => ITEM_TYPE_PROPERTY_ID,
+                           "VALUE" => $props_val["VALUE"],
+                           "DEF" => $props_val["DEF"],
+                           "SORT" => $props_val["SORT"],
+                           "XML_ID" => $props_val["XML_ID"],
+                           "EXTERNAL_ID" => $props_val["EXTERNAL_ID"]
+                       )
+                   );
+
+               }    
+           }     
+       }
+   }
+?>
