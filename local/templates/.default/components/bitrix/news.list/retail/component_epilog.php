@@ -1,6 +1,4 @@
 <?if(!defined("B_PROLOG_INCLUDED") || B_PROLOG_INCLUDED!==true)die();?>
-<?= GetMessage("HIDE_STORES")?>
-<?= GetMessage("SHOW_STORES")?>
 <script>
 //Открытие всплывающего окна
 $(".where_to_buy_button_city, .where_to_buy_current_city").on("click", function(){
