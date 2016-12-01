@@ -490,13 +490,13 @@ body {
     font-family: "MuseoSansCyrl-500";
     font-size: 15px;
     padding-left: 0;
-    width: 80%;
-    padding-right: 0;
+    padding-right: 35px;
     display: block;
     position: relative;
+    box-sizing: border-box;
 }
 .thirdLevel .mainLeftMenu li.activeLiTopMenuFirstLvl > a {
-    font-size: 14px;
+    font-size: 15px;
 }
 .mainLeftMenu > ul > div, .mainLeftMenu > ul > div > div {
     min-height: 496px;
@@ -756,7 +756,7 @@ body {
 }
 
 .innerPageWrapper {
-	font-family: "PT Serif";
+    font-family: "PT Serif";
 }
 
 .brandsWrapper {
@@ -2126,7 +2126,7 @@ h1 {
 }
 
 .viewedElementBlock .widthWrapper {
-	overflow: hidden;
+    overflow: hidden;
 }
 
 .bx-filter-param-text{
@@ -3148,7 +3148,6 @@ transition: all 0.3s;
     display: none;
     /*padding-bottom: 14px;*/
     padding-bottom: 6px;
-    padding-left: 6px;
     width: 255px;
     /* overflow: hidden; */
 }
@@ -3724,7 +3723,7 @@ opacity: 0.7;
 }
 
 .discountBodyBlock .salesDetail p {
-	border: 1px solid #dadada;
+    border: 1px solid #dadada;
     border-radius: 4px;
     margin-top: 13px;
     padding: 14px 20px 13px;
@@ -3733,7 +3732,7 @@ opacity: 0.7;
 }
 
 .discountBodyBlock .salesDetail span {
-	margin-top: 30px;
+    margin-top: 30px;
     display: block;
 }
 
@@ -5362,7 +5361,7 @@ textarea {
 }
 
 .tabs_news_list_text {
-	display: inline-block;
+    display: inline-block;
     max-width: 878px;
     vertical-align: top;
 }
@@ -9063,10 +9062,24 @@ display: none;
     color: #000000;
     font-family: "MuseoSansCyrl-500";
     font-size: 14px;
-    padding: 9px 18px 9px 15px;
+    padding: 9px 18px 9px 35px;
     position: relative;
-    width: 104px;
+    width: 136px;
+    box-sizing: border-box;
 }
+
+.horizontalFilterWrap .avalibleFilter label:before {
+    background-image: url("/local/templates/.default/css/../img/emptyCheckFilt.png");
+    background-position: 10px 1px;
+    background-repeat: no-repeat;
+    content: "";
+    display: inline-block;
+    height: 16px;
+    left: 0;
+    position: absolute;
+    width: 29px; 
+}
+
 body .news_wrap,
 body .news_wrap .productBlockWrapper{
     background-color: transparent;
@@ -9396,15 +9409,15 @@ h3, h4, h5, h6 {
     text-align: center;
 }
 .forgot_password_form .bx-authform-label-container, .forgot_password_form .bx-authform-link-container {
-	font-family: "PT Serif";
+    font-family: "PT Serif";
 }
 
 .forgot_password_form .bx-authform-label-container {
-	margin-bottom: 5px;
+    margin-bottom: 5px;
 }
 
 .forgot_password_form .bx-authform-link-container b {
-	color: #5DB3DC !important;
+    color: #5DB3DC !important;
 }
 
 .forgot_password_form .btn-primary{
@@ -9421,20 +9434,20 @@ h3, h4, h5, h6 {
 }
 
 .basket_offer {
-	font-family: "MuseoSansCyrl-500";
-	color: black;
-	text-align: center;
+    font-family: "MuseoSansCyrl-500";
+    color: black;
+    text-align: center;
 }
 
 /*
 IE10 and IE11
 */
 @media screen and (-ms-high-contrast: active), (-ms-high-contrast: none) {
-	.horizontalFilterWrap .quantityWrap {
-		padding: 14px 17px;
-	}
-	.catalogElementsBlock {
-		margin-bottom: 0;
-	}
+    .horizontalFilterWrap .quantityWrap {
+    padding: 14px 17px;
+}
+.catalogElementsBlock {
+    margin-bottom: 0;
+}
 
 }
