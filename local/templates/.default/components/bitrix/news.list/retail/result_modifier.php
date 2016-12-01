@@ -1,8 +1,8 @@
 <?
 $arResult['CITY_LIST'] = Array();
 $db_list = CIBlockSection::GetMixedList(array(), array("IBLOCK_ID" => RETAIL_IBLOCK_ID), false, array("IBLOCK_SECTION_ID", "PROPERTY_COORDINATES"));
-while ($ar_result = $db_list->GetNext()) {
-	if ($ar_result['TYPE'] == 'S') {
+while ($ar_result = $db_list->GetNext()) { 
+	if (($ar_result['TYPE'] == 'S') && ($ar_result['ID'] != WHERE_TO_BUY_INTERNET_SECTION_ID)) {
 		$arResult['CITY_LIST'][$ar_result['ID']] = array(
 			"TITLE" => $ar_result['NAME'],
 			"COORD" => ""
@@ -14,3 +14,7 @@ while ($ar_result = $db_list->GetNext()) {
 	}
 }
 ?>
+<script>
+default_location = <?= WHERE_TO_BUY_DEFAULT?>;
+default_location_name = "<?= WHERE_TO_BUY_DEFAULT_NAME?>";
+</script>
