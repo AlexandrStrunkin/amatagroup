@@ -28,6 +28,10 @@ $(".where_to_buy_toggle_button, .where_to_buy_toggle_list").on("click", function
         $(".where_to_buy_toggle_list").text('Показать магазины в этом городе');
         $(".where_to_buy_toggle_list").css("width", "260");                                                         
     }
-    $(".where_to_buy_table").slideToggle("slow");        
+    $(".where_to_buy_table").each(function(){
+        if(!($(this).hasClass("internet"))) {
+            $(this).slideToggle("slow");
+        }     
+    })
 })
 </script>

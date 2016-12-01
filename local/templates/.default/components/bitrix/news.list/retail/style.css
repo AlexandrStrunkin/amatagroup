@@ -188,6 +188,7 @@ div.news-list img.preview_picture
     width: 280px;  
 }
 
+
 .where_to_buy_table th.where_to_buy_adds { 
     width: 481px;
 }
@@ -198,6 +199,14 @@ div.news-list img.preview_picture
 
 .where_to_buy_table th.where_to_buy_site { 
     width: 210px;     
+}
+
+.where_to_buy_table.internet th.where_to_buy_name { 
+    width: 590px;  
+}
+
+.where_to_buy_table.internet th.where_to_buy_site { 
+    width: 592px;     
 }
 
 .where_to_buy_table th { 
@@ -219,6 +228,10 @@ div.news-list img.preview_picture
     position: relative;
     display: none; 
     margin: 20px 0;
+}
+
+.where_to_buy_table.internet tr {
+    display: block;
 }
 
 .where_to_buy_table tr:hover:before {
@@ -291,6 +304,11 @@ div.news-list img.preview_picture
     position: relative;
 }
 
+.where_to_buy_table.internet td.where_to_buy_name {
+    width: 591px;
+    position: initial;
+}
+
 .where_to_buy_table td.where_to_buy_name:hover {
     color: #82a264; 
 }
@@ -317,16 +335,21 @@ div.news-list img.preview_picture
     font-family: 'MuseoSansCyrl-500';
     font-size: 17px;
     color: #4f4f4f;          
+}    
+
+.where_to_buy_table.internet td.where_to_buy_site {
+    width: 591px;        
 }
 
 .where_to_buy_table td.where_to_buy_site a {
-    text-decoration: underline;  
     color: #333333; 
-    position: relative;         
+    position: relative;
+    border-bottom: 1px solid #cdcdcd;         
 }
 
 .where_to_buy_table td.where_to_buy_site a:hover {
-    color: #82a264;         
+    color: #82a264;
+    border-bottom: 1px solid #d1ddc6;          
 }
 
 .where_to_buy_table td .cell_wrapper, .where_to_buy_table th .cell_wrapper {  
@@ -473,6 +496,17 @@ ul.city_search_datalist li:hover {
     cursor: pointer;         
 }
 
+.innerPageWrapper #contacts {
+    width: 1182px;
+    margin: auto;
+    
+}
+
 #contacts .contactsWindow .btnContainer a {
     background: #82a264 !important;
+}
+
+.infoBlocksMenu {
+    width: 1182px;
+    margin: 0 auto 36px;
 }
