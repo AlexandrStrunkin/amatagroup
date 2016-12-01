@@ -128,9 +128,9 @@
 
 
 
-
+    file_exists($_SERVER['DOCUMENT_ROOT'] . '/local/php_interface/include/.config.php') ? require_once($_SERVER['DOCUMENT_ROOT'] . '/local/php_interface/include/.config.php') : "";
     // файл с кодом для избранного
-    file_exists($_SERVER['DOCUMENT_ROOT'] . '/local/php_interface/favorite/class.php') ? require_once($_SERVER['DOCUMENT_ROOT'] . '/local/php_interface/favorite/class.php') : "";
+    file_exists($_SERVER['DOCUMENT_ROOT'] . '/local/php_interface/favorite/class.php') ? require_once($_SERVER['DOCUMENT_ROOT'] . '/local/php_interface/favorite/class.php') : ""; 
 
     function arshow($array, $adminCheck = false){
         global $USER;

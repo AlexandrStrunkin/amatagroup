@@ -14,3 +14,7 @@ while ($ar_result = $db_list->GetNext()) {
 	}
 }
 ?>
+<script>
+default_location = <?= WHERE_TO_BUY_DEFAULT?>;
+default_location_name = <?= WHERE_TO_BUY_DEFAULT_NAME?>;
+</script>

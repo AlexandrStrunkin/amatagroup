@@ -319,6 +319,16 @@ div.news-list img.preview_picture
     color: #4f4f4f;          
 }
 
+.where_to_buy_table td.where_to_buy_site a {
+    text-decoration: underline;  
+    color: #333333; 
+    position: relative;         
+}
+
+.where_to_buy_table td.where_to_buy_site a:hover {
+    color: #82a264;         
+}
+
 .where_to_buy_table td .cell_wrapper, .where_to_buy_table th .cell_wrapper {  
     padding: 0 18px;         
 }

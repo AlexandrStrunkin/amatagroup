@@ -51,7 +51,11 @@ $this->setFrameMode(true);
         <th class="where_to_buy_site"><div class="cell_wrapper"><?= GetMessage("STORE_SITE") ?></div></th>
     </tr>
     <? foreach($arResult["ITEMS"] as $arItem) { ?>
-        <tr data-city-id="<?= $arItem["IBLOCK_SECTION_ID"]?>" data-coordinates="<?= $arItem['PROPERTIES']['COORDINATES']['VALUE']?>">
+        <?
+        $this->AddEditAction($arItem['ID'], $arItem['EDIT_LINK'], CIBlock::GetArrayByID($arItem["IBLOCK_ID"], "ELEMENT_EDIT"));
+        $this->AddDeleteAction($arItem['ID'], $arItem['DELETE_LINK'], CIBlock::GetArrayByID($arItem["IBLOCK_ID"], "ELEMENT_DELETE"), array("CONFIRM" => GetMessage('CT_BNL_ELEMENT_DELETE_CONFIRM')));
+        ?>
+        <tr data-city-id="<?= $arItem["IBLOCK_SECTION_ID"]?>" data-coordinates="<?= $arItem['PROPERTIES']['COORDINATES']['VALUE']?>" id="<?=$this->GetEditAreaId($arItem['ID']);?>">
             <td class="where_to_buy_name"><div class="cell_wrapper"><?= $arItem["NAME"] ?></div></td>
             <td class="where_to_buy_adds"><div class="cell_wrapper"><?= $arItem["PROPERTIES"]["ADDRESS"]["VALUE"] ?></div></td>
             <td class="where_to_buy_phone"><div class="cell_wrapper"><?= $arItem["PROPERTIES"]["PHONE"]["VALUE"] ?></div></td>
@@ -318,9 +322,9 @@ $this->setFrameMode(true);
 
     //Действия со списком городов в всплывающем окне
     $(document).ready(function(){
-        //По дефолту Москва, нужно переделать       
-        $('.where_to_buy_table tr[data-city-id="1983"]').css("display" , "block");        
-        $(".where_to_buy_current_city").text("Москва");
+        //По дефолту Москва, нужно переделать, переменная в result_modifier       
+        $('.where_to_buy_table tr[data-city-id="' + default_location + '"]').css("display" , "block");        
+        $(".where_to_buy_current_city").text(default_location_name);
         $('.where_to_buy_table tr:first-child').css("display" , "block");
          
         $(document).on("click", "ul.city_column li", function(){            
