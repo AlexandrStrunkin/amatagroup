@@ -38,7 +38,6 @@ $this->setFrameMode(true);
                         </div>
 		                <div class="authorsBlock">
 		                    <p class="reviewsAuthor"><?= $arItem["PROPERTIES"]["AUTHOR"]["VALUE"] ?></p>
-
 		                    <p><?= $arItem["PROPERTIES"]["POSITION"]["VALUE"] ?> <?= $arItem["PROPERTIES"]["COMPANY"]["VALUE"] ?></p>
 		                </div>
                     </div>
