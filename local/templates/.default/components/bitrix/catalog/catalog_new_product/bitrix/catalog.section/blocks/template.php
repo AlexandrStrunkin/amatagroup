@@ -182,7 +182,7 @@
                     </a>
 
                     <div>
-                        <a href="<? echo $arItem['DETAIL_PAGE_URL']; ?>" class="productName"><?=$arItem["NAME"]?></a>
+                        <a href="<? echo $arItem['DETAIL_PAGE_URL']; ?>" data-element-full-name="<?= $arItem["NAME"] ?>" class="productName"><?=$arItem["NAME"]?></a>
 
                         <?if ((!is_array($arItem["OFFERS"]) || count($arItem["OFFERS"]) <= 0) && $arItem["MIN_PRICE_TMP"]) {?>
                             <div id="<? echo $arItemIDs['BASKET_ACTIONS']; ?>" <?if ($arItem['IN_BASKET'] == "Y"){?>title="<?=GetMessage("PRODUCT_ALREADY_IN_BASKET")?>"<?}?>  class="bx_catalog_item_controls_blocktwo productBasketBlock changingBasket <?if ($arItem['IN_BASKET'] == "Y"){?> active<?}?>">
