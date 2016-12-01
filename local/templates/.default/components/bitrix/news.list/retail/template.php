@@ -13,8 +13,8 @@
 $this->setFrameMode(true);
 ?>
 <div class="infoBlocksMenu">
-    <a href="#stores" class="activeInfoBlock">Магазины</a>
-    <a href="#internet" class="">Интернет-магазины</a>
+    <a href="#stores" class="activeInfoBlock"><?= GetMessage("STORES") ?></a>
+    <a href="#internet" class=""><?= GetMessage("INTERNET_SHOPS") ?></a>
 </div>
 
 <div class="infoBlocksContent" id="stores" style="display: block">

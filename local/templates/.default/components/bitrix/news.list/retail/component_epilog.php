@@ -1,3 +1,6 @@
+<?if(!defined("B_PROLOG_INCLUDED") || B_PROLOG_INCLUDED!==true)die();?>
+<?= GetMessage("HIDE_STORES")?>
+<?= GetMessage("SHOW_STORES")?>
 <script>
 //Открытие всплывающего окна
 $(".where_to_buy_button_city, .where_to_buy_current_city").on("click", function(){
@@ -21,12 +24,12 @@ $(".close_where_to_buy_popup").on("click", function(){
 $(".where_to_buy_toggle_button, .where_to_buy_toggle_list").on("click", function(){
     if ($(".where_to_buy_toggle_button").hasClass('reverted')) {
         $(".where_to_buy_toggle_button").removeClass('reverted');
-        $(".where_to_buy_toggle_list").text('Свернуть все');
-        $(".where_to_buy_toggle_list").css("width", "160");          
+        $(".where_to_buy_toggle_list").text('<?= GetMessage("HIDE_STORES")?>');
+        $(".where_to_buy_toggle_list").css("width", "160px");          
     }  else {
         $(".where_to_buy_toggle_button").addClass('reverted');
-        $(".where_to_buy_toggle_list").text('Показать магазины в этом городе');
-        $(".where_to_buy_toggle_list").css("width", "260");                                                         
+        $(".where_to_buy_toggle_list").text('<?= GetMessage("SHOW_STORES")?>');
+        $(".where_to_buy_toggle_list").css("width", "260px");                                                         
     }
     $(".where_to_buy_table").each(function(){
         if(!($(this).hasClass("internet"))) {
