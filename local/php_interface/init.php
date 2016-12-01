@@ -984,19 +984,19 @@
             //если у пользователя есть email и код цены
             $user_email = $partners_data[$partner]["UF_ELEKTRONNAYAPOCHT"];
             if (!empty($user_email) && !empty($price_code)) {
-                
+
                 //находим пользователя по email
                 $ar_user = CUser::GetList($by = "ID", $sort = "ASC", array("EMAIL" => trim($user_email)))->Fetch();  
                 if (!empty($ar_user["ID"]) && intval($ar_user["ID"]) > 0) {   
-                    
+
                     //получаем группы пользователя
                     $user_groups = CUser::GetUserGroup(intval($ar_user["ID"]));
 
                     $new_group = CGroup::GetList( $by = "ID", $sort = "asc", array("STRING_ID" => trim($price_code)))->Fetch();
-                    
+
                     //если пользователь еще не принадлежит к группе, в которую его нужно добавить
                     if (!in_array($new_group["ID"], $user_groups) && intval($new_group["ID"]) > 0) {            
-                        
+
                         //перебираем текущие группы пользователей, убираем текущую ценовую группу и добавляем новую, которая пришла из выгрузки
                         foreach ($user_groups as $i => $group_id) {
                             if (in_array($group_id, $available_groups_id)) {
@@ -1019,22 +1019,22 @@
         }
 
     }
-    
-    
-   /***
-   * 
-   * обновление значения свойства "Вид товара" для конкретного товара (с символьным кодом VIDTOVARA)
-   * после изменения данного товара
-   *
-   * var @int $prop_enum_xml_id - XML_ID варианта свойства, содержащего в символьном коде "TIP_TOVARA"
-   * var @int $main_prop_variant_id - ID варианта свойства "VIDTOVARA", которое надо присвоить данному товару, исходя из значения $prop_enum_xml_id  
-   * 
-   */
-   AddEventHandler("iblock", "OnAfterIBlockElementUpdate", "updatingItemType");
-   
-   function updatingItemType(&$arFields) {
-       if ($arFields["IBLOCK_ID"] == CATALOG_IBLOCK_ID) {
-           // добавляем в массив фильтрации все свойства, отвечающие за тип товара (TIP_TOVARA и от TIP_TOVARA_1 до TIP_TOVARA_41)
+
+
+    /***
+    * 
+    * обновление значения свойства "Вид товара" для конкретного товара (с символьным кодом VIDTOVARA)
+    * после изменения данного товара
+    *
+    * var @int $prop_enum_xml_id - XML_ID варианта свойства, содержащего в символьном коде "TIP_TOVARA"
+    * var @int $main_prop_variant_id - ID варианта свойства "VIDTOVARA", которое надо присвоить данному товару, исходя из значения $prop_enum_xml_id  
+    * 
+    */
+    AddEventHandler("iblock", "OnAfterIBlockElementUpdate", "updatingItemType");
+
+    function updatingItemType(&$arFields) {
+        if ($arFields["IBLOCK_ID"] == CATALOG_IBLOCK_ID) {
+            // добавляем в массив фильтрации все свойства, отвечающие за тип товара (TIP_TOVARA и от TIP_TOVARA_1 до TIP_TOVARA_41)
             for ($i = 0; $i <= 41; $i++) {
                 $arSelect = array("ID", "NAME");
                 $prop_id = "PROPERTY_TIP_TOVARA";
@@ -1065,54 +1065,92 @@
                     }
                 }
             }    
-       }
-   }
-   
-   /***
-   * 
-   * обновление набора значений свойства "Вид товара" (с символьным кодом VIDTOVARA)
-   * после изменения одного из свойств, содержащих в символьном коде TIP_TOVARA
-   *
-   * var @int $props - массив с информацией о наборе значений изменяемого свойства
-   * var @int $variants_list - массив с информацией о наборе значений свойства VIDTOVARA
-   *  
-   */
-   
-   AddEventHandler("iblock", "OnAfterIBlockPropertyUpdate", "updatingItemsTypesAfterUpdatingProps");
-   
-   function updatingItemsTypesAfterUpdatingProps (&$arFields) {
-       if ($arFields["IBLOCK_ID"] == CATALOG_IBLOCK_ID && strstr($arFields["CODE"], "TIP_TOVARA")) {
-           $props = array();
-           $prop = CIBlockProperty::GetPropertyEnum($arFields["CODE"], array("ID" => "ASC"), Array("IBLOCK_ID" => CATALOG_IBLOCK_ID));
-           while ($arProp = $prop->Fetch()) {
-               $props[$arProp["XML_ID"]]["ID"] = $arProp["ID"];
-               $props[$arProp["XML_ID"]]["VALUE"] = $arProp["VALUE"];
-               $props[$arProp["XML_ID"]]["DEF"] = $arProp["DEF"];
-               $props[$arProp["XML_ID"]]["SORT"] = $arProp["SORT"];
-               $props[$arProp["XML_ID"]]["XML_ID"] = $arProp["XML_ID"];
-               $props[$arProp["XML_ID"]]["EXTERNAL_ID"] = $arProp["EXTERNAL_ID"];
-           }
-           $variants_list = CIBlockProperty::GetPropertyEnum("VIDTOVARA", array(), array("IBLOCK_ID" => CATALOG_IBLOCK_ID));
-           while ($variants = $variants_list -> Fetch()) {
-               $xml_IDs[] = $variants["XML_ID"];
-           }
-           // если XML_ID варианта изменяемого свойства не содержится в массиве из XML_ID вариантов свойства "Вид товара" -
-           // добавляем новый вариант значения свойства "Вид товара"
-           foreach ($props as $xml_id_key => $props_val) {
-               if (!in_array($xml_id_key, $xml_IDs)) {
-                   CIBlockPropertyEnum::Add(
-                       array(
-                           "PROPERTY_ID" => ITEM_TYPE_PROPERTY_ID,
-                           "VALUE" => $props_val["VALUE"],
-                           "DEF" => $props_val["DEF"],
-                           "SORT" => $props_val["SORT"],
-                           "XML_ID" => $props_val["XML_ID"],
-                           "EXTERNAL_ID" => $props_val["EXTERNAL_ID"]
-                       )
-                   );
+        }
+    }
 
-               }    
-           }     
-       }
-   }
-?>
+    /***
+    * 
+    * обновление набора значений свойства "Вид товара" (с символьным кодом VIDTOVARA)
+    * после изменения одного из свойств, содержащих в символьном коде TIP_TOVARA
+    *
+    * var @int $props - массив с информацией о наборе значений изменяемого свойства
+    * var @int $variants_list - массив с информацией о наборе значений свойства VIDTOVARA
+    *  
+    */
+
+    AddEventHandler("iblock", "OnAfterIBlockPropertyUpdate", "updatingItemsTypesAfterUpdatingProps");
+
+    function updatingItemsTypesAfterUpdatingProps (&$arFields) {
+        if ($arFields["IBLOCK_ID"] == CATALOG_IBLOCK_ID && strstr($arFields["CODE"], "TIP_TOVARA")) {
+            $props = array();
+            $prop = CIBlockProperty::GetPropertyEnum($arFields["CODE"], array("ID" => "ASC"), Array("IBLOCK_ID" => CATALOG_IBLOCK_ID));
+            while ($arProp = $prop->Fetch()) {
+                $props[$arProp["XML_ID"]]["ID"] = $arProp["ID"];
+                $props[$arProp["XML_ID"]]["VALUE"] = $arProp["VALUE"];
+                $props[$arProp["XML_ID"]]["DEF"] = $arProp["DEF"];
+                $props[$arProp["XML_ID"]]["SORT"] = $arProp["SORT"];
+                $props[$arProp["XML_ID"]]["XML_ID"] = $arProp["XML_ID"];
+                $props[$arProp["XML_ID"]]["EXTERNAL_ID"] = $arProp["EXTERNAL_ID"];
+            }
+            $variants_list = CIBlockProperty::GetPropertyEnum("VIDTOVARA", array(), array("IBLOCK_ID" => CATALOG_IBLOCK_ID));
+            while ($variants = $variants_list -> Fetch()) {
+                $xml_IDs[] = $variants["XML_ID"];
+            }
+            // если XML_ID варианта изменяемого свойства не содержится в массиве из XML_ID вариантов свойства "Вид товара" -
+            // добавляем новый вариант значения свойства "Вид товара"
+            foreach ($props as $xml_id_key => $props_val) {
+                if (!in_array($xml_id_key, $xml_IDs)) {
+                    CIBlockPropertyEnum::Add(
+                        array(
+                            "PROPERTY_ID" => ITEM_TYPE_PROPERTY_ID,
+                            "VALUE" => $props_val["VALUE"],
+                            "DEF" => $props_val["DEF"],
+                            "SORT" => $props_val["SORT"],
+                            "XML_ID" => $props_val["XML_ID"],
+                            "EXTERNAL_ID" => $props_val["EXTERNAL_ID"]
+                        )
+                    );
+
+                }    
+            }     
+        }
+    }
+
+    /**
+    * функция для получения списка ID сопутствущих товаров для текущего раздела
+    * 
+    * var @int $section_id - ID раздела, для которого ищем сопутствующие товары
+    */
+    function getAdditionalProducts($section_id) {
+        $section_id = intval($section_id);
+
+        if (empty($section_id)) {
+            return false;
+        }    
+
+        $result = array();
+
+        $section = CIBlockSection::GetList(array(), array("ID" => $section_id, "IBLOCK_ID" => CATALOG_IBLOCK_ID), false, array("UF_*"))->Fetch();
+        //если у текущего раздела не заполнено поле "сопутствующие товары", проверяем его родителя
+        if (empty($section["UF_ADD_PRODUCTS"]) && intval($section["IBLOCK_SECTION_ID"]) > 0) {
+            $result = getAdditionalProducts($section["IBLOCK_SECTION_ID"]);    
+            //если у текущего раздела не заполнено поле "сопутствующие товары", и нет родительского раздела    
+        } else if (empty($section["UF_ADD_PRODUCTS"]) && empty($section["IBLOCK_SECTION_ID"])) {
+            $result = false;    
+            //если данные есть, получаем элементы    
+        } else {
+            $additional_sections = $section["UF_ADD_PRODUCTS"]; 
+            //собираем ID товаров из полученных разделов
+            $items = CIBlockElement::GetList(array("ID" => "ASC"), array("SECTION_ID" => $additional_sections, "ACTIVE" => "Y", "CATALOG_AVAILABLE" => "Y"), false, array(), array("ID"));
+            if ($items->SelectedRowsCount() > 0) {
+                while($ar_item = $items->Fetch()) {
+                    $result[] = $ar_item["ID"];    
+                }
+            } else {
+                $result = false;
+            }
+        } 
+
+        return $result; 
+    }
+
