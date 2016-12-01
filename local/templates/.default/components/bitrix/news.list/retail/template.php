@@ -345,15 +345,11 @@ $this->setFrameMode(true);
 
     //Действия со списком городов в всплывающем окне
     $(document).ready(function(){
-        //По дефолту Москва, нужно переделать, переменная в result_modifier 
-              
+        //По дефолту Москва, нужно переделать, переменная в result_modifier
         $('.where_to_buy_table tr[data-city-id="' + default_location + '"]').css("display" , "block");
         $(".where_to_buy_current_city").text(default_location_name);
         $('.where_to_buy_table tr:first-child').css("display" , "block");
-                 
-        console.log(default_center_coordinates);
-        console.log(default_center_coordinates[0]);
-        console.log(default_center_coordinates[1]);
+        
         //Обработка клика по городу в списке 
         $(document).on("click", "ul.city_column li", function(){            
             var city_id = $(this).attr("data-city-id");
