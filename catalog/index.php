@@ -937,7 +937,7 @@
 		"GIFTS_MAIN_PRODUCT_DETAIL_HIDE_BLOCK_TITLE" => "N",
 		"GIFTS_MAIN_PRODUCT_DETAIL_BLOCK_TITLE" => "¬ыберите один из товаров, чтобы получить подарок",
 		"SEF_URL_TEMPLATES" => array(
-			"sections" => "",
+			"sections" => "filter/#SMART_FILTER_PATH#/apply/",
 			"section" => "#SECTION_CODE_PATH#/",
 			"element" => "#ELEMENT_CODE#/",
 			"compare" => "compare/",

@@ -32,15 +32,15 @@ $arUrlRewrite = array(
 		"CONDITION" => "#^/personal/order/#",
 		"RULE" => "",
 		"ID" => "bitrix:sale.personal.order",
-		"PATH" => "/personal/index.php",
-		"SORT" => "7",
+		"PATH" => "/personal/order/index.php",
+		"SORT" => "8",
 	),
 	array(
 		"CONDITION" => "#^/personal/order/#",
 		"RULE" => "",
 		"ID" => "bitrix:sale.personal.order",
-		"PATH" => "/personal/order/index.php",
-		"SORT" => "8",
+		"PATH" => "/personal/index.php",
+		"SORT" => "7",
 	),
 	array(
 		"CONDITION" => "#^/new-products/#",
@@ -50,17 +50,17 @@ $arUrlRewrite = array(
 		"SORT" => "9",
 	),
 	array(
-		"CONDITION" => "#^/catalog/#",
-		"RULE" => "",
-		"ID" => "bitrix:catalog",
-		"PATH" => "/catalog/index.php",
-	),      
-	array(
 		"CONDITION" => "#^/content/#",
 		"RULE" => "",
 		"ID" => "bitrix:news",
 		"PATH" => "/content/index.php",
 		"SORT" => "100",
+	),
+	array(
+		"CONDITION" => "#^/catalog/#",
+		"RULE" => "",
+		"ID" => "bitrix:catalog",
+		"PATH" => "/catalog/index.php",
 	),
 	array(
 		"CONDITION" => "#^/brands/#",
@@ -89,7 +89,7 @@ $arUrlRewrite = array(
 		"ID" => "bitrix:news",
 		"PATH" => "/news/index.php",
 		"SORT" => "16",
-	),
+	),   	
 );
 
 ?>
