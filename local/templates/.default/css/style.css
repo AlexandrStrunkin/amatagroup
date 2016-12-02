@@ -9451,3 +9451,14 @@ IE10 and IE11
 }
 
 }
+
+
+.filter_view_all_products { 
+    font-family: "MuseoSansCyrl-500";
+    font-size: 16px;
+    padding: 15px 0;    
+}
+
+.filter_view_all_products a {
+    color: #5db3dc;
+}
