@@ -14,14 +14,11 @@
     use Bitrix\Main\ModuleManager;
 
     $this->setFrameMode(true);
-    //$this->addExternalCss("/bitrix/css/main/bootstrap.css");
+    //$this->addExternalCss("/bitrix/css/main/bootstrap.css");   
 
-    if (!isset($arParams['FILTER_VIEW_MODE']) || (string)$arParams['FILTER_VIEW_MODE'] == '')
-        $arParams['FILTER_VIEW_MODE'] = 'VERTICAL';
+
     $arParams['USE_FILTER'] = (isset($arParams['USE_FILTER']) && $arParams['USE_FILTER'] == 'Y' ? 'Y' : 'N');
 
-    $isVerticalFilter = ('Y' == $arParams['USE_FILTER'] && $arParams["FILTER_VIEW_MODE"] == "VERTICAL");
-    $isSidebar = ($arParams["SIDEBAR_SECTION_SHOW"] == "Y" && isset($arParams["SIDEBAR_PATH"]) && !empty($arParams["SIDEBAR_PATH"]));
     $isFilter = ($arParams['USE_FILTER'] == 'Y');
 
     if ($isFilter)
@@ -223,7 +220,7 @@
                                 //если нашли название бренда и в данный момент мы не в корне каталога
                                 if ($brand["VALUE"] && $arCurSection['ID'] > 0) {?>
                                 <div class="filter_view_all_products">
-                                    <a href="/catalog/filter/<?=$url_param?>/">Смотреть все товары бренда <?=$brand["VALUE"]?></a>
+                                    <a href="/catalog/filter/<?=$url_param?>/apply/"><?=GetMessage("SHOW_ALL_PRODUCTS_BY_BRAND")?> <?=$brand["VALUE"]?></a>
                                 </div>    
                                 <?}
                             }
