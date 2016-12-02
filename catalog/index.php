@@ -941,7 +941,7 @@
             "section" => "#SECTION_CODE_PATH#/",
             "element" => "#ELEMENT_CODE#/",
             "compare" => "compare/",
-            "smart_filter" => "#SECTION_CODE_PATH#/filter/#SMART_FILTER_PATH#/",
+            "smart_filter" => "#SECTION_CODE_PATH#/filter/#SMART_FILTER_PATH#/apply/",
         )
     ),
     false

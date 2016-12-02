@@ -9456,7 +9456,8 @@ IE10 and IE11
 .filter_view_all_products { 
     font-family: "MuseoSansCyrl-500";
     font-size: 16px;
-    padding: 15px 0;    
+    overflow: hidden;
+    padding: 0 0 15px;    
 }
 
 .filter_view_all_products a {
