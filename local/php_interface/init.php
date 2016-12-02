@@ -134,6 +134,9 @@
 
     define("IMAGE_AVATAR_WIDTH", 40); // размер аватарок в отзывах
     define("IMAGE_AVATAR_HEIGHT", 40); // размер аватарок в отзывах
+    
+    define("MAIL_THUMBNAIL_WIDTH", 55); // размер картинки товара в письме
+    define("MAIL_THUMBNAIL_HEIGHT", 55); // размер картинки товара в письме
 
     define("IMAGE_AVATAR_WIDTH", 40); // размер аватарок в отзывах
     define("IMAGE_AVATAR_HEIGHT", 40); // размер аватарок в отзывах        
@@ -152,7 +155,10 @@
 
     file_exists($_SERVER['DOCUMENT_ROOT'] . '/local/php_interface/include/.config.php') ? require_once($_SERVER['DOCUMENT_ROOT'] . '/local/php_interface/include/.config.php') : "";
     // файл с кодом для избранного
-    file_exists($_SERVER['DOCUMENT_ROOT'] . '/local/php_interface/favorite/class.php') ? require_once($_SERVER['DOCUMENT_ROOT'] . '/local/php_interface/favorite/class.php') : ""; 
+    file_exists($_SERVER['DOCUMENT_ROOT'] . '/local/php_interface/favorite/class.php') ? require_once($_SERVER['DOCUMENT_ROOT'] . '/local/php_interface/favorite/class.php') : "";
+	// файл с классом извлечения данных заказа
+    file_exists($_SERVER['DOCUMENT_ROOT'] . '/local/php_interface/include/mailOrder.php') ? require_once($_SERVER['DOCUMENT_ROOT'] . '/local/php_interface/include/mailOrder.php') : "";
+
 
     function arshow($array, $adminCheck = false){
         global $USER;
@@ -721,17 +727,49 @@
         }
     }
 
-
-    //Заменяет символ валюты в письме заказа
+    // Заменяет символ валюты в письме заказа
     AddEventHandler('sale', 'OnOrderNewSendEmail', "currencyTypeReplacement");
+	// Полная пересборка письма о новом заказе
+	AddEventHandler('sale', 'OnOrderNewSendEmail', "newOrderMailRebuild");
 
-    function currencyTypeReplacement($ID, &$eventName, &$arFields) {
+	function currencyTypeReplacement($ID, &$eventName, &$arFields) {
+		$arFields["PRICE"] = preg_replace('~<span class="rub">c</span>~', 'Р', $arFields["PRICE"]);
+		$arFields["ORDER_LIST"] = preg_replace('~<span class="rub">c</span>~', 'Р', $arFields["ORDER_LIST"]);
 
-        $arFields["PRICE"] = preg_replace('~<span class="rub">c</span>~', 'Р', $arFields["PRICE"]);
-        $arFields["ORDER_LIST"] = preg_replace('~<span class="rub">c</span>~', 'Р', $arFields["ORDER_LIST"]);
+		return $arFields;
+	}
 
-        return $arFields;
-    }
+	function newOrderMailRebuild($ID, &$eventName, &$arFields) {
+   		// получаем данные заказа
+		$order_data = OrderMail::GetOrderInfo($arFields['ORDER_ID']);
+		// забиваем макросы
+		$arFields["ORDER_STATUS"] = $order_data['status'];
+		$arFields["DELIVERY_TYPE"] = $order_data['delivery_type'];
+		$arFields["DELIVERY_ADDRESS"] = $order_data['address'];
+		$arFields["PAYMENT_TYPE"] = $order_data['payment_system'];
+		$arFields["COMMENT"] = $order_data['user_comment'];
+		// из компонентов заказа формируем верстку
+		$items = $order_data['items_in_order'];
+		
+		foreach ($items as $item_id => $item_fields) {
+			$arFields["ITEMS_IN_ORDER"] .= str_replace(
+				OrderMail::$items_in_order_template_macroses,
+				array(
+					"http://" . $_SERVER['SERVER_NAME'] . $item_fields['detail_url'],
+					"http://" . $_SERVER['SERVER_NAME'] . $item_fields['picture'],
+					$item_fields['item_name'],
+					$item_fields['article'],
+					$item_fields['price'],
+					(int)$item_fields['quantity'],
+					round($item_fields['quantity'] * $item_fields['price'], 2),
+					$item_fields['offer']
+				),
+				OrderMail::$items_in_order_template
+			);
+		}
+
+		return $arFields;
+	}
 
     /**
     * Функция возвращает окончание для множественного числа слова на основании числа и массива окончаний
