@@ -112,7 +112,8 @@
                         "SMART_FILTER_PATH" => $exploded_page[3],
                         "PAGER_PARAMS_NAME" => $arParams["PAGER_PARAMS_NAME"],
                         "INSTANT_RELOAD" => $arParams["INSTANT_RELOAD"],
-                        "SHOW_ALL_WO_SECTION" => "Y"
+                        "SHOW_ALL_WO_SECTION" => "Y",
+                        "POPUP_POSITION" => "right"
                     ),
                     $component,
                     array('HIDE_ICONS' => 'Y')
