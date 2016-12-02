@@ -32,15 +32,15 @@ $arUrlRewrite = array(
 		"CONDITION" => "#^/personal/order/#",
 		"RULE" => "",
 		"ID" => "bitrix:sale.personal.order",
-		"PATH" => "/personal/index.php",
-		"SORT" => "7",
+		"PATH" => "/personal/order/index.php",
+		"SORT" => "8",
 	),
 	array(
 		"CONDITION" => "#^/personal/order/#",
 		"RULE" => "",
 		"ID" => "bitrix:sale.personal.order",
-		"PATH" => "/personal/order/index.php",
-		"SORT" => "8",
+		"PATH" => "/personal/index.php",
+		"SORT" => "7",
 	),
 	array(
 		"CONDITION" => "#^/new-products/#",
@@ -48,27 +48,6 @@ $arUrlRewrite = array(
 		"ID" => "bitrix:news",
 		"PATH" => "/new-products/index.php",
 		"SORT" => "9",
-	),
-	array(
-		"CONDITION" => "#^/promo/#",
-		"RULE" => "",
-		"ID" => "bitrix:news",
-		"PATH" => "/promo/index.php",
-		"SORT" => "14",
-	),
-	array(
-		"CONDITION" => "#^/store/#",
-		"RULE" => "",
-		"ID" => "bitrix:catalog.store",
-		"PATH" => "/store/index.php",
-		"SORT" => "15",
-	),
-	array(
-		"CONDITION" => "#^/news/#",
-		"RULE" => "",
-		"ID" => "bitrix:news",
-		"PATH" => "/news/index.php",
-		"SORT" => "16",
 	),
 	array(
 		"CONDITION" => "#^/catalog/#",
@@ -91,5 +70,39 @@ $arUrlRewrite = array(
 		"PATH" => "/brands/index.php",
 		"SORT" => "100",
 	),
+	array(
+		"CONDITION" => "#^\\??(.*)#",
+		"RULE" => "&\$1",
+		"ID" => "bitrix:catalog.top",
+		"PATH" => "/local/templates/amatagroup_index/header.php",
+	),
+	array(
+		"CONDITION" => "#^/promo/#",
+		"RULE" => "",
+		"ID" => "bitrix:news",
+		"PATH" => "/promo/index.php",
+		"SORT" => "14",
+	),
+	array(
+		"CONDITION" => "#^/store/#",
+		"RULE" => "",
+		"ID" => "bitrix:catalog.store",
+		"PATH" => "/store/index.php",
+		"SORT" => "15",
+	),
+	array(
+		"CONDITION" => "#^\\??(.*)#",
+		"RULE" => "&\$1",
+		"ID" => "bitrix:catalog.section",
+		"PATH" => "/local/templates/amatagroup_index/header.php",
+	),
+	array(
+		"CONDITION" => "#^/news/#",
+		"RULE" => "",
+		"ID" => "bitrix:news",
+		"PATH" => "/news/index.php",
+		"SORT" => "16",
+	),
 );
+
 ?>
