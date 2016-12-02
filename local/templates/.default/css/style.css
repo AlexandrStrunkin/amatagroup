@@ -952,6 +952,7 @@ margin: 0;
     display: block;
     text-align: center;
     cursor: pointer;
+    background-color: white;
 }
 
 .whileWeWrapper {
