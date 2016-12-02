@@ -28,7 +28,6 @@
     $APPLICATION->AddHeadScript(DEFAULT_TEMPLATE_PATH."js/main.js");
     $APPLICATION->AddHeadScript(DEFAULT_TEMPLATE_PATH."js/shave.js");
     $APPLICATION->AddHeadScript(DEFAULT_TEMPLATE_PATH."js/inputMask.js");
-
 ?>
 
 

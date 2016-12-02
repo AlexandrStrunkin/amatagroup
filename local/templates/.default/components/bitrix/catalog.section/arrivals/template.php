@@ -522,7 +522,7 @@
             <?
             }
         }
-        ?>
+        ?>   
         <a class="transition_section" href="<?=$arParams["SECTION_URL"]?>"><?=GetMessage('FRESH_ALL')?></a>
     </ul>
     <!--END elmentsList-->

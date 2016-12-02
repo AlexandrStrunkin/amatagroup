@@ -970,29 +970,29 @@ $(document).ready(function () {
         second.show();
         second.parent('li').addClass('activeFirstLclLi');
     });
-    
+
     //Всплывающее окно у отзывов
-    
-    $('.productCarousel .jcarousel li .reviesElement').on("click", function() { 
+
+    $('.productCarousel .jcarousel li .reviesElement').on("click", function() {
         var screen_height = $(window).height(),
             reviews_popup_block = $(this).next('.reviewsPopup'),
             block_height = reviews_popup_block.height(),
-            block_position = screen_height/2 - block_height/2; 
+            block_position = screen_height/2 - block_height/2;
         reviews_popup_block.css('top', block_position + 'px').show();
         $('.overflowMask').addClass('reviewsOverflow').show();
-    })    
-       
-    $('.overflowMask, .closeReviewsPopup').on("click", function() {
-        if($('.overflowMask').hasClass('reviewsOverflow')) { 
-            $('.reviewsPopup').hide(); 
-            $('.overflowMask').removeClass('reviewsOverflow').hide();
-        }   
     })
-    
-    //Дописываем символы в конец строки 
+
+    $('.overflowMask, .closeReviewsPopup').on("click", function() {
+        if($('.overflowMask').hasClass('reviewsOverflow')) {
+            $('.reviewsPopup').hide();
+            $('.overflowMask').removeClass('reviewsOverflow').hide();
+        }
+    })
+
+    //Дописываем символы в конец строки
     $('.productCarousel').ready(function() {
         $(".reviesElement .reviewsText").shave(132, {character: ' >>>'});
-    }) 
+    })
 
     /********************************/
     //КАТАЛОГ
@@ -1830,7 +1830,7 @@ $(function() {
             //провека совпадения паролей
             var pas1 = $("#reg_input_PASSWORD").val();
             var pas2 = $("#reg_input_CONFIRM_PASSWORD").val();
-            if(pas1 == '' || pas1 != pas2) {
+            if(pas1 == '' || pas1 != pas2 || pas1.length < 6 ) {
                 error = 3;
                 $("#reg_input_PASSWORD").addClass('input_error');// устанавливаем рамку красного цвета
                 $("#reg_input_CONFIRM_PASSWORD").addClass('input_error');// устанавливаем рамку красного цвета

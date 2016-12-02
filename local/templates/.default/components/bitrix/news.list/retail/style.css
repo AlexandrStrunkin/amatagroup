@@ -85,3 +85,428 @@ div.news-list img.preview_picture
 .retail_select .selectric-scroll li:first-child {
 	display: none;
 }
+
+.where_to_buy_change_city {
+    width: 1182px;
+    margin: auto;  
+    margin-bottom: 40px; 
+}
+
+.where_to_buy_city {
+    display:inline-block; 
+    font-family: 'MuseoSansCyrl-700';
+    font-size: 22px;
+    color: #323232;   
+}
+
+.where_to_buy_current_city {
+    display:inline-block; 
+    font-family: 'MuseoSansCyrl-700';
+    font-size: 22px;    
+    color: #82a264; 
+    cursor: pointer;    
+}   
+
+.where_to_buy_button_city {
+    display:inline-block; 
+    width: 9px;
+    height: 9px;
+    margin-left: 12px;  
+    background: url(/local/templates/.default/img/where_to_buy_button_city.png) no-repeat;
+    cursor: pointer;
+}
+
+.where_to_buy_toggle_list { 
+    float: right;
+    height: 40px;
+    width: 160px;
+    display: inline-block;
+    font-family: 'MuseoSansCyrl-500';
+    font-size: 14px;
+    color: #89c178;
+    border: 1px solid #89c178;
+    border-top-left-radius: 4px; 
+    border-bottom-left-radius: 4px; 
+    padding: inherit;
+    margin-top: -8px;
+    text-align: center;
+    line-height: 40px; 
+    cursor: pointer;    
+}
+
+.where_to_buy_toggle_button { 
+    float: right;
+    height: 40px;
+    width: 40px;
+    display: inline-block; 
+    color: #89c178;
+    border: 1px solid #89c178;
+    border-left: none;
+    border-top-right-radius: 4px; 
+    border-bottom-right-radius: 4px; 
+    padding: inherit;
+    margin-top: -8px;
+    text-align: center; 
+    cursor: pointer;
+    background: url(/local/templates/.default/img/where_to_buy_toggle_button.png) no-repeat center center;  
+}
+
+.where_to_buy_toggle_button.reverted {
+    background: url(/local/templates/.default/img/where_to_buy_toggle_button_reverted.png) no-repeat center center;  
+}
+
+.where_to_buy_table {
+   border-collapse: separate;   
+   margin: 0px auto 0px; 
+   width: 1182px;
+   border-spacing: 0px;              
+}
+
+
+.where_to_buy_table tr td {
+    border: 1px solid #d9d9d9;
+    border-left: none; 
+    height: 98px;   
+    table-layout:fixed;
+    width:1182px;
+    overflow:hidden;
+    word-wrap:break-word; 
+}
+
+.where_to_buy_table th{
+    text-align: left;
+    height: 50px;
+    font-family: 'MuseoSansCyrl-700';
+    font-size: 14px;
+    font-weight: normal;
+    color: #4f4f4f;
+    background: #f2f2f2;
+    position: relative; 
+}
+
+.where_to_buy_table th.where_to_buy_name { 
+    width: 280px;  
+}
+
+
+.where_to_buy_table th.where_to_buy_adds { 
+    width: 481px;
+}
+
+.where_to_buy_table th.where_to_buy_phone { 
+    width: 210px;                      
+}
+
+.where_to_buy_table th.where_to_buy_site { 
+    width: 210px;     
+}
+
+.where_to_buy_table.internet th.where_to_buy_name { 
+    width: 590px;  
+}
+
+.where_to_buy_table.internet th.where_to_buy_site { 
+    width: 592px;     
+}
+
+.where_to_buy_table th { 
+    text-align:center;     
+}
+ 
+ 
+.where_to_buy_table tr:first-child { 
+    margin: 0px 0 30px 0;    
+}
+
+.where_to_buy_table tr:first-child:hover:before {
+    position: absolute;
+    display: none;
+    
+}
+
+.where_to_buy_table tr {
+    position: relative;
+    display: none; 
+    margin: 20px 0;
+}
+
+.where_to_buy_table.internet tr {
+    display: block;
+}
+
+.where_to_buy_table tr:hover:before {
+    content: "";
+    position: absolute;
+    width: 1179px;
+    height: 97px;
+    right: 0px;
+    top: 0px;
+    border: 2px solid #a3cc7d;
+    border-radius: 4px;
+    -webkit-box-shadow: 0px 1px 50px 0px rgba(130, 162, 100, 0.07);
+    -moz-box-shadow:    0px 1px 50px 0px rgba(130, 162, 100, 0.07);
+    box-shadow:         0px 1px 50px 0px rgba(130, 162, 100, 0.07);
+}
+
+.where_to_buy_table th:hover:before {
+
+}
+ 
+.where_to_buy_table th:before{
+    content: "";
+    position: absolute;
+    width: 1px;
+    background: #d8d8d8;
+    height: 40px;
+    right: 0px;
+    top: 5px; 
+}
+
+.where_to_buy_table th:first-child {
+    border-top-left-radius:4px;
+    border-bottom-left-radius:4px;         
+}
+
+.where_to_buy_table th:last-child { 
+    border-top-right-radius:4px;
+    border-bottom-right-radius:4px;      
+}
+
+.where_to_buy_table th:last-child:before{
+    width: 0px; 
+}
+
+.where_to_buy_table td:first-child {
+    border: 1px solid #d9d9d9;
+    border-top-left-radius:4px;
+    border-bottom-left-radius:4px;         
+}
+
+.where_to_buy_table tr:hover td:first-child {
+    border: 1px solid transparent;    
+    border-right: 1px solid #d9d9d9;    
+}
+
+.where_to_buy_table td:last-child {
+    border: 1px solid #d9d9d9;
+    border-left: none;
+    border-top-right-radius:4px;
+    border-bottom-right-radius:4px;      
+}
+
+.where_to_buy_table td.where_to_buy_name {
+    width: 278px;
+    text-align: left;
+    font-family: 'MuseoSansCyrl-700';
+    font-size: 17px;
+    color: #333333; 
+    cursor: pointer;
+    position: relative;
+}
+
+.where_to_buy_table.internet td.where_to_buy_name {
+    width: 591px;
+    position: initial;
+}
+
+.where_to_buy_table td.where_to_buy_name:hover {
+    color: #82a264; 
+}
+
+.where_to_buy_table td.where_to_buy_adds {   
+    width: 480px;
+    text-align: left;
+    font-family: 'MuseoSansCyrl-500';
+    font-size: 17px;
+    color: #4f4f4f;   
+}
+
+.where_to_buy_table td.where_to_buy_phone {
+    width: 209px;
+    text-align: center;
+    font-family: 'MuseoSansCyrl-500';
+    font-size: 17px;
+    color: #4f4f4f;                       
+}
+
+.where_to_buy_table td.where_to_buy_site {  
+    width: 209px;
+    text-align: center; 
+    font-family: 'MuseoSansCyrl-500';
+    font-size: 17px;
+    color: #4f4f4f;          
+}    
+
+.where_to_buy_table.internet td.where_to_buy_site {
+    width: 591px;        
+}
+
+.where_to_buy_table td.where_to_buy_site a {
+    color: #333333; 
+    position: relative;
+    border-bottom: 1px solid #cdcdcd;         
+}
+
+.where_to_buy_table td.where_to_buy_site a:hover {
+    color: #82a264;
+    border-bottom: 1px solid #d1ddc6;          
+}
+
+.where_to_buy_table td .cell_wrapper, .where_to_buy_table th .cell_wrapper {  
+    padding: 0 18px;         
+}
+
+.where_to_buy_popup {
+    position:fixed;
+    margin-left: 50%;
+    left: -591px;
+    top: 200px;
+    width: 1182px;
+    height: 365px;
+    background: #fff;
+    z-index: 12;
+    -webkit-box-shadow: 0px 1px 50px 0px rgba(136, 136, 136, 0.3);
+    -moz-box-shadow:    0px 1px 50px 0px rgba(136, 136, 136, 0.3);
+    box-shadow:         0px 1px 50px 0px rgba(136, 136, 136, 0.3); 
+    border-radius: 4px;  
+    display: none;       
+}    
+
+.where_to_buy_popup .popup_wrapper {
+    margin: 30px; 
+    overflow: hidden;
+} 
+
+.where_to_buy_popup .popup_wrapper h1 {
+    color: #323232;
+    font: 30px/1 "VentiCF-Black";
+    margin: 7px 0 0;
+    letter-spacing: -1px;    
+}
+
+input.change_city_string {
+    width: 1120px;
+}
+
+.popup_wrapper ul.city_column {
+    float: left;
+    display: inline-block;
+    width: 20%; 
+    margin-top: 30px;
+}
+
+.where_to_buy_popup .popup_wrapper ul.city_column li {
+    color: #323232;
+    font-family: "MuseoSansCyrl-500";
+    font-size: 16px;
+    margin-bottom: 17px !important;
+    cursor: pointer;
+}
+
+.where_to_buy_popup .popup_wrapper ul.city_column li:hover {
+    color: #82a264;
+}
+
+.city_search {
+        margin: 33px 0 25px 0;
+        position: relative;   
+}
+
+.city_column > li:before {
+    display:none;
+}
+
+.close_where_to_buy_popup {
+    position: absolute;
+    top: 42px;
+    right: 30px; 
+    width: 13px;
+    height: 13px;
+    background: url(/local/templates/.default/img/where_to_buy_close.png); 
+    cursor: pointer;
+    z-index: 1;   
+}
+
+.city_search_string {
+    width: 1060px;
+    height: 50px;
+    background: #f2f2f2;
+    padding-left: 20px;
+    border-radius: 4px; 
+}
+
+input.city_search_string {
+    color: #323232;
+    font-family: "MuseoSansCyrl-500";
+    font-size: 16px;
+    background: #f2f2f2;
+    padding-left: 20px; 
+}
+
+input:not([type]).city_search_string {
+    border: none;
+    background: #f2f2f2; 
+    padding-left: 20px;
+}
+
+input.city_search_string:focus {
+    outline-offset: -2px;
+}
+
+.city_search_button {
+    position: absolute;
+    height: 50px;
+    width: 60px;
+    background-color: #f2f2f2; 
+    border-radius: 4px;    
+    top: 0;
+    right: 0;
+    background-image: url(/local/templates/.default/img/search_lens.png); 
+    background-position-x: center;
+    background-position-y: center;     
+    background-repeat-x: no-repeat;
+    background-repeat-y: no-repeat;
+    cursor: pointer;  
+}
+
+ul.city_search_datalist {
+    background: #fff;
+    position: absolute; 
+    box-shadow: 0 0 13px 0px rgba(221, 221, 221, 1);
+    color: #747474;
+    font-family: "MuseoSansCyrl-500";           
+    font-size: 14px; 
+    overflow-y: scroll;
+    left: 7px;
+    width: 1108px;
+    height: 270px;
+    z-index: 12;   
+    display: none;      
+}
+
+ul.city_search_datalist li {
+    border-bottom: 1px solid #e6e6e6;
+    padding: 10px;          
+}
+
+ul.city_search_datalist li:hover {
+    border-bottom: 1px solid #e6e6e6;
+    color: #000000;
+    padding: 10px; 
+    cursor: pointer;         
+}
+
+.innerPageWrapper #contacts {
+    width: 1182px;
+    margin: auto;
+    
+}
+
+#contacts .contactsWindow .btnContainer a {
+    background: #82a264 !important;
+}
+
+.infoBlocksMenu {
+    width: 1182px;
+    margin: 0 auto 36px;
+}

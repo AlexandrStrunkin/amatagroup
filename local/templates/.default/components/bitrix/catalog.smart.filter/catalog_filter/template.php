@@ -55,7 +55,7 @@
                         <span class="bx-filter-container-modef"></span>
                             <p class="leftFilterName <?if ($activeFilterItem){?> activeFilter<?}?>"><?=GetMessage("PRICE")?>, <span class="rub">c</span></p>
 
-                            <div class="optionContain <?if ($activeFilterItem){?> active<?}?>" >
+                            <div class="optionContain <?if ($activeFilterItem){?> active<?}?>" style="padding-left: 5px;">
 
                                 <input type="text" id="range" value="" name="range" class="js-range"/>
                                 <input type="hidden" class="js-range-min" value="<?=$arItem["VALUES"]["MIN"]["VALUE"]?>"/>

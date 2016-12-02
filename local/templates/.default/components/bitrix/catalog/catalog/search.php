@@ -147,9 +147,9 @@
                         "CACHE_FILTER" => "N",
                         "CACHE_GROUPS" => "N",
 
-                        "RESTART" => "N",
+                        "RESTART" => "Y",
                         "NO_WORD_LOGIC" => "Y",
-                        "USE_LANGUAGE_GUESS" => "Y",
+                        "USE_LANGUAGE_GUESS" => "N",
                         "CHECK_DATES" => "Y",
 
                         'LABEL_PROP' => $arParams['LABEL_PROP'],

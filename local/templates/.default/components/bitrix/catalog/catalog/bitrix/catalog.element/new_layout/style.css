@@ -1021,6 +1021,8 @@
 
 .characteristic_value {
 	color: #808080;
+    float:right;
+    text-align: right;
 }
 
 .productText_popup{
