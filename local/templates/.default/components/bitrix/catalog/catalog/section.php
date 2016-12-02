@@ -220,7 +220,7 @@
                                 //если нашли название бренда и в данный момент мы не в корне каталога
                                 if ($brand["VALUE"] && $arCurSection['ID'] > 0) {?>
                                 <div class="filter_view_all_products">
-                                    <a href="/catalog/filter/<?=$url_param?>/apply/">Смотреть все товары бренда <?=$brand["VALUE"]?></a>
+                                    <a href="/catalog/filter/<?=$url_param?>/apply/"><?=GetMessage("SHOW_ALL_PRODUCTS_BY_BRAND")?> <?=$brand["VALUE"]?></a>
                                 </div>    
                                 <?}
                             }
