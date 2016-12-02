@@ -708,8 +708,17 @@
 
     // Заменяет символ валюты в письме заказа
     AddEventHandler('sale', 'OnOrderNewSendEmail', "currencyTypeReplacement");
+	// Полная пересборка письма о новом заказе
+	AddEventHandler('sale', 'OnOrderNewSendEmail', "newOrderMailRebuild");
 
 	function currencyTypeReplacement($ID, &$eventName, &$arFields) {
+		$arFields["PRICE"] = preg_replace('~<span class="rub">c</span>~', 'Р', $arFields["PRICE"]);
+		$arFields["ORDER_LIST"] = preg_replace('~<span class="rub">c</span>~', 'Р', $arFields["ORDER_LIST"]);
+
+		return $arFields;
+	}
+
+	function newOrderMailRebuild($ID, &$eventName, &$arFields) {
    		// получаем данные заказа
 		$order_data = OrderMail::GetOrderInfo($arFields['ORDER_ID']);
 		// забиваем макросы
@@ -737,8 +746,6 @@
 				OrderMail::$items_in_order_template
 			);
 		}
-		$arFields["PRICE"] = preg_replace('~<span class="rub">c</span>~', 'Р', $arFields["PRICE"]);
-		$arFields["ORDER_LIST"] = preg_replace('~<span class="rub">c</span>~', 'Р', $arFields["ORDER_LIST"]);
 
 		return $arFields;
 	}
