@@ -807,7 +807,7 @@
     * после этого к ним привязываются товары на основании ранее оговоренных правил
     */
     //запускаем обработчик после обмена с 1С
-    AddEventHandler("catalog", "OnSuccessCatalogImport1C", array("FunctionalSections", "UpdateItemSections"));
+    AddEventHandler("catalog", "OnSuccessCatalogImport1C", array("FunctionalSections", "SetServiceSections"));
     class FunctionalSections {            
 
         /**
@@ -855,7 +855,7 @@
         }
 
 
-        //создание сервисных разделов в каталоге (новинки, свежие поступления, ожидаемые поступления, хиты продаж)
+        //создание функциональных разделов в каталоге (новинки, свежие поступления, ожидаемые поступления, хиты продаж)
         function SetServiceSections() {
             $sections = $GLOBALS["functional_sections"];
             if (!empty($sections)) {
