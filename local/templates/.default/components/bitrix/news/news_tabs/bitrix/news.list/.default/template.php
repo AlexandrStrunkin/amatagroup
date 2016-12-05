@@ -1,13 +1,12 @@
 <?if(!defined("B_PROLOG_INCLUDED") || B_PROLOG_INCLUDED!==true)die();?>
 
 <div class="infoBlocksMenu">
-	<? foreach ($arResult['REGROUPED_ITEMS'] as $section_id => $section_items) { ?>
-		<a href="#news_<?= $section_id ?>" <? if ($section_items === reset($arResult['REGROUPED_ITEMS'])) { ?>class="activeInfoBlock"<? } ?>><?= $section_items['TITLE'] ?></a>
+	<? foreach ($arResult['REGROUPED_ITEMS'] as $section_id => $section_items) { ?>  
+		<a href="#news_<?= $section_id ?>"><?= $section_items['TITLE'] ?></a>
 	<? } ?>
-</div>
-
+</div> 
 <? foreach ($arResult['REGROUPED_ITEMS'] as $section_id => $section_items) { ?>
-<div class="infoBlocksContent" id="news_<?= $section_id ?>" <? if ($section_items === reset($arResult['REGROUPED_ITEMS'])) { ?>style="display: block"<? } ?>>
+<div class="infoBlocksContent" id="news_<?= $section_id ?>" >
     <ul class="infoNewsList">
     <? foreach ($section_items['ELEMENTS'] as $item) { ?>
     <?

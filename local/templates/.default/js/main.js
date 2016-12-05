@@ -1342,14 +1342,25 @@ $(document).ready(function () {
     $(".listType").click();
 
     //табы
+    
+    
+    
     $(".infoBlocksMenu a").on("click", function (e) {
-        e.preventDefault();
+        e.preventDefault(); 
         var el = $(this), id = el.attr("href");
         $(".infoBlocksMenu a").removeClass("activeInfoBlock");
         $(".infoBlocksContent").hide();
         el.addClass("activeInfoBlock");
-        $(id).fadeIn(500);
+        $(id).fadeIn(500); 
+        history.replaceState(document.location.href, "", e.target.href);
     });
+    
+    var infoBlockID = location.hash;
+    if (infoBlockID) {
+        $(".infoBlocksMenu a[href='" + infoBlockID + "']").click();  
+    } else {
+        $(".infoBlocksMenu a:first-child").click();     
+    }
     //табы корзина
     $("body").on("click", ".basketBody .basketBodyMenu a.js_tabs", function (e) {
         e.preventDefault();
