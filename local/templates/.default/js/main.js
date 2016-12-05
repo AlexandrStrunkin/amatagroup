@@ -1342,11 +1342,8 @@ $(document).ready(function () {
     $(".listType").click();
 
     //табы
-    
-    
-    
     $(".infoBlocksMenu a").on("click", function (e) {
-        e.preventDefault(); 
+        e.preventDefault();
         var el = $(this), id = el.attr("href");
         $(".infoBlocksMenu a").removeClass("activeInfoBlock");
         $(".infoBlocksContent").hide();
@@ -1355,12 +1352,16 @@ $(document).ready(function () {
         history.replaceState(document.location.href, "", e.target.href);
     });
     
+    //установка таба по умолчанию или из ссылки
     var infoBlockID = location.hash;
     if (infoBlockID) {
-        $(".infoBlocksMenu a[href='" + infoBlockID + "']").click();  
+        $(".infoBlocksMenu a[href='" + infoBlockID + "']").addClass("activeInfoBlock"); 
+        $(".infoBlocksContent[id='" + infoBlockID.slice(1) + "']").show(); 
     } else {
-        $(".infoBlocksMenu a:first-child").click();     
+        $(".infoBlocksMenu a:first-child").addClass("activeInfoBlock");
+        $(".infoBlocksContent:first-child").show();      
     }
+    
     //табы корзина
     $("body").on("click", ".basketBody .basketBodyMenu a.js_tabs", function (e) {
         e.preventDefault();
