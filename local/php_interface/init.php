@@ -59,6 +59,8 @@
     define("USER_SAVED_ADDRESSES_APARTMENT_PROPERTY", 436); // Квартира/офис
     define("USER_SAVED_ADDRESSES_BX_LOCATION_ID_PROPERTY", 437); // ID местоположения битрикс
     define("ITEM_TYPE_PROPERTY_ID", 1380);
+	define("PROPERTY_BREND_HAVE_ITEMS_YES", 14060); // У бренда есть товары
+	define("PROPERTY_BREND_HAVE_ITEMS_NO", 14061); // У бренда нет товаров
 
     define("ORGANIZATION_TYPE_OOO", 4); // Тип фирмы ООО
     define("ORGANIZATION_TYPE_IP", 5); // Тип фирмы ИП
@@ -793,7 +795,61 @@
             }
         }
         return $ending;
-    }          
+    }
+	
+	AddEventHandler("catalog", "OnSuccessCatalogImport1C", "findBrandsActiveItems");
+	
+	/**
+	 * После выгрузки из 1С проставляем наличие/отсутсвие товаров у бренда 
+	 * @return void
+	 * */
+	
+	function findBrandsActiveItems() {
+		// выбираем все существующие бренды из инфоблока брендов
+		$brands = array();
+		$brands_result = CIBlockElement::GetList(
+			Array(),
+			Array(
+				"IBLOCK_ID" => BRANDS_IBLOCK_ID
+			),
+			false,
+			false,
+			Array("ID", "NAME", "PROPERTY_HAVE_PRODUCTS")
+		);
+		while ($brand = $brands_result->Fetch()) {
+			$brands[$brand['NAME']] = array(
+				"ID"            => $brand['ID'],
+				"HAVE_PRODUCTS" => $brand['PROPERTY_HAVE_PRODUCTS_VALUE']
+			);
+		}
+		
+		// ищем товары для данных брендов с учетом их активности
+		$items_result = CIBlockElement::GetList(
+			Array(),
+			array(
+				"IBLOCK_ID"            => CATALOG_IBLOCK_ID,
+				"ACTIVE"               => "Y",
+				"PROPERTY_BREND_VALUE" => array_keys($brands)
+			),
+			array("PROPERTY_BREND"),
+			false,
+			array("ID", "NAME", "PROPERTY_BREND")
+		);
+		$brands_with_items = array();
+		while ($item = $items_result->Fetch()) {
+			array_push($brands_with_items, $item['PROPERTY_BREND_VALUE']);
+		}
+		// перебираем все бренды, проверяем их на наличие в брендах с товарами и в зависимости от этого проставляем флаг наличия товаров
+		foreach ($brands as $brand_title => $brand_data) {
+			if (!in_array($brand_title, $brands_with_items) && $brand_data['HAVE_PRODUCTS'] != "Нет") {
+				// set NO
+				CIBlockElement::SetPropertyValuesEx($brand_data['ID'], false, array("HAVE_PRODUCTS" => PROPERTY_BREND_HAVE_ITEMS_NO));
+			} else if (in_array($brand_title, $brands_with_items) && $brand_data['HAVE_PRODUCTS'] != "Да") {
+				// set YES
+				CIBlockElement::SetPropertyValuesEx($brand_data['ID'], false, array("HAVE_PRODUCTS" => PROPERTY_BREND_HAVE_ITEMS_YES));
+			}
+		}
+	}
 
 
     /**
