@@ -59,8 +59,8 @@
     define("USER_SAVED_ADDRESSES_APARTMENT_PROPERTY", 436); // Квартира/офис
     define("USER_SAVED_ADDRESSES_BX_LOCATION_ID_PROPERTY", 437); // ID местоположения битрикс
     define("ITEM_TYPE_PROPERTY_ID", 1380);
-	define("PROPERTY_BREND_HAVE_ITEMS_YES", 14060); // У бренда есть товары
-	define("PROPERTY_BREND_HAVE_ITEMS_NO", 14061); // У бренда нет товаров
+	define("PROPERTY_BREND_HAVE_ITEMS_YES", 13956); // У бренда есть товары
+	define("PROPERTY_BREND_HAVE_ITEMS_NO", 13957); // У бренда нет товаров
 
     define("ORGANIZATION_TYPE_OOO", 4); // Тип фирмы ООО
     define("ORGANIZATION_TYPE_IP", 5); // Тип фирмы ИП
