@@ -59,6 +59,8 @@
     define("USER_SAVED_ADDRESSES_APARTMENT_PROPERTY", 436); // Квартира/офис
     define("USER_SAVED_ADDRESSES_BX_LOCATION_ID_PROPERTY", 437); // ID местоположения битрикс
     define("ITEM_TYPE_PROPERTY_ID", 1380);
+	define("PROPERTY_BREND_HAVE_ITEMS_YES", 13956); // У бренда есть товары
+	define("PROPERTY_BREND_HAVE_ITEMS_NO", 13957); // У бренда нет товаров
 
     define("ORGANIZATION_TYPE_OOO", 4); // Тип фирмы ООО
     define("ORGANIZATION_TYPE_IP", 5); // Тип фирмы ИП
@@ -135,6 +137,9 @@
     define("IMAGE_AVATAR_WIDTH", 40); // размер аватарок в отзывах
     define("IMAGE_AVATAR_HEIGHT", 40); // размер аватарок в отзывах
 
+    define("MAIL_THUMBNAIL_WIDTH", 55); // размер картинки товара в письме
+    define("MAIL_THUMBNAIL_HEIGHT", 55); // размер картинки товара в письме
+
     define("IMAGE_AVATAR_WIDTH", 40); // размер аватарок в отзывах
     define("IMAGE_AVATAR_HEIGHT", 40); // размер аватарок в отзывах        
 
@@ -152,7 +157,10 @@
 
     file_exists($_SERVER['DOCUMENT_ROOT'] . '/local/php_interface/include/.config.php') ? require_once($_SERVER['DOCUMENT_ROOT'] . '/local/php_interface/include/.config.php') : "";
     // файл с кодом для избранного
-    file_exists($_SERVER['DOCUMENT_ROOT'] . '/local/php_interface/favorite/class.php') ? require_once($_SERVER['DOCUMENT_ROOT'] . '/local/php_interface/favorite/class.php') : ""; 
+    file_exists($_SERVER['DOCUMENT_ROOT'] . '/local/php_interface/favorite/class.php') ? require_once($_SERVER['DOCUMENT_ROOT'] . '/local/php_interface/favorite/class.php') : "";
+    // файл с классом извлечения данных заказа
+    file_exists($_SERVER['DOCUMENT_ROOT'] . '/local/php_interface/include/mailOrder.php') ? require_once($_SERVER['DOCUMENT_ROOT'] . '/local/php_interface/include/mailOrder.php') : "";
+
 
     function arshow($array, $adminCheck = false){
         global $USER;
@@ -721,14 +729,46 @@
         }
     }
 
-
-    //Заменяет символ валюты в письме заказа
+    // Заменяет символ валюты в письме заказа
     AddEventHandler('sale', 'OnOrderNewSendEmail', "currencyTypeReplacement");
+    // Полная пересборка письма о новом заказе
+    AddEventHandler('sale', 'OnOrderNewSendEmail', "newOrderMailRebuild");
 
     function currencyTypeReplacement($ID, &$eventName, &$arFields) {
-
         $arFields["PRICE"] = preg_replace('~<span class="rub">c</span>~', 'Р', $arFields["PRICE"]);
         $arFields["ORDER_LIST"] = preg_replace('~<span class="rub">c</span>~', 'Р', $arFields["ORDER_LIST"]);
+
+        return $arFields;
+    }
+
+    function newOrderMailRebuild($ID, &$eventName, &$arFields) {
+        // получаем данные заказа
+        $order_data = OrderMail::GetOrderInfo($arFields['ORDER_ID']);
+        // забиваем макросы
+        $arFields["ORDER_STATUS"] = $order_data['status'];
+        $arFields["DELIVERY_TYPE"] = $order_data['delivery_type'];
+        $arFields["DELIVERY_ADDRESS"] = $order_data['address'];
+        $arFields["PAYMENT_TYPE"] = $order_data['payment_system'];
+        $arFields["COMMENT"] = $order_data['user_comment'];
+        // из компонентов заказа формируем верстку
+        $items = $order_data['items_in_order'];
+
+        foreach ($items as $item_id => $item_fields) {
+            $arFields["ITEMS_IN_ORDER"] .= str_replace(
+                OrderMail::$items_in_order_template_macroses,
+                array(
+                    "http://" . $_SERVER['SERVER_NAME'] . $item_fields['detail_url'],
+                    "http://" . $_SERVER['SERVER_NAME'] . $item_fields['picture'],
+                    $item_fields['item_name'],
+                    $item_fields['article'],
+                    $item_fields['price'],
+                    (int)$item_fields['quantity'],
+                    round($item_fields['quantity'] * $item_fields['price'], 2),
+                    $item_fields['offer']
+                ),
+                OrderMail::$items_in_order_template
+            );
+        }
 
         return $arFields;
     }
@@ -755,7 +795,61 @@
             }
         }
         return $ending;
-    }          
+    }
+	
+	AddEventHandler("catalog", "OnSuccessCatalogImport1C", "findBrandsActiveItems");
+	
+	/**
+	 * После выгрузки из 1С проставляем наличие/отсутсвие товаров у бренда 
+	 * @return void
+	 * */
+	
+	function findBrandsActiveItems() {
+		// выбираем все существующие бренды из инфоблока брендов
+		$brands = array();
+		$brands_result = CIBlockElement::GetList(
+			Array(),
+			Array(
+				"IBLOCK_ID" => BRANDS_IBLOCK_ID
+			),
+			false,
+			false,
+			Array("ID", "NAME", "PROPERTY_HAVE_PRODUCTS")
+		);
+		while ($brand = $brands_result->Fetch()) {
+			$brands[$brand['NAME']] = array(
+				"ID"            => $brand['ID'],
+				"HAVE_PRODUCTS" => $brand['PROPERTY_HAVE_PRODUCTS_VALUE']
+			);
+		}
+		
+		// ищем товары для данных брендов с учетом их активности
+		$items_result = CIBlockElement::GetList(
+			Array(),
+			array(
+				"IBLOCK_ID"            => CATALOG_IBLOCK_ID,
+				"ACTIVE"               => "Y",
+				"PROPERTY_BREND_VALUE" => array_keys($brands)
+			),
+			array("PROPERTY_BREND"),
+			false,
+			array("ID", "NAME", "PROPERTY_BREND")
+		);
+		$brands_with_items = array();
+		while ($item = $items_result->Fetch()) {
+			array_push($brands_with_items, $item['PROPERTY_BREND_VALUE']);
+		}
+		// перебираем все бренды, проверяем их на наличие в брендах с товарами и в зависимости от этого проставляем флаг наличия товаров
+		foreach ($brands as $brand_title => $brand_data) {
+			if (!in_array($brand_title, $brands_with_items) && $brand_data['HAVE_PRODUCTS'] != "Нет") {
+				// set NO
+				CIBlockElement::SetPropertyValuesEx($brand_data['ID'], false, array("HAVE_PRODUCTS" => PROPERTY_BREND_HAVE_ITEMS_NO));
+			} else if (in_array($brand_title, $brands_with_items) && $brand_data['HAVE_PRODUCTS'] != "Да") {
+				// set YES
+				CIBlockElement::SetPropertyValuesEx($brand_data['ID'], false, array("HAVE_PRODUCTS" => PROPERTY_BREND_HAVE_ITEMS_YES));
+			}
+		}
+	}
 
 
     /**
@@ -769,7 +863,7 @@
     * после этого к ним привязываются товары на основании ранее оговоренных правил
     */
     //запускаем обработчик после обмена с 1С
-    AddEventHandler("catalog", "OnSuccessCatalogImport1C", array("FunctionalSections", "UpdateItemSections"));
+    AddEventHandler("catalog", "OnSuccessCatalogImport1C", array("FunctionalSections", "SetServiceSections"));
     class FunctionalSections {            
 
         /**
@@ -817,7 +911,7 @@
         }
 
 
-        //создание сервисных разделов в каталоге (новинки, свежие поступления, ожидаемые поступления, хиты продаж)
+        //создание функциональных разделов в каталоге (новинки, свежие поступления, ожидаемые поступления, хиты продаж)
         function SetServiceSections() {
             $sections = $GLOBALS["functional_sections"];
             if (!empty($sections)) {
@@ -984,12 +1078,36 @@
         foreach ($partners_prices as $partner => $price_code) {
             //если у пользователя есть email и код цены
             $user_email = $partners_data[$partner]["UF_ELEKTRONNAYAPOCHT"];
+            $user_name = $partners_data[$partner]["UF_NAME"];
             if (!empty($user_email) && !empty($price_code)) {
 
                 //находим пользователя по email
                 $ar_user = CUser::GetList($by = "ID", $sort = "ASC", array("EMAIL" => trim($user_email)))->Fetch();  
-                if (!empty($ar_user["ID"]) && intval($ar_user["ID"]) > 0) {   
 
+                //если пользователь существует, берем его ID
+                if (!empty($ar_user["ID"]) && intval($ar_user["ID"]) > 0) {     
+                    $user_id = intval($ar_user["ID"]);          
+                } else {
+                    //иначе - создаем пользователя
+                    if (!empty($user_email)) {
+                        $user = new CUser;
+                        $arFields = Array(
+                            "NAME"              => $user_name,                    
+                            "EMAIL"             => $user_email,
+                            "LOGIN"             => $user_email,                     
+                            "PASSWORD"          => $user_email,
+                            "CONFIRM_PASSWORD"  => $user_email,
+                            "ACTIVE" => "Y"
+                        );      
+                        $ID = $user->Add($arFields);
+                        if (intval($ID) > 0) {
+                            $user_id = $ID;
+                        }
+                    }
+                } 
+
+                //если удалось получить ID пользователя
+                if ($user_id > 0) {
                     //получаем группы пользователя
                     $user_groups = CUser::GetUserGroup(intval($ar_user["ID"]));
 
@@ -1015,6 +1133,8 @@
                     }
 
                 }
+
+
             }
 
         }
@@ -1153,5 +1273,79 @@
         } 
 
         return $result; 
+    }
+
+
+    //проверяем заполненные свойства товара и привязываем их к разделу-родителю товара для отображения в умном фильтре
+    AddEventHandler("iblock", "OnAfterIblockElementUpdate", "addItemPropsToFilter");
+    function addItemPropsToFilter($arFields) {
+
+        //обрабатываем только элементы каталога
+        if ($arFields["IBLOCK_ID"] != CATALOG_IBLOCK_ID) {
+            return false;
+        }     
+        
+        //получаем все свойств типа "список", чтобы добавлять в фильтр только свойства данного типа 
+        $list_props_id = array();
+        $list_props = CIBlockProperty::GetList (Array(), Array("IBLOCK_ID" => CATALOG_IBLOCK_ID, "PROPERTY_TYPE" => "L"));
+        while($ar_list_props = $list_props->Fetch()) {
+            $list_props_id[] = $ar_list_props["ID"];
+        }   
+
+        //проверяем у товара заполненные свойства
+        if (is_array($arFields["PROPERTY_VALUES"]) && count($arFields["PROPERTY_VALUES"]) > 0) {
+            foreach ($arFields["PROPERTY_VALUES"] as $prop_id => $prop) {
+                foreach ($prop as $prop_value) {
+                    //если у элемента заполнено свойство и оно типа "список", добавляем его ID к массиву
+                    if ($prop_value["VALUE"] && in_array($prop_id, $list_props_id)) {
+                        $prop_array[$prop_id] = $prop_id;
+                    }    
+                }    
+            }      
+        }   
+
+        //если у товара есть заполненные свойства
+        if (is_array($prop_array) && count($prop_array) > 0 ) {  
+
+            //получаем ID функциональных разделов, чтобы исключить их их обработки (новинки, бестселлеры и тд)
+            $functional_sections_id = array();
+            $rs_functional_sections = CIBlockSection::GetList(array(), array("CODE" => array_keys($GLOBALS["functional_sections"])), false, array("ID"));
+            while($ar_section = $rs_functional_sections->Fetch()) {
+                $functional_sections_id[] = $ar_section["ID"];
+            }
+
+            $item_sections = $arFields["IBLOCK_SECTION"];
+            //удаляем из списка разделов товара функциональные разделы, чтобы не привязывать к ним никакие свойства
+            foreach ($item_sections as $s_id => $item_section) {
+                if (in_array($item_section, $functional_sections_id)) {
+                    unset($item_sections[$s_id]);
+                }
+            }
+
+            //получаем раздел для привязки свойств
+            $result_section = false;
+            foreach ($item_sections as $s_id) {
+                //получаем раздел-родитель верхнего уровня для текущего элемента
+                $section_path = CIBlockSection::GetNavChain(CATALOG_IBLOCK_ID, $s_id, array("ID"));
+                while($ar_section_path = $section_path->Fetch()) {
+                    if ($ar_section_path["ID"] && !$ar_section_path["IBLOCK_SECTION_ID"]) {
+                        $result_section = $ar_section_path["ID"];
+                        break; 
+                    }
+                }
+                if ($result_section > 0) {
+                    break;
+                }
+            }
+
+            //привязываем полученные свойства к родителю первого уровня текущего товара
+            if ($result_section > 0) {
+                foreach ($prop_array as $p_id) {
+                    if ($p_id > 0) {
+                        CIBlockSectionPropertyLink::Add($result_section, $p_id, array("IBLOCK_ID" => CATALOG_IBLOCK_ID, "SMART_FILTER" => "Y", "DISPLAY_TYPE" => "F"));
+                    }
+                }
+            }
+        }      
     }
 

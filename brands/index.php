@@ -3,6 +3,7 @@ require($_SERVER["DOCUMENT_ROOT"]."/bitrix/header.php");
 $APPLICATION->SetTitle("Бренды");
 ?> <?//$Filter_brands[">PREVIEW_PICTURE"] = 0;?>
 <p class="detail_text">Наш полный портфель брендов</p>
+<? $Filter_brands = array("PROPERTY_HAVE_PRODUCTS_VALUE" => "Да") ?>
 <?$APPLICATION->IncludeComponent(
 	"bitrix:news",
 	"brands",
