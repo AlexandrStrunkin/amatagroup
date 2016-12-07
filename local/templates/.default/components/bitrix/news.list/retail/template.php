@@ -82,8 +82,8 @@ $this->setFrameMode(true);
 		    $lng_center = 0;
 		    $google_coordinates = array();
 	    ?>
-        <? foreach($arResult["ITEMS"] as $ItemID => $arItem) { ?>    
-            <div class="contactsWindow" id="contactsWindow<?= $containers_counter ?>" data-store-id="<?= $arItem["ID"]?>">
+        <? foreach($arResult["ITEMS"] as $ItemID => $arItem) { ?>   
+            <div class="contactsWindow" id="contactsWindow<?= $containers_counter ?>" data-store-id="<?= $arItem["ID"]?>" data-coordinates="<?= $arItem["PROPERTIES"]["COORDINATES"]["VALUE"]?>">
 	            <div class="close"></div>
 	            <h2><?= $arItem["NAME"] ?></h2>
 	            <div class="basketBody tabs">
@@ -262,7 +262,8 @@ $this->setFrameMode(true);
             });
             markerObj.setIcon("/img/pinRetail.png"); 
             openedMarker = markerObj;   
-            var el = $(".contactsWindow"), el1 = $("#contactsWindow" + markerObj.ind);
+            var el = $(".contactsWindow"), el1 = $(".contactsWindow[data-coordinates='" + index + "']");
+            console.log(markerObj);
             el.hide();
             if (el1.css("display") == "none") {
                 el.hide();
@@ -287,7 +288,7 @@ $this->setFrameMode(true);
         markersArr[location.lat +","+location.lng] = marker;
 
         google.maps.event.addListener(marker, 'click', function () { 
-            var el = $(".contactsWindow"), el1 = $("#contactsWindow" + marker.ind);
+            var el = $(".contactsWindow"), el1 = $(".contactsWindow[data-coordinates='" + location.lat +","+location.lng + "']");
             if (openedMarker) {
                 openedMarker.setIcon("/img/pinDisabled.png");
 
