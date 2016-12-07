@@ -1097,6 +1097,7 @@
                             "LOGIN"             => $user_email,                     
                             "PASSWORD"          => $user_email,
                             "CONFIRM_PASSWORD"  => $user_email,
+                            "ACTIVE" => "Y"
                         );      
                         $ID = $user->Add($arFields);
                         if (intval($ID) > 0) {
