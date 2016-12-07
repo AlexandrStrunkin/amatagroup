@@ -288,7 +288,7 @@ $this->setFrameMode(true);
         markersArr[location.lat +","+location.lng] = marker;
 
         google.maps.event.addListener(marker, 'click', function () { 
-            var el = $(".contactsWindow"), el1 = $("#contactsWindow" + marker.ind);
+            var el = $(".contactsWindow"), el1 = $(".contactsWindow[data-coordinates='" + location.lat +","+location.lng + "']");
             if (openedMarker) {
                 openedMarker.setIcon("/img/pinDisabled.png");
 
