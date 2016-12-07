@@ -1078,12 +1078,35 @@
         foreach ($partners_prices as $partner => $price_code) {
             //если у пользователя есть email и код цены
             $user_email = $partners_data[$partner]["UF_ELEKTRONNAYAPOCHT"];
+            $user_name = $partners_data[$partner]["UF_NAME"];
             if (!empty($user_email) && !empty($price_code)) {
 
                 //находим пользователя по email
                 $ar_user = CUser::GetList($by = "ID", $sort = "ASC", array("EMAIL" => trim($user_email)))->Fetch();  
-                if (!empty($ar_user["ID"]) && intval($ar_user["ID"]) > 0) {   
 
+                //если пользователь существует, берем его ID
+                if (!empty($ar_user["ID"]) && intval($ar_user["ID"]) > 0) {     
+                    $user_id = intval($ar_user["ID"]);          
+                } else {
+                    //иначе - создаем пользователя
+                    if (!empty($user_email)) {
+                        $user = new CUser;
+                        $arFields = Array(
+                            "NAME"              => $user_name,                    
+                            "EMAIL"             => $user_email,
+                            "LOGIN"             => $user_email,                     
+                            "PASSWORD"          => $user_email,
+                            "CONFIRM_PASSWORD"  => $user_email,
+                        );      
+                        $ID = $user->Add($arFields);
+                        if (intval($ID) > 0) {
+                            $user_id = $ID;
+                        }
+                    }
+                } 
+
+                //если удалось получить ID пользователя
+                if ($user_id > 0) {
                     //получаем группы пользователя
                     $user_groups = CUser::GetUserGroup(intval($ar_user["ID"]));
 
@@ -1109,6 +1132,8 @@
                     }
 
                 }
+
+
             }
 
         }
