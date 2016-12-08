@@ -263,7 +263,6 @@ $this->setFrameMode(true);
             markerObj.setIcon("/img/pinRetail.png"); 
             openedMarker = markerObj;   
             var el = $(".contactsWindow"), el1 = $(".contactsWindow[data-coordinates='" + index + "']");
-            console.log(markerObj);
             el.hide();
             if (el1.css("display") == "none") {
                 el.hide();
