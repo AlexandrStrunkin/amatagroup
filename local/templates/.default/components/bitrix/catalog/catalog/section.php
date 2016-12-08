@@ -206,29 +206,44 @@
 
             ?>
             <?
-                //если установлен фильтр по 1 бренду, выводим ссылку на все товары данного бренда
-                $url = explode("/", $APPLICATION->GetCurDir());
-                //если установлен фильтр
-                if (in_array("filter", $url)) {
-                    foreach ($url as $url_param) {
-                        //если есть фильтр по бренду и строго по одному бренду
-                        if (substr_count($url_param, "brend-is-") > 0 && substr_count($url_param, "-or-") == 0) {
-                            $brand_id = str_replace("brend-is-", "", $url_param);
-                            //получаем название бренда 
-                            if (!empty($brand_id)) {
-                                $brand = CIBlockPropertyEnum::GetList(array(), array("EXTERNAL_ID" => $brand_id))->Fetch();    
-                                //если нашли название бренда и в данный момент мы не в корне каталога
-                                if ($brand["VALUE"] && $arCurSection['ID'] > 0) {?>
-                                <div class="filter_view_all_products">
-                                    <a href="/catalog/filter/<?=$url_param?>/apply/"><?=GetMessage("SHOW_ALL_PRODUCTS_BY_BRAND")?> <?=$brand["VALUE"]?></a>
-                                </div>    
-                                <?}
+                global $USER;
+                if ($USER->IsAdmin()) {
+                    //если установлен фильтр по 1 бренду, выводим ссылку на все товары данного бренда
+                    $url = explode("/", $APPLICATION->GetCurDir());
+                    //если установлен фильтр и мы находимся не в корне каталога
+                    if (in_array("filter", $url) && substr_count($APPLICATION->GetCurDir(), "/catalog/filter") ==0 ) {  
+                        foreach ($url as $url_param) {
+                            //если есть фильтр по бренду и строго по одному бренду
+                            if (substr_count($url_param, "brend-is-") > 0 && substr_count($url_param, "-or-") == 0) {  
+                                $brand_id = str_replace("brend-is-", "", $url_param);
+                                //получаем название бренда 
+                                if (!empty($brand_id)) {    
+                                    $brand = CIBlockPropertyEnum::GetList(array(), array("EXTERNAL_ID" => $brand_id))->Fetch();    
+                                    //если нашли название бренда и в данный момент мы не в корне каталога
+                                    if ($brand["VALUE"] && $arCurSection['ID'] > 0) {?>
+                                    <div class="filter_view_all_products">
+                                        <a href="/catalog/filter/<?=$url_param?>/apply/"><?=GetMessage("SHOW_ALL_PRODUCTS_BY_BRAND")?> "<?=$brand["VALUE"]?>"</a>
+                                    </div>    
+                                    <?}
+                                }                            
+                            } else if (substr_count($url_param, "vidtovara-is-") > 0 && substr_count($url_param, "-or-") == 0) {
+                                //если есть фильтр по типу товара и строго по одному типу
+                                $type_id = str_replace("vidtovara-is-", "", $url_param);
+                                //получаем название типа 
+                                if (!empty($type_id)) {        
+                                    $type = CIBlockPropertyEnum::GetList(array(), array("EXTERNAL_ID" => $type_id))->Fetch();    
+                                    //если нашли название типа и в данный момент мы не в корне каталога
+                                    if ($type["VALUE"] && $arCurSection['ID'] > 0) {?>
+                                    <div class="filter_view_all_products">
+                                        <a href="/catalog/filter/<?=$url_param?>/apply/"><?=GetMessage("SHOW_ALL_PRODUCTS_BY_TYPE")?> "<?=$type["VALUE"]?>"</a>
+                                    </div>    
+                                    <?}
+                                }    
                             }
-                            break;
-                        }
-                    }
+                        }                      
+                    }            
                 }
-            ?>
+            ?>                
 
             <?$intSectionID = $APPLICATION->IncludeComponent(
                     "bitrix:catalog.section",
