@@ -9452,14 +9452,17 @@ IE10 and IE11
     margin-bottom: 0;
 }
 
-}
+}         
 
 
 .filter_view_all_products { 
+    display: block;
+    float: right;
     font-family: "MuseoSansCyrl-500";
     font-size: 16px;
     overflow: hidden;
-    padding: 0 0 15px;    
+    padding: 0 0 15px;
+    width: 100%;    
 }
 
 .filter_view_all_products a {
