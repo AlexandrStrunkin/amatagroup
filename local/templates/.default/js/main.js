@@ -1325,7 +1325,8 @@ $(document).ready(function () {
     $('.productFilterWrap p').on("click", function () {
         var el = $(this), menu = $('.leftFiltersBlock'),
         	block = $(".elementBlocksWrap"),
-        	filter_href = $(".filter_view_all_products");
+        	filter_href = $(".filter_view_all_products"),
+        	sections_block = $(".sectionBlocksWrap");
         el.toggleClass('activeTopLeftBut');
         block.toggleClass("smallElementList");
         if (block.hasClass("smallElementList")) {
@@ -1333,11 +1334,13 @@ $(document).ready(function () {
             menu.animate({"margin-left": 0, "opacity": 1}, 300);
             block.animate({"margin-left": 302}, 300);
             filter_href.animate({"margin-left": 302}, 300);
+            sections_block.animate({"margin-left": 302}, 300);
         } else {
             menu.animate({"margin-left": -300, "opacity": 0}, 300);
             menu.css("visibility", "hidden");
             block.animate({"margin-left": 0}, 300);
             filter_href.animate({"margin-left": 0}, 300);
+            sections_block.animate({"margin-left": 0}, 300);
         }
 
 
