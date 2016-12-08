@@ -1323,17 +1323,21 @@ $(document).ready(function () {
     //в каталоге открытие левого фильтра
 
     $('.productFilterWrap p').on("click", function () {
-        var el = $(this), menu = $('.leftFiltersBlock'), block = $(".elementBlocksWrap");
+        var el = $(this), menu = $('.leftFiltersBlock'),
+        	block = $(".elementBlocksWrap"),
+        	filter_href = $(".filter_view_all_products");
         el.toggleClass('activeTopLeftBut');
         block.toggleClass("smallElementList");
         if (block.hasClass("smallElementList")) {
             menu.css("visibility", "visible");
             menu.animate({"margin-left": 0, "opacity": 1}, 300);
             block.animate({"margin-left": 302}, 300);
+            filter_href.animate({"margin-left": 302}, 300);
         } else {
             menu.animate({"margin-left": -300, "opacity": 0}, 300);
             menu.css("visibility", "hidden");
             block.animate({"margin-left": 0}, 300);
+            filter_href.animate({"margin-left": 0}, 300);
         }
 
 
