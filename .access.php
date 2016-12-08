@@ -1,4 +1,5 @@
 <?
+$PERM["bitrix"]["15"]="R";
 $PERM["prices"]["*"]="D";
 $PERM["online"]["*"]="R";
 $PERM["desktop_app"]["*"]="R";
