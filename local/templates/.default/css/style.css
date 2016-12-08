@@ -2159,8 +2159,9 @@ transition: all 0.3s;
 */
 .allElementWrap .elementBlocksWrap {
     margin: 0 -20px 0 302px;
-
 }
+
+
 
 .elementBlocksWrap:after {
     content: "";
@@ -9457,12 +9458,13 @@ IE10 and IE11
 
 .filter_view_all_products { 
     display: block;
-    float: right;
+    float: left;
     font-family: "MuseoSansCyrl-500";
     font-size: 16px;
     overflow: hidden;
     padding: 0 0 15px;
-    width: 100%;    
+    width: 900px;
+    margin-left: 302px;    
 }
 
 .filter_view_all_products a {
