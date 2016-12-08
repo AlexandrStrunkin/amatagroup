@@ -38,7 +38,7 @@
             
             //отправляем письмо с уведомлением о том что пользователь добавлен в подписки
             if (empty($arFields["USER_ID"])) {
-                $arEventFields = array(
+                $ar_event_fields = array(
                     "MESSAGE" => 'Добавлен анонимный подписчик на рассылку',
                     "EMAIL"   => $arFields["EMAIL"],                   
                 );        
