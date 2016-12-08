@@ -9458,12 +9458,10 @@ IE10 and IE11
 
 .filter_view_all_products { 
     display: block;
-    float: left;
     font-family: "MuseoSansCyrl-500";
     font-size: 16px;
     overflow: hidden;
     padding: 0 0 15px;
-    width: 900px;
     margin-left: 302px;    
 }
 
