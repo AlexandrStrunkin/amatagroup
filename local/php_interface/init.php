@@ -61,6 +61,9 @@
     define("ITEM_TYPE_PROPERTY_ID", 1380);
 	define("PROPERTY_BREND_HAVE_ITEMS_YES", 13956); // У бренда есть товары
 	define("PROPERTY_BREND_HAVE_ITEMS_NO", 13957); // У бренда нет товаров
+	define("AUTONAME_PROPERTY_ID", 2791);
+	define("PROPERTY_BREND_ID", 245);
+	define("PROPERTY_PRODUCT_TYPE_ID", 1380);
 
     define("ORGANIZATION_TYPE_OOO", 4); // Тип фирмы ООО
     define("ORGANIZATION_TYPE_IP", 5); // Тип фирмы ИП
@@ -194,25 +197,28 @@
         $result = "";
         $setted_model = "";
         $models = array(
-            $item['PROPERTIES']['MODEL']['VALUE'],
-            $item['PROPERTIES']['MODEL_1']['VALUE'],
-            $item['PROPERTIES']['MODEL_2']['VALUE'],
-            $item['PROPERTIES']['MODEL_3']['VALUE'],
-            $item['PROPERTIES']['MODEL_4']['VALUE'],
-            $item['PROPERTIES']['MODEL_5']['VALUE'],
-            $item['PROPERTIES']['MODEL_6']['VALUE'],
-            $item['PROPERTIES']['MODEL_7']['VALUE'],
-            $item['PROPERTIES']['MODEL_8']['VALUE']
+            $item['PROPERTY_VALUES'][250]['n0']['VALUE'],
+            $item['PROPERTY_VALUES'][1364]['n0']['VALUE'],
+            $item['PROPERTY_VALUES'][1369]['n0']['VALUE'],
+            $item['PROPERTY_VALUES'][1376]['n0']['VALUE'],
+            $item['PROPERTY_VALUES'][1466]['n0']['VALUE'],
+            $item['PROPERTY_VALUES'][1480]['n0']['VALUE'],
+            $item['PROPERTY_VALUES'][1509]['n0']['VALUE'],
+            $item['PROPERTY_VALUES'][2778]['n0']['VALUE'],
+            $item['PROPERTY_VALUES'][2779]['n0']['VALUE']
         );
         // проверяем заполненность необходимых свойств
         if (
-            $item['PROPERTIES']['BREND']['VALUE'] // бренд
-            && $item['PROPERTIES']['VIDTOVARA']['VALUE'] // объединенное свойство тип товара
+            $item['PROPERTY_VALUES'][PROPERTY_BREND_ID][0]['VALUE'] // бренд
+            && $item['PROPERTY_VALUES'][PROPERTY_PRODUCT_TYPE_ID][0]['VALUE'] // объединенное свойство тип товара
             && ( // дальше ад, если заполнена хотя бы одна модель
                 $setted_model = current(array_filter($models))
             )
         ) {
-            $result = sprintf("%s %s %s", $item['PROPERTIES']['VIDTOVARA']['VALUE'], $item['PROPERTIES']['BREND']['VALUE'], $setted_model);
+        	// т.к. бренд и тип товара приходят как ID значений свойств типа список, то сначала достанем их значения	
+        	$brand_value = getXMLIDByCode(CATALOG_IBLOCK_ID, "BREND", $item['PROPERTY_VALUES'][PROPERTY_BREND_ID][0]['VALUE']);
+			$product_type_value = getXMLIDByCode(CATALOG_IBLOCK_ID, "VIDTOVARA", $item['PROPERTY_VALUES'][PROPERTY_PRODUCT_TYPE_ID][0]['VALUE']);	
+            $result = sprintf("%s %s %s", $product_type_value, $brand_value, $setted_model);
         }
 
         return $result;
@@ -230,7 +236,31 @@
     function getAltasibCity() {
         return $_SESSION["ALTASIB_GEOBASE_CODE"]["CITY"]["NAME"] ? $_SESSION["ALTASIB_GEOBASE_CODE"]["CITY"]["NAME"] : false;
     }
+	
+	/***************
+    *
+    * получение VALUE свойства списка по его ID
+    *
+    * @param int $iblock_id - инфоблок, содержащий свойство
+    * @param string $prop_code - символьный код свойства
+    * @param string $prop_value_id - ID значения свойства
+    * @return string $iblock_property_value["VALUE"]
+    ***************/
 
+    function getXMLIDByCode($iblock_id, $prop_code, $prop_value_id) {
+        $iblock_props = CIBlockPropertyEnum::GetList(
+        	array(),
+        	array(
+        		"IBLOCK_ID" => $iblock_id,
+        		"CODE"      => $prop_code,
+        		"ID"        => $prop_value_id
+			)
+		);
+        if ($iblock_property_value = $iblock_props->Fetch()) {
+            return $iblock_property_value["VALUE"];
+        }
+    }
+	
     /**
     *
     * @param int $photo_id
@@ -246,6 +276,23 @@
             $preview_img_file = CFile::ResizeImageGet($photo_id, array('width' => $width, 'height' => $height), $type, true);
             return $preview_img_file['src'];
         }
+    }
+	
+	AddEventHandler("iblock", "OnBeforeIBlockElementUpdate", "autoNameBuild");
+	
+	/**
+	 * 
+	 * Собираем автоимя, если соответствующие поля заполнены
+	 * @param array $arFields
+	 * @return void
+	 * 
+	 * */
+    function autoNameBuild(&$arFields) {
+		// переприсваиваем имя товара, если необходимые свойства заполнены
+		if (!$arFields['PROPERTY_VALUES'][AUTONAME_PROPERTY_ID]['n0']['VALUE']) {
+			$new_product_name = getNamesFromProperties($arFields);
+			$arFields['PROPERTY_VALUES'][AUTONAME_PROPERTY_ID]['n0']['VALUE'] = $new_product_name ? $new_product_name : "";	
+		}
     }
 
     //подмена логина на EMAIL при регистрации и изменении пользователя
