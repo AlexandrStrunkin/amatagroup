@@ -82,11 +82,11 @@
                     </div>
                     <div class="personal_phone">                       
                         <?= $arManager['PROPERTY_PHONE_VALUE'].'<br>' ?>
-                        <?if(!empty($arManager['PROPERTY_ADDITIONAL_PHONE_VALUE'])) {
-                            echo '(добавочный '.$arManager['PROPERTY_ADDITIONAL_PHONE_VALUE'].')';        
+                        <? if(!empty($arManager['PROPERTY_ADDITIONAL_PHONE_VALUE'])) {
+                            echo '('.GetMessage("ADDITIONAL_PHONE").' '.$arManager['PROPERTY_ADDITIONAL_PHONE_VALUE'].')';        
                         } else {
                             echo '<br/>';    
-                        }?>
+                        } ?>
                     </div>     
                     <div class="personal_mail">
                         <a href="mailto:<?= $arManager['PROPERTY_MAIL_VALUE'] ?>"><?= $arManager['PROPERTY_MAIL_VALUE'] ?></a>
@@ -113,7 +113,7 @@
                     <div class="personal_phone">                       
                         <?= $arManager['PROPERTY_PHONE_VALUE'].'<br>' ?>
                         <?if(!empty($arManager['PROPERTY_ADDITIONAL_PHONE_VALUE'])) {
-                            echo '(добавочный '.$arManager['PROPERTY_ADDITIONAL_PHONE_VALUE'].')';        
+                            echo '('.GetMessage("ADDITIONAL_PHONE").' '.$arManager['PROPERTY_ADDITIONAL_PHONE_VALUE'].')';        
                         } else {
                             echo '<br/>';    
                         }?>

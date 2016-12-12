@@ -22,4 +22,5 @@ $MESS["UNIVERSAL_MAIL"] = "Электронная почта для всех вопросов";
 $MESS["OPERATING_MANAGERS"] = "Операционные менеджеры";
 $MESS["CUSTOMER_SERVICE"] = "Работа с клиентами";
 $MESS["DEPARTMENTS"] = "Наши отделы";
+$MESS["ADDITIONAL_PHONE"] = "добавочный";
 ?>
