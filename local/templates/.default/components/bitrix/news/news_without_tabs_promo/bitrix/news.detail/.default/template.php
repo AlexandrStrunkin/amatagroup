@@ -1,5 +1,4 @@
 <?if(!defined("B_PROLOG_INCLUDED") || B_PROLOG_INCLUDED!==true)die();?>
-
 <div class="detail_news">
 
     <span>
@@ -14,6 +13,7 @@
         $format_day = $interval_deadline->format('%a');
     ?>
     </span>
+    <?if ($arItem['PROPERTIES']['DO_NOT_SHOW_DATE']['VALUE'] != 'Y') {?>
      <div class="<?= (strtotime($datetime_to) > strtotime(date('d.m.Y')) || !$arResult['DATE_ACTIVE_TO']) ? 'green' : 'red'; ?>">
             <? if (strtotime($datetime_to) > strtotime(date('d.m.Y')) || !$arResult['DATE_ACTIVE_TO']) { ?>
                 <span class="date_validity">
@@ -26,8 +26,9 @@
                 <?}?>
             </div><br><br>
         <p class="dateText">
-            <?= GetMessage('VALIDITY') . $datetime_create . GetMessage('VALIDITY_2') . $datetime_to; ?>
+            <?= GetMessage('VALIDITY') . $datetime_from . GetMessage('VALIDITY_2') . $datetime_to; ?>
         </p>
+     <? } ?>
     </span>
 	<?if($arParams["DISPLAY_PICTURE"]!="N" && is_array($arResult["DETAIL_PICTURE"])):?>
 		<img class="detail_picture" border="0" src="<?=$arResult["DETAIL_PICTURE"]["SRC"]?>" width="<?=$arResult["DETAIL_PICTURE"]["WIDTH"]?>" height="<?=$arResult["DETAIL_PICTURE"]["HEIGHT"]?>" alt="<?=$arResult["NAME"]?>"  title="<?=$arResult["NAME"]?>" />
