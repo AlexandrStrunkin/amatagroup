@@ -29,7 +29,7 @@ $(".where_to_buy_toggle_button, .where_to_buy_toggle_list").on("click", function
         $(".where_to_buy_toggle_list").text('<?= GetMessage("SHOW_STORES")?>');
         $(".where_to_buy_toggle_list").css("width", "260px");                                                         
     }
-    $(".where_to_buy_table").each(function(){
+    $(".where_to_buy_table").each(function() {
         if(!($(this).hasClass("internet"))) {
             $(this).slideToggle("slow");
         }     

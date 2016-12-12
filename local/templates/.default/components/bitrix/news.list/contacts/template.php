@@ -12,6 +12,131 @@
     /** @var CBitrixComponent $component */
     $this->setFrameMode(true);
 ?>
+<div class="infoBlocksMenu">
+<?foreach($arResult['ITEMS'] as $arItem) {?>
+    <a href="#city<?= $arItem["ID"] ?>" class="contacts"><?= $arItem["NAME"] ?></a>
+<?}?>
+</div>
+
+<?foreach($arResult['ITEMS'] as $arItem) {?>
+                                               
+<table class="infoBlocksContent contacts_table" id="city<?= $arItem["ID"] ?>" style="display:none">
+    <tr>
+        <td colspan="4"><div class="table_title"><?= $arItem["NAME"] ?></div></td>
+        <td><a class="directions_button" href="<?= $arItem["PROPERTIES"]["WAY_TO"]["VALUE"] ?>" target="_blank"><?= GetMessage("WAY_TO") ?></a></td>
+    </tr>
+    <tr>
+        <td colspan="2" rowspan="2" class="address_cell"><div class="cell_name"><?=GetMessage("ADRESS")?></div><div class="address"><?= $arItem["PROPERTIES"]["ADDRESS"]["VALUE"] ?></div></td>
+        <td><div class="cell_name"><?= GetMessage("OFFICE_WORK_HOURS") ?></div><div class="phone"><?= $arItem["PROPERTIES"]["WORKING_DAYS"]["VALUE" ]?></div></td>
+        <td><div class="cell_name"><?= GetMessage("PHONE") ?></div><div class="phone"><?= $arItem["PROPERTIES"]["PHONE"]["VALUE"] ?></div></td>
+        <td><div class="cell_name"><?= GetMessage("STORAGE_PHONE") ?></div><div class="phone"><?= $arItem["PROPERTIES"]["STORAGE_PHONE"]["VALUE"] ?></div></td>
+    </tr>
+    <tr>
+        <td><div class="cell_name"><?= GetMessage("STORAGE_WORK_HOURS") ?></div><div class="phone"><?= $arItem["PROPERTIES"]["STORAGE_WORKING_DAYS"]["VALUE"] ?></div></td>
+        <td colspan="2"><div class="cell_name"><?= GetMessage("UNIVERSAL_MAIL") ?></div><a href="mailto:<?= $arItem["PROPERTIES"]["MAIL"]["VALUE"] ?>" class="mailto"><?= $arItem["PROPERTIES"]["MAIL"]["VALUE"] ?></a><div class="equal_symbol mail"></div></td>
+    </tr>
+    <tr>
+        <td class="personal_cell_operational">
+            <div class="personal_cell_title"><?= GetMessage("OPERATING_MANAGERS") ?></div>
+            <div class="personal_cell_buttons">
+                <div class="button_left">
+                    <div class="equal_symbol">
+                    </div>
+                </div>
+                <div class="button_right">
+                    <div class="equal_symbol">
+                    </div>
+                </div>
+            </div>
+        </td>
+        <td class="personal_cell_customer">
+            <div class="personal_cell_title"><?= GetMessage("CUSTOMER_SERVICE") ?></div>
+            <div class="personal_cell_buttons">
+                <div class="button_left">
+                    <div class="equal_symbol">
+                    </div>
+                </div>
+                <div class="button_right">
+                    <div class="equal_symbol">
+                    </div>
+                </div>
+            </div>
+        </td>
+        <td colspan="3"><div class="personal_cell_title"><div><?= GetMessage("DEPARTMENTS") ?></div></div></td>
+    </tr>
+    <tr class="last_row">
+        <td class="personal_card_operational">
+        <? foreach($arItem['PROPERTIES']['OPERATING_MANAGERS']['VALUE'] as $arManager) { ?>
+            <div class="personal_card" style="display:none">
+                <div class="personal_card_top">
+                <? if(!empty($arManager['PREVIEW_PICTURE']['src'])) {
+                    $avatar = $arManager['PREVIEW_PICTURE']['src'];
+                } else {
+                    $avatar = '/local/templates/.default/img/defaultContactsAvatar.png';    
+                } ?>
+                    <div class="personal_photo"><img src="<?= $avatar ?>"></div>
+                </div>
+                <div class="personal_card_bottom">
+                    <div class="personal_name">
+                        <?= $arManager['NAME'] ?>
+                    </div>
+                    <div class="personal_phone">                       
+                        <?= $arManager['PROPERTY_PHONE_VALUE'].'<br>' ?>
+                        <? if(!empty($arManager['PROPERTY_ADDITIONAL_PHONE_VALUE'])) {
+                            echo '('.GetMessage("ADDITIONAL_PHONE").' '.$arManager['PROPERTY_ADDITIONAL_PHONE_VALUE'].')';        
+                        } else {
+                            echo '<br/>';    
+                        } ?>
+                    </div>     
+                    <div class="personal_mail">
+                        <a href="mailto:<?= $arManager['PROPERTY_MAIL_VALUE'] ?>"><?= $arManager['PROPERTY_MAIL_VALUE'] ?></a>
+                    </div>        
+                </div>
+            </div> 
+        <? } ?>
+        </td>
+        <td class="personal_card_customer">            
+        <? foreach($arItem['PROPERTIES']['CUSTOMER_SERVICE']['VALUE'] as $arManager) { ?>
+            <div class="personal_card" style="display:none">
+                <div class="personal_card_top">
+                <? if(!empty($arManager['PREVIEW_PICTURE']['src'])) {
+                    $avatar = $arManager['PREVIEW_PICTURE']['src'];
+                } else {
+                    $avatar = '/local/templates/.default/img/defaultContactsAvatar.png';    
+                } ?>
+                    <div class="personal_photo"><img src="<?= $avatar ?>"></div>
+                </div>
+                <div class="personal_card_bottom">
+                    <div class="personal_name">
+                        <?= $arManager['NAME'] ?>
+                    </div>
+                    <div class="personal_phone">                       
+                        <?= $arManager['PROPERTY_PHONE_VALUE'].'<br>' ?>
+                        <?if(!empty($arManager['PROPERTY_ADDITIONAL_PHONE_VALUE'])) {
+                            echo '('.GetMessage("ADDITIONAL_PHONE").' '.$arManager['PROPERTY_ADDITIONAL_PHONE_VALUE'].')';        
+                        } else {
+                            echo '<br/>';    
+                        }?>
+                    </div>
+                    <div class="personal_mail">
+                        <a href="mailto:<?= $arManager['PROPERTY_MAIL_VALUE'] ?>"><?= $arManager['PROPERTY_MAIL_VALUE'] ?></a>
+                    </div>           
+                </div>
+            </div> 
+        <? } ?>             
+        </td>
+        <td colspan="3">
+            <div class="department_block" data-mcs-theme="dark-3">
+                <ul>
+                    <? foreach($arItem['PROPERTIES']['DEPARTMENTS']['VALUE'] as $departmentID => $departmentName) { ?>
+                        <li><div class="department_name"><?= $departmentName ?>: </div><a href="mailto:<?= $arItem['PROPERTIES']['DEPARTMENTS']['DESCRIPTION'][$departmentID] ?>" class="mailto"><?= $arItem['PROPERTIES']['DEPARTMENTS']['DESCRIPTION'][$departmentID] ?></a><div class="equal_symbol"></div></li>                       
+                    <? } ?>                                                                                                                    
+                </ul>                        
+            </div>    
+        </td> 
+    </tr>
+</table>
+<?}?>
 <div id="contacts">
     <div id="map-zoom-plus" class="map-zoom-plus"></div>
     <div id="map-zoom-minus" class="map-zoom-minus"></div>
