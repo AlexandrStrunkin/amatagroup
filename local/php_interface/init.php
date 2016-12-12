@@ -59,8 +59,8 @@
     define("USER_SAVED_ADDRESSES_APARTMENT_PROPERTY", 436); //  вартира/офис
     define("USER_SAVED_ADDRESSES_BX_LOCATION_ID_PROPERTY", 437); // ID местоположени€ битрикс
     define("ITEM_TYPE_PROPERTY_ID", 1380);
-	define("PROPERTY_BREND_HAVE_ITEMS_YES", 13956); // ” бренда есть товары
-	define("PROPERTY_BREND_HAVE_ITEMS_NO", 13957); // ” бренда нет товаров
+    define("PROPERTY_BREND_HAVE_ITEMS_YES", 13956); // ” бренда есть товары
+    define("PROPERTY_BREND_HAVE_ITEMS_NO", 13957); // ” бренда нет товаров
 
     define("ORGANIZATION_TYPE_OOO", 4); // “ип фирмы ќќќ
     define("ORGANIZATION_TYPE_IP", 5); // “ип фирмы »ѕ
@@ -796,60 +796,60 @@
         }
         return $ending;
     }
-	
-	AddEventHandler("catalog", "OnSuccessCatalogImport1C", "findBrandsActiveItems");
-	
-	/**
-	 * ѕосле выгрузки из 1— проставл€ем наличие/отсутсвие товаров у бренда 
-	 * @return void
-	 * */
-	
-	function findBrandsActiveItems() {
-		// выбираем все существующие бренды из инфоблока брендов
-		$brands = array();
-		$brands_result = CIBlockElement::GetList(
-			Array(),
-			Array(
-				"IBLOCK_ID" => BRANDS_IBLOCK_ID
-			),
-			false,
-			false,
-			Array("ID", "NAME", "PROPERTY_HAVE_PRODUCTS")
-		);
-		while ($brand = $brands_result->Fetch()) {
-			$brands[$brand['NAME']] = array(
-				"ID"            => $brand['ID'],
-				"HAVE_PRODUCTS" => $brand['PROPERTY_HAVE_PRODUCTS_VALUE']
-			);
-		}
-		
-		// ищем товары дл€ данных брендов с учетом их активности
-		$items_result = CIBlockElement::GetList(
-			Array(),
-			array(
-				"IBLOCK_ID"            => CATALOG_IBLOCK_ID,
-				"ACTIVE"               => "Y",
-				"PROPERTY_BREND_VALUE" => array_keys($brands)
-			),
-			array("PROPERTY_BREND"),
-			false,
-			array("ID", "NAME", "PROPERTY_BREND")
-		);
-		$brands_with_items = array();
-		while ($item = $items_result->Fetch()) {
-			array_push($brands_with_items, $item['PROPERTY_BREND_VALUE']);
-		}
-		// перебираем все бренды, провер€ем их на наличие в брендах с товарами и в зависимости от этого проставл€ем флаг наличи€ товаров
-		foreach ($brands as $brand_title => $brand_data) {
-			if (!in_array($brand_title, $brands_with_items) && $brand_data['HAVE_PRODUCTS'] != "Ќет") {
-				// set NO
-				CIBlockElement::SetPropertyValuesEx($brand_data['ID'], false, array("HAVE_PRODUCTS" => PROPERTY_BREND_HAVE_ITEMS_NO));
-			} else if (in_array($brand_title, $brands_with_items) && $brand_data['HAVE_PRODUCTS'] != "ƒа") {
-				// set YES
-				CIBlockElement::SetPropertyValuesEx($brand_data['ID'], false, array("HAVE_PRODUCTS" => PROPERTY_BREND_HAVE_ITEMS_YES));
-			}
-		}
-	}
+
+    AddEventHandler("catalog", "OnSuccessCatalogImport1C", "findBrandsActiveItems");
+
+    /**
+    * ѕосле выгрузки из 1— проставл€ем наличие/отсутсвие товаров у бренда 
+    * @return void
+    * */
+
+    function findBrandsActiveItems() {
+        // выбираем все существующие бренды из инфоблока брендов
+        $brands = array();
+        $brands_result = CIBlockElement::GetList(
+            Array(),
+            Array(
+                "IBLOCK_ID" => BRANDS_IBLOCK_ID
+            ),
+            false,
+            false,
+            Array("ID", "NAME", "PROPERTY_HAVE_PRODUCTS")
+        );
+        while ($brand = $brands_result->Fetch()) {
+            $brands[$brand['NAME']] = array(
+                "ID"            => $brand['ID'],
+                "HAVE_PRODUCTS" => $brand['PROPERTY_HAVE_PRODUCTS_VALUE']
+            );
+        }
+
+        // ищем товары дл€ данных брендов с учетом их активности
+        $items_result = CIBlockElement::GetList(
+            Array(),
+            array(
+                "IBLOCK_ID"            => CATALOG_IBLOCK_ID,
+                "ACTIVE"               => "Y",
+                "PROPERTY_BREND_VALUE" => array_keys($brands)
+            ),
+            array("PROPERTY_BREND"),
+            false,
+            array("ID", "NAME", "PROPERTY_BREND")
+        );
+        $brands_with_items = array();
+        while ($item = $items_result->Fetch()) {
+            array_push($brands_with_items, $item['PROPERTY_BREND_VALUE']);
+        }
+        // перебираем все бренды, провер€ем их на наличие в брендах с товарами и в зависимости от этого проставл€ем флаг наличи€ товаров
+        foreach ($brands as $brand_title => $brand_data) {
+            if (!in_array($brand_title, $brands_with_items) && $brand_data['HAVE_PRODUCTS'] != "Ќет") {
+                // set NO
+                CIBlockElement::SetPropertyValuesEx($brand_data['ID'], false, array("HAVE_PRODUCTS" => PROPERTY_BREND_HAVE_ITEMS_NO));
+            } else if (in_array($brand_title, $brands_with_items) && $brand_data['HAVE_PRODUCTS'] != "ƒа") {
+                // set YES
+                CIBlockElement::SetPropertyValuesEx($brand_data['ID'], false, array("HAVE_PRODUCTS" => PROPERTY_BREND_HAVE_ITEMS_YES));
+            }
+        }
+    }
 
 
     /**
@@ -1049,7 +1049,7 @@
         while($arPartnersResult = $partners_result->Fetch()) {    
             //собираем имена клиентов 
             $client_names[] = $arPartnersResult["UF_NAME"];   
-            $partners_data[$arPartnersResult["UF_NAME"]] = $arPartnersResult;        
+            $partners_data[] = $arPartnersResult;        
         }   
 
         $client_names = array_unique($client_names);
@@ -1073,23 +1073,34 @@
             $partners_prices[$arGroupsResult["UF_PARTNER"]] = $arGroupsResult["UF_VIDTSEN"];
         }       
 
-        //перебираем массив соответстви€ пользователь -> код цены
-        //код цены прописан в поле "CODE" в соответствующих группах пользователей 
-        foreach ($partners_prices as $partner => $price_code) {
-            //если у пользовател€ есть email и код цены
-            $user_email = $partners_data[$partner]["UF_ELEKTRONNAYAPOCHT"];
-            $user_name = $partners_data[$partner]["UF_NAME"];
-            if (!empty($user_email) && !empty($price_code)) {
 
+        //перебираем массив пользователей
+        foreach ($partners_data as $partner) {
+            //если у пользовател€ есть email и код цены
+            $user_email = $partner["UF_ELEKTRONNAYAPOCHT"];
+            $user_name = $partner["UF_NAME"];
+            
+            if (!empty($user_email)) { 
                 //находим пользовател€ по email
                 $ar_user = CUser::GetList($by = "ID", $sort = "ASC", array("EMAIL" => trim($user_email)))->Fetch();  
 
                 //если пользователь существует, берем его ID
                 if (!empty($ar_user["ID"]) && intval($ar_user["ID"]) > 0) {     
-                    $user_id = intval($ar_user["ID"]);          
-                } else {
+                    $user_id = intval($ar_user["ID"]);  
+                    //обновл€ем флаг активности
+                    $user = new CUser;
+                    $active = (!empty($partner["UF_AGAKTIVNOSTNASAYT"])) ? "Y" : "N";
+                    $fields = Array(               
+                        "ACTIVE" => $active,                        
+                    );                           
+                    $user->Update($user_id, $fields);
+                       
+                } else {                                   
                     //иначе - создаем пользовател€
                     if (!empty($user_email)) {
+
+                        $active = (!empty($partner["UF_AGAKTIVNOSTNASAYT"])) ? "Y" : "N";
+
                         $user = new CUser;
                         $arFields = Array(
                             "NAME"              => $user_name,                    
@@ -1097,7 +1108,7 @@
                             "LOGIN"             => $user_email,                     
                             "PASSWORD"          => $user_email,
                             "CONFIRM_PASSWORD"  => $user_email,
-                            "ACTIVE" => "Y"
+                            "ACTIVE" => $active
                         );      
                         $ID = $user->Add($arFields);
                         if (intval($ID) > 0) {
@@ -1106,8 +1117,11 @@
                     }
                 } 
 
+                //получаем код цены
+                $price_code = $partners_prices[$user_name];                  
+
                 //если удалось получить ID пользовател€
-                if ($user_id > 0) {
+                if ($user_id > 0 && !empty($price_code)) {
                     //получаем группы пользовател€
                     $user_groups = CUser::GetUserGroup(intval($ar_user["ID"]));
 
@@ -1129,14 +1143,10 @@
                         $fields = Array(                                
                             "GROUP_ID" => $new_groups_array,                         
                         );
-                        $user->Update($ar_user["ID"], $fields);
-                    }
-
-                }
-
-
-            }
-
+                        $user->Update($user_id, $fields);
+                    }     
+                }    
+            }     
         }
 
     }
@@ -1284,7 +1294,7 @@
         if ($arFields["IBLOCK_ID"] != CATALOG_IBLOCK_ID) {
             return false;
         }     
-        
+
         //получаем все свойств типа "список", чтобы добавл€ть в фильтр только свойства данного типа 
         $list_props_id = array();
         $list_props = CIBlockProperty::GetList (Array(), Array("IBLOCK_ID" => CATALOG_IBLOCK_ID, "PROPERTY_TYPE" => "L"));
