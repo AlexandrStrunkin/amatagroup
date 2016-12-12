@@ -29,10 +29,10 @@
         <td colspan="2" rowspan="2" class="address_cell"><div class="cell_name"><?=GetMessage("ADRESS")?></div><div class="address"><?= $arItem["PROPERTIES"]["ADDRESS"]["VALUE"] ?></div></td>
         <td><div class="cell_name"><?= GetMessage("OFFICE_WORK_HOURS") ?></div><div class="phone"><?= $arItem["PROPERTIES"]["WORKING_DAYS"]["VALUE" ]?></div></td>
         <td><div class="cell_name"><?= GetMessage("PHONE") ?></div><div class="phone"><?= $arItem["PROPERTIES"]["PHONE"]["VALUE"] ?></div></td>
-        <td><div class="cell_name"><?= GetMessage("STORAGE_PHONE") ?></div><div class="phone"><?= $arItem["PROPERTIES"]["PHONE"]["VALUE"] ?></div></td>
+        <td><div class="cell_name"><?= GetMessage("STORAGE_PHONE") ?></div><div class="phone"><?= $arItem["PROPERTIES"]["STORAGE_PHONE"]["VALUE"] ?></div></td>
     </tr>
     <tr>
-        <td><div class="cell_name"><?= GetMessage("STORAGE_WORK_HOURS") ?></div><div class="phone"><?= $arItem["PROPERTIES"]["WORKING_DAYS"]["VALUE"] ?></div></td>
+        <td><div class="cell_name"><?= GetMessage("STORAGE_WORK_HOURS") ?></div><div class="phone"><?= $arItem["PROPERTIES"]["STORAGE_WORKING_DAYS"]["VALUE"] ?></div></td>
         <td colspan="2"><div class="cell_name"><?= GetMessage("UNIVERSAL_MAIL") ?></div><a href="mailto:<?= $arItem["PROPERTIES"]["MAIL"]["VALUE"] ?>" class="mailto"><?= $arItem["PROPERTIES"]["MAIL"]["VALUE"] ?></a><div class="equal_symbol mail"></div></td>
     </tr>
     <tr>
