@@ -60,7 +60,7 @@ $APPLICATION->SetTitle("Маркетинг");
 			6 => "",
 		),
 		"LIST_PROPERTY_CODE" => array(
-			0 => "",
+			0 => "DO_NOT_SHOW_DATE",
 			1 => "",
 		),
 		"MESSAGE_404" => "",
