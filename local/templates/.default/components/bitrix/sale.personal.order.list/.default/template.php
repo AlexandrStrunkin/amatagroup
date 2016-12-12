@@ -1,7 +1,8 @@
 <?if(!defined("B_PROLOG_INCLUDED") || B_PROLOG_INCLUDED!==true)die();?>
 
-<div class="widthWrapper">
-    <div class="mainSectionWrap">
+<?if ($USER->IsAuthorized()) {?>
+
+
         <div class="settingsWrap">
             <p class="blockTitle active">Мои настройки</p>
                 <?include('profile/index.php')?>
@@ -344,11 +345,11 @@
          </div>
 
 
-    </div>
-</div>
 <script type="text/javascript">
     $(function () {
         $('.order_open .blockTitle').click();
         $('.order_open #order_<?=$_GET['order_id']?> .activeOrderTitle').click();
     })
 </script>
+
+<?}?>
