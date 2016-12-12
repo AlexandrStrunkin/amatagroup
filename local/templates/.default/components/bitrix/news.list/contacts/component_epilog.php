@@ -7,7 +7,6 @@ $('.contacts_table .equal_symbol, .contacts_table .department_block .department_
     $(this).parent('.contacts_table ul li').addClass('jshover');       
 });
 
-
 $('.contacts_table .equal_symbol, .contacts_table .department_block .department_name, .contacts_table ul li a').on("mouseleave", function(){
     $(this).siblings('.contacts_table .equal_symbol, .contacts_table .department_block .department_name, .contacts_table ul li a').removeClass('jshover');
     $(this).parent('.contacts_table ul li').removeClass('jshover');           
@@ -23,7 +22,10 @@ $('.contacts_table .equal_symbol, .contacts_table .department_block .department_
 //Показываем первые карточки
 $(window).on('load', function(){
     $('.contacts_table .personal_card_customer .personal_card').eq(0).fadeIn().addClass('visible');  
-    $('.contacts_table .personal_card_operational .personal_card').eq(0).fadeIn().addClass('visible');        
+    $('.contacts_table .personal_card_operational .personal_card').eq(0).fadeIn().addClass('visible');
+    if ($('.contacts_table').first().is(':hidden')) {
+        $('.contacts_table').first().show();
+    }        
 })
 
 //Правая кнопка работа с клиентами
