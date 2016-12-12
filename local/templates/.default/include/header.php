@@ -36,61 +36,61 @@
         <div class="top-menu-fixed-block">
             <div class="firstLvlBlocks linksBlock" id="fixed-linkBlock1">
 
-            <form action="/catalog/">
-                <?$APPLICATION->IncludeComponent(
-	                "bitrix:search.title",
-	                "search_field_top",
-	                array(
-		                "SHOW_INPUT" => "Y",
-		                "INPUT_ID" => "title-search-input-fixed",
-		                "CONTAINER_ID" => "title-search-top",
-		                "PRICE_CODE" => array(
-			                0 => "BASE",
-			                1 => "RETAIL",
-		                ),
-		                "PRICE_VAT_INCLUDE" => "Y",
-		                "PREVIEW_TRUNCATE_LEN" => "150",
-		                "SHOW_PREVIEW" => "Y",
-		                "PREVIEW_WIDTH" => "75",
-		                "PREVIEW_HEIGHT" => "75",
-		                "CONVERT_CURRENCY" => "Y",
-		                "CURRENCY_ID" => "RUB",
-		                "PAGE" => "/catalog/",
-		                "NUM_CATEGORIES" => "1",
-		                "TOP_COUNT" => "10",
-		                "ORDER" => "date",
-		                "USE_LANGUAGE_GUESS" => "N",
-		                "CHECK_DATES" => "Y",
-		                "SHOW_OTHERS" => "N",
-		                "CATEGORY_0_TITLE" => "Каталог",
-		                "CATEGORY_0" => array(
-			                0 => "iblock_1c_catalog",
-		                ),
-		                "CATEGORY_0_iblock_news" => array(
-			                0 => "all",
-		                ),
-		                "CATEGORY_1_TITLE" => "Форумы",
-		                "CATEGORY_1" => array(
-			                0 => "forum",
-		                ),
-		                "CATEGORY_1_forum" => array(
-			                0 => "all",
-		                ),
-		                "CATEGORY_2_TITLE" => "Каталоги",
-		                "CATEGORY_2" => array(
-			                0 => "iblock_books",
-		                ),
-		                "CATEGORY_2_iblock_books" => "all",
-		                "CATEGORY_OTHERS_TITLE" => "Прочее",
-		                "COMPONENT_TEMPLATE" => "search_field_top",
-		                "CATEGORY_0_iblock_1c_catalog" => array(
-			                0 => "5",
-			                1 => "6",
-		                )
-	                ),
-	                false
-                );?>
-            </form>
+                <form action="/catalog/">
+                    <?$APPLICATION->IncludeComponent(
+                            "bitrix:search.title",
+                            "search_field_top",
+                            array(
+                                "SHOW_INPUT" => "Y",
+                                "INPUT_ID" => "title-search-input-fixed",
+                                "CONTAINER_ID" => "title-search-top",
+                                "PRICE_CODE" => array(
+                                    0 => "BASE",
+                                    1 => "RETAIL",
+                                ),
+                                "PRICE_VAT_INCLUDE" => "Y",
+                                "PREVIEW_TRUNCATE_LEN" => "150",
+                                "SHOW_PREVIEW" => "Y",
+                                "PREVIEW_WIDTH" => "75",
+                                "PREVIEW_HEIGHT" => "75",
+                                "CONVERT_CURRENCY" => "Y",
+                                "CURRENCY_ID" => "RUB",
+                                "PAGE" => "/catalog/",
+                                "NUM_CATEGORIES" => "1",
+                                "TOP_COUNT" => "10",
+                                "ORDER" => "date",
+                                "USE_LANGUAGE_GUESS" => "N",
+                                "CHECK_DATES" => "Y",
+                                "SHOW_OTHERS" => "N",
+                                "CATEGORY_0_TITLE" => "Каталог",
+                                "CATEGORY_0" => array(
+                                    0 => "iblock_1c_catalog",
+                                ),
+                                "CATEGORY_0_iblock_news" => array(
+                                    0 => "all",
+                                ),
+                                "CATEGORY_1_TITLE" => "Форумы",
+                                "CATEGORY_1" => array(
+                                    0 => "forum",
+                                ),
+                                "CATEGORY_1_forum" => array(
+                                    0 => "all",
+                                ),
+                                "CATEGORY_2_TITLE" => "Каталоги",
+                                "CATEGORY_2" => array(
+                                    0 => "iblock_books",
+                                ),
+                                "CATEGORY_2_iblock_books" => "all",
+                                "CATEGORY_OTHERS_TITLE" => "Прочее",
+                                "COMPONENT_TEMPLATE" => "search_field_top",
+                                "CATEGORY_0_iblock_1c_catalog" => array(
+                                    0 => "5",
+                                    1 => "6",
+                                )
+                            ),
+                            false
+                        );?>
+                </form>
             </div>
 
             <div class="firstLvlBlocks linksBlock" id="fixed-linkBlock2">
@@ -127,15 +127,12 @@
 <!--header-->
 <div id="page-preloader"><span class="spinner"></span></div>
 <header>
-    <? global $USER ?>
     <!--widthWrapper-->
     <div class="widthWrapper">
     <!--indexPageHeader-->
     <div class="indexPageHeader">
-        <div class="locationWrapper">
-            <? $detected_city = getAltasibCity() ?>
-            <p><?=GetMessage("CITY")?> :</p>
-            <a href="javascript:void(0)" class="sityName"><?= $detected_city ? $detected_city : "Москва" ?></a>
+        <div class="locationWrapper">          
+            <?$APPLICATION->IncludeComponent("altasib:geobase.select.city", "my_city", Array(), false);?>
         </div>
 
         <?$APPLICATION->IncludeComponent("bitrix:menu", "top_menu", Array(
@@ -174,33 +171,33 @@
 
 
             <?$APPLICATION->IncludeComponent(
-	"bitrix:search.title", 
-	"search_field", 
-	array(
-		"COMPONENT_TEMPLATE" => "search_field",
-		"NUM_CATEGORIES" => "1",
-		"TOP_COUNT" => "15",
-		"ORDER" => "rank",
-		"USE_LANGUAGE_GUESS" => "N",
-		"CHECK_DATES" => "N",
-		"SHOW_OTHERS" => "N",
-		"PAGE" => "/catalog/",
-		"SHOW_INPUT" => "Y",
-		"INPUT_ID" => "title-search-input",
-		"CONTAINER_ID" => "title-search",
-		"CATEGORY_0_TITLE" => "Товары",
-		"CATEGORY_0" => array(
-			0 => "iblock_1c_catalog",
-		),
-		"CATEGORY_0_iblock_1c_catalog" => array(
-			0 => "5",
-			1 => "6",
-		),
-		"CATEGORY_OTHERS_TITLE" => ""
-	),
-	false
-);?>
-            </div>
+                    "bitrix:search.title", 
+                    "search_field", 
+                    array(
+                        "COMPONENT_TEMPLATE" => "search_field",
+                        "NUM_CATEGORIES" => "1",
+                        "TOP_COUNT" => "15",
+                        "ORDER" => "rank",
+                        "USE_LANGUAGE_GUESS" => "N",
+                        "CHECK_DATES" => "N",
+                        "SHOW_OTHERS" => "N",
+                        "PAGE" => "/catalog/",
+                        "SHOW_INPUT" => "Y",
+                        "INPUT_ID" => "title-search-input",
+                        "CONTAINER_ID" => "title-search",
+                        "CATEGORY_0_TITLE" => "Товары",
+                        "CATEGORY_0" => array(
+                            0 => "iblock_1c_catalog",
+                        ),
+                        "CATEGORY_0_iblock_1c_catalog" => array(
+                            0 => "5",
+                            1 => "6",
+                        ),
+                        "CATEGORY_OTHERS_TITLE" => ""
+                    ),
+                    false
+                );?>
+        </div>
 
         <div class="firstLvlBlocks linksBlock" id="linkBlock2">
             <a href="/personal/favourite/"><p><?=GetMessage("FAVOURITE")?></p></a>
@@ -357,121 +354,121 @@
             );?>
 
         <?$APPLICATION->IncludeComponent(
-	"bitrix:catalog.section",
-	"slider_main",
-	array(
-		"TEMPLATE_THEME" => "blue",
-		"PRODUCT_DISPLAY_MODE" => "N",
-		"ADD_PICT_PROP" => "-",
-		"LABEL_PROP" => "-",
-		"OFFER_ADD_PICT_PROP" => "FILE",
-		"OFFER_TREE_PROPS" => array(
-			0 => "-",
-		),
-		"PRODUCT_SUBSCRIPTION" => "N",
-		"SHOW_DISCOUNT_PERCENT" => "N",
-		"SHOW_OLD_PRICE" => "N",
-		"SHOW_CLOSE_POPUP" => "Y",
-		"MESS_BTN_BUY" => "Купить",
-		"MESS_BTN_ADD_TO_BASKET" => "В корзину",
-		"MESS_BTN_SUBSCRIBE" => "Подписаться",
-		"MESS_BTN_DETAIL" => "Подробнее",
-		"MESS_NOT_AVAILABLE" => "Нет в наличии",
-		"AJAX_MODE" => "N",
-		"SEF_MODE" => "N",
-		"IBLOCK_TYPE" => "services",
-		"IBLOCK_ID" => "29",
-		"SECTION_ID" => $_REQUEST["SECTION_ID"],
-		"SECTION_CODE" => "",
-		"SECTION_USER_FIELDS" => array(
-			0 => "",
-			1 => "",
-		),
-		"ELEMENT_SORT_FIELD" => "sort",
-		"ELEMENT_SORT_ORDER" => "asc",
-		"ELEMENT_SORT_FIELD2" => "name",
-		"ELEMENT_SORT_ORDER2" => "asc",
-		"FILTER_NAME" => "arrFilter",
-		"INCLUDE_SUBSECTIONS" => "Y",
-		"SHOW_ALL_WO_SECTION" => "Y",
-		"SECTION_URL" => "",
-		"DETAIL_URL" => "",
-		"BASKET_URL" => "/personal/basket.php",
-		"ACTION_VARIABLE" => "action",
-		"PRODUCT_ID_VARIABLE" => "id",
-		"PRODUCT_QUANTITY_VARIABLE" => "quantity",
-		"ADD_PROPERTIES_TO_BASKET" => "Y",
-		"PRODUCT_PROPS_VARIABLE" => "prop",
-		"PARTIAL_PRODUCT_PROPERTIES" => "N",
-		"SECTION_ID_VARIABLE" => "SECTION_ID",
-		"ADD_SECTIONS_CHAIN" => "Y",
-		"DISPLAY_COMPARE" => "N",
-		"SET_TITLE" => "Y",
-		"SET_BROWSER_TITLE" => "Y",
-		"BROWSER_TITLE" => "-",
-		"SET_META_KEYWORDS" => "Y",
-		"META_KEYWORDS" => "",
-		"SET_META_DESCRIPTION" => "Y",
-		"META_DESCRIPTION" => "",
-		"SET_LAST_MODIFIED" => "Y",
-		"USE_MAIN_ELEMENT_SECTION" => "Y",
-		"SET_STATUS_404" => "Y",
-		"PAGE_ELEMENT_COUNT" => "30",
-		"LINE_ELEMENT_COUNT" => "3",
-		"PROPERTY_CODE" => array(
-			0 => "SPECIAL_OFFER",
-			1 => "PRICE_BANNER",
-			2 => "PICTURE_WIDTH",
-		),
-		"OFFERS_FIELD_CODE" => "",
-		"OFFERS_PROPERTY_CODE" => "",
-		"OFFERS_SORT_FIELD" => "sort",
-		"OFFERS_SORT_ORDER" => "asc",
-		"OFFERS_SORT_FIELD2" => "active_from",
-		"OFFERS_SORT_ORDER2" => "desc",
-		"OFFERS_LIMIT" => "5",
-		"BACKGROUND_IMAGE" => "-",
-		"PRICE_CODE" => array(
-		),
-		"USE_PRICE_COUNT" => "Y",
-		"SHOW_PRICE_COUNT" => "1",
-		"PRICE_VAT_INCLUDE" => "Y",
-		"PRODUCT_PROPERTIES" => array(
-		),
-		"USE_PRODUCT_QUANTITY" => "Y",
-		"CACHE_TYPE" => "A",
-		"CACHE_TIME" => "36000000",
-		"CACHE_FILTER" => "Y",
-		"CACHE_GROUPS" => "Y",
-		"DISPLAY_TOP_PAGER" => "N",
-		"DISPLAY_BOTTOM_PAGER" => "Y",
-		"PAGER_TITLE" => "Товары",
-		"PAGER_SHOW_ALWAYS" => "Y",
-		"PAGER_TEMPLATE" => "",
-		"PAGER_DESC_NUMBERING" => "Y",
-		"PAGER_DESC_NUMBERING_CACHE_TIME" => "36000",
-		"PAGER_SHOW_ALL" => "Y",
-		"HIDE_NOT_AVAILABLE" => "Y",
-		"OFFERS_CART_PROPERTIES" => "",
-		"AJAX_OPTION_JUMP" => "N",
-		"AJAX_OPTION_STYLE" => "Y",
-		"AJAX_OPTION_HISTORY" => "N",
-		"CONVERT_CURRENCY" => "Y",
-		"CURRENCY_ID" => "RUB",
-		"ADD_TO_BASKET_ACTION" => "ADD",
-		"PAGER_BASE_LINK_ENABLE" => "Y",
-		"SHOW_404" => "Y",
-		"MESSAGE_404" => "",
-		"DISABLE_INIT_JS_IN_COMPONENT" => "N",
-		"PAGER_BASE_LINK" => "",
-		"PAGER_PARAMS_NAME" => "arrPager",
-		"COMPONENT_TEMPLATE" => "slider_main",
-		"MESS_BTN_COMPARE" => "Сравнить",
-		"AJAX_OPTION_ADDITIONAL" => "",
-		"FILE_404" => ""
-	),
-	false
-);?>
+                "bitrix:catalog.section",
+                "slider_main",
+                array(
+                    "TEMPLATE_THEME" => "blue",
+                    "PRODUCT_DISPLAY_MODE" => "N",
+                    "ADD_PICT_PROP" => "-",
+                    "LABEL_PROP" => "-",
+                    "OFFER_ADD_PICT_PROP" => "FILE",
+                    "OFFER_TREE_PROPS" => array(
+                        0 => "-",
+                    ),
+                    "PRODUCT_SUBSCRIPTION" => "N",
+                    "SHOW_DISCOUNT_PERCENT" => "N",
+                    "SHOW_OLD_PRICE" => "N",
+                    "SHOW_CLOSE_POPUP" => "Y",
+                    "MESS_BTN_BUY" => "Купить",
+                    "MESS_BTN_ADD_TO_BASKET" => "В корзину",
+                    "MESS_BTN_SUBSCRIBE" => "Подписаться",
+                    "MESS_BTN_DETAIL" => "Подробнее",
+                    "MESS_NOT_AVAILABLE" => "Нет в наличии",
+                    "AJAX_MODE" => "N",
+                    "SEF_MODE" => "N",
+                    "IBLOCK_TYPE" => "services",
+                    "IBLOCK_ID" => "29",
+                    "SECTION_ID" => $_REQUEST["SECTION_ID"],
+                    "SECTION_CODE" => "",
+                    "SECTION_USER_FIELDS" => array(
+                        0 => "",
+                        1 => "",
+                    ),
+                    "ELEMENT_SORT_FIELD" => "sort",
+                    "ELEMENT_SORT_ORDER" => "asc",
+                    "ELEMENT_SORT_FIELD2" => "name",
+                    "ELEMENT_SORT_ORDER2" => "asc",
+                    "FILTER_NAME" => "arrFilter",
+                    "INCLUDE_SUBSECTIONS" => "Y",
+                    "SHOW_ALL_WO_SECTION" => "Y",
+                    "SECTION_URL" => "",
+                    "DETAIL_URL" => "",
+                    "BASKET_URL" => "/personal/basket.php",
+                    "ACTION_VARIABLE" => "action",
+                    "PRODUCT_ID_VARIABLE" => "id",
+                    "PRODUCT_QUANTITY_VARIABLE" => "quantity",
+                    "ADD_PROPERTIES_TO_BASKET" => "Y",
+                    "PRODUCT_PROPS_VARIABLE" => "prop",
+                    "PARTIAL_PRODUCT_PROPERTIES" => "N",
+                    "SECTION_ID_VARIABLE" => "SECTION_ID",
+                    "ADD_SECTIONS_CHAIN" => "Y",
+                    "DISPLAY_COMPARE" => "N",
+                    "SET_TITLE" => "Y",
+                    "SET_BROWSER_TITLE" => "Y",
+                    "BROWSER_TITLE" => "-",
+                    "SET_META_KEYWORDS" => "Y",
+                    "META_KEYWORDS" => "",
+                    "SET_META_DESCRIPTION" => "Y",
+                    "META_DESCRIPTION" => "",
+                    "SET_LAST_MODIFIED" => "Y",
+                    "USE_MAIN_ELEMENT_SECTION" => "Y",
+                    "SET_STATUS_404" => "Y",
+                    "PAGE_ELEMENT_COUNT" => "30",
+                    "LINE_ELEMENT_COUNT" => "3",
+                    "PROPERTY_CODE" => array(
+                        0 => "SPECIAL_OFFER",
+                        1 => "PRICE_BANNER",
+                        2 => "PICTURE_WIDTH",
+                    ),
+                    "OFFERS_FIELD_CODE" => "",
+                    "OFFERS_PROPERTY_CODE" => "",
+                    "OFFERS_SORT_FIELD" => "sort",
+                    "OFFERS_SORT_ORDER" => "asc",
+                    "OFFERS_SORT_FIELD2" => "active_from",
+                    "OFFERS_SORT_ORDER2" => "desc",
+                    "OFFERS_LIMIT" => "5",
+                    "BACKGROUND_IMAGE" => "-",
+                    "PRICE_CODE" => array(
+                    ),
+                    "USE_PRICE_COUNT" => "Y",
+                    "SHOW_PRICE_COUNT" => "1",
+                    "PRICE_VAT_INCLUDE" => "Y",
+                    "PRODUCT_PROPERTIES" => array(
+                    ),
+                    "USE_PRODUCT_QUANTITY" => "Y",
+                    "CACHE_TYPE" => "A",
+                    "CACHE_TIME" => "36000000",
+                    "CACHE_FILTER" => "Y",
+                    "CACHE_GROUPS" => "Y",
+                    "DISPLAY_TOP_PAGER" => "N",
+                    "DISPLAY_BOTTOM_PAGER" => "Y",
+                    "PAGER_TITLE" => "Товары",
+                    "PAGER_SHOW_ALWAYS" => "Y",
+                    "PAGER_TEMPLATE" => "",
+                    "PAGER_DESC_NUMBERING" => "Y",
+                    "PAGER_DESC_NUMBERING_CACHE_TIME" => "36000",
+                    "PAGER_SHOW_ALL" => "Y",
+                    "HIDE_NOT_AVAILABLE" => "Y",
+                    "OFFERS_CART_PROPERTIES" => "",
+                    "AJAX_OPTION_JUMP" => "N",
+                    "AJAX_OPTION_STYLE" => "Y",
+                    "AJAX_OPTION_HISTORY" => "N",
+                    "CONVERT_CURRENCY" => "Y",
+                    "CURRENCY_ID" => "RUB",
+                    "ADD_TO_BASKET_ACTION" => "ADD",
+                    "PAGER_BASE_LINK_ENABLE" => "Y",
+                    "SHOW_404" => "Y",
+                    "MESSAGE_404" => "",
+                    "DISABLE_INIT_JS_IN_COMPONENT" => "N",
+                    "PAGER_BASE_LINK" => "",
+                    "PAGER_PARAMS_NAME" => "arrPager",
+                    "COMPONENT_TEMPLATE" => "slider_main",
+                    "MESS_BTN_COMPARE" => "Сравнить",
+                    "AJAX_OPTION_ADDITIONAL" => "",
+                    "FILE_404" => ""
+                ),
+                false
+            );?>
 
         <div class="littleBannersWrap">
             <div id="advantagesBlock">
@@ -497,7 +494,6 @@
             </div>
         </div>
     </div>
-    <!--END thirdLevel-->
 
     <!--END widthWrapper-->
 </header>
