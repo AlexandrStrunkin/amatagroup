@@ -5766,7 +5766,20 @@ p.authTitle {
     margin-top: 14px;
     margin-bottom: 20px;
     padding-bottom: 18px;
+    padding-left: 20px;
+    position: relative;
+}    
+
+.authForm .rememberMeText {  
+    padding-left: 20px;
+    position: relative;
 }
+
+.authForm .rememberMeText:before {
+   left:0;
+   top:3px; 
+}
+
 .authEnter,
 .btn_prew,
 .authNext,
