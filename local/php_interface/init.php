@@ -145,6 +145,8 @@
 
     define("PARTNERS_HL_BLOCK_ID", 8); //ID highload-блока "партнеры"    
     define("PARTNERS_GROUPS_HL_BLOCK_ID", 6); //ID highload-блока "соглашения с клиентами"
+    
+    define("NEW_USER_AUTOMATIC_REG_MAIL_TEMPLATE", 91); //ID шаблона письма об автоматической регистрации пользователя
 
     //функцинальные разделы каталога
     global $functional_sections;
@@ -1079,7 +1081,7 @@
             //если у пользователя есть email и код цены
             $user_email = $partner["UF_ELEKTRONNAYAPOCHT"];
             $user_name = $partner["UF_NAME"];
-            
+
             if (!empty($user_email)) { 
                 //находим пользователя по email
                 $ar_user = CUser::GetList($by = "ID", $sort = "ASC", array("EMAIL" => trim($user_email)))->Fetch();  
@@ -1094,7 +1096,7 @@
                         "ACTIVE" => $active,                        
                     );                           
                     $user->Update($user_id, $fields);
-                       
+
                 } else {                                   
                     //иначе - создаем пользователя
                     if (!empty($user_email)) {
@@ -1113,6 +1115,9 @@
                         $ID = $user->Add($arFields);
                         if (intval($ID) > 0) {
                             $user_id = $ID;
+                            //отправляем письмо о регистрации
+                            $event = new CEvent;
+                            $event->SendImmediate("NEW_USER", "s1", array("EMAIL" => $user_email), "N", NEW_USER_AUTOMATIC_REG_MAIL_TEMPLATE);                                
                         }
                     }
                 } 
