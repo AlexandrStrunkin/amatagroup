@@ -190,7 +190,7 @@ div.news-list img.preview_picture
 
 
 .where_to_buy_table th.where_to_buy_adds { 
-    width: 481px;
+    width: 475px;
 }
 
 .where_to_buy_table th.where_to_buy_phone { 
@@ -314,7 +314,7 @@ div.news-list img.preview_picture
 }
 
 .where_to_buy_table td.where_to_buy_adds {   
-    width: 480px;
+    width: 475px;
     text-align: left;
     font-family: 'MuseoSansCyrl-500';
     font-size: 17px;
@@ -333,7 +333,7 @@ div.news-list img.preview_picture
     width: 209px;
     text-align: center; 
     font-family: 'MuseoSansCyrl-500';
-    font-size: 17px;
+    font-size: 14px;
     color: #4f4f4f;          
 }    
 
