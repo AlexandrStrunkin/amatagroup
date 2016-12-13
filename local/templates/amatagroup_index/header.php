@@ -126,7 +126,7 @@
                             0 => "",
                             1 => "",
                         ),
-                        "SEF_MODE" => "Y",	// Включить поддержку ЧПУ
+                        "SEF_MODE" => "N",	// Включить поддержку ЧПУ
                         "SEF_RULE" => "",	// Правило для обработки
                         "SET_BROWSER_TITLE" => "Y",	// Устанавливать заголовок окна браузера
                         "SET_LAST_MODIFIED" => "N",	// Устанавливать в заголовках ответа время модификации страницы
@@ -219,7 +219,7 @@
                             ),
                             "SECTION_ID_VARIABLE" => "SECTION_ID",
                             "SECTION_URL" => "/catalog/bestsellers/",
-                            "SEF_MODE" => "Y",
+                            "SEF_MODE" => "N",
                             "SHOW_CLOSE_POPUP" => "N",
                             "SHOW_DISCOUNT_PERCENT" => "N",
                             "SHOW_OLD_PRICE" => "N",
@@ -329,7 +329,7 @@
                                 0 => "",
                                 1 => "",
                             ),
-                            "SEF_MODE" => "Y",
+                            "SEF_MODE" => "N",
                             "SEF_RULE" => "",
                             "SET_BROWSER_TITLE" => "Y",
                             "SET_LAST_MODIFIED" => "N",
@@ -461,7 +461,7 @@
                                 0 => "",
                                 1 => "",
                             ),
-                            "SEF_MODE" => "Y",
+                            "SEF_MODE" => "N",
                             "SEF_RULE" => "",
                             "SET_BROWSER_TITLE" => "Y",
                             "SET_LAST_MODIFIED" => "N",

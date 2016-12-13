@@ -72,7 +72,7 @@ $APPLICATION->SetTitle("Новинки");
 		"PAGER_TEMPLATE" => ".default",
 		"PAGER_TITLE" => "Новости",
 		"PREVIEW_TRUNCATE_LEN" => "",
-		"SEF_MODE" => "Y",
+		"SEF_MODE" => "N",
 		"SET_LAST_MODIFIED" => "N",
 		"SET_STATUS_404" => "N",
 		"SET_TITLE" => "Y",
