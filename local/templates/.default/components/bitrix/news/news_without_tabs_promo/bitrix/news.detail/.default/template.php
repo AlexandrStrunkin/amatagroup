@@ -1,6 +1,5 @@
 <?if(!defined("B_PROLOG_INCLUDED") || B_PROLOG_INCLUDED!==true)die();?>
-<div class="detail_news">
-
+<div class="detail_news">  
     <span>
     <?  // записываем даты создания, начала активности и окончания в переменные в формате d.m.Y
         $datetime_from = date_format(date_create_from_format('d.m.Y H:i:s', $arResult['DATE_ACTIVE_FROM']), 'd.m.Y');
@@ -12,8 +11,8 @@
         $interval_deadline = $date_to->diff($date_today);
         $format_day = $interval_deadline->format('%a');
     ?>
-    </span>
-    <?if ($arItem['PROPERTIES']['DO_NOT_SHOW_DATE']['VALUE'] != 'Y') {?>
+    </span>                   
+    <?if ($arResult['DO_NOT_SHOW_DATE'] != 'Y') {?>
      <div class="<?= (strtotime($datetime_to) > strtotime(date('d.m.Y')) || !$arResult['DATE_ACTIVE_TO']) ? 'green' : 'red'; ?>">
             <? if (strtotime($datetime_to) > strtotime(date('d.m.Y')) || !$arResult['DATE_ACTIVE_TO']) { ?>
                 <span class="date_validity">
