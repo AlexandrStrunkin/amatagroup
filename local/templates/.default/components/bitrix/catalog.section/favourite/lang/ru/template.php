@@ -35,4 +35,5 @@ $MESS["SALE_FAVOURITE"] = "Избранное";
 $MESS["REMOVE_FROM_FAVOURITE"] = "Удалить из избранного";
 $MESS["PRODUCT_AVAILABLE"] = "В наличии";
 $MESS["HAVE_NOT_FAVORITE_YET"] = "У вас пока нет избранных товаров";
+$MESS["WITHOUT_PRICE"] = "Уточняйте у менеджера";
 ?>

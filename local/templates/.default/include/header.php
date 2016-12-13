@@ -45,8 +45,10 @@
                                 "INPUT_ID" => "title-search-input-fixed",
                                 "CONTAINER_ID" => "title-search-top",
                                 "PRICE_CODE" => array(
-                                    0 => "BASE",
-                                    1 => "RETAIL",
+                                    0 => "Рекомендованная Для сайта",
+                                    1 => "Оптовая 1 Для сайта",
+                                    2 => "Оптовая 2 Для сайта",
+                                    3 => "Оптовая 3 Для сайта",
                                 ),
                                 "PRICE_VAT_INCLUDE" => "Y",
                                 "PREVIEW_TRUNCATE_LEN" => "150",

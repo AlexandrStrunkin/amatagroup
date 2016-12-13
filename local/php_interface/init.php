@@ -126,8 +126,7 @@
     define("IBLOCK_ID_QUASTION_PRODUCT", 19); // инфоблок задать вопрос по товару
     define("IBLOCK_ID_QUASTION", 18); // инфоблок оставить вопрос
 
-    define("CATALOG_GROUP_ID_PRICE", 3); // код типа цены оптовой
-    define("CATALOG_GROUP_ID_PRICE_BASE", 1); // код типа цены базовой
+    define("CATALOG_GROUP_ID_PRICE_BASE", 2); // код типа цены по умолчанию
 
     define("CATALOG_SECTION_LATEST", '/catalog/bestsellers/');
     define("IMAGE_SERTIFICATE_WIDTH", 600); // код типа цены базовой

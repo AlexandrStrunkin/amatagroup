@@ -414,7 +414,7 @@
                             "PAGE_ELEMENT_COUNT" => "20",	// Количество элементов на странице
                             "PARTIAL_PRODUCT_PROPERTIES" => "N",	// Разрешить частично заполненные свойства
                             "PRICE_CODE" => array(	// Тип цены
-                                0 => "Оптовая 1 Для сайта",
+                                $arParams["PRICE_CODE"],
                             ),
                             "PRICE_VAT_INCLUDE" => "Y",	// Включать НДС в цену
                             "PRODUCT_ID_VARIABLE" => "id",	// Название переменной, в которой передается код товара для покупки

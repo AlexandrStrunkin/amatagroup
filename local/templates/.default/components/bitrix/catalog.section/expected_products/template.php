@@ -185,6 +185,8 @@
                                     <span class="old_price"><? echo $minPrice['PRINT_VALUE']; ?></span>
                                     <?
                                     }
+                                } else {
+                                    echo GetMessage("WITHOUT_PRICE");    
                                 }
                                 $arItem["MIN_PRICE_TMP"] = $minPrice;
                                 unset($minPrice);
@@ -226,7 +228,7 @@
                                 ?>
                                 <div class="newLogoWrapper" title="<?=GetMessage("NEW_PRODUCT")?>">NEW</div>
                                 <?}?>   
-                            
+
                         </div>
                         <?
                             $showSubscribeBtn = false;
