@@ -30,8 +30,7 @@ $(window).on('load', function(){
         if($(this).is(':visible')) {
             visible_table = visible_table + 1;   
         }        
-    })
-    console.log(visible_table);
+    })                 
     if (visible_table == 0) {
         $('.contacts_table').first().show();        
     }  
