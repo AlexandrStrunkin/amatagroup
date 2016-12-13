@@ -181,13 +181,15 @@
                                         )
                                     );
                                 } else {
-                                    echo ($minPrice['PRINT_DISCOUNT_VALUE']) ? $minPrice['PRINT_DISCOUNT_VALUE'] : GetMessage("WITHOUT_PRICE");
+                                    echo $minPrice['PRINT_DISCOUNT_VALUE'];
                                 }
 
                                 if ('Y' == $arParams['SHOW_OLD_PRICE'] && $minPrice['DISCOUNT_VALUE'] < $minPrice['VALUE']) {?>
                                 <span class="old_price"><? echo $minPrice['PRINT_VALUE']; ?></span>
                                 <?
                                 }
+                            } else {
+                                echo GetMessage("WITHOUT_PRICE");
                             }
                             $arItem["MIN_PRICE_TMP"] = $minPrice;
                             unset($minPrice);
