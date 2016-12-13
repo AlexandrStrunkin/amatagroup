@@ -66,7 +66,32 @@
         if (!isset($arCurSection))
             $arCurSection = array();
     }
+    
 
+    //собираем цены для фильтра
+    $filter_price = $arParams["PRICE_CODE"];
+    //проверяем доступные типы цен для текущего покупателя, и удаляем из фильтра лишние, если для покупателя доступны несколько типов 
+    $available_prices = CCatalogGroup::GetList(array(), array("CAN_BUY" => "Y"), false, false, array());
+    while($ar_price = $available_prices->Fetch()) {
+        //если цена выбрана для отображения и она не является основной, удаляем из фильтра все остальные типы цен
+        if (in_array($ar_price["NAME"], $filter_price) && $ar_price["ID"] != CATALOG_GROUP_ID_PRICE_BASE) {
+            $price_key = array_search($ar_price["NAME"], $filter_price);
+            if ($price_key >= 0) {
+                foreach ($filter_price as $p => $f_price) {
+                    if ($p != $price_key) {
+                        //удаляем для фильтра лишние типы цен
+                        unset($filter_price[$p]);
+                    }
+                }
+            }
+            break;
+        } else { //если пользователю доступна только основная цена
+            if (!$price_key && $ar_price["ID"] == CATALOG_GROUP_ID_PRICE_BASE) {
+                $price_key = array_search($ar_price["NAME"], $filter_price);    
+            } 
+        }  
+    }
+  
     $catalogParams = getCatalogViewParams();  //sets in init.php
     $sectionTemplate = $catalogParams["CATALOG_SECTION_TEMPLATE"];
     $arParams["PAGE_ELEMENT_COUNT"] = $catalogParams["PAGE_ELEMENT_COUNT"];
@@ -77,13 +102,13 @@
 
     //формируем правильный вид для поля сортировки
     if ($arParams["ELEMENT_SORT_FIELD"] == "PRICE") {
-        $priceCode = $arParams["PRICE_CODE"][0];
+        $priceCode = $arParams["PRICE_CODE"][$price_key];
         $arPrice = CCatalogGroup::GetList(array(), array("NAME" => $priceCode), false, false, array())->Fetch();
         if ($arPrice["ID"] > 0) {
             $arParams["ELEMENT_SORT_FIELD"] = "CATALOG_PRICE_".$arPrice["ID"];
         }
     }
-
+    
 ?>
 
 
@@ -132,6 +157,8 @@
         <!--allElementWrap-->
         <div class="allElementWrap">
             <!--leftFiltersBlock-->
+
+
             <?$APPLICATION->IncludeComponent(
                     "bitrix:catalog.smart.filter",
                     "catalog_filter", //catalog_filter
@@ -140,7 +167,7 @@
                         "IBLOCK_ID" => $arParams["IBLOCK_ID"],
                         "SECTION_ID" => $arCurSection['ID'],
                         "FILTER_NAME" => $arParams["FILTER_NAME"],
-                        "PRICE_CODE" => $arParams["PRICE_CODE"],
+                        "PRICE_CODE" => $filter_price,
                         "CACHE_TYPE" => $arParams["CACHE_TYPE"],
                         "CACHE_TIME" => $arParams["CACHE_TIME"],
                         "CACHE_GROUPS" => $arParams["CACHE_GROUPS"],
@@ -468,7 +495,7 @@
         "PAGE_ELEMENT_COUNT" => "20",	// Количество элементов на странице
         "PARTIAL_PRODUCT_PROPERTIES" => "N",	// Разрешить частично заполненные свойства
         "PRICE_CODE" => array(	// Тип цены
-            0 => "Оптовая 1 Для сайта",
+            $arParams["PRICE_CODE"]
         ),
         "PRICE_VAT_INCLUDE" => "Y",	// Включать НДС в цену
         "PRODUCT_ID_VARIABLE" => "id",	// Название переменной, в которой передается код товара для покупки

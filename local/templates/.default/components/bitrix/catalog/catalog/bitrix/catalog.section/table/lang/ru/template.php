@@ -31,4 +31,5 @@ $MESS["PRODUCT_PRICE"] = "Цена";
 $MESS["PRODUCT_ACTIONS"] = "Действия";
 $MESS["SELECT_OFFER"] = "Не выбрано";
 $MESS["PRODUCT_AVAILABLE"] = "В наличии";
+$MESS["WITHOUT_PRICE"] = "Уточняйте у менеджера";
 ?>
