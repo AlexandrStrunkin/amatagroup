@@ -23,7 +23,14 @@ $('.contacts_table .equal_symbol, .contacts_table .department_block .department_
 $(window).on('load', function(){
     $('.contacts_table .personal_card_customer .personal_card').eq(0).fadeIn().addClass('visible');  
     $('.contacts_table .personal_card_operational .personal_card').eq(0).fadeIn().addClass('visible');
-    if ($('.contacts_table').first().is(':hidden')) {
+    var visible_table;
+    visible_table = 0;
+    $('.contacts_table').each(function(){
+        if($(this).is(':visible')){
+            visible_table = visible_table + 1;    
+        };    
+    });
+    if(visible_table == 0){
         $('.contacts_table').first().show();
     }        
 })
