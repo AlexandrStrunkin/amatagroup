@@ -8,7 +8,7 @@
 
     ?>
     </span>
-    <?if ($arItem['PROPERTIES']['DO_NOT_SHOW_DATE']['VALUE'] != 'Y') {?>
+    <?if ($arResult['DO_NOT_SHOW_DATE'] != 'Y') {?>
         <p class="dateText">
             <?= $datetime_create ; ?>
         </p>
