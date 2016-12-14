@@ -8,13 +8,6 @@ $arUrlRewrite = array(
 		"SORT" => "1",
 	),
 	array(
-		"CONDITION" => "#^/news/.*.*.*.*.*.*.*.*.*.*.*.*.*.*#",
-		"RULE" => "",
-		"ID" => "bitrix:news",
-		"PATH" => "/news/index.php",
-		"SORT" => "2",
-	),
-	array(
 		"CONDITION" => "#^/bitrix/services/ymarket/#",
 		"RULE" => "",
 		"ID" => "",
@@ -88,7 +81,6 @@ $arUrlRewrite = array(
 		"RULE" => "",
 		"ID" => "bitrix:news",
 		"PATH" => "/news/index.php",
-		"SORT" => "16",
 	),
 );
 
