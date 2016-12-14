@@ -5303,6 +5303,29 @@ textarea {
     padding-bottom: 14px;
 }
 
+.innerPageWrapper .infoBlocksMenuSection {
+    border-bottom: 1px solid #d8d8d8;
+    color: #aaaaaa;
+    font-family: "MuseoSansCyrl-500";
+    font-size: 20px;
+    padding-bottom: 0;
+}
+
+.innerPageWrapper .infoBlocksMenuSection a {
+    display: inline-block;
+    margin-right: 24px;
+    cursor: pointer;
+    color: inherit;
+    letter-spacing: 0.3px;
+}
+
+.innerPageWrapper .infoBlocksMenuSection .activeInfoBlock {
+    border-bottom: 3px solid;
+    color: #0b0b0b;
+    margin-bottom: -2px;
+    padding-bottom: 14px;
+}
+
 .innerPageWrapper .infoNewsList {
     margin-top: 34px;
 }

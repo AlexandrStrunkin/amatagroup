@@ -1,5 +1,9 @@
 <?if(!defined("B_PROLOG_INCLUDED") || B_PROLOG_INCLUDED!==true)die();?>
-
+<div class="infoBlocksMenuSection">
+    <? foreach ($arResult['REGROUPED_ITEMS'] as $section_id => $section_items) { ?>
+        <a href="/promo/<?= $section_items['CODE'] ?>/" <? if ($section_id == $arResult['VARIABLES']['SECTION_ID']) { ?>class="activeInfoBlock"<? } ?>><?= $section_items['TITLE'] ?></a>
+    <? } ?>
+</div>
 <?if($arParams["USE_RSS"]=="Y"):?>
 	<?
 	if(method_exists($APPLICATION, 'addheadstring'))
