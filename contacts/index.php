@@ -1,5 +1,5 @@
 <?require($_SERVER["DOCUMENT_ROOT"]."/bitrix/header.php");
-$APPLICATION->SetTitle("Задайте вопрос");
+$APPLICATION->SetTitle("Контакты");
 ?>
  <?$APPLICATION->IncludeComponent(
 	"bitrix:news.list", 
