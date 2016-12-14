@@ -160,7 +160,7 @@
 
                             ?>
 
-                            <tr id="<? echo $strMainID; ?>">
+                            <tr id="<? echo $strMainID; ?>"> 
                                 <td class="elementName">
                                     <div class="itemImgContainet">
                                         <a href="<?=$arItem['DETAIL_PAGE_URL'];?>">
@@ -184,7 +184,10 @@
 											}
 										?>
                                     </div>
-
+									<p class="elementStatus table_stock_block quantity_zero">
+										<span class="lvl_block"></span>
+										<span>22.08</span>
+									</p>
                                     <?//шильдик скидки
                                         if ($arItem["MIN_PRICE_TMP"]['DISCOUNT_VALUE'] < $arItem["MIN_PRICE_TMP"]['VALUE'] && $arItem["MIN_PRICE_TMP"]["DISCOUNT_DIFF_PERCENT"] > 0) {?>
                                         <p class="elementStatus statusExpected">-<?=$arItem["MIN_PRICE_TMP"]["DISCOUNT_DIFF_PERCENT"];?>%</p>

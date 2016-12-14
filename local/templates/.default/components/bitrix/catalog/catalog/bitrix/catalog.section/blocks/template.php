@@ -201,9 +201,15 @@
                         </div>
 
                     </div>
-
+					
                     <div class="logosContainer">
-
+						<div class="blocks_stock_block quantity_high">
+							<div class="lvl_block"></div>
+							<div class="stock_popup">
+								<div class="block_popup_text">Осталось меньше</div>
+								<div class="block_popup_quantity">5 шт.</div>
+							</div>
+						</div>
                         <?//шильдик скидки
                             if ($arItem["MIN_PRICE_TMP"]['DISCOUNT_VALUE'] < $arItem["MIN_PRICE_TMP"]['VALUE'] && $arItem["MIN_PRICE_TMP"]["DISCOUNT_DIFF_PERCENT"] > 0) {?>
                             <div class="discountLogoWrapper">-<?=$arItem["MIN_PRICE_TMP"]["DISCOUNT_DIFF_PERCENT"];?>%</div>

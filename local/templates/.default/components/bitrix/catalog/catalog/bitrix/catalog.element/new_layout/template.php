@@ -121,6 +121,15 @@ $arFirstPhoto = current($arResult['MORE_PHOTO']);
             <!-- <div class="freshLogoWrapper">FRESH</div>
             <div class="saleLogoWrapper">SALE</div>-->
         </div>
+        <div class="card_position_block">
+	        <div class="card_stock_block quantity_low">
+				<div class="lvl_block"></div>
+				<div class="stock_popup">
+					<div class="block_popup_text">Осталось меньше</div>
+					<div class="block_popup_quantity">5 шт.</div>
+				</div>
+			</div>
+        </div>
         <!--END logosContainer-->
         <!--previewImg-->
         <div class="previewImg">

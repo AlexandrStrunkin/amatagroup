@@ -44,6 +44,16 @@
                 'overlayShow'   :   false,
                 'changeSpeed'   :   500
             });
+            
+            // функции для показа/скрытия попапа с кол-вом товара
+			$(".card_stock_block").on("mouseover", function() {
+				$(this).find(".stock_popup").show();
+			});
+			
+			$(".stock_popup").on("mouseleave", function() {
+				$(this).hide();
+			})
+            
             // простенький слайдер для превьюх в карточке товара
             var preview_slider = new PreviewSlider({
                 slide_distance: 104,
