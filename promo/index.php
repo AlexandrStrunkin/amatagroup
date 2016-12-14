@@ -7,7 +7,7 @@ $APPLICATION->SetTitle("Маркетинг");
 	"news_without_tabs_promo", 
 	array(
 		"ADD_ELEMENT_CHAIN" => "Y",
-		"ADD_SECTIONS_CHAIN" => "N",
+		"ADD_SECTIONS_CHAIN" => "Y",
 		"AJAX_MODE" => "N",
 		"AJAX_OPTION_ADDITIONAL" => "",
 		"AJAX_OPTION_HISTORY" => "N",
@@ -95,8 +95,8 @@ $APPLICATION->SetTitle("Маркетинг");
 		"SEF_FOLDER" => "/promo/",
 		"SEF_URL_TEMPLATES" => array(
 			"news" => "",
-			"section" => "",
-			"detail" => "#ELEMENT_CODE#/",
+			"section" => "#SECTION_CODE#/",
+			"detail" => "#SECTION_CODE#/news-#ELEMENT_CODE#/",
 		)
 	),
 	false
