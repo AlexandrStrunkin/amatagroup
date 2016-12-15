@@ -23,7 +23,7 @@ $aMenuLinks = Array(
 	),
 	Array(
 		"Новинки", 
-		"/new-products/", 
+		"/catalog/new_products/", 
 		Array(), 
 		Array(), 
 		"" 
