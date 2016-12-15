@@ -45,8 +45,8 @@
     color: red;
     display: block;
 
-}
-.infoNewsList ul li {
+} 
+.innerPageWrapper  ul.infoNewsList li {
     overflow: hidden; 
     margin-bottom: 16.5px!important;   
 }
