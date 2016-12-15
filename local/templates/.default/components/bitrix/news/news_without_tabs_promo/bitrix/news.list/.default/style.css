@@ -46,7 +46,7 @@
     display: block;
 
 }
-.infoNewsList .innerPageWrapper ul li {
+.infoNewsList ul li {
     overflow: hidden; 
     margin-bottom: 16.5px!important;   
 }
