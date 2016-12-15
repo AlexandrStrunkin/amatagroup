@@ -81,6 +81,7 @@ div.news-list img.preview_picture
     font-size: 17px;
     color: #000000;
     margin-top: 13px;
+    max-width: 165px;
 }
 
 .contacts_table .personal_cell_title {
