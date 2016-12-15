@@ -46,6 +46,11 @@
     display: block;
 
 }
+.infoNewsList .innerPageWrapper ul li {
+    overflow: hidden; 
+    margin-bottom: 16.5px!important;   
+}
+
 .innerPageWrapper .infoNewsList li > span{
     color: #5a5a5a;
     font-family: "MuseoSansCyrl-500";
