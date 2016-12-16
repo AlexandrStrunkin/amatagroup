@@ -10,14 +10,12 @@
                 <form method="post" id="leave_question" action="javascript:void(null);" onsubmit="leave_quastion()">
                     <p class="authTitle"><?=GetMessage('SEND_QUASTION')?></p>
                     <input type="text" required placeholder="<?=GetMessage('REPRESENTATIVE')?>" name="name" class='nameInput'>
-                    <select name="generator">
-                        <option value="<?=GetMessage('MANUFACTIRER')?>"><?=GetMessage('MANUFACTIRER')?></option>
+                    <select name="generator">                                   
                         <?
                             $arSelect = Array("ID", "NAME");
                             $arFilter = Array("IBLOCK_ID"=>MANUFACTURER_IBLOCK_ID);
                             $result = CIBlockElement::GetList(Array(), $arFilter, false, Array(), $arSelect);
-                            while($manufacturer = $result->Fetch())
-                            { 
+                            while($manufacturer = $result->Fetch()) { 
                         ?> 
                             <option value="<?=$manufacturer['NAME']?>"><?=$manufacturer['NAME']?></option>                        
                         <?
