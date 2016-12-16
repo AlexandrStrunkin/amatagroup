@@ -360,6 +360,7 @@
                     $expected_products = array();
                     //собираем предложения, у которых есть реквизит "ожидаемая дата поступления"
                     $expected_items = CIBLockElement::GetList(array(), array("IBLOCK_ID" => OFFERS_IBLOCK_ID, "ACTIVE" => "Y", array("LOGIR" => "AND", array(">PROPERTY_CML2_TRAITS" => date("Y-m-d H:i:s")), array("!PROPERTY_CML2_TRAITS" => false))), false, false, array("ID", "PROPERTY_CML2_TRAITS", "PROPERTY_CML2_LINK"));
+                    echo $expected_items->SelectedRowsCount();
                     while($arItem = $expected_items->Fetch()) {
                         //собираем основные товары для филтрации
                         if (!empty($arItem["PROPERTY_CML2_LINK_VALUE"])) {

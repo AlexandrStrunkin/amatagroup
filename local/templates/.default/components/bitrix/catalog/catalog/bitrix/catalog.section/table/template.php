@@ -166,8 +166,9 @@
                                         <a href="<?=$arItem['DETAIL_PAGE_URL'];?>">
                                             <img src="<?=$arItem["PREVIEW_PICTURE"]["SRC"]?>" alt="<?=$arItem["NAME"]?>">
                                         </a>
-                                        <? if (isset($arItem['OFFERS']) || !empty($arItem['OFFERS'])) {
-												foreach ($arItem['OFFERS'] as $offer) { ?>
+                                        <? if (isset($arItem['OFFERS']) || !empty($arItem['OFFERS'])) { ?>
+											<? $first_offer = $arItem["OFFERS"][0]; ?>
+											<? foreach ($arItem['OFFERS'] as $offer) { ?>
 													<?
 													// если фото в поле превью
 													if (isset($offer['DETAIL_PICTURE']) || !empty($offer['DETAIL_PICTURE'])) {
@@ -181,13 +182,24 @@
                                                         </a>
                                                     <?} ?>
 											<? 	}
-											}
-										?>
+											}?>
                                     </div>
-									<p class="elementStatus table_stock_block quantity_zero">
-										<span class="lvl_block"></span>
-										<span>22.08</span>
-									</p>
+                                    <? if (isset($arItem['OFFERS']) || !empty($arItem['OFFERS'])) { ?>
+										<? $first_offer = $arItem["OFFERS"][0]; ?>
+										<? foreach ($arItem['OFFERS'] as $offer) { ?>
+                                                <? $item_quantity = getQuantityLang($offer["CATALOG_QUANTITY"]); ?>
+										        <p data-offer-id="<?= $offer["ID"] ?>" style="display:<?= $first_offer == $offer ? "inline-block" : "none" ?>" class="elementStatus table_stock_block <?= $item_quantity ?>">
+													<span class="lvl_block"></span>
+													<span><?= getQuantityText($offer["CATALOG_QUANTITY"], true) ?></span>
+												</p>
+										<? 	}
+										} else { ?>
+											<? $item_quantity = getQuantityLang($arItem["CATALOG_QUANTITY"]); ?>
+											<p class="elementStatus table_stock_block <?= $item_quantity ?>">
+												<span class="lvl_block"></span>
+												<span><?= getQuantityText($arItem["CATALOG_QUANTITY"], true) ?></span>
+											</p>
+									<? } ?>
                                     <?//шильдик скидки
                                         if ($arItem["MIN_PRICE_TMP"]['DISCOUNT_VALUE'] < $arItem["MIN_PRICE_TMP"]['VALUE'] && $arItem["MIN_PRICE_TMP"]["DISCOUNT_DIFF_PERCENT"] > 0) {?>
                                         <p class="elementStatus statusExpected">-<?=$arItem["MIN_PRICE_TMP"]["DISCOUNT_DIFF_PERCENT"];?>%</p>

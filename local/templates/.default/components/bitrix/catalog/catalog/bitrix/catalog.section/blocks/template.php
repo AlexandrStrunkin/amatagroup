@@ -201,13 +201,15 @@
                         </div>
 
                     </div>
-					
+					<?
+			        	$item_quantity = getQuantityLang($arItem["CATALOG_QUANTITY"]);
+			        ?>
                     <div class="logosContainer">
-						<div class="blocks_stock_block quantity_high">
+						<div class="blocks_stock_block <?= $item_quantity ?>">
 							<div class="lvl_block"></div>
 							<div class="stock_popup">
-								<div class="block_popup_text">Осталось меньше</div>
-								<div class="block_popup_quantity">5 шт.</div>
+								<div class="block_popup_text"><?= GetMessage($item_quantity) ?></div>
+								<div class="block_popup_quantity"><?= getQuantityText($arItem["CATALOG_QUANTITY"]) ?></div>
 							</div>
 						</div>
                         <?//шильдик скидки

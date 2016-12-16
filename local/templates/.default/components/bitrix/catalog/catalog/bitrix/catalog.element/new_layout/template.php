@@ -121,15 +121,34 @@ $arFirstPhoto = current($arResult['MORE_PHOTO']);
             <!-- <div class="freshLogoWrapper">FRESH</div>
             <div class="saleLogoWrapper">SALE</div>-->
         </div>
-        <div class="card_position_block">
-	        <div class="card_stock_block quantity_low">
-				<div class="lvl_block"></div>
-				<div class="stock_popup">
-					<div class="block_popup_text">Осталось меньше</div>
-					<div class="block_popup_quantity">5 шт.</div>
+        
+        <? if (isset($arResult['OFFERS']) && !empty($arResult['OFFERS'])) { ?>
+        	<? $first_offer = $arResult["OFFERS"][0]; ?>
+        	<? foreach ($arResult['OFFERS'] as $offer) { ?>
+        		<? $item_quantity = getQuantityLang($offer["CATALOG_QUANTITY"]); ?>
+	         	<div data-offer-id="<?= $offer["ID"] ?>" class="card_position_block" style="display:<?= $first_offer == $offer ? "block" : "none" ?>">
+			        <div class="card_stock_block <?= $item_quantity ?>">
+						<div class="lvl_block"></div>
+						<div class="stock_popup">
+							<div class="block_popup_text"><?= GetMessage($item_quantity) ?></div>
+							<div class="block_popup_quantity"><?= getQuantityText($offer["CATALOG_QUANTITY"]) ?></div>
+						</div>
+					</div>
+		        </div>
+        	<? } ?>
+        <? } else {
+        	$item_quantity = getQuantityLang($arResult["CATALOG_QUANTITY"]); ?>
+         	<div class="card_position_block">
+		        <div class="card_stock_block <?= $item_quantity ?>">
+					<div class="lvl_block"></div>
+					<div class="stock_popup">
+						<div class="block_popup_text"><?= GetMessage($item_quantity) ?></div>
+						<div class="block_popup_quantity"><?= getQuantityText($arResult["CATALOG_QUANTITY"]) ?></div>
+					</div>
 				</div>
-			</div>
-        </div>
+	        </div>
+         <? } ?>
+        
         <!--END logosContainer-->
         <!--previewImg-->
         <div class="previewImg">
