@@ -69,7 +69,17 @@
                     </tr>
                     <tr>
                         <td colspan="2" class="copyRightBlock">
-                            <p><?=GetMessage('COPYRIGHT')?></p>
+                            <p>                            
+                            <?$APPLICATION->IncludeComponent(
+                                "bitrix:main.include",
+                                "",
+                                Array(
+                                    "AREA_FILE_SHOW" => "file",
+                                    "PATH" => "/include/copyright_footer.php",
+                                    "EDIT_TEMPLATE" => ""
+                                )
+                            );?>
+                            </p>
                         </td>
                         <td class="theCreator">
                             <p><?=GetMessage('CREATED_SITE')?></p>
