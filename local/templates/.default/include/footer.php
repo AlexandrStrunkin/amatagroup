@@ -12,9 +12,17 @@
                     <input type="text" required placeholder="<?=GetMessage('REPRESENTATIVE')?>" name="name" class='nameInput'>
                     <select name="generator">
                         <option value="<?=GetMessage('MANUFACTIRER')?>"><?=GetMessage('MANUFACTIRER')?></option>
-                        <!--пустое значение = -1-->
-                        <option value="<?=GetMessage('GANDULIAN')?>"><?=GetMessage('GANDULIAN')?></option>
-                        <option value="<?=GetMessage('DREAM')?>"><?=GetMessage('DREAM')?></option>
+                        <?
+                            $arSelect = Array("ID", "NAME");
+                            $arFilter = Array("IBLOCK_ID"=>MANUFACTURER_IBLOCK_ID);
+                            $result = CIBlockElement::GetList(Array(), $arFilter, false, Array(), $arSelect);
+                            while($manufacturer = $result->Fetch())
+                            { 
+                        ?> 
+                            <option value="<?=$manufacturer['NAME']?>"><?=$manufacturer['NAME']?></option>                        
+                        <?
+                            }
+                        ?>
                     </select>
                     <input type="email" required placeholder="<?=GetMessage('EMAIL')?>" name="email" class="emailInput">
                     <input type="tel" required placeholder="<?=GetMessage('PHONE')?>" name="phone" class='phoneInput nameInput'>
@@ -69,7 +77,17 @@
                     </tr>
                     <tr>
                         <td colspan="2" class="copyRightBlock">
-                            <p><?=GetMessage('COPYRIGHT')?></p>
+                            <p>                            
+                            <?$APPLICATION->IncludeComponent(
+                                "bitrix:main.include",
+                                "",
+                                Array(
+                                    "AREA_FILE_SHOW" => "file",
+                                    "PATH" => "/include/copyright_footer.php",
+                                    "EDIT_TEMPLATE" => ""
+                                )
+                            );?>
+                            </p>
                         </td>
                         <td class="theCreator">
                             <p><?=GetMessage('CREATED_SITE')?></p>
