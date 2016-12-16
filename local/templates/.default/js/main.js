@@ -1708,7 +1708,15 @@ $(document).ready(function () {
             $(".js-fixed-header").fadeIn();
         }
     }
-
+    
+	// функции для показа/скрытия попапа с кол-вом товара
+	$(".blocks_stock_block").on("mouseover", function() {
+		$(this).find(".stock_popup").show();
+	});
+	
+	$(".stock_popup").on("mouseleave", function() {
+		$(this).hide();
+	})
 });
 
 //перезагрузка малой корзины

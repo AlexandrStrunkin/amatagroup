@@ -7,16 +7,6 @@ $APPLICATION->AddHeadScript(DEFAULT_TEMPLATE_PATH . "/js/shave.js");
 ?>
 <script>
 	<?= $APPLICATION->AddHeadScript(DEFAULT_TEMPLATE_PATH . "/js/blocks_titles_shave_script.js") ?>
-	$(document).ready(function() {
-		// функции для показа/скрытия попапа с кол-вом товара
-		$(".blocks_stock_block").on("mouseover", function() {
-			$(this).find(".stock_popup").show();
-		});
-		
-		$(".stock_popup").on("mouseleave", function() {
-			$(this).hide();
-		})
-	})
 </script>
 <?
 if (isset($templateData['TEMPLATE_THEME']))
