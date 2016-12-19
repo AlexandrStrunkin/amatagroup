@@ -1125,7 +1125,7 @@
                 $price_code = $partners_prices[$user_name];                  
 
                 //если удалось получить ID пользователя
-                if ($user_id > 0 && !empty($price_code)) {
+                if ($user_id > 0 && !empty($price_code) && !empty($user_name)) {
                     //получаем группы пользователя
                     $user_groups = CUser::GetUserGroup(intval($ar_user["ID"]));
 
