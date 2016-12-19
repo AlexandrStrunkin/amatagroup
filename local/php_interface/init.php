@@ -61,7 +61,6 @@
     define("ITEM_TYPE_PROPERTY_ID", 1380);
 	define("PROPERTY_BREND_HAVE_ITEMS_YES", 13956); // ” бренда есть товары
 	define("PROPERTY_BREND_HAVE_ITEMS_NO", 13957); // ” бренда нет товаров
-	define("AUTONAME_PROPERTY_ID", 2791);
 	define("PROPERTY_BREND_ID", 245);
 	define("PROPERTY_PRODUCT_TYPE_ID", 1380);
 
@@ -197,15 +196,16 @@
         $result = "";
         $setted_model = "";
         $models = array(
-            $item['PROPERTY_VALUES'][250]['n0']['VALUE'],
-            $item['PROPERTY_VALUES'][1364]['n0']['VALUE'],
-            $item['PROPERTY_VALUES'][1369]['n0']['VALUE'],
-            $item['PROPERTY_VALUES'][1376]['n0']['VALUE'],
-            $item['PROPERTY_VALUES'][1466]['n0']['VALUE'],
-            $item['PROPERTY_VALUES'][1480]['n0']['VALUE'],
-            $item['PROPERTY_VALUES'][1509]['n0']['VALUE'],
-            $item['PROPERTY_VALUES'][2778]['n0']['VALUE'],
-            $item['PROPERTY_VALUES'][2779]['n0']['VALUE']
+        	// эта хитра€ конструкци€ выбирает первый элемент массива, независимо от названи€ ключа, т.к. битрикс может их мен€ть, там может быть 0, n0, рандомный набор чисел
+            $item['PROPERTY_VALUES'][250][key($item['PROPERTY_VALUES'][250])]['VALUE'],
+            $item['PROPERTY_VALUES'][1364][key($item['PROPERTY_VALUES'][1364])]['VALUE'],
+            $item['PROPERTY_VALUES'][1369][key($item['PROPERTY_VALUES'][1369])]['VALUE'],
+            $item['PROPERTY_VALUES'][1376][key($item['PROPERTY_VALUES'][1376])]['VALUE'],
+            $item['PROPERTY_VALUES'][1466][key($item['PROPERTY_VALUES'][1466])]['VALUE'],
+            $item['PROPERTY_VALUES'][1480][key($item['PROPERTY_VALUES'][1480])]['VALUE'],
+            $item['PROPERTY_VALUES'][1509][key($item['PROPERTY_VALUES'][1509])]['VALUE'],
+            $item['PROPERTY_VALUES'][2778][key($item['PROPERTY_VALUES'][2778])]['VALUE'],
+            $item['PROPERTY_VALUES'][2779][key($item['PROPERTY_VALUES'][2779])]['VALUE']
         );
         // провер€ем заполненность необходимых свойств
         if (
@@ -279,6 +279,7 @@
     }
 	
 	AddEventHandler("iblock", "OnBeforeIBlockElementUpdate", "autoNameBuild");
+	AddEventHandler("iblock", "OnBeforeIBlockElementAdd", "autoNameBuild");
 	
 	/**
 	 * 
@@ -289,9 +290,9 @@
 	 * */
     function autoNameBuild(&$arFields) {
 		// переприсваиваем им€ товара, если необходимые свойства заполнены
-		if (!$arFields['PROPERTY_VALUES'][AUTONAME_PROPERTY_ID]['n0']['VALUE']) {
+		if ($arFields['IBLOCK_ID'] == CATALOG_IBLOCK_ID) {
 			$new_product_name = getNamesFromProperties($arFields);
-			$arFields['PROPERTY_VALUES'][AUTONAME_PROPERTY_ID]['n0']['VALUE'] = $new_product_name ? $new_product_name : "";	
+			$arFields['NAME'] = $new_product_name ? $new_product_name : $arFields['NAME'];
 		}
     }
 
