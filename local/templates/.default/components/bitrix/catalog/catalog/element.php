@@ -453,8 +453,8 @@
             67 => "BREND",
         ),
         "PAGE_ELEMENT_COUNT" => "20",
-        "PARTIAL_PRODUCT_PROPERTIES" => "N",
-        "PRICE_CODE" => $arParams["PRICE_CODE"],
+        "PARTIAL_PRODUCT_PROPERTIES" => "N",    
+        "PRICE_CODE" => '',
         "PRICE_VAT_INCLUDE" => "Y",
         "PRODUCT_ID_VARIABLE" => "id",
         "PRODUCT_PROPS_VARIABLE" => "prop",
@@ -503,7 +503,7 @@
         "SHOW_DISCOUNT_PERCENT" => "Y",
         "SHOW_FROM_SECTION" => "N",
         "SHOW_IMAGE" => "Y",
-        "SHOW_NAME" => "Y",
+        "SHOW_NAME" => "Y",     
         "SHOW_OLD_PRICE" => "Y",
         "SHOW_PRICE_COUNT" => "1",
         "SHOW_PRODUCTS_5" => "Y",
@@ -512,5 +512,5 @@
         "COMPONENT_TEMPLATE" => "section_viewed"
     ),
     false
-    );?>
+);?>
 
