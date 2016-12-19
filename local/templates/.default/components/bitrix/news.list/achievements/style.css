@@ -10,3 +10,23 @@ div.news-list img.preview_picture
 .news-date-time {
 	color:#486DAA;
 }
+
+.bordered-image {
+    border: 1px solid #d8d8d8;
+    padding: 1px;  
+}
+
+.image {
+    display: inline-block; 
+    overflow: hidden; 
+    margin: 4px 8px;  
+}
+
+.image-name {
+    width: 240px;
+    height: 32px; 
+    color: #9a9a9a;
+    margin-top: 4px;
+    font: 16px/1 'MuseoSansCyrl-500'; 
+    text-align: center;   
+}
