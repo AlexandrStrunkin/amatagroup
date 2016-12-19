@@ -164,36 +164,31 @@
 
             <li id="<? echo $strMainID; ?>">
                 <div class="productWrapper">
-                    <p class="price" id="<? echo $arItemIDs['PRICE']; ?>"><?
-                            if (!empty($minPrice)) {
-                                if (isset($arItem['OFFERS']) && !empty($arItem['OFFERS'])) {
-                                    echo GetMessage(
-                                        'CT_BCS_TPL_MESS_PRICE_SIMPLE_MODE',
-                                        array(
-                                            '#PRICE#' => $minPrice['PRINT_DISCOUNT_VALUE'],
-                                            '#MEASURE#' => GetMessage(
-                                                'CT_BCS_TPL_MESS_MEASURE_SIMPLE_MODE',
-                                                array(
-                                                    '#VALUE#' => $minPrice['CATALOG_MEASURE_RATIO'],
-                                                    '#UNIT#' => $minPrice['CATALOG_MEASURE_NAME']
-                                                )
-                                            )
-                                        )
-                                    );
-                                } else {
-                                    echo $minPrice['PRINT_DISCOUNT_VALUE'];
-                                }
-
-                                if ('Y' == $arParams['SHOW_OLD_PRICE'] && $minPrice['DISCOUNT_VALUE'] < $minPrice['VALUE']) {?>
-                                <span class="old_price"><? echo $minPrice['PRINT_VALUE']; ?></span>
-                                <?
-                                }
-                            } else {
-                                echo GetMessage("WITHOUT_PRICE");
+                    <p class="price" id="<? echo $arItemIDs['PRICE']; ?>">
+                        <? if (isset($arItem['OFFERS']) && !empty($arItem['OFFERS'])) { ?> 
+                            <?             
+                            foreach ($arItem['OFFERS'] as $offer) { 
+                                $tempMinPrice = (isset($offer['RATIO_PRICE']) ? $offer['RATIO_PRICE'] : $offer['MIN_PRICE']);                                 
+                                if($minPrice['VALUE'] > $tempMinPrice['VALUE']) {
+                                    $minPrice = $tempMinPrice;    
+                                } elseif (empty($minPrice)) {
+                                    $minPrice = (isset($offer['RATIO_PRICE']) ? $offer['RATIO_PRICE'] : $offer['MIN_PRICE']);    
+                                }              
                             }
-                            $arItem["MIN_PRICE_TMP"] = $minPrice;
+                            echo ($minPrice['PRINT_DISCOUNT_VALUE']) ? $minPrice['PRINT_DISCOUNT_VALUE'] : GetMessage("WITHOUT_PRICE");
+                            if ('Y' == $arParams['SHOW_OLD_PRICE'] && $minPrice['DISCOUNT_VALUE'] < $minPrice['VALUE']) {?>
+                                <span class="old_price"><? echo $minPrice['PRINT_VALUE']; ?></span>
+                                <?unset($minPrice);
+                            }
+                        } else {
+                            $minPrice = $arItem["MIN_PRICE_TMP"];
+                            echo ($minPrice['PRINT_DISCOUNT_VALUE']) ? $minPrice['PRINT_DISCOUNT_VALUE'] : GetMessage("WITHOUT_PRICE"); 
+                            if ('Y' == $arParams['SHOW_OLD_PRICE'] && $minPrice['DISCOUNT_VALUE'] < $minPrice['VALUE']) {?>
+                                <span class="old_price"><? echo $minPrice['PRINT_VALUE']; ?></span>
+                                
+                            <?}
                             unset($minPrice);
-                        ?> &nbsp;
+                        }?>
                     </p>
                     <a href="<? echo $arItem['DETAIL_PAGE_URL']; ?>" class="productimg">
                         <img src="<?=$arItem["PREVIEW_PICTURE"]["SRC"]?>" alt="<?=$arItem["NAME"]?>"/>
