@@ -322,7 +322,11 @@
                                     <? } ?>
                                 </strong>-->      
                                 <span class="actual_price">
-                                    <?= ($minPrice['PRINT_DISCOUNT_VALUE']) ? $minPrice['PRINT_DISCOUNT_VALUE'] : GetMessage("WITHOUT_PRICE"); ?>
+                                    <? if ($minPrice['PRINT_DISCOUNT_VALUE']) {
+                                        echo $minPrice['PRINT_DISCOUNT_VALUE'];    
+                                    } else {?>                                        
+                                        <span class="withoutPrice"><?= GetMessage("WITHOUT_PRICE"); ?></span>     
+                                    <? } ?> 
                                 </span>
                             </div>
                             <? foreach ($arResult["OFFERS"] as $offer) { ?>
@@ -336,7 +340,11 @@
                                         <? } ?>
                                     </strong>-->
                                     <span class="actual_price">
-                                        <?= ($minPrice['PRINT_DISCOUNT_VALUE']) ? $minPrice['PRINT_DISCOUNT_VALUE'] : GetMessage("WITHOUT_PRICE"); ?>
+                                        <? if ($minPrice['PRINT_DISCOUNT_VALUE']) {
+                                            echo $minPrice['PRINT_DISCOUNT_VALUE'];    
+                                        } else {?>                                        
+                                            <span class="withoutPrice"><?= GetMessage("WITHOUT_PRICE"); ?></span>     
+                                        <? } ?>
                                     </span>
                                 </div>
                                 <? }
@@ -351,7 +359,11 @@
                                     <? } ?>
                                 </strong>-->
                                 <span class="actual_price">
-                                    <?= ($minPrice['PRINT_DISCOUNT_VALUE']) ? $minPrice['PRINT_DISCOUNT_VALUE'] : GetMessage("WITHOUT_PRICE"); ?>
+                                    <? if ($minPrice['PRINT_DISCOUNT_VALUE']) {
+                                        echo $minPrice['PRINT_DISCOUNT_VALUE'];    
+                                    } else {?>                                        
+                                        <span class="withoutPrice"><?= GetMessage("WITHOUT_PRICE"); ?></span>     
+                                    <? } ?>
                                 </span>
                             </div>
                             <? } ?>

@@ -147,8 +147,8 @@
                 $imgTitle = (
                     isset($arItem['IPROPERTY_VALUES']['ELEMENT_PREVIEW_PICTURE_FILE_TITLE']) && $arItem['IPROPERTY_VALUES']['ELEMENT_PREVIEW_PICTURE_FILE_TITLE'] != ''
                     ? $arItem['IPROPERTY_VALUES']['ELEMENT_PREVIEW_PICTURE_FILE_TITLE']
-                    : $arItem['NAME']
-                );                 
+                    : $arItem['NAME'] 
+                );
                 $minPrice = false;
                 if (isset($arItem['MIN_PRICE']) || isset($arItem['RATIO_PRICE'])) {
                     $minPrice = (isset($arItem['RATIO_PRICE']) ? $arItem['RATIO_PRICE'] : $arItem['MIN_PRICE']);
