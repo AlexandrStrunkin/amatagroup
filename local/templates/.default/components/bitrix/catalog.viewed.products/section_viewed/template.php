@@ -7,7 +7,7 @@
 $frame = $this->createFrame()->begin();
 
 if (!empty($arResult['ITEMS']))
-{?>
+{?> 
 	<!--viewedElementBlock-->
 <div class="viewedElementBlock">
     <div class="widthWrapper">
@@ -180,7 +180,7 @@ if (!empty($arResult['ITEMS']))
 
 
 
-    ?>
+    ?>   
 
     <li id="<? echo $strMainID; ?>">
         <div class="productWrapper">

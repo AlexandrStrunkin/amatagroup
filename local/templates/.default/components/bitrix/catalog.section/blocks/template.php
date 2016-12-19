@@ -146,8 +146,7 @@
 
 
 
-            ?>
-
+            ?>                       
             <li id="<? echo $strMainID; ?>">
                 <div class="productWrapper">
                     <p class="price" id="<? echo $arItemIDs['PRICE']; ?>">
