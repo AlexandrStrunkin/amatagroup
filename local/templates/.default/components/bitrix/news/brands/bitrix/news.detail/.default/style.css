@@ -28,3 +28,8 @@
      margin-bottom: 0;
      letter-spacing: normal;
 }
+
+.news-detail img {
+    display: block;
+    padding: 5px 0 10px;
+}

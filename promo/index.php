@@ -1,13 +1,13 @@
 <?
 require($_SERVER["DOCUMENT_ROOT"]."/bitrix/header.php");
-$APPLICATION->SetTitle("Акции");
+$APPLICATION->SetTitle("Маркетинг");
 ?>
 <?$APPLICATION->IncludeComponent(
 	"bitrix:news", 
 	"news_without_tabs_promo", 
 	array(
 		"ADD_ELEMENT_CHAIN" => "Y",
-		"ADD_SECTIONS_CHAIN" => "N",
+		"ADD_SECTIONS_CHAIN" => "Y",
 		"AJAX_MODE" => "N",
 		"AJAX_OPTION_ADDITIONAL" => "",
 		"AJAX_OPTION_HISTORY" => "N",
@@ -60,7 +60,7 @@ $APPLICATION->SetTitle("Акции");
 			6 => "",
 		),
 		"LIST_PROPERTY_CODE" => array(
-			0 => "",
+			0 => "DO_NOT_SHOW_DATE",
 			1 => "",
 		),
 		"MESSAGE_404" => "",
@@ -95,8 +95,8 @@ $APPLICATION->SetTitle("Акции");
 		"SEF_FOLDER" => "/promo/",
 		"SEF_URL_TEMPLATES" => array(
 			"news" => "",
-			"section" => "",
-			"detail" => "#ELEMENT_CODE#/",
+			"section" => "#SECTION_CODE#/",
+			"detail" => "#SECTION_CODE#/news-#ELEMENT_CODE#/",
 		)
 	),
 	false

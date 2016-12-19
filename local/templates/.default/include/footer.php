@@ -10,11 +10,17 @@
                 <form method="post" id="leave_question" action="javascript:void(null);" onsubmit="leave_quastion()">
                     <p class="authTitle"><?=GetMessage('SEND_QUASTION')?></p>
                     <input type="text" required placeholder="<?=GetMessage('REPRESENTATIVE')?>" name="name" class='nameInput'>
-                    <select name="generator">
-                        <option value="<?=GetMessage('MANUFACTIRER')?>"><?=GetMessage('MANUFACTIRER')?></option>
-                        <!--пустое значение = -1-->
-                        <option value="<?=GetMessage('GANDULIAN')?>"><?=GetMessage('GANDULIAN')?></option>
-                        <option value="<?=GetMessage('DREAM')?>"><?=GetMessage('DREAM')?></option>
+                    <select name="generator">                                   
+                        <?
+                            $arSelect = Array("ID", "NAME");
+                            $arFilter = Array("IBLOCK_ID"=>MANUFACTURER_IBLOCK_ID);
+                            $result = CIBlockElement::GetList(Array(), $arFilter, false, Array(), $arSelect);
+                            while($manufacturer = $result->Fetch()) { 
+                        ?> 
+                            <option value="<?=$manufacturer['NAME']?>"><?=$manufacturer['NAME']?></option>                        
+                        <?
+                            }
+                        ?>
                     </select>
                     <input type="email" required placeholder="<?=GetMessage('EMAIL')?>" name="email" class="emailInput">
                     <input type="tel" required placeholder="<?=GetMessage('PHONE')?>" name="phone" class='phoneInput nameInput'>
@@ -69,7 +75,17 @@
                     </tr>
                     <tr>
                         <td colspan="2" class="copyRightBlock">
-                            <p><?=GetMessage('COPYRIGHT')?></p>
+                            <p>                            
+                            <?$APPLICATION->IncludeComponent(
+                                "bitrix:main.include",
+                                "",
+                                Array(
+                                    "AREA_FILE_SHOW" => "file",
+                                    "PATH" => "/include/copyright_footer.php",
+                                    "EDIT_TEMPLATE" => ""
+                                )
+                            );?>
+                            </p>
                         </td>
                         <td class="theCreator">
                             <p><?=GetMessage('CREATED_SITE')?></p>
@@ -108,3 +124,40 @@
 
 </footer>
 <!--END footer-->
+<!-- Yandex.Metrika counter --> 
+<script type="text/javascript"> 
+(function (d, w, c) { 
+    (w[c] = w[c] || []).push(function() { 
+        try { 
+            w.yaCounter38954910 = new Ya.Metrika({ 
+                id:38954910, 
+                clickmap:true, 
+                trackLinks:true, 
+                accurateTrackBounce:true, 
+                webvisor:true, 
+                trackHash:true, 
+                ecommerce:"dataLayer" 
+            }); 
+        } 
+        catch(e) { } 
+    }); 
+    var n = d.getElementsByTagName("script")[0], s = d.createElement("script"), f = function () { 
+        n.parentNode.insertBefore(s, n); 
+    }; 
+    s.type = "text/javascript"; 
+    s.async = true; 
+    s.src = "https://mc.yandex.ru/metrika/watch.js"; 
+    if (w.opera == "[object Opera]") { 
+        d.addEventListener("DOMContentLoaded", f, false); 
+    } else { 
+        f(); 
+    } 
+})
+(document, window, "yandex_metrika_callbacks"); 
+</script> 
+<noscript>
+    <div>
+        <img src="https://mc.yandex.ru/watch/38954910" style="position:absolute; left:-9999px;" alt="" />
+    </div>
+</noscript> 
+<!-- /Yandex.Metrika counter -->

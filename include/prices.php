@@ -67,6 +67,7 @@
 		 Feretti
 	</td>
 	<td>
+ <a href="https://cloud.mail.ru/public/ASfS/xzt7B212X">https://cloud.mail.ru/public/ASfS/xzt7B212X</a>
 	</td>
 </tr>
 <tr>
@@ -87,7 +88,7 @@
 </tr>
 <tr>
 	<td>
-		 Haenim Toys
+		 Haenim Toy
 	</td>
 	<td>
  <a target="_blank" href="https://cloud.mail.ru/public/FLDS/KyGKB2Hum">https://cloud.mail.ru/public/FLDS/KyGKB2Hum</a>
@@ -130,7 +131,7 @@
 		 Noony
 	</td>
 	<td>
- <br>
+ <a href="https://cloud.mail.ru/public/6NDR/SNyd5jB5k">https://cloud.mail.ru/public/6NDR/SNyd5jB5k</a><br>
 	</td>
 </tr>
 <tr>
@@ -199,10 +200,10 @@
 </tr>
 <tr>
 	<td>
-		  убаньЋес—трой
+		 Ћель ( убаньЋес—трой)
 	</td>
 	<td>
- <br>
+ <a href="https://cloud.mail.ru/public/GNnt/te1Vn2ggZ">https://cloud.mail.ru/public/GNnt/te1Vn2ggZ</a><br>
 	</td>
 </tr>
 <tr>
@@ -226,7 +227,7 @@
 		 ѕлитекс
 	</td>
 	<td>
- <br>
+ <a href="https://cloud.mail.ru/public/6439/VBv66YcCq">https://cloud.mail.ru/public/6439/VBv66YcCq</a><br>
 	</td>
 </tr>
 </tbody>

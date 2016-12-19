@@ -54,4 +54,5 @@ $MESS["DESC_TAB"] = "Описание";
 $MESS["NOT_SETTED"] = "Не задан";
 $MESS["QUANTITY_HEADER"] = "Количество";
 $MESS["COST_HEADER"] = "Цена";
+$MESS["WITHOUT_PRICE"] = "Уточняйте у менеджера";
 ?>

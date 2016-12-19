@@ -10,3 +10,356 @@ div.news-list img.preview_picture
 .news-date-time {
 	color:#486DAA;
 }
+
+.contacts_table {
+    border: 2px solid #c7e5f4;
+    border-radius: 4px;
+    border-spacing: 0px;
+    width: 1182px;
+    margin: 0 auto 35px;   
+}
+
+.contacts_table td {
+    border-right: 1px solid #d9d9d9;
+    border-bottom: 1px solid #d9d9d9;   
+    padding: 18px 24px 18px 27px;
+}
+
+.contacts_table tr:first-child td { 
+    border-bottom: 2px solid #d9d9d9;
+} 
+
+.contacts_table tr:nth-child(3) td { 
+    border-bottom: 2px solid #d9d9d9;
+}
+
+.contacts_table td:last-child {
+    border-right: 0px solid #d9d9d9;   
+}
+
+.contacts_table tr:last-child td {
+    border-bottom: 0px solid #d9d9d9;
+}
+
+.contacts_table tr.last_row{
+    height: 312px;  
+}
+
+.contacts_table tr.last_row li:before{
+    display:none;
+}
+
+.contacts_table .table_title {
+    font-family: 'MuseoSansCyrl-700';
+    font-size: 20px;
+    color: #5db3dc;  
+}
+
+.contacts_table .cell_name {
+    font-family: 'MuseoSansCyrl-500';
+    font-size: 15px;
+    color: #999999;
+}
+
+.contacts_table .address_cell {
+    width: 356px;    
+    padding: 18px 27px;
+    border-bottom: 2px solid #d9d9d9;
+}
+
+.contacts_table .address_cell .address {
+    font-family: 'MuseoSansCyrl-900';
+    font-size: 26px;
+    color: #000000;
+    display: table-cell;
+    vertical-align: bottom;
+    height: 126px;
+}
+
+.contacts_table .phone {
+    font-family: 'MuseoSansCyrl-500';
+    font-size: 17px;
+    color: #000000;
+    margin-top: 13px;
+    max-width: 165px;
+}
+
+.contacts_table .personal_cell_title {
+    font-family: 'MuseoSansCyrl-500';
+    font-size: 16px;
+    color: #000000;    
+    width: 130px;    
+    display: table-cell;
+    vertical-align: middle;
+    float:left;
+}
+
+.contacts_table .directions_button {
+    font-family: 'MuseoSansCyrl-500';
+    font-size: 14px;
+    color: #000000;
+    background: #c7e5f4;
+    width: 160px;
+    height: 35px;
+    border-radius: 4px;
+    margin: auto;
+    text-align: center;
+    line-height: 35px;
+    text-decoration: none;
+    border-bottom: none;
+    cursor: pointer;
+}
+
+.contacts_table .directions_button:hover {
+    color: #262626;
+    background: #dceff8;
+}
+
+.contacts_table a {
+    display:inline-block;
+    width:auto;
+    font-family: 'MuseoSansCyrl-500';
+    font-size: 17px;
+    color: #5db3dc;
+    border-bottom: 1px solid #aed9ed;
+    margin-top: 13px;
+}
+
+.contacts_table a:hover {
+    border-bottom: 0px solid #aed9ed;
+}
+
+.contacts_table .personal_card {
+    width: 200px;
+    height: 260px;
+    background: #f5f5f5;
+    border-radius: 4px;
+    margin: auto;
+}
+
+.contacts_table .personal_card:hover {
+    background: #f0f5f8;
+}
+
+.contacts_table .personal_card_top { 
+    height: 105px;
+    width: 200px;
+    border-bottom: 1px solid #dadada;
+    display:table-cell;
+    vertical-align: middle;
+}
+
+.contacts_table .personal_card_top .personal_photo{ 
+    width: 60px;
+    height: 60px;
+    border-radius: 30px;
+    overflow: hidden; 
+    margin:auto;    
+    text-align: center;
+}
+
+.contacts_table .personal_card_bottom {
+    text-align: center;    
+}
+
+.contacts_table .personal_card_bottom .personal_name {
+    font-family: 'MuseoSansCyrl-700';
+    font-size: 17px;
+    color: #000000;
+    margin-top: 20px;
+}
+
+.contacts_table .personal_card_bottom .personal_phone {
+    font-family: 'MuseoSansCyrl-300';
+    font-size: 14px;
+    color: #808080;
+    margin-top: 20px;
+}
+
+.contacts_table .mCS-dark-3.mCSB_scrollTools .mCSB_draggerRail {
+    width: 0px;
+}
+
+.contacts_table  .mCSB_scrollTools .mCSB_dragger {    
+    height: 55px;    
+}
+
+.contacts_table  .mCSB_scrollTools .mCSB_dragger:before {
+    content: "";
+    position: absolute;    
+    height: 3px;
+    width: 6px;
+    left: 5px; 
+    background: #ffffff; 
+    top: -3px;
+}
+
+.contacts_table  .mCSB_scrollTools .mCSB_dragger:after {
+    content: "";
+    position: absolute;    
+    height: 3px;
+    width: 6px;
+    left: 5px; 
+    background: #ffffff; 
+}
+
+.contacts_table .mCS-dark-3.mCSB_scrollTools .mCSB_dragger .mCSB_dragger_bar {
+    background-color: #5db3dc;
+    background-color: rgba(156,209,234,1);
+}
+
+.contacts_table .mCS-dark-3.mCSB_scrollTools .mCSB_dragger.mCSB_dragger_onDrag .mCSB_dragger_bar {
+    background-color: #5db3dc; 
+    background-color: rgba(156,209,234,1);
+}
+
+.contacts_table .mCS-dark-3.mCSB_scrollTools .mCSB_dragger:hover .mCSB_dragger_bar {
+    background-color: #5db3dc;
+    background-color: rgba(156,209,234,1);    
+}
+
+.contacts_table .mCSB_scrollTools .mCSB_draggerContainer {
+    top: 10px;
+    bottom: 10px;
+}
+
+.contacts_table ul {
+    padding-top: 0;
+}
+
+.contacts_table ul li:first-child {
+    padding-top: 0;
+}
+
+.contacts_table ul li {
+    padding-top: 8px;
+    padding-bottom: 17px;
+    border-bottom: 1px solid #c1c1c1;
+}
+
+.contacts_table ul li.jshover {
+    border-bottom: 1px solid #70bce0;
+}
+
+.contacts_table ul li a {
+    color: #9e9e9e;
+    margin: 0px;
+    border-bottom: 1px solid #cecece;    
+}
+
+.contacts_table ul li a:hover, .contacts_table ul li a.jshover {     
+    color: #5db3dc;
+    border-bottom: 1px solid #aed9ed; 
+}
+
+ .personal_card_bottom .personal_mail a {
+    font-family: 'MuseoSansCyrl-500';
+    font-size: 14px;
+    color: #5db3dc; 
+    margin-top: 27px; 
+    text-decoration: none;
+}
+
+.contacts_table .department_block {    
+    height: 275px;
+    overflow: hidden; 
+} 
+
+.contacts_table .department_block .department_name {
+    font-family: 'MuseoSansCyrl-500';
+    font-size: 17px;
+    color: #000;
+    display: inline-block;
+    width: 220px;   
+    cursor: pointer;
+}
+
+.contacts_table .department_block .department_name:hover, .contacts_table .department_block .department_name.jshover {
+    color: #5db3dc;
+} 
+
+.contacts_table .mCSB_outside + .mCSB_scrollTools {
+    right: -33px;    
+} 
+
+.contacts_table .equal_symbol {
+    height: 9px;
+    width: 6px;
+    background: url(/local/templates/.default/img/equal_symbol.png) center no-repeat no-repeat;    
+    float: right;
+    background-position: 0px 0px;
+    margin-top: 6px;  
+    cursor: pointer; 
+} 
+
+.contacts_table .equal_symbol.mail {
+    margin-top: 20px;    
+} 
+
+.contacts_table .equal_symbol:hover, .contacts_table .equal_symbol.jshover{
+    background-position: -9px 0px;
+}   
+
+.contacts_table .personal_cell_buttons {
+    width: 69px;
+    height: 35px;
+    border: 1px solid #d9d9d9;
+    border-radius: 4px; 
+    float:right; 
+    cursor: pointer;
+}
+
+.personal_cell_buttons .button_left {
+    height: 100%;
+    width: 33px;           
+    border-right: 1px solid #d9d9d9;
+    float: left;              
+}
+
+.personal_cell_buttons .button_right {
+    height: 100%;
+    width: 33px; 
+    float: right;                                    
+}
+
+.personal_cell_buttons .equal_symbol{
+    height: 9px;
+    width: 6px; 
+    background: url(/local/templates/.default/img/amata_new_contact.png) center no-repeat no-repeat;
+    margin: 12px auto;
+    float: none;
+}
+
+.personal_cell_buttons .button_left .equal_symbol {                                               
+    background-position: 0px 0px; 
+}
+
+.personal_cell_buttons .button_right .equal_symbol{                           
+    background-position: 0px -11px;            
+}
+
+.personal_cell_buttons .button_left:hover .equal_symbol{                                                      
+    background-position: -9px 0px;        
+}
+
+.personal_cell_buttons .button_right:hover .equal_symbol{                                  
+    background-position: -9px -11px;            
+}
+
+.innerPageWrapper .infoBlocksMenu {
+    width: 1182px;
+    margin: -72px auto 50px;    
+}
+
+.catalogTitleBlock {
+    padding-bottom: 49px;
+}
+
+.innerPageWrapper .infoBlocksMenu .activeInfoBlock.contacts {
+    color: #5db3dc;
+    padding-bottom: 14px !important;
+}
+
+.innerPageWrapper .infoBlocksMenu a.contacts {
+    padding-bottom: 15px;
+}

@@ -24,4 +24,5 @@ $MESS["CT_BCS_CATALOG_BTN_MESSAGE_COMPARE_REDIRECT"] = "Перейти в список сравнен
 $MESS["PRODUCT_ALREADY_IN_BASKET"]  = "Товар в корзине";
 $MESS["NEW_PRODUCT"] = "Новинка";
 $MESS["FRESH_PRODUCT"] = "Последние поступления";
+$MESS["WITHOUT_PRICE"] = "Уточняйте у менеджера";
 ?>
