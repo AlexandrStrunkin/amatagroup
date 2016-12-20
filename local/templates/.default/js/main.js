@@ -1585,6 +1585,8 @@ $(document).ready(function () {
         }
         $(".productPrice").hide();
         $(".discountLogoWrapper").hide();
+        $(".card_position_block").hide();
+        $('.card_position_block[data-offer-id="' + current_offer_id + '"]').show();
         $('.productPrice[data-price-offer-id="' + current_offer_id + '"]').show();
         $("#discount_label_" + current_offer_id).show();
         $(".js-add-to-basket").attr("href", current_offer_buy_link);
@@ -1631,13 +1633,16 @@ $(document).ready(function () {
 			},2000);
         }
     })
-
+	
+	// переключение предложений в таблице
     $(".js-offer-select").on("change", function(){
         var item_id = parseInt($(this).data("item-id"));
         var href = $(this).val();
         var offerId = parseInt($(this).find("option:selected").data("offer-id"));
         $("a.table_previews[data-preview-offer-id='" + offerId + "']").css("display", "block");
         $("a.table_previews[data-preview-offer-id='" + offerId + "']").siblings("a").css("display", "none");
+        $(this).closest("tr").find(".table_stock_block").hide();
+        $(this).closest("tr").find(".table_stock_block[data-offer-id='" + offerId + "']").css("display", "inline-block");
         if (item_id > 0 && href != "" && offerId > 0) {
             $("a[data-item-id = " + item_id + "]").parent().removeClass("basketButtonInvisible");
             $("a[data-item-id = " + item_id + "]").attr("href", href);
@@ -1703,7 +1708,15 @@ $(document).ready(function () {
             $(".js-fixed-header").fadeIn();
         }
     }
-
+    
+	// функции для показа/скрытия попапа с кол-вом товара
+	$(".blocks_stock_block").on("mouseover", function() {
+		$(this).find(".stock_popup").show();
+	});
+	
+	$(".stock_popup").on("mouseleave", function() {
+		$(this).hide();
+	})
 });
 
 //перезагрузка малой корзины

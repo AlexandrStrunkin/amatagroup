@@ -118,12 +118,40 @@
             ?>
             <div class="newLogoWrapper" title="<?=GetMessage("NEW_PRODUCT")?>">NEW</div>
             <?}?>
-        <!-- <div class="freshLogoWrapper">FRESH</div>
-        <div class="saleLogoWrapper">SALE</div>-->
-    </div>
-    <!--END logosContainer-->
-    <!--previewImg-->
-    <div class="previewImg">
+            <!-- <div class="freshLogoWrapper">FRESH</div>
+            <div class="saleLogoWrapper">SALE</div>-->
+        </div>
+        
+        <? if (isset($arResult['OFFERS']) && !empty($arResult['OFFERS'])) { ?>
+        	<? $first_offer = $arResult["OFFERS"][0]; ?>
+        	<? foreach ($arResult['OFFERS'] as $offer) { ?>
+        		<? $item_quantity = getQuantityLang($offer["CATALOG_QUANTITY"]); ?>
+	         	<div data-offer-id="<?= $offer["ID"] ?>" class="card_position_block" style="display:<?= $first_offer == $offer ? "block" : "none" ?>">
+			        <div class="card_stock_block <?= $item_quantity ?>">
+						<div class="lvl_block"></div>
+						<div class="stock_popup">
+							<div class="block_popup_text"><?= GetMessage($item_quantity) ?></div>
+							<div class="block_popup_quantity"><?= getQuantityText($offer["CATALOG_QUANTITY"]) ?></div>
+						</div>
+					</div>
+		        </div>
+        	<? } ?>
+        <? } else {
+        	$item_quantity = getQuantityLang($arResult["CATALOG_QUANTITY"]); ?>
+         	<div class="card_position_block">
+		        <div class="card_stock_block <?= $item_quantity ?>">
+					<div class="lvl_block"></div>
+					<div class="stock_popup">
+						<div class="block_popup_text"><?= GetMessage($item_quantity) ?></div>
+						<div class="block_popup_quantity"><?= getQuantityText($arResult["CATALOG_QUANTITY"]) ?></div>
+					</div>
+				</div>
+	        </div>
+         <? } ?>
+        
+        <!--END logosContainer-->
+        <!--previewImg-->
+        <div class="previewImg">
 
         <a rel="element_gallery" class="fancybox" href="<?= getResizedImage($arFirstPhoto['ID'], ELEMENT_CARD_MAIN_WIDTH, ELEMENT_CARD_MAIN_HEIGHT, BX_RESIZE_IMAGE_PROPORTIONAL_ALT)  ?>">
             <?if($arFirstPhoto["ID"]){?>

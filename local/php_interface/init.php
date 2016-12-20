@@ -101,6 +101,12 @@
     define("QUESTION_FORM_TEMPLATE_ID", 78);
     define("SEND_QUESTION_FORM_TEMPLATE_ID", 76);
     define("FORM_FROM_EMAIL", "info@amatagroup.ru");
+    
+    // границы кол-ва для индикации товара
+    define("LOW_QUANTITY_BORDER", 5);
+    define("MEDIUM_QUANTITY_FROM_BORDER", 6);
+    define("MEDIUM_QUANTITY_TO_BORDER", 20);
+	define("MANY_QUANTITY_BORDER", 21);
 
     define("MANUFACTURER_FOOTER_FORM", "MANUFACTURER_FOOTER_FORM");
     define("CONTACTS_FEEDBACK_FORM", "CONTACTS_FEEDBACK_FORM");
@@ -188,6 +194,44 @@
             ABOUT_FORM               => 'Форма вопроса из раздела "О компании"'
         );
     }
+
+	/**
+	 * Получить языковую фразу для кол-ва товара
+	 * Названия фраз завязаны на css классы !
+	 * @param int $quantity
+	 * @return string
+	 **/
+
+	function getQuantityLang($quantity) {
+		$quantity_string = 	"quantity_zero";
+		if ($quantity <= LOW_QUANTITY_BORDER && $quantity > 0) {
+			$quantity_string = 	"quantity_low";
+		} else if ($quantity <= MEDIUM_QUANTITY_TO_BORDER && $quantity >= MEDIUM_QUANTITY_FROM_BORDER) {
+			$quantity_string = 	"quantity_medium";
+		} else if ($quantity >= MANY_QUANTITY_BORDER) {
+			$quantity_string = 	"quantity_high";
+		}
+		return $quantity_string;
+	}
+	
+	/**
+	 * Получить текстовую фразу для кол-ва товара
+	 * @param int $quantity
+	 * @param bool $short нужно только короткое описание в виде знака
+	 * @return string
+	 **/
+
+	function getQuantityText($quantity, $short = false) {
+		$short_macros = $short ? "> " : "";
+		$quantity_string = GetMessage("zero_quantity_text");
+		if ($quantity <= LOW_QUANTITY_BORDER && $quantity > 0) {
+			$quantity_string = 	$quantity . " шт.";
+		} else if ($quantity >= MEDIUM_QUANTITY_FROM_BORDER) {
+			$quantity_string = 	$short_macros . GetMessage("more_than_quantity") . " шт.";
+		}
+		
+		return $quantity_string;
+	}
 
     /**
     * Пересобираем название элемента из свойств, если они заполнены
@@ -756,7 +800,7 @@
     AddEventHandler("catalog", "OnProductUpdate","UpdateProductQuantity");
 
     function UpdateProductQuantity($id, $arFields) {
-        $quantity = $arFields['QUANTITY'];
+        $quantity = $arFields['OLD_QUANTITY'];
 
         $arProductInfo = CCatalogSKU::GetProductInfo($id);
         if (is_array($arProductInfo)) {
