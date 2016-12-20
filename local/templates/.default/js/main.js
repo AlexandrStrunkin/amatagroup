@@ -1355,20 +1355,20 @@ $(document).ready(function () {
         $(".infoBlocksMenu a").removeClass("activeInfoBlock");
         $(".infoBlocksContent").hide();
         el.addClass("activeInfoBlock");
-        $(id).fadeIn(500); 
+        $(id).fadeIn(500);
         history.replaceState(document.location.href, "", e.target.href);
     });
-    
+
     //установка таба по умолчанию или из ссылки
     var infoBlockID = location.hash;
     if (infoBlockID) {
-        $(".infoBlocksMenu a[href='" + infoBlockID + "']").addClass("activeInfoBlock"); 
-        $(".infoBlocksContent[id='" + infoBlockID.slice(1) + "']").show(); 
+        $(".infoBlocksMenu a[href='" + infoBlockID + "']").addClass("activeInfoBlock");
+        $(".infoBlocksContent[id='" + infoBlockID.slice(1) + "']").show();
     } else {
         $(".infoBlocksMenu a:first-child").addClass("activeInfoBlock");
-        $(".infoBlocksContent:first-child").show();      
+        $(".infoBlocksContent:first-child").show();
     }
-    
+
     //табы корзина
     $("body").on("click", ".basketBody .basketBodyMenu a.js_tabs", function (e) {
         e.preventDefault();
@@ -1430,7 +1430,9 @@ $(document).ready(function () {
         var el = $(this);
         el.parent().fadeOut(300);
     });
-
+    $('.city_column li').on("click", function (e){
+        $(".contactsWindow").fadeOut(300);
+    })
     //убирать placeholder по клику на  input,textarea
     /*$('input,textarea').on("focus", function () {
     var el = $(this);
@@ -1633,7 +1635,7 @@ $(document).ready(function () {
 			},2000);
         }
     })
-	
+
 	// переключение предложений в таблице
     $(".js-offer-select").on("change", function(){
         var item_id = parseInt($(this).data("item-id"));
@@ -1708,12 +1710,12 @@ $(document).ready(function () {
             $(".js-fixed-header").fadeIn();
         }
     }
-    
+
 	// функции для показа/скрытия попапа с кол-вом товара
 	$(".blocks_stock_block").on("mouseover", function() {
 		$(this).find(".stock_popup").show();
 	});
-	
+
 	$(".stock_popup").on("mouseleave", function() {
 		$(this).hide();
 	})
