@@ -62,6 +62,16 @@
  <a target="_blank" href="https://cloud.mail.ru/public/7VfS/gRMaR4Xuf">https://cloud.mail.ru/public/7VfS/gRMaR4Xuf</a>
 	</td>
 </tr>
+
+<tr>
+	<td>
+		 Camarelo
+	</td>
+	<td>
+ <a target="_blank" href="https://cloud.mail.ru/public/MA5N/JDAjfDeZn">https://cloud.mail.ru/public/MA5N/JDAjfDeZn</a>
+	</td>
+</tr>
+
 <tr>
 	<td>
 		 Feretti
@@ -196,6 +206,14 @@
 	</td>
 	<td>
  <a target="_blank" href="https://cloud.mail.ru/public/NKTJ/MKo7dkjmb">https://cloud.mail.ru/public/NKTJ/MKo7dkjmb</a>
+	</td>
+</tr>
+<tr>
+	<td>
+		 Кубаночка
+	</td>
+	<td>
+ <a href="https://cloud.mail.ru/public/LJWR/WuChZc3w6">https://cloud.mail.ru/public/LJWR/WuChZc3w6</a><br>
 	</td>
 </tr>
 <tr>
