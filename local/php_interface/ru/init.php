@@ -11,4 +11,10 @@ $MESS["CATALOG_BESTSELLERS"] = "Хиты продаж";
 $MESS["CATALOG_EXPECTED_PRODUCTS"] = "Ожидаемые поступления";
 $MESS["CATALOG_NEW_PRODUCTS"] = "Новинки";
 $MESS["CATALOG_FRESH_PRODUCTS"] = "Последние поступления";
+$MESS["quantity_zero"] = "Товар ожидается";
+$MESS["quantity_low"] = "Осталось";
+$MESS["quantity_medium"] = "Осталось больше";
+$MESS["quantity_high"] = "Осталось больше";
+$MESS["more_than_quantity"] = "5";
+$MESS["zero_quantity_text"] = "0 шт.";
 ?>
