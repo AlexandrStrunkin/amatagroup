@@ -41,6 +41,10 @@ $APPLICATION->SetTitle("О магазине");
 			);?>
             </div>
             <div class="infoBlocksContent about_tabs" id="achievements">
+				<p>Компания «Амата» - один из крупнейших оптовых гипермаркетов детских товаров. 
+Мы дорожим своим именем и заслуженно гордимся хорошей репутацией, поэтому вы можете быть уверены в своем товаре и быть спокойны за свою репутацию. 
+В нашем ассортименте представлены товары только надежных и проверенных официальных поставщиков, зарекомендовавших себя исключительно с положительной стороны. 
+Это подтверждено множеством наших наград и сертификатов, представленных ниже.</p>
             	<div class="achievements_wrapper">
             		<?$APPLICATION->IncludeComponent(
 						"bitrix:news.list",
@@ -324,7 +328,10 @@ $APPLICATION->SetTitle("О магазине");
             <? unset($filter) ?>
         </div>
         <script src="http://ajax.aspnetcdn.com/ajax/jquery.validate/1.11.1/jquery.validate.min.js"></script>
+<br>
         <div id="question_form">
+<hr color="#dddddd" size="1">
+<br><br>
 	        <h2>Задать вопрос</h2>
 	        <div id="form_container">
 		        <div class="tableBorderWrapper">
