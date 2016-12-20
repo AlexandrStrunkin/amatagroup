@@ -712,7 +712,7 @@ body {
     padding-bottom: 4px;
     padding-top: 20px;
     font-family: "MuseoSansCyrl-700";
-    font-size: 18px;
+    font-size: 17px;
 }
 
 .productWrapper {
@@ -5222,6 +5222,10 @@ textarea {
     margin: 58px 0 0;
     overflow: visible;
 }
+   
+.innerPageWrapper #question_form .tableBorderWrapper {
+    margin: 28px 0 0;     
+}
 
 .questionInfoForm .titleBlock {
     width: 428px;
@@ -5244,6 +5248,14 @@ textarea {
     margin-top: 0px;
     padding-bottom: 24px;
     letter-spacing: 0.6px;
+}
+
+.innerPageWrapper #question_form h2 {
+    border-bottom: 0px solid #dddddd;
+    color: #000;    
+    margin-bottom: 0px;
+    margin-top: 0px;
+    padding-bottom: 0px; 
 }
 
 .innerPageWrapper .infoDocumentList, .innerPageWrapper ul {
@@ -5297,6 +5309,29 @@ textarea {
 }
 
 .innerPageWrapper .infoBlocksMenu .activeInfoBlock {
+    border-bottom: 3px solid;
+    color: #0b0b0b;
+    margin-bottom: -2px;
+    padding-bottom: 14px;
+}
+
+.innerPageWrapper .infoBlocksMenuSection {
+    border-bottom: 1px solid #d8d8d8;
+    color: #aaaaaa;
+    font-family: "MuseoSansCyrl-500";
+    font-size: 20px;
+    padding-bottom: 0;
+}
+
+.innerPageWrapper .infoBlocksMenuSection a {
+    display: inline-block;
+    margin-right: 24px;
+    cursor: pointer;
+    color: inherit;
+    letter-spacing: 0.3px;
+}
+
+.innerPageWrapper .infoBlocksMenuSection .activeInfoBlock {
     border-bottom: 3px solid;
     color: #0b0b0b;
     margin-bottom: -2px;
@@ -6328,7 +6363,7 @@ input[type="radio"]:checked + label::before {
     font-size: 15px;
     margin-top: 0;
     margin-bottom: 8px;
-    width: 250px;
+    width: 230px;
 }
 
 .elementsTable .basketBody .elementName .elemendCode {

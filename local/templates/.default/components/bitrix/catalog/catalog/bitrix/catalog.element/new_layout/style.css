@@ -1255,3 +1255,9 @@ div.item_card_offers.active .col {
 .item_card_offers > p#activeFirstFilt .offer_option_text {
 	margin-left: 0;
 }
+
+.productCardDesc .productPrice .withoutPrice {
+    font-size: 14px;
+    margin: 0;
+    vertical-align: middle;
+}

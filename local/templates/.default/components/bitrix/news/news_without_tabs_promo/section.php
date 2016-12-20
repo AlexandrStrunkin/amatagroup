@@ -1,5 +1,9 @@
-<?if(!defined("B_PROLOG_INCLUDED") || B_PROLOG_INCLUDED!==true)die();?>
-
+<?if(!defined("B_PROLOG_INCLUDED") || B_PROLOG_INCLUDED!==true)die();?>   
+<div class="infoBlocksMenuSection">
+    <? foreach ($arResult['REGROUPED_ITEMS'] as $section_id => $section_items) { ?>
+        <a href="/promo/<?= $section_items['CODE'] ?>/" <? if ($section_items['CODE'] == $arResult['VARIABLES']['SECTION_CODE']) { ?>class="activeInfoBlock"<? } ?>><?= $section_items['TITLE'] ?></a>
+    <? } ?>
+</div>
 <?if($arParams["USE_RSS"]=="Y"):?>
 	<?
 	$rss_url = str_replace("#SECTION_ID#", urlencode($arResult["VARIABLES"]["SECTION_ID"]), $arResult["FOLDER"].$arResult["URL_TEMPLATES"]["rss_section"]);

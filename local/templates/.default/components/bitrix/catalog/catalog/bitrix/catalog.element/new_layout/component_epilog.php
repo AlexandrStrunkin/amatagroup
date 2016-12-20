@@ -162,7 +162,7 @@
                                     "OFFERS_PROPERTY_CODE" => array(
                                         0 => "",
                                         1 => "",
-                                    ),
+                                    ),     
                                     "OFFERS_SORT_FIELD" => "sort",
                                     "OFFERS_SORT_FIELD2" => "id",
                                     "OFFERS_SORT_ORDER" => "asc",

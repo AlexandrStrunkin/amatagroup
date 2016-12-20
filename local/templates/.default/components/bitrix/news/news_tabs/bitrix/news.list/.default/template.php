@@ -1,15 +1,9 @@
 <?if(!defined("B_PROLOG_INCLUDED") || B_PROLOG_INCLUDED!==true)die();?>
 
-<div class="infoBlocksMenu">
-	<? foreach ($arResult['REGROUPED_ITEMS'] as $section_id => $section_items) { ?>  
-		<a href="#news_<?= $section_id ?>"><?= $section_items['TITLE'] ?></a>
-	<? } ?>
-</div>
-<div> 
-    <? foreach ($arResult['REGROUPED_ITEMS'] as $section_id => $section_items) { ?>
+<div>
     <div class="infoBlocksContent" id="news_<?= $section_id ?>" >
         <ul class="infoNewsList">
-        <? foreach ($section_items['ELEMENTS'] as $item) { ?>
+        <? foreach ($arResult['ITEMS'] as $item) { ?>
         <?
 	    $this->AddEditAction($item['ID'], $item['EDIT_LINK'], CIBlock::GetArrayByID($arParams["IBLOCK_ID"], "ELEMENT_EDIT"));
 	    $this->AddDeleteAction($item['ID'], $item['DELETE_LINK'], CIBlock::GetArrayByID($arParams["IBLOCK_ID"], "ELEMENT_DELETE"), array("CONFIRM" => GetMessage('NEWS_ELEMENT_DELETE_CONFIRM')));
@@ -34,7 +28,6 @@
             </li>
 	    <? } ?>
         </ul>
-    </div>
-    <? } ?> 
+    </div>  
 </div>
 

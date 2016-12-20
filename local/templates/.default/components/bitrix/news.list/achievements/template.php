@@ -18,8 +18,11 @@ $this->setFrameMode(true);
 	$this->AddEditAction($arItem['ID'], $arItem['EDIT_LINK'], CIBlock::GetArrayByID($arItem["IBLOCK_ID"], "ELEMENT_EDIT"));
 	$this->AddDeleteAction($arItem['ID'], $arItem['DELETE_LINK'], CIBlock::GetArrayByID($arItem["IBLOCK_ID"], "ELEMENT_DELETE"), array("CONFIRM" => GetMessage('CT_BNL_ELEMENT_DELETE_CONFIRM')));
 	?>
-	<a id="<?=$this->GetEditAreaId($arItem['ID']);?>" class="fancybox" title="<?= $arItem["NAME"] ?>" href="<?= $arItem["PICTURE"]["src"] ?>">
-		<img src="<?= $arItem["PICTURE"]["src"] ?>" alt="<?= $arItem["NAME"] ?>" width="240"/>
-	</a>
+    <div class="image">
+	    <a id="<?=$this->GetEditAreaId($arItem['ID']);?>" class="fancybox" title="<?= $arItem["NAME"] ?>" href="<?= $arItem["PICTURE"]["src"] ?>">
+		    <img class="bordered-image" src="<?= $arItem["PICTURE"]["src"] ?>" alt="<?= $arItem["NAME"] ?>" width="240"/>   
+            <div class="image-name"><?= $arItem["NAME"] ?></div>          
+	    </a>
+    </div>                                                                                                                            
 <? } ?>
 

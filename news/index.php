@@ -2,8 +2,8 @@
 require($_SERVER["DOCUMENT_ROOT"]."/bitrix/header.php");
 $APPLICATION->SetTitle("Новости");
 ?><?$APPLICATION->IncludeComponent(
-	"bitrix:news",
-	"news_tabs",
+	"bitrix:news", 
+	"news_tabs", 
 	array(
 		"IBLOCK_TYPE" => "news",
 		"IBLOCK_ID" => "1",
@@ -38,7 +38,7 @@ $APPLICATION->SetTitle("Новости");
 		"SET_TITLE" => "Y",
 		"SET_STATUS_404" => "Y",
 		"INCLUDE_IBLOCK_INTO_CHAIN" => "N",
-		"ADD_SECTIONS_CHAIN" => "N",
+		"ADD_SECTIONS_CHAIN" => "Y",
 		"ADD_ELEMENT_CHAIN" => "Y",
 		"USE_PERMISSIONS" => "N",
 		"PREVIEW_TRUNCATE_LEN" => "",
@@ -94,8 +94,8 @@ $APPLICATION->SetTitle("Новости");
 		"MESSAGE_404" => "",
 		"SEF_URL_TEMPLATES" => array(
 			"news" => "/news/",
-			"section" => "/#SECTION_CODE_PATH#/",
-			"detail" => "#ELEMENT_CODE#/",
+			"section" => "#SECTION_CODE#/",
+			"detail" => "#SECTION_CODE#/detail-#ELEMENT_CODE#/",
 		)
 	),
 	false

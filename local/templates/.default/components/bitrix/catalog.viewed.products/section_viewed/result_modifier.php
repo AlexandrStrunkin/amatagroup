@@ -6,7 +6,7 @@ if (!defined('B_PROLOG_INCLUDED') || B_PROLOG_INCLUDED !== true) die();
 /** @global CDatabase $DB */
 
 global $USER;
-
+          
 if (!isset($arParams['LINE_ELEMENT_COUNT']))
 	$arParams['LINE_ELEMENT_COUNT'] = 3;
 $arParams['LINE_ELEMENT_COUNT'] = intval($arParams['LINE_ELEMENT_COUNT']);
@@ -103,10 +103,6 @@ if (!empty($arResult['ITEMS']))
 
 	foreach ($arResult['ITEMS'] as $key => $arItem)
 	{
-		
-		// переприсваиваем имя товара, если необходимые свойства заполнены
-		$new_product_name = getNamesFromProperties($arItem);
-		$arItem['NAME'] = $new_product_name ? $new_product_name : $arItem['NAME'];
 		
 		if ($arResult['USER_AUTHORIZED']) {
 			$arItem['USER_HAVE_ITEM_IN_FAVORITE'] = Favorite::checkIsExists($USER->GetID(), $arItem['ID']);

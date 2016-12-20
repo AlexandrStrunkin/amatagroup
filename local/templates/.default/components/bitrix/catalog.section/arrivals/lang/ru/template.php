@@ -26,4 +26,5 @@ $MESS["NEW_PRODUCT"] = "Новинка";
 $MESS["BESTSELLERS_PRODUCT"] = "Все хиты";
 $MESS["FRESH_PRODUCT"] = "Последние поступления";
 $MESS["FRESH_ALL"] = "Все последние поступления";
+$MESS["WITHOUT_PRICE"] = "Уточняйте у менеджера";
 ?>
