@@ -1430,9 +1430,7 @@ $(document).ready(function () {
         var el = $(this);
         el.parent().fadeOut(300);
     });
-    $('.city_column li').on("click", function (e){
-        $(".contactsWindow").fadeOut(300);
-    })
+
     //убирать placeholder по клику на  input,textarea
     /*$('input,textarea').on("focus", function () {
     var el = $(this);
@@ -1902,7 +1900,7 @@ $(function() {
         })
     });
 
-    $('.fields.files input[type="file"]').attr('accept', 'image/jpeg,image/png,application/msword,application/excel,application/x-excel,application/pdf,text/xml,application/vnd.ms-excel');
+    $('.fields.files input[type="file"]').attr('accept', 'image/jpeg,image/png,image/JPEG,image/PNG, application/msword,application/excel,application/x-excel,application/pdf,text/xml,application/vnd.ms-excel');
     $('.bx-input-file-desc').html('Выберите файл');
     $(".fields.files input[type='file']").change(function(){
         var filename = $(this).val().replace(/.*\\/, "");
