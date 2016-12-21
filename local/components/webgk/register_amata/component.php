@@ -203,7 +203,8 @@ if ($_SERVER["REQUEST_METHOD"] == "POST" && !empty($_REQUEST["register_submit_bu
                     // выбираем все заполненные свойства документов документы созданы до 12 штук
                     while ($document_count <= 12) {
                         if($document_file["UF_DOCUMENT_" . $document_count]){
-                            $ar_document[] = $document_file["UF_DOCUMENT_" . $document_count];
+                            $file_url = CFile::GetPath($document_file["UF_DOCUMENT_" . $document_count]);
+                            $ar_document[] = $file_url;
                         }
                         $document_count++;
                     }
