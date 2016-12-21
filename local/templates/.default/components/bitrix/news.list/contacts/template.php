@@ -14,7 +14,7 @@
 ?>
 <div class="infoBlocksMenu">
 <?foreach($arResult['ITEMS'] as $arItem) {?>
-    <a href="#city<?= $arItem["ID"] ?>" class="contacts"><?= $arItem["NAME"] ?></a>
+    <a href="#city<?= $arItem["ID"] ?>" class="contacts" data-coordinates="<?= $arItem["PROPERTIES"]["COORDINATES"]["VALUE"]?>"><?= $arItem["NAME"] ?></a>
 <?}?>
 </div>
 
@@ -150,7 +150,7 @@
         $google_coordinates = array();
     ?>
     <? foreach($arResult["ITEMS"] as $i=>$arItem) { ?>
-        <div class="contactsWindow" id="contactsWindow<?= $containers_counter ?>">
+        <div class="contactsWindow" id="contactsWindow<?= $containers_counter ?>" data-coordinates="<?= $arItem["PROPERTIES"]["COORDINATES"]["VALUE"]?>">
             <div class="close"></div>
             <div class="status"><?= GetMessage("OPENED") ?></div>
             <h2><?= $arItem["NAME"] ?></h2>
@@ -206,7 +206,7 @@
             </div>
             <!--btnContainer-->
             <div class="btnContainer">
-                <a href="https://www.google.com.ru/maps/dir/+/г Москва <?= $arItem["PROPERTIES"]["ADDRESS"]["VALUE"] ?>" target="_blank"><img src="/img/map.png" alt=""/><?= GetMessage("HOW_TO_GET") ?></a>
+                <a href="https://www.google.com.ru/maps/dir/+/<?= $arItem["PROPERTIES"]["ADDRESS"]["VALUE"] ?>" target="_blank"><img src="/img/map.png" alt=""/><?= GetMessage("HOW_TO_GET") ?></a>
             </div>
             <!--END btnContainer-->
         </div>
@@ -218,29 +218,28 @@
     var markersClicked = [], markers = [], ll;
     var openedMarker;
     var st;
+    var markersArr = {};
 
 
     function initialize() {
         //адреса
-        var coords = [<?= implode(",", $google_coordinates) ?>];
+        var coords = [<?= implode(",", $google_coordinates) ?>],
+            center_coordinates = $('a.contacts.activeInfoBlock').attr("data-coordinates").split(","), 
+            center_index = $('a.contacts.activeInfoBlock').attr("data-coordinates");
 
-        <?	
-            $total_baloons = count($google_coordinates);
-            $lat_center = round($lat_center / $total_baloons, 10);
-            $lng_center = round($lng_center / $total_baloons, 10);
-        ?>
-
-        var center = {lat: <?= $lat_center ?>, lng: <?= $lng_center ?>};
+        var center = {lat: parseFloat(center_coordinates[0]), lng: parseFloat(center_coordinates[1])};
 
         //карта с настройками
-        var zoom = 5;
+        var zoom = 13;
         var map = new google.maps.Map(document.getElementById('map'), {
             scrollwheel: false,
             zoom: zoom,
             disableDefaultUI: true,
             center: center
         });
+       
 
+        
         //маркеры
         var i = 0;
         for (i = 0; i < coords.length; i++) {
@@ -290,9 +289,55 @@
             $("body").css("overflow", "auto");
             initialize();
             $("html, body").animate({scrollTop: st}, 2);
+        });        
+        
+        //Показываем карточку с городом по дефолту 
+        var el_default = $(".contactsWindow"), el1_default = $(".contactsWindow[data-coordinates='" + center_index + "']");
+            el_default.hide();
+            if (el1_default.css("display") == "none") {
+                el_default.hide();
+                el1_default.fadeIn(300);
+            } else {
+                el_default.show();
+                el1_default.fadeOut(300);
+            }
+        markerObjDefault = markersArr[center_index];
+        jQuery.each(markersArr, function(e) {
+            if ((markersArr[e] != center_index) && (markersArr[e].icon == "/img/pinRetail.png")) { 
+                markersArr[e].setIcon("/img/pinDisabled.png");    
+            };
         });
+        markerObjDefault.setIcon("/img/pinRetail.png");     
+        
+        //Смена положения карты при клике на табы
+        $(document).on("click", "a.contacts", function(){
+            var new_center_coordinates = $(this).attr("data-coordinates").split(","), 
+                index = $(this).attr("data-coordinates");
+            zoom = 13;   
+            map.setCenter({lat: parseFloat(new_center_coordinates[0]), lng: parseFloat(new_center_coordinates[1])}); 
+            map.setZoom(zoom);
+            markerObj = markersArr[index];
+            jQuery.each(markersArr, function(e) {
+                if ((markersArr[e] != index) && (markersArr[e].icon == "/img/pinRetail.png")) { 
+                    markersArr[e].setIcon("/img/pinDisabled.png");    
+                };
+            });
+            markerObj.setIcon("/img/pinRetail.png"); 
+            openedMarker = markerObj;   
+            var el = $(".contactsWindow"), el1 = $(".contactsWindow[data-coordinates='" + index + "']");
+            el.hide();
+            if (el1.css("display") == "none") {
+                el.hide();
+                el1.fadeIn(300);
+            } else {
+                el.show();
+                el1.fadeOut(300);
+            }         
+        })  
     }
+    
 
+    
     function addMarker(location, map, i) {
 
         var marker = new google.maps.Marker({
@@ -302,6 +347,8 @@
             label: "",
             ind: i
         });
+        
+        markersArr[location.lat +","+location.lng] = marker;
 
         google.maps.event.addListener(marker, 'click', function () {
             var el = $(".contactsWindow"), el1 = $("#contactsWindow" + marker.ind);
