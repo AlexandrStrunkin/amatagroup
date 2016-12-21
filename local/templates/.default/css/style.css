@@ -7663,7 +7663,8 @@ input[type="radio"]:checked + label::before {
 }
 
 #contacts {
-    width: 100%;
+    width: 1184px;
+    margin: auto;
     height: 750px;
     position: relative;
 }
