@@ -22,6 +22,13 @@ $aMenuLinks = Array(
 		"" 
 	),
 	Array(
+		"Преимущества", 
+		"/privilege/", 
+		Array(), 
+		Array(), 
+		"" 
+	),
+	Array(
 		"Вопрос-ответ", 
 		"/questions/", 
 		Array(), 
