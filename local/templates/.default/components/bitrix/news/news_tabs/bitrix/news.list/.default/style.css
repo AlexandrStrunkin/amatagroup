@@ -34,3 +34,21 @@
 	line-height:1.1;
 	color:inherit;
 }
+
+.infoBlocksContent .infoNewsList ul {
+    list-style-type: disc;
+}
+
+.infoBlocksContent .infoNewsList li {
+    border-bottom: 0px solid #dfdfdf;
+    clear: both;
+    margin-bottom: 0px;
+    padding-bottom: 0px; 
+}
+
+.infoBlocksContent .infoNewsList li:last-child {
+    border-bottom: 0px solid #dfdfdf;
+    clear: both;
+    margin-bottom: 0px;
+    padding-bottom: 0px; 
+}
