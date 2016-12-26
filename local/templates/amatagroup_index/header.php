@@ -58,7 +58,7 @@
                             "CACHE_FILTER" => "Y",
                             "CACHE_GROUPS" => "Y",
                             "CACHE_TIME" => "14400",
-                            "CACHE_TYPE" => "Y",
+                            "CACHE_TYPE" => "A",
                             "CONVERT_CURRENCY" => "N",
                             "DETAIL_URL" => "/catalog/#ELEMENT_CODE#/",
                             "DISABLE_INIT_JS_IN_COMPONENT" => "Y",
