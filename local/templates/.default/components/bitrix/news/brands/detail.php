@@ -199,7 +199,7 @@ $this->setFrameMode(true);
 		"ELEMENT_SORT_ORDER" => "desc",
 		"ELEMENT_SORT_ORDER2" => "desc",
 		"FILTER_NAME" => "arrFilter",
-		"HIDE_NOT_AVAILABLE" => "Y",
+		"HIDE_NOT_AVAILABLE" => "N",
 		"IBLOCK_ID" => "5",
 		"IBLOCK_TYPE" => "1c_catalog",
 		"INCLUDE_SUBSECTIONS" => "Y",
