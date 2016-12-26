@@ -50,17 +50,17 @@ $arUrlRewrite = array(
 		"SORT" => "100",
 	),
 	array(
-		"CONDITION" => "#^/content/#",
-		"RULE" => "",
-		"ID" => "bitrix:news",
-		"PATH" => "/content/index.php",
-		"SORT" => "100",
-	),
-	array(
 		"CONDITION" => "#^/catalog/#",
 		"RULE" => "",
 		"ID" => "bitrix:catalog",
 		"PATH" => "/catalog/index.php",
+		"SORT" => "100",
+	),
+	array(
+		"CONDITION" => "#^/content/#",
+		"RULE" => "",
+		"ID" => "bitrix:news",
+		"PATH" => "/content/index.php",
 		"SORT" => "100",
 	),
 	array(

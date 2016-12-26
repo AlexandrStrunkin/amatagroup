@@ -348,7 +348,7 @@
                     "SHOW_PARENT_NAME" => "Y",
                     "SECTION_URL" => "",
                     "CACHE_TYPE" => "A",
-                    "CACHE_TIME" => "86400",
+                    "CACHE_TIME" => "36000000",
                     "CACHE_GROUPS" => "N",
                     "ADD_SECTIONS_CHAIN" => "Y"
                 ),

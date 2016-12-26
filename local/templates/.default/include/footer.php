@@ -16,9 +16,9 @@
                             $arFilter = Array("IBLOCK_ID"=>MANUFACTURER_IBLOCK_ID);
                             $result = CIBlockElement::GetList(Array(), $arFilter, false, Array(), $arSelect);
                             while($manufacturer = $result->Fetch()) { 
-                        ?> 
+                            ?> 
                             <option value="<?=$manufacturer['NAME']?>"><?=$manufacturer['NAME']?></option>                        
-                        <?
+                            <?
                             }
                         ?>
                     </select>
@@ -41,16 +41,16 @@
                 <h2>Почему Амата?</h2>
 
                 <p class="blockText">
-                <?$APPLICATION->IncludeComponent(
-                        "bitrix:main.include",
-                        "",
-                        Array(
-                            "AREA_FILE_SHOW" => "file",
-                            "AREA_FILE_SUFFIX" => "inc",
-                            "EDIT_TEMPLATE" => "",
-                            "PATH" => "/include/why_Amata.php"
-                        )
-                    );?>
+                    <?$APPLICATION->IncludeComponent(
+                            "bitrix:main.include",
+                            "",
+                            Array(
+                                "AREA_FILE_SHOW" => "file",
+                                "AREA_FILE_SUFFIX" => "inc",
+                                "EDIT_TEMPLATE" => "",
+                                "PATH" => "/include/why_Amata.php"
+                            )
+                        );?>
                 </p>
                 <table>
                     <tr>
@@ -76,15 +76,15 @@
                     <tr>
                         <td colspan="2" class="copyRightBlock">
                             <p>                            
-                            <?$APPLICATION->IncludeComponent(
-                                "bitrix:main.include",
-                                "",
-                                Array(
-                                    "AREA_FILE_SHOW" => "file",
-                                    "PATH" => "/include/copyright_footer.php",
-                                    "EDIT_TEMPLATE" => ""
-                                )
-                            );?>
+                                <?$APPLICATION->IncludeComponent(
+                                        "bitrix:main.include",
+                                        "",
+                                        Array(
+                                            "AREA_FILE_SHOW" => "file",
+                                            "PATH" => "/include/copyright_footer.php",
+                                            "EDIT_TEMPLATE" => ""
+                                        )
+                                    );?>
                             </p>
                         </td>
                         <td class="theCreator">
@@ -101,22 +101,22 @@
     <!--popup (обратный звонок)-->
     <div class="back_call_ajax">
         <?$APPLICATION->IncludeComponent(
-            "bitrix:main.feedback",
-            "back_call",
-            array(
-                "EMAIL_TO" => FORM_FROM_EMAIL,
-                "EVENT_MESSAGE_ID" => array(
-                    0 => "74",
+                "bitrix:main.feedback",
+                "back_call",
+                array(
+                    "EMAIL_TO" => FORM_FROM_EMAIL,
+                    "EVENT_MESSAGE_ID" => array(
+                        0 => "74",
+                    ),
+                    "OK_TEXT" => "Ваш запрос отправлен. Наши консультанты свяжутся с вами по указанным координатам",
+                    "REQUIRED_FIELDS" => array(
+                        0 => "NAME",
+                    ),
+                    "USE_CAPTCHA" => "N",
+                    "COMPONENT_TEMPLATE" => "back_call"
                 ),
-                "OK_TEXT" => "Ваш запрос отправлен. Наши консультанты свяжутся с вами по указанным координатам",
-                "REQUIRED_FIELDS" => array(
-                    0 => "NAME",
-                ),
-                "USE_CAPTCHA" => "N",
-                "COMPONENT_TEMPLATE" => "back_call"
-            ),
-            false
-        );?>
+                false
+            );?>
     </div>
     <!--END popup-->
 
@@ -126,34 +126,34 @@
 <!--END footer-->
 <!-- Yandex.Metrika counter --> 
 <script type="text/javascript"> 
-(function (d, w, c) { 
-    (w[c] = w[c] || []).push(function() { 
-        try { 
-            w.yaCounter38954910 = new Ya.Metrika({ 
-                id:38954910, 
-                clickmap:true, 
-                trackLinks:true, 
-                accurateTrackBounce:true, 
-                webvisor:true, 
-                trackHash:true, 
-                ecommerce:"dataLayer" 
-            }); 
+    (function (d, w, c) { 
+        (w[c] = w[c] || []).push(function() { 
+            try { 
+                w.yaCounter38954910 = new Ya.Metrika({ 
+                    id:38954910, 
+                    clickmap:true, 
+                    trackLinks:true, 
+                    accurateTrackBounce:true, 
+                    webvisor:true, 
+                    trackHash:true, 
+                    ecommerce:"dataLayer" 
+                }); 
+            } 
+            catch(e) { } 
+        }); 
+        var n = d.getElementsByTagName("script")[0], s = d.createElement("script"), f = function () { 
+            n.parentNode.insertBefore(s, n); 
+        }; 
+        s.type = "text/javascript"; 
+        s.async = true; 
+        s.src = "https://mc.yandex.ru/metrika/watch.js"; 
+        if (w.opera == "[object Opera]") { 
+            d.addEventListener("DOMContentLoaded", f, false); 
+        } else { 
+            f(); 
         } 
-        catch(e) { } 
-    }); 
-    var n = d.getElementsByTagName("script")[0], s = d.createElement("script"), f = function () { 
-        n.parentNode.insertBefore(s, n); 
-    }; 
-    s.type = "text/javascript"; 
-    s.async = true; 
-    s.src = "https://mc.yandex.ru/metrika/watch.js"; 
-    if (w.opera == "[object Opera]") { 
-        d.addEventListener("DOMContentLoaded", f, false); 
-    } else { 
-        f(); 
-    } 
-})
-(document, window, "yandex_metrika_callbacks"); 
+    })
+    (document, window, "yandex_metrika_callbacks"); 
 </script> 
 <noscript>
     <div>
