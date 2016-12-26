@@ -374,18 +374,46 @@
 
                 <?
                     //ожидаемые поступления
+                    // создаем объект
+                    $obCache = new CPHPCache; 
+
+                    // время кеширования - 1 день
+                    $life_time = 86400; 
+
+                    // формируем идентификатор кеша в зависимости от всех параметров 
+                    // которые могут повлиять на результирующий HTML
+                    $cache_id = "index_page_expected_products"; 
+
+                    // если кеш есть и он ещё не истек, то
+                    if($obCache->InitCache($life_time, $cache_id, "/")) {
+                        // получаем закешированные переменные
+                        $vars = $obCache->GetVars();
+                        $expected_products = $vars["EXPECTED_PRODUCTS"];
+                    } else {
+                        // иначе обращаемся к базе     
+                        $expected_products = array();
+                        //собираем предложения, у которых есть реквизит "ожидаемая дата поступления"
+                        $expected_items = CIBLockElement::GetList(array(), array("IBLOCK_ID" => OFFERS_IBLOCK_ID, "ACTIVE" => "Y", array("LOGIC" => "AND", array(">PROPERTY_CML2_TRAITS" => date("Y-m-d H:i:s")), array("!PROPERTY_CML2_TRAITS" => false))), false, false, array("ID", "PROPERTY_CML2_TRAITS", "PROPERTY_CML2_LINK"));
+                        while($arItem = $expected_items->Fetch()) {
+                            //собираем основные товары для фильтрации
+                            if (!empty($arItem["PROPERTY_CML2_LINK_VALUE"])) {
+                                $expected_products[$arItem["PROPERTY_CML2_LINK_VALUE"]] = $arItem["PROPERTY_CML2_LINK_VALUE"];
+                            }
+                        }                    
+                    }      
+
+                    // начинаем буферизирование вывода
+                    if($obCache->StartDataCache()) {        
+                        // записываем предварительно буферизированный вывод в файл кеша
+                        // вместе с дополнительной переменной
+                        $obCache->EndDataCache(array(
+                            "EXPECTED_PRODUCTS"    => $expected_products
+                        )); 
+                    }         
+
                     global $arFilter_expected;
                     $arFilter_expected = array();
-                    $expected_products = array();
-                    //собираем предложения, у которых есть реквизит "ожидаемая дата поступления"
-                    $expected_items = CIBLockElement::GetList(array(), array("IBLOCK_ID" => OFFERS_IBLOCK_ID, "ACTIVE" => "Y", array("LOGIC" => "AND", array(">PROPERTY_CML2_TRAITS" => date("Y-m-d H:i:s")), array("!PROPERTY_CML2_TRAITS" => false))), false, false, array("ID", "PROPERTY_CML2_TRAITS", "PROPERTY_CML2_LINK"));
-                    while($arItem = $expected_items->Fetch()) {
-                        //собираем основные товары для филтрации
-                        if (!empty($arItem["PROPERTY_CML2_LINK_VALUE"])) {
-                            $expected_products[$arItem["PROPERTY_CML2_LINK_VALUE"]] = $arItem["PROPERTY_CML2_LINK_VALUE"];
-                        }
-                    }                    
-                    $arFilter_expected["ID"] = $expected_products;
+                    $arFilter_expected["ID"] = $expected_products;  
                 ?>
 
                 <?$APPLICATION->IncludeComponent(
