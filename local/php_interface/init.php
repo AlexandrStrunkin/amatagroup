@@ -1207,10 +1207,8 @@
                         );
                         $ID = $user->Add($arFields);
                         if (intval($ID) > 0) {
-                            $user_id = $ID;
                             //отправляем письмо о регистрации
-                            $event = new CEvent;
-                            $event->SendImmediate("NEW_USER", "s1", array("EMAIL" => $user_email), "N", NEW_USER_AUTOMATIC_REG_MAIL_TEMPLATE);
+                            CEvent::Send ("NEW_USER", "s1", array("EMAIL" => $user_email), "N", NEW_USER_AUTOMATIC_REG_MAIL_TEMPLATE);
                         }
                     }
                 }
