@@ -1461,16 +1461,14 @@
         global $USER;
         $arrFilter = Array("IBLOCK_ID" => BRANDS_IBLOCK_ID); // инфоблока каталога товаров
         $brands_catalog = CIBlockElement::GetList(Array(), $arrFilter, false, Array(), Array());
-        while($brands = $brands_catalog->GetNext())
-        {
+        while($brands = $brands_catalog->GetNext()) {
             $name_brand = trim(preg_replace('~\s+~s', ' ', $brands["NAME"])); // удаляем лишние пробелы
             $ar_brands[$name_brand] = $brands["ID"];
         }
-        $property_enums = CIBlockPropertyEnum::GetList(Array("DEF"=>"DESC", "SORT"=>"ASC"), Array("IBLOCK_ID" => IBLOCK_ID_CATALOG, "CODE" => "BREND"));
-        while($enum_fields = $property_enums->GetNext())
-        {
+        $property_enums = CIBlockPropertyEnum::GetList(Array("DEF" => "DESC", "SORT" => "ASC"), Array("IBLOCK_ID" => IBLOCK_ID_CATALOG, "CODE" => "BREND"));
+        while ($enum_fields = $property_enums->GetNext()) {
             $name = trim(preg_replace('~\s+~s', ' ', $enum_fields["VALUE"]));   // удаляем лишние пробелы
-            if(!$ar_brands[$name]){
+            if (!$ar_brands[$name]) {
                 $el = new CIBlockElement;
 
                 $ar_load_product_array = Array(
