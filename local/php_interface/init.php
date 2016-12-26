@@ -1456,7 +1456,8 @@
             }
         }
     }
-    AddEventHandler("catalog", "OnSuccessCatalogImport1C", "Import1CBrands");
+    AddEventHandler("catalog", "OnSuccessCatalogImport1C", "Import1CBrands"); // выгружает бренды в отдельный инфоблок при выгрузке из 1С
+
     function Import1CBrands(){
         global $USER;
         $arrFilter = Array("IBLOCK_ID" => BRANDS_IBLOCK_ID); // инфоблока каталога товаров
