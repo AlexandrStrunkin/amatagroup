@@ -942,7 +942,7 @@ margin: 0;
     letter-spacing: 0.7px;
 }
 
-.confidenceWrapper a {
+.confidenceWrapper #confidens_slider_wrapper span {
     border: 1px solid #dadada;
     border-radius: 4px;
     float: left;
@@ -967,11 +967,11 @@ margin: 0;
     padding: 43px 0 40px;
 }
 
-.confidenceWrapper a:last-child {
+.confidenceWrapper #confidens_slider_wrapper span:last-child {
     margin-right: 0;
 }
 
-.confidenceWrapper a:hover {
+.confidenceWrapper #confidens_slider_wrapper span:hover {
     border-color: #c0c0c0;
 }
 
@@ -1194,7 +1194,7 @@ margin: 0;
     background-position: -40px 0;
 }
 
-.confidenceWrapper a img {
+.confidenceWrapper #confidens_slider_wrapper span img {
     position: absolute;
     top: 0;
     left: 0;
