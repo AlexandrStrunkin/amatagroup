@@ -133,7 +133,7 @@
     <div class="widthWrapper">
     <!--indexPageHeader-->
     <div class="indexPageHeader">
-        <div class="locationWrapper">          
+        <div class="locationWrapper">
             <?$APPLICATION->IncludeComponent("altasib:geobase.select.city", "my_city", Array(), false);?>
         </div>
 
@@ -173,8 +173,8 @@
 
 
             <?$APPLICATION->IncludeComponent(
-                    "bitrix:search.title", 
-                    "search_field", 
+                    "bitrix:search.title",
+                    "search_field",
                     array(
                         "COMPONENT_TEMPLATE" => "search_field",
                         "NUM_CATEGORIES" => "1",
