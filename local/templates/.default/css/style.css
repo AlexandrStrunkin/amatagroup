@@ -1136,7 +1136,7 @@ margin: 0;
     color: #000000;
     font-family: "MuseoSansCyrl-700";
     font-size: 18px;
-    margin-bottom: 15px; 
+    margin-bottom: 15px;
     height: 34px;
 }
 
@@ -5222,9 +5222,9 @@ textarea {
     margin: 58px 0 0;
     overflow: visible;
 }
-   
+
 .innerPageWrapper #question_form .tableBorderWrapper {
-    margin: 28px 0 0;     
+    margin: 28px 0 0;
 }
 
 .questionInfoForm .titleBlock {
@@ -5252,10 +5252,10 @@ textarea {
 
 .innerPageWrapper #question_form h2 {
     border-bottom: 0px solid #dddddd;
-    color: #000;    
+    color: #000;
     margin-bottom: 0px;
     margin-top: 0px;
-    padding-bottom: 0px; 
+    padding-bottom: 0px;
 }
 
 .innerPageWrapper .infoDocumentList, .innerPageWrapper ul {
@@ -5803,16 +5803,16 @@ p.authTitle {
     padding-bottom: 18px;
     padding-left: 20px;
     position: relative;
-}    
+}
 
-.authForm .rememberMeText {  
+.authForm .rememberMeText {
     padding-left: 20px;
     position: relative;
 }
 
 .authForm .rememberMeText:before {
    left:0;
-   top:3px; 
+   top:3px;
 }
 
 .authEnter,
@@ -6857,6 +6857,9 @@ input[type="radio"]:checked + label::before {
     background-repeat: no-repeat;
     background-position: 0 0;
     display: block;
+    top: 45%;
+    position: relative;
+    left: 28%;
 }
 
 .previews_slider_navigation_arrow:hover span {
@@ -9130,7 +9133,7 @@ display: none;
     height: 16px;
     left: 0;
     position: absolute;
-    width: 29px; 
+    width: 29px;
 }
 
 body .news_wrap,
@@ -9503,16 +9506,16 @@ IE10 and IE11
     margin-bottom: 0;
 }
 
-}         
+}
 
 
-.filter_view_all_products { 
+.filter_view_all_products {
     display: block;
     font-family: "MuseoSansCyrl-500";
     font-size: 16px;
     overflow: hidden;
     padding: 0 0 15px;
-    margin-left: 302px;    
+    margin-left: 302px;
 }
 
 .filter_view_all_products a {
@@ -9643,7 +9646,7 @@ IE10 and IE11
 	font-size: 26px;
 }
 
-/* Quantity in stock settings */ 
+/* Quantity in stock settings */
 .quantity_low {
 	border-color: #eb5748;
 	color: #eb5748;
