@@ -31,7 +31,7 @@
             <div class="newsBlock">
                 <?
                     global $ShowWithImage;
-                    $curr_date = date('U');
+                    $curr_date = mktime(0, 0, 0, date("n"), date("j"), date("Y"));
                     $date_create_date = $curr_date - (86400 * NEW_PRODUCT_STATUS_LENGTH);
                     $ShowWithImage = array(
                         ">=DATE_CREATE" => ConvertTimeStamp($date_create_date,"FULL"),
@@ -55,9 +55,9 @@
                             "BACKGROUND_IMAGE" => "-",
                             "BASKET_URL" => "/personal/basket.php",
                             "BROWSER_TITLE" => "-",
-                            "CACHE_FILTER" => "N",
+                            "CACHE_FILTER" => "Y",
                             "CACHE_GROUPS" => "Y",
-                            "CACHE_TIME" => "36000000",
+                            "CACHE_TIME" => "14400",
                             "CACHE_TYPE" => "A",
                             "CONVERT_CURRENCY" => "N",
                             "DETAIL_URL" => "/catalog/#ELEMENT_CODE#/",
@@ -174,9 +174,9 @@
                             "ADD_PROPERTIES_TO_BASKET" => "Y",
                             "ADD_TO_BASKET_ACTION" => "ADD",
                             "BASKET_URL" => "/personal/basket.php",
-                            "CACHE_FILTER" => "N",
+                            "CACHE_FILTER" => "Y",
                             "CACHE_GROUPS" => "Y",
-                            "CACHE_TIME" => "36000000",
+                            "CACHE_TIME" => "14400",
                             "CACHE_TYPE" => "A",
                             "CONVERT_CURRENCY" => "N",
                             "DETAIL_URL" => "",
@@ -266,9 +266,9 @@
                             "BACKGROUND_IMAGE" => "-",
                             "BASKET_URL" => "/personal/basket.php",
                             "BROWSER_TITLE" => "-",
-                            "CACHE_FILTER" => "N",
+                            "CACHE_FILTER" => "Y",
                             "CACHE_GROUPS" => "Y",
-                            "CACHE_TIME" => "36000000",
+                            "CACHE_TIME" => "14400",
                             "CACHE_TYPE" => "A",
                             "CONVERT_CURRENCY" => "N",
                             "DETAIL_URL" => "/catalog/#ELEMENT_CODE#/",
@@ -370,8 +370,6 @@
                         ),
                         false
                     );?>
-
-
                 <?
                     //ожидаемые поступления
                     // создаем объект
@@ -433,9 +431,9 @@
                             "BACKGROUND_IMAGE" => "-",
                             "BASKET_URL" => "/personal/basket.php",
                             "BROWSER_TITLE" => "-",
-                            "CACHE_FILTER" => "N",
+                            "CACHE_FILTER" => "Y",
                             "CACHE_GROUPS" => "Y",
-                            "CACHE_TIME" => "36000000",
+                            "CACHE_TIME" => "14400",
                             "CACHE_TYPE" => "A",
                             "CONVERT_CURRENCY" => "N",
                             "DETAIL_URL" => "/catalog/#ELEMENT_CODE#/",
@@ -537,7 +535,6 @@
                         ),
                         false
                     );?>
-
 
             </div>    
 
