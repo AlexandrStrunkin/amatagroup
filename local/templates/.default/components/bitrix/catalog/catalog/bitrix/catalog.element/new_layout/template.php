@@ -152,8 +152,7 @@
         <!--END logosContainer-->
         <!--previewImg-->
         <div class="previewImg">
-
-        <a rel="element_gallery" class="fancybox" href="<?= getResizedImage($arFirstPhoto['ID'], ELEMENT_CARD_MAIN_WIDTH, ELEMENT_CARD_MAIN_HEIGHT, BX_RESIZE_IMAGE_PROPORTIONAL_ALT)  ?>">
+        <a rel="element_gallery" class="fancybox" href="<?= $arFirstPhoto["SRC"] ?>">
             <?if($arFirstPhoto["ID"]){?>
                 <img id="<? echo $arItemIDs['PICT']; ?>" src="<?= getResizedImage($arFirstPhoto['ID'], ELEMENT_CARD_MAIN_WIDTH, ELEMENT_CARD_MAIN_HEIGHT, BX_RESIZE_IMAGE_PROPORTIONAL_ALT) ?>" alt="<? echo $strAlt; ?>" title="<? echo $strTitle; ?>">
                 <?} else {?>
