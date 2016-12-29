@@ -28,6 +28,7 @@ $APPLICATION->SetTitle("Работа с нами");
 		"DETAIL_TEXT_USE_HTML_EDITOR" => "N",
 		"ELEMENT_ASSOC" => "CREATED_BY",
 		"GROUPS" => array(
+			0 => "2",
 		),
 		"IBLOCK_ID" => "35",
 		"IBLOCK_TYPE" => "services",
