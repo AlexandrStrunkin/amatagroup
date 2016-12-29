@@ -403,3 +403,6 @@
 #question_form{
     clear: both;
 }
+#question_form hr{
+    display: none;
+}
