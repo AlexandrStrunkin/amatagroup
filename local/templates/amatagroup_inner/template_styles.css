@@ -17,11 +17,8 @@
     position: relative;
     clear: both;
     float: left;
-    width: 100%;
 }
-#history .wrap_1{
-    width: 103%;
-}
+
 .wrap_1 b{
     display: block;
     margin-bottom: 20px;
@@ -29,7 +26,7 @@
 .wrap_2{
     border: 1px solid #e0e0e0;
     padding: 20px;
-    z-index: 2;
+    z-index: 8;
     margin-top: 40px;
 }
 .wrap_2 .image_border_1{
@@ -101,6 +98,7 @@
     border: 1px solid #e0e0e0;
     padding: 20px;
     margin-top: 10px;
+    z-index: 6;
 }
 .wrap_3 .image_border_5{
     position: absolute;
@@ -174,7 +172,7 @@
     border: 1px solid #e0e0e0;
     padding: 20px;
     margin-top: 10px;
-    z-index: 3;
+    z-index: 5;
 }
 .wrap_4 .image_border_7{
     position: absolute;
@@ -219,6 +217,7 @@
     padding: 20px;
     margin-top: 10px;
     z-index: 4;
+    width: 1140px;
 }
 .map_amata .image_border_9{
     position: absolute;
@@ -242,6 +241,11 @@
     border: 1px solid #e0e0e0;
     padding: 20px;
     margin-top: 10px;
+    z-index: 6;
+}
+#history .wrap_5 .left_wrap p,
+#history .wrap_5 .right_wrap p{
+    margin-bottom: 10px;
 }
 .wrap_5 .image_border_1{
     position: absolute;
@@ -259,7 +263,7 @@
     margin-bottom: 15px;
 }
 .wrap_5 .top_wrap img{
-    padding: 15px 25px 15px 0;
+    padding: 25px 25px 25px 0;
 }
 .wrap_5 .inner_bottom{
     float: left;
@@ -281,7 +285,7 @@
     width: 31%;
 }
 .wrap_5 .center_wrap img{
-    padding: 25px 30px;
+    padding: 25px 25px;
 }
 .wrap_5 .right_wrap{
     float: left;
@@ -321,7 +325,7 @@
 }
 .wrap_7 > p{
     margin-bottom: 0;
-    margin-top: 15px;
+    margin-top: 22px;
 }
 .wrap_8{
     border: 1px solid #e0e0e0;
@@ -330,8 +334,8 @@
 }
 .wrap_8 .image_border_14{
     position: absolute;
-    bottom: -29px;
-    left: -14px;
+    bottom: -26px;
+    left: -19px;;
 }
 .wrap_8 .image_border_15{
     position: absolute;
