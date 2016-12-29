@@ -118,6 +118,17 @@ body {
 
 }
 
+@font-face {
+    font-family: 'Bemount';
+    src: url('../fonts/hinted-subset-Bemount.eot');
+    src: url('../fonts/hinted-subset-Bemount.eot?#iefix') format('embedded-opentype'),
+        url('../fonts/hinted-subset-Bemount.woff') format('woff'),
+        url('../fonts/hinted-subset-Bemount.ttf') format('truetype'),
+        url('../fonts/hinted-subset-Bemount.svg#Bemount') format('svg');
+    font-weight: normal;
+    font-style: normal;
+}
+
 .rub {
     font-family: ALSRubl !important;
     text-transform: none !important;
