@@ -204,11 +204,12 @@ if ($_SERVER["REQUEST_METHOD"] == "POST" && !empty($_REQUEST["register_submit_bu
                     while ($document_count <= 12) {
                         if($document_file["UF_DOCUMENT_" . $document_count]){
                             $file_url = CFile::GetPath($document_file["UF_DOCUMENT_" . $document_count]);
-                            $ar_document[] = $file_url;
+                            $ar_document[] = $_SERVER["HTTP_ORIGIN"].$file_url;
                         }
                         $document_count++;
                     }
                 }
+
 			$arEventFields = $arResult['VALUES'];
 			unset($arEventFields["CONFIRM_PASSWORD"]);
             // отправляем добавленнные документы в письме пользователя
