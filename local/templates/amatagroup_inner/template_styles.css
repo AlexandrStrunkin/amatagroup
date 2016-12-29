@@ -64,6 +64,9 @@
 .wrap_2 .right_wrap img{
     padding: 0 30px 5px;
 }
+#history .wrap_2 p{
+   margin-bottom: 10px;
+}
 .wrap_2 ul li{
     color: #aaa;
     list-style-type: disc;
@@ -186,7 +189,7 @@
 }
 .wrap_4 .inner{
     float: left;
-    height: 270px;
+    height: 260px;
     display: block;
     width: 2px;
     border-right: 2px dotted #d5d5d5;
@@ -199,6 +202,9 @@
 .wrap_4 .right_wrap{
     float: right;
     width: 42%;
+}
+#history .wrap_4 p{
+   margin-bottom: 10px;
 }
 .wrap_4 b{
     display: block;
