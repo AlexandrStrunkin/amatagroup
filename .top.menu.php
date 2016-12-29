@@ -43,6 +43,13 @@ $aMenuLinks = Array(
 		"" 
 	),
 	Array(
+		"Работа с нами", 
+		"/work-with-us/", 
+		Array(), 
+		Array(), 
+		"" 
+	),
+	Array(
 		"Контакты", 
 		"/contacts/", 
 		Array(), 

@@ -24,7 +24,7 @@
                     </select>
                     <input type="email" required placeholder="<?=GetMessage('EMAIL')?>" name="email" class="emailInput">
                     <input type="tel" required placeholder="<?=GetMessage('PHONE')?>" name="phone" class='phoneInput nameInput'>
-                    <input type="text" required placeholder="<?=GetMessage('NAME_COMPANY')?>" name="company" class='nameInput'>
+                    <input type="text" required placeholder="<?=GetMessage('NAME_COMPANY')?>" name="company" class='nameInput'> 
                     <textarea required placeholder="<?=GetMessage('TEXT_QUASTION')?>" name="text"></textarea>
                     <input type="submit" class="btn_company" name="submit" value="<?=GetMessage('SEND_QUASTION')?>" >
                     <p class="description"><?=GetMessage('REQUIRED_FIELDS');?></p>
