@@ -1813,11 +1813,11 @@ function leave_quastion() {
         type: 'POST',
         data:  form,
         success:function(data){
-            $('').hide();
+            $('#leave_question').hide();
             $('.hiddenQuestionBlock .message').show();
         }
     }).done(function(data){
-        $('.workWithUs .message').show();
+        $('#leave_question .message').show();
         $('#leave_question .message').html('Заполните все поля!')
     });
 };
