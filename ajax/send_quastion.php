@@ -1,6 +1,5 @@
 <?require($_SERVER["DOCUMENT_ROOT"]."/bitrix/modules/main/include/prolog_before.php");?>
 <?
-
 $name = utf8win1251($_POST["name"]);
 $generator = utf8win1251($_POST["generator"]);
 $email = $_POST["email"];

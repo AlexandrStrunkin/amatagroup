@@ -727,7 +727,7 @@ $(document).ready(function () {
     });
 
     //валидация формы
-    var el = $("input[name=phone]");
+    var el = $("input[name=phone], .workWithUs input[type=phone]");
     if (el.length > 0) el.mask("(999) 999-9999");
     $("input,textarea").on("focus", function () {
         var el = $(this);
@@ -1806,18 +1806,18 @@ function animateSecondLvl() {
 }
 
 
-function leave_quastion(){
+function leave_quastion() {
     var form = $('#leave_question').serialize();
     $.ajax({
         url: '/ajax/send_quastion.php', //the URL to your node.js server that has data
         type: 'POST',
         data:  form,
         success:function(data){
-            $('#leave_question').hide();
+            $('').hide();
             $('.hiddenQuestionBlock .message').show();
         }
     }).done(function(data){
-        $('#leave_question .message').show();
+        $('.workWithUs .message').show();
         $('#leave_question .message').html('Заполните все поля!')
     });
 };
@@ -2018,3 +2018,4 @@ $(function(){
         $("html, body").stop().animate({ scrollTop: 195}, 500 );
     })
 })
+
