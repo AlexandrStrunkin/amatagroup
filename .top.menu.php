@@ -43,7 +43,7 @@ $aMenuLinks = Array(
 		"" 
 	),
 	Array(
-		"Работа с нами", 
+		"Работа у нас", 
 		"/work-with-us/", 
 		Array(), 
 		Array(), 

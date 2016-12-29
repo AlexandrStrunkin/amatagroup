@@ -112,17 +112,7 @@
     define("CONTACTS_FEEDBACK_FORM", "CONTACTS_FEEDBACK_FORM");
     define("QUESTION_PRODUCT_CARD", "QUESTION_PRODUCT_CARD");
     define("FAQ_FORM", "FAQ_FORM");
-    define("ABOUT_FORM", "ABOUT_FORM");
-    
-    define("PHONE_INPUT_ID", 3440);
-    define("EMAIL_INPUT_ID", 3441);
-    define("OFFICE_INPUT_ID", 3442);  
-    
-    define("DETAIL_PAGE_LIST_NUMBER", 1);
-    define("FILE_LIST_NUMBER", 5); 
-    
-    define("WORK_WITH_US_IBLOCK_ID", 36); 
-    define("RESUME_MAIL_TEMPLATE_ID", 91);  
+    define("ABOUT_FORM", "ABOUT_FORM");                                              
 
     /*константы для отображения каталога*/
     define("DEFAULT_PAGE_ELEMENT_COUNT", $GLOBALS["availableParams"]["PAGE_ELEMENT_COUNT"][0]); //количество элементов на странице раздела каталога по умолчанию
