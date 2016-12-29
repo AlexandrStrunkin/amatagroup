@@ -112,7 +112,7 @@
     define("CONTACTS_FEEDBACK_FORM", "CONTACTS_FEEDBACK_FORM");
     define("QUESTION_PRODUCT_CARD", "QUESTION_PRODUCT_CARD");
     define("FAQ_FORM", "FAQ_FORM");
-    define("ABOUT_FORM", "ABOUT_FORM");
+    define("ABOUT_FORM", "ABOUT_FORM");                                              
 
     /*константы для отображения каталога*/
     define("DEFAULT_PAGE_ELEMENT_COUNT", $GLOBALS["availableParams"]["PAGE_ELEMENT_COUNT"][0]); //количество элементов на странице раздела каталога по умолчанию
@@ -1483,4 +1483,13 @@
         }
 
     }
-
+    AddEventHandler("iblock", "OnAfterIBlockElementAdd", "OnWorkWithUsAdd");
+    function OnWorkWithUsAdd(&$arFields) {
+        if ($arFields["IBLOCK_ID"] == WORK_WITH_US_IBLOCK_ID) { 
+            $toSend = Array();                   
+            $toSend["NAME"] = $arFields["NAME"]; 
+            $toSend["EMAIL"] = $arFields["PROPERTY_VALUES"][EMAIL_INPUT_ID]; 
+            $toSend["OFFICE"] = $arFields["PROPERTY_VALUES"][OFFICE_INPUT_ID];
+            CEvent::Send ("NEW_RESUME", "s1", $toSend, "N", RESUME_MAIL_TEMPLATE_ID);
+        }
+    }
