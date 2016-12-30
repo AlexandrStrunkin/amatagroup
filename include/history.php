@@ -57,7 +57,19 @@
     <span class="inner"></span>
      <div class="center_wrap">
          <b>Что мы продаем?</b>
-         <img src="<?=SITE_TEMPLATE_PATH?>/images/about/page_3_wrap_2.jpg" >
+         <ul>
+            <li><img src="<?=SITE_TEMPLATE_PATH?>/images/about/list_catalog_1.jpg" ><span>Колыбели</span></li>
+            <li><img src="<?=SITE_TEMPLATE_PATH?>/images/about/list_catalog_2.jpg" ><span>Кроватки</span></li>
+            <li><img src="<?=SITE_TEMPLATE_PATH?>/images/about/list_catalog_3.jpg" ><span>Стульчики, качели</span></li>
+            <li><img src="<?=SITE_TEMPLATE_PATH?>/images/about/list_catalog_4.jpg" ><span>Постельные комплекты</span></li>
+            <li><img src="<?=SITE_TEMPLATE_PATH?>/images/about/list_catalog_5.jpg" ><span>Конверты на выписку</span></li>
+            <li><img src="<?=SITE_TEMPLATE_PATH?>/images/about/list_catalog_6.jpg" ><span>Шкафы, комоды</span></li>
+            <li><img src="<?=SITE_TEMPLATE_PATH?>/images/about/list_catalog_7.jpg" ><span>Матрасы</span></li>
+            <li><img src="<?=SITE_TEMPLATE_PATH?>/images/about/list_catalog_8.jpg" ><span>Коляски, автокресла</span></li>
+            <li><img src="<?=SITE_TEMPLATE_PATH?>/images/about/list_catalog_9.jpg" ><span>Игры и развитие</span></li>
+            <li><img src="<?=SITE_TEMPLATE_PATH?>/images/about/list_catalog_10.jpg" ><span>Текстиль</span></li>
+         </ul>
+
      </div>
     <span class="inner"></span>
     <div class="right_wrap">
@@ -111,7 +123,7 @@
     <div class="left_wrap">
         <img src="<?=SITE_TEMPLATE_PATH?>/images/about/page_1_wrap_6.jpg" align="left">
         <p>
-            НаПод брендом Nuovita выпускаются удобные колыбели, комфортные кроватки, практичные стульчики для кормления, а также электрокачели, манежи и коляски, в которых гармонично сочетаются европейское качество, современные технологии и итальянский дизайн.
+            Под брендом Nuovita выпускаются удобные колыбели, комфортные кроватки, практичные стульчики для кормления, а также электрокачели, манежи и коляски, в которых гармонично сочетаются европейское качество, современные технологии и итальянский дизайн.
         </p>
     </div>
     <span class="inner"></span>
@@ -150,28 +162,67 @@
     </div>
     <img class="date_day" src="<?=SITE_TEMPLATE_PATH?>/images/about/page_1_wrap_9.jpg" align="right">
     <ul class="date_text">
-        <li><b>2016-2017 <br> сегодня</b></li>
-        <li><b>2013-2015</b></li>
-        <li><b>2008-2012</b></li>
-        <li><b>2000-2007 <br> как это было</b></li>
+        <li><b name="date_1">2016-2017 <br> сегодня</b></li>
+        <li><b name="date_2">2013-2015</b></li>
+        <li><b name="date_3">2008-2012</b></li>
+        <li><b name="date_4">2000-2007 <br> как это было</b></li>
     </ul>
-    <b>2016-2017 год</b>
-    <div class="bottom_wrap">
-        <img src="<?=SITE_TEMPLATE_PATH?>/images/about/page_2_wrap_6.jpg" align="left">
+    <div class="date_1 wrap_test">
+        <b>2016-2017 год</b>
+        <div class="bottom_wrap">
+            <img src="<?=SITE_TEMPLATE_PATH?>/images/about/page_2_wrap_6.jpg" align="left">
+        </div>
+        <p>
+            Сегодня «Амата» – это оптовый гипермаркет детских товаров от лучших мировых и российских производителей. Мы предлагаем широкий ассортимент продукции, учитывающий все аспекты ухода за детьми: мебель и аксессуары для детской комнаты, коляски и автокресла, средства гигиены, принадлежности для кормления, игрушки и многое другое. Понимая ваше позитивное стремление обеспечить российских покупателей, а значит, и тысячи российских малышей, только лучшими товарами, мы в свою очередь гарантируем их высочайшее качество и соответствие самым строгим стандартам.
+        </p>
+        <ul class="bottom_text">
+            <li><span>Разработка, запуск и вывод на рынок собственной торговой марки Noony</span></li>
+            <li><span>Расширение ассортиментной линейки бренда Nuovita (стульчики, электрокачели, манежи, коляски)</span></li>
+            <li><span>Расширение портфеля брендов компании (Nuby, Camarelo и др.)</span></li>
+            <li><span>Cотрудничество с интернет магазинами детских товаров: «Акушерство», «Олант», «Кораблик», BABADU и др.</span></li>
+            <li><span>Участие в 22-й международной выставке «Мир детства-2016», г. Москва</span></li>
+            <li><span>Участие в Международном конкурсе товаров для детей и подростков АНО «Союзэкспертиза» - 2016 и награждения дипломами 1-й степени с присвоением золотых медалей по брендам Nuovita, Feretti, Navington, Noony и Simplicity</span></li>
+            <li><span>Участие в партнерской конференции Philips AVENT и получение диплома в номинации «Лучшие продажи», г. Сочи</span></li>
+            <li><span>Участие в Фестивале беременных и младенцев WANEXPO с брендами Noordi и Nuovita</span></li>
+        </ul>
     </div>
-    <p>
-        Сегодня «Амата» – это оптовый гипермаркет детских товаров от лучших мировых и российских производителей. Мы предлагаем широкий ассортимент продукции, учитывающий все аспекты ухода за детьми: мебель и аксессуары для детской комнаты, коляски и автокресла, средства гигиены, принадлежности для кормления, игрушки и многое другое. Понимая ваше позитивное стремление обеспечить российских покупателей, а значит, и тысячи российских малышей, только лучшими товарами, мы в свою очередь гарантируем их высочайшее качество и соответствие самым строгим стандартам.
-    </p>
-    <ul class="bottom_text">
-        <li><span>Разработка, запуск и вывод на рынок собственной торговой марки Noony</span></li>
-        <li><span>Расширение ассортиментной линейки бренда Nuovita (стульчики, электрокачели, манежи, коляски)</span></li>
-        <li><span>Расширение портфеля брендов компании (Nuby, Camarelo и др.)</span></li>
-        <li><span>Cотрудничество с интернет магазинами детских товаров: «Акушерство», «Олант», «Кораблик», BABADU и др.</span></li>
-        <li><span>Участие в 22-й международной выставке «Мир детства-2016», г. Москва</span></li>
-        <li><span>Участие в Международном конкурсе товаров для детей и подростков АНО «Союзэкспертиза» - 2016 и награждения дипломами 1-й степени с присвоением золотых медалей по брендам Nuovita, Feretti, Navington, Noony и Simplicity</span></li>
-        <li><span>Участие в партнерской конференции Philips AVENT и получение диплома в номинации «Лучшие продажи», г. Сочи</span></li>
-        <li><span>Участие в Фестивале беременных и младенцев WANEXPO с брендами Noordi и Nuovita</span></li>
-    </ul>
+    <div class="date_2 wrap_test">
+        <b>2013-2015 годы</b>
+        <div class="bottom_wrap">
+            <img src="<?=SITE_TEMPLATE_PATH?>/images/about/page_1_wrap_6.jpg" align="left">
+        </div>
+        <ul class="bottom_text">
+            <li><span>Разработка, запуск и вывод на рынок собственной торговой марки Noony</span></li>
+            <li><span>Вывод на российский рынок линейки детской мебели бренда FERETTI</span></li>
+            <li><span>Получение эксклюзивных прав на дистрибьюцию брендов «Лель», Feretti, Simplicity, Noony, Bebe Luvicci, Kidboo, Sansli, Babysleep, Noordi, Navington, Altabebe и др.</span></li>
+            <li><span>Расширение портфеля брендов компании («Курносики», «Мир Детства», Lubby, Tutek, Inglesina, Brevi и др.)</span></li>
+            <li><span>Участие в 20-й юбилейной международной выставке «Мир детства-2014», г. Москва</span></li>
+            <li><span>Участие в 21-й международной выставке «Мир детства-2015», г. Москва</span></li>
+        </ul>
+    </div>
+    <div class="date_3 wrap_test">
+        <b>2008-2012 годы</b>
+        <div class="bottom_wrap">
+            <img src="<?=SITE_TEMPLATE_PATH?>/images/about/page_2_wrap_9.jpg" align="left">
+        </div>
+        <ul class="bottom_text">
+            <li><span>Формирование и реализация маркетинговой политики компании</span></li>
+            <li><span>Расширение портфеля брендов компании, дистрибьюция свыше 100 брендов, среди которых такие крупные как: «Лель», «Красная звезда», «Золотой гусь», «Афалина», Feretti, Chicco, Philips AVENT, Plitex и др.</span></li>
+            <li><span>Сотрудничество с сетями магазинов «Дочки-сыночки» и «Олант»</span></li>
+            <li><span>Выход в сферу e-commerce, сотрудничество с интернет-магазинами детских товаров: «Инфанты», «Рубиду», Elefantenok, Kinderly, Kupi-kolyasku и др</span></li>
+        </ul>
+    </div>
+    <div class="date_4 wrap_test">
+        <b>2000-2007 годы</b>
+        <div class="bottom_wrap">
+            <img src="<?=SITE_TEMPLATE_PATH?>/images/about/page_3_wrap_9.jpg" align="left">
+        </div>
+        <ul class="bottom_text">
+            <li><span>Учреждение ТД «Детская мебель»</span></li>
+            <li><span>Официальный представитель мебельной фабрики «Гандылян»</span></li>
+            <li><span>Сотрудничество с сетями детских магазинов «Дети», «Кроха», «Бананамама», «Кораблик», «Здоровый малыш» и др.</span></li>
+        </ul>
+    </div>
     <span class="image_border_14"><img src="<?=SITE_TEMPLATE_PATH?>/images/about/photo_border_14.png"></span>
     <span class="image_border_15"><img src="<?=SITE_TEMPLATE_PATH?>/images/about/photo_border_15.png"></span>
 </div>

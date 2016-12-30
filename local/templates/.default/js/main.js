@@ -2019,3 +2019,13 @@ $(function(){
     })
 })
 
+// раскрывающиеся блоки в разделе компании
+$(function(){
+   $('.wrap_8 .date_text li b').click(function(){
+       $('.wrap_8 .date_text li b').css('color', '#aaa');
+       $('.wrap_8 .wrap_test').hide();
+       $(this).css('color', '#000');
+       name_wrap = $(this).attr('name');
+       $('.wrap_8 .' + name_wrap).show();
+   })
+});
