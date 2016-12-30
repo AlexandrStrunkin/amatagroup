@@ -1485,11 +1485,20 @@
     }
     AddEventHandler("iblock", "OnAfterIBlockElementAdd", "OnWorkWithUsAdd");
     function OnWorkWithUsAdd(&$arFields) {
-        if ($arFields["IBLOCK_ID"] == WORK_WITH_US_IBLOCK_ID) { 
+        if ($arFields["IBLOCK_ID"] == WORK_WITH_US_IBLOCK_ID) {      
+            $arSelect = Array("ID", "NAME", "PROPERTY_FILE");
+            $arFilter = Array("ID"=>$arFields["ID"]);
+            $res = CIBlockElement::GetList(Array(), $arFilter, false, Array("nPageSize"=>50), $arSelect);
+            while($fileProp = $res->Fetch())
+            {
+                $fileID[] = $fileProp['PROPERTY_FILE_VALUE'];
+            }
             $toSend = Array();                   
             $toSend["NAME"] = $arFields["NAME"]; 
             $toSend["EMAIL"] = $arFields["PROPERTY_VALUES"][EMAIL_INPUT_ID]; 
             $toSend["OFFICE"] = $arFields["PROPERTY_VALUES"][OFFICE_INPUT_ID];
-            CEvent::Send ("NEW_RESUME", "s1", $toSend, "N", RESUME_MAIL_TEMPLATE_ID);
+            $toSend["PHONE"] = $arFields["PROPERTY_VALUES"][PHONE_INPUT_ID];
+            $toSend["MESSAGE"] = $arFields["DETAIL_TEXT"];    
+            CEvent::Send ("NEW_RESUME", "s1", $toSend, "N", RESUME_MAIL_TEMPLATE_ID, $fileID);
         }
     }
