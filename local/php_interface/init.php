@@ -1395,7 +1395,9 @@
         $list_props_id = array();
         $list_props = CIBlockProperty::GetList (Array(), Array("IBLOCK_ID" => CATALOG_IBLOCK_ID, "PROPERTY_TYPE" => "L"));
         while($ar_list_props = $list_props->Fetch()) {
-            $list_props_id[] = $ar_list_props["ID"];
+            if (!strstr($ar_list_props["CODE"], "TIP_TOVARA")) {
+                $list_props_id[] = $ar_list_props["ID"];    
+            }
         }
 
         //проверяем у товара заполненные свойства
