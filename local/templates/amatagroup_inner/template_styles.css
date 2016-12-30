@@ -22,6 +22,7 @@
 .wrap_1 b{
     display: block;
     margin-bottom: 20px;
+    text-align: center;
 }
 .wrap_2{
     border: 1px solid #e0e0e0;
@@ -165,6 +166,10 @@
     margin-bottom: 30px;
     margin-top: 10px;
 }
+.wrap_3 .center_wrap li span{
+    text-transform: uppercase;
+    font-size: 11px;
+}
 .wrap_3 .right_wrap{
     float: right;
     width: 24%;
@@ -188,6 +193,8 @@
     list-style-type: disc;
     list-style-position: inside;
     line-height: 1.5;
+    font-family: "PT Serif";
+    font-size: 16px;
 }
 .wrap_3 ul li span{
     color: #aaaaaa;
@@ -258,16 +265,7 @@
     z-index: 4;
     width: 1140px;
 }
-.map_amata .image_border_9{
-    position: absolute;
-    bottom: -29px;
-    left: -14px;
-}
-.map_amata .image_border_10{
-    position: absolute;
-    bottom: -24px;
-    right: -18px;
-}
+
 .map_amata b{
     display: block;
     text-align: center;
@@ -286,6 +284,16 @@
 #history .wrap_5 .right_wrap p{
     margin-bottom: 10px;
 }
+.wrap_5 .image_border_9{
+    position: absolute;
+    top: -29px;
+    left: -14px;
+}
+.wrap_5 .image_border_10{
+    position: absolute;
+    top: -29px;
+    right: -18px;
+}
 .wrap_5 .image_border_1{
     position: absolute;
     bottom: -27px;
@@ -300,6 +308,13 @@
     display: block;
     text-align: center;
     margin-bottom: 15px;
+}
+#history .wrap_5 p{
+  overflow-wrap: break-word;  /* не поддерживает IE, Firefox; является копией word-wrap */
+  word-wrap: normal;
+  word-break: break-all;
+  line-break: auto;  /* нет поддержки для русского языка */
+ -webkit-hyphens: none; -ms-hyphens: none; hyphens: none;  /* значение auto не поддерживается Chrome */
 }
 .wrap_5 .top_wrap img{
     padding: 25px 25px 25px 0;
@@ -335,7 +350,7 @@
 }
 .wrap_5 .inner{
     float: left;
-    height: 240px;
+    height: 210px;
     display: block;
     width: 2px;
     border-right: 2px dotted #d5d5d5;
@@ -351,13 +366,13 @@
 }
 .wrap_7 .image_border_12{
     position: absolute;
-    bottom: -29px;
-    left: -14px;
+    bottom: -32px;
+    left: -17px;
 }
 .wrap_7 .image_border_13{
     position: absolute;
     bottom: -24px;
-    right: -18px;
+    right: -28px;
 }
 .wrap_7 > img{
     padding: 0px 50px;

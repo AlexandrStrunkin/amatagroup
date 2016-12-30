@@ -107,11 +107,11 @@
 <div class="map_amata">
     <b>Наша география</b>
     <img src="<?=SITE_TEMPLATE_PATH?>/images/about/map.jpg">
-    <span class="image_border_9"><img src="<?=SITE_TEMPLATE_PATH?>/images/about/photo_border_9.png"></span>
-    <span class="image_border_10"><img src="<?=SITE_TEMPLATE_PATH?>/images/about/photo_border_10.png"></span>
 </div>
 
 <div class="wrap_5">
+    <span class="image_border_9"><img src="<?=SITE_TEMPLATE_PATH?>/images/about/photo_border_9.png"></span>
+    <span class="image_border_10"><img src="<?=SITE_TEMPLATE_PATH?>/images/about/photo_border_10.png"></span>
     <div class="top_wrap">
         <b>Наши бренды</b>
         <img src="<?=SITE_TEMPLATE_PATH?>/images/about/page_1_wrap_5.jpg" align="left">
