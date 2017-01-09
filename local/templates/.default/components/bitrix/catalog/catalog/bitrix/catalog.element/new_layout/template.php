@@ -266,7 +266,7 @@
                                     ?>
                                     <img src="<?= $thumbnail_path ?>">
                                 </span>
-                                <?= mb_strimwidth($offerNameVisible, 0, 50, "...") ?>
+                                <?= mb_strimwidth($offerNameVisible, 0, 50, "...", "cp1251") ?>
                             </p>
                             <?if(count($arResult["OFFERS"]) > 1){?>
                                 <div class="hidingMenu">
@@ -299,7 +299,7 @@
                                                 <img src="<?= $thumbnail_path ?>">
                                             </span>
                                             <span class="offer_option_text">
-                                                <?= mb_strimwidth($offerNameVisible, 0, 50, "...") ?>
+                                                <?= mb_strimwidth($offerNameVisible, 0, 50, "...", "cp1251") ?>
                                             </span>
                                             <span class="offer_option_status"></span>
                                         </p>
