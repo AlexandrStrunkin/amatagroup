@@ -312,7 +312,7 @@
 #history .wrap_5 p{
   overflow-wrap: break-word;  /* не поддерживает IE, Firefox; является копией word-wrap */
   word-wrap: normal;
-  word-break: break-all;
+/*  word-break: break-all;  */
   line-break: auto;  /* нет поддержки для русского языка */
  -webkit-hyphens: none; -ms-hyphens: none; hyphens: none;  /* значение auto не поддерживается Chrome */
 }
@@ -329,21 +329,21 @@
 }
 .wrap_5 .left_wrap{
     float: left;
-    width: 30%;
+    width: 31%;
 }
 .wrap_5 .left_wrap img{
-    padding: 10px 30px;
+    padding: 10px 21px;
 }
 .wrap_5 .center_wrap{
     float: left;
-    width: 31%;
+    width: 30%;
 }
 .wrap_5 .center_wrap img{
-    padding: 25px 25px;
+    padding: 25px 21px;
 }
 .wrap_5 .right_wrap{
     float: left;
-    width: 30%;
+    width: 31%;
 }
 .wrap_5 .right_wrap img{
     padding: 10px 20px;
