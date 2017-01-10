@@ -154,7 +154,7 @@
             <div class="close"></div>
             <div class="status"><?= GetMessage("OPENED") ?></div>
             <h2><?= $arItem["NAME"] ?></h2>
-            <div class="date"><?= $arItem["PROPERTIES"]["WORKING_DAYS"]["VALUE"] ?>, <span><?= $arItem["PROPERTIES"]["WORKING_HOURS"]["VALUE"] ?></span></div>
+            <div class="date"><?= $arItem["PROPERTIES"]["WORKING_DAYS"]["VALUE"] ?> <span><?= $arItem["PROPERTIES"]["WORKING_HOURS"]["VALUE"] ?></span></div>
             <div class="basketBody tabs">
                 <!--tabsLinks-->
                 <div class="basketBodyMenu tabsLinks">
@@ -185,7 +185,7 @@
                 </div>
                 <!--END info-->
                 <!--manager-->
-                <div id="manager" class="basketBlock">
+                <div id="manager" class="basketBlock" style="display:none">
                     <? foreach ($arItem["PROPERTIES"]["MANAGER"]["VALUE"] as $manager) { ?>
                         <div class="line">
                             <?= $manager ?>
