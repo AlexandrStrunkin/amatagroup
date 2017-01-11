@@ -32,7 +32,8 @@ $this->setFrameMode(true);
                     <?}?>
                         <div class="bannerImgContainer">
                             <a href="<?=$arItem["PROPERTIES"]["LINK_PRODUCT"]["VALUE"]?>" >
-                                <img src="<?=$arItem["DETAIL_PICTURE"]["SRC"]?>" style="width: <?=$arItem["PROPERTIES"]["WIDTH_PICTURE_SMALL"]["VALUE"]?>%" height="<?=$arItem["DETAIL_PICTURE"]["HEIGHT"]?>" alt=""/>
+                            	<? $img = CFIle::ResizeImageGet($arItem["DETAIL_PICTURE"]["ID"], array("width" => 580, "height" => 520), BX_RESIZE_IMAGE_PROPORTIONAL, false, false, false, 70); ?>
+                                <img src="<?=$img["src"]?>" style="width: <?=$arItem["PROPERTIES"]["WIDTH_PICTURE_SMALL"]["VALUE"]?>%" height="<?=$arItem["DETAIL_PICTURE"]["HEIGHT"]?>" alt=""/>
                             </a>
                             <?if($arItem["PROPERTIES"]["SPECIAL_OFFER"]["VALUE_ENUM_ID"] == ELEMENT_SPECIAL_OFFER_HIT){?>
                                 <p style="top: <?=$arItem["PROPERTIES"]["VERTICAL_POSITION"]["VALUE"]?>%; left: <?=$arItem["PROPERTIES"]["HORIZONTAL_POSITION"]["VALUE"]?>%" class="hitContainer"><?=$arItem["PROPERTIES"]["SPECIAL_OFFER"]["VALUE"]?></p>

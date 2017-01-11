@@ -190,7 +190,8 @@
                         }?>
                     </p>
                     <a href="<? echo $arItem['DETAIL_PAGE_URL']; ?>" class="productimg">
-                        <img src="<?=$arItem["PREVIEW_PICTURE"]["SRC"]?>" alt="<?=$arItem["NAME"]?>"/>
+                    	<? $img = CFIle::ResizeImageGet($arItem["PREVIEW_PICTURE"]["ID"], array("width" => 176, "height" => 190), BX_RESIZE_IMAGE_PROPORTIONAL, false, false, false, 70); ?>
+                        <img src="<?=$img['src']?>" alt="<?=$arItem["NAME"]?>"/>
                     </a>
 
                     <div>
