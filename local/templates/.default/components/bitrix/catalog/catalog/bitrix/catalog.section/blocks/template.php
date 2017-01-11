@@ -177,16 +177,70 @@
                         <img src="<?=$arItem["PREVIEW_PICTURE"]["SRC"]?>" alt="<?=$arItem["NAME"]?>"/>
                     </a>
 
-                    <div>
+                    <div class="blocks_element_main_title">
                         <a href="<? echo $arItem['DETAIL_PAGE_URL']; ?>" data-element-full-name="<?= $arItem["NAME"] ?>" class="productName"><?= $arItem["NAME"] ?></a>
-                        <?if ((!is_array($arItem["OFFERS"]) || count($arItem["OFFERS"]) <= 0) && $arItem["MIN_PRICE_TMP"]) {?>
-
-                            <div id="<? echo $arItemIDs['BASKET_ACTIONS']; ?>" <?if ($arItem['IN_BASKET'] == "Y"){?>title="<?=GetMessage("PRODUCT_ALREADY_IN_BASKET")?>"<?}?>  class="bx_catalog_item_controls_blocktwo productBasketBlock changingBasket <?if ($arItem['IN_BASKET'] == "Y"){?> active<?}?>">
-                                <a id="<? echo $arItemIDs['BUY_LINK']; ?>" class="blockLink bx_bt_button bx_medium <?if ($arItem['IN_BASKET'] != "Y") {?>js-add-to-basket <?}?>" href="<?=$arItem['ADD_URL']?>" rel="nofollow"></a>
-                            </div>
-
-                            <?}?>
-
+                    </div>
+                    
+                    <div class="blocks_offers">
+                    	<div class="blocks_offers_wrapper">
+                    		<div class="blocks_offers_select">
+                    			<div class="blocks_offers_title">Слоновая кость</div>
+                    			<div class="blocks_offers_arrows"></div>
+                    		</div>
+                    		<div class="blocks_offers_options_wrapper">
+                    			<ul>
+                    				<li>Товар</li>
+                    				<li>Товар</li>
+                    				<li>Товар</li>
+                    				<li>Товар</li>
+                    				<li>Товар</li>
+                    				<li>Товар</li>
+                    				<li>Товар</li>
+                    				<li>Товар</li>
+                    				<li>Товар</li>
+                    				<li>Товар</li>
+                    			</ul>
+                    		</div>
+                    	</div>
+                    </div>
+                    
+                    <div class="blocks_operations">
+                    	<div class="blocks_operations_wrapper">
+                    		<div class="blocks_operations_quantity">
+								<div class="blocks_operations_container">
+									<div class="blocks_operations_minus quantityMinus"></div>
+									<div class="blocks_operations_quantity"><input class="quantityText" type="text" value="1" /></div>
+									<div class="blocks_operations_minus quantityPlus"></div>
+								</div>
+                    		</div>
+                    		<div class="blocks_operations_buttons">
+                    			<!-- Кнопка лайка -->
+		                        <div class="productLikeBlock changingLike">
+		                        	<a href="javascript:void(0)"
+						               class="list_favorite blockLink <?= $arResult['USER_AUTHORIZED'] ?  ($arItem['USER_HAVE_ITEM_IN_FAVORITE'] ? " active already_in_favorite" : " js_add_to_favorite") : " js_favorite_need_auth" ?>"
+						               data-favorite-product-id="<?= $arItem["ID"] ?>"
+						               data-favorite-delete="<?= $arItem['USER_HAVE_ITEM_IN_FAVORITE'] ? "Y" : "" ?>"
+						               data-favorite-item-id="<?= $arItem['USER_HAVE_ITEM_IN_FAVORITE'] ?>">
+						            </a>
+		                        </div>
+                    			<!-- Кнопка корзины -->
+		                        <? //if ((!is_array($arItem["OFFERS"]) || count($arItem["OFFERS"]) <= 0) && $arItem["MIN_PRICE_TMP"]) { ?>
+			                        <div id="<? echo $arItemIDs['BASKET_ACTIONS']; ?>" <?if ($arItem['IN_BASKET'] == "Y"){?>title="<?=GetMessage("PRODUCT_ALREADY_IN_BASKET")?>"<?}?>  class="bx_catalog_item_controls_blocktwo productBasketBlock changingBasket <?if ($arItem['IN_BASKET'] == "Y"){?> active<?}?>">
+			                            <a id="<? echo $arItemIDs['BUY_LINK']; ?>" class="blockLink bx_bt_button bx_medium <?if ($arItem['IN_BASKET'] != "Y") {?>js-add-to-basket <?}?>" href="<?=$arItem['ADD_URL']?>" rel="nofollow"></a>
+			                        </div>
+		                        <? //} ?>
+                    		</div>
+                    	</div>
+                    </div>
+                    
+                    <div style="display:none">
+                    	<!-- Кнопка корзины -->
+                        <? if ((!is_array($arItem["OFFERS"]) || count($arItem["OFFERS"]) <= 0) && $arItem["MIN_PRICE_TMP"]) { ?>
+	                        <div id="<? echo $arItemIDs['BASKET_ACTIONS']; ?>" <?if ($arItem['IN_BASKET'] == "Y"){?>title="<?=GetMessage("PRODUCT_ALREADY_IN_BASKET")?>"<?}?>  class="bx_catalog_item_controls_blocktwo productBasketBlock changingBasket <?if ($arItem['IN_BASKET'] == "Y"){?> active<?}?>">
+	                            <a id="<? echo $arItemIDs['BUY_LINK']; ?>" class="blockLink bx_bt_button bx_medium <?if ($arItem['IN_BASKET'] != "Y") {?>js-add-to-basket <?}?>" href="<?=$arItem['ADD_URL']?>" rel="nofollow"></a>
+	                        </div>
+                        <? } ?>
+						<!-- Кнопка лайка -->
                         <div class="productLikeBlock changingLike">
                         	<a href="javascript:void(0)"
 				               class="list_favorite blockLink <?= $arResult['USER_AUTHORIZED'] ?  ($arItem['USER_HAVE_ITEM_IN_FAVORITE'] ? " active already_in_favorite" : " js_add_to_favorite") : " js_favorite_need_auth" ?>"
@@ -195,7 +249,6 @@
 				               data-favorite-item-id="<?= $arItem['USER_HAVE_ITEM_IN_FAVORITE'] ?>">
 				            </a>
                         </div>
-
                     </div>
 					<?
 			        	$item_quantity = getQuantityLang($arItem["CATALOG_QUANTITY"]);
