@@ -148,7 +148,8 @@
             <li id="<? echo $strMainID; ?>">
                 <div class="productWrapper">
                     <p class="price" id="<? echo $arItemIDs['PRICE']; ?>">
-                        <? if (isset($arItem['OFFERS']) && !empty($arItem['OFFERS'])) { ?> 
+                        <? if (isset($arItem['OFFERS']) && !empty($arItem['OFFERS'])) {
+                        	$first_offer = $arItem["OFFERS"][0]; ?>
                             <?             
                             foreach ($arItem['OFFERS'] as $offer) { 
                                 $tempMinPrice = (isset($offer['RATIO_PRICE']) ? $offer['RATIO_PRICE'] : $offer['MIN_PRICE']);                                 
@@ -184,21 +185,46 @@
                     <div class="blocks_offers">
                     	<div class="blocks_offers_wrapper">
                     		<div class="blocks_offers_select">
-                    			<div class="blocks_offers_title">Слоновая кость</div>
+                    			<?
+				                    $offerNameVisible = $first_offer["NAME"];
+				                    $offerName = array();
+				                    ?>
+				                    <? foreach ($arParams["~OFFER_TREE_PROPS"] as $offerPropName) { ?>
+				                        <?
+				                            if ($first_offer["PROPERTIES"][$offerPropName]["VALUE"]) {
+				                                $offerName[] = $first_offer["PROPERTIES"][$offerPropName]["VALUE"];
+				                        } ?>
+				                    <? } ?>
+				                    <?
+				                    if (count($offerName) > 0) {
+				                        $offerNameVisible = trim(implode(", ", $offerName));
+				                    }
+			                    ?>
+                    			<div class="blocks_offers_title">
+                    				<span class="title_container"><?= $offerNameVisible ?></span>
+                    			</div>
                     			<div class="blocks_offers_arrows"></div>
                     		</div>
                     		<div class="blocks_offers_options_wrapper">
                     			<ul>
-                    				<li>Товар 1</li>
-                    				<li>Товар 2</li>
-                    				<li>Товар 3</li>
-                    				<li>Товар 4</li>
-                    				<li>Товар 5</li>
-                    				<li>Товар 6</li>
-                    				<li>Товар 7</li>
-                    				<li>Товар 8</li>
-                    				<li>Товар 9</li>
-                    				<li>Товар 10</li>
+                    				<?foreach ($arItem["OFFERS"] as $offer) {?>
+					                    <?
+					                    $offerNameVisible = $offer["NAME"];
+					                    $offerName = array();
+					                    ?>
+					                    <? foreach ($arParams["~OFFER_TREE_PROPS"] as $offerPropName) { ?>
+					                        <?
+					                            if ($offer["PROPERTIES"][$offerPropName]["VALUE"]) {
+					                                $offerName[] = $offer["PROPERTIES"][$offerPropName]["VALUE"];
+					                        } ?>
+				                        <? } ?>
+				                        <?
+				                        if (count($offerName) > 0) {
+			                                $offerNameVisible = trim(implode(", ", $offerName));
+			                            }
+				                        ?>
+					                    <li data-offer-id="<?= $offer["ID"] ?>" data-item-can-buy="<?= $offer["CATALOG_QUANTITY"] ?>" data-offer-buy-link="<?= $offer["ADD_URL"] ?>" class="js-offer-option"><?= $offerNameVisible ?></li>
+				                    <?}?>
                     			</ul>
                     		</div>
                     	</div>

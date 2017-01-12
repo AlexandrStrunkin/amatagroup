@@ -10,6 +10,7 @@ $APPLICATION->AddHeadScript(DEFAULT_TEMPLATE_PATH . "/js/shave.js");
 </script>
 <script type="text/javascript">
 BX.ready(BX.defer(function() {
+	$(".title_container").shave(39);
 	// скролл для списка предложений
 	$(".blocks_offers_options_wrapper").mCustomScrollbar({
         theme: "dark-thin"
@@ -33,11 +34,11 @@ BX.ready(BX.defer(function() {
     
     $(".blocks_offers_options_wrapper li").on("click", function() {
     	var this_option_text  = $(this).text(),
-    		select_value_text = $(this).parents(".blocks_offers_wrapper").find(".blocks_offers_title"),
+    		select_value_text = $(this).parents(".blocks_offers_wrapper").find(".title_container"),
     		options           = $(this).parents(".blocks_offers_options_wrapper"),
     		arrow             = $(this).parents(".blocks_offers_wrapper").find(".blocks_offers_arrows");
 
-    	select_value_text.text(this_option_text);
+    	select_value_text.text(this_option_text).shave(39);
     	options.hide();
     	arrow.css("background-position", "0 0");
     })
