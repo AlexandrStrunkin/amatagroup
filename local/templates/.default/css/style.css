@@ -755,13 +755,22 @@ body {
 
 .blocks_offers_options_wrapper {
 	position: absolute;
-    height: 245px;
+    height: 240px;
     width: 240px;
     box-shadow: 0 0 17px 10px rgba(229, 235, 238, 0.7);
     overflow: hidden;
-    z-index: 999999;
+    z-index: 999;
     border-radius: 10px;
     top: 50px;
+    display: none;
+}
+
+.blocks_offers_options_wrapper .mCSB_draggerContainer {
+	background: white;
+}
+
+.blocks_offers_options_wrapper .mCSB_scrollTools {
+	opacity: 1 !important;
 }
 
 .blocks_offers_options_wrapper ul {

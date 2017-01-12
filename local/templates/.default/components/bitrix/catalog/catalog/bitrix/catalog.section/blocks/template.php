@@ -189,16 +189,16 @@
                     		</div>
                     		<div class="blocks_offers_options_wrapper">
                     			<ul>
-                    				<li>Товар</li>
-                    				<li>Товар</li>
-                    				<li>Товар</li>
-                    				<li>Товар</li>
-                    				<li>Товар</li>
-                    				<li>Товар</li>
-                    				<li>Товар</li>
-                    				<li>Товар</li>
-                    				<li>Товар</li>
-                    				<li>Товар</li>
+                    				<li>Товар 1</li>
+                    				<li>Товар 2</li>
+                    				<li>Товар 3</li>
+                    				<li>Товар 4</li>
+                    				<li>Товар 5</li>
+                    				<li>Товар 6</li>
+                    				<li>Товар 7</li>
+                    				<li>Товар 8</li>
+                    				<li>Товар 9</li>
+                    				<li>Товар 10</li>
                     			</ul>
                     		</div>
                     	</div>
