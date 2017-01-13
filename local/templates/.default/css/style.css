@@ -752,6 +752,14 @@ body {
 	position: relative;	
 }
 
+.blocks_no_offers {
+	width: 240px;
+	height: 40px;
+	display: flex;
+    align-items: center;
+    justify-content: center;
+	font-family: "MuseoSansCyrl-500";
+}
 
 .blocks_offers_options_wrapper {
 	position: absolute;

@@ -83,6 +83,9 @@
     define("ORDER_APARTMENT", "ORDER_PROP_23"); // Квартира/офис
     define("DEFAULT_LOCATION_ID", 129); // Дефолтное местоположение - Москва
 
+    define("BLOCKS_PREVIEW_HEIGHT", 200);
+    define("BLOCKS_PREVIEW_WIDTH", 240);
+    
     define("ELEMENT_CARD_THUMBNAIL_HEIGHT", 47);
     define("ELEMENT_CARD_THUMBNAIL_WIDTH", 45);
     define("ELEMENT_CARD_PREVIEW_HEIGHT", 83);

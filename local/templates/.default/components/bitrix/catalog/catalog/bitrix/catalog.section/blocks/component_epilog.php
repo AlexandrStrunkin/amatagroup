@@ -31,13 +31,23 @@ BX.ready(BX.defer(function() {
 		options.hide();
 		arrow.css("background-position", "0 0");
     });
-    
+    // клик по опции
     $(".blocks_offers_options_wrapper li").on("click", function() {
-    	var this_option_text  = $(this).text(),
-    		select_value_text = $(this).parents(".blocks_offers_wrapper").find(".title_container"),
-    		options           = $(this).parents(".blocks_offers_options_wrapper"),
-    		arrow             = $(this).parents(".blocks_offers_wrapper").find(".blocks_offers_arrows");
-
+    	var product_wrapper   = $(this).parents(".productWrapper"),
+    		this_option_text  = $(this).text(),
+    		select_value_text = product_wrapper.find(".title_container"),
+    		options           = product_wrapper.find(".blocks_offers_options_wrapper"),
+    		arrow             = product_wrapper.find(".blocks_offers_arrows"),
+    		preview_picture   = $(this).data("preview-image"),
+    		offer_id          = $(this).data("offer-id"),
+    		current_offer_buy_link = $(this).data("offer-buy-link");
+		// цены
+		product_wrapper.find(".price").hide();
+		product_wrapper.find(".price[data-offer-id='" + offer_id + "']").show();
+		// смена картинки
+		product_wrapper.find(".productimg img").attr("src", preview_picture);
+		// ссылка для покупки
+		product_wrapper.find(".js-add-to-basket").attr("href", current_offer_buy_link);
     	select_value_text.text(this_option_text).shave(39);
     	options.hide();
     	arrow.css("background-position", "0 0");

@@ -142,40 +142,59 @@
                     $minPrice = (isset($arItem['RATIO_PRICE']) ? $arItem['RATIO_PRICE'] : $arItem['MIN_PRICE']);
                 }
 
+				if (isset($arItem['OFFERS']) && !empty($arItem['OFFERS'])) {
+					$first_offer = $arItem["OFFERS"][0];
+				}
+
               
             ?>
 
             <li id="<? echo $strMainID; ?>">
-                <div class="productWrapper">
-                    <p class="price" id="<? echo $arItemIDs['PRICE']; ?>">
-                        <? if (isset($arItem['OFFERS']) && !empty($arItem['OFFERS'])) {
-                        	$first_offer = $arItem["OFFERS"][0]; ?>
-                            <?             
-                            foreach ($arItem['OFFERS'] as $offer) { 
-                                $tempMinPrice = (isset($offer['RATIO_PRICE']) ? $offer['RATIO_PRICE'] : $offer['MIN_PRICE']);                                 
-                                if($minPrice['VALUE'] > $tempMinPrice['VALUE']) {
-                                    $minPrice = $tempMinPrice;    
-                                } elseif (empty($minPrice)) {
-                                    $minPrice = (isset($offer['RATIO_PRICE']) ? $offer['RATIO_PRICE'] : $offer['MIN_PRICE']);    
-                                }              
-                            }
-                            echo ($minPrice['PRINT_DISCOUNT_VALUE']) ? $minPrice['PRINT_DISCOUNT_VALUE'] : GetMessage("WITHOUT_PRICE");
-                            if ('Y' == $arParams['SHOW_OLD_PRICE'] && $minPrice['DISCOUNT_VALUE'] < $minPrice['VALUE']) {?>
-                                <span class="old_price"><? echo $minPrice['PRINT_VALUE']; ?></span>
-                                <?unset($minPrice);
-                            }
-                        } else {
-                            $minPrice = $arItem["MIN_PRICE_TMP"];
-                            echo ($minPrice['PRINT_DISCOUNT_VALUE']) ? $minPrice['PRINT_DISCOUNT_VALUE'] : GetMessage("WITHOUT_PRICE"); 
-                            if ('Y' == $arParams['SHOW_OLD_PRICE'] && $minPrice['DISCOUNT_VALUE'] < $minPrice['VALUE']) {?>
-                                <span class="old_price"><? echo $minPrice['PRINT_VALUE']; ?></span>
-                                
-                            <?}
-                            unset($minPrice);
-                        }?>
-                    </p>
+                <div class="productWrapper">                    
+                    <? if (isset($arItem['OFFERS']) && !empty($arItem['OFFERS'])) { ?>
+                        <?
+                        $k = 0;
+                        foreach ($arItem['OFFERS'] as $offer) {?>
+                            <p data-offer-id="<?=$offer["ID"]?>" class="price" <?if ($k != 0){?>style="display: none;"<?}?> data-item-id="<?=$arItem["ID"]?>">
+                                <?
+                                    $minPrice = (isset($offer['RATIO_PRICE']) ? $offer['RATIO_PRICE'] : $offer['MIN_PRICE']);
+
+                                    echo ($minPrice['PRINT_DISCOUNT_VALUE']) ? $minPrice['PRINT_DISCOUNT_VALUE'] : GetMessage("WITHOUT_PRICE");
+
+                                    if ('Y' == $arParams['SHOW_OLD_PRICE'] && $minPrice['DISCOUNT_VALUE'] < $minPrice['VALUE']) {?>
+                                    <span class="old_price"><? echo $minPrice['PRINT_VALUE']; ?></span>
+                                    <?
+                                    }
+
+                                    unset($minPrice);
+                                ?> &nbsp;
+                            </p>
+                            <?$k++;}
+                    } else { ?>
+                           <p class="price">
+                                <?
+                                    $minPrice = $arItem["MIN_PRICE_TMP"];
+
+                                    echo ($minPrice['PRINT_DISCOUNT_VALUE']) ? $minPrice['PRINT_DISCOUNT_VALUE'] : GetMessage("WITHOUT_PRICE");
+
+                                    if ('Y' == $arParams['SHOW_OLD_PRICE'] && $minPrice['DISCOUNT_VALUE'] < $minPrice['VALUE']) {?>
+                                    <span class="old_price"><? echo $minPrice['PRINT_VALUE']; ?></span>
+                                    <?
+                                    }
+
+                                    unset($minPrice);
+                                ?> &nbsp;
+                            </p>
+                    <? } ?>
                     <a href="<? echo $arItem['DETAIL_PAGE_URL']; ?>" class="productimg">
-                        <img src="<?=$arItem["PREVIEW_PICTURE"]["SRC"]?>" alt="<?=$arItem["NAME"]?>"/>
+						<?
+						if ($first_offer['DETAIL_PICTURE']['ID']) {
+	                        $preview_path = getResizedImage($first_offer['DETAIL_PICTURE']['ID'], BLOCKS_PREVIEW_WIDTH, BLOCKS_PREVIEW_HEIGHT, BX_RESIZE_IMAGE_PROPORTIONAL_ALT);
+	                    } else {
+	                        $preview_path = $this->GetFolder().'/images/nophoto.png';
+	                    }
+						?>
+                        <img src="<?= $preview_path ?>" alt="<?=$arItem["NAME"]?>"/>
                     </a>
 
                     <div class="blocks_element_main_title">
@@ -183,6 +202,7 @@
                     </div>
                     
                     <div class="blocks_offers">
+                    	<? if (isset($arItem['OFFERS']) && !empty($arItem['OFFERS'])) { ?>
                     	<div class="blocks_offers_wrapper">
                     		<div class="blocks_offers_select">
                     			<?
@@ -222,12 +242,23 @@
 				                        if (count($offerName) > 0) {
 			                                $offerNameVisible = trim(implode(", ", $offerName));
 			                            }
+
+										if ($offer['DETAIL_PICTURE']['ID']) {
+                                            $preview_path = getResizedImage($offer['DETAIL_PICTURE']['ID'], BLOCKS_PREVIEW_WIDTH, BLOCKS_PREVIEW_HEIGHT, BX_RESIZE_IMAGE_PROPORTIONAL_ALT);
+                                        } else {
+                                            $preview_path = $this->GetFolder().'/images/nophoto.png';
+                                        }
 				                        ?>
-					                    <li data-offer-id="<?= $offer["ID"] ?>" data-item-can-buy="<?= $offer["CATALOG_QUANTITY"] ?>" data-offer-buy-link="<?= $offer["ADD_URL"] ?>" class="js-offer-option"><?= $offerNameVisible ?></li>
+					                    <li data-offer-id="<?= $offer["ID"] ?>" data-item-can-buy="<?= $offer["CATALOG_QUANTITY"] ?>" data-offer-buy-link="<?= $offer["ADD_URL"] ?>" data-preview-image="<?= $preview_path ?>" ><?= $offerNameVisible ?></li>
 				                    <?}?>
                     			</ul>
                     		</div>
                     	</div>
+                    	<? } else { ?>
+                    	<div class="blocks_no_offers">
+                    		<?= GetMessage("NO_OFFERS") ?>
+                    	</div>
+                    	<? } ?>
                     </div>
                     
                     <div class="blocks_operations">
@@ -250,11 +281,15 @@
 						            </a>
 		                        </div>
                     			<!--  нопка корзины -->
-		                        <? //if ((!is_array($arItem["OFFERS"]) || count($arItem["OFFERS"]) <= 0) && $arItem["MIN_PRICE_TMP"]) { ?>
-			                        <div id="<? echo $arItemIDs['BASKET_ACTIONS']; ?>" <?if ($arItem['IN_BASKET'] == "Y"){?>title="<?=GetMessage("PRODUCT_ALREADY_IN_BASKET")?>"<?}?>  class="bx_catalog_item_controls_blocktwo productBasketBlock changingBasket <?if ($arItem['IN_BASKET'] == "Y"){?> active<?}?>">
+		                        <? if (isset($arItem['OFFERS']) && !empty($arItem['OFFERS'])) { ?>
+			                        <div id="<? echo $first_offer['BASKET_ACTIONS']; ?>" <?if ($first_offer['IN_BASKET'] == "Y"){?>title="<?=GetMessage("PRODUCT_ALREADY_IN_BASKET")?>"<?}?>  class="bx_catalog_item_controls_blocktwo productBasketBlock changingBasket <?if ($arItem['IN_BASKET'] == "Y"){?> active<?}?>">
+			                            <a id="<? echo $first_offer['BUY_LINK']; ?>" class="blockLink bx_bt_button bx_medium <?if ($arItem['IN_BASKET'] != "Y") {?>js-add-to-basket <?}?>" href="<?=$first_offer['ADD_URL']?>" rel="nofollow"></a>
+			                        </div>
+		                        <? } else { ?>
+		                        	<div id="<? echo $arItemIDs['BASKET_ACTIONS']; ?>" <?if ($arItem['IN_BASKET'] == "Y"){?>title="<?=GetMessage("PRODUCT_ALREADY_IN_BASKET")?>"<?}?>  class="bx_catalog_item_controls_blocktwo productBasketBlock changingBasket <?if ($arItem['IN_BASKET'] == "Y"){?> active<?}?>">
 			                            <a id="<? echo $arItemIDs['BUY_LINK']; ?>" class="blockLink bx_bt_button bx_medium <?if ($arItem['IN_BASKET'] != "Y") {?>js-add-to-basket <?}?>" href="<?=$arItem['ADD_URL']?>" rel="nofollow"></a>
 			                        </div>
-		                        <? //} ?>
+		                        <? } ?>
                     		</div>
                     	</div>
                     </div>
