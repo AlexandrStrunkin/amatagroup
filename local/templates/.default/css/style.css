@@ -4125,6 +4125,18 @@ border-right: none;
     background-position: -72px 0;
 }
 
+#basket_items .elementActions .likedButton {
+    background: url('../img/dctLk_old.png') no-repeat;
+}
+
+#basket_items .elementActions .likedButton:hover {
+    background-position: -36px 0;
+}
+
+#basket_items .elementActions .likedButton.activeLikeBut {
+    background-position: -72px 0;
+}
+
 .elementActions .productBasketBlock {
     background: url("../img/dktBaskt.png") no-repeat 0 0;
     border-radius: 40px;
@@ -7042,7 +7054,10 @@ input[type="radio"]:checked + label::before {
     background-repeat: no-repeat;
     background-position: 0 0;
     display: block;
-    top: 45%;
+}
+
+.confidens_container .previews_slider_navigation_arrow span {
+	top: 45%;
     position: relative;
     left: 28%;
 }
