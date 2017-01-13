@@ -18,6 +18,8 @@ $(document).ready(function(){
 				"margin-left": "-1px"
 			});
 			
+			$(this).find(".blocks_operations").css("border-bottom", "1px solid #c7c7c7");
+			
 			name_block.html(full_name);
 			
 			name_block.css({
@@ -49,6 +51,8 @@ $(document).ready(function(){
 				"margin-top": "0px",
 				"margin-left": "0px"
 			});
+			
+			$(this).find(".blocks_operations").css("border-bottom", "none");
 			
 			name_block.css({
 				"overflow" : "hidden",

@@ -266,7 +266,7 @@
                     		<div class="blocks_operations_quantity">
 								<div class="blocks_operations_container">
 									<div class="blocks_operations_minus quantityMinus"></div>
-									<div class="blocks_operations_quantity"><input class="quantityText" type="text" value="1" /></div>
+									<div class="blocks_operations_quantity"><input data-item-id="<?= $first_offer ? $first_offer['ID'] : $arItem['ID'] ?>" data-name="quantity" data-quantity-variable="<?=$arParams["PRODUCT_QUANTITY_VARIABLE"]?>" class="quantityText js-item-quantity" type="text" value="1" /></div>
 									<div class="blocks_operations_minus quantityPlus"></div>
 								</div>
                     		</div>
@@ -283,45 +283,38 @@
                     			<!--  нопка корзины -->
 		                        <? if (isset($arItem['OFFERS']) && !empty($arItem['OFFERS'])) { ?>
 			                        <div id="<? echo $first_offer['BASKET_ACTIONS']; ?>" <?if ($first_offer['IN_BASKET'] == "Y"){?>title="<?=GetMessage("PRODUCT_ALREADY_IN_BASKET")?>"<?}?>  class="bx_catalog_item_controls_blocktwo productBasketBlock changingBasket <?if ($arItem['IN_BASKET'] == "Y"){?> active<?}?>">
-			                            <a id="<? echo $first_offer['BUY_LINK']; ?>" class="blockLink bx_bt_button bx_medium <?if ($arItem['IN_BASKET'] != "Y") {?>js-add-to-basket <?}?>" href="<?=$first_offer['ADD_URL']?>" rel="nofollow"></a>
+			                            <a id="<? echo $first_offer['BUY_LINK']; ?>" data-item-id="<?= $first_offer ? $first_offer['ID'] : $arItem['ID'] ?>" class="blockLink bx_bt_button bx_medium <?if ($arItem['IN_BASKET'] != "Y") {?>js-add-to-basket <?}?>" href="<?=$first_offer['ADD_URL']?>" rel="nofollow"></a>
 			                        </div>
 		                        <? } else { ?>
 		                        	<div id="<? echo $arItemIDs['BASKET_ACTIONS']; ?>" <?if ($arItem['IN_BASKET'] == "Y"){?>title="<?=GetMessage("PRODUCT_ALREADY_IN_BASKET")?>"<?}?>  class="bx_catalog_item_controls_blocktwo productBasketBlock changingBasket <?if ($arItem['IN_BASKET'] == "Y"){?> active<?}?>">
-			                            <a id="<? echo $arItemIDs['BUY_LINK']; ?>" class="blockLink bx_bt_button bx_medium <?if ($arItem['IN_BASKET'] != "Y") {?>js-add-to-basket <?}?>" href="<?=$arItem['ADD_URL']?>" rel="nofollow"></a>
+			                            <a id="<? echo $arItemIDs['BUY_LINK']; ?>" data-item-id="<?= $first_offer ? $first_offer['ID'] : $arItem['ID'] ?>" class="blockLink bx_bt_button bx_medium <?if ($arItem['IN_BASKET'] != "Y") {?>js-add-to-basket <?}?>" href="<?=$arItem['ADD_URL']?>" rel="nofollow"></a>
 			                        </div>
 		                        <? } ?>
                     		</div>
                     	</div>
                     </div>
-                    
-                    <div style="display:none">
-                    	<!--  нопка корзины -->
-                        <? if ((!is_array($arItem["OFFERS"]) || count($arItem["OFFERS"]) <= 0) && $arItem["MIN_PRICE_TMP"]) { ?>
-	                        <div id="<? echo $arItemIDs['BASKET_ACTIONS']; ?>" <?if ($arItem['IN_BASKET'] == "Y"){?>title="<?=GetMessage("PRODUCT_ALREADY_IN_BASKET")?>"<?}?>  class="bx_catalog_item_controls_blocktwo productBasketBlock changingBasket <?if ($arItem['IN_BASKET'] == "Y"){?> active<?}?>">
-	                            <a id="<? echo $arItemIDs['BUY_LINK']; ?>" class="blockLink bx_bt_button bx_medium <?if ($arItem['IN_BASKET'] != "Y") {?>js-add-to-basket <?}?>" href="<?=$arItem['ADD_URL']?>" rel="nofollow"></a>
-	                        </div>
-                        <? } ?>
-						<!--  нопка лайка -->
-                        <div class="productLikeBlock changingLike">
-                        	<a href="javascript:void(0)"
-				               class="list_favorite blockLink <?= $arResult['USER_AUTHORIZED'] ?  ($arItem['USER_HAVE_ITEM_IN_FAVORITE'] ? " active already_in_favorite" : " js_add_to_favorite") : " js_favorite_need_auth" ?>"
-				               data-favorite-product-id="<?= $arItem["ID"] ?>"
-				               data-favorite-delete="<?= $arItem['USER_HAVE_ITEM_IN_FAVORITE'] ? "Y" : "" ?>"
-				               data-favorite-item-id="<?= $arItem['USER_HAVE_ITEM_IN_FAVORITE'] ?>">
-				            </a>
-                        </div>
-                    </div>
-					<?
-			        	$item_quantity = getQuantityLang($arItem["CATALOG_QUANTITY"]);
-			        ?>
                     <div class="logosContainer">
-						<div class="blocks_stock_block <?= $item_quantity ?>">
-							<div class="lvl_block"></div>
-							<div class="stock_popup">
-								<div class="block_popup_text"><?= GetMessage($item_quantity) ?></div>
-								<div class="block_popup_quantity"><?= getQuantityText($arItem["CATALOG_QUANTITY"]) ?></div>
-							</div>
-						</div>
+						<? if (isset($arItem['OFFERS']) && !empty($arItem['OFFERS'])) { ?>
+				        	<? foreach ($arItem['OFFERS'] as $offer) { ?>
+				        		<? $item_quantity = getQuantityLang($offer["CATALOG_QUANTITY"]); ?>
+							        <div style="display:<?= $first_offer == $offer ? "block" : "none" ?>" data-offer-id="<?= $offer["ID"] ?>" class="blocks_stock_block <?= $item_quantity ?>">
+										<div class="lvl_block"></div>
+										<div class="stock_popup">
+											<div class="block_popup_text"><?= GetMessage($item_quantity) ?></div>
+											<div class="block_popup_quantity"><?= getQuantityText($offer["CATALOG_QUANTITY"]) ?></div>
+										</div>
+									</div>
+				        	<? } ?>
+				        <? } else {
+				        	$item_quantity = getQuantityLang($arItem["CATALOG_QUANTITY"]); ?>
+						        <div class="blocks_stock_block <?= $item_quantity ?>">
+									<div class="lvl_block"></div>
+									<div class="stock_popup">
+										<div class="block_popup_text"><?= GetMessage($item_quantity) ?></div>
+										<div class="block_popup_quantity"><?= getQuantityText($arItem["CATALOG_QUANTITY"]) ?></div>
+									</div>
+								</div>
+				         <? } ?>
                         <?//шильдик скидки
                             if ($arItem["MIN_PRICE_TMP"]['DISCOUNT_VALUE'] < $arItem["MIN_PRICE_TMP"]['VALUE'] && $arItem["MIN_PRICE_TMP"]["DISCOUNT_DIFF_PERCENT"] > 0) {?>
                             <div class="discountLogoWrapper">-<?=$arItem["MIN_PRICE_TMP"]["DISCOUNT_DIFF_PERCENT"];?>%</div>
