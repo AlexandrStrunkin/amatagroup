@@ -704,18 +704,22 @@ body {
     float: left;
 }
 
-.productBlockWrapper .productList li {
+.productBlockWrapper .productList > li {
     float: left;
-    height: 440px;
+    height: 493px;
     margin-right: 20px;
     width: 280px;
     margin-bottom: 20px;
     cursor: pointer;
 }
 
-.productBlockWrapper .productList li:nth-child(5),
-.productBlockWrapper .productList li:nth-child(9) {
+.productBlockWrapper .productList > li:nth-child(5),
+.productBlockWrapper .productList > li:nth-child(9) {
     margin-right: 0px;
+}
+
+.productBlockWrapper .productList > li .blocks_offers, .productBlockWrapper .productList > li .blocks_operations {
+	width: 240px;
 }
 
 .productWrapper .price {
@@ -746,6 +750,7 @@ body {
 	margin-left: -20px;
 	border-top: 1px solid #dadada;
 	padding: 20px;
+	background: white;
 }
 
 .blocks_offers_wrapper {
