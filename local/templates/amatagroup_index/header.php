@@ -199,10 +199,7 @@
                                 1 => "NAME",
                             ),
                             "OFFERS_LIMIT" => "5",
-                            "OFFERS_PROPERTY_CODE" => array(
-                                0 => "TOPPRODAZH",
-                                1 => "",
-                            ),
+                            "OFFERS_PROPERTY_CODE" => array("TSVET","RAZMER","MATERIAL_1","TOPPRODAZH"),
                             "OFFERS_SORT_FIELD" => "sort",
                             "OFFERS_SORT_FIELD2" => "id",
                             "OFFERS_SORT_ORDER" => "asc",
@@ -221,10 +218,7 @@
                             ),
                             "PRODUCT_PROPS_VARIABLE" => "prop",
                             "PRODUCT_QUANTITY_VARIABLE" => "",
-                            "PROPERTY_CODE" => array(
-                                0 => "TOPPRODAZH",
-                                1 => "",
-                            ),
+                            "PROPERTY_CODE" => array("TSVET","RAZMER","MATERIAL_1","TOPPRODAZH"),
                             "SECTION_ID_VARIABLE" => "SECTION_ID",
                             "SECTION_URL" => "/catalog/bestsellers/",
                             "SEF_MODE" => "N",
@@ -237,7 +231,8 @@
                             "USE_PRODUCT_QUANTITY" => "N",
                             "VIEW_MODE" => "SECTION",
                             "COMPONENT_TEMPLATE" => "bestsellers",
-                            "SEF_RULE" => ""
+                            "SEF_RULE" => "",
+                            "OFFER_TREE_PROPS" => array("TSVET","RAZMER","MATERIAL_1"),
                         ),
                         false
                     );?>

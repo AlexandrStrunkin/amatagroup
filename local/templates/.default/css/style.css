@@ -9608,6 +9608,14 @@ body .news_wrap .productBlockWrapper .productWrapper {
     display: block;
 }
 
+.newsBlock {
+	padding-bottom: 30px;
+}
+
+.newsBlock .productList {
+	overflow: visible;
+}
+
 .fixed-catalog-menu {
     position: absolute;
     top: 89px;
