@@ -96,7 +96,7 @@
 			if ($first_offer['DETAIL_PICTURE']['ID']) {
                 $preview_path = getResizedImage($first_offer['DETAIL_PICTURE']['ID'], BLOCKS_PREVIEW_WIDTH, BLOCKS_PREVIEW_HEIGHT, BX_RESIZE_IMAGE_PROPORTIONAL_ALT);
             } else {
-                $preview_path = $this->GetFolder().'/images/nophoto.png';
+                $preview_path = BLOCKS_NO_PHOTO;
             }
 			?>
             <img src="<?= $preview_path ?>" alt="<?=$arItem["NAME"]?>"/>

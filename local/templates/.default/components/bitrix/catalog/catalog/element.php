@@ -374,7 +374,7 @@
         "CONVERT_CURRENCY" => "N",
         "DEPTH" => "",
         "DETAIL_URL" => "/catalog/#ELEMENT_CODE#/",
-        "HIDE_NOT_AVAILABLE" => "N",
+        "HIDE_NOT_AVAILABLE" => "Y",
         "IBLOCK_ID" => "5",
         "IBLOCK_TYPE" => "1c_catalog",
         "LABEL_PROP_5" => "-",

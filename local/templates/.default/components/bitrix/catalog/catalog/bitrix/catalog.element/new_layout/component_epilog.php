@@ -138,7 +138,7 @@
                                     "ELEMENT_SORT_ORDER" => "asc",
                                     "ELEMENT_SORT_ORDER2" => "desc",
                                     "FILTER_NAME" => "additional_items_filter",
-                                    "HIDE_NOT_AVAILABLE" => "N",
+                                    "HIDE_NOT_AVAILABLE" => "Y",
                                     "IBLOCK_ID" => $arParams["IBLOCK_ID"],
                                     "IBLOCK_TYPE" => "1c_catalog",
                                     "INCLUDE_SUBSECTIONS" => "Y",
