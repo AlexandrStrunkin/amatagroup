@@ -39,6 +39,7 @@
 
 
     define("DEFAULT_TEMPLATE_PATH", SITE_DIR."local/templates/.default/"); //path of ".default" site template
+    define("BLOCKS_NO_PHOTO", SITE_DIR . "local/templates/.default/img/blocks_nophoto.png"); //path of no photo for blocks
     define("NEWS_IBLOCK_ID", 1);
     define("PROMO_IBLOCK_ID", 27);
     define("PROMO_IBLOCK_SECTION_ID", 2089);

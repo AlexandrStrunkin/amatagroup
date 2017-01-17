@@ -151,7 +151,7 @@
 							if ($offer['DETAIL_PICTURE']['ID']) {
                                 $preview_path = getResizedImage($offer['DETAIL_PICTURE']['ID'], BLOCKS_PREVIEW_WIDTH, BLOCKS_PREVIEW_HEIGHT, BX_RESIZE_IMAGE_PROPORTIONAL_ALT);
                             } else {
-                                $preview_path = $this->GetFolder().'/images/nophoto.png';
+                                $preview_path = BLOCKS_NO_PHOTO;
                             }
 	                        ?>
 		                    <li data-offer-id="<?= $offer["ID"] ?>" data-item-can-buy="<?= $offer["CATALOG_QUANTITY"] ?>" data-offer-buy-link="<?= $offer["ADD_URL"] ?>" data-preview-image="<?= $preview_path ?>" ><?= $offerNameVisible ?></li>
