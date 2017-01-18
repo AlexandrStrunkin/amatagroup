@@ -13,6 +13,7 @@ $MESS["WAY_TO"] = "Схема проезда";
 $MESS["ADRESS"] = "Адрес";
 $MESS["OFFICE_WORK_HOURS"] = "Работа офиса";
 $MESS["PHONE"] = "Телефон";
+$MESS["PHONES"] = "Телефоны";
 $MESS["STORAGE_PHONE"] = "Телефон склада";
 $MESS["STORAGE_WORK_HOURS"] = "Работа склада";
 $MESS["MANAGERS"] = "Менеджеры";
