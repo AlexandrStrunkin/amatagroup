@@ -338,8 +338,8 @@ $(document).ready(function () {
 
         plus.removeClass("inactive");
         minus.removeClass("inactive");
-        if (count <= 0) {
-            count = 0;
+        if (count <= 1) {
+            count = 1;
             minus.addClass("inactive");
         }
         if (count >= 999) {

@@ -12,11 +12,13 @@ $(document).ready(function(){
 			outer_block.css("border-color", "transparent");
 		
 			$(this).css({
-				"z-index": 2,
+				"z-index": 33,
 				"border" : "1px solid #c7c7c7",
 				"margin-top": "-1px",
 				"margin-left": "-1px"
 			});
+			
+			$(this).find(".blocks_operations").css("border-bottom", "1px solid #c7c7c7");
 			
 			name_block.html(full_name);
 			
@@ -31,6 +33,10 @@ $(document).ready(function(){
 			$(this).css({
 				"height" : outer_block.height() + additional_height + "px",
 			});
+			
+			if (parseInt(additional_height) > 0) {
+				$(this).find(".blocks_element_main_title").css("margin-bottom", parseInt(additional_height + 20) + "px");
+			}
 		},
 		function(){
 			var outer_block = $(this).parent(),
@@ -46,10 +52,14 @@ $(document).ready(function(){
 				"margin-left": "0px"
 			});
 			
+			$(this).find(".blocks_operations").css("border-bottom", "none");
+			
 			name_block.css({
 				"overflow" : "hidden",
 				"word-wrap": "normal"
 			});
+			
+			$(this).find(".blocks_element_main_title").css("margin-bottom", "20px");
 			
 			name_block.shave(60);
 		}

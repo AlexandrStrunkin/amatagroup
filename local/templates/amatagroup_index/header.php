@@ -38,6 +38,7 @@
                         '!PREVIEW_PICTURE' => false
                     );
                 ?>
+                <? // Новинки ?>
                 <?$APPLICATION->IncludeComponent(
                         "bitrix:catalog.section",
                         "product_news",
@@ -87,13 +88,10 @@
                             ),
                             "OFFERS_FIELD_CODE" => array(
                                 0 => "ID",
-                                1 => "",
+                                1 => "NAME",
                             ),
                             "OFFERS_LIMIT" => "15",
-                            "OFFERS_PROPERTY_CODE" => array(
-                                0 => "",
-                                1 => "",
-                            ),
+                            "OFFERS_PROPERTY_CODE" => array("TSVET","RAZMER","MATERIAL_1"),
                             "OFFERS_SORT_FIELD" => "rand",
                             "OFFERS_SORT_FIELD2" => "id",
                             "OFFERS_SORT_ORDER" => "asc",
@@ -121,10 +119,7 @@
                             "PRODUCT_PROPS_VARIABLE" => "prop",
                             "PRODUCT_QUANTITY_VARIABLE" => "",
                             "PRODUCT_SUBSCRIPTION" => "N",
-                            "PROPERTY_CODE" => array(
-                                0 => "",
-                                1 => "",
-                            ),
+                            "PROPERTY_CODE" => array("TSVET","RAZMER","MATERIAL_1"),
                             "SECTION_CODE" => "",
                             "SECTION_CODE_PATH" => "",
                             "SECTION_ID" => $_REQUEST["SECTION_ID"],
@@ -154,8 +149,7 @@
                             "USE_PRODUCT_QUANTITY" => "N",
                             "COMPONENT_TEMPLATE" => "product_news",
                             "OFFER_ADD_PICT_PROP" => "-",
-                            "OFFER_TREE_PROPS" => array(
-                            )
+                            "OFFER_TREE_PROPS" => array("TSVET","RAZMER","MATERIAL_1"),
                         ),
                         false
                     );?>
@@ -165,6 +159,7 @@
                         '!PROPERTY_TOPPRODAZH' => false
                     );
                 ?>
+                <? // Хиты продаж ?>
                 <?$APPLICATION->IncludeComponent(
                         "bitrix:catalog.top",
                         "bestsellers",
@@ -201,13 +196,10 @@
                             ),
                             "OFFERS_FIELD_CODE" => array(
                                 0 => "ID",
-                                1 => "",
+                                1 => "NAME",
                             ),
                             "OFFERS_LIMIT" => "5",
-                            "OFFERS_PROPERTY_CODE" => array(
-                                0 => "TOPPRODAZH",
-                                1 => "",
-                            ),
+                            "OFFERS_PROPERTY_CODE" => array("TSVET","RAZMER","MATERIAL_1","TOPPRODAZH"),
                             "OFFERS_SORT_FIELD" => "sort",
                             "OFFERS_SORT_FIELD2" => "id",
                             "OFFERS_SORT_ORDER" => "asc",
@@ -226,10 +218,7 @@
                             ),
                             "PRODUCT_PROPS_VARIABLE" => "prop",
                             "PRODUCT_QUANTITY_VARIABLE" => "",
-                            "PROPERTY_CODE" => array(
-                                0 => "TOPPRODAZH",
-                                1 => "",
-                            ),
+                            "PROPERTY_CODE" => array("TSVET","RAZMER","MATERIAL_1","TOPPRODAZH"),
                             "SECTION_ID_VARIABLE" => "SECTION_ID",
                             "SECTION_URL" => "/catalog/bestsellers/",
                             "SEF_MODE" => "N",
@@ -242,13 +231,15 @@
                             "USE_PRODUCT_QUANTITY" => "N",
                             "VIEW_MODE" => "SECTION",
                             "COMPONENT_TEMPLATE" => "bestsellers",
-                            "SEF_RULE" => ""
+                            "SEF_RULE" => "",
+                            "OFFER_TREE_PROPS" => array("TSVET","RAZMER","MATERIAL_1"),
                         ),
                         false
                     );?>
                 <?
                     $arFilter_arrivals = array('!PROPERTY_NOVOE_POSTUPLENIE_VALUE' => false);
                 ?>
+                <? // Последние поступления ?>
                 <?$APPLICATION->IncludeComponent(
                         "bitrix:catalog.section",
                         "arrivals",
@@ -298,13 +289,10 @@
                             ),
                             "OFFERS_FIELD_CODE" => array(
                                 0 => "ID",
-                                1 => "",
+                                1 => "NAME",
                             ),
                             "OFFERS_LIMIT" => "15",
-                            "OFFERS_PROPERTY_CODE" => array(
-                                0 => "",
-                                1 => "",
-                            ),
+                            "OFFERS_PROPERTY_CODE" => array("TSVET","RAZMER","MATERIAL_1"),
                             "OFFERS_SORT_FIELD" => "create",
                             "OFFERS_SORT_FIELD2" => "id",
                             "OFFERS_SORT_ORDER" => "asc",
@@ -332,10 +320,7 @@
                             "PRODUCT_PROPS_VARIABLE" => "prop",
                             "PRODUCT_QUANTITY_VARIABLE" => "",
                             "PRODUCT_SUBSCRIPTION" => "N",
-                            "PROPERTY_CODE" => array(
-                                0 => "BESTSELLERS",
-                                1 => "",
-                            ),
+                            "PROPERTY_CODE" => array("TSVET","RAZMER","BESTSELLERS"),
                             "SECTION_CODE" => "",
                             "SECTION_CODE_PATH" => "",
                             "SECTION_ID" => $_REQUEST["SECTION_ID"],
@@ -365,8 +350,7 @@
                             "USE_PRODUCT_QUANTITY" => "N",
                             "COMPONENT_TEMPLATE" => "arrivals",
                             "OFFER_ADD_PICT_PROP" => "-",
-                            "OFFER_TREE_PROPS" => array(
-                            )
+                            "OFFER_TREE_PROPS" => array("TSVET","RAZMER","MATERIAL_1"),
                         ),
                         false
                     );?>
@@ -413,7 +397,7 @@
                     $arFilter_expected = array();
                     $arFilter_expected["ID"] = $expected_products;
                 ?>
-
+				<? // Ожидаемые поступления ?>
                 <?$APPLICATION->IncludeComponent(
                         "bitrix:catalog.section",
                         "expected_products",
@@ -463,13 +447,10 @@
                             ),
                             "OFFERS_FIELD_CODE" => array(
                                 0 => "ID",
-                                1 => "",
+                                1 => "NAME",
                             ),
                             "OFFERS_LIMIT" => "15",
-                            "OFFERS_PROPERTY_CODE" => array(
-                                0 => "",
-                                1 => "",
-                            ),
+                            "OFFERS_PROPERTY_CODE" => array("TSVET","RAZMER","MATERIAL_1"),
                             "OFFERS_SORT_FIELD" => "create",
                             "OFFERS_SORT_FIELD2" => "id",
                             "OFFERS_SORT_ORDER" => "asc",
@@ -497,10 +478,7 @@
                             "PRODUCT_PROPS_VARIABLE" => "prop",
                             "PRODUCT_QUANTITY_VARIABLE" => "",
                             "PRODUCT_SUBSCRIPTION" => "N",
-                            "PROPERTY_CODE" => array(
-                                0 => "",
-                                1 => "",
-                            ),
+                            "PROPERTY_CODE" => array("TSVET","RAZMER","MATERIAL_1"),
                             "SECTION_CODE" => "",
                             "SECTION_CODE_PATH" => "",
                             "SECTION_ID" => $_REQUEST["SECTION_ID"],
@@ -530,8 +508,7 @@
                             "USE_PRODUCT_QUANTITY" => "N",
                             "COMPONENT_TEMPLATE" => "expected_products",
                             "OFFER_ADD_PICT_PROP" => "-",
-                            "OFFER_TREE_PROPS" => array(
-                            )
+                            "OFFER_TREE_PROPS" => array("TSVET","RAZMER","MATERIAL_1"),
                         ),
                         false
                     );?>

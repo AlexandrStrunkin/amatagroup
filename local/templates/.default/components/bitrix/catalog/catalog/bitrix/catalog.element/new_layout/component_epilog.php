@@ -138,7 +138,7 @@
                                     "ELEMENT_SORT_ORDER" => "asc",
                                     "ELEMENT_SORT_ORDER2" => "desc",
                                     "FILTER_NAME" => "additional_items_filter",
-                                    "HIDE_NOT_AVAILABLE" => "N",
+                                    "HIDE_NOT_AVAILABLE" => "Y",
                                     "IBLOCK_ID" => $arParams["IBLOCK_ID"],
                                     "IBLOCK_TYPE" => "1c_catalog",
                                     "INCLUDE_SUBSECTIONS" => "Y",
@@ -155,14 +155,11 @@
                                     "OFFERS_CART_PROPERTIES" => array(
                                     ),
                                     "OFFERS_FIELD_CODE" => array(
-                                        0 => "",
-                                        1 => "",
+                                        0 => "ID",
+                                        1 => "NAME",
                                     ),
                                     "OFFERS_LIMIT" => "5",
-                                    "OFFERS_PROPERTY_CODE" => array(
-                                        0 => "",
-                                        1 => "",
-                                    ),     
+                                    "OFFERS_PROPERTY_CODE" => array("TSVET","RAZMER","MATERIAL_1"),
                                     "OFFERS_SORT_FIELD" => "sort",
                                     "OFFERS_SORT_FIELD2" => "id",
                                     "OFFERS_SORT_ORDER" => "asc",
@@ -185,10 +182,7 @@
                                     "PRODUCT_PROPS_VARIABLE" => "prop",
                                     "PRODUCT_QUANTITY_VARIABLE" => "",
                                     "PRODUCT_SUBSCRIPTION" => "N",
-                                    "PROPERTY_CODE" => array(
-                                        0 => "",
-                                        1 => "",
-                                    ),
+                                    "PROPERTY_CODE" => array("TSVET","RAZMER","MATERIAL_1"),
                                     "SECTION_CODE" => "",
                                     "SECTION_CODE_PATH" => "",
                                     "SECTION_ID" => $_REQUEST["SECTION_ID"],
@@ -216,7 +210,8 @@
                                     "USE_PRICE_COUNT" => "N",
                                     "USE_PRODUCT_QUANTITY" => "N",
                                     "COMPONENT_TEMPLATE" => "blocks",
-                                    "SHOW_ALL_WO_SECTION" => "Y"                            
+                                    "SHOW_ALL_WO_SECTION" => "Y",
+                                    "OFFER_TREE_PROPS" => array("TSVET","RAZMER","MATERIAL_1"),            
                                 ),
                                 false
                             );?>

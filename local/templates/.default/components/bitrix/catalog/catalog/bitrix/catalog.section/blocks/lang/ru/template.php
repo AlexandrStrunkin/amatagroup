@@ -28,5 +28,5 @@ $MESS["CT_ADD_TO_FAVORITE"] = "В избранное";
 $MESS["CT_ALREADY_IN_FAVORITE"] = "В избранном";
 $MESS["NO_ELEMENT"] = "Товаров не найдено.";
 $MESS["WITHOUT_PRICE"] = "Уточняйте у менеджера";
-
+$MESS["NO_OFFERS"] = "Предложения отсутсвуют";
 ?>

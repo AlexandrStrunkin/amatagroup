@@ -36,6 +36,9 @@ if (isset($templateData['TEMPLATE_LIBRARY']) && !empty($templateData['TEMPLATE_L
 	<script type="text/javascript">
 		BX.Currency.setCurrencies(<? echo $templateData['CURRENCIES']; ?>);
 	</script>
+	<script>
+		<?= $APPLICATION->AddHeadScript(DEFAULT_TEMPLATE_PATH . "/js/blocks_view_offers_scripts.js") ?>
+	</script>
 <?
 	}
 }

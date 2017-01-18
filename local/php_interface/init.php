@@ -39,6 +39,7 @@
 
 
     define("DEFAULT_TEMPLATE_PATH", SITE_DIR."local/templates/.default/"); //path of ".default" site template
+    define("BLOCKS_NO_PHOTO", SITE_DIR . "local/templates/.default/img/blocks_nophoto.png"); //path of no photo for blocks
     define("NEWS_IBLOCK_ID", 1);
     define("PROMO_IBLOCK_ID", 27);
     define("PROMO_IBLOCK_SECTION_ID", 2089);
@@ -83,6 +84,9 @@
     define("ORDER_APARTMENT", "ORDER_PROP_23"); // Квартира/офис
     define("DEFAULT_LOCATION_ID", 129); // Дефолтное местоположение - Москва
 
+    define("BLOCKS_PREVIEW_HEIGHT", 200);
+    define("BLOCKS_PREVIEW_WIDTH", 240);
+    
     define("ELEMENT_CARD_THUMBNAIL_HEIGHT", 47);
     define("ELEMENT_CARD_THUMBNAIL_WIDTH", 45);
     define("ELEMENT_CARD_PREVIEW_HEIGHT", 83);
