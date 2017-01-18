@@ -1,26 +1,27 @@
-.widthWrapper.innerPageWrapper ul li {
+.widthWrapper.innerPageWrapper .productList > li {
     margin-bottom: auto;
     position: relative;
     letter-spacing: normal;
 }
-.widthWrapper .newsBlock .productList li {
+.widthWrapper .newsBlock .productList > li {
     float: left;
-    height: 340px;
     margin-right: 10px;
     width: 280px;
     margin-bottom: 20px;
     cursor: pointer;
+    height: 508px;
 }
-.widthWrapper.innerPageWrapper ul li:before{
+
+.widthWrapper.innerPageWrapper .productList li:before {
     content:'';
 }
 .newsBlock .productWrapper {
     background-color: #ffffff;
     border-radius: 4px;
-    height: 340px;
     padding: 0 20px;
     width: 240px;
     float: left;
+    height: 507px;
 }
 .widthWrapper.innerPageWrapper p {
      color: #000000;
@@ -32,4 +33,14 @@
 .news-detail img {
     display: block;
     padding: 5px 0 10px;
+}
+
+.brands_page_block .blocks_offers_options_wrapper ul {
+	margin: 0 !important;
+	padding: 0 !important;
+}
+
+.brands_page_block .blocks_offers_options_wrapper li {
+	margin: 0 !important;
+	list-style: none;
 }
