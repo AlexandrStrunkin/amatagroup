@@ -104,8 +104,7 @@
 
             $strElementEdit = CIBlock::GetArrayByID($arParams["IBLOCK_ID"], "ELEMENT_EDIT");
             $strElementDelete = CIBlock::GetArrayByID($arParams["IBLOCK_ID"], "ELEMENT_DELETE");
-            $arElementDeleteParams = array("CONFIRM" => GetMessage('CT_BCS_TPL_ELEMENT_DELETE_CONFIRM'));?>
-                                                                                                           
+            $arElementDeleteParams = array("CONFIRM" => GetMessage('CT_BCS_TPL_ELEMENT_DELETE_CONFIRM'));?>                                                                                                
 			<? require($_SERVER["DOCUMENT_ROOT"] . "/local/php_interface/blocks_items.php") ?>
          <?}?>
         <a class="transition_section" href="<?=$arParams["SECTION_URL"]?>"><?=GetMessage('NEW_PRODUCTS')?></a>

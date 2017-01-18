@@ -94,7 +94,7 @@
         <a href="<? echo $arItem['DETAIL_PAGE_URL']; ?>" class="productimg">
 			<?
 			if ($first_offer['DETAIL_PICTURE']['ID']) {
-                $preview_path = getResizedImage($first_offer['DETAIL_PICTURE']['ID'], BLOCKS_PREVIEW_WIDTH, BLOCKS_PREVIEW_HEIGHT, BX_RESIZE_IMAGE_PROPORTIONAL_ALT);
+                $preview_path = getResizedImage($first_offer['DETAIL_PICTURE']['ID'], BLOCKS_PREVIEW_WIDTH, BLOCKS_PREVIEW_HEIGHT, BX_RESIZE_IMAGE_PROPORTIONAL_ALT, 70);
             } else {
                 $preview_path = BLOCKS_NO_PHOTO;
             }
@@ -149,7 +149,7 @@
                             }
 
 							if ($offer['DETAIL_PICTURE']['ID']) {
-                                $preview_path = getResizedImage($offer['DETAIL_PICTURE']['ID'], BLOCKS_PREVIEW_WIDTH, BLOCKS_PREVIEW_HEIGHT, BX_RESIZE_IMAGE_PROPORTIONAL_ALT);
+                                $preview_path = getResizedImage($offer['DETAIL_PICTURE']['ID'], BLOCKS_PREVIEW_WIDTH, BLOCKS_PREVIEW_HEIGHT, BX_RESIZE_IMAGE_PROPORTIONAL_ALT, 70);
                             } else {
                                 $preview_path = BLOCKS_NO_PHOTO;
                             }
