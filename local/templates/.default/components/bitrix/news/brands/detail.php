@@ -199,7 +199,7 @@ $this->setFrameMode(true);
 		"ELEMENT_SORT_ORDER" => "desc",
 		"ELEMENT_SORT_ORDER2" => "desc",
 		"FILTER_NAME" => "arrFilter",
-		"HIDE_NOT_AVAILABLE" => "N",
+		"HIDE_NOT_AVAILABLE" => "Y",
 		"IBLOCK_ID" => "5",
 		"IBLOCK_TYPE" => "1c_catalog",
 		"INCLUDE_SUBSECTIONS" => "Y",
@@ -216,15 +216,11 @@ $this->setFrameMode(true);
 		"OFFERS_CART_PROPERTIES" => array(
 		),
 		"OFFERS_FIELD_CODE" => array(
-			0 => "",
-			1 => "",
+			0 => "ID",
+			1 => "NAME",
 		),
 		"OFFERS_LIMIT" => "15",
-		"OFFERS_PROPERTY_CODE" => array(
-			0 => "",
-			1 => "BREND",
-			2 => "",
-		),
+		"OFFERS_PROPERTY_CODE" => array("TSVET","RAZMER","MATERIAL_1", "BREND"),
 		"OFFERS_SORT_FIELD" => "id",
 		"OFFERS_SORT_FIELD2" => "id",
 		"OFFERS_SORT_ORDER" => "asc",
@@ -249,11 +245,7 @@ $this->setFrameMode(true);
 		"PRODUCT_PROPS_VARIABLE" => "prop",
 		"PRODUCT_QUANTITY_VARIABLE" => "",
 		"PRODUCT_SUBSCRIPTION" => "N",
-		"PROPERTY_CODE" => array(
-			0 => "BESTSELLERS",
-			1 => "BREND",
-			2 => "",
-		),
+		"PROPERTY_CODE" => array("TSVET","RAZMER","MATERIAL_1", "BESTSELLERS", "BREND"),
 		"SECTION_CODE" => "",
 		"SECTION_CODE_PATH" => "",
 		"SECTION_ID" => $_REQUEST["SECTION_ID"],
@@ -281,7 +273,8 @@ $this->setFrameMode(true);
 		"USE_MAIN_ELEMENT_SECTION" => "N",
 		"USE_PRICE_COUNT" => "N",
 		"USE_PRODUCT_QUANTITY" => "N",
-		"COMPONENT_TEMPLATE" => "blocks"
+		"COMPONENT_TEMPLATE" => "blocks",
+		"OFFER_TREE_PROPS" => array("TSVET","RAZMER","MATERIAL_1"),
 	),
 	false
 );?>
