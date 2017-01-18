@@ -17,7 +17,6 @@
     $APPLICATION->AddHeadScript("http://ajax.googleapis.com/ajax/libs/jquery/1.8.3/jquery.min.js");
     $APPLICATION->AddHeadScript("https://maps.googleapis.com/maps/api/js?v=3.exp&key=AIzaSyDkELjS-PTggp-oUwC8ald4ueR2Zg-KGRw");
 
-
     $APPLICATION->AddHeadScript(DEFAULT_TEMPLATE_PATH."js/jquery.mCustomScrollbar.concat.min.js");
     $APPLICATION->AddHeadScript(DEFAULT_TEMPLATE_PATH."js/jQueryRotate.js");
     $APPLICATION->AddHeadScript(DEFAULT_TEMPLATE_PATH."js/jquery.selectric.min.js");

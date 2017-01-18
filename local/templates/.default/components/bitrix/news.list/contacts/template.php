@@ -28,8 +28,8 @@
     <tr>
         <td colspan="2" rowspan="2" class="address_cell"><div class="cell_name"><?=GetMessage("ADRESS")?></div><div class="address"><?= $arItem["PROPERTIES"]["ADDRESS"]["VALUE"] ?></div></td>
         <td><div class="cell_name"><?= GetMessage("OFFICE_WORK_HOURS") ?></div><div class="phone"><?= $arItem["PROPERTIES"]["WORKING_DAYS"]["VALUE" ]?></div></td>
-        <td><div class="cell_name"><?= GetMessage("PHONE") ?></div><div class="phone"><?= $arItem["PROPERTIES"]["PHONE"]["VALUE"] ?></div></td>
-        <td><div class="cell_name"><?= GetMessage("STORAGE_PHONE") ?></div><div class="phone"><?= $arItem["PROPERTIES"]["STORAGE_PHONE"]["VALUE"] ?></div></td>
+        <td><div class="cell_name"><?= GetMessage("PHONES") ?></div><div class="phone"><?= $arItem["PROPERTIES"]["PHONE"]["VALUE"] ?></div></td>
+        <td><div class="cell_name">&nbsp;</div><div class="phone"><?= $arItem["PROPERTIES"]["STORAGE_PHONE"]["VALUE"] ?></div></td>
     </tr>
     <tr>
         <td><div class="cell_name"><?= GetMessage("STORAGE_WORK_HOURS") ?></div><div class="phone"><?= $arItem["PROPERTIES"]["STORAGE_WORKING_DAYS"]["VALUE"] ?></div></td>
@@ -154,7 +154,7 @@
             <div class="close"></div>
             <div class="status"><?= GetMessage("OPENED") ?></div>
             <h2><?= $arItem["NAME"] ?></h2>
-            <div class="date"><?= $arItem["PROPERTIES"]["WORKING_DAYS"]["VALUE"] ?>, <span><?= $arItem["PROPERTIES"]["WORKING_HOURS"]["VALUE"] ?></span></div>
+            <div class="date"><?= $arItem["PROPERTIES"]["WORKING_DAYS"]["VALUE"] ?> <span><?= $arItem["PROPERTIES"]["WORKING_HOURS"]["VALUE"] ?></span></div>
             <div class="basketBody tabs">
                 <!--tabsLinks-->
                 <div class="basketBodyMenu tabsLinks">
@@ -185,7 +185,7 @@
                 </div>
                 <!--END info-->
                 <!--manager-->
-                <div id="manager" class="basketBlock">
+                <div id="manager" class="basketBlock" style="display:none">
                     <? foreach ($arItem["PROPERTIES"]["MANAGER"]["VALUE"] as $manager) { ?>
                         <div class="line">
                             <?= $manager ?>

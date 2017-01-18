@@ -152,8 +152,7 @@
         <!--END logosContainer-->
         <!--previewImg-->
         <div class="previewImg">
-
-        <a rel="element_gallery" class="fancybox" href="<?= getResizedImage($arFirstPhoto['ID'], ELEMENT_CARD_MAIN_WIDTH, ELEMENT_CARD_MAIN_HEIGHT, BX_RESIZE_IMAGE_PROPORTIONAL_ALT)  ?>">
+        <a rel="element_gallery" class="fancybox" href="<?= $arFirstPhoto["SRC"] ?>">
             <?if($arFirstPhoto["ID"]){?>
                 <img id="<? echo $arItemIDs['PICT']; ?>" src="<?= getResizedImage($arFirstPhoto['ID'], ELEMENT_CARD_MAIN_WIDTH, ELEMENT_CARD_MAIN_HEIGHT, BX_RESIZE_IMAGE_PROPORTIONAL_ALT) ?>" alt="<? echo $strAlt; ?>" title="<? echo $strTitle; ?>">
                 <?} else {?>
@@ -267,7 +266,7 @@
                                     ?>
                                     <img src="<?= $thumbnail_path ?>">
                                 </span>
-                                <?= mb_strimwidth($offerNameVisible, 0, 50, "...") ?>
+                                <?= mb_strimwidth($offerNameVisible, 0, 50, "...", "cp1251") ?>
                             </p>
                             <?if(count($arResult["OFFERS"]) > 1){?>
                                 <div class="hidingMenu">
@@ -300,7 +299,7 @@
                                                 <img src="<?= $thumbnail_path ?>">
                                             </span>
                                             <span class="offer_option_text">
-                                                <?= mb_strimwidth($offerNameVisible, 0, 50, "...") ?>
+                                                <?= mb_strimwidth($offerNameVisible, 0, 50, "...", "cp1251") ?>
                                             </span>
                                             <span class="offer_option_status"></span>
                                         </p>

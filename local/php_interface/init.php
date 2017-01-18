@@ -39,6 +39,7 @@
 
 
     define("DEFAULT_TEMPLATE_PATH", SITE_DIR."local/templates/.default/"); //path of ".default" site template
+    define("BLOCKS_NO_PHOTO", SITE_DIR . "local/templates/.default/img/blocks_nophoto.png"); //path of no photo for blocks
     define("NEWS_IBLOCK_ID", 1);
     define("PROMO_IBLOCK_ID", 27);
     define("PROMO_IBLOCK_SECTION_ID", 2089);
@@ -83,6 +84,9 @@
     define("ORDER_APARTMENT", "ORDER_PROP_23"); // Квартира/офис
     define("DEFAULT_LOCATION_ID", 129); // Дефолтное местоположение - Москва
 
+    define("BLOCKS_PREVIEW_HEIGHT", 200);
+    define("BLOCKS_PREVIEW_WIDTH", 240);
+    
     define("ELEMENT_CARD_THUMBNAIL_HEIGHT", 47);
     define("ELEMENT_CARD_THUMBNAIL_WIDTH", 45);
     define("ELEMENT_CARD_PREVIEW_HEIGHT", 83);
@@ -112,7 +116,7 @@
     define("CONTACTS_FEEDBACK_FORM", "CONTACTS_FEEDBACK_FORM");
     define("QUESTION_PRODUCT_CARD", "QUESTION_PRODUCT_CARD");
     define("FAQ_FORM", "FAQ_FORM");
-    define("ABOUT_FORM", "ABOUT_FORM");
+    define("ABOUT_FORM", "ABOUT_FORM");                                              
 
     /*константы для отображения каталога*/
     define("DEFAULT_PAGE_ELEMENT_COUNT", $GLOBALS["availableParams"]["PAGE_ELEMENT_COUNT"][0]); //количество элементов на странице раздела каталога по умолчанию
@@ -1207,10 +1211,8 @@
                         );
                         $ID = $user->Add($arFields);
                         if (intval($ID) > 0) {
-                            $user_id = $ID;
                             //отправляем письмо о регистрации
-                            $event = new CEvent;
-                            $event->SendImmediate("NEW_USER", "s1", array("EMAIL" => $user_email), "N", NEW_USER_AUTOMATIC_REG_MAIL_TEMPLATE);
+                            CEvent::Send ("NEW_USER", "s1", array("EMAIL" => $user_email), "N", NEW_USER_AUTOMATIC_REG_MAIL_TEMPLATE);
                         }
                     }
                 }
@@ -1397,7 +1399,9 @@
         $list_props_id = array();
         $list_props = CIBlockProperty::GetList (Array(), Array("IBLOCK_ID" => CATALOG_IBLOCK_ID, "PROPERTY_TYPE" => "L"));
         while($ar_list_props = $list_props->Fetch()) {
-            $list_props_id[] = $ar_list_props["ID"];
+            if (!strstr($ar_list_props["CODE"], "TIP_TOVARA")) {
+                $list_props_id[] = $ar_list_props["ID"];    
+            }
         }
 
         //проверяем у товара заполненные свойства
@@ -1485,4 +1489,22 @@
         }
 
     }
-
+    AddEventHandler("iblock", "OnAfterIBlockElementAdd", "OnWorkWithUsAdd");
+    function OnWorkWithUsAdd(&$arFields) {
+        if ($arFields["IBLOCK_ID"] == WORK_WITH_US_IBLOCK_ID) {      
+            $arSelect = Array("ID", "NAME", "PROPERTY_FILE");
+            $arFilter = Array("ID"=>$arFields["ID"]);
+            $res = CIBlockElement::GetList(Array(), $arFilter, false, Array("nPageSize"=>50), $arSelect);
+            while($fileProp = $res->Fetch())
+            {
+                $fileID[] = $fileProp['PROPERTY_FILE_VALUE'];
+            }
+            $toSend = Array();                   
+            $toSend["NAME"] = $arFields["NAME"]; 
+            $toSend["EMAIL"] = $arFields["PROPERTY_VALUES"][EMAIL_INPUT_ID]; 
+            $toSend["OFFICE"] = $arFields["PROPERTY_VALUES"][OFFICE_INPUT_ID];
+            $toSend["PHONE"] = $arFields["PROPERTY_VALUES"][PHONE_INPUT_ID];
+            $toSend["MESSAGE"] = $arFields["DETAIL_TEXT"];    
+            CEvent::Send ("NEW_RESUME", "s1", $toSend, "N", RESUME_MAIL_TEMPLATE_ID, $fileID);
+        }
+    }

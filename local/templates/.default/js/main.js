@@ -338,8 +338,8 @@ $(document).ready(function () {
 
         plus.removeClass("inactive");
         minus.removeClass("inactive");
-        if (count <= 0) {
-            count = 0;
+        if (count <= 1) {
+            count = 1;
             minus.addClass("inactive");
         }
         if (count >= 999) {
@@ -727,7 +727,7 @@ $(document).ready(function () {
     });
 
     //валидация формы
-    var el = $("input[name=phone]");
+    var el = $("input[name=phone], .workWithUs input[type=phone]");
     if (el.length > 0) el.mask("(999) 999-9999");
     $("input,textarea").on("focus", function () {
         var el = $(this);
@@ -1806,7 +1806,7 @@ function animateSecondLvl() {
 }
 
 
-function leave_quastion(){
+function leave_quastion() {
     var form = $('#leave_question').serialize();
     $.ajax({
         url: '/ajax/send_quastion.php', //the URL to your node.js server that has data
@@ -1900,7 +1900,7 @@ $(function() {
         })
     });
 
-    $('.fields.files input[type="file"]').attr('accept', 'image/jpeg,image/png,image/JPEG,image/PNG, application/msword,application/excel,application/x-excel,application/pdf,text/xml,application/vnd.ms-excel');
+    $('.fields.files input[type="file"]').attr('accept', 'image/jpeg,image/png,image/JPEG,image/PNG, application/msword, application/vnd.openxmlformats-officedocument.wordprocessingml.document, application/excel,application/x-excel,application/pdf,text/xml,application/vnd.ms-excel');
     $('.bx-input-file-desc').html('Выберите файл');
     $(".fields.files input[type='file']").change(function(){
         var filename = $(this).val().replace(/.*\\/, "");
@@ -2018,3 +2018,14 @@ $(function(){
         $("html, body").stop().animate({ scrollTop: 195}, 500 );
     })
 })
+
+// раскрывающиеся блоки в разделе компании
+$(function(){
+   $('.wrap_8 .date_text li b').click(function(){
+       $('.wrap_8 .date_text li b').css('color', '#aaa');
+       $('.wrap_8 .wrap_test').hide();
+       $(this).css('color', '#000');
+       name_wrap = $(this).attr('name');
+       $('.wrap_8 .' + name_wrap).show();
+   })
+});

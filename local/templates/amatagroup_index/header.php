@@ -38,9 +38,10 @@
                         '!PREVIEW_PICTURE' => false
                     );
                 ?>
+                <? // Ќовинки ?>
                 <?$APPLICATION->IncludeComponent(
-                        "bitrix:catalog.section", 
-                        "product_news", 
+                        "bitrix:catalog.section",
+                        "product_news",
                         array(
                             "ACTION_VARIABLE" => "action",
                             "ADD_PICT_PROP" => "-",
@@ -87,13 +88,10 @@
                             ),
                             "OFFERS_FIELD_CODE" => array(
                                 0 => "ID",
-                                1 => "",
+                                1 => "NAME",
                             ),
                             "OFFERS_LIMIT" => "15",
-                            "OFFERS_PROPERTY_CODE" => array(
-                                0 => "",
-                                1 => "",
-                            ),
+                            "OFFERS_PROPERTY_CODE" => array("TSVET","RAZMER","MATERIAL_1"),
                             "OFFERS_SORT_FIELD" => "rand",
                             "OFFERS_SORT_FIELD2" => "id",
                             "OFFERS_SORT_ORDER" => "asc",
@@ -121,10 +119,7 @@
                             "PRODUCT_PROPS_VARIABLE" => "prop",
                             "PRODUCT_QUANTITY_VARIABLE" => "",
                             "PRODUCT_SUBSCRIPTION" => "N",
-                            "PROPERTY_CODE" => array(
-                                0 => "",
-                                1 => "",
-                            ),
+                            "PROPERTY_CODE" => array("TSVET","RAZMER","MATERIAL_1"),
                             "SECTION_CODE" => "",
                             "SECTION_CODE_PATH" => "",
                             "SECTION_ID" => $_REQUEST["SECTION_ID"],
@@ -154,8 +149,7 @@
                             "USE_PRODUCT_QUANTITY" => "N",
                             "COMPONENT_TEMPLATE" => "product_news",
                             "OFFER_ADD_PICT_PROP" => "-",
-                            "OFFER_TREE_PROPS" => array(
-                            )
+                            "OFFER_TREE_PROPS" => array("TSVET","RAZMER","MATERIAL_1"),
                         ),
                         false
                     );?>
@@ -165,9 +159,10 @@
                         '!PROPERTY_TOPPRODAZH' => false
                     );
                 ?>
+                <? // ’иты продаж ?>
                 <?$APPLICATION->IncludeComponent(
-                        "bitrix:catalog.top", 
-                        "bestsellers", 
+                        "bitrix:catalog.top",
+                        "bestsellers",
                         array(
                             "ACTION_VARIABLE" => "action",
                             "ADD_PICT_PROP" => "MORE_PHOTO",
@@ -201,13 +196,10 @@
                             ),
                             "OFFERS_FIELD_CODE" => array(
                                 0 => "ID",
-                                1 => "",
+                                1 => "NAME",
                             ),
                             "OFFERS_LIMIT" => "5",
-                            "OFFERS_PROPERTY_CODE" => array(
-                                0 => "TOPPRODAZH",
-                                1 => "",
-                            ),
+                            "OFFERS_PROPERTY_CODE" => array("TSVET","RAZMER","MATERIAL_1","TOPPRODAZH"),
                             "OFFERS_SORT_FIELD" => "sort",
                             "OFFERS_SORT_FIELD2" => "id",
                             "OFFERS_SORT_ORDER" => "asc",
@@ -226,10 +218,7 @@
                             ),
                             "PRODUCT_PROPS_VARIABLE" => "prop",
                             "PRODUCT_QUANTITY_VARIABLE" => "",
-                            "PROPERTY_CODE" => array(
-                                0 => "TOPPRODAZH",
-                                1 => "",
-                            ),
+                            "PROPERTY_CODE" => array("TSVET","RAZMER","MATERIAL_1","TOPPRODAZH"),
                             "SECTION_ID_VARIABLE" => "SECTION_ID",
                             "SECTION_URL" => "/catalog/bestsellers/",
                             "SEF_MODE" => "N",
@@ -242,16 +231,18 @@
                             "USE_PRODUCT_QUANTITY" => "N",
                             "VIEW_MODE" => "SECTION",
                             "COMPONENT_TEMPLATE" => "bestsellers",
-                            "SEF_RULE" => ""
+                            "SEF_RULE" => "",
+                            "OFFER_TREE_PROPS" => array("TSVET","RAZMER","MATERIAL_1"),
                         ),
                         false
                     );?>
                 <?
                     $arFilter_arrivals = array('!PROPERTY_NOVOE_POSTUPLENIE_VALUE' => false);
                 ?>
+                <? // ѕоследние поступлени€ ?>
                 <?$APPLICATION->IncludeComponent(
-                        "bitrix:catalog.section", 
-                        "arrivals", 
+                        "bitrix:catalog.section",
+                        "arrivals",
                         array(
                             "ACTION_VARIABLE" => "action",
                             "ADD_PICT_PROP" => "-",
@@ -298,13 +289,10 @@
                             ),
                             "OFFERS_FIELD_CODE" => array(
                                 0 => "ID",
-                                1 => "",
+                                1 => "NAME",
                             ),
                             "OFFERS_LIMIT" => "15",
-                            "OFFERS_PROPERTY_CODE" => array(
-                                0 => "",
-                                1 => "",
-                            ),
+                            "OFFERS_PROPERTY_CODE" => array("TSVET","RAZMER","MATERIAL_1"),
                             "OFFERS_SORT_FIELD" => "create",
                             "OFFERS_SORT_FIELD2" => "id",
                             "OFFERS_SORT_ORDER" => "asc",
@@ -332,10 +320,7 @@
                             "PRODUCT_PROPS_VARIABLE" => "prop",
                             "PRODUCT_QUANTITY_VARIABLE" => "",
                             "PRODUCT_SUBSCRIPTION" => "N",
-                            "PROPERTY_CODE" => array(
-                                0 => "BESTSELLERS",
-                                1 => "",
-                            ),
+                            "PROPERTY_CODE" => array("TSVET","RAZMER","BESTSELLERS"),
                             "SECTION_CODE" => "",
                             "SECTION_CODE_PATH" => "",
                             "SECTION_ID" => $_REQUEST["SECTION_ID"],
@@ -365,22 +350,21 @@
                             "USE_PRODUCT_QUANTITY" => "N",
                             "COMPONENT_TEMPLATE" => "arrivals",
                             "OFFER_ADD_PICT_PROP" => "-",
-                            "OFFER_TREE_PROPS" => array(
-                            )
+                            "OFFER_TREE_PROPS" => array("TSVET","RAZMER","MATERIAL_1"),
                         ),
                         false
                     );?>
                 <?
                     //ожидаемые поступлени€
                     // создаем объект
-                    $obCache = new CPHPCache; 
+                    $obCache = new CPHPCache;
 
                     // врем€ кешировани€ - 1 день
-                    $life_time = 86400; 
+                    $life_time = 86400;
 
-                    // формируем идентификатор кеша в зависимости от всех параметров 
+                    // формируем идентификатор кеша в зависимости от всех параметров
                     // которые могут повли€ть на результирующий HTML
-                    $cache_id = "index_page_expected_products"; 
+                    $cache_id = "index_page_expected_products";
 
                     // если кеш есть и он ещЄ не истек, то
                     if($obCache->InitCache($life_time, $cache_id, "/")) {
@@ -388,7 +372,7 @@
                         $vars = $obCache->GetVars();
                         $expected_products = $vars["EXPECTED_PRODUCTS"];
                     } else {
-                        // иначе обращаемс€ к базе     
+                        // иначе обращаемс€ к базе
                         $expected_products = array();
                         //собираем предложени€, у которых есть реквизит "ожидаема€ дата поступлени€"
                         $expected_items = CIBLockElement::GetList(array(), array("IBLOCK_ID" => OFFERS_IBLOCK_ID, "ACTIVE" => "Y", array("LOGIC" => "AND", array(">PROPERTY_CML2_TRAITS" => date("Y-m-d H:i:s")), array("!PROPERTY_CML2_TRAITS" => false))), false, false, array("ID", "PROPERTY_CML2_TRAITS", "PROPERTY_CML2_LINK"));
@@ -397,26 +381,26 @@
                             if (!empty($arItem["PROPERTY_CML2_LINK_VALUE"])) {
                                 $expected_products[$arItem["PROPERTY_CML2_LINK_VALUE"]] = $arItem["PROPERTY_CML2_LINK_VALUE"];
                             }
-                        }                    
-                    }      
+                        }
+                    }
 
                     // начинаем буферизирование вывода
-                    if($obCache->StartDataCache()) {        
+                    if($obCache->StartDataCache()) {
                         // записываем предварительно буферизированный вывод в файл кеша
                         // вместе с дополнительной переменной
                         $obCache->EndDataCache(array(
                             "EXPECTED_PRODUCTS"    => $expected_products
-                        )); 
-                    }         
+                        ));
+                    }
 
                     global $arFilter_expected;
                     $arFilter_expected = array();
-                    $arFilter_expected["ID"] = $expected_products;  
+                    $arFilter_expected["ID"] = $expected_products;
                 ?>
-
+				<? // ќжидаемые поступлени€ ?>
                 <?$APPLICATION->IncludeComponent(
-                        "bitrix:catalog.section", 
-                        "expected_products", 
+                        "bitrix:catalog.section",
+                        "expected_products",
                         array(
                             "ACTION_VARIABLE" => "action",
                             "ADD_PICT_PROP" => "-",
@@ -463,13 +447,10 @@
                             ),
                             "OFFERS_FIELD_CODE" => array(
                                 0 => "ID",
-                                1 => "",
+                                1 => "NAME",
                             ),
                             "OFFERS_LIMIT" => "15",
-                            "OFFERS_PROPERTY_CODE" => array(
-                                0 => "",
-                                1 => "",
-                            ),
+                            "OFFERS_PROPERTY_CODE" => array("TSVET","RAZMER","MATERIAL_1"),
                             "OFFERS_SORT_FIELD" => "create",
                             "OFFERS_SORT_FIELD2" => "id",
                             "OFFERS_SORT_ORDER" => "asc",
@@ -497,10 +478,7 @@
                             "PRODUCT_PROPS_VARIABLE" => "prop",
                             "PRODUCT_QUANTITY_VARIABLE" => "",
                             "PRODUCT_SUBSCRIPTION" => "N",
-                            "PROPERTY_CODE" => array(
-                                0 => "",
-                                1 => "",
-                            ),
+                            "PROPERTY_CODE" => array("TSVET","RAZMER","MATERIAL_1"),
                             "SECTION_CODE" => "",
                             "SECTION_CODE_PATH" => "",
                             "SECTION_ID" => $_REQUEST["SECTION_ID"],
@@ -530,13 +508,11 @@
                             "USE_PRODUCT_QUANTITY" => "N",
                             "COMPONENT_TEMPLATE" => "expected_products",
                             "OFFER_ADD_PICT_PROP" => "-",
-                            "OFFER_TREE_PROPS" => array(
-                            )
+                            "OFFER_TREE_PROPS" => array("TSVET","RAZMER","MATERIAL_1"),
                         ),
                         false
                     );?>
-
-            </div>    
+            </div>
 
         </div>
         <!--END productBlockWrapper-->
@@ -561,8 +537,8 @@
                 '!PROPERTY_MAIN_DUSPLAY' => false
             )?>
             <?$APPLICATION->IncludeComponent(
-                    "bitrix:news.list", 
-                    "brands_index", 
+                    "bitrix:news.list",
+                    "brands_index",
                     array(
                         "ACTIVE_DATE_FORMAT" => "d.m.Y",
                         "ADD_SECTIONS_CHAIN" => "Y",
@@ -647,8 +623,8 @@
 
 
                 <?$APPLICATION->IncludeComponent(
-                        "bitrix:news.list", 
-                        "partners_reviews", 
+                        "bitrix:news.list",
+                        "partners_reviews",
                         array(
                             "ACTIVE_DATE_FORMAT" => "d.m.Y",
                             "ADD_SECTIONS_CHAIN" => "N",
@@ -730,8 +706,8 @@
                             );?>
                     </p>
                     <div class="confidens_container">
-                        <div class="previews_slider_navigation_arrow confidens_slider_arrow" data-preview-slider-direction="prev"><span></span></div>
-                        <div class="previews_slider_navigation_arrow confidens_slider_arrow" data-preview-slider-direction="next"><span></span></div>
+                        <div class="previews_slider_navigation_arrow confidens_slider_arrow" data-preview-slider-direction="prev"><span data-preview-slider-direction="prev"></span></div>
+                        <div class="previews_slider_navigation_arrow confidens_slider_arrow" data-preview-slider-direction="next"><span data-preview-slider-direction="next"></span></div>
                         <div id="confidens_slider_wrapper">
                             <?$APPLICATION->IncludeComponent(
                                     "bitrix:news.list",
