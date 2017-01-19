@@ -745,6 +745,13 @@
 .bx_item_list_you_looked_horizontal .bx_catalog_item_container.no-imgs > a {
     background-image: none !important;
 }
-.basket_gifts .jcarousel .price {
+.basket_gifts .jcarousel .price, .basket_gifts .jcarousel .blocks_operations_container {
 	visibility: hidden !important;
+}
+
+.elementQuant p {
+	color: #000;
+    font-size: 15px;
+    font-family: "MuseoSansCyrl-700";
+    text-align: center;
 }

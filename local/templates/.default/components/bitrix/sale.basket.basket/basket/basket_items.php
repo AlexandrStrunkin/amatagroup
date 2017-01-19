@@ -97,14 +97,15 @@
                                 </td>
 
                                 <td class="elementQuant custom">
-
                                     <?
                                         $ratio = isset($arItem["MEASURE_RATIO"]) ? $arItem["MEASURE_RATIO"] : 0;
                                         $max = isset($arItem["AVAILABLE_QUANTITY"]) ? "max=\"".$arItem["AVAILABLE_QUANTITY"]."\"" : "";
                                         $useFloatQuantity = ($arParams["QUANTITY_FLOAT"] == "Y") ? true : false;
                                         $useFloatQuantityJS = ($useFloatQuantity ? "true" : "false");
                                     ?>
-                                    <div id="basket_quantity_control">
+                                    <?// если у товара скидка 100%, то считаем, что это подарок, скрываем блок с количеством?>
+                                    <? if ($arItem['DISCOUNT_PRICE_PERCENT'] != 100) { ?>
+                                    <div id="basket_quantity_control" style="<?= $arItem['DISCOUNT_PRICE_PERCENT'] == 100 ? "display:none" : ""?>">
                                         <input
                                             type="text"
                                             size="3"
@@ -130,6 +131,9 @@
                                             <a href="javascript:void(0);" class="minus" onclick="setQuantity(<?=$arItem["ID"]?>, <?=$arItem["MEASURE_RATIO"]?>, 'down', <?=$useFloatQuantityJS?>);"></a>
                                             <?}?>
                                     </div>
+                                    <? } else { ?>
+                                    	<p>1</p>
+                                    <? } ?>
 
 
                                     <input type="hidden" id="QUANTITY_<?=$arItem['ID']?>" name="QUANTITY_<?=$arItem['ID']?>" value="<?=$arItem["QUANTITY"]?>" />

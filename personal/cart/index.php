@@ -49,7 +49,7 @@ $APPLICATION->SetTitle("Корзина");
 		"GIFTS_SHOW_IMAGE" => "Y",
 		"GIFTS_MESS_BTN_BUY" => "Выбрать",
 		"GIFTS_MESS_BTN_DETAIL" => "Подробнее",
-		"GIFTS_PAGE_ELEMENT_COUNT" => "",
+		"GIFTS_PAGE_ELEMENT_COUNT" => "10",
 		"GIFTS_CONVERT_CURRENCY" => "N",
 		"GIFTS_HIDE_NOT_AVAILABLE" => "Y"
 	),
