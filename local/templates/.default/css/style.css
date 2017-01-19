@@ -2030,6 +2030,18 @@ margin-top: 20px;
     margin-bottom: 8px;
 }
 
+.giftLogoWrapper {
+    height: 24px;
+    padding-top: 12px;
+    text-align: center;
+    width: 36px;
+    margin-left: 3px;
+    margin-bottom: 8px;
+    background: #fac3e2;
+	color: #b5659c;
+    border-radius: 50%;
+}
+
 .saleLogoWrapper {
     background: rgba(0, 0, 0, 0) url("../img/saleLogo.png") repeat scroll 0 0;
     height: 24px;
@@ -6998,6 +7010,12 @@ input[type="radio"]:checked + label::before {
 .productCardImg .logosContainer .saleLogoWrapper {
     background: #bbe7fc;
     color: #748f9d;
+    border-radius: 50%;
+}
+
+.productCardImg .logosContainer .giftLogoWrapper {
+    background: #fac3e2;
+    color: #b5659c;
     border-radius: 50%;
 }
 

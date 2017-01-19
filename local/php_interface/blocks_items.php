@@ -236,7 +236,11 @@
                 ?>
                 <div class="freshLogoWrapper" title="<?=GetMessage("FRESH_PRODUCT")?>">FRESH</div>
                 <?}?>
-
+			<?// подарки, чтобы их отловить bitrix:sale.gift.basket вызывается с параметром WEBGK_COMPONENT_TYPE
+				if ($arParams['WEBGK_COMPONENT_TYPE'] == "gift") {
+				?>
+				<div class="giftLogoWrapper" title="<?=GetMessage("GIFT_PRODUCT")?>">GIFT</div>
+			<?}?>
 
 
             <?/*

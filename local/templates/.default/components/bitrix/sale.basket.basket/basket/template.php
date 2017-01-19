@@ -112,6 +112,7 @@ if ($arParams['USE_GIFTS'] === 'Y') {
 			"USE_PRODUCT_QUANTITY" => 'N',
 			"ACTION_VARIABLE" => "actionGift",
 			"ADD_PROPERTIES_TO_BASKET" => "Y",
+			"WEBGK_COMPONENT_TYPE" => "gift",
 	
 			"BASKET_URL" => $APPLICATION->GetCurPage(),
 			"APPLIED_DISCOUNT_LIST" => $arResult["APPLIED_DISCOUNT_LIST"],
