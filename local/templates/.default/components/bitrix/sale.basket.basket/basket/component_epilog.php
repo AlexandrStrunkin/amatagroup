@@ -167,6 +167,10 @@
 $(document).ready(function(){
 	$(".discountBodyBlock").on("click", ".js_sales_callback", function(){
 		$(".callBackBlock a").click();
+	});
+	// т.к. товар добавляется в корзину только после перезагрузки, то после добавления подарка/товара перезагружаем страницу
+	$(".js-add-to-basket").on("click", function() {
+		location.reload(true);
 	})
 })
 </script>
