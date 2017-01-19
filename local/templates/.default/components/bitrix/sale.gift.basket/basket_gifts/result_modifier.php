@@ -100,6 +100,13 @@ if (!empty($arResult['ITEMS']))
 
 	foreach ($arResult['ITEMS'] as $key => $arItem)
 	{
+		// т.к. не работает стандартный HIDE_NOT_AVAILABLE
+		// то удаляем элементы таким костылем	
+		if ($arItem['CATALOG_QUANTITY'] == 0) {
+			unset($arResult['ITEMS'][$key]);
+			continue;
+		}
+			
 		$arItem['CATALOG_QUANTITY'] = (
 		0 < $arItem['CATALOG_QUANTITY'] && is_float($arItem['CATALOG_MEASURE_RATIO'])
 			? floatval($arItem['CATALOG_QUANTITY'])

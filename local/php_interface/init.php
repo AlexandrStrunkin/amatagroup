@@ -48,6 +48,10 @@
     define("FAVORITE_IBLOCK_ID", 12);
     define("USER_SAVED_ADDRESSES_IBLOCK_ID", 13);
     define("BRANDS_IBLOCK_ID", 14);
+	
+	// немного костыльно, но это нужно для отображения фразы при использовании одного шаблона блоков,
+	// чтобы не копировать эту фразу по все шаблоны
+	define("NO_OFFERS_MESSAGE", "Предложения отсутсвуют");
 
     define("USER_QUESTIONS_IBLOCK_ID", 22);
     define("USER_QUESTIONS_FAQ_IBLOCK_ID", 24);

@@ -745,3 +745,6 @@
 .bx_item_list_you_looked_horizontal .bx_catalog_item_container.no-imgs > a {
     background-image: none !important;
 }
+.basket_gifts .jcarousel .price {
+	visibility: hidden !important;
+}

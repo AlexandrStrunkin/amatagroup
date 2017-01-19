@@ -161,7 +161,7 @@
         	</div>
         	<? } else { ?>
         	<div class="blocks_no_offers">
-        		<?= GetMessage("NO_OFFERS") ?>
+        		<?= NO_OFFERS_MESSAGE ?>
         	</div>
         	<? } ?>
         </div>
