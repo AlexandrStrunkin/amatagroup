@@ -10,14 +10,6 @@ $APPLICATION->AddHeadScript(DEFAULT_TEMPLATE_PATH . "/js/shave.js");
 <script>
 	<?= $APPLICATION->AddHeadScript(DEFAULT_TEMPLATE_PATH . "/js/blocks_view_offers_scripts.js") ?>
 </script>
-<script>
-BX.ready(BX.defer(function() {
-	// т.к. товар добавляется в корзину только после перезагрузки, то после добавления подарка перезагружаем страницу
-	$(".basket_gifts .js-add-to-basket").on("click", function() {
-		location.reload(true);
-	})
-}));
-</script>
 <?if (isset($templateData['TEMPLATE_THEME']))
 {
 	$APPLICATION->SetAdditionalCSS($templateData['TEMPLATE_THEME']);
