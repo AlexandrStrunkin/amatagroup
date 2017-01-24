@@ -1,7 +1,7 @@
 <?if(!defined("B_PROLOG_INCLUDED") || B_PROLOG_INCLUDED!==true)die();
     IncludeTemplateLangFile(__FILE__);
     CJSCore::Init(array("fx"));
-    $curPage = $APPLICATION->GetCurPage(true);    
+    $curPage = $APPLICATION->GetCurPage(true);
 ?>
 <!DOCTYPE html>
 <html xmlns="http://www.w3.org/1999/xhtml" xml:lang="<?=LANGUAGE_ID?>" lang="<?=LANGUAGE_ID?>">
@@ -21,12 +21,16 @@
 <!--catalogTitleBlock-->
 <div class="catalogTitleBlock">
     <div class="widthWrapper">
+    <?$brands = explode('/', $APPLICATION->GetCurPage())?>
+    <?if($brands[1] == 'brands' && count($brands) > 3){?>
+        <h1><?= 'Απενδ ' ?><?$APPLICATION->ShowTitle()?></h1>
+     <?} else { ?>
         <h1><?$APPLICATION->ShowTitle()?></h1>
-
+     <?}?>
         <!--breadcrumb-->
         <?$APPLICATION->IncludeComponent(
-			"bitrix:breadcrumb", 
-			"nav_chain", 
+			"bitrix:breadcrumb",
+			"nav_chain",
 			array(
 				"COMPONENT_TEMPLATE" => "nav_chain",
 				"START_FROM" => "0",
@@ -34,14 +38,14 @@
 				"SITE_ID" => "s1"
 			),
 			false
-		);?>    
-        <!--END breadcrumb--> 
+		);?>
+        <!--END breadcrumb-->
 
-        <p class="titleText">     
+        <p class="titleText">
             <?$APPLICATION->ShowViewContent('catalog_section_description');//sets in section template?>
         </p>
     </div>
     </div>
     <!--END catalogTitleBlock-->
-    
+
     <div class="widthWrapper innerPageWrapper">
