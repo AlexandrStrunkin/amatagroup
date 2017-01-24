@@ -23,7 +23,7 @@
     <div class="widthWrapper">
     <?$brands = explode('/', $APPLICATION->GetCurPage())?>
     <?if($brands[1] == 'brands' && count($brands) > 3){?>
-        <h1><?= 'Απενδ ' ?><?$APPLICATION->ShowTitle()?></h1>
+        <h1><?=GetMessage('BRANDS_MESSAGE')?><?$APPLICATION->ShowTitle()?></h1>
      <?} else { ?>
         <h1><?$APPLICATION->ShowTitle()?></h1>
      <?}?>

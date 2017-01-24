@@ -13,4 +13,5 @@ $MESS["LOGOUT"] = "Выйти";
 $MESS["PHONE_IN_MOSCOW"] = "Телефон в Москве";
 $MESS["FAVOURITE"] = "Избранное";
 $MESS["CITY"] = "Город";
+$MESS["BRANDS_MESSAGE"] = "Бренд ";
 ?>
