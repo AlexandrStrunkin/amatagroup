@@ -519,3 +519,141 @@
 #question_form hr{
     display: none;
 }
+
+  /*Наша миссия*/
+
+.wrap_missi_1 .logo_img{
+   padding-right: 70px;
+}
+.wrap_missi_1 .one_img{
+   float: right;
+   padding-bottom: 50px;
+}
+.wrap_missi_1 > p{
+    color: #aaaaaa;
+    font-family: "PT Serif";
+    font-size: 16px;
+    line-height: 1.4;
+    text-align: justify;
+    clear: right;
+}
+.wrap_missi_1 .two_img{
+    margin-top: 30px;
+}
+.wrap_missi_2 {
+    clear: both;
+    margin-top: 40px;
+    position: relative;
+    border: 1px solid #e0e0e0;
+    padding: 20px;
+    z-index: 1;
+    margin-top: 40px;
+}
+.wrap_missi_2 .image_border_1 {
+    position: absolute;
+    top: -20px;
+    left: -19px;
+}
+.wrap_missi_2 .image_border_2 {
+    position: absolute;
+    top: -26px;
+    right: -19px;
+}
+.wrap_missi_2 b {
+    color: #aaaaaa;
+    font-family: 'MuseoSansCyrl-500';
+    font-size: 16px;
+    text-align: center;
+    width: 68%;
+    display: block;
+    float: right;
+    padding-right: 15%;
+}
+.wrap_missi_2 > p{
+    color: #aaaaaa;
+    font-family: "PT Serif";
+    font-size: 16px;
+    line-height: 1.4;
+    text-align: justify;
+    padding-top: 31px;
+    margin-bottom: 10px;
+}
+.wrap_missi_2 .inner {
+    float: left;
+    height: 440px;
+    display: block;
+    width: 2px;
+    border-right: 2px dotted #d5d5d5;
+    margin: 0 25px;
+}
+.wrap_missi_2 > img{
+    padding: 0px 40px 0 0;
+}
+.wrap_missi_3 {
+    clear: both;
+    margin-top: 10px;
+    position: relative;
+    border: 1px solid #e0e0e0;
+    padding: 20px;
+    z-index: 2;
+    float: left;
+}
+.wrap_missi_3 .image_border_5 {
+    position: absolute;
+    bottom: -27px;
+    left: -19px;
+}
+.wrap_missi_3 .image_border_6 {
+    position: absolute;
+    bottom: -25px;
+    right: -20px;
+}
+.wrap_missi_3 .image_border_3 {
+    position: absolute;
+    top: -22px;
+    left: -19px;
+}
+.wrap_missi_3 .image_border_4 {
+    position: absolute;
+    top: -25px;
+    right: -19px;
+}
+.wrap_missi_3 .left_wrap{
+    width: 47%;
+    float: left;
+}
+.wrap_missi_3 .right_wrap{
+    width: 47%;
+    float: right;
+}
+.wrap_missi_3 b {
+    color: #aaaaaa;
+    font-family: 'MuseoSansCyrl-500';
+    font-size: 16px;
+    text-align: center;
+    width: 44%;
+    display: block;
+    float: right;
+    padding-right: 15%;
+}
+.wrap_missi_3 div > p{
+    color: #aaaaaa;
+    font-family: "PT Serif";
+    font-size: 16px;
+    line-height: 1.4;
+    text-align: justify;
+    padding-top: 31px;
+    margin-bottom: 10px;
+}
+.wrap_missi_3 .inner {
+    float: left;
+    height: 270px;
+    display: block;
+    width: 2px;
+    border-right: 2px dotted #d5d5d5;
+    margin: 0 25px;
+}
+.wrap_missi_3 div > img{
+    padding: 10px 40px 20px 30px;
+    float: left;
+}
