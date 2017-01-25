@@ -24,4 +24,6 @@ $MESS["OPERATING_MANAGERS"] = "Операционные менеджеры";
 $MESS["CUSTOMER_SERVICE"] = "Работа с клиентами";
 $MESS["DEPARTMENTS"] = "Наши отделы";
 $MESS["ADDITIONAL_PHONE"] = "добавочный";
+
+$MESS["WORK_HOURS"] = "Режим работы: ";
 ?>

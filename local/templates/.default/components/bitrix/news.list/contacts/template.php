@@ -152,9 +152,12 @@
     <? foreach($arResult["ITEMS"] as $i=>$arItem) { ?>
         <div class="contactsWindow" id="contactsWindow<?= $containers_counter ?>" data-coordinates="<?= $arItem["PROPERTIES"]["COORDINATES"]["VALUE"]?>">
             <div class="close"></div>
-            <div class="status"><?= GetMessage("OPENED") ?></div>
-            <h2><?= $arItem["NAME"] ?></h2>
-            <div class="date"><?= $arItem["PROPERTIES"]["WORKING_DAYS"]["VALUE"] ?> <span><?= $arItem["PROPERTIES"]["WORKING_HOURS"]["VALUE"] ?></span></div>
+            <div class="status"><?= GetMessage("OPENED") ?></div>                                                                         
+            <h2><?= $arItem["NAME"] ?></h2>                                                                                                  
+            <div class="date"><?= GetMessage("OFFICE_WORK_HOURS") ?></br>
+            <?= $arItem["PROPERTIES"]["WORKING_DAYS"]["VALUE"] ?></div>
+            <div class="date"><?= GetMessage("STORAGE_WORK_HOURS") ?></br>
+            <?= $arItem["PROPERTIES"]["STORAGE_WORKING_DAYS"]["VALUE"] ?></div>
             <div class="basketBody tabs">
                 <!--tabsLinks-->
                 <div class="basketBodyMenu tabsLinks">
